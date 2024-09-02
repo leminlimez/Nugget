@@ -33,7 +33,8 @@ while running:
 '---'                       \\   \\  /   \\   \\  /   `----'              
                              `--`-'     `--`-'                        
     """)
-    print("1.0 ALPHA 2\n\n")
+    print("by LeminLimez")
+    print("v1.0\n\n")
     
     if not passed_check and Path.exists(gestalt_path) and Path.is_file(gestalt_path):
         passed_check = True

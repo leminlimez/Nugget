@@ -1,0 +1,4 @@
+.env
+build
+com.apple.MobileGestalt.plist
+.DS_Store
