@@ -3,12 +3,18 @@ from pathlib import Path
 import plistlib
 import traceback
 from pymobiledevice3.lockdown import create_using_usbmux
-
+from packaging.version import parse
 
 
 lockdown = create_using_usbmux()
 model = lockdown.product_type
-#print(lockdown.product_type)
+version = parse(lockdown.product_version)
+
+if version < parse("16.0"):
+    compatible = False
+else:
+    compatible = True
+
 if model == ("iPhone10,1" or "iPhone10,2" or "iPhone10,3" or "iPhone10,4" or "iPhone12,8" or "iPhone14,6"):
     homeButton = True
 else:
@@ -51,6 +57,9 @@ while running:
     if not passed_check and Path.exists(gestalt_path) and Path.is_file(gestalt_path):
         passed_check = True
     
+    if not compatible:
+        input(f"WARNING\n Nugget is intended for iOS 16.0 and newer.\nYou can cause SERIOUS damage to your device by using this on {version},\n You have been warned. We are not responsible for ANY damage caused to your device.")
+
     if passed_check:
         print(f"1. {"[Y] " if dynamic_island_enabled else ""}Toggle Dynamic Island")
         print(f"2. {"[Y] " if current_model_name != "" else ""}Set Device Model Name")
