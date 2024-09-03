@@ -10,7 +10,7 @@ lockdown = create_using_usbmux()
 model = lockdown.product_type
 version = parse(lockdown.product_version)
 
-if version < parse("16.0"):
+if version < parse("17.0"):
     compatible = False
 else:
     compatible = True
@@ -58,7 +58,7 @@ while running:
         passed_check = True
     
     if not compatible:
-        input(f"WARNING\n Nugget is intended for iOS 16.0 and newer.\nYou can cause SERIOUS damage to your device by using this on {version},\n You have been warned. We are not responsible for ANY damage caused to your device.")
+        input(f"WARNING\n Nugget is intended for iOS 17.0 and newer.\nYou can cause SERIOUS damage to your device by using this on {version},\n You have been warned. We are not responsible for ANY damage caused to your device.")
 
     if passed_check:
         print(f"1. {"[Y] " if dynamic_island_enabled else ""}Toggle Dynamic Island")
