@@ -28,7 +28,6 @@ current_model_name = ""
 boot_chime_enabled = False
 charge_limit_enabled = False
 stage_manager_enabled = False
-xgestures_enabled = False
 
 gestalt_path = Path.joinpath(Path.cwd(), "com.apple.MobileGestalt.plist")
 
@@ -66,8 +65,11 @@ while running:
         print(f"3. {"[Y] " if boot_chime_enabled else ""}Toggle Boot Chime")
         print(f"4. {"[Y] " if charge_limit_enabled else ""}Toggle Charge Limit")
         print(f"5. {"[Y] " if stage_manager_enabled else ""}Toggle Stage Manager Supported")
+<<<<<<< HEAD
         if homeButton:
             print(f"6. {"[Y] " if xgestures_enabled else ""}Toggle iPhone X gestures")
+=======
+>>>>>>> parent of c883932 (iPhone X gestures)
         print("\n9. Apply")
         print("0. Exit\n")
         page = int(input("Enter a number: "))
@@ -84,9 +86,12 @@ while running:
             charge_limit_enabled = not charge_limit_enabled
         elif page == 5:
             stage_manager_enabled = not stage_manager_enabled
+<<<<<<< HEAD
         elif page == 6:
             if homeButton:
                 xgestures_enabled = not xgestures_enabled
+=======
+>>>>>>> parent of c883932 (iPhone X gestures)
         elif page == 9:
             print()
             # set the tweaks and apply
@@ -105,8 +110,6 @@ while running:
                 plist["CacheExtra"]["37NVydb//GP/GrhuTN+exg"] = True
             if stage_manager_enabled:
                 plist["CacheExtra"]["qeaj75wk3HF4DwQ8qbIi7g"] = 1
-            if xgestures_enabled:
-                plist["CacheExtra"]["oPeik/9e8lQWMszEjbPzng"]["ArtworkDeviceSubType"] = 2436
 
             # write back to the file
             with open(gestalt_path, 'wb') as out_fp:
