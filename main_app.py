@@ -2,6 +2,17 @@ from exploit.restore import restore_file
 from pathlib import Path
 import plistlib
 import traceback
+from pymobiledevice3.lockdown import create_using_usbmux
+
+
+
+lockdown = create_using_usbmux()
+model = lockdown.product_type
+#print(lockdown.product_type)
+if model == ("iPhone10,1" or "iPhone10,2" or "iPhone10,3" or "iPhone10,4" or "iPhone12,8" or "iPhone14,6"):
+    homeButton = True
+else:
+    homeButton = False
 
 running = True
 passed_check = False
@@ -46,7 +57,8 @@ while running:
         print(f"3. {"[Y] " if boot_chime_enabled else ""}Toggle Boot Chime")
         print(f"4. {"[Y] " if charge_limit_enabled else ""}Toggle Charge Limit")
         print(f"5. {"[Y] " if stage_manager_enabled else ""}Toggle Stage Manager Supported")
-        print(f"6. {"[Y] " if xgestures_enabled else ""}Toggle iPhone X gestures")
+        if homeButton:
+            print(f"6. {"[Y] " if xgestures_enabled else ""}Toggle iPhone X gestures")
         print("\n9. Apply")
         print("0. Exit\n")
         page = int(input("Enter a number: "))
@@ -64,7 +76,8 @@ while running:
         elif page == 5:
             stage_manager_enabled = not stage_manager_enabled
         elif page == 6:
-            xgestures_enabled = not xgestures_enabled
+            if homeButton:
+                xgestures_enabled = not xgestures_enabled
         elif page == 9:
             print()
             # set the tweaks and apply
