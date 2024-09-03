@@ -1,5 +1,5 @@
 # CODENAME Nugget
-Unlock your device's full potential! Works on all versions iOS 16.0+
+Unlock your device's full potential! Works on all versions iOS 17.0+
 
 Note: I am not responsible if your device bootloops. Please back up your data before using.
 
