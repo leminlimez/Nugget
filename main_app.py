@@ -47,6 +47,7 @@ while running:
     """)
     print("by LeminLimez")
     print("v1.2\n\n")
+    print("\nPlease back up your device before using!")
     
     if not passed_check and Path.exists(gestalt_path) and Path.is_file(gestalt_path):
         passed_check = True
@@ -62,7 +63,7 @@ while running:
         print_option(8, apple_pencil_enabled, "Toggle Apple Pencil")
         print_option(9, action_button_enabled, "Toggle Action Button")
         print_option(10, internal_storage_enabled, "Toggle Internal Storage")
-        print("\n10. Apply")
+        print("\n11. Apply")
         print("0. Exit\n")
         page = int(input("Enter a number: "))
         if page == 1:
