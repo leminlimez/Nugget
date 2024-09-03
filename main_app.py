@@ -65,11 +65,6 @@ while running:
         print(f"3. {"[Y] " if boot_chime_enabled else ""}Toggle Boot Chime")
         print(f"4. {"[Y] " if charge_limit_enabled else ""}Toggle Charge Limit")
         print(f"5. {"[Y] " if stage_manager_enabled else ""}Toggle Stage Manager Supported")
-<<<<<<< HEAD
-        if homeButton:
-            print(f"6. {"[Y] " if xgestures_enabled else ""}Toggle iPhone X gestures")
-=======
->>>>>>> parent of c883932 (iPhone X gestures)
         print("\n9. Apply")
         print("0. Exit\n")
         page = int(input("Enter a number: "))
@@ -86,12 +81,6 @@ while running:
             charge_limit_enabled = not charge_limit_enabled
         elif page == 5:
             stage_manager_enabled = not stage_manager_enabled
-<<<<<<< HEAD
-        elif page == 6:
-            if homeButton:
-                xgestures_enabled = not xgestures_enabled
-=======
->>>>>>> parent of c883932 (iPhone X gestures)
         elif page == 9:
             print()
             # set the tweaks and apply
