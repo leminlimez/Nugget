@@ -14,6 +14,13 @@ stage_manager_enabled = False
 
 gestalt_path = Path.joinpath(Path.cwd(), "com.apple.MobileGestalt.plist")
 
+def print_option(num: int, active: bool, message: str):
+    txt = str(num) + ". "
+    if active:
+        txt = txt + "[Y] "
+    txt = txt + message
+    print(txt)
+
 while running:
     print("""\n\n\n\n
                                                                       
@@ -34,17 +41,17 @@ while running:
                              `--`-'     `--`-'                        
     """)
     print("by LeminLimez")
-    print("v1.0\n\n")
+    print("v1.0.1\n\n")
     
     if not passed_check and Path.exists(gestalt_path) and Path.is_file(gestalt_path):
         passed_check = True
     
     if passed_check:
-        print(f"1. {"[Y] " if dynamic_island_enabled else ""}Toggle Dynamic Island")
-        print(f"2. {"[Y] " if current_model_name != "" else ""}Set Device Model Name")
-        print(f"3. {"[Y] " if boot_chime_enabled else ""}Toggle Boot Chime")
-        print(f"4. {"[Y] " if charge_limit_enabled else ""}Toggle Charge Limit")
-        print(f"5. {"[Y] " if stage_manager_enabled else ""}Toggle Stage Manager Supported")
+        print_option(1, dynamic_island_enabled, "Toggle Dynamic Island")
+        print_option(2, current_model_name != "", "Set Device Model Name")
+        print_option(3, boot_chime_enabled, "Toggle Boot Chime")
+        print_option(4, charge_limit_enabled, "Toggle Charge Limit")
+        print_option(5, stage_manager_enabled, "Toggle Stage Manager Supported")
         print("\n9. Apply")
         print("0. Exit\n")
         page = int(input("Enter a number: "))
