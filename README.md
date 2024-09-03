@@ -3,6 +3,13 @@ Unlock your device's full potential! Works on all versions iOS 16.0+
 
 Note: I am not responsible if your device bootloops. Please back up your data before using.
 
+## Features
+- Enable Dynamic Island on any device
+- Change Device Model Name
+- Enable Boot Chime
+- Enable Charge Limit
+- Enable Stage Manager
+
 ## Running the Program
 Requirements:
 - pymobiledevice3
