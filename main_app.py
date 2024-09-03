@@ -11,7 +11,11 @@ current_model_name = ""
 boot_chime_enabled = False
 charge_limit_enabled = False
 stage_manager_enabled = False
-extra_storage_information_enabled = False
+shutter_sound_enabled = False
+always_on_display_enabled = False
+apple_pencil_enabled = False
+action_button_enabled = False
+internal_storage_enabled = False
 
 gestalt_path = Path.joinpath(Path.cwd(), "com.apple.MobileGestalt.plist")
 
@@ -42,7 +46,8 @@ while running:
                              `--`-'     `--`-'                        
     """)
     print("by LeminLimez")
-    print("v1.0.1\n\n")
+    print("v1.2\n\n")
+    print("\nPlease back up your device before using!")
     
     if not passed_check and Path.exists(gestalt_path) and Path.is_file(gestalt_path):
         passed_check = True
@@ -53,8 +58,12 @@ while running:
         print_option(3, boot_chime_enabled, "Toggle Boot Chime")
         print_option(4, charge_limit_enabled, "Toggle Charge Limit")
         print_option(5, stage_manager_enabled, "Toggle Stage Manager Supported")
-        print_option(6, extra_storage_information_enabled, "Toggle Extra Storage Information")
-        print("\n9. Apply")
+        print_option(6, shutter_sound_enabled, "Disable Region Restrictions (ie. Shutter Sound)")
+        print_option(7, always_on_display_enabled, "Always On Display (iOS 18+ only)")
+        print_option(8, apple_pencil_enabled, "Toggle Apple Pencil")
+        print_option(9, action_button_enabled, "Toggle Action Button")
+        print_option(10, internal_storage_enabled, "Toggle Internal Storage")
+        print("\n11. Apply")
         print("0. Exit\n")
         page = int(input("Enter a number: "))
         if page == 1:
@@ -71,8 +80,16 @@ while running:
         elif page == 5:
             stage_manager_enabled = not stage_manager_enabled
         elif page == 6:
-            extra_storage_information_enabled = not extra_storage_information_enabled
+            shutter_sound_enabled = not shutter_sound_enabled
+        elif page == 7:
+            always_on_display_enabled = not always_on_display_enabled
+        elif page == 8:
+            apple_pencil_enabled = not apple_pencil_enabled
         elif page == 9:
+            action_button_enabled = not action_button_enabled
+        elif page == 10:
+            internal_storage_enabled = not internal_storage_enabled
+        elif page == 11:
             print()
             # set the tweaks and apply
             # first open the file in read mode
@@ -90,7 +107,17 @@ while running:
                 plist["CacheExtra"]["37NVydb//GP/GrhuTN+exg"] = True
             if stage_manager_enabled:
                 plist["CacheExtra"]["qeaj75wk3HF4DwQ8qbIi7g"] = 1
-            if extra_storage_information_enabled:
+            if shutter_sound_enabled:
+                plist["CacheExtra"]["h63QSdBCiT/z0WU6rdQv6Q"] = "US"
+                plist["CacheExtra"]["zHeENZu+wbg7PUprwNwBWg"] = "LL/A"
+            if always_on_display_enabled:
+                plist["CacheExtra"]["2OOJf1VhaM7NxfRok3HbWQ"] = True
+                plist["CacheExtra"]["j8/Omm6s1lsmTDFsXjsBfA"] = True
+            if apple_pencil_enabled:
+                plist["CacheExtra"]["yhHcB0iH0d1XzPO/CFd3ow"] = True
+            if action_button_enabled:
+                plist["CacheExtra"]["cT44WE1EohiwRzhsZ8xEsw"] = True
+            if internal_storage_enabled:
                 plist["CacheExtra"]["LBJfwOEzExRxzlAnSuI7eg"] = True
 
             # write back to the file
