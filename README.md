@@ -9,6 +9,10 @@ Note: I am not responsible if your device bootloops. Please back up your data be
 - Enable Boot Chime
 - Enable Charge Limit
 - Enable Stage Manager
+- Enable Always On Display
+- Enable Apple Pencil Settings
+- Enable Action Button
+- Enable Internal Storage Settings
 
 ## Running the Program
 Requirements:
