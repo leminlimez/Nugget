@@ -11,6 +11,7 @@ current_model_name = ""
 boot_chime_enabled = False
 charge_limit_enabled = False
 stage_manager_enabled = False
+shutter_sound_enabled = False
 
 gestalt_path = Path.joinpath(Path.cwd(), "com.apple.MobileGestalt.plist")
 
@@ -52,6 +53,7 @@ while running:
         print_option(3, boot_chime_enabled, "Toggle Boot Chime")
         print_option(4, charge_limit_enabled, "Toggle Charge Limit")
         print_option(5, stage_manager_enabled, "Toggle Stage Manager Supported")
+        print_option(6, shutter_sound_enabled, "Disable Region Restrictions (ie. Shutter Sound)")
         print("\n9. Apply")
         print("0. Exit\n")
         page = int(input("Enter a number: "))
@@ -68,6 +70,8 @@ while running:
             charge_limit_enabled = not charge_limit_enabled
         elif page == 5:
             stage_manager_enabled = not stage_manager_enabled
+        elif page == 6:
+            shutter_sound_enabled = not shutter_sound_enabled
         elif page == 9:
             print()
             # set the tweaks and apply
@@ -86,6 +90,9 @@ while running:
                 plist["CacheExtra"]["37NVydb//GP/GrhuTN+exg"] = True
             if stage_manager_enabled:
                 plist["CacheExtra"]["qeaj75wk3HF4DwQ8qbIi7g"] = 1
+            if shutter_sound_enabled:
+                plist["CacheExtra"]["h63QSdBCiT/z0WU6rdQv6Q"] = "US"
+                plist["CacheExtra"]["zHeENZu+wbg7PUprwNwBWg"] = "LL/A"
 
             # write back to the file
             with open(gestalt_path, 'wb') as out_fp:
