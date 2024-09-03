@@ -2,6 +2,8 @@ from exploit.restore import restore_file
 from pathlib import Path
 import plistlib
 import traceback
+import shutil
+import os
 
 running = True
 passed_check = False
@@ -19,6 +21,13 @@ internal_storage_enabled = False
 
 gestalt_path = Path.joinpath(Path.cwd(), "com.apple.MobileGestalt.plist")
 
+def find_file(filename, directory='.'):
+    # List all files in the specified directory
+    files = os.listdir(directory)
+    if filename in files:
+        return os.path.join(directory, filename)
+    return None
+
 def print_option(num: int, active: bool, message: str):
     txt = str(num) + ". "
     if active:
@@ -27,7 +36,9 @@ def print_option(num: int, active: bool, message: str):
     print(txt)
 
 while running:
-    print("""\n\n\n\n
+    filepath = find_file(com.apple.MobileGestalt.plist)
+    if find_file:
+        print("""\n\n\n\n
                                                                       
          ,--.                                                         
        ,--.'|                                                 ___     
@@ -48,6 +59,8 @@ while running:
     print("by LeminLimez")
     print("v1.2\n\n")
     print("\nPlease back up your device before using!")
+    print("\nSuccessfully backed up MobileGestalt")
+
     
     if not passed_check and Path.exists(gestalt_path) and Path.is_file(gestalt_path):
         passed_check = True
@@ -135,7 +148,8 @@ while running:
             # exit the panel
             print("Goodbye!")
             running = False
-    else:
+    
+    if passed_check == False:
         print("No MobileGestalt file found!")
         print(f"Please place the file in \'{Path.cwd()}\' with the name \'com.apple.MobileGestalt.plist\'")
         print("Remember to make a backup of the file!!\n")
