@@ -1,0 +1,34 @@
+<RCC>
+    <qresource prefix="/">
+        <file>credits/LeminLimez.png</file>
+        <file>icon/app-indicator.svg</file>
+        <file>icon/arrow-clockwise.svg</file>
+        <file>icon/brush.svg</file>
+        <file>icon/caret-down-fill.svg</file>
+        <file>icon/check-circle.svg</file>
+        <file>icon/compass.svg</file>
+        <file>icon/gear.svg</file>
+        <file>icon/hdd.svg</file>
+        <file>icon/house.svg</file>
+        <file>icon/phone.svg</file>
+        <file>icon/toggles.svg</file>
+        <file>icon/wifi.svg</file>
+        <file>icon/x-lg.svg</file>
+        <file>icon/discord.svg</file>
+        <file>icon/heart-fill.svg</file>
+        <file>icon/github.svg</file>
+        <file>icon/twitter.svg</file>
+        <file>icon/file-earmark-zip.svg</file>
+        <file>icon/folder.svg</file>
+        <file>icon/trash.svg</file>
+        <file>icon/currency-dollar.svg</file>
+        <file>icon/geo-alt.svg</file>
+        <file>icon/star.svg</file>
+        <file>icon/pencil.svg</file>
+        <file>icon/import.svg</file>
+        <file>icon/plus.svg</file>
+        <file>icon/iphone-island.svg</file>
+        <file>icon/flag.svg</file>
+        <file>credits/big_nugget.png</file>
+    </qresource>
+</RCC>

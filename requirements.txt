@@ -1,1 +1,2 @@
 pymobiledevice3
+pyside6
