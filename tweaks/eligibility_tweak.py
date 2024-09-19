@@ -1,5 +1,5 @@
 from .tweak_classes import Tweak, TweakModifyType
-from exploit.restore import FileToRestore
+from Sparserestore.restore import FileToRestore
 from devicemanagement.constants import Version
 
 import plistlib

@@ -11,7 +11,7 @@ from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
 
 from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak
-from exploit.restore import restore_files, FileToRestore
+from Sparserestore.restore import restore_files, FileToRestore
 
 def show_error_msg(txt: str):
     detailsBox = QMessageBox()

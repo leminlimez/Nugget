@@ -1,4 +1,4 @@
-from exploit.restore import restore_files, FileToRestore, restore_file
+from Sparserestore.restore import restore_files, FileToRestore, restore_file
 from tweaks.tweaks import tweaks, TweakModifyType, FeatureFlagTweak, EligibilityTweak
 from devicemanagement.constants import Device
 
@@ -164,13 +164,6 @@ while running:
             # exit the panel
             print("Goodbye!")
             running = False
-        elif page == 42:
-            # restore_file(fp=Path.joinpath(Path.cwd(), "telephony_test.png"), restore_path="/var/mobile/Library/Caches/TelephonyUI-9/", restore_name="en-0---white.png", reboot=True, lockdown_client=device.ld)
-            restore_files(files=[FileToRestore(
-                contents=b"",
-                restore_path="/var/Managed Preferences/mobile/",
-                restore_name="com.apple.purplebuddy.plist"
-            )], reboot=True, lockdown_client=device.ld)
         else:
             tweak = list(tweaks.values())[page-1]
             if page > 0 and page <= num_tweaks and tweak.is_compatible(device.version):

@@ -2,3 +2,4 @@
 build
 com.apple.MobileGestalt.plist
 .DS_Store
+__pycache__
