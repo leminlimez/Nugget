@@ -1,4 +1,4 @@
-from Sparerestore import backup, perform_restore
+from Sparserestore import backup, perform_restore
 from pymobiledevice3 import usbmux
 from pymobiledevice3.lockdown import create_using_usbmux
 from pymobiledevice3.lockdown import LockdownClient
