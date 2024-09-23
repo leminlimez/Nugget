@@ -1417,6 +1417,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_8.addWidget(self.shutterChk)
 
+        self.findMyFriendsChk = QCheckBox(self.gestaltPageContent)
+        self.findMyFriendsChk.setObjectName(u"findMyFriendsChk")
+
+        self.verticalLayout_8.addWidget(self.findMyFriendsChk)
+
         self.pencilChk = QCheckBox(self.gestaltPageContent)
         self.pencilChk.setObjectName(u"pencilChk")
 
@@ -2192,6 +2197,7 @@ class Ui_Nugget(object):
         self.stageManagerChk.setText(QCoreApplication.translate("Nugget", u"Enable Stage Manager Supported (WARNING: risky on some devices, mainly phones)", None))
         self.ipadAppsChk.setText(QCoreApplication.translate("Nugget", u"Allow iPad Apps on iPhone", None))
         self.shutterChk.setText(QCoreApplication.translate("Nugget", u"Disable Region Restrictions (ie. Shutter Sound)", None))
+        self.findMyFriendsChk.setText(QCoreApplication.translate("Nugget", u"Enable Find My Friends", None))
         self.pencilChk.setText(QCoreApplication.translate("Nugget", u"Enable Apple Pencil Settings Tab", None))
         self.actionButtonChk.setText(QCoreApplication.translate("Nugget", u"Enable Action Button Settings Tab", None))
         self.internalInstallChk.setText(QCoreApplication.translate("Nugget", u"Set as Apple Internal Install (ie Metal HUD in any app)", None))

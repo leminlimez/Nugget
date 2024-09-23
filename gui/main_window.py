@@ -98,6 +98,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.stageManagerChk.clicked.connect(self.on_stageManagerChk_clicked)
         self.ui.ipadAppsChk.clicked.connect(self.on_ipadAppsChk_clicked)
         self.ui.shutterChk.clicked.connect(self.on_shutterChk_clicked)
+        self.ui.findMyFriendsChk.clicked.connect(self.on_findMyFriendsChk_clicked)
         self.ui.pencilChk.clicked.connect(self.on_pencilChk_clicked)
         self.ui.actionButtonChk.clicked.connect(self.on_actionButtonChk_clicked)
 
@@ -318,6 +319,8 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_shutterChk_clicked(self, checked: bool):
         # TODO: allow the user to select the region
         tweaks["Shutter"].set_enabled(checked)
+    def on_findMyFriendsChk_clicked(self, checked: bool):
+        tweaks["FindMyFriends"].set_enabled(checked)
     def on_pencilChk_clicked(self, checked: bool):
         tweaks["Pencil"].set_enabled(checked)
     def on_actionButtonChk_clicked(self, checked: bool):
