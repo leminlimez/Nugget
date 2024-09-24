@@ -1,5 +1,5 @@
 # Nugget
-Unlock your device's full potential! Works on all versions iOS 17.0+
+Unlock your device's full potential! Works on all versions iOS 17.0-18.1 beta 4
 
 This uses the sparserestore exploit to write to files outside of the intended restore location, like mobilegestalt.
 
