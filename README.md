@@ -24,7 +24,7 @@ Note: I am not responsible if your device bootloops. Please back up your data be
 - Show Internal Storage info (Might cause problems on some devices, use at your own risk)
 - Enabling lock screen clock animation, lock screen page duplication button, and more!
 - Disabling the new iOS 18 Photos UI
-- EU Enabler on <17.4.1
+- EU Enabler (on 17.4.1 and older)
 
 ## Running the Program
 Requirements:
