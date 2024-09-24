@@ -1,5 +1,5 @@
 # Nugget
-Unlock your device's full potential! Works on all versions iOS 17.0+
+Unlock your device's full potential! Works on iOS 17.0 - 18.1 beta 4
 
 This uses the sparserestore exploit to write to files outside of the intended restore location, like mobilegestalt.
 
@@ -24,7 +24,7 @@ Note: I am not responsible if your device bootloops. Please back up your data be
 - Show Internal Storage info (Might cause problems on some devices, use at your own risk)
 - Enabling lock screen clock animation, lock screen page duplication button, and more!
 - Disabling the new iOS 18 Photos UI
-- EU Enabler
+- EU Enabler on <17.4.1
 
 ## Running the Program
 Requirements:
