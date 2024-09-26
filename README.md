@@ -1,5 +1,7 @@
 # Nugget
-Unlock your device's full potential! Works on all versions iOS 17.0+
+Unlock your device's full potential! Works on all versions iOS 17.0-18.1 beta 4
+
+Sparserestore was patched in iOS 18.1 beta 5. It will not be supported, please stop asking.
 
 This uses the sparserestore exploit to write to files outside of the intended restore location, like mobilegestalt.
 
