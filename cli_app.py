@@ -1,5 +1,5 @@
 from Sparserestore.restore import restore_files, FileToRestore, restore_file
-from tweaks.tweaks import tweaks, TweakModifyType, FeatureFlagTweak, EligibilityTweak
+from tweaks.tweaks import tweaks, TweakModifyType, FeatureFlagTweak, EligibilityTweak, BasicPlistTweak
 from devicemanagement.constants import Device
 
 from pymobiledevice3.exceptions import PyMobileDevice3Exception
@@ -48,7 +48,7 @@ while running:
 '---'                       \\   \\  /   \\   \\  /   `----'              
                              `--`-'     `--`-'                        
     """)
-    print("CLI v2.2")
+    print("CLI v3.0")
     print("by LeminLimez")
     print("Thanks @disfordottie for the clock animation and @lrdsnow for EU Enabler\n")
     print("Please back up your device before using!")
@@ -102,6 +102,7 @@ while running:
             # create the other plists
             flag_plist: dict = {}
             eligibility_files = None
+            basic_plists: dict = {}
 
             # verify the device credentials before continuing
             if gestalt_plist["CacheExtra"]["qNNddlUK+B/YlooNoymwgA"] != device.version or gestalt_plist["CacheExtra"]["0+nc/Udy4WNG8S+Q7a/s1A"] != device.model:
@@ -120,8 +121,11 @@ while running:
                     elif isinstance(tweak, EligibilityTweak):
                         tweak.set_region_code(device.locale[-2:])
                         eligibility_files = tweak.apply_tweak()
+                    elif isinstance(tweak, BasicPlistTweak):
+                        basic_plists = tweak.apply_tweak(basic_plists)
                     else:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
+            # TODO: Improve resetting (make it work with basic plist tweaks)
 
             # create the restore file list
             files_to_restore = [
@@ -138,6 +142,11 @@ while running:
             ]
             if eligibility_files != None:
                 files_to_restore += eligibility_files
+            for location, plist in basic_plists:
+                files_to_restore.append(FileToRestore(
+                    contents=plistlib.dumps(plist),
+                    restore_path=location.value
+                ))
             # restore to the device
             try:
                 restore_files(files=files_to_restore, reboot=True, lockdown_client=device.ld)
@@ -169,14 +178,18 @@ while running:
             if page > 0 and page <= num_tweaks and tweak.is_compatible(device.version):
                 if tweak.edit_type == TweakModifyType.TEXT:
                     # text input
-                    # for now it is just for set model, deal with a fix later
-                    print("\n\nSet Model Name")
-                    print("Leave blank to turn off custom name.\n")
-                    name = input("Enter Model Name: ")
-                    if name == "":
+                    inp_txt = ""
+                    print(f"\n\n{tweak.label}")
+                    print("Leave blank to turn off.\n")
+                    if tweak.label == "Set Device Model Name":
+                        inp_txt = "Enter Model Name: "
+                    elif tweak.label == "Set Lock Screen Footnote Text":
+                        inp_txt = "Enter Footnote: "
+                    new_txt = input(inp_txt)
+                    if new_txt == "":
                         tweak.set_enabled(False)
                     else:
-                        tweak.set_value(name)
+                        tweak.set_value(new_txt)
                 elif tweak.edit_type == TweakModifyType.PICKER:
                     # pick between values
                     print("\n\nSelect a value.")

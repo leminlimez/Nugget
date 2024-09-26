@@ -1,11 +1,21 @@
 from . import backup, perform_restore
 from pymobiledevice3.lockdown import LockdownClient
+import os
 
 class FileToRestore:
+    # TODO: Depricate this in favor of second init definition
     def __init__(self, contents: str, restore_path: str, restore_name: str, owner: int = 501, group: int = 501):
         self.contents = contents
         self.restore_path = restore_path
         self.restore_name = restore_name
+        self.owner = owner
+        self.group = group
+
+    def __init__(self, contents: str, restore_path: str, owner: int = 501, group: int = 501):
+        self.contents = contents
+        path, file = os.path.split(restore_path)
+        self.restore_path = path + "/"
+        self.restore_name = file # TODO: Remove this and handle splitting in the restore_files function
         self.owner = owner
         self.group = group
 

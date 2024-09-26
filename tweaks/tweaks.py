@@ -39,7 +39,7 @@ tweaks = {
 
     ## Springboard Tweaks
     "LockScreenFootnote": BasicPlistTweak(
-        "Lock Screen Footnote Text",
+        "Set Lock Screen Footnote Text",
         FileLocation.footnote,
         key="LockScreenFootnote", value="",
         edit_type=TweakModifyType.TEXT
