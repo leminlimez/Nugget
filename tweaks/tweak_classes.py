@@ -1,5 +1,6 @@
 from enum import Enum
 from devicemanagement.constants import Version
+from .basic_plist_locations import FileLocation
 
 class TweakModifyType(Enum):
     TOGGLE = 1
@@ -38,6 +39,29 @@ class Tweak:
 
     def apply_tweak(self):
         raise NotImplementedError
+    
+
+class BasicPlistTweak(Tweak):
+    def __init__(
+            self, label: str,
+            file_location: FileLocation,
+            key: str,
+            value: any = True,
+            edit_type: TweakModifyType = TweakModifyType.TOGGLE,
+            min_version: Version = Version("1.0"),
+            divider_below: bool = False
+        ):
+        super.__init__(label=label, key=key, subkey=None, value=value, edit_type=edit_type, min_version=min_version, divider_below=divider_below)
+        self.file_location = file_location
+
+    def apply_tweak(self, other_tweaks: dict) -> dict:
+        if not self.enabled:
+            return other_tweaks
+        if self.file_location in other_tweaks:
+            other_tweaks[self.file_location][self.key] = self.value
+        else:
+            other_tweaks[self.file_location] = {self.key: self.value}
+        return other_tweaks
 
 
 class MobileGestaltTweak(Tweak):
