@@ -1,5 +1,6 @@
 from Sparserestore.restore import restore_files, FileToRestore, restore_file
 from tweaks.tweaks import tweaks, TweakModifyType, FeatureFlagTweak, EligibilityTweak, BasicPlistTweak
+from tweaks.basic_plist_locations import FileLocation
 from devicemanagement.constants import Device
 
 from pymobiledevice3.exceptions import PyMobileDevice3Exception
@@ -125,7 +126,6 @@ while running:
                         basic_plists = tweak.apply_tweak(basic_plists)
                     else:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
-            # TODO: Improve resetting (make it work with basic plist tweaks)
 
             # create the restore file list
             files_to_restore = [
@@ -147,6 +147,14 @@ while running:
                     contents=plistlib.dumps(plist),
                     restore_path=location.value
                 ))
+            # reset basic tweaks
+            if resetting:
+                empty_data = plistlib.dumps({})
+                for location in FileLocation:
+                    files_to_restore.append(FileToRestore(
+                        contents=empty_data,
+                        restore_path=location.value
+                    ))
             # restore to the device
             try:
                 restore_files(files=files_to_restore, reboot=True, lockdown_client=device.ld)

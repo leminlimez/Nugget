@@ -11,6 +11,7 @@ from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
 
 from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, BasicPlistTweak
+from tweaks.basic_plist_locations import FileLocation
 from Sparserestore.restore import restore_files, FileToRestore
 
 def show_error_msg(txt: str):
@@ -121,6 +122,12 @@ class DeviceManager:
                     if gestalt_plist != None:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
         
+        gestalt_data = None
+        if resetting:
+            gestalt_data = b""
+        elif gestalt_plist != None:
+            gestalt_data = plistlib.dumps(gestalt_plist)
+        
         # Generate backup
         update_label("Generating backup...")
         # create the restore file list
@@ -131,9 +138,9 @@ class DeviceManager:
                 restore_name="Global.plist"
             )
         ]
-        if gestalt_plist != None:
+        if gestalt_data != None:
             files_to_restore.append(FileToRestore(
-                contents=plistlib.dumps(gestalt_plist),
+                contents=gestalt_data,
                 restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/",
                 restore_name="com.apple.MobileGestalt.plist"
             ))
@@ -144,6 +151,14 @@ class DeviceManager:
                 contents=plistlib.dumps(plist),
                 restore_path=location.value
             ))
+        # reset basic tweaks
+        if resetting:
+            empty_data = plistlib.dumps({})
+            for location in FileLocation:
+                files_to_restore.append(FileToRestore(
+                    contents=empty_data,
+                    restore_path=location.value
+                ))
 
         # restore to the device
         update_label("Restoring to device...")
