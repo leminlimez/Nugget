@@ -16,15 +16,13 @@ from tweaks.tweaks import tweaks
 
 class Page(Enum):
     Home = 0
-    Explore = 1
-    LocSim = 2
-    CustomOperations = 5
-    Themes = 3
-    Gestalt = 4
-    Settings = 6
-    FeatureFlags = 7
-    EUEnabler = 8
-    Apply = 9
+    Gestalt = 1
+    FeatureFlags = 2
+    EUEnabler = 3
+    Springboard = 4
+    InternalOptions = 5
+    Apply = 6
+    Settings = 7
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager):
@@ -46,6 +44,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.gestaltPageBtn.clicked.connect(self.on_gestaltPageBtn_clicked)
         self.ui.featureFlagsPageBtn.clicked.connect(self.on_featureFlagsPageBtn_clicked)
         self.ui.euEnablerPageBtn.clicked.connect(self.on_euEnablerPageBtn_clicked)
+        self.ui.springboardOptionsPageBtn.clicked.connect(self.on_springboardOptionsPageBtn_clicked)
+        self.ui.internalOptionsPageBtn.clicked.connect(self.on_internalOptionsPageBtn_clicked)
         self.ui.applyPageBtn.clicked.connect(self.on_applyPageBtn_clicked)
         self.ui.settingsPageBtn.clicked.connect(self.on_settingsPageBtn_clicked)
 
@@ -78,6 +78,31 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.lockscreenChk.toggled.connect(self.on_lockscreenChk_clicked)
         self.ui.photosChk.toggled.connect(self.on_photosChk_clicked)
         self.ui.aiChk.toggled.connect(self.on_aiChk_clicked)
+
+        ## SPRINGBOARD OPTIONS PAGE ACTIONS
+        self.ui.footnoteTxt.textEdited.connect(self.on_footnoteTxt_textEdited)
+        self.ui.disableLockRespringChk.toggled.connect(self.on_disableLockRespringChk_clicked)
+        self.ui.disableDimmingChk.toggled.connect(self.on_disableDimmingChk_clicked)
+        self.ui.disableBatteryAlertsChk.toggled.connect(self.on_disableBatteryAlertsChk_clicked)
+        self.ui.disableCrumbChk.toggled.connect(self.on_disableCrumbChk_clicked)
+        self.ui.enableSupervisionTextChk.toggled.connect(self.on_enableSupervisionTextChk_clicked)
+        self.ui.enableAirPlayChk.toggled.connect(self.on_enableAirPlayChk_clicked)
+
+        ## INTERNAL OPTIONS PAGE ACTIONS
+        self.ui.buildVersionChk.toggled.connect(self.on_buildVersionChk_clicked)
+        self.ui.RTLChk.toggled.connect(self.on_RTLChk_clicked)
+        self.ui.metalHUDChk.toggled.connect(self.on_metalHUDChk_clicked)
+        self.ui.accessoryChk.toggled.connect(self.on_accessoryChk_clicked)
+        self.ui.iMessageChk.toggled.connect(self.on_iMessageChk_clicked)
+        self.ui.IDSChk.toggled.connect(self.on_IDSChk_clicked)
+        self.ui.VCChk.toggled.connect(self.on_VCChk_clicked)
+        self.ui.appStoreChk.toggled.connect(self.on_appStoreChk_clicked)
+        self.ui.notesChk.toggled.connect(self.on_notesChk_clicked)
+        self.ui.showTouchesChk.toggled.connect(self.on_showTouchesChk_clicked)
+        self.ui.hideRespringChk.toggled.connect(self.on_hideRespringChk_clicked)
+        self.ui.enableWakeVibrateChk.toggled.connect(self.on_enableWakeVibrateChk_clicked)
+        self.ui.pasteSoundChk.toggled.connect(self.on_pasteSoundChk_clicked)
+        self.ui.notifyPastesChk.toggled.connect(self.on_notifyPastesChk_clicked)
 
         ## APPLY PAGE ACTIONS
         self.ui.applyTweaksBtn.clicked.connect(self.on_applyPageBtn_clicked)
@@ -131,13 +156,15 @@ class MainWindow(QtWidgets.QMainWindow):
 
             # hide all pages
             self.ui.explorePageBtn.hide()
-            self.ui.customOperationsPageBtn.hide()
             self.ui.locSimPageBtn.hide()
             self.ui.sidebarDiv1.hide()
+
             self.ui.gestaltPageBtn.hide()
             self.ui.featureFlagsPageBtn.hide()
             self.ui.euEnablerPageBtn.hide()
+            self.ui.springboardOptionsPageBtn.hide()
             self.ui.internalOptionsPageBtn.hide()
+
             self.ui.sidebarDiv2.hide()
             self.ui.applyPageBtn.hide()
         else:
@@ -148,17 +175,21 @@ class MainWindow(QtWidgets.QMainWindow):
             
             # show all pages
             self.ui.explorePageBtn.hide()
-            self.ui.customOperationsPageBtn.hide()
             self.ui.locSimPageBtn.hide()
             self.ui.sidebarDiv1.show()
             self.ui.gestaltPageBtn.show()
             # self.ui.featureFlagsPageBtn.show()
             self.ui.euEnablerPageBtn.show()
-            self.ui.internalOptionsPageBtn.hide()
+            self.ui.springboardOptionsPageBtn.show()
+            self.ui.internalOptionsPageBtn.show()
+            
             self.ui.sidebarDiv2.show()
             self.ui.applyPageBtn.show()
+
             self.ui.gestaltPageContent.setDisabled(False)
             self.ui.featureFlagsPageContent.setDisabled(False)
+            self.ui.springboardOptionsPageContent.setDisabled(False)
+            self.ui.internalOptionsPageContent.setDisabled(False)
         
         # update the selected device
         self.ui.devicePicker.setCurrentIndex(0)
@@ -215,6 +246,12 @@ class MainWindow(QtWidgets.QMainWindow):
     
     def on_euEnablerPageBtn_clicked(self):
         self.ui.pages.setCurrentIndex(Page.EUEnabler.value)
+
+    def on_springboardOptionsPageBtn_clicked(self):
+        self.ui.pages.setCurrentIndex(Page.Springboard.value)
+
+    def on_internalOptionsPageBtn_clicked(self):
+        self.ui.pages.setCurrentIndex(Page.InternalOptions.value)
 
     def on_applyPageBtn_clicked(self):
         self.ui.pages.setCurrentIndex(Page.Apply.value)
@@ -359,6 +396,57 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["EUEnabler"].set_selected_option(index)
     def on_regionCodeTxt_textEdited(self, text: str):
         tweaks["EUEnabler"].set_region_code(text)
+
+
+    ## SPRINGBOARD OPTIONS PAGE
+    def on_footnoteTxt_textEdited(self, text: str):
+        tweaks["LockScreenFootnote"].set_value(text, toggle_enabled=True)
+
+    def on_disableLockRespringChk_clicked(self, checked: bool):
+        tweaks["SBDontLockAfterCrash"].set_enabled(checked)
+    def on_disableBatteryAlertsChk_clicked(self, checked: bool):
+        tweaks["SBDontDimOrLockOnAC"].set_enabled(checked)
+    def on_disableDimmingChk_clicked(self, checked: bool):
+        tweaks["SBHideLowPowerAlerts"].set_enabled(checked)
+    def on_disableCrumbChk_clicked(self, checked: bool):
+        tweaks["SBNeverBreadcrumb"].set_enabled(checked)
+    def on_enableSupervisionTextChk_clicked(self, checked: bool):
+        tweaks["SBShowSupervisionTextOnLockScreen"].set_enabled(checked)
+    def on_enableAirPlayChk_clicked(self, checked: bool):
+        tweaks["AirplaySupport"].set_enabled(checked)
+
+    
+    ## INTERNAL OPTIONS PAGE
+    def on_buildVersionChk_clicked(self, checked: bool):
+        tweaks["SBBuildNumber"].set_enabled(checked)
+    def on_RTLChk_clicked(self, checked: bool):
+        tweaks["RTL"].set_enabled(checked)
+    def on_metalHUDChk_clicked(self, checked: bool):
+        tweaks["MetalForceHudEnabled"].set_enabled(checked)
+    def on_accessoryChk_clicked(self, checked: bool):
+        tweaks["AccessoryDeveloperEnabled"].set_enabled(checked)
+    def on_iMessageChk_clicked(self, checked: bool):
+        tweaks["iMessageDiagnosticsEnabled"].set_enabled(checked)
+    def on_IDSChk_clicked(self, checked: bool):
+        tweaks["IDSDiagnosticsEnabled"].set_enabled(checked)
+    def on_VCChk_clicked(self, checked: bool):
+        tweaks["VCDiagnosticsEnabled"].set_enabled(checked)
+
+    def on_appStoreChk_clicked(self, checked: bool):
+        tweaks["AppStoreDebug"].set_enabled(checked)
+    def on_notesChk_clicked(self, checked: bool):
+        tweaks["NotesDebugMode"].set_enabled(checked)
+
+    def on_showTouchesChk_clicked(self, checked: bool):
+        tweaks["BKDigitizerVisualizeTouches"].set_enabled(checked)
+    def on_hideRespringChk_clicked(self, checked: bool):
+        tweaks["BKHideAppleLogoOnLaunch"].set_enabled(checked)
+    def on_enableWakeVibrateChk_clicked(self, checked: bool):
+        tweaks["EnableWakeGestureHaptic"].set_enabled(checked)
+    def on_pasteSoundChk_clicked(self, checked: bool):
+        tweaks["PlaySoundOnPaste"].set_enabled(checked)
+    def on_notifyPastesChk_clicked(self, checked: bool):
+        tweaks["AnnounceAllPastes"].set_enabled(checked)
 
     
     ## SETTINGS PAGE
