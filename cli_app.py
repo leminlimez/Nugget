@@ -1,5 +1,5 @@
 from Sparserestore.restore import restore_files, FileToRestore, restore_file
-from tweaks.tweaks import tweaks, TweakModifyType, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak
+from tweaks.tweaks import tweaks, TweakModifyType, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, RdarFixTweak
 from tweaks.basic_plist_locations import FileLocation
 from devicemanagement.constants import Device
 
@@ -63,6 +63,7 @@ while running:
                     ld = create_using_usbmux(serial=current_device.serial)
                     vals = ld.all_values
                     device = Device(uuid=current_device.serial, name=vals['DeviceName'], version=vals['ProductVersion'], model=vals['ProductType'], locale=ld.locale, ld=ld)
+                    tweaks["RdarFix"].get_rdar_mode()
                 except Exception as e:
                     print(traceback.format_exc())
                     input("Press Enter to continue...")
@@ -125,7 +126,7 @@ while running:
                         eligibility_files = tweak.apply_tweak()
                     elif isinstance(tweak, AITweak):
                         ai_file = tweak.apply_tweak()
-                    elif isinstance(tweak, BasicPlistTweak):
+                    elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak):
                         basic_plists = tweak.apply_tweak(basic_plists)
                     else:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
@@ -218,6 +219,7 @@ while running:
                     picker_choice = int(input("Select option: "))
                     if picker_choice > 0 and picker_choice <= len(values):
                         tweak.set_selected_option(picker_choice-1)
+                        tweaks["RdarFix"].set_di_type(values[tweak.get_selected_option()])
                     elif picker_choice == len(values)+1:
                         tweak.set_enabled(False)
                 else:

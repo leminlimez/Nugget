@@ -1009,6 +1009,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_8.addWidget(self.dynamicIslandDrp)
 
+        self.rdarFixChk = QCheckBox(self.gestaltPageContent)
+        self.rdarFixChk.setObjectName(u"rdarFixChk")
+
+        self.verticalLayout_8.addWidget(self.rdarFixChk)
+
         self.modelNameChk = QCheckBox(self.gestaltPageContent)
         self.modelNameChk.setObjectName(u"modelNameChk")
 
@@ -2549,7 +2554,7 @@ class Ui_Nugget(object):
         self.toolButton_15.setText(QCoreApplication.translate("Nugget", u"Additional Thanks", None))
         self.libiBtn.setText(QCoreApplication.translate("Nugget", u"pymobiledevice3", None))
         self.qtBtn.setText(QCoreApplication.translate("Nugget", u"Qt Creator", None))
-        self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 3.0 (beta 1)", None))
+        self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 3.0 (beta 2)", None))
         self.statusBarLbl.setText(QCoreApplication.translate("Nugget", u"Mobile Gestalt", None))
         self.label_9.setText(QCoreApplication.translate("Nugget", u"Device Subtype Preset", None))
         self.dynamicIslandDrp.setItemText(0, QCoreApplication.translate("Nugget", u"None", None))
@@ -2561,6 +2566,7 @@ class Ui_Nugget(object):
         self.dynamicIslandDrp.setItemText(6, QCoreApplication.translate("Nugget", u"2868 (iPhone 16 Pro Max Dynamic Island)", None))
 
         self.dynamicIslandDrp.setCurrentText(QCoreApplication.translate("Nugget", u"None", None))
+        self.rdarFixChk.setText(QCoreApplication.translate("Nugget", u"Fix RDAR (modifies resolution)", None))
         self.modelNameChk.setText(QCoreApplication.translate("Nugget", u"Change Device Model Name", None))
         self.modelNameTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Model Name", None))
         self.bootChimeChk.setText(QCoreApplication.translate("Nugget", u"Enable Boot Chime", None))

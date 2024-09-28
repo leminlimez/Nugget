@@ -10,7 +10,7 @@ from pymobiledevice3.lockdown import create_using_usbmux
 from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
 
-from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak
+from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, RdarFixTweak
 from tweaks.basic_plist_locations import FileLocation
 from Sparserestore.restore import restore_files, FileToRestore
 
@@ -48,6 +48,7 @@ class DeviceManager:
                             locale=ld.locale,
                             ld=ld
                         )
+                    tweaks["RdarFix"].get_rdar_mode(vals['ProductType'])
                     self.devices.append(dev)
                 except Exception as e:
                     print(f"ERROR with lockdown device with UUID {device.serial}")
@@ -124,7 +125,7 @@ class DeviceManager:
                     eligibility_files = tweak.apply_tweak()
                 elif isinstance(tweak, AITweak):
                     ai_file = tweak.apply_tweak()
-                elif isinstance(tweak, BasicPlistTweak):
+                elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak):
                     basic_plists = tweak.apply_tweak(basic_plists)
                 else:
                     if gestalt_plist != None:

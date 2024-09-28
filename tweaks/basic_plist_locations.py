@@ -1,6 +1,9 @@
 from enum import Enum
 
 class FileLocation(Enum):
+    # Mobile Gestalt
+    resolution = "/var/Managed Preferences/mobile/com.apple.iokit.IOMobileGraphicsFamily.plist"
+    
     # Springboard Options
     springboard = "/var/Managed Preferences/mobile/com.apple.springboard.plist"
     footnote = "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/SharedDeviceConfiguration.plist"

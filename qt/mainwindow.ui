@@ -1566,7 +1566,7 @@ QToolButton:pressed {
               <item>
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Nugget GUI - Version 3.0 (beta 1)</string>
+                 <string>Nugget GUI - Version 3.0 (beta 2)</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1873,6 +1873,13 @@ QComboBox QAbstractItemView::item:hover {
                          <string>2868 (iPhone 16 Pro Max Dynamic Island)</string>
                         </property>
                        </item>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="rdarFixChk">
+                       <property name="text">
+                        <string>Fix RDAR (modifies resolution)</string>
+                       </property>
                       </widget>
                      </item>
                      <item>
