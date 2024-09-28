@@ -51,7 +51,7 @@ class BasicPlistTweak(Tweak):
             min_version: Version = Version("1.0"),
             divider_below: bool = False
         ):
-        super.__init__(label=label, key=key, subkey=None, value=value, edit_type=edit_type, min_version=min_version, divider_below=divider_below)
+        super().__init__(label=label, key=key, subkey=None, value=value, edit_type=edit_type, min_version=min_version, divider_below=divider_below)
         self.file_location = file_location
 
     def apply_tweak(self, other_tweaks: dict) -> dict:

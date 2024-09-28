@@ -112,42 +112,42 @@ tweaks = {
         FileLocation.globalPreferences,
         "IDSDiagnosticsEnabled"
     ),
-    "VCDiagnosticsEnabled": FileLocation(
+    "VCDiagnosticsEnabled": BasicPlistTweak(
         "Enable FaceTime Debugging",
         FileLocation.globalPreferences,
         "VCDiagnosticsEnabled"
     ),
-    "AppStoreDebug": FileLocation(
+    "AppStoreDebug": BasicPlistTweak(
         "Enable App Store Debug Gesture",
         FileLocation.appStore,
         "debugGestureEnabled"
     ),
-    "NotesDebugMode": FileLocation(
+    "NotesDebugMode": BasicPlistTweak(
         "Enable Notes App Debug Mode",
         FileLocation.notes,
         "DebugModeEnabled"
     ),
-    "BKDigitizerVisualizeTouches": FileLocation(
+    "BKDigitizerVisualizeTouches": BasicPlistTweak(
         "Show Touches With Debug Info",
         FileLocation.backboardd,
         "BKDigitizerVisualizeTouches"
     ),
-    "BKHideAppleLogoOnLaunch": FileLocation(
+    "BKHideAppleLogoOnLaunch": BasicPlistTweak(
         "Hide Respring Icon",
         FileLocation.backboardd,
         "BKHideAppleLogoOnLaunch"
     ),
-    "EnableWakeGestureHaptic": FileLocation(
+    "EnableWakeGestureHaptic": BasicPlistTweak(
         "Vibrate on Raise-to-Wake",
         FileLocation.coreMotion,
         "EnableWakeGestureHaptic"
     ),
-    "PlaySoundOnPaste": FileLocation(
+    "PlaySoundOnPaste": BasicPlistTweak(
         "Play Sound on Paste",
         FileLocation.pasteboard,
         "PlaySoundOnPaste"
     ),
-    "AnnounceAllPastes": FileLocation(
+    "AnnounceAllPastes": BasicPlistTweak(
         "Show Notifications for System Pastes",
         FileLocation.pasteboard,
         "AnnounceAllPastes"
