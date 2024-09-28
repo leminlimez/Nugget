@@ -68,10 +68,14 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.discordBtn.clicked.connect(self.on_discordBtn_clicked)
 
-        ## EU ENABLER PAGE ACTIONS
+        ## ELIGIBILITY PAGE ACTIONS
         self.ui.euEnablerEnabledChk.toggled.connect(self.on_euEnablerEnabledChk_toggled)
         self.ui.methodChoiceDrp.activated.connect(self.on_methodChoiceDrp_activated)
         self.ui.regionCodeTxt.textEdited.connect(self.on_regionCodeTxt_textEdited)
+
+        self.ui.enableAIChk.toggled.connect(self.on_enableAIChk_toggled)
+        self.ui.languageTxt.textEdited.connect(self.on_languageTxt_textEdited)
+        self.ui.spoofModelChk.toggled.connect(self.on_spoofModelChk_toggled)
 
         ## FEATURE FLAGS PAGE
         self.ui.clockAnimChk.toggled.connect(self.on_clockAnimChk_toggled)
@@ -188,6 +192,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
             self.ui.gestaltPageContent.setDisabled(False)
             self.ui.featureFlagsPageContent.setDisabled(False)
+            self.ui.euEnablerPageContent.setDisabled(False)
             self.ui.springboardOptionsPageContent.setDisabled(False)
             self.ui.internalOptionsPageContent.setDisabled(False)
         
@@ -208,6 +213,14 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.dynamicIslandDrp.removeItem(5)
             except:
                 pass
+            if Version(self.device_manager.data_singleton.current_device.version) >= Version("18.0"):
+                self.ui.enableAIChk.show()
+            else:
+                self.ui.enableAIChk.hide()
+                self.ui.languageLbl.hide()
+                self.ui.languageTxt.hide()
+                self.ui.aiInfoLabel.hide()
+                self.ui.spoofModelChk.hide()
             if Version(self.device_manager.data_singleton.current_device.version) >= Version("18.0"):
                 self.ui.aodChk.show()
                 self.ui.sleepApneaChk.show()
@@ -388,14 +401,32 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["AI"].set_enabled(checked)
 
 
-    ## EU ENABLER PAGE
+    ## ELIGIBILITY PAGE
     def on_euEnablerEnabledChk_toggled(self, checked: bool):
         tweaks["EUEnabler"].set_enabled(checked)
-        self.ui.euEnablerPageContent.setDisabled(not checked)
     def on_methodChoiceDrp_activated(self, index: int):
         tweaks["EUEnabler"].set_selected_option(index)
     def on_regionCodeTxt_textEdited(self, text: str):
         tweaks["EUEnabler"].set_region_code(text)
+
+    def on_enableAIChk_toggled(self, checked: bool):
+        tweaks["AIEligibility"].set_enabled(checked)
+        tweaks["AIGestalt"].set_enabled(checked)
+        # change the visibility of stuff
+        if checked:
+            self.ui.languageLbl.show()
+            self.ui.languageTxt.show()
+            self.ui.aiInfoLabel.show()
+            self.ui.spoofModelChk.show()
+        else:
+            self.ui.languageLbl.hide()
+            self.ui.languageTxt.hide()
+            self.ui.aiInfoLabel.hide()
+            self.ui.spoofModelChk.hide()
+    def on_languageTxt_textEdited(self, text: str):
+        tweaks["AIEligibility"].set_language_code(text)
+    def on_spoofModelChk_toggled(self, checked: bool):
+        tweaks["SpoofModel"].set_enabled(checked)
 
 
     ## SPRINGBOARD OPTIONS PAGE

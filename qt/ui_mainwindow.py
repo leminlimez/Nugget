@@ -1286,16 +1286,15 @@ class Ui_Nugget(object):
         self.verticalLayout_15.setSpacing(6)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
-        self.setupOptionsLbl = QLabel(self.verticalWidget_5)
-        self.setupOptionsLbl.setObjectName(u"setupOptionsLbl")
-        self.setupOptionsLbl.setFont(font1)
+        self.eligibilityLbl = QLabel(self.verticalWidget_5)
+        self.eligibilityLbl.setObjectName(u"eligibilityLbl")
+        self.eligibilityLbl.setFont(font1)
 
-        self.verticalLayout_15.addWidget(self.setupOptionsLbl)
+        self.verticalLayout_15.addWidget(self.eligibilityLbl)
 
-        self.euEnablerEnabledChk = QCheckBox(self.verticalWidget_5)
-        self.euEnablerEnabledChk.setObjectName(u"euEnablerEnabledChk")
+        self.verticalSpacer_20 = QSpacerItem(20, 16, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
-        self.verticalLayout_15.addWidget(self.euEnablerEnabledChk)
+        self.verticalLayout_15.addItem(self.verticalSpacer_20)
 
 
         self.horizontalLayout_21.addWidget(self.verticalWidget_5)
@@ -1316,6 +1315,11 @@ class Ui_Nugget(object):
         self.line_13.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_17.addWidget(self.line_13)
+
+        self.euEnablerEnabledChk = QCheckBox(self.euEnablerPage)
+        self.euEnablerEnabledChk.setObjectName(u"euEnablerEnabledChk")
+
+        self.verticalLayout_17.addWidget(self.euEnablerEnabledChk)
 
         self.euEnablerPageContent = QWidget(self.euEnablerPage)
         self.euEnablerPageContent.setObjectName(u"euEnablerPageContent")
@@ -1377,6 +1381,45 @@ class Ui_Nugget(object):
         self.regionCodeTxt.setObjectName(u"regionCodeTxt")
 
         self.verticalLayout_16.addWidget(self.regionCodeTxt)
+
+        self.line_16 = QFrame(self.euEnablerPageContent)
+        self.line_16.setObjectName(u"line_16")
+        self.line_16.setEnabled(False)
+        self.line_16.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_16.setFrameShadow(QFrame.Plain)
+        self.line_16.setFrameShape(QFrame.Shape.HLine)
+
+        self.verticalLayout_16.addWidget(self.line_16)
+
+        self.enableAIChk = QCheckBox(self.euEnablerPageContent)
+        self.enableAIChk.setObjectName(u"enableAIChk")
+
+        self.verticalLayout_16.addWidget(self.enableAIChk)
+
+        self.languageLbl = QLabel(self.euEnablerPageContent)
+        self.languageLbl.setObjectName(u"languageLbl")
+
+        self.verticalLayout_16.addWidget(self.languageLbl)
+
+        self.languageTxt = QLineEdit(self.euEnablerPageContent)
+        self.languageTxt.setObjectName(u"languageTxt")
+
+        self.verticalLayout_16.addWidget(self.languageTxt)
+
+        self.aiInfoLabel = QLabel(self.euEnablerPageContent)
+        self.aiInfoLabel.setObjectName(u"aiInfoLabel")
+        sizePolicy1.setHeightForWidth(self.aiInfoLabel.sizePolicy().hasHeightForWidth())
+        self.aiInfoLabel.setSizePolicy(sizePolicy1)
+        self.aiInfoLabel.setTextFormat(Qt.AutoText)
+
+        self.verticalLayout_16.addWidget(self.aiInfoLabel)
+
+        self.spoofModelChk = QCheckBox(self.euEnablerPageContent)
+        self.spoofModelChk.setObjectName(u"spoofModelChk")
+
+        self.verticalLayout_16.addWidget(self.spoofModelChk)
 
         self.verticalSpacer_7 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -2475,7 +2518,7 @@ class Ui_Nugget(object):
         self.gestaltPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.featureFlagsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Feature Flags", None))
         self.featureFlagsPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
-        self.euEnablerPageBtn.setText(QCoreApplication.translate("Nugget", u"    EU Enabler", None))
+        self.euEnablerPageBtn.setText(QCoreApplication.translate("Nugget", u"    Eligibility", None))
         self.euEnablerPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.springboardOptionsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Springboard Options", None))
         self.springboardOptionsPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
@@ -2541,14 +2584,23 @@ class Ui_Nugget(object):
         self.lockscreenChk.setText(QCoreApplication.translate("Nugget", u"Enable Duplicate Lockscreen Button and Lockscreen Quickswitch", None))
         self.photosChk.setText(QCoreApplication.translate("Nugget", u"Enable Old Photo UI", None))
         self.aiChk.setText(QCoreApplication.translate("Nugget", u"Enable Apple Intelligence", None))
-        self.setupOptionsLbl.setText(QCoreApplication.translate("Nugget", u"EU Enabler", None))
-        self.euEnablerEnabledChk.setText(QCoreApplication.translate("Nugget", u"Enabled", None))
+        self.eligibilityLbl.setText(QCoreApplication.translate("Nugget", u"Eligibility Tweaks", None))
+        self.euEnablerEnabledChk.setText(QCoreApplication.translate("Nugget", u"Enable EU Enabler", None))
         self.label_5.setText(QCoreApplication.translate("Nugget", u"Method Type", None))
         self.methodChoiceDrp.setItemText(0, QCoreApplication.translate("Nugget", u"Method 1", None))
         self.methodChoiceDrp.setItemText(1, QCoreApplication.translate("Nugget", u"Method 2", None))
 
         self.label_6.setText(QCoreApplication.translate("Nugget", u"Region Code (Should be 2 letters)", None))
         self.regionCodeTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Region Code (Default: US)", None))
+        self.enableAIChk.setText(QCoreApplication.translate("Nugget", u"Enable Apple Intelligence (for Unsupported Devices)", None))
+        self.languageLbl.setText(QCoreApplication.translate("Nugget", u"Language Code (not needed for English)", None))
+        self.languageTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Language Code (i.e. en)", None))
+        self.aiInfoLabel.setText(QCoreApplication.translate("Nugget", u"In order to download the AI model, you must spoof the device model. This will break Face ID until\n"
+"you revert.\n"
+"\n"
+"Once the model has downloaded, disable \"Spoof Device Model\" and click the \"Apply Tweaks\"\n"
+"button on the \"Apply\" page again to fix Face ID.", None))
+        self.spoofModelChk.setText(QCoreApplication.translate("Nugget", u"Spoof Device Model", None))
         self.springboardOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Springboard Options", None))
         self.label_13.setText(QCoreApplication.translate("Nugget", u"Lock Screen Footnote Text", None))
         self.footnoteTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Footnote Text", None))

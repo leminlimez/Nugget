@@ -1,5 +1,5 @@
 from Sparserestore.restore import restore_files, FileToRestore, restore_file
-from tweaks.tweaks import tweaks, TweakModifyType, FeatureFlagTweak, EligibilityTweak, BasicPlistTweak
+from tweaks.tweaks import tweaks, TweakModifyType, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak
 from tweaks.basic_plist_locations import FileLocation
 from devicemanagement.constants import Device
 
@@ -103,6 +103,7 @@ while running:
             # create the other plists
             flag_plist: dict = {}
             eligibility_files = None
+            ai_file = None
             basic_plists: dict = {}
 
             # verify the device credentials before continuing
@@ -122,6 +123,8 @@ while running:
                     elif isinstance(tweak, EligibilityTweak):
                         tweak.set_region_code(device.locale[-2:])
                         eligibility_files = tweak.apply_tweak()
+                    elif isinstance(tweak, AITweak):
+                        ai_file = tweak.apply_tweak()
                     elif isinstance(tweak, BasicPlistTweak):
                         basic_plists = tweak.apply_tweak(basic_plists)
                     else:
@@ -142,6 +145,8 @@ while running:
             ]
             if eligibility_files != None:
                 files_to_restore += eligibility_files
+            if ai_file != None:
+                files_to_restore.append(ai_file)
             for location, plist in basic_plists:
                 files_to_restore.append(FileToRestore(
                     contents=plistlib.dumps(plist),

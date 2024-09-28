@@ -90,3 +90,43 @@ class EligibilityTweak(Tweak):
         # return the new files to restore
         return files_to_restore
     
+
+class AITweak(Tweak):
+    def __init__(self):
+        super().__init__(label="Enable Apple Intelligence (for Unsupported Devices) (Eligibility)", key=None, value="", min_version=Version("18.1"))
+    
+    def set_language_code(self, lang: str):
+        self.value = lang
+
+    def apply_tweak(self) -> FileToRestore:
+        if not self.enabled:
+            return None
+        langs = ["en"]
+        if self.value != "":
+            langs.append(self.value)
+        plist = {
+            "OS_ELIGIBILITY_DOMAIN_CALCIUM": {
+                "os_eligibility_answer_source_t": 1,
+                "os_eligibility_answer_t": 2,
+                "status": {
+                    "OS_ELIGIBILITY_INPUT_CHINA_CELLULAR": 2
+                }
+            },
+            "OS_ELIGIBILITY_DOMAIN_GREYMATTER": {
+                "context": {
+                    "OS_ELIGIBILITY_CONTEXT_ELIGIBLE_DEVICE_LANGUAGES": langs
+                },
+                "os_eligibility_answer_source_t": 1,
+                "os_eligibility_answer_t": 4,
+                "status": {
+                    "OS_ELIGIBILITY_INPUT_DEVICE_LANGUAGE": 3,
+                    "OS_ELIGIBILITY_INPUT_DEVICE_REGION_CODE": 3,
+                    "OS_ELIGIBILITY_INPUT_EXTERNAL_BOOT_DRIVE": 3,
+                    "OS_ELIGIBILITY_INPUT_GENERATIVE_MODEL_SYSTEM": 3,
+                    "OS_ELIGIBILITY_INPUT_SHARED_IPAD": 3,
+                    "OS_ELIGIBILITY_INPUT_SIRI_LANGUAGE": 3
+                }
+            }
+        }
+
+        return FileToRestore(contents=plistlib.dumps(plist), restore_path="/var/db/eligibilityd/eligibility.plist")

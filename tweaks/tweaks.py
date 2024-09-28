@@ -1,6 +1,6 @@
 from devicemanagement.constants import Version
 from .tweak_classes import MobileGestaltTweak, MobileGestaltMultiTweak, MobileGestaltPickerTweak, FeatureFlagTweak, TweakModifyType, BasicPlistTweak
-from .eligibility_tweak import EligibilityTweak
+from .eligibility_tweak import EligibilityTweak, AITweak
 from .basic_plist_locations import FileLocation
 
     
@@ -36,6 +36,11 @@ tweaks = {
                      min_version=Version("18.0")),
     "PhotoUI": FeatureFlagTweak("Enable Old Photo UI", flag_category='Photos', flag_names=['Lemonade'], is_list=False, inverted=True, min_version=Version("18.0")),
     "AI": FeatureFlagTweak("Enable Apple Intelligence", flag_category='SpringBoard', flag_names=['Domino', 'SuperDomino'], min_version=Version("18.1"), divider_below=True),
+
+    ## AI Enabler
+    "AIEligibility": AITweak(),
+    "AIGestalt": MobileGestaltTweak("Enable Apple Intelligence (for Unsupported Devices) (Gestalt)", "A62OafQ85EJAiiqKn4agtg", min_version=Version("18.1")),
+    "SpoofModel": MobileGestaltTweak("Spoof Device Model", "h9jDsbgj7xIVeIQ8S3/X3Q", value="iPhone17,3", min_version=Version("18.1"), divider_below=True),
 
     ## Springboard Tweaks
     "LockScreenFootnote": BasicPlistTweak(

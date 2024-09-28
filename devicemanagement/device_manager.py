@@ -10,7 +10,7 @@ from pymobiledevice3.lockdown import create_using_usbmux
 from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
 
-from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, BasicPlistTweak
+from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak
 from tweaks.basic_plist_locations import FileLocation
 from Sparserestore.restore import restore_files, FileToRestore
 
@@ -106,6 +106,7 @@ class DeviceManager:
         # create the other plists
         flag_plist: dict = {}
         eligibility_files = None
+        ai_file = None
         basic_plists: dict = {}
 
         # set the plist keys
@@ -116,6 +117,8 @@ class DeviceManager:
                     flag_plist = tweak.apply_tweak(flag_plist)
                 elif isinstance(tweak, EligibilityTweak):
                     eligibility_files = tweak.apply_tweak()
+                elif isinstance(tweak, AITweak):
+                    ai_file = tweak.apply_tweak()
                 elif isinstance(tweak, BasicPlistTweak):
                     basic_plists = tweak.apply_tweak(basic_plists)
                 else:
@@ -146,6 +149,8 @@ class DeviceManager:
             ))
         if eligibility_files:
             files_to_restore += eligibility_files
+        if ai_file != None:
+            files_to_restore.append(ai_file)
         for location, plist in basic_plists:
             files_to_restore.append(FileToRestore(
                 contents=plistlib.dumps(plist),

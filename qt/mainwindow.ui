@@ -593,7 +593,7 @@ QSlider::tick:horizontal {
              </sizepolicy>
             </property>
             <property name="text">
-             <string>    EU Enabler</string>
+             <string>    Eligibility</string>
             </property>
             <property name="icon">
              <iconset>
@@ -2372,7 +2372,7 @@ QComboBox QAbstractItemView::item:hover {
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QLabel" name="setupOptionsLbl">
+                     <widget class="QLabel" name="eligibilityLbl">
                       <property name="font">
                        <font>
                         <pointsize>-1</pointsize>
@@ -2380,16 +2380,25 @@ QComboBox QAbstractItemView::item:hover {
                        </font>
                       </property>
                       <property name="text">
-                       <string>EU Enabler</string>
+                       <string>Eligibility Tweaks</string>
                       </property>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QCheckBox" name="euEnablerEnabledChk">
-                      <property name="text">
-                       <string>Enabled</string>
+                     <spacer name="verticalSpacer_20">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
                       </property>
-                     </widget>
+                      <property name="sizeType">
+                       <enum>QSizePolicy::Fixed</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>16</height>
+                       </size>
+                      </property>
+                     </spacer>
                     </item>
                    </layout>
                   </widget>
@@ -2422,6 +2431,13 @@ QComboBox QAbstractItemView::item:hover {
                 </property>
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="euEnablerEnabledChk">
+                <property name="text">
+                 <string>Enable EU Enabler</string>
                 </property>
                </widget>
               </item>
@@ -2515,6 +2531,72 @@ QComboBox QAbstractItemView::item:hover {
                   <widget class="QLineEdit" name="regionCodeTxt">
                    <property name="placeholderText">
                     <string>Region Code (Default: US)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="Line" name="line_16">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Plain</enum>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="enableAIChk">
+                   <property name="text">
+                    <string>Enable Apple Intelligence (for Unsupported Devices)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="languageLbl">
+                   <property name="text">
+                    <string>Language Code (not needed for English)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="languageTxt">
+                   <property name="placeholderText">
+                    <string>Language Code (i.e. en)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="aiInfoLabel">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>In order to download the AI model, you must spoof the device model. This will break Face ID until
+you revert.
+
+Once the model has downloaded, disable &quot;Spoof Device Model&quot; and click the &quot;Apply Tweaks&quot;
+button on the &quot;Apply&quot; page again to fix Face ID.</string>
+                   </property>
+                   <property name="textFormat">
+                    <enum>Qt::AutoText</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="spoofModelChk">
+                   <property name="text">
+                    <string>Spoof Device Model</string>
                    </property>
                   </widget>
                  </item>
