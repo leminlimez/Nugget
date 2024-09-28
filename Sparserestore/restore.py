@@ -9,6 +9,9 @@ class FileToRestore:
         self.owner = owner
         self.group = group
 
+    def __lt__(self, other):
+        return self.restore_path < other.restore_path
+
 # files is a list of FileToRestore objects
 def restore_files(files: list, reboot: bool = False, lockdown_client: LockdownClient = None):
     # create the files to be backed up

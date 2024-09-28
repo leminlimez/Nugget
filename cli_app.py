@@ -1,6 +1,6 @@
 from Sparserestore.restore import restore_files, FileToRestore, restore_file
 from tweaks.tweaks import tweaks, TweakModifyType, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, RdarFixTweak
-from tweaks.basic_plist_locations import FileLocation
+from tweaks.basic_plist_locations import FileLocationsList
 from devicemanagement.constants import Device
 
 from pymobiledevice3.exceptions import PyMobileDevice3Exception
@@ -146,7 +146,7 @@ while running:
                 files_to_restore += eligibility_files
             if ai_file != None:
                 files_to_restore.append(ai_file)
-            for location, plist in basic_plists:
+            for location, plist in basic_plists.items():
                 files_to_restore.append(FileToRestore(
                     contents=plistlib.dumps(plist),
                     restore_path=location.value
@@ -154,7 +154,7 @@ while running:
             # reset basic tweaks
             if resetting:
                 empty_data = plistlib.dumps({})
-                for location in FileLocation:
+                for location in FileLocationsList:
                     files_to_restore.append(FileToRestore(
                         contents=empty_data,
                         restore_path=location.value
