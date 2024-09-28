@@ -1566,7 +1566,7 @@ QToolButton:pressed {
               <item>
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Nugget GUI - Version 3.0 (beta 2)</string>
+                 <string>Nugget GUI - Version 3.0 (beta 3)</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1726,7 +1726,7 @@ QToolButton:pressed {
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>0</y>
+                   <y>-3</y>
                    <width>650</width>
                    <height>1200</height>
                   </rect>
