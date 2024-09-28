@@ -213,8 +213,12 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.dynamicIslandDrp.removeItem(5)
             except:
                 pass
-            if Version(self.device_manager.data_singleton.current_device.version) >= Version("18.0"):
+            if Version(self.device_manager.data_singleton.current_device.version) >= Version("18.1"):
                 self.ui.enableAIChk.show()
+                self.ui.languageLbl.hide()
+                self.ui.languageTxt.hide()
+                self.ui.aiInfoLabel.hide()
+                self.ui.spoofModelChk.hide()
             else:
                 self.ui.enableAIChk.hide()
                 self.ui.languageLbl.hide()
