@@ -3,19 +3,9 @@ from pymobiledevice3.lockdown import LockdownClient
 import os
 
 class FileToRestore:
-    # TODO: Depricate this in favor of second init definition
-    def __init__(self, contents: str, restore_path: str, restore_name: str, owner: int = 501, group: int = 501):
-        self.contents = contents
-        self.restore_path = restore_path
-        self.restore_name = restore_name
-        self.owner = owner
-        self.group = group
-
     def __init__(self, contents: str, restore_path: str, owner: int = 501, group: int = 501):
         self.contents = contents
-        path, file = os.path.split(restore_path)
-        self.restore_path = path + "/"
-        self.restore_name = file # TODO: Remove this and handle splitting in the restore_files function
+        self.restore_path = restore_path
         self.owner = owner
         self.group = group
 
@@ -52,7 +42,8 @@ def restore_files(files: list, reboot: bool = False, lockdown_client: LockdownCl
         elif file.restore_path.startswith("/private/var/"):
             base_path = "/private/var/backup"
         # don't append the directory if it has already been added (restore will fail)
-        domain_path = f"SysContainerDomain-../../../../../../../..{base_path}{file.restore_path}"
+        path, name = os.path.split(file.restore_path)
+        domain_path = f"SysContainerDomain-../../../../../../../..{base_path}{path}"
         if last_domain != domain_path:
             files_list.append(backup.Directory(
                 "",
@@ -63,7 +54,7 @@ def restore_files(files: list, reboot: bool = False, lockdown_client: LockdownCl
             last_domain = domain_path
         files_list.append(backup.ConcreteFile(
             "",
-            f"{domain_path}{file.restore_name}",
+            f"{domain_path}{name}",
             owner=file.owner,
             group=file.group,
             contents=b"",

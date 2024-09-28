@@ -135,13 +135,11 @@ while running:
             files_to_restore = [
                 FileToRestore(
                     contents=plistlib.dumps(gestalt_plist),
-                    restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/",
-                    restore_name="com.apple.MobileGestalt.plist"
+                    restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
                 ),
                 FileToRestore(
                     contents=plistlib.dumps(flag_plist),
-                    restore_path="/var/preferences/FeatureFlags/",
-                    restore_name="Global.plist"
+                    restore_path="/var/preferences/FeatureFlags/Global.plist",
                 )
             ]
             if eligibility_files != None:
@@ -175,8 +173,7 @@ while running:
             try:
                 restore_files(files=[FileToRestore(
                     contents=b"",
-                    restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/",
-                    restore_name="com.apple.MobileGestalt.plist"
+                    restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
                 )], reboot=True, lockdown_client=device.ld)
             except Exception as e:
                 print(traceback.format_exc())

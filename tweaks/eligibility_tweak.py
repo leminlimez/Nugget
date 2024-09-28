@@ -62,8 +62,7 @@ class EligibilityTweak(Tweak):
         files_to_restore = [
             FileToRestore(
                 contents=eligibility_data,
-                restore_path="/var/db/os_eligibility/",
-                restore_name="eligibility.plist"
+                restore_path="/var/db/os_eligibility/eligibility.plist",
             )
         ]
 
@@ -74,16 +73,14 @@ class EligibilityTweak(Tweak):
             files_to_restore.append(
                 FileToRestore(
                     contents=config_data,
-                    restore_path="/var/MobileAsset/AssetsV2/com_apple_MobileAsset_OSEligibility/purpose_auto/c55a421c053e10233e5bfc15c42fa6230e5639a9.asset/AssetData/",
-                    restore_name="Config.plist"
+                    restore_path="/var/MobileAsset/AssetsV2/com_apple_MobileAsset_OSEligibility/purpose_auto/c55a421c053e10233e5bfc15c42fa6230e5639a9.asset/AssetData/Config.plist",
                 )
             )
         elif self.method == 1:
             files_to_restore.append(
                 FileToRestore(
                     contents=config_data,
-                    restore_path="/var/MobileAsset/AssetsV2/com_apple_MobileAsset_OSEligibility/purpose_auto/247556c634fc4cc4fd742f1b33af9abf194a986e.asset/AssetData/",
-                    restore_name="Config.plist"
+                    restore_path="/var/MobileAsset/AssetsV2/com_apple_MobileAsset_OSEligibility/purpose_auto/247556c634fc4cc4fd742f1b33af9abf194a986e.asset/AssetData/Config.plist",
                 )
             )
         

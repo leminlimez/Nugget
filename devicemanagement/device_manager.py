@@ -143,15 +143,13 @@ class DeviceManager:
         files_to_restore = [
             FileToRestore(
                 contents=plistlib.dumps(flag_plist),
-                restore_path="/var/preferences/FeatureFlags/",
-                restore_name="Global.plist"
+                restore_path="/var/preferences/FeatureFlags/Global.plist",
             )
         ]
         if gestalt_data != None:
             files_to_restore.append(FileToRestore(
                 contents=gestalt_data,
-                restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/",
-                restore_name="com.apple.MobileGestalt.plist"
+                restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
             ))
         if eligibility_files:
             files_to_restore += eligibility_files
@@ -197,8 +195,7 @@ class DeviceManager:
         try:
             restore_files(files=[FileToRestore(
                     contents=b"",
-                    restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/",
-                    restore_name="com.apple.MobileGestalt.plist"
+                    restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
                 )], reboot=True, lockdown_client=self.data_singleton.current_device.ld)
             QMessageBox.information(None, "Success!", "All done! Your device will now restart.")
             update_label("Success!")
