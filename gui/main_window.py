@@ -308,9 +308,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.phoneVersionLbl.setText(f"<a style=\"text-decoration:none; color: white\" href=\"#\">{uuid}</a>")
 
     def show_version_text(self, version: str):
-        parsed_ver: Version = Version(version)
         support_str: str = "<span style=\"color: #32d74b;\">Supported!</span></a>"
-        if parsed_ver < DeviceManager.min_version:
+        if not self.device_manager.get_current_device_supported():
             support_str = "<span style=\"color: #ff0000;\">Not Supported.</span></a>"
         self.ui.phoneVersionLbl.setText(f"<a style=\"text-decoration:none; color: white;\" href=\"#\">iOS {version} {support_str}")
 

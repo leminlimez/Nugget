@@ -23,8 +23,6 @@ def show_error_msg(txt: str):
     detailsBox.exec()
 
 class DeviceManager:
-    min_version: Version = Version("17")
-
     ## Class Functions
     def __init__(self):
         self.devices: list[Device] = []
@@ -45,6 +43,7 @@ class DeviceManager:
                             uuid=device.serial,
                             name=vals['DeviceName'],
                             version=vals['ProductVersion'],
+                            build=vals['BuildVersion'],
                             model=vals['ProductType'],
                             locale=ld.locale,
                             ld=ld
@@ -68,7 +67,7 @@ class DeviceManager:
             self.current_device_index = 0
         else:
             self.data_singleton.current_device = self.devices[index]
-            if Version(self.devices[index].version) < DeviceManager.min_version:
+            if Version(self.devices[index].version) < Version("17.0"):
                 self.data_singleton.device_available = False
                 self.data_singleton.gestalt_path = None
             else:
@@ -92,6 +91,12 @@ class DeviceManager:
             return ""
         else:
             return self.data_singleton.current_device.uuid
+        
+    def get_current_device_supported(self) -> bool:
+        if self.data_singleton.current_device == None:
+            return False
+        else:
+            return self.data_singleton.current_device.supported()
 
     
     ## APPLYING OR REMOVING TWEAKS AND RESTORING
