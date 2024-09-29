@@ -127,6 +127,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.iphone16SettingsChk.clicked.connect(self.on_iphone16SettingsChk_clicked)
         self.ui.parallaxChk.clicked.connect(self.on_parallaxChk_clicked)
         self.ui.stageManagerChk.clicked.connect(self.on_stageManagerChk_clicked)
+        self.ui.enableMedusaChk.clicked.connect(self.on_enableMedusaChk_clicked)
         self.ui.ipadAppsChk.clicked.connect(self.on_ipadAppsChk_clicked)
         self.ui.shutterChk.clicked.connect(self.on_shutterChk_clicked)
         self.ui.findMyFriendsChk.clicked.connect(self.on_findMyFriendsChk_clicked)
@@ -235,6 +236,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.spoofModelChk.hide()
             if Version(self.device_manager.data_singleton.current_device.version) >= Version("18.0"):
                 self.ui.aodChk.show()
+                self.ui.iphone16SettingsChk.show()
                 self.ui.sleepApneaChk.show()
                 self.ui.featureFlagsPageBtn.show()
                 # show the other dynamic island options
@@ -242,6 +244,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.dynamicIslandDrp.addItem("2868 (iPhone 16 Pro Max Dynamic Island)")
             else:
                 self.ui.aodChk.hide()
+                self.ui.iphone16SettingsChk.hide()
                 self.ui.sleepApneaChk.hide()
                 self.ui.featureFlagsPageBtn.hide()
         else:
@@ -380,6 +383,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_stageManagerChk_clicked(self, checked: bool):
         tweaks["StageManager"].set_enabled(checked)
+    def on_enableMedusaChk_clicked(self, checked: bool):
+        tweaks["Medusa"].set_enabled(checked)
     def on_ipadAppsChk_clicked(self, checked: bool):
         tweaks["iPadApps"].set_enabled(checked)
     def on_shutterChk_clicked(self, checked: bool):

@@ -1566,7 +1566,7 @@ QToolButton:pressed {
               <item>
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Nugget GUI - Version 3.0 (beta 4)</string>
+                 <string>Nugget GUI - Version 3.0</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1968,6 +1968,13 @@ QComboBox QAbstractItemView::item:hover {
                       <widget class="QCheckBox" name="stageManagerChk">
                        <property name="text">
                         <string>Enable Stage Manager Supported (WARNING: risky on some devices, mainly phones)</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="enableMedusaChk">
+                       <property name="text">
+                        <string>Enable Medusa (iPad Multitasking) (WARNING: may be risky on some phones)</string>
                        </property>
                       </widget>
                      </item>

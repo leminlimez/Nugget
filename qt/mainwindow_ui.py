@@ -1072,6 +1072,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_8.addWidget(self.stageManagerChk)
 
+        self.enableMedusaChk = QCheckBox(self.gestaltPageContent)
+        self.enableMedusaChk.setObjectName(u"enableMedusaChk")
+
+        self.verticalLayout_8.addWidget(self.enableMedusaChk)
+
         self.ipadAppsChk = QCheckBox(self.gestaltPageContent)
         self.ipadAppsChk.setObjectName(u"ipadAppsChk")
 
@@ -2554,7 +2559,7 @@ class Ui_Nugget(object):
         self.toolButton_15.setText(QCoreApplication.translate("Nugget", u"Additional Thanks", None))
         self.libiBtn.setText(QCoreApplication.translate("Nugget", u"pymobiledevice3", None))
         self.qtBtn.setText(QCoreApplication.translate("Nugget", u"Qt Creator", None))
-        self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 3.0 (beta 4)", None))
+        self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 3.0", None))
         self.statusBarLbl.setText(QCoreApplication.translate("Nugget", u"Mobile Gestalt", None))
         self.label_9.setText(QCoreApplication.translate("Nugget", u"Device Subtype Preset", None))
         self.dynamicIslandDrp.setItemText(0, QCoreApplication.translate("Nugget", u"None", None))
@@ -2575,6 +2580,7 @@ class Ui_Nugget(object):
         self.iphone16SettingsChk.setText(QCoreApplication.translate("Nugget", u"Enable iPhone 16 Settings", None))
         self.parallaxChk.setText(QCoreApplication.translate("Nugget", u"Disable Wallpaper Parallax", None))
         self.stageManagerChk.setText(QCoreApplication.translate("Nugget", u"Enable Stage Manager Supported (WARNING: risky on some devices, mainly phones)", None))
+        self.enableMedusaChk.setText(QCoreApplication.translate("Nugget", u"Enable Medusa (iPad Multitasking) (WARNING: may be risky on some phones)", None))
         self.ipadAppsChk.setText(QCoreApplication.translate("Nugget", u"Allow iPad Apps on iPhone", None))
         self.shutterChk.setText(QCoreApplication.translate("Nugget", u"Disable Region Restrictions (ie. Shutter Sound)", None))
         self.findMyFriendsChk.setText(QCoreApplication.translate("Nugget", u"Enable Find My Friends", None))
