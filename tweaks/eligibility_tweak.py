@@ -62,8 +62,7 @@ class EligibilityTweak(Tweak):
         files_to_restore = [
             FileToRestore(
                 contents=eligibility_data,
-                restore_path="/var/db/os_eligibility/",
-                restore_name="eligibility.plist"
+                restore_path="/var/db/os_eligibility/eligibility.plist",
             )
         ]
 
@@ -74,19 +73,57 @@ class EligibilityTweak(Tweak):
             files_to_restore.append(
                 FileToRestore(
                     contents=config_data,
-                    restore_path="/var/MobileAsset/AssetsV2/com_apple_MobileAsset_OSEligibility/purpose_auto/c55a421c053e10233e5bfc15c42fa6230e5639a9.asset/AssetData/",
-                    restore_name="Config.plist"
+                    restore_path="/var/MobileAsset/AssetsV2/com_apple_MobileAsset_OSEligibility/purpose_auto/c55a421c053e10233e5bfc15c42fa6230e5639a9.asset/AssetData/Config.plist",
                 )
             )
         elif self.method == 1:
             files_to_restore.append(
                 FileToRestore(
                     contents=config_data,
-                    restore_path="/var/MobileAsset/AssetsV2/com_apple_MobileAsset_OSEligibility/purpose_auto/247556c634fc4cc4fd742f1b33af9abf194a986e.asset/AssetData/",
-                    restore_name="Config.plist"
+                    restore_path="/var/MobileAsset/AssetsV2/com_apple_MobileAsset_OSEligibility/purpose_auto/247556c634fc4cc4fd742f1b33af9abf194a986e.asset/AssetData/Config.plist",
                 )
             )
         
         # return the new files to restore
         return files_to_restore
     
+
+class AITweak(Tweak):
+    def __init__(self):
+        super().__init__(label="Enable Apple Intelligence (for Unsupported Devices) (Eligibility)", key=None, value="", min_version=Version("18.1"))
+    
+    def set_language_code(self, lang: str):
+        self.value = lang
+
+    def apply_tweak(self) -> FileToRestore:
+        if not self.enabled:
+            return None
+        langs = ["en"]
+        if self.value != "":
+            langs.append(self.value)
+        plist = {
+            "OS_ELIGIBILITY_DOMAIN_CALCIUM": {
+                "os_eligibility_answer_source_t": 1,
+                "os_eligibility_answer_t": 2,
+                "status": {
+                    "OS_ELIGIBILITY_INPUT_CHINA_CELLULAR": 2
+                }
+            },
+            "OS_ELIGIBILITY_DOMAIN_GREYMATTER": {
+                "context": {
+                    "OS_ELIGIBILITY_CONTEXT_ELIGIBLE_DEVICE_LANGUAGES": langs
+                },
+                "os_eligibility_answer_source_t": 1,
+                "os_eligibility_answer_t": 4,
+                "status": {
+                    "OS_ELIGIBILITY_INPUT_DEVICE_LANGUAGE": 3,
+                    "OS_ELIGIBILITY_INPUT_DEVICE_REGION_CODE": 3,
+                    "OS_ELIGIBILITY_INPUT_EXTERNAL_BOOT_DRIVE": 3,
+                    "OS_ELIGIBILITY_INPUT_GENERATIVE_MODEL_SYSTEM": 3,
+                    "OS_ELIGIBILITY_INPUT_SHARED_IPAD": 3,
+                    "OS_ELIGIBILITY_INPUT_SIRI_LANGUAGE": 3
+                }
+            }
+        }
+
+        return FileToRestore(contents=plistlib.dumps(plist), restore_path="/var/db/eligibilityd/eligibility.plist")

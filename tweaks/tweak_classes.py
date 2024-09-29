@@ -1,5 +1,6 @@
 from enum import Enum
 from devicemanagement.constants import Version
+from .basic_plist_locations import FileLocation
 
 class TweakModifyType(Enum):
     TOGGLE = 1
@@ -38,6 +39,89 @@ class Tweak:
 
     def apply_tweak(self):
         raise NotImplementedError
+    
+
+class BasicPlistTweak(Tweak):
+    def __init__(
+            self, label: str,
+            file_location: FileLocation,
+            key: str,
+            value: any = True,
+            edit_type: TweakModifyType = TweakModifyType.TOGGLE,
+            min_version: Version = Version("1.0"),
+            divider_below: bool = False
+        ):
+        super().__init__(label=label, key=key, subkey=None, value=value, edit_type=edit_type, min_version=min_version, divider_below=divider_below)
+        self.file_location = file_location
+
+    def apply_tweak(self, other_tweaks: dict) -> dict:
+        if not self.enabled:
+            return other_tweaks
+        if self.file_location in other_tweaks:
+            other_tweaks[self.file_location][self.key] = self.value
+        else:
+            other_tweaks[self.file_location] = {self.key: self.value}
+        return other_tweaks
+    
+
+class RdarFixTweak(BasicPlistTweak):
+    def __init__(self, divider_below: bool = False):
+        super().__init__(label="Fix RDAR (modifies resolution)", file_location=FileLocation.resolution, key=None, divider_below=divider_below)
+        self.mode = 0
+
+    def get_rdar_mode(self, model: str) -> int:
+        if (model == "iPhone11,2" or model == "iPhone11,4" or model == "iPhone11,6"
+            or model == "iPhone11,8"
+            or model == "iPhone12,1" or model == "iPhone12,3" or model == "iPhone12,5"):
+            self.mode = 1
+        elif (model == "iPhone13,1" or model == "iPhone13,2" or model == "iPhone13,3" or model == "iPhone13,4"
+              or model == "iPhone14,4" or model == "iPhone14,5" or model == "iPhone14,2" or model == "iPhone14,3"
+              or model == "iPhone14,7" or model == "iPhone14,8"):
+            self.mode = 2
+        elif (model == "iPhone12,8" or model == "iPhone14,6"):
+            self.mode = 3
+        return self.mode
+    
+    def get_rdar_title(self) -> str:
+        if self.mode == 1 or self.mode == 3:
+            return "Fix RDAR"
+        elif self.mode == 2:
+            return "Dynamic Island Status Bar Fix"
+        return "hide"
+    
+    def set_di_type(self, type: int):
+        self.di_type = type
+
+    def apply_tweak(self, other_tweaks: dict) -> dict:
+        if not self.enabled:
+            return other_tweaks
+        if self.mode == 1 or self.mode == 3:
+            plist = {
+                "canvas_height": 1791,
+                "canvas_width": 828
+            }
+            other_tweaks[self.file_location] = plist
+        elif self.mode == 2:
+            width = 2868
+            height = 1320
+            if self.di_type == 2556:
+                width = 1179
+                height = 2556
+            elif self.di_type == 2796 or self.di_type == 2976:
+                width = 1290
+                height = 2796
+            elif self.di_type == 2622:
+                width = 1206
+                height = 2622
+            elif self.di_type == 2868:
+                width = 1320
+                height = 2868
+            plist = {
+                "canvas_height": height,
+                "canvas_width": width
+            }
+            other_tweaks[self.file_location] = plist
+        return other_tweaks
 
 
 class MobileGestaltTweak(Tweak):

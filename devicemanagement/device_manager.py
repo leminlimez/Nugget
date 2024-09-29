@@ -10,7 +10,8 @@ from pymobiledevice3.lockdown import create_using_usbmux
 from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
 
-from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak
+from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, RdarFixTweak
+from tweaks.basic_plist_locations import FileLocationsList
 from Sparserestore.restore import restore_files, FileToRestore
 
 def show_error_msg(txt: str):
@@ -22,8 +23,6 @@ def show_error_msg(txt: str):
     detailsBox.exec()
 
 class DeviceManager:
-    min_version: Version = Version("17")
-
     ## Class Functions
     def __init__(self):
         self.devices: list[Device] = []
@@ -44,10 +43,12 @@ class DeviceManager:
                             uuid=device.serial,
                             name=vals['DeviceName'],
                             version=vals['ProductVersion'],
+                            build=vals['BuildVersion'],
                             model=vals['ProductType'],
                             locale=ld.locale,
                             ld=ld
                         )
+                    tweaks["RdarFix"].get_rdar_mode(vals['ProductType'])
                     self.devices.append(dev)
                 except Exception as e:
                     print(f"ERROR with lockdown device with UUID {device.serial}")
@@ -67,7 +68,7 @@ class DeviceManager:
             self.current_device_index = 0
         else:
             self.data_singleton.current_device = self.devices[index]
-            if Version(self.devices[index].version) < DeviceManager.min_version:
+            if Version(self.devices[index].version) < Version("17.0"):
                 self.data_singleton.device_available = False
                 self.data_singleton.gestalt_path = None
             else:
@@ -91,6 +92,12 @@ class DeviceManager:
             return ""
         else:
             return self.data_singleton.current_device.uuid
+        
+    def get_current_device_supported(self) -> bool:
+        if self.data_singleton.current_device == None:
+            return False
+        else:
+            return self.data_singleton.current_device.supported()
 
     
     ## APPLYING OR REMOVING TWEAKS AND RESTORING
@@ -105,6 +112,8 @@ class DeviceManager:
         # create the other plists
         flag_plist: dict = {}
         eligibility_files = None
+        ai_file = None
+        basic_plists: dict = {}
 
         # set the plist keys
         if not resetting:
@@ -114,9 +123,19 @@ class DeviceManager:
                     flag_plist = tweak.apply_tweak(flag_plist)
                 elif isinstance(tweak, EligibilityTweak):
                     eligibility_files = tweak.apply_tweak()
+                elif isinstance(tweak, AITweak):
+                    ai_file = tweak.apply_tweak()
+                elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak):
+                    basic_plists = tweak.apply_tweak(basic_plists)
                 else:
                     if gestalt_plist != None:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
+        
+        gestalt_data = None
+        if resetting:
+            gestalt_data = b""
+        elif gestalt_plist != None:
+            gestalt_data = plistlib.dumps(gestalt_plist)
         
         # Generate backup
         update_label("Generating backup...")
@@ -124,18 +143,31 @@ class DeviceManager:
         files_to_restore = [
             FileToRestore(
                 contents=plistlib.dumps(flag_plist),
-                restore_path="/var/preferences/FeatureFlags/",
-                restore_name="Global.plist"
+                restore_path="/var/preferences/FeatureFlags/Global.plist",
             )
         ]
-        if gestalt_plist != None:
+        if gestalt_data != None:
             files_to_restore.append(FileToRestore(
-                contents=plistlib.dumps(gestalt_plist),
-                restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/",
-                restore_name="com.apple.MobileGestalt.plist"
+                contents=gestalt_data,
+                restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
             ))
         if eligibility_files:
             files_to_restore += eligibility_files
+        if ai_file != None:
+            files_to_restore.append(ai_file)
+        for location, plist in basic_plists.items():
+            files_to_restore.append(FileToRestore(
+                contents=plistlib.dumps(plist),
+                restore_path=location.value
+            ))
+        # reset basic tweaks
+        if resetting:
+            empty_data = plistlib.dumps({})
+            for location in FileLocationsList:
+                files_to_restore.append(FileToRestore(
+                    contents=empty_data,
+                    restore_path=location.value
+                ))
 
         # restore to the device
         update_label("Restoring to device...")
@@ -163,8 +195,7 @@ class DeviceManager:
         try:
             restore_files(files=[FileToRestore(
                     contents=b"",
-                    restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/",
-                    restore_name="com.apple.MobileGestalt.plist"
+                    restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
                 )], reboot=True, lockdown_client=self.data_singleton.current_device.ld)
             QMessageBox.information(None, "Success!", "All done! Your device will now restart.")
             update_label("Success!")

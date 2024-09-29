@@ -1,5 +1,6 @@
 from Sparserestore.restore import restore_files, FileToRestore, restore_file
-from tweaks.tweaks import tweaks, TweakModifyType, FeatureFlagTweak, EligibilityTweak
+from tweaks.tweaks import tweaks, TweakModifyType, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, RdarFixTweak
+from tweaks.basic_plist_locations import FileLocationsList
 from devicemanagement.constants import Device
 
 from pymobiledevice3.exceptions import PyMobileDevice3Exception
@@ -48,7 +49,7 @@ while running:
 '---'                       \\   \\  /   \\   \\  /   `----'              
                              `--`-'     `--`-'                        
     """)
-    print("CLI v2.2")
+    print("CLI v3.0")
     print("by LeminLimez")
     print("Thanks @disfordottie for the clock animation and @lrdsnow for EU Enabler\n")
     print("Please back up your device before using!")
@@ -62,6 +63,7 @@ while running:
                     ld = create_using_usbmux(serial=current_device.serial)
                     vals = ld.all_values
                     device = Device(uuid=current_device.serial, name=vals['DeviceName'], version=vals['ProductVersion'], model=vals['ProductType'], locale=ld.locale, ld=ld)
+                    tweaks["RdarFix"].get_rdar_mode()
                 except Exception as e:
                     print(traceback.format_exc())
                     input("Press Enter to continue...")
@@ -102,6 +104,8 @@ while running:
             # create the other plists
             flag_plist: dict = {}
             eligibility_files = None
+            ai_file = None
+            basic_plists: dict = {}
 
             # verify the device credentials before continuing
             if gestalt_plist["CacheExtra"]["qNNddlUK+B/YlooNoymwgA"] != device.version or gestalt_plist["CacheExtra"]["0+nc/Udy4WNG8S+Q7a/s1A"] != device.model:
@@ -120,6 +124,10 @@ while running:
                     elif isinstance(tweak, EligibilityTweak):
                         tweak.set_region_code(device.locale[-2:])
                         eligibility_files = tweak.apply_tweak()
+                    elif isinstance(tweak, AITweak):
+                        ai_file = tweak.apply_tweak()
+                    elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak):
+                        basic_plists = tweak.apply_tweak(basic_plists)
                     else:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
 
@@ -127,17 +135,30 @@ while running:
             files_to_restore = [
                 FileToRestore(
                     contents=plistlib.dumps(gestalt_plist),
-                    restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/",
-                    restore_name="com.apple.MobileGestalt.plist"
+                    restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
                 ),
                 FileToRestore(
                     contents=plistlib.dumps(flag_plist),
-                    restore_path="/var/preferences/FeatureFlags/",
-                    restore_name="Global.plist"
+                    restore_path="/var/preferences/FeatureFlags/Global.plist",
                 )
             ]
             if eligibility_files != None:
                 files_to_restore += eligibility_files
+            if ai_file != None:
+                files_to_restore.append(ai_file)
+            for location, plist in basic_plists.items():
+                files_to_restore.append(FileToRestore(
+                    contents=plistlib.dumps(plist),
+                    restore_path=location.value
+                ))
+            # reset basic tweaks
+            if resetting:
+                empty_data = plistlib.dumps({})
+                for location in FileLocationsList:
+                    files_to_restore.append(FileToRestore(
+                        contents=empty_data,
+                        restore_path=location.value
+                    ))
             # restore to the device
             try:
                 restore_files(files=files_to_restore, reboot=True, lockdown_client=device.ld)
@@ -152,8 +173,7 @@ while running:
             try:
                 restore_files(files=[FileToRestore(
                     contents=b"",
-                    restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/",
-                    restore_name="com.apple.MobileGestalt.plist"
+                    restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
                 )], reboot=True, lockdown_client=device.ld)
             except Exception as e:
                 print(traceback.format_exc())
@@ -169,14 +189,18 @@ while running:
             if page > 0 and page <= num_tweaks and tweak.is_compatible(device.version):
                 if tweak.edit_type == TweakModifyType.TEXT:
                     # text input
-                    # for now it is just for set model, deal with a fix later
-                    print("\n\nSet Model Name")
-                    print("Leave blank to turn off custom name.\n")
-                    name = input("Enter Model Name: ")
-                    if name == "":
+                    inp_txt = ""
+                    print(f"\n\n{tweak.label}")
+                    print("Leave blank to turn off.\n")
+                    if tweak.label == "Set Device Model Name":
+                        inp_txt = "Enter Model Name: "
+                    elif tweak.label == "Set Lock Screen Footnote Text":
+                        inp_txt = "Enter Footnote: "
+                    new_txt = input(inp_txt)
+                    if new_txt == "":
                         tweak.set_enabled(False)
                     else:
-                        tweak.set_value(name)
+                        tweak.set_value(new_txt)
                 elif tweak.edit_type == TweakModifyType.PICKER:
                     # pick between values
                     print("\n\nSelect a value.")
@@ -192,6 +216,7 @@ while running:
                     picker_choice = int(input("Select option: "))
                     if picker_choice > 0 and picker_choice <= len(values):
                         tweak.set_selected_option(picker_choice-1)
+                        tweaks["RdarFix"].set_di_type(values[tweak.get_selected_option()])
                     elif picker_choice == len(values)+1:
                         tweak.set_enabled(False)
                 else:

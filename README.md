@@ -27,6 +27,8 @@ Note: I am not responsible if your device bootloops. Please back up your data be
 - Enabling lock screen clock animation, lock screen page duplication button, and more!
 - Disabling the new iOS 18 Photos UI
 - EU Enabler
+- Springboard Options (from Cowabunga Lite)
+- Internal Options (from Cowabunga Lite)
 
 ## Running the Program
 Requirements:
