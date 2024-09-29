@@ -9,32 +9,15 @@ class FileToRestore:
         self.owner = owner
         self.group = group
 
-    def __lt__(self, other):
-        return self.restore_path < other.restore_path
-
 # files is a list of FileToRestore objects
 def restore_files(files: list, reboot: bool = False, lockdown_client: LockdownClient = None):
     # create the files to be backed up
     files_list = [
-        backup.Directory("", "RootDomain"),
-        backup.Directory("Library", "RootDomain"),
-        backup.Directory("Library/Preferences", "RootDomain"),
     ]
-    sorted_files = sorted(files)
-    # create the links
-    for file_num in range(len(sorted_files)):
-        files_list.append(backup.ConcreteFile(
-                f"Library/Preferences/temp{file_num}",
-                "RootDomain",
-                owner=files[file_num].owner,
-                group=files[file_num].group,
-                contents=files[file_num].contents,
-                inode=file_num
-            ))
+    sorted_files = sorted(files, key=lambda x: x.restore_path, reverse=True)
     # add the file paths
     last_domain = ""
-    for file_num in range(len(sorted_files)):
-        file = files[file_num]
+    for file in sorted_files:
         base_path = "/var/backup"
         # set it to work in the separate volumes (prevents a bootloop)
         if file.restore_path.startswith("/var/mobile/"):
@@ -46,32 +29,22 @@ def restore_files(files: list, reboot: bool = False, lockdown_client: LockdownCl
             base_path = "/private/var/backup"
         # don't append the directory if it has already been added (restore will fail)
         path, name = os.path.split(file.restore_path)
-        domain_path = f"SysContainerDomain-../../../../../../../..{base_path}{path}"
+        domain_path = f"SysContainerDomain-../../../../../../../..{base_path}{path}/"
         if last_domain != domain_path:
             files_list.append(backup.Directory(
                 "",
-                domain_path,
+                f"{domain_path}/",
                 owner=file.owner,
                 group=file.group
             ))
             last_domain = domain_path
         files_list.append(backup.ConcreteFile(
             "",
-            f"{domain_path}{name}",
+            f"{domain_path}/{name}",
             owner=file.owner,
             group=file.group,
-            contents=b"",
-            inode=file_num
+            contents=file.contents
         ))
-    # break the hard links
-    for file_num in range(len(sorted_files)):
-        files_list.append(backup.ConcreteFile(
-                "",
-                f"SysContainerDomain-../../../../../../../../var/.backup.i/var/root/Library/Preferences/temp{file_num}",
-                owner=501,
-                group=501,
-                contents=b"",
-            ))  # Break the hard link
     files_list.append(backup.ConcreteFile("", "SysContainerDomain-../../../../../../../.." + "/crash_on_purpose", contents=b""))
 
     # create the backup
