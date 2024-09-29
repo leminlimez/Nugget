@@ -54,8 +54,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
         ## HOME PAGE LINKS
         self.ui.bigNuggetBtn.clicked.connect(self.on_bigNuggetBtn_clicked)
+        self.ui.starOnGithubBtn.clicked.connect(self.on_githubBtn_clicked)
 
-        # self.ui.leminGitHubBtn.clicked.connect(self.on_leminGitHubBtn_clicked)
+        self.ui.leminGithubBtn.clicked.connect(self.on_leminGitHubBtn_clicked)
         self.ui.leminTwitterBtn.clicked.connect(self.on_leminTwitterBtn_clicked)
         self.ui.leminKoFiBtn.clicked.connect(self.on_leminKoFiBtn_clicked)
         
@@ -345,6 +346,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_discordBtn_clicked(self):
         webbrowser.open_new_tab("https://discord.gg/MN8JgqSAqT")
+    def on_githubBtn_clicked(self):
+        webbrowser.open_new_tab("https://github.com/leminlimez/Nugget")
     def on_bigNuggetBtn_clicked(self):
         webbrowser.open_new_tab("https://cowabun.ga")
 
