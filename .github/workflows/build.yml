@@ -32,6 +32,12 @@ jobs:
           cd dist
           zip -r "Nugget_macOS_intel.zip" Nugget.app
 
+      - name: Upload ZIP (Intel)
+        uses: actions/upload-artifact@v2
+        with:
+          name: Nugget_macOS_intel
+          path: dist/Nugget_macOS_intel.zip
+
   build-macos-arm:
     runs-on: macos-latest
     steps:
@@ -55,6 +61,12 @@ jobs:
         run: |
           cd dist
           zip -r "Nugget_macOS_arm.zip" Nugget.app
+
+      - name: Upload ZIP (ARM)
+        uses: actions/upload-artifact@v2
+        with:
+          name: Nugget_macOS_arm
+          path: dist/Nugget_macOS_arm.zip
 
   build-windows:
     runs-on: windows-latest
@@ -80,12 +92,30 @@ jobs:
           cd dist
           Compress-Archive -Path Nugget -DestinationPath "Nugget_Windows.zip"
 
+      - name: Upload ZIP (Windows)
+        uses: actions/upload-artifact@v2
+        with:
+          name: Nugget_Windows
+          path: dist/Nugget_Windows.zip
+
   create-release:
     runs-on: ubuntu-latest
     needs: [build-macos-intel, build-macos-arm, build-windows]
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Download ZIP (Intel)
+        uses: actions/download-artifact@v2
+        with:
+          name: Nugget_macOS_intel
+
+      - name: Download ZIP (ARM)
+        uses: actions/download-artifact@v2
+        with:
+          name: Nugget_macOS_arm
+
+      - name: Download ZIP (Windows)
+        uses: actions/download-artifact@v2
+        with:
+          name: Nugget_Windows
 
       - name: Create Release
         uses: marvinpinto/action-automatic-releases@latest
@@ -94,6 +124,6 @@ jobs:
           prerelease: false
           automatic_release_tag: ${{ github.event.inputs.release_version }}
           files: |
-            dist/Nugget_macOS_intel.zip
-            dist/Nugget_macOS_arm.zip
-            dist/Nugget_Windows.zip
+            Nugget_macOS_intel.zip
+            Nugget_macOS_arm.zip
+            Nugget_Windows.zip
