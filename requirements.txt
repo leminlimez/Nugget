@@ -1,2 +1,3 @@
 pymobiledevice3
 pyside6
+PyInstaller
