@@ -251,7 +251,7 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             self.device_manager.set_current_device(index=None)
             self.ui.featureFlagsPageBtn.hide()
-            
+
         # update the interface
         self.updateInterfaceForNewDevice()
 
@@ -307,9 +307,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.phoneNameLbl.setText(self.device_manager.get_current_device_name())
         # version label
         ver = self.device_manager.get_current_device_version()
+        build = self.device_manager.get_current_device_build()
         self.show_uuid = False
         if ver != "":
-            self.show_version_text(version=ver)
+            self.show_version_text(version=ver, build=build)
         else:
             self.ui.phoneVersionLbl.setText("Please connect a device.")
 
@@ -317,22 +318,23 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.show_uuid:
             self.show_uuid = False
             ver = self.device_manager.get_current_device_version()
+            build = self.device_manager.get_current_device_build()
             if ver != "":
-                self.show_version_text(version=ver)
+                self.show_version_text(version=ver, build=build)
         else:
             self.show_uuid = True
             uuid = self.device_manager.get_current_device_uuid()
             if uuid != "":
                 self.ui.phoneVersionLbl.setText(f"<a style=\"text-decoration:none; color: white\" href=\"#\">{uuid}</a>")
 
-    def show_version_text(self, version: str):
+    def show_version_text(self, version: str, build: str):
         support_str: str = "<span style=\"color: #32d74b;\">Supported!</span></a>"
         if Version(version) < Version("17.0"):
             support_str = "<span style=\"color: #ff0000;\">Not Supported.</span></a>"
         elif not self.device_manager.get_current_device_supported():
             # sparserestore partially patched
             support_str = "<span style=\"color: #ffff00;\">Supported, YMMV.</span></a>"
-        self.ui.phoneVersionLbl.setText(f"<a style=\"text-decoration:none; color: white;\" href=\"#\">iOS {version} {support_str}")
+        self.ui.phoneVersionLbl.setText(f"<a style=\"text-decoration:none; color: white;\" href=\"#\">iOS {version} ({build}) {support_str}")
 
     ## HOME PAGE LINKS
     def on_bigMilkBtn_clicked(self):

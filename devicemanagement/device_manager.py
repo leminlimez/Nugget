@@ -88,6 +88,12 @@ class DeviceManager:
         else:
             return self.data_singleton.current_device.version
     
+    def get_current_device_build(self) -> str:
+        if self.data_singleton.current_device == None:
+            return ""
+        else:
+            return self.data_singleton.current_device.build
+    
     def get_current_device_uuid(self) -> str:
         if self.data_singleton.current_device == None:
             return ""
