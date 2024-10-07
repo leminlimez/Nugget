@@ -327,8 +327,11 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def show_version_text(self, version: str):
         support_str: str = "<span style=\"color: #32d74b;\">Supported!</span></a>"
-        if not self.device_manager.get_current_device_supported():
+        if Version(version) < Version("17.0"):
             support_str = "<span style=\"color: #ff0000;\">Not Supported.</span></a>"
+        elif not self.device_manager.get_current_device_supported():
+            # sparserestore partially patched
+            support_str = "<span style=\"color: #ffff00;\">Supported, YMMV.</span></a>"
         self.ui.phoneVersionLbl.setText(f"<a style=\"text-decoration:none; color: white;\" href=\"#\">iOS {version} {support_str}")
 
     ## HOME PAGE LINKS

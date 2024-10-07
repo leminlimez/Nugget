@@ -99,7 +99,62 @@ class DeviceManager:
             return False
         else:
             return self.data_singleton.current_device.supported()
+        
 
+    def add_skip_setup(self, files_to_restore: list[FileToRestore]):
+        if self.skip_setup and not self.get_current_device_supported():
+            # add the 2 skip setup files
+            cloud_config_plist: dict = {
+                "SkipSetup": ["WiFi", "Location", "Restore", "SIMSetup", "Android", "AppleID", "IntendedUser", "TOS", "Siri", "ScreenTime", "Diagnostics", "SoftwareUpdate", "Passcode", "Biometric", "Payment", "Zoom", "DisplayTone", "MessagingActivationUsingPhoneNumber", "HomeButtonSensitivity", "CloudStorage", "ScreenSaver", "TapToSetup", "Keyboard", "PreferredLanguage", "SpokenLanguage", "WatchMigration", "OnBoarding", "TVProviderSignIn", "TVHomeScreenSync", "Privacy", "TVRoom", "iMessageAndFaceTime", "AppStore", "Safety", "Multitasking", "ActionButton", "TermsOfAddress", "AccessibilityAppearance", "Welcome", "Appearance", "RestoreCompleted", "UpdateCompleted"],
+                "CloudConfigurationUIComplete": True,
+                "IsSupervised": False
+            }
+            files_to_restore.append(FileToRestore(
+                contents=plistlib.dumps(cloud_config_plist),
+                restore_path="systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist",
+                domain="SysSharedContainerDomain-."
+            ))
+            purplebuddy_plist: dict = {
+                "SetupDone": True,
+                "SetupFinishedAllSteps": True,
+                "UserChoseLanguage": True
+            }
+            files_to_restore.append(FileToRestore(
+                contents=plistlib.dumps(purplebuddy_plist),
+                restore_path="mobile/com.apple.purplebuddy.plist",
+                domain="ManagedPreferencesDomain"
+            ))
+
+    def get_domain_for_path(self, path: str) -> str:
+        mappings: dict = {
+            "/var/Managed Preferences/": "ManagedPreferencesDomain",
+            "/var/root/": "RootDomain",
+            "/var/preferences/": "SystemPreferencesDomain",
+            "/var/MobileDevice/": "MobileDeviceDomain",
+            "/var/mobile/": "HomeDomain",
+            "/var/db/": "DatabaseDomain",
+            "/var/containers/Shared/SystemGroup/": "SysSharedContainerDomain-.",
+            "/var/containers/Data/SystemGroup/": "SysContainerDomain-."
+        }
+        for mapping in mappings.keys:
+            if path.startswith(mapping):
+                new_path = path.replace(mapping, "")
+                return mappings[mapping], new_path
+        return None, path
+    
+    def concat_file(self, contents: str, path: str, files_to_restore: list[FileToRestore]):
+        if self.get_current_device_supported():
+            files_to_restore.append(FileToRestore(
+                contents=contents,
+                restore_path=path
+            ))
+        else:
+            domain, file_path = self.get_domain_for_path(path)
+            files_to_restore.append(FileToRestore(
+                contents=contents,
+                restore_path=file_path,
+                domain=domain
+            ))
     
     ## APPLYING OR REMOVING TWEAKS AND RESTORING
     def apply_changes(self, resetting: bool = False, update_label=lambda x: None):
@@ -141,34 +196,54 @@ class DeviceManager:
         # Generate backup
         update_label("Generating backup...")
         # create the restore file list
-        files_to_restore = [
-            FileToRestore(
-                contents=plistlib.dumps(flag_plist),
-                restore_path="/var/preferences/FeatureFlags/Global.plist",
-            )
+        files_to_restore: dict[FileToRestore] = [
         ]
+        self.concat_file(
+            contents=plistlib.dumps(flag_plist),
+            path="/var/preferences/FeatureFlags/Global.plist",
+            files_to_restore=files_to_restore
+        )
+        self.add_skip_setup(files_to_restore)
         if gestalt_data != None:
-            files_to_restore.append(FileToRestore(
+            self.concat_file(
                 contents=gestalt_data,
-                restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
-            ))
+                path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
+                files_to_restore=files_to_restore
+            )
         if eligibility_files:
-            files_to_restore += eligibility_files
+            new_eligibility_files: dict[FileToRestore] = []
+            if not self.get_current_device_supported():
+                # update the files
+                for file in eligibility_files:
+                    self.concat_file(
+                        contents=file.contents,
+                        path=file.restore_path,
+                        files_to_restore=new_eligibility_files
+                    )
+            else:
+                new_eligibility_files = eligibility_files
+            files_to_restore += new_eligibility_files
         if ai_file != None:
-            files_to_restore.append(ai_file)
+            self.concat_file(
+                contents=ai_file.contents,
+                path=ai_file.restore_path,
+                files_to_restore=files_to_restore
+            )
         for location, plist in basic_plists.items():
-            files_to_restore.append(FileToRestore(
+            self.concat_file(
                 contents=plistlib.dumps(plist),
-                restore_path=location.value
-            ))
+                path=location.value,
+                files_to_restore=files_to_restore
+            )
         # reset basic tweaks
         if resetting:
             empty_data = plistlib.dumps({})
             for location in FileLocationsList:
-                files_to_restore.append(FileToRestore(
+                self.concat_file(
                     contents=empty_data,
-                    restore_path=location.value
-                ))
+                    path=location.value,
+                    files_to_restore=files_to_restore
+                )
 
         # restore to the device
         update_label("Restoring to device...")
@@ -194,9 +269,11 @@ class DeviceManager:
         # restore to the device
         update_label("Restoring to device...")
         try:
+            domain, file_path = self.get_domain_for_path("/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist")
             restore_files(files=[FileToRestore(
                     contents=b"",
-                    restore_path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
+                    restore_path=file_path,
+                    domain=domain
                 )], reboot=True, lockdown_client=self.data_singleton.current_device.ld)
             QMessageBox.information(None, "Success!", "All done! Your device will now restart.")
             update_label("Success!")
