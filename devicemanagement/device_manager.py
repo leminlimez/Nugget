@@ -136,7 +136,7 @@ class DeviceManager:
             "/var/containers/Shared/SystemGroup/": "SysSharedContainerDomain-.",
             "/var/containers/Data/SystemGroup/": "SysContainerDomain-."
         }
-        for mapping in mappings.keys:
+        for mapping in mappings.keys():
             if path.startswith(mapping):
                 new_path = path.replace(mapping, "")
                 return mappings[mapping], new_path
