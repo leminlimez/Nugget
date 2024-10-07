@@ -23,6 +23,7 @@ def concat_exploit_file(file: FileToRestore, files_list: list[FileToRestore], la
     # don't append the directory if it has already been added (restore will fail)
     path, name = os.path.split(file.restore_path)
     domain_path = f"SysContainerDomain-../../../../../../../..{base_path}{path}/"
+    new_last_domain = last_domain
     if last_domain != domain_path:
         files_list.append(backup.Directory(
             "",
@@ -30,7 +31,7 @@ def concat_exploit_file(file: FileToRestore, files_list: list[FileToRestore], la
             owner=file.owner,
             group=file.group
         ))
-        last_domain = domain_path
+        new_last_domain = domain_path
     files_list.append(backup.ConcreteFile(
         "",
         f"{domain_path}/{name}",
@@ -38,11 +39,12 @@ def concat_exploit_file(file: FileToRestore, files_list: list[FileToRestore], la
         group=file.group,
         contents=file.contents
     ))
-    return last_domain
+    return new_last_domain
 
-def concat_regular_file(file: FileToRestore, files_list: list[FileToRestore], last_domain: str, last_path: str) -> str:
+def concat_regular_file(file: FileToRestore, files_list: list[FileToRestore], last_domain: str, last_path: str):
     path, name = os.path.split(file.restore_path)
     paths = path.split("/")
+    new_last_domain = last_domain
     # append the domain first
     if last_domain != file.domain:
         files_list.append(backup.Directory(
@@ -51,7 +53,7 @@ def concat_regular_file(file: FileToRestore, files_list: list[FileToRestore], la
             owner=file.owner,
             group=file.group
         ))
-        last_domain = last_domain
+        new_last_domain = file.domain
     # append each part of the path if it is not already there
     full_path = ""
     for path_item in paths:
@@ -61,20 +63,20 @@ def concat_regular_file(file: FileToRestore, files_list: list[FileToRestore], la
         if not last_path.startswith(full_path):
             files_list.append(backup.Directory(
                 full_path,
-                last_domain,
+                file.domain,
                 owner=file.owner,
                 group=file.group
             ))
             last_path = full_path
     # finally, append the file
     files_list.append(backup.ConcreteFile(
-        full_path,
-        last_domain,
+        f"{full_path}/{name}",
+        file.domain,
         owner=file.owner,
         group=file.group,
         contents=file.contents
     ))
-    return last_domain, last_path
+    return new_last_domain, full_path
 
 # files is a list of FileToRestore objects
 def restore_files(files: list, reboot: bool = False, lockdown_client: LockdownClient = None):
