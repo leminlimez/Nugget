@@ -29,6 +29,7 @@ class DeviceManager:
         self.data_singleton = DataSingleton()
         self.current_device_index = 0
         self.apply_over_wifi = True
+        self.skip_setup = True
     
     def get_devices(self):
         self.devices.clear()

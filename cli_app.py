@@ -49,7 +49,7 @@ while running:
 '---'                       \\   \\  /   \\   \\  /   `----'              
                              `--`-'     `--`-'                        
     """)
-    print("CLI v3.0")
+    print("CLI v3.1")
     print("by LeminLimez")
     print("Thanks @disfordottie for the clock animation and @lrdsnow for EU Enabler\n")
     print("Please back up your device before using!")

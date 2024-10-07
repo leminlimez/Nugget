@@ -1988,6 +1988,12 @@ class Ui_Nugget(object):
 
         self._21.addWidget(self.allowWifiApplyingChk)
 
+        self.skipSetupChk = QCheckBox(self.settingsPageContent)
+        self.skipSetupChk.setObjectName(u"skipSetupChk")
+        self.skipSetupChk.setChecked(True)
+
+        self._21.addWidget(self.skipSetupChk)
+
         self.verticalSpacer_51 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self._21.addItem(self.verticalSpacer_51)
@@ -2559,7 +2565,7 @@ class Ui_Nugget(object):
         self.toolButton_15.setText(QCoreApplication.translate("Nugget", u"Additional Thanks", None))
         self.libiBtn.setText(QCoreApplication.translate("Nugget", u"pymobiledevice3", None))
         self.qtBtn.setText(QCoreApplication.translate("Nugget", u"Qt Creator", None))
-        self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 3.0", None))
+        self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 3.1 (beta 1)", None))
         self.statusBarLbl.setText(QCoreApplication.translate("Nugget", u"Mobile Gestalt", None))
         self.label_9.setText(QCoreApplication.translate("Nugget", u"Device Subtype Preset", None))
         self.dynamicIslandDrp.setItemText(0, QCoreApplication.translate("Nugget", u"None", None))
@@ -2648,6 +2654,7 @@ class Ui_Nugget(object):
         self.resetGestaltBtn.setText(QCoreApplication.translate("Nugget", u"Reset Mobile Gestalt", None))
         self.springboardOptionsLbl1.setText(QCoreApplication.translate("Nugget", u"Nugget Settings", None))
         self.allowWifiApplyingChk.setText(QCoreApplication.translate("Nugget", u"Allow Applying Over WiFi", None))
+        self.skipSetupChk.setText(QCoreApplication.translate("Nugget", u"Skip Setup (non-exploit files only)", None))
         self.statusBarLbl_2.setText(QCoreApplication.translate("Nugget", u"Location Simulation", None))
         self.label_4.setText("")
         self.loadLocSimBtn.setText(QCoreApplication.translate("Nugget", u"Start Location Simulation", None))

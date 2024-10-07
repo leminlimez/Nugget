@@ -1566,7 +1566,7 @@ QToolButton:pressed {
               <item>
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Nugget GUI - Version 3.0</string>
+                 <string>Nugget GUI - Version 3.1 (beta 1)</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -3699,6 +3699,16 @@ button on the &quot;Apply&quot; page again to fix Face ID.</string>
                   <widget class="QCheckBox" name="allowWifiApplyingChk">
                    <property name="text">
                     <string>Allow Applying Over WiFi</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="skipSetupChk">
+                   <property name="text">
+                    <string>Skip Setup (non-exploit files only)</string>
                    </property>
                    <property name="checked">
                     <bool>true</bool>

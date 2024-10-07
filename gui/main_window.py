@@ -115,6 +115,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.chooseGestaltBtn.clicked.connect(self.on_chooseGestaltBtn_clicked)
         self.ui.resetGestaltBtn.clicked.connect(self.on_resetGestaltBtn_clicked)
 
+        ## SETTINGS PAGE ACTIONS
+        self.ui.allowWifiApplyingChk.clicked.connect(self.on_allowWifiApplyingChk_toggled)
+        self.ui.skipSetupChk.clicked.connect(self.on_skipSetupChk_toggled)
+
         ## MOBILE GESTALT PAGE ACTIONS
         self.ui.dynamicIslandDrp.activated.connect(self.on_dynamicIslandDrp_activated)
         self.ui.rdarFixChk.clicked.connect(self.on_rdarFixChk_clicked)
@@ -256,8 +260,11 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
             # load the settings
             apply_over_wifi = self.settings.value("apply_over_wifi", True, type=bool)
+            skip_setup = self.settings.value("skip_setup", True, type=bool)
             self.ui.allowWifiApplyingChk.setChecked(apply_over_wifi)
+            self.ui.skipSetupChk.setChecked(skip_setup)
             self.device_manager.apply_over_wifi = apply_over_wifi
+            self.device_manager.skip_setup = skip_setup
         except:
             pass
     
@@ -506,6 +513,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.device_manager.apply_over_wifi = checked
         # save the setting
         self.settings.setValue("apply_over_wifi", checked)
+    def on_skipSetupChk_toggled(self, checked: bool):
+        self.device_manager.skip_setup = checked
+        # save the setting
+        self.settings.setValue("skip_setup", checked)
 
 
     ## APPLY PAGE
