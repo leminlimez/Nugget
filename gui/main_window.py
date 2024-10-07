@@ -207,9 +207,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.devicePicker.setCurrentIndex(0)
         self.change_selected_device(0)
 
-        # update the interface
-        self.updateInterfaceForNewDevice()
-
     def change_selected_device(self, index):
         if len(self.device_manager.devices) > 0:
             self.device_manager.set_current_device(index=index)
@@ -254,6 +251,9 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             self.device_manager.set_current_device(index=None)
             self.ui.featureFlagsPageBtn.hide()
+            
+        # update the interface
+        self.updateInterfaceForNewDevice()
 
     def loadSettings(self):
         self.settings = QtCore.QSettings()
