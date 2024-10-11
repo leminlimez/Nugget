@@ -1408,28 +1408,89 @@ class Ui_Nugget(object):
 
         self.verticalLayout_16.addWidget(self.enableAIChk)
 
-        self.languageLbl = QLabel(self.euEnablerPageContent)
+        self.aiEnablerContent = QWidget(self.euEnablerPageContent)
+        self.aiEnablerContent.setObjectName(u"aiEnablerContent")
+        self.verticalLayout_34 = QVBoxLayout(self.aiEnablerContent)
+        self.verticalLayout_34.setObjectName(u"verticalLayout_34")
+        self.verticalLayout_34.setContentsMargins(0, 5, 0, 5)
+        self.languageLbl = QLabel(self.aiEnablerContent)
         self.languageLbl.setObjectName(u"languageLbl")
 
-        self.verticalLayout_16.addWidget(self.languageLbl)
+        self.verticalLayout_34.addWidget(self.languageLbl)
 
-        self.languageTxt = QLineEdit(self.euEnablerPageContent)
+        self.languageTxt = QLineEdit(self.aiEnablerContent)
         self.languageTxt.setObjectName(u"languageTxt")
 
-        self.verticalLayout_16.addWidget(self.languageTxt)
+        self.verticalLayout_34.addWidget(self.languageTxt)
 
-        self.aiInfoLabel = QLabel(self.euEnablerPageContent)
+        self.line_21 = QFrame(self.aiEnablerContent)
+        self.line_21.setObjectName(u"line_21")
+        self.line_21.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_21.setFrameShadow(QFrame.Plain)
+        self.line_21.setFrameShape(QFrame.Shape.HLine)
+
+        self.verticalLayout_34.addWidget(self.line_21)
+
+        self.aiInfoLabel = QLabel(self.aiEnablerContent)
         self.aiInfoLabel.setObjectName(u"aiInfoLabel")
         sizePolicy1.setHeightForWidth(self.aiInfoLabel.sizePolicy().hasHeightForWidth())
         self.aiInfoLabel.setSizePolicy(sizePolicy1)
         self.aiInfoLabel.setTextFormat(Qt.AutoText)
 
-        self.verticalLayout_16.addWidget(self.aiInfoLabel)
+        self.verticalLayout_34.addWidget(self.aiInfoLabel)
 
-        self.spoofModelChk = QCheckBox(self.euEnablerPageContent)
-        self.spoofModelChk.setObjectName(u"spoofModelChk")
+        self.label_8 = QLabel(self.aiEnablerContent)
+        self.label_8.setObjectName(u"label_8")
 
-        self.verticalLayout_16.addWidget(self.spoofModelChk)
+        self.verticalLayout_34.addWidget(self.label_8)
+
+        self.spoofedModelDrp = QComboBox(self.aiEnablerContent)
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.setObjectName(u"spoofedModelDrp")
+        self.spoofedModelDrp.setMaximumSize(QSize(325, 16777215))
+        self.spoofedModelDrp.setStyleSheet(u"QComboBox {\n"
+"	background-color: #3b3b3b;\n"
+"    border: none;\n"
+"    color: #e8e8e8;\n"
+"    font-size: 14px;\n"
+"	padding-left: 8px;\n"
+"	border-radius: 8px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    image: url(:/icon/caret-down-fill.svg);\n"
+"	icon-size: 16px;\n"
+"    subcontrol-position: right center;\n"
+"	margin-right: 8px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"	background-color: #3b3b3b;\n"
+"    outline: none;\n"
+"	margin-top: 1px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView::item {\n"
+"	background-color: #3b3b3b;\n"
+"	color: #e8e8e8;\n"
+"    padding-left: 8px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView::item:hover {\n"
+"    background-color: #535353;\n"
+"    color: #ffffff;\n"
+"}")
+
+        self.verticalLayout_34.addWidget(self.spoofedModelDrp)
+
+
+        self.verticalLayout_16.addWidget(self.aiEnablerContent)
 
         self.verticalSpacer_7 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -1994,6 +2055,27 @@ class Ui_Nugget(object):
 
         self._21.addWidget(self.skipSetupChk)
 
+        self.line_20 = QFrame(self.settingsPageContent)
+        self.line_20.setObjectName(u"line_20")
+        self.line_20.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_20.setFrameShadow(QFrame.Plain)
+        self.line_20.setFrameShape(QFrame.Shape.HLine)
+
+        self._21.addWidget(self.line_20)
+
+        self.deviceSettingsBtns = QHBoxLayout()
+        self.deviceSettingsBtns.setObjectName(u"deviceSettingsBtns")
+        self.deviceSettingsBtns.setContentsMargins(-1, -1, -1, 0)
+        self.resetPairBtn = QToolButton(self.settingsPageContent)
+        self.resetPairBtn.setObjectName(u"resetPairBtn")
+
+        self.deviceSettingsBtns.addWidget(self.resetPairBtn)
+
+
+        self._21.addLayout(self.deviceSettingsBtns)
+
         self.verticalSpacer_51 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self._21.addItem(self.verticalSpacer_51)
@@ -2513,6 +2595,7 @@ class Ui_Nugget(object):
         self.devicePicker.setCurrentIndex(-1)
         self.pages.setCurrentIndex(0)
         self.dynamicIslandDrp.setCurrentIndex(0)
+        self.spoofedModelDrp.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(Nugget)
@@ -2565,7 +2648,7 @@ class Ui_Nugget(object):
         self.toolButton_15.setText(QCoreApplication.translate("Nugget", u"Additional Thanks", None))
         self.libiBtn.setText(QCoreApplication.translate("Nugget", u"pymobiledevice3", None))
         self.qtBtn.setText(QCoreApplication.translate("Nugget", u"Qt Creator", None))
-        self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 3.1 (beta 1)", None))
+        self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 3.1 (beta 2)", None))
         self.statusBarLbl.setText(QCoreApplication.translate("Nugget", u"Mobile Gestalt", None))
         self.label_9.setText(QCoreApplication.translate("Nugget", u"Device Subtype Preset", None))
         self.dynamicIslandDrp.setItemText(0, QCoreApplication.translate("Nugget", u"None", None))
@@ -2616,9 +2699,16 @@ class Ui_Nugget(object):
         self.aiInfoLabel.setText(QCoreApplication.translate("Nugget", u"In order to download the AI model, you must spoof the device model. This will break Face ID until\n"
 "you revert.\n"
 "\n"
-"Once the model has downloaded, disable \"Spoof Device Model\" and click the \"Apply Tweaks\"\n"
+"Once the model has downloaded, set \"Spoofed Device Model\" to \"None\" and click the \"Apply Tweaks\"\n"
 "button on the \"Apply\" page again to fix Face ID.", None))
-        self.spoofModelChk.setText(QCoreApplication.translate("Nugget", u"Spoof Device Model", None))
+        self.label_8.setText(QCoreApplication.translate("Nugget", u"Spoofed Device Model", None))
+        self.spoofedModelDrp.setItemText(0, QCoreApplication.translate("Nugget", u"None", None))
+        self.spoofedModelDrp.setItemText(1, QCoreApplication.translate("Nugget", u"iPhone16,2 (iPhone 15 Pro)", None))
+        self.spoofedModelDrp.setItemText(2, QCoreApplication.translate("Nugget", u"iPhone17,3 (iPhone 16 Pro)", None))
+        self.spoofedModelDrp.setItemText(3, QCoreApplication.translate("Nugget", u"iPhone17,4 (iPhone 16 Pro Max)", None))
+        self.spoofedModelDrp.setItemText(4, QCoreApplication.translate("Nugget", u"iPad16,3 (iPad Pro M4)", None))
+
+        self.spoofedModelDrp.setCurrentText(QCoreApplication.translate("Nugget", u"None", None))
         self.springboardOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Springboard Options", None))
         self.label_13.setText(QCoreApplication.translate("Nugget", u"Lock Screen Footnote Text", None))
         self.footnoteTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Footnote Text", None))
@@ -2655,6 +2745,7 @@ class Ui_Nugget(object):
         self.springboardOptionsLbl1.setText(QCoreApplication.translate("Nugget", u"Nugget Settings", None))
         self.allowWifiApplyingChk.setText(QCoreApplication.translate("Nugget", u"Allow Applying Over WiFi", None))
         self.skipSetupChk.setText(QCoreApplication.translate("Nugget", u"Skip Setup (non-exploit files only)", None))
+        self.resetPairBtn.setText(QCoreApplication.translate("Nugget", u"Reset Device Pairing", None))
         self.statusBarLbl_2.setText(QCoreApplication.translate("Nugget", u"Location Simulation", None))
         self.label_4.setText("")
         self.loadLocSimBtn.setText(QCoreApplication.translate("Nugget", u"Start Location Simulation", None))

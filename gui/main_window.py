@@ -76,7 +76,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.enableAIChk.toggled.connect(self.on_enableAIChk_toggled)
         self.ui.languageTxt.textEdited.connect(self.on_languageTxt_textEdited)
-        self.ui.spoofModelChk.toggled.connect(self.on_spoofModelChk_toggled)
+        self.ui.spoofedModelDrp.activated.connect(self.on_spoofedModelDrp_activated)
 
         ## FEATURE FLAGS PAGE
         self.ui.clockAnimChk.toggled.connect(self.on_clockAnimChk_toggled)
@@ -225,16 +225,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.rdarFixChk.setText(f"{rdar_title} (modifies resolution)")
             if Version(self.device_manager.data_singleton.current_device.version) >= Version("18.1"):
                 self.ui.enableAIChk.show()
-                self.ui.languageLbl.hide()
-                self.ui.languageTxt.hide()
-                self.ui.aiInfoLabel.hide()
-                self.ui.spoofModelChk.hide()
+                self.ui.aiEnablerContent.hide()
             else:
                 self.ui.enableAIChk.hide()
-                self.ui.languageLbl.hide()
-                self.ui.languageTxt.hide()
-                self.ui.aiInfoLabel.hide()
-                self.ui.spoofModelChk.hide()
+                self.ui.aiEnablerContent.hide()
             if Version(self.device_manager.data_singleton.current_device.version) >= Version("18.0"):
                 self.ui.aodChk.show()
                 self.ui.iphone16SettingsChk.show()
@@ -447,19 +441,16 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["AIGestalt"].set_enabled(checked)
         # change the visibility of stuff
         if checked:
-            self.ui.languageLbl.show()
-            self.ui.languageTxt.show()
-            self.ui.aiInfoLabel.show()
-            self.ui.spoofModelChk.show()
+            self.ui.aiEnablerContent.show()
         else:
-            self.ui.languageLbl.hide()
-            self.ui.languageTxt.hide()
-            self.ui.aiInfoLabel.hide()
-            self.ui.spoofModelChk.hide()
+            self.ui.aiEnablerContent.hide()
     def on_languageTxt_textEdited(self, text: str):
         tweaks["AIEligibility"].set_language_code(text)
-    def on_spoofModelChk_toggled(self, checked: bool):
-        tweaks["SpoofModel"].set_enabled(checked)
+    def on_spoofedModelDrp_activated(self, index: int):
+        if index == 0:
+            tweaks["SpoofModel"].set_enabled(False)
+        else:
+            tweaks["SpoofModel"].set_selected_option(index - 1)
 
 
     ## SPRINGBOARD OPTIONS PAGE

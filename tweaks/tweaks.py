@@ -42,7 +42,7 @@ tweaks = {
     ## AI Enabler
     "AIEligibility": AITweak(),
     "AIGestalt": MobileGestaltTweak("Enable Apple Intelligence (for Unsupported Devices) (Gestalt)", "A62OafQ85EJAiiqKn4agtg", min_version=Version("18.1")),
-    "SpoofModel": MobileGestaltTweak("Spoof Device Model", "h9jDsbgj7xIVeIQ8S3/X3Q", value="iPhone17,3", min_version=Version("18.1"), divider_below=True),
+    "SpoofModel": MobileGestaltPickerTweak("Spoofed Device Model", "h9jDsbgj7xIVeIQ8S3/X3Q", ["iPhone16,2", "iPhone17,3", "iPhone17,4", "iPad16,3"], min_version=Version("18.1"), divider_below=True),
 
     ## Springboard Tweaks
     "LockScreenFootnote": BasicPlistTweak(
