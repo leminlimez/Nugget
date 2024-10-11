@@ -119,6 +119,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.allowWifiApplyingChk.clicked.connect(self.on_allowWifiApplyingChk_toggled)
         self.ui.skipSetupChk.clicked.connect(self.on_skipSetupChk_toggled)
 
+        self.ui.resetPairBtn.clicked.connect(self.on_resetPairBtn_clicked)
+
         ## MOBILE GESTALT PAGE ACTIONS
         self.ui.dynamicIslandDrp.activated.connect(self.on_dynamicIslandDrp_activated)
         self.ui.rdarFixChk.clicked.connect(self.on_rdarFixChk_clicked)
@@ -178,6 +180,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
             self.ui.sidebarDiv2.hide()
             self.ui.applyPageBtn.hide()
+
+            self.ui.resetPairBtn.hide()
         else:
             self.ui.devicePicker.setEnabled(True)
             # populate the ComboBox with device names
@@ -202,6 +206,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.euEnablerPageContent.setDisabled(False)
             self.ui.springboardOptionsPageContent.setDisabled(False)
             self.ui.internalOptionsPageContent.setDisabled(False)
+
+            self.ui.resetPairBtn.show()
         
         # update the selected device
         self.ui.devicePicker.setCurrentIndex(0)
@@ -244,7 +250,6 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.featureFlagsPageBtn.hide()
         else:
             self.device_manager.set_current_device(index=None)
-            self.ui.featureFlagsPageBtn.hide()
 
         # update the interface
         self.updateInterfaceForNewDevice()
@@ -513,6 +518,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.device_manager.skip_setup = checked
         # save the setting
         self.settings.setValue("skip_setup", checked)
+
+    # Device Options
+    def on_resetPairBtn_clicked(self):
+        self.device_manager.reset_device_pairing()
 
 
     ## APPLY PAGE

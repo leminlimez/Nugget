@@ -107,6 +107,16 @@ class DeviceManager:
             return self.data_singleton.current_device.supported()
         
 
+    def reset_device_pairing(self):
+        # first, unpair it
+        if self.data_singleton.current_device == None:
+            return
+        self.data_singleton.current_device.ld.unpair()
+        # next, pair it again
+        self.data_singleton.current_device.ld.pair()
+        QMessageBox.information(None, "Pairing Reset", "Your device's pairing was successfully reset. Refresh the device list before applying.")
+        
+
     def add_skip_setup(self, files_to_restore: list[FileToRestore]):
         if self.skip_setup and not self.get_current_device_supported():
             # add the 2 skip setup files
