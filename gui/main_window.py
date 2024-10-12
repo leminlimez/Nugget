@@ -13,6 +13,7 @@ from devicemanagement.device_manager import DeviceManager
 from gui.gestalt_dialog import GestaltDialog
 
 from tweaks.tweaks import tweaks
+from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 
 class Page(Enum):
     Home = 0
@@ -144,7 +145,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.internalStorageChk.clicked.connect(self.on_internalStorageChk_clicked)
         self.ui.collisionSOSChk.clicked.connect(self.on_collisionSOSChk_clicked)
         self.ui.aodChk.clicked.connect(self.on_aodChk_clicked)
-        self.ui.sleepApneaChk.clicked.connect(self.on_sleepApneaChk_clicked)
+
+        self.ui.addGestaltKeyBtn.clicked.connect(self.on_addGestaltKeyBtn_clicked)
 
 
     ## GENERAL INTERFACE FUNCTIONS
@@ -238,7 +240,6 @@ class MainWindow(QtWidgets.QMainWindow):
             if Version(self.device_manager.data_singleton.current_device.version) >= Version("18.0"):
                 self.ui.aodChk.show()
                 self.ui.iphone16SettingsChk.show()
-                self.ui.sleepApneaChk.show()
                 self.ui.featureFlagsPageBtn.show()
                 # show the other dynamic island options
                 self.ui.dynamicIslandDrp.addItem("2622 (iPhone 16 Pro Dynamic Island)")
@@ -246,7 +247,6 @@ class MainWindow(QtWidgets.QMainWindow):
             else:
                 self.ui.aodChk.hide()
                 self.ui.iphone16SettingsChk.hide()
-                self.ui.sleepApneaChk.hide()
                 self.ui.featureFlagsPageBtn.hide()
         else:
             self.device_manager.set_current_device(index=None)
@@ -417,8 +417,55 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["CollisionSOS"].set_enabled(checked)
     def on_aodChk_clicked(self, checked: bool):
         tweaks["AOD"].set_enabled(checked)
-    def on_sleepApneaChk_clicked(self, checked: bool):
-        tweaks["SleepApnea"].set_enabled(checked)
+
+    def update_custom_gestalt_value_type(self, id, idx, valueField: QtWidgets.QLineEdit):
+        new_str = CustomGestaltTweaks.set_tweak_value_type(id, idx)
+        # update the value
+        valueField.setText(new_str)
+
+    def on_addGestaltKeyBtn_clicked(self):
+        # create a blank gestalt value with default value of 1
+        key_identifier = CustomGestaltTweaks.create_tweak()
+
+        widget = QtWidgets.QWidget()
+        widget.setFixedHeight(35)
+        widget.setStyleSheet("QWidget { background: none; border: 1px solid #3b3b3b; border-radius: 8px; }")
+        hlayout = QtWidgets.QHBoxLayout(widget)
+        hlayout.setContentsMargins(9, 2, 9, 2)
+
+        # create the key field
+        keyField = QtWidgets.QLineEdit(widget)
+        # keyField.setMaximumWidth(200)
+        keyField.setPlaceholderText("Key")
+        keyField.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
+        keyField.setTextMargins(5, 0, 5, 0)
+        keyField.setContentsMargins(0, 0, 50, 0)
+        keyField.textEdited.connect(lambda txt, id=key_identifier: CustomGestaltTweaks.set_tweak_key(id, txt))
+        hlayout.addWidget(keyField)
+
+        # create the type dropdown
+        valueTypeDrp = QtWidgets.QComboBox(widget)
+        valueTypeDrp.setStyleSheet("QComboBox {\n	background-color: #3b3b3b;\n    border: none;\n    color: #e8e8e8;\n    font-size: 14px;\n	padding-left: 8px;\n	border-radius: 8px;\n}\n\nQComboBox::drop-down {\n    image: url(:/icon/caret-down-fill.svg);\n	icon-size: 16px;\n    subcontrol-position: right center;\n	margin-right: 8px;\n}\n\nQComboBox QAbstractItemView {\n	background-color: #3b3b3b;\n    outline: none;\n	margin-top: 1px;\n}\n\nQComboBox QAbstractItemView::item {\n	background-color: #3b3b3b;\n	color: #e8e8e8;\n    padding-left: 8px;\n}\n\nQComboBox QAbstractItemView::item:hover {\n    background-color: #535353;\n    color: #ffffff;\n}")
+        valueTypeDrp.setFixedWidth(120)
+        valueTypeDrp.addItems(ValueTypeStrings)
+        valueTypeDrp.setCurrentIndex(0)
+
+        # create the value edit field
+        valueField = QtWidgets.QLineEdit(widget)
+        valueField.setMaximumWidth(175)
+        valueField.setPlaceholderText("Value")
+        valueField.setText("1")
+        valueField.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight)
+        valueField.setTextMargins(5, 0, 5, 0)
+        valueField.textEdited.connect(lambda txt, id=key_identifier: CustomGestaltTweaks.set_tweak_value(id, txt))
+
+        valueTypeDrp.activated.connect(lambda idx, id=key_identifier, vf=valueField: self.update_custom_gestalt_value_type(id, idx, vf))
+        hlayout.addWidget(valueTypeDrp)
+        hlayout.addWidget(valueField)
+        
+        # add it to the main widget
+        widget.setDisabled(False)
+        self.ui.customKeysLayout.addWidget(widget)
 
     
     ## FEATURE FLAGS PAGE

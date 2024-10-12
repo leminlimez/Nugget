@@ -1726,7 +1726,7 @@ QToolButton:pressed {
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>0</y>
+                   <y>-292</y>
                    <width>650</width>
                    <height>1200</height>
                   </rect>
@@ -1759,7 +1759,7 @@ QToolButton:pressed {
                   <item>
                    <widget class="QWidget" name="gestaltPageContent" native="true">
                     <property name="enabled">
-                     <bool>false</bool>
+                     <bool>true</bool>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_8">
                      <property name="leftMargin">
@@ -1932,24 +1932,6 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QWidget" name="horizontalWidget" native="true">
-                       <layout class="QHBoxLayout" name="horizontalLayout_10">
-                        <property name="leftMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="topMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="rightMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="bottomMargin">
-                         <number>0</number>
-                        </property>
-                       </layout>
-                      </widget>
-                     </item>
-                     <item>
                       <widget class="Line" name="line_7">
                        <property name="styleSheet">
                         <string notr="true">QFrame {
@@ -2065,17 +2047,89 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="sleepApneaChk">
-                       <property name="text">
-                        <string>Enable Sleep Apnea (real) [for Apple Watches]</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
                       <widget class="QCheckBox" name="aodChk">
                        <property name="text">
                         <string>Enable Always On Display</string>
                        </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="Line" name="line_22">
+                       <property name="styleSheet">
+                        <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Plain</enum>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_11">
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QLabel" name="label_10">
+                         <property name="enabled">
+                          <bool>true</bool>
+                         </property>
+                         <property name="text">
+                          <string>Custom Gestalt Keys</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QToolButton" name="addGestaltKeyBtn">
+                         <property name="enabled">
+                          <bool>true</bool>
+                         </property>
+                         <property name="text">
+                          <string>  Add Key</string>
+                         </property>
+                         <property name="icon">
+                          <iconset>
+                           <normaloff>:/icon/plus.svg</normaloff>:/icon/plus.svg</iconset>
+                         </property>
+                         <property name="checkable">
+                          <bool>false</bool>
+                         </property>
+                         <property name="toolButtonStyle">
+                          <enum>Qt::ToolButtonTextBesideIcon</enum>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <widget class="Line" name="line_23">
+                       <property name="styleSheet">
+                        <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Plain</enum>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QWidget" name="customKeysCnt" native="true">
+                       <property name="enabled">
+                        <bool>true</bool>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_32">
+                        <item>
+                         <layout class="QVBoxLayout" name="customKeysLayout"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
