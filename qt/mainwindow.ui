@@ -2106,6 +2106,14 @@ QComboBox QAbstractItemView::item:hover {
                       </layout>
                      </item>
                      <item>
+                      <widget class="QLabel" name="label_12">
+                       <property name="text">
+                        <string>Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know
+what you are doing.</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
                       <widget class="Line" name="line_23">
                        <property name="styleSheet">
                         <string notr="true">QFrame {

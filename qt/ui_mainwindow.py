@@ -1167,6 +1167,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_8.addLayout(self.horizontalLayout_11)
 
+        self.label_12 = QLabel(self.gestaltPageContent)
+        self.label_12.setObjectName(u"label_12")
+
+        self.verticalLayout_8.addWidget(self.label_12)
+
         self.line_23 = QFrame(self.gestaltPageContent)
         self.line_23.setObjectName(u"line_23")
         self.line_23.setStyleSheet(u"QFrame {\n"
@@ -2722,6 +2727,8 @@ class Ui_Nugget(object):
         self.aodChk.setText(QCoreApplication.translate("Nugget", u"Enable Always On Display", None))
         self.label_10.setText(QCoreApplication.translate("Nugget", u"Custom Gestalt Keys", None))
         self.addGestaltKeyBtn.setText(QCoreApplication.translate("Nugget", u"  Add Key", None))
+        self.label_12.setText(QCoreApplication.translate("Nugget", u"Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know\n"
+"what you are doing.", None))
         self.internalOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Feature Flags", None))
         self.clockAnimChk.setText(QCoreApplication.translate("Nugget", u"Enable Lockscreen Clock Animation", None))
         self.lockscreenChk.setText(QCoreApplication.translate("Nugget", u"Enable Duplicate Lockscreen Button and Lockscreen Quickswitch", None))
