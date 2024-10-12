@@ -1,4 +1,4 @@
-from PySide6 import QtCore, QtWidgets
+from PySide6 import QtCore, QtWidgets, QtGui
 from enum import Enum
 import webbrowser
 import plistlib
@@ -423,6 +423,11 @@ class MainWindow(QtWidgets.QMainWindow):
         # update the value
         valueField.setText(new_str)
 
+    def delete_custom_gestalt_key(self, id: int, widget: QtWidgets.QWidget):
+        CustomGestaltTweaks.deactivate_tweak(id)
+        self.ui.customKeysLayout.removeWidget(widget)
+        widget.setParent(None)
+
     def on_addGestaltKeyBtn_clicked(self):
         # create a blank gestalt value with default value of 1
         key_identifier = CustomGestaltTweaks.create_tweak()
@@ -439,9 +444,16 @@ class MainWindow(QtWidgets.QMainWindow):
         keyField.setPlaceholderText("Key")
         keyField.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
         keyField.setTextMargins(5, 0, 5, 0)
-        keyField.setContentsMargins(0, 0, 50, 0)
         keyField.textEdited.connect(lambda txt, id=key_identifier: CustomGestaltTweaks.set_tweak_key(id, txt))
         hlayout.addWidget(keyField)
+
+        # create the delete button
+        delBtn = QtWidgets.QToolButton(widget)
+        delBtn.setIcon(QtGui.QIcon(":/icon/trash.svg"))
+        delBtn.setStyleSheet("QToolButton { margin-right: 8px; background: none; border: none; }\nQToolButton:pressed { background: none; color: #FFFFFF; }")
+        delBtn.setContentsMargins(0, 0, 50, 0)
+        delBtn.clicked.connect(lambda _, id=key_identifier, w=widget: self.delete_custom_gestalt_key(id, w))
+        hlayout.addWidget(delBtn)
 
         # create the type dropdown
         valueTypeDrp = QtWidgets.QComboBox(widget)

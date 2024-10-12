@@ -19,10 +19,11 @@ class CustomGestaltTweak:
     def __init__(self, tweak: MobileGestaltTweak, value_type: ValueType):
         self.tweak = tweak
         self.value_type = value_type
+        self.deactivated = False
 
     # TODO: change everything to not return the dict since it is passed by reference
     def apply_tweak(self, plist: dict) -> dict:
-        if self.tweak.key == "":
+        if self.deactivated or self.tweak.key == "":
             # key was not set, don't apply (maybe user added it by accident)
             return plist
         self.tweak.enabled = True
@@ -82,6 +83,10 @@ class CustomGestaltTweaks:
             new_str = "{  }"
         CustomGestaltTweaks.custom_tweaks[id].tweak.value = new_value
         return new_str
+    
+    def deactivate_tweak(id: int):
+        CustomGestaltTweaks.custom_tweaks[id].deactivated = True
+        CustomGestaltTweaks.custom_tweaks[id].tweak = None
 
     def apply_tweaks(plist: dict):
         for tweak in CustomGestaltTweaks.custom_tweaks:
