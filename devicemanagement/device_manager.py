@@ -11,6 +11,7 @@ from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
 
 from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, RdarFixTweak
+from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.basic_plist_locations import FileLocationsList
 from Sparserestore.restore import restore_files, FileToRestore
 
@@ -202,6 +203,9 @@ class DeviceManager:
                 else:
                     if gestalt_plist != None:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
+            # set the custom gestalt keys
+            if gestalt_plist != None:
+                gestalt_plist = CustomGestaltTweaks.apply_tweaks(gestalt_plist)
         
         gestalt_data = None
         if resetting:
