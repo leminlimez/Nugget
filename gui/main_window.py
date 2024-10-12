@@ -451,7 +451,6 @@ class MainWindow(QtWidgets.QMainWindow):
         delBtn = QtWidgets.QToolButton(widget)
         delBtn.setIcon(QtGui.QIcon(":/icon/trash.svg"))
         delBtn.setStyleSheet("QToolButton { margin-right: 8px; background: none; border: none; }\nQToolButton:pressed { background: none; color: #FFFFFF; }")
-        delBtn.setContentsMargins(0, 0, 50, 0)
         delBtn.clicked.connect(lambda _, id=key_identifier, w=widget: self.delete_custom_gestalt_key(id, w))
         hlayout.addWidget(delBtn)
 
