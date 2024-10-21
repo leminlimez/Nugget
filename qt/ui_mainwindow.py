@@ -945,7 +945,7 @@ class Ui_Nugget(object):
         self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, -292, 650, 1200))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 650, 1200))
         self.scrollAreaWidgetContents.setMinimumSize(QSize(650, 1200))
         self.scrollAreaWidgetContents.setMaximumSize(QSize(650, 1200))
         self.verticalLayout_9 = QVBoxLayout(self.scrollAreaWidgetContents)
@@ -2749,7 +2749,10 @@ class Ui_Nugget(object):
 "you revert.\n"
 "\n"
 "Once the model has downloaded, set \"Spoofed Device Model\" to \"None\" and click the \"Apply Tweaks\"\n"
-"button on the \"Apply\" page again to fix Face ID.", None))
+"button on the \"Apply\" page again to fix Face ID.\n"
+"\n"
+"Note: Do not close the app until after you revert the spoofed model! If you do, make sure to use\n"
+"your original mobilegestalt file.", None))
         self.label_8.setText(QCoreApplication.translate("Nugget", u"Spoofed Device Model", None))
         self.spoofedModelDrp.setItemText(0, QCoreApplication.translate("Nugget", u"None", None))
         self.spoofedModelDrp.setItemText(1, QCoreApplication.translate("Nugget", u"iPhone16,2 (iPhone 15 Pro)", None))
