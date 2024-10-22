@@ -3,6 +3,7 @@ import plistlib
 from pathlib import Path
 
 from PySide6.QtWidgets import QMessageBox
+from PySide6.QtCore import QSettings
 
 from pymobiledevice3 import usbmux
 from pymobiledevice3.lockdown import create_using_usbmux
@@ -32,7 +33,7 @@ class DeviceManager:
         self.apply_over_wifi = True
         self.skip_setup = True
     
-    def get_devices(self):
+    def get_devices(self, settings: QSettings):
         self.devices.clear()
         connected_devices = usbmux.list_devices()
         # Connect via usbmuxd
@@ -41,16 +42,26 @@ class DeviceManager:
                 try:
                     ld = create_using_usbmux(serial=device.serial)
                     vals = ld.all_values
+                    model = vals['ProductType']
+                    try:
+                        product_type = settings.value(device.serial + "_model", "", type=str)
+                        if product_type == "":
+                            # save the new product type
+                            settings.setValue(device.serial + "_model", model)
+                        else:
+                            model = product_type
+                    except:
+                        pass
                     dev = Device(
                             uuid=device.serial,
                             name=vals['DeviceName'],
                             version=vals['ProductVersion'],
                             build=vals['BuildVersion'],
-                            model=vals['ProductType'],
+                            model=model,
                             locale=ld.locale,
                             ld=ld
                         )
-                    tweaks["RdarFix"].get_rdar_mode(vals['ProductType'])
+                    tweaks["RdarFix"].get_rdar_mode(model)
                     self.devices.append(dev)
                 except Exception as e:
                     print(f"ERROR with lockdown device with UUID {device.serial}")
@@ -68,6 +79,7 @@ class DeviceManager:
             self.data_singleton.device_available = False
             self.data_singleton.gestalt_path = None
             self.current_device_index = 0
+            tweaks["SpoofModel"].value[0] = "Placeholder"
         else:
             self.data_singleton.current_device = self.devices[index]
             if Version(self.devices[index].version) < Version("17.0"):
@@ -75,6 +87,7 @@ class DeviceManager:
                 self.data_singleton.gestalt_path = None
             else:
                 self.data_singleton.device_available = True
+                tweaks["SpoofModel"].value[0] = self.data_singleton.current_device.model
             self.current_device_index = index
         
     def get_current_device_name(self) -> str:
@@ -285,10 +298,12 @@ class DeviceManager:
                 show_error_msg(type(e).__name__)
 
     ## RESETTING MOBILE GESTALT
-    def reset_mobilegestalt(self, update_label=lambda x: None):
+    def reset_mobilegestalt(self, settings: QSettings, update_label=lambda x: None):
         # restore to the device
         update_label("Restoring to device...")
         try:
+            # remove the saved device model
+            settings.setValue(self.data_singleton.current_device.uuid + "_model", "")
             domain, file_path = self.get_domain_for_path("/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist")
             restore_files(files=[FileToRestore(
                     contents=b"",

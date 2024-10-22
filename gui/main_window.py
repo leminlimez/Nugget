@@ -159,7 +159,7 @@ class MainWindow(QtWidgets.QMainWindow):
     @QtCore.Slot()
     def refresh_devices(self):
         # get the devices
-        self.device_manager.get_devices()
+        self.device_manager.get_devices(self.settings)
         # clear the picker
         self.ui.devicePicker.clear()
         self.ui.restoreProgressBar.hide()
@@ -510,10 +510,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_languageTxt_textEdited(self, text: str):
         tweaks["AIEligibility"].set_language_code(text)
     def on_spoofedModelDrp_activated(self, index: int):
-        if index == 0:
-            tweaks["SpoofModel"].set_enabled(False)
-        else:
-            tweaks["SpoofModel"].set_selected_option(index - 1)
+        tweaks["SpoofModel"].set_selected_option(index)
 
 
     ## SPRINGBOARD OPTIONS PAGE
@@ -622,7 +619,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # TODO: Add safety here
         self.device_manager.apply_changes(resetting=True, update_label=self.update_label)
     def on_resetGestaltBtn_clicked(self):
-        self.device_manager.reset_mobilegestalt(update_label=self.update_label)
+        self.device_manager.reset_mobilegestalt(self.settings, update_label=self.update_label)
 
     @QtCore.Slot()
     def on_applyTweaksBtn_clicked(self):
