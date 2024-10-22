@@ -1726,7 +1726,7 @@ QToolButton:pressed {
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>0</y>
+                   <y>-292</y>
                    <width>650</width>
                    <height>1200</height>
                   </rect>
@@ -2692,10 +2692,7 @@ QComboBox QAbstractItemView::item:hover {
 you revert.
 
 Once the model has downloaded, set &quot;Spoofed Device Model&quot; to &quot;None&quot; and click the &quot;Apply Tweaks&quot;
-button on the &quot;Apply&quot; page again to fix Face ID.
-
-Note: Do not close the app until after you revert the spoofed model! If you do, make sure to use
-your original mobilegestalt file.</string>
+button on the &quot;Apply&quot; page again to fix Face ID.</string>
                       </property>
                       <property name="textFormat">
                        <enum>Qt::AutoText</enum>
