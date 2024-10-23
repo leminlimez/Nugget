@@ -295,7 +295,7 @@ class DeviceManager:
             else:
                 print(traceback.format_exc())
                 update_label("Failed to restore")
-                show_error_msg(type(e).__name__)
+                show_error_msg(type(e).__name__ + ": " + repr(e))
 
     ## RESETTING MOBILE GESTALT
     def reset_mobilegestalt(self, settings: QSettings, update_label=lambda x: None):
@@ -323,4 +323,4 @@ class DeviceManager:
             else:
                 print(traceback.format_exc())
                 update_label("Failed to restore")
-                show_error_msg(type(e).__name__)
+                show_error_msg(type(e).__name__ + ": " + repr(e))
