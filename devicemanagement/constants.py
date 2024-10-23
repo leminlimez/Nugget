@@ -11,15 +11,19 @@ class Device:
         self.locale = locale
         self.ld = ld
 
+    def has_exploit(self) -> bool:
+        parsed_ver: Version = Version(self.version)
+        if (parsed_ver < Version("18.1")
+            or self.build == "22B5007p" or self.build == "22B5023e"
+            or self.build == "22B5034e" or self.build == "22B5045g"):
+            return True
+        return False
+
     def supported(self) -> bool:
         parsed_ver: Version = Version(self.version)
         if parsed_ver > Version("18.1"):
             return False
-        if (parsed_ver == Version("18.1")
-            and self.build != "22B5007p" and self.build != "22B5023e"
-            and self.build != "22B5034e" and self.build != "22B5045g"):
-            return False
-        return True
+        return self.has_exploit()
 
 class Version:
     def __init__(self, major: int, minor: int = 0, patch: int = 0):

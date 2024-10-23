@@ -240,7 +240,8 @@ class MainWindow(QtWidgets.QMainWindow):
             if Version(self.device_manager.data_singleton.current_device.version) >= Version("18.0"):
                 self.ui.aodChk.show()
                 self.ui.iphone16SettingsChk.show()
-                self.ui.featureFlagsPageBtn.show()
+                if self.device_manager.data_singleton.current_device.has_exploit():
+                    self.ui.featureFlagsPageBtn.show()
                 # show the other dynamic island options
                 self.ui.dynamicIslandDrp.addItem("2622 (iPhone 16 Pro Dynamic Island)")
                 self.ui.dynamicIslandDrp.addItem("2868 (iPhone 16 Pro Max Dynamic Island)")
