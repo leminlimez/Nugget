@@ -1566,7 +1566,7 @@ QToolButton:pressed {
               <item>
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Nugget GUI - Version 3.1 (beta 4)</string>
+                 <string>Nugget GUI - Version 4.0 (beta 5)</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -3879,6 +3879,16 @@ QComboBox QAbstractItemView::item:hover {
                   <widget class="QCheckBox" name="skipSetupChk">
                    <property name="text">
                     <string>Skip Setup (non-exploit files only)</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="autoRebootChk">
+                   <property name="text">
+                    <string>Auto Reboot After Applying</string>
                    </property>
                    <property name="checked">
                     <bool>true</bool>

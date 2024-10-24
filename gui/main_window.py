@@ -117,8 +117,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.resetGestaltBtn.clicked.connect(self.on_resetGestaltBtn_clicked)
 
         ## SETTINGS PAGE ACTIONS
-        self.ui.allowWifiApplyingChk.clicked.connect(self.on_allowWifiApplyingChk_toggled)
-        self.ui.skipSetupChk.clicked.connect(self.on_skipSetupChk_toggled)
+        self.ui.allowWifiApplyingChk.toggled.connect(self.on_allowWifiApplyingChk_toggled)
+        self.ui.skipSetupChk.toggled.connect(self.on_skipSetupChk_toggled)
+        self.ui.autoRebootChk.toggled.connect(self.on_autoRebootChk_toggled)
 
         self.ui.resetPairBtn.clicked.connect(self.on_resetPairBtn_clicked)
 
@@ -261,10 +262,15 @@ class MainWindow(QtWidgets.QMainWindow):
             # load the settings
             apply_over_wifi = self.settings.value("apply_over_wifi", True, type=bool)
             skip_setup = self.settings.value("skip_setup", True, type=bool)
+            auto_reboot = self.settings.value("auto_reboot", True, type=bool)
+
             self.ui.allowWifiApplyingChk.setChecked(apply_over_wifi)
             self.ui.skipSetupChk.setChecked(skip_setup)
+            self.ui.autoRebootChk.setChecked(auto_reboot)
+
             self.device_manager.apply_over_wifi = apply_over_wifi
             self.device_manager.skip_setup = skip_setup
+            self.device_manager.auto_reboot = auto_reboot
         except:
             pass
     
@@ -574,6 +580,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.device_manager.skip_setup = checked
         # save the setting
         self.settings.setValue("skip_setup", checked)
+    def on_autoRebootChk_toggled(self, checked: bool):
+        self.device_manager.auto_reboot = checked
+        # save the setting
+        self.settings.setValue("auto_reboot", checked)
 
     # Device Options
     def on_resetPairBtn_clicked(self):

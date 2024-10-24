@@ -30,8 +30,11 @@ class DeviceManager:
         self.devices: list[Device] = []
         self.data_singleton = DataSingleton()
         self.current_device_index = 0
+
+        # preferences
         self.apply_over_wifi = True
         self.skip_setup = True
+        self.auto_reboot = True
     
     def get_devices(self, settings: QSettings):
         self.devices.clear()
@@ -281,8 +284,11 @@ class DeviceManager:
         # restore to the device
         update_label("Restoring to device...")
         try:
-            restore_files(files=files_to_restore, reboot=True, lockdown_client=self.data_singleton.current_device.ld)
-            QMessageBox.information(None, "Success!", "All done! Your device will now restart.")
+            restore_files(files=files_to_restore, reboot=self.auto_reboot, lockdown_client=self.data_singleton.current_device.ld)
+            msg = "Your device will now restart."
+            if not self.auto_reboot:
+                msg = "Please restart your device to see changes."
+            QMessageBox.information(None, "Success!", "All done! " + msg)
             update_label("Success!")
         except Exception as e:
             if "Find My" in str(e):
@@ -309,8 +315,11 @@ class DeviceManager:
                     contents=b"",
                     restore_path=file_path,
                     domain=domain
-                )], reboot=True, lockdown_client=self.data_singleton.current_device.ld)
-            QMessageBox.information(None, "Success!", "All done! Your device will now restart.")
+                )], reboot=self.auto_reboot, lockdown_client=self.data_singleton.current_device.ld)
+            msg = "Your device will now restart."
+            if not self.auto_reboot:
+                msg = "Please restart your device to see changes."
+            QMessageBox.information(None, "Success!", "All done! " + msg)
             update_label("Success!")
         except Exception as e:
             if "Find My" in str(e):
