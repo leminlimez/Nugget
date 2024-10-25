@@ -221,6 +221,15 @@ class MainWindow(QtWidgets.QMainWindow):
             self.device_manager.set_current_device(index=index)
             # hide options that are for newer versions
             # remove the new dynamic island options
+            MinTweakVersions = {
+                "exploit": [("18.0", self.ui.featureFlagsPageBtn)],
+                "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
+                "18.0": [self.ui.aodChk, self.ui.iphone16SettingsChk]
+            }
+            MaxTweakVersions = {
+                "17.7": [self.ui.euEnablerContent]
+            }
+
             try:
                 self.ui.dynamicIslandDrp.removeItem(6)
                 self.ui.dynamicIslandDrp.removeItem(5)
@@ -232,24 +241,41 @@ class MainWindow(QtWidgets.QMainWindow):
             else:
                 self.ui.rdarFixChk.show()
                 self.ui.rdarFixChk.setText(f"{rdar_title} (modifies resolution)")
-            if Version(self.device_manager.data_singleton.current_device.version) >= Version("18.1"):
-                self.ui.enableAIChk.show()
-                self.ui.aiEnablerContent.hide()
-            else:
-                self.ui.enableAIChk.hide()
-                self.ui.aiEnablerContent.hide()
-            if Version(self.device_manager.data_singleton.current_device.version) >= Version("18.0"):
-                self.ui.aodChk.show()
-                self.ui.iphone16SettingsChk.show()
-                if self.device_manager.data_singleton.current_device.has_exploit():
-                    self.ui.featureFlagsPageBtn.show()
+            device_ver = Version(self.device_manager.data_singleton.current_device.version)
+            # toggle option visibility for the minimum versions
+            for version in MinTweakVersions.keys():
+                if version == "exploit":
+                    # disable if the exploit is not available
+                    for pair in MinTweakVersions[version]:
+                        if self.device_manager.data_singleton.current_device.has_exploit() and device_ver >= Version(pair[0]):
+                            pair[1].show()
+                        else:
+                            pair[1].hide()
+                else:
+                    # show views if the version is higher
+                    parsed_ver = Version(version)
+                    for view in MinTweakVersions[version]:
+                        if device_ver >= parsed_ver:
+                            view.show()
+                        else:
+                            view.hide()
+            # toggle option visibility for the max versions
+            for version in MaxTweakVersions.keys():
+                parsed_ver = Version(version)
+                for view in MaxTweakVersions[version]:
+                    if device_ver <= parsed_ver:
+                        view.show()
+                    else:
+                        view.hide()
+            if device_ver >= Version("18.0"):
                 # show the other dynamic island options
                 self.ui.dynamicIslandDrp.addItem("2622 (iPhone 16 Pro Dynamic Island)")
                 self.ui.dynamicIslandDrp.addItem("2868 (iPhone 16 Pro Max Dynamic Island)")
+            # eligibility page button
+            if device_ver >= Version("17.4") and (device_ver <= Version("17.7") or device_ver >= Version("18.1")):
+                self.ui.euEnablerPageBtn.show()
             else:
-                self.ui.aodChk.hide()
-                self.ui.iphone16SettingsChk.hide()
-                self.ui.featureFlagsPageBtn.hide()
+                self.ui.euEnablerPageBtn.hide()
         else:
             self.device_manager.set_current_device(index=None)
 

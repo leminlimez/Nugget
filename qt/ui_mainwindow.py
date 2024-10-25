@@ -1374,23 +1374,28 @@ class Ui_Nugget(object):
 
         self.verticalLayout_17.addWidget(self.line_13)
 
-        self.euEnablerEnabledChk = QCheckBox(self.euEnablerPage)
-        self.euEnablerEnabledChk.setObjectName(u"euEnablerEnabledChk")
-
-        self.verticalLayout_17.addWidget(self.euEnablerEnabledChk)
-
         self.euEnablerPageContent = QWidget(self.euEnablerPage)
         self.euEnablerPageContent.setObjectName(u"euEnablerPageContent")
         self.euEnablerPageContent.setEnabled(False)
         self.verticalLayout_16 = QVBoxLayout(self.euEnablerPageContent)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.verticalLayout_16.setContentsMargins(0, 0, 0, 0)
-        self.label_5 = QLabel(self.euEnablerPageContent)
+        self.euEnablerContent = QWidget(self.euEnablerPageContent)
+        self.euEnablerContent.setObjectName(u"euEnablerContent")
+        self.verticalLayout_36 = QVBoxLayout(self.euEnablerContent)
+        self.verticalLayout_36.setObjectName(u"verticalLayout_36")
+        self.verticalLayout_36.setContentsMargins(0, 0, 0, 0)
+        self.euEnablerEnabledChk = QCheckBox(self.euEnablerContent)
+        self.euEnablerEnabledChk.setObjectName(u"euEnablerEnabledChk")
+
+        self.verticalLayout_36.addWidget(self.euEnablerEnabledChk)
+
+        self.label_5 = QLabel(self.euEnablerContent)
         self.label_5.setObjectName(u"label_5")
 
-        self.verticalLayout_16.addWidget(self.label_5)
+        self.verticalLayout_36.addWidget(self.label_5)
 
-        self.methodChoiceDrp = QComboBox(self.euEnablerPageContent)
+        self.methodChoiceDrp = QComboBox(self.euEnablerContent)
         self.methodChoiceDrp.addItem("")
         self.methodChoiceDrp.addItem("")
         self.methodChoiceDrp.setObjectName(u"methodChoiceDrp")
@@ -1428,19 +1433,19 @@ class Ui_Nugget(object):
 "    color: #ffffff;\n"
 "}")
 
-        self.verticalLayout_16.addWidget(self.methodChoiceDrp)
+        self.verticalLayout_36.addWidget(self.methodChoiceDrp)
 
-        self.label_6 = QLabel(self.euEnablerPageContent)
+        self.label_6 = QLabel(self.euEnablerContent)
         self.label_6.setObjectName(u"label_6")
 
-        self.verticalLayout_16.addWidget(self.label_6)
+        self.verticalLayout_36.addWidget(self.label_6)
 
-        self.regionCodeTxt = QLineEdit(self.euEnablerPageContent)
+        self.regionCodeTxt = QLineEdit(self.euEnablerContent)
         self.regionCodeTxt.setObjectName(u"regionCodeTxt")
 
-        self.verticalLayout_16.addWidget(self.regionCodeTxt)
+        self.verticalLayout_36.addWidget(self.regionCodeTxt)
 
-        self.line_16 = QFrame(self.euEnablerPageContent)
+        self.line_16 = QFrame(self.euEnablerContent)
         self.line_16.setObjectName(u"line_16")
         self.line_16.setEnabled(False)
         self.line_16.setStyleSheet(u"QFrame {\n"
@@ -1449,7 +1454,10 @@ class Ui_Nugget(object):
         self.line_16.setFrameShadow(QFrame.Plain)
         self.line_16.setFrameShape(QFrame.Shape.HLine)
 
-        self.verticalLayout_16.addWidget(self.line_16)
+        self.verticalLayout_36.addWidget(self.line_16)
+
+
+        self.verticalLayout_16.addWidget(self.euEnablerContent)
 
         self.enableAIChk = QCheckBox(self.euEnablerPageContent)
         self.enableAIChk.setObjectName(u"enableAIChk")

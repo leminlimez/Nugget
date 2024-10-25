@@ -2511,13 +2511,6 @@ what you are doing.</string>
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="euEnablerEnabledChk">
-                <property name="text">
-                 <string>Enable EU Enabler</string>
-                </property>
-               </widget>
-              </item>
-              <item>
                <widget class="QWidget" name="euEnablerPageContent" native="true">
                 <property name="enabled">
                  <bool>false</bool>
@@ -2536,22 +2529,44 @@ what you are doing.</string>
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QLabel" name="label_5">
-                   <property name="text">
-                    <string>Method Type</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QComboBox" name="methodChoiceDrp">
-                   <property name="maximumSize">
-                    <size>
-                     <width>150</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QComboBox {
+                  <widget class="QWidget" name="euEnablerContent" native="true">
+                   <layout class="QVBoxLayout" name="verticalLayout_36">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QCheckBox" name="euEnablerEnabledChk">
+                      <property name="text">
+                       <string>Enable EU Enabler</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_5">
+                      <property name="text">
+                       <string>Method Type</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="methodChoiceDrp">
+                      <property name="maximumSize">
+                       <size>
+                        <width>150</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QComboBox {
 	background-color: #3b3b3b;
     border: none;
     color: #e8e8e8;
@@ -2583,49 +2598,52 @@ QComboBox QAbstractItemView::item:hover {
     background-color: #535353;
     color: #ffffff;
 }</string>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>Method 1</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Method 2</string>
-                    </property>
-                   </item>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="label_6">
-                   <property name="text">
-                    <string>Region Code (Should be 2 letters)</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="regionCodeTxt">
-                   <property name="placeholderText">
-                    <string>Region Code (Default: US)</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="Line" name="line_16">
-                   <property name="enabled">
-                    <bool>false</bool>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QFrame {
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>Method 1</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Method 2</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_6">
+                      <property name="text">
+                       <string>Region Code (Should be 2 letters)</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="regionCodeTxt">
+                      <property name="placeholderText">
+                       <string>Region Code (Default: US)</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="Line" name="line_16">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QFrame {
 	color: #414141;
 }</string>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Plain</enum>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </widget>
                  </item>
                  <item>
