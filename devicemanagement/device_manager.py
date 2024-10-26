@@ -38,7 +38,18 @@ class DeviceManager:
     
     def get_devices(self, settings: QSettings):
         self.devices.clear()
-        connected_devices = usbmux.list_devices()
+        # handle errors when failing to get connected devices
+        try:
+            connected_devices = usbmux.list_devices()
+        except:
+            show_error_msg(
+                """
+                Failed to get device list. Click \"Show Details\" for the traceback.
+
+                If you are on Windows, make sure you have the \"Apple Devices\" app from the Microsoft Store or iTunes from Apple's website.
+                If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.
+                """
+            )
         # Connect via usbmuxd
         for device in connected_devices:
             if self.apply_over_wifi or device.is_usb:
@@ -68,7 +79,7 @@ class DeviceManager:
                     self.devices.append(dev)
                 except Exception as e:
                     print(f"ERROR with lockdown device with UUID {device.serial}")
-                    show_error_msg(type(e).__name__)
+                    show_error_msg(type(e).__name__ + ": " + repr(e))
         
         if len(connected_devices) > 0:
             self.set_current_device(index=0)
