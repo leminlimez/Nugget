@@ -1,11 +1,11 @@
 # Nugget
-Unlock your device's full potential! Works on all versions iOS 17.0-18.1 beta 4
+Unlock your device's full potential!
 
-Sparserestore was patched in iOS 18.1 beta 5. It will not be supported, please stop asking.
+Sparserestore works on all versions iOS 17.0-17.7 and iOS 18.0-18.1 beta 4. There is partial support for iOS 17.7.1 and iOS 18.1 beta 5+.
 
 This uses the sparserestore exploit to write to files outside of the intended restore location, like mobilegestalt.
 
-Note: I am not responsible if your device bootloops. Please back up your data before using.
+Note: I am not responsible if your device bootloops. Please back up your data before using!
 
 ## Features
 - Enable Dynamic Island on any device
@@ -27,13 +27,19 @@ Note: I am not responsible if your device bootloops. Please back up your data be
 - Enabling lock screen clock animation, lock screen page duplication button, and more!
 - Disabling the new iOS 18 Photos UI
 - EU Enabler
+- AI Enabler
 - Springboard Options (from Cowabunga Lite)
 - Internal Options (from Cowabunga Lite)
 
 ## Running the Program
-Requirements:
+**Requirements:**
 - pymobiledevice3
 - Python 3.8 or newer
+
+- **Windows:**
+  - Either [Apple Devices (from Microsoft Store)](https://apps.microsoft.com/detail/9np83lwlpz9k%3Fhl%3Den-US%26gl%3DUS&ved=2ahUKEwjE-svo7qyJAxWTlYkEHQpbH3oQFnoECBoQAQ&usg=AOvVaw0rZTXCFmRaHAifkEEu9tMI) app or [iTunes (from Apple website)](https://support.apple.com/en-us/106372)
+- **Linux:**
+  - [usbmuxd](https://github.com/libimobiledevice/usbmuxd) and [libimobiledevice](https://github.com/libimobiledevice/libimobiledevice)
 
 Note: It is highly recommended to use a virtual environment:
 ```
@@ -67,4 +73,5 @@ The application itself can be compiled by running `compile.py`.
 - [JJTech](https://github.com/JJTech0130) for Sparserestore/[TrollRestore](https://github.com/JJTech0130/TrollRestore)
 - [pymobiledevice3](https://github.com/doronz88/pymobiledevice3)
 - [disfordottie](https://x.com/disfordottie) for some global flag features
+- [sneakyf1shy](https://github.com/f1shy-dev) for [AI Enabler](https://gist.github.com/f1shy-dev/23b4a78dc283edd30ae2b2e6429129b5)
 
