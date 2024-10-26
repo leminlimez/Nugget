@@ -196,8 +196,6 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.locSimPageBtn.hide()
             self.ui.sidebarDiv1.show()
             self.ui.gestaltPageBtn.show()
-            # self.ui.featureFlagsPageBtn.show()
-            self.ui.euEnablerPageBtn.show()
             self.ui.springboardOptionsPageBtn.show()
             self.ui.internalOptionsPageBtn.show()
             
