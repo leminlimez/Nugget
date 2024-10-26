@@ -2784,12 +2784,17 @@ QComboBox QAbstractItemView::item:hover {
                       </item>
                       <item>
                        <property name="text">
+                        <string>iPhone17,4 (iPhone 16 Plus)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
                         <string>iPhone17,3 (iPhone 16 Pro)</string>
                        </property>
                       </item>
                       <item>
                        <property name="text">
-                        <string>iPhone17,4 (iPhone 16 Pro Max)</string>
+                        <string>iPhone17,2 (iPhone 16 Pro Max)</string>
                        </property>
                       </item>
                       <item>

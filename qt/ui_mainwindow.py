@@ -1508,6 +1508,7 @@ class Ui_Nugget(object):
         self.spoofedModelDrp.addItem("")
         self.spoofedModelDrp.addItem("")
         self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
         self.spoofedModelDrp.setObjectName(u"spoofedModelDrp")
         self.spoofedModelDrp.setMaximumSize(QSize(325, 16777215))
         self.spoofedModelDrp.setStyleSheet(u"QComboBox {\n"
@@ -2767,9 +2768,10 @@ class Ui_Nugget(object):
         self.label_8.setText(QCoreApplication.translate("Nugget", u"Spoofed Device Model", None))
         self.spoofedModelDrp.setItemText(0, QCoreApplication.translate("Nugget", u"None", None))
         self.spoofedModelDrp.setItemText(1, QCoreApplication.translate("Nugget", u"iPhone16,2 (iPhone 15 Pro)", None))
-        self.spoofedModelDrp.setItemText(2, QCoreApplication.translate("Nugget", u"iPhone17,3 (iPhone 16 Pro)", None))
-        self.spoofedModelDrp.setItemText(3, QCoreApplication.translate("Nugget", u"iPhone17,4 (iPhone 16 Pro Max)", None))
-        self.spoofedModelDrp.setItemText(4, QCoreApplication.translate("Nugget", u"iPad16,3 (iPad Pro M4)", None))
+        self.spoofedModelDrp.setItemText(2, QCoreApplication.translate("Nugget", u"iPhone17,4 (iPhone 16 Plus)", None))
+        self.spoofedModelDrp.setItemText(3, QCoreApplication.translate("Nugget", u"iPhone17,3 (iPhone 16 Pro)", None))
+        self.spoofedModelDrp.setItemText(4, QCoreApplication.translate("Nugget", u"iPhone17,2 (iPhone 16 Pro Max)", None))
+        self.spoofedModelDrp.setItemText(5, QCoreApplication.translate("Nugget", u"iPad16,3 (iPad Pro M4)", None))
 
         self.spoofedModelDrp.setCurrentText(QCoreApplication.translate("Nugget", u"None", None))
         self.springboardOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Springboard Options", None))
