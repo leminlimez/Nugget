@@ -23,9 +23,6 @@ class Device:
         return False
 
     def supported(self) -> bool:
-        parsed_ver: Version = Version(self.version)
-        if parsed_ver > Version("18.1"):
-            return False
         return self.has_exploit()
 
 class Version:
