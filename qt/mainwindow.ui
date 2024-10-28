@@ -1566,7 +1566,7 @@ QToolButton:pressed {
               <item>
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Nugget GUI - Version 3.0</string>
+                 <string>Nugget GUI - Version 4.0</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1759,7 +1759,7 @@ QToolButton:pressed {
                   <item>
                    <widget class="QWidget" name="gestaltPageContent" native="true">
                     <property name="enabled">
-                     <bool>false</bool>
+                     <bool>true</bool>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_8">
                      <property name="leftMargin">
@@ -1932,24 +1932,6 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QWidget" name="horizontalWidget" native="true">
-                       <layout class="QHBoxLayout" name="horizontalLayout_10">
-                        <property name="leftMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="topMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="rightMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="bottomMargin">
-                         <number>0</number>
-                        </property>
-                       </layout>
-                      </widget>
-                     </item>
-                     <item>
                       <widget class="Line" name="line_7">
                        <property name="styleSheet">
                         <string notr="true">QFrame {
@@ -2065,17 +2047,97 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="sleepApneaChk">
-                       <property name="text">
-                        <string>Enable Sleep Apnea (real) [for Apple Watches]</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
                       <widget class="QCheckBox" name="aodChk">
                        <property name="text">
                         <string>Enable Always On Display</string>
                        </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="Line" name="line_22">
+                       <property name="styleSheet">
+                        <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Plain</enum>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_11">
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QLabel" name="label_10">
+                         <property name="enabled">
+                          <bool>true</bool>
+                         </property>
+                         <property name="text">
+                          <string>Custom Gestalt Keys</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QToolButton" name="addGestaltKeyBtn">
+                         <property name="enabled">
+                          <bool>true</bool>
+                         </property>
+                         <property name="text">
+                          <string>  Add Key</string>
+                         </property>
+                         <property name="icon">
+                          <iconset>
+                           <normaloff>:/icon/plus.svg</normaloff>:/icon/plus.svg</iconset>
+                         </property>
+                         <property name="checkable">
+                          <bool>false</bool>
+                         </property>
+                         <property name="toolButtonStyle">
+                          <enum>Qt::ToolButtonTextBesideIcon</enum>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_12">
+                       <property name="text">
+                        <string>Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know
+what you are doing.</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="Line" name="line_23">
+                       <property name="styleSheet">
+                        <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Plain</enum>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QWidget" name="customKeysCnt" native="true">
+                       <property name="enabled">
+                        <bool>true</bool>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_32">
+                        <item>
+                         <layout class="QVBoxLayout" name="customKeysLayout"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
@@ -2449,13 +2511,6 @@ QComboBox QAbstractItemView::item:hover {
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="euEnablerEnabledChk">
-                <property name="text">
-                 <string>Enable EU Enabler</string>
-                </property>
-               </widget>
-              </item>
-              <item>
                <widget class="QWidget" name="euEnablerPageContent" native="true">
                 <property name="enabled">
                  <bool>false</bool>
@@ -2474,22 +2529,44 @@ QComboBox QAbstractItemView::item:hover {
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QLabel" name="label_5">
-                   <property name="text">
-                    <string>Method Type</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QComboBox" name="methodChoiceDrp">
-                   <property name="maximumSize">
-                    <size>
-                     <width>150</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QComboBox {
+                  <widget class="QWidget" name="euEnablerContent" native="true">
+                   <layout class="QVBoxLayout" name="verticalLayout_36">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QCheckBox" name="euEnablerEnabledChk">
+                      <property name="text">
+                       <string>Enable EU Enabler</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_5">
+                      <property name="text">
+                       <string>Method Type</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="methodChoiceDrp">
+                      <property name="maximumSize">
+                       <size>
+                        <width>150</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QComboBox {
 	background-color: #3b3b3b;
     border: none;
     color: #e8e8e8;
@@ -2521,49 +2598,52 @@ QComboBox QAbstractItemView::item:hover {
     background-color: #535353;
     color: #ffffff;
 }</string>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>Method 1</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Method 2</string>
-                    </property>
-                   </item>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="label_6">
-                   <property name="text">
-                    <string>Region Code (Should be 2 letters)</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="regionCodeTxt">
-                   <property name="placeholderText">
-                    <string>Region Code (Default: US)</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="Line" name="line_16">
-                   <property name="enabled">
-                    <bool>false</bool>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QFrame {
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>Method 1</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Method 2</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_6">
+                      <property name="text">
+                       <string>Region Code (Should be 2 letters)</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="regionCodeTxt">
+                      <property name="placeholderText">
+                       <string>Region Code (Default: US)</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="Line" name="line_16">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QFrame {
 	color: #414141;
 }</string>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Plain</enum>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </widget>
                  </item>
                  <item>
@@ -2574,44 +2654,157 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="languageLbl">
-                   <property name="text">
-                    <string>Language Code (not needed for English)</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="languageTxt">
-                   <property name="placeholderText">
-                    <string>Language Code (i.e. en)</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="aiInfoLabel">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="text">
-                    <string>In order to download the AI model, you must spoof the device model. This will break Face ID until
+                  <widget class="QWidget" name="aiEnablerContent" native="true">
+                   <layout class="QVBoxLayout" name="verticalLayout_34">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>5</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>5</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="languageLbl">
+                      <property name="text">
+                       <string>Language Code (not needed for English)</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="languageTxt">
+                      <property name="placeholderText">
+                       <string>Language Code (i.e. en)</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="Line" name="line_21">
+                      <property name="styleSheet">
+                       <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Plain</enum>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="aiInfoLabel">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="text">
+                       <string>In order to download the AI model, you must spoof the device model. This will break Face ID until
 you revert.
 
-Once the model has downloaded, disable &quot;Spoof Device Model&quot; and click the &quot;Apply Tweaks&quot;
+Once the model has downloaded, set &quot;Spoofed Device Model&quot; to &quot;None&quot; and click the &quot;Apply Tweaks&quot;
 button on the &quot;Apply&quot; page again to fix Face ID.</string>
-                   </property>
-                   <property name="textFormat">
-                    <enum>Qt::AutoText</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="spoofModelChk">
-                   <property name="text">
-                    <string>Spoof Device Model</string>
-                   </property>
+                      </property>
+                      <property name="textFormat">
+                       <enum>Qt::AutoText</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_8">
+                      <property name="text">
+                       <string>Spoofed Device Model</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="spoofedModelDrp">
+                      <property name="maximumSize">
+                       <size>
+                        <width>325</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QComboBox {
+	background-color: #3b3b3b;
+    border: none;
+    color: #e8e8e8;
+    font-size: 14px;
+	padding-left: 8px;
+	border-radius: 8px;
+}
+
+QComboBox::drop-down {
+    image: url(:/icon/caret-down-fill.svg);
+	icon-size: 16px;
+    subcontrol-position: right center;
+	margin-right: 8px;
+}
+
+QComboBox QAbstractItemView {
+	background-color: #3b3b3b;
+    outline: none;
+	margin-top: 1px;
+}
+
+QComboBox QAbstractItemView::item {
+	background-color: #3b3b3b;
+	color: #e8e8e8;
+    padding-left: 8px;
+}
+
+QComboBox QAbstractItemView::item:hover {
+    background-color: #535353;
+    color: #ffffff;
+}</string>
+                      </property>
+                      <property name="currentText">
+                       <string>None</string>
+                      </property>
+                      <property name="currentIndex">
+                       <number>0</number>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>None</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPhone16,2 (iPhone 15 Pro)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPhone17,4 (iPhone 16 Plus)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPhone17,3 (iPhone 16 Pro)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPhone17,2 (iPhone 16 Pro Max)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad16,3 (iPad Pro M4)</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
                   </widget>
                  </item>
                  <item>
@@ -3704,6 +3897,78 @@ button on the &quot;Apply&quot; page again to fix Face ID.</string>
                     <bool>true</bool>
                    </property>
                   </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="skipSetupChk">
+                   <property name="text">
+                    <string>Skip Setup * (non-exploit files only)</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="autoRebootChk">
+                   <property name="text">
+                    <string>Auto Reboot After Applying</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer_21">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Fixed</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>10</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_15">
+                   <property name="text">
+                    <string>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="Line" name="line_20">
+                   <property name="styleSheet">
+                    <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Plain</enum>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="deviceSettingsBtns">
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <widget class="QToolButton" name="resetPairBtn">
+                     <property name="text">
+                      <string>Reset Device Pairing</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </item>
                  <item>
                   <spacer name="verticalSpacer_5">

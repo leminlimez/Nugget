@@ -147,7 +147,7 @@ class MobileGestaltPickerTweak(Tweak):
         self.selected_option = 0 # index of the selected option
 
     def apply_tweak(self, plist: dict):
-        if not self.enabled:
+        if not self.enabled or self.value[self.selected_option] == "Placeholder":
             return plist
         new_value = self.value[self.selected_option]
         if self.subkey == None:
