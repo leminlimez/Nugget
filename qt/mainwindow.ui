@@ -1566,7 +1566,7 @@ QToolButton:pressed {
               <item>
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Nugget GUI - Version 4.0 (beta 5)</string>
+                 <string>Nugget GUI - Version 4.0</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -3901,7 +3901,7 @@ QComboBox QAbstractItemView::item:hover {
                  <item>
                   <widget class="QCheckBox" name="skipSetupChk">
                    <property name="text">
-                    <string>Skip Setup (non-exploit files only)</string>
+                    <string>Skip Setup * (non-exploit files only)</string>
                    </property>
                    <property name="checked">
                     <bool>true</bool>
@@ -3915,6 +3915,29 @@ QComboBox QAbstractItemView::item:hover {
                    </property>
                    <property name="checked">
                     <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer_21">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Fixed</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>10</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_15">
+                   <property name="text">
+                    <string>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</string>
                    </property>
                   </widget>
                  </item>
