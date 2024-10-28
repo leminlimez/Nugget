@@ -937,6 +937,12 @@ class Ui_Nugget(object):
 
         self.verticalLayout_4.addWidget(self.line_8)
 
+        self.mgaWarningLbl = QLabel(self.gestaltPage)
+        self.mgaWarningLbl.setObjectName(u"mgaWarningLbl")
+        self.mgaWarningLbl.setFont(font2)
+
+        self.verticalLayout_4.addWidget(self.mgaWarningLbl)
+
         self.scrollArea = QScrollArea(self.gestaltPage)
         self.scrollArea.setObjectName(u"scrollArea")
         self.scrollArea.setFrameShape(QFrame.NoFrame)
@@ -1458,6 +1464,12 @@ class Ui_Nugget(object):
 
 
         self.verticalLayout_16.addWidget(self.euEnablerContent)
+
+        self.mgaWarningLbl2 = QLabel(self.euEnablerPageContent)
+        self.mgaWarningLbl2.setObjectName(u"mgaWarningLbl2")
+        self.mgaWarningLbl2.setFont(font2)
+
+        self.verticalLayout_16.addWidget(self.mgaWarningLbl2)
 
         self.enableAIChk = QCheckBox(self.euEnablerPageContent)
         self.enableAIChk.setObjectName(u"enableAIChk")
@@ -2718,8 +2730,9 @@ class Ui_Nugget(object):
         self.toolButton_15.setText(QCoreApplication.translate("Nugget", u"Additional Thanks", None))
         self.libiBtn.setText(QCoreApplication.translate("Nugget", u"pymobiledevice3", None))
         self.qtBtn.setText(QCoreApplication.translate("Nugget", u"Qt Creator", None))
-        self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 4.0.1", None))
+        self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 4.0.1 (beta 1)", None))
         self.statusBarLbl.setText(QCoreApplication.translate("Nugget", u"Mobile Gestalt", None))
+        self.mgaWarningLbl.setText(QCoreApplication.translate("Nugget", u"! Your device's mobilegestalt file is required for this feature. Select it on the apply page.", None))
         self.label_9.setText(QCoreApplication.translate("Nugget", u"Device Subtype Preset", None))
         self.dynamicIslandDrp.setItemText(0, QCoreApplication.translate("Nugget", u"None", None))
         self.dynamicIslandDrp.setItemText(1, QCoreApplication.translate("Nugget", u"2436 (iPhone X Gestures for SE phones)", None))
@@ -2766,6 +2779,7 @@ class Ui_Nugget(object):
 
         self.label_6.setText(QCoreApplication.translate("Nugget", u"Region Code (Should be 2 letters)", None))
         self.regionCodeTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Region Code (Default: US)", None))
+        self.mgaWarningLbl2.setText(QCoreApplication.translate("Nugget", u"! Your device's mobilegestalt file is required for this feature. Select it on the apply page.", None))
         self.enableAIChk.setText(QCoreApplication.translate("Nugget", u"Enable Apple Intelligence (for Unsupported Devices)", None))
         self.languageLbl.setText(QCoreApplication.translate("Nugget", u"Language Code (not needed for English)", None))
         self.languageTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Language Code (i.e. en)", None))

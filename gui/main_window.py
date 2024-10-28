@@ -631,6 +631,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if selected_file == "" or selected_file == None:
             self.device_manager.data_singleton.gestalt_path = None
             self.ui.gestaltLocationLbl.setText("None")
+            # show the warning labels
+            self.ui.mgaWarningLbl.show()
+            self.ui.mgaWarningLbl2.show()
         else:
             # verify that the gestalt is correct and compatible
             with open(selected_file, 'rb') as in_fp:
@@ -656,6 +659,9 @@ class MainWindow(QtWidgets.QMainWindow):
                 dialog.exec()
             self.device_manager.data_singleton.gestalt_path = selected_file
             self.ui.gestaltLocationLbl.setText(selected_file)
+            # hide the warning labels
+            self.ui.mgaWarningLbl.hide()
+            self.ui.mgaWarningLbl2.hide()
 
     def update_label(self, txt: str):
         self.ui.statusLbl.setText(txt)

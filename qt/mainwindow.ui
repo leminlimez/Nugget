@@ -1566,7 +1566,7 @@ QToolButton:pressed {
               <item>
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Nugget GUI - Version 4.0.1</string>
+                 <string>Nugget GUI - Version 4.0.1 (beta 1)</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1705,6 +1705,19 @@ QToolButton:pressed {
                 </property>
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="mgaWarningLbl">
+                <property name="font">
+                 <font>
+                  <pointsize>-1</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>! Your device's mobilegestalt file is required for this feature. Select it on the apply page.</string>
                 </property>
                </widget>
               </item>
@@ -2644,6 +2657,19 @@ QComboBox QAbstractItemView::item:hover {
                      </widget>
                     </item>
                    </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="mgaWarningLbl2">
+                   <property name="font">
+                    <font>
+                     <pointsize>-1</pointsize>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>! Your device's mobilegestalt file is required for this feature. Select it on the apply page.</string>
+                   </property>
                   </widget>
                  </item>
                  <item>
