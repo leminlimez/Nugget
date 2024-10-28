@@ -547,6 +547,12 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["AIEligibility"].set_language_code(text)
     def on_spoofedModelDrp_activated(self, index: int):
         tweaks["SpoofModel"].set_selected_option(index)
+        if index == 0:
+            tweaks["SpoofHardware"].set_selected_option(0)
+            tweaks["SpoofCPU"].set_selected_option(0)
+        else:
+            tweaks["SpoofHardware"].set_selected_option(1)
+            tweaks["SpoofCPU"].set_selected_option(0)
 
 
     ## SPRINGBOARD OPTIONS PAGE
