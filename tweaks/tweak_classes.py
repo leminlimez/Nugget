@@ -68,6 +68,7 @@ class RdarFixTweak(BasicPlistTweak):
     def __init__(self, divider_below: bool = False):
         super().__init__(label="Fix RDAR (modifies resolution)", file_location=FileLocation.resolution, key=None, divider_below=divider_below)
         self.mode = 0
+        self.di_type = -1
 
     def get_rdar_mode(self, model: str) -> int:
         if (model == "iPhone11,2" or model == "iPhone11,4" or model == "iPhone11,6"
@@ -84,8 +85,12 @@ class RdarFixTweak(BasicPlistTweak):
     
     def get_rdar_title(self) -> str:
         if self.mode == 1 or self.mode == 3:
+            if self.di_type == -1:
+                return "Revert RDAR fix"
             return "Fix RDAR"
         elif self.mode == 2:
+            if self.di_type == -1:
+                return "Revert Status Bar Fix"
             return "Dynamic Island Status Bar Fix"
         return "hide"
     
@@ -95,7 +100,10 @@ class RdarFixTweak(BasicPlistTweak):
     def apply_tweak(self, other_tweaks: dict) -> dict:
         if not self.enabled:
             return other_tweaks
-        if self.mode == 1 or self.mode == 3:
+        if self.di_type == -1:
+            # revert the fix
+            other_tweaks[self.file_location] = {}
+        elif self.mode == 1 or self.mode == 3:
             plist = {
                 "canvas_height": 1791,
                 "canvas_width": 828
