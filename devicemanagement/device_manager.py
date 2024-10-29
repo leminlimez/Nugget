@@ -50,6 +50,8 @@ class DeviceManager:
                 If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.
                 """
             )
+            self.set_current_device(index=None)
+            return
         # Connect via usbmuxd
         for device in connected_devices:
             if self.apply_over_wifi or device.is_usb:
@@ -96,6 +98,7 @@ class DeviceManager:
                 except Exception as e:
                     print(f"ERROR with lockdown device with UUID {device.serial}")
                     show_error_msg(type(e).__name__ + ": " + repr(e))
+                    connected_devices.remove(device)
         
         if len(connected_devices) > 0:
             self.set_current_device(index=0)
