@@ -119,8 +119,9 @@ class MainWindow(QtWidgets.QMainWindow):
         ## SETTINGS PAGE ACTIONS
         self.ui.allowWifiApplyingChk.toggled.connect(self.on_allowWifiApplyingChk_toggled)
         self.ui.skipSetupChk.toggled.connect(self.on_skipSetupChk_toggled)
+        self.ui.supervisionChk.toggled.connect(self.on_supervisionChk_toggled)
         self.ui.autoRebootChk.toggled.connect(self.on_autoRebootChk_toggled)
-
+        self.ui.supervisionOrganization.textEdited.connect(self.on_supervisionOrgTxt_textEdited)
         self.ui.resetPairBtn.clicked.connect(self.on_resetPairBtn_clicked)
 
         ## MOBILE GESTALT PAGE ACTIONS
@@ -286,14 +287,20 @@ class MainWindow(QtWidgets.QMainWindow):
             # load the settings
             apply_over_wifi = self.settings.value("apply_over_wifi", True, type=bool)
             skip_setup = self.settings.value("skip_setup", True, type=bool)
+            supervised = self.settings.value("supervised", False, type=bool)
+            organization_name = self.settings.value("organization_name", "", type=str)
             auto_reboot = self.settings.value("auto_reboot", True, type=bool)
 
             self.ui.allowWifiApplyingChk.setChecked(apply_over_wifi)
             self.ui.skipSetupChk.setChecked(skip_setup)
+            self.ui.supervisionChk.setChecked(supervised)
+            self.ui.supervisionOrganization.setText(organization_name)
             self.ui.autoRebootChk.setChecked(auto_reboot)
 
             self.device_manager.apply_over_wifi = apply_over_wifi
             self.device_manager.skip_setup = skip_setup
+            self.device_manager.supervised = supervised
+            self.device_manager.organization_name = organization_name
             self.device_manager.auto_reboot = auto_reboot
         except:
             pass
@@ -540,6 +547,9 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.aiEnablerContent.hide()
     def on_languageTxt_textEdited(self, text: str):
         tweaks["AIEligibility"].set_language_code(text)
+    def on_supervisionOrgTxt_textEdited(self, text: str):
+        self.device_manager.organization_name = text
+        self.settings.setValue("organization_name", text)
     def on_spoofedModelDrp_activated(self, index: int):
         tweaks["SpoofModel"].set_selected_option(index)
 
@@ -604,6 +614,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.device_manager.skip_setup = checked
         # save the setting
         self.settings.setValue("skip_setup", checked)
+    def on_supervisionChk_toggled(self, checked: bool):
+        self.device_manager.supervised = checked
+        # save the setting
+        self.settings.setValue("supervised", checked)
     def on_autoRebootChk_toggled(self, checked: bool):
         self.device_manager.auto_reboot = checked
         # save the setting

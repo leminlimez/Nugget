@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui version="4.0">
+<ui version="4.1">
  <class>Nugget</class>
  <widget class="QMainWindow" name="Nugget">
   <property name="geometry">
@@ -1566,7 +1566,7 @@ QToolButton:pressed {
               <item>
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Nugget GUI - Version 4.0</string>
+                 <string>Nugget GUI - Version 4.1</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2706,11 +2706,14 @@ QComboBox QAbstractItemView::item:hover {
                        </sizepolicy>
                       </property>
                       <property name="text">
-                       <string>In order to download the AI model, you must spoof the device model. This will break Face ID until
-you revert.
+                       <string>In order to download the AI model, you must spoof the device model. This may break Face ID until
+you revert to your original device model.
 
-Once the model has downloaded, set &quot;Spoofed Device Model&quot; to &quot;None&quot; and click the &quot;Apply Tweaks&quot;
-button on the &quot;Apply&quot; page again to fix Face ID.</string>
+CAUTION: If your original device model does not support Apple Intelligence, please disable AI in the
+Settings app if you're returning to the original model and never re-enable until you spoof again!
+Returning to your original device model without disabling will cause a re-download and require a full
+restore to fix. You've have been warned!
+</string>
                       </property>
                       <property name="textFormat">
                        <enum>Qt::AutoText</enum>
@@ -2767,41 +2770,148 @@ QComboBox QAbstractItemView::item:hover {
 }</string>
                       </property>
                       <property name="currentText">
-                       <string>None</string>
+                       <string>Original</string>
                       </property>
                       <property name="currentIndex">
                        <number>0</number>
                       </property>
                       <item>
                        <property name="text">
-                        <string>None</string>
+                        <string>Original</string>
+                       </property>
+                      </item>
+
+                      <item>
+                       <property name="text">
+                        <string>iPhone 15 Pro (iPhone16,1)</string>
                        </property>
                       </item>
                       <item>
                        <property name="text">
-                        <string>iPhone16,2 (iPhone 15 Pro)</string>
+                        <string>iPhone 15 Pro Max (iPhone16,2)</string>
                        </property>
                       </item>
                       <item>
                        <property name="text">
-                        <string>iPhone17,4 (iPhone 16 Plus)</string>
+                        <string>iPhone 16 (iPhone17,3)</string>
                        </property>
                       </item>
                       <item>
                        <property name="text">
-                        <string>iPhone17,3 (iPhone 16 Pro)</string>
+                        <string>iPhone 16 Plus (iPhone17,4)</string>
                        </property>
                       </item>
                       <item>
                        <property name="text">
-                        <string>iPhone17,2 (iPhone 16 Pro Max)</string>
+                        <string>iPhone 16 Pro (iPhone17,1)</string>
                        </property>
                       </item>
                       <item>
                        <property name="text">
-                        <string>iPad16,3 (iPad Pro M4)</string>
+                        <string>iPhone 16 Pro Max (iPhone17,2)</string>
                        </property>
                       </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Mini (A17 Pro) (W) (iPad16,1)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Mini (A17 Pro) (C) (iPad16,2)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Pro (13-inch) (M4) (W) (iPad16,5)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Pro (13-inch) (M4) (C) (iPad16,6)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Pro (11-inch) (M4) (W) (iPad16,3)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Pro (11-inch) (M4) (C) (iPad16,4)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Pro (12.9-inch) (M2) (W) (iPad14,5)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Pro (12.9-inch) (M2) (C) (iPad14,6)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Pro (11-inch) (M2) (W) (iPad14,3)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Pro (11-inch) (M2) (C) (iPad14,4)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Air (13-inch) (M2) (W) (iPad14,10)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Air (13-inch) (M2) (C) (iPad14,11)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Air (11-inch) (M2) (W) (iPad14,8)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Air (11-inch) (M2) (C) (iPad14,9)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Pro (11-inch) (M1) (W) (iPad13,4)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Pro (11-inch) (M1) (C) (iPad13,5)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Pro (12.9-inch) (M1) (W) (iPad13,8)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Pro (12.9-inch) (M1) (C) (iPad13,9)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Air (M1) (W) (iPad13,16)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPad Air (M1) (C) (iPad13,17)</string>
+                       </property>
+                      </item>
+                      
                      </widget>
                     </item>
                    </layout>
