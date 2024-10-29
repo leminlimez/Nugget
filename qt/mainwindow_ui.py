@@ -469,6 +469,7 @@ class Ui_Nugget(object):
         self.pages.setObjectName(u"pages")
         self.homePage = QWidget()
         self.homePage.setObjectName(u"homePage")
+        self.homePage.setFont(font)
         self.verticalLayout_2 = QVBoxLayout(self.homePage)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -1481,6 +1482,16 @@ class Ui_Nugget(object):
         self.verticalLayout_34 = QVBoxLayout(self.aiEnablerContent)
         self.verticalLayout_34.setObjectName(u"verticalLayout_34")
         self.verticalLayout_34.setContentsMargins(0, 5, 0, 5)
+        self.writingToolsChk = QCheckBox(self.aiEnablerContent)
+        self.writingToolsChk.setObjectName(u"writingToolsChk")
+
+        self.verticalLayout_34.addWidget(self.writingToolsChk)
+
+        self.experimentalChk = QCheckBox(self.aiEnablerContent)
+        self.experimentalChk.setObjectName(u"experimentalChk")
+
+        self.verticalLayout_34.addWidget(self.experimentalChk)
+
         self.languageLbl = QLabel(self.aiEnablerContent)
         self.languageLbl.setObjectName(u"languageLbl")
 
@@ -2730,7 +2741,7 @@ class Ui_Nugget(object):
         self.toolButton_15.setText(QCoreApplication.translate("Nugget", u"Additional Thanks", None))
         self.libiBtn.setText(QCoreApplication.translate("Nugget", u"pymobiledevice3", None))
         self.qtBtn.setText(QCoreApplication.translate("Nugget", u"Qt Creator", None))
-        self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 4.0.1 (beta 1)", None))
+        self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 4.0.1 (beta 2)", None))
         self.statusBarLbl.setText(QCoreApplication.translate("Nugget", u"Mobile Gestalt", None))
         self.mgaWarningLbl.setText(QCoreApplication.translate("Nugget", u"! Your device's mobilegestalt file is required for this feature. Select it on the apply page.", None))
         self.label_9.setText(QCoreApplication.translate("Nugget", u"Device Subtype Preset", None))
@@ -2781,6 +2792,8 @@ class Ui_Nugget(object):
         self.regionCodeTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Region Code (Default: US)", None))
         self.mgaWarningLbl2.setText(QCoreApplication.translate("Nugget", u"! Your device's mobilegestalt file is required for this feature. Select it on the apply page.", None))
         self.enableAIChk.setText(QCoreApplication.translate("Nugget", u"Enable Apple Intelligence (for Unsupported Devices)", None))
+        self.writingToolsChk.setText(QCoreApplication.translate("Nugget", u"Enable Writing Tool Support (test)", None))
+        self.experimentalChk.setText(QCoreApplication.translate("Nugget", u"Experimental Toggle", None))
         self.languageLbl.setText(QCoreApplication.translate("Nugget", u"Language Code (not needed for English)", None))
         self.languageTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Language Code (i.e. en)", None))
         self.aiInfoLabel.setText(QCoreApplication.translate("Nugget", u"In order to download the AI model, you must spoof the device model. This will break Face ID until\n"
@@ -2790,10 +2803,10 @@ class Ui_Nugget(object):
 "button on the \"Apply\" page again to fix Face ID.", None))
         self.label_8.setText(QCoreApplication.translate("Nugget", u"Spoofed Device Model", None))
         self.spoofedModelDrp.setItemText(0, QCoreApplication.translate("Nugget", u"None", None))
-        self.spoofedModelDrp.setItemText(1, QCoreApplication.translate("Nugget", u"iPhone16,2 (iPhone 15 Pro)", None))
+        self.spoofedModelDrp.setItemText(1, QCoreApplication.translate("Nugget", u"iPhone16,2 (iPhone 15 Pro Max)", None))
         self.spoofedModelDrp.setItemText(2, QCoreApplication.translate("Nugget", u"iPhone17,4 (iPhone 16 Plus)", None))
-        self.spoofedModelDrp.setItemText(3, QCoreApplication.translate("Nugget", u"iPhone17,3 (iPhone 16 Pro)", None))
-        self.spoofedModelDrp.setItemText(4, QCoreApplication.translate("Nugget", u"iPhone17,2 (iPhone 16 Pro Max)", None))
+        self.spoofedModelDrp.setItemText(3, QCoreApplication.translate("Nugget", u"iPhone17,3 (iPhone 16)", None))
+        self.spoofedModelDrp.setItemText(4, QCoreApplication.translate("Nugget", u"iPhone17,2 (iPhone 16 Pro)", None))
         self.spoofedModelDrp.setItemText(5, QCoreApplication.translate("Nugget", u"iPad16,3 (iPad Pro M4)", None))
 
         self.spoofedModelDrp.setCurrentText(QCoreApplication.translate("Nugget", u"None", None))

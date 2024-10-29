@@ -76,6 +76,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.regionCodeTxt.textEdited.connect(self.on_regionCodeTxt_textEdited)
 
         self.ui.enableAIChk.toggled.connect(self.on_enableAIChk_toggled)
+        self.ui.writingToolsChk.toggled.connect(self.on_writingToolsChk_toggled)
+        self.ui.experimentalChk.toggled.connect(self.on_experimentalChk_toggled)
         self.ui.languageTxt.textEdited.connect(self.on_languageTxt_textEdited)
         self.ui.spoofedModelDrp.activated.connect(self.on_spoofedModelDrp_activated)
 
@@ -543,6 +545,12 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.aiEnablerContent.show()
         else:
             self.ui.aiEnablerContent.hide()
+
+    def on_writingToolsChk_toggled(self, checked: bool):
+        tweaks["AIWritingTools"].set_enabled(checked)
+    def on_experimentalChk_toggled(self, checked: bool):
+        tweaks["AIExperiment"].set_enabled(checked)
+
     def on_languageTxt_textEdited(self, text: str):
         tweaks["AIEligibility"].set_language_code(text)
     def on_spoofedModelDrp_activated(self, index: int):
