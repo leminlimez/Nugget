@@ -2798,8 +2798,8 @@ class Ui_Nugget(object):
         self.enableAIChk.setText(QCoreApplication.translate("Nugget", u"Enable Apple Intelligence (for Unsupported Devices)", None))
         self.languageLbl.setText(QCoreApplication.translate("Nugget", u"Language Code (not needed for English)", None))
         self.languageTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Language Code (i.e. en)", None))
-        self.aiInfoLabel.setText(QCoreApplication.translate("Nugget", u"In order to download the AI model, you must spoof the device model. However, this may break Face ID until\n"
-"you revert.\n"
+        self.aiInfoLabel.setText(QCoreApplication.translate("Nugget", u"In order to download the AI model, you must spoof the device model. However, this may break Face ID \n"
+"until you revert.\n"
 "\n"
 "CAUTION: If your original device model does not support Apple Intelligence, please disable AI in the \n"
 "Settings app if you're returning to the original model and never re-enable until you spoof again! \n"
