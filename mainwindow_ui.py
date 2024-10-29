@@ -2853,7 +2853,7 @@ class Ui_Nugget(object):
         self.springboardOptionsLbl1.setText(QCoreApplication.translate("Nugget", u"Nugget Settings", None))
         self.allowWifiApplyingChk.setText(QCoreApplication.translate("Nugget", u"Allow Applying Over WiFi", None))
         self.skipSetupChk.setText(QCoreApplication.translate("Nugget", u"Skip Setup (non-exploit files only)", None))
-        self.supervisionChk.setText(QCoreApplication.translate("Nugget", u"Enable Supervision", None))
+        self.supervisionChk.setText(QCoreApplication.translate("Nugget", u"Enable Supervision * (requires Skip Setup)", None))
         self.supervisionOrganization.setPlaceholderText(QCoreApplication.translate("Nugget", u"Enter Organization Name", None))
         self.resetPairBtn.setText(QCoreApplication.translate("Nugget", u"Reset Device Pairing", None))
         self.statusBarLbl_2.setText(QCoreApplication.translate("Nugget", u"Location Simulation", None))
