@@ -124,7 +124,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.allowWifiApplyingChk.toggled.connect(self.on_allowWifiApplyingChk_toggled)
         self.ui.skipSetupChk.toggled.connect(self.on_skipSetupChk_toggled)
         self.ui.autoRebootChk.toggled.connect(self.on_autoRebootChk_toggled)
-
+        self.ui.supervisionChk.toggled.connect(self.on_supervisionChk_toggled)
+        self.ui.supervisionOrganization.textEdited.connect(self.on_supervisionOrgTxt_textEdited)
         self.ui.resetPairBtn.clicked.connect(self.on_resetPairBtn_clicked)
 
         ## MOBILE GESTALT PAGE ACTIONS
@@ -152,6 +153,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.aodChk.clicked.connect(self.on_aodChk_clicked)
 
         self.ui.addGestaltKeyBtn.clicked.connect(self.on_addGestaltKeyBtn_clicked)
+        self.ui.aiEnablerContent.hide()
 
 
     ## GENERAL INTERFACE FUNCTIONS
@@ -290,14 +292,20 @@ class MainWindow(QtWidgets.QMainWindow):
             apply_over_wifi = self.settings.value("apply_over_wifi", True, type=bool)
             skip_setup = self.settings.value("skip_setup", True, type=bool)
             auto_reboot = self.settings.value("auto_reboot", True, type=bool)
+            supervised = self.settings.value("supervised", False, type=bool)
+            organization_name = self.settings.value("organization_name", "", type=str)
 
             self.ui.allowWifiApplyingChk.setChecked(apply_over_wifi)
             self.ui.skipSetupChk.setChecked(skip_setup)
             self.ui.autoRebootChk.setChecked(auto_reboot)
+            self.ui.supervisionChk.setChecked(supervised)
+            self.ui.supervisionOrganization.setText(organization_name)
 
             self.device_manager.apply_over_wifi = apply_over_wifi
             self.device_manager.skip_setup = skip_setup
             self.device_manager.auto_reboot = auto_reboot
+            self.device_manager.supervised = supervised
+            self.device_manager.organization_name = organization_name
         except:
             pass
     
@@ -569,12 +577,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_spoofedModelDrp_activated(self, index: int):
         tweaks["SpoofModel"].set_selected_option(index)
         tweaks["SpoofHardware"].set_selected_option(index)
-        if index == 0:
-            tweaks["SpoofCPU"].set_selected_option(0)
-        elif index == 1 or index == 2:
-            tweaks["SpoofCPU"].set_selected_option(1)
-        else:
-            tweaks["SpoofCPU"].set_selected_option(2)
+        tweaks["SpoofCPU"].set_selected_option(index)
 
 
     ## SPRINGBOARD OPTIONS PAGE
@@ -641,6 +644,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.device_manager.auto_reboot = checked
         # save the setting
         self.settings.setValue("auto_reboot", checked)
+    def on_supervisionOrgTxt_textEdited(self, text: str):
+        self.device_manager.organization_name = text
+        self.settings.setValue("organization_name", text)
+    def on_supervisionChk_toggled(self, checked: bool):
+        self.device_manager.supervised = checked
+        # save the setting
+        self.settings.setValue("supervised", checked)
 
     # Device Options
     def on_resetPairBtn_clicked(self):

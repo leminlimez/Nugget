@@ -35,6 +35,8 @@ class DeviceManager:
         self.apply_over_wifi = True
         self.skip_setup = True
         self.auto_reboot = True
+        self.supervised = False
+        self.organization_name = ""
     
     def get_devices(self, settings: QSettings):
         self.devices.clear()
@@ -182,6 +184,9 @@ class DeviceManager:
                 "PostSetupProfileWasInstalled": True,
                 "IsSupervised": False,
             }
+            if self.supervised == True:
+                cloud_config_plist["IsSupervised"] = True
+                cloud_config_plist["OrganizationName"] = self.organization_name
             files_to_restore.append(FileToRestore(
                 contents=plistlib.dumps(cloud_config_plist),
                 restore_path="systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist",
