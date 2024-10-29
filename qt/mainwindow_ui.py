@@ -2828,8 +2828,8 @@ class Ui_Nugget(object):
         self.experimentalChk.setText(QCoreApplication.translate("Nugget", u"Experimental Toggle", None))
         self.languageLbl.setText(QCoreApplication.translate("Nugget", u"Language Code (not needed for English)", None))
         self.languageTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Language Code (i.e. en)", None))
-        self.aiInfoLabel.setText(QCoreApplication.translate("Nugget", u"In order to download the AI models, you must spoof your device model. However, this may break\n"
-"Face ID until you revert back.\n"
+        self.aiInfoLabel.setText(QCoreApplication.translate("Nugget", u"In order to download the AI model, you must spoof the device model. However, this may break Face ID until\n"
+"you revert.\n"
 "\n"
 "CAUTION: If your original device model does not support Apple Intelligence and it is enabled in the settings, please disable it in the\n"
 "Settings app first before unspoofing! Returning to your original device model without disabling is going to cause a re-download and will\n"
