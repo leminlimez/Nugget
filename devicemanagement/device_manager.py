@@ -30,6 +30,8 @@ class DeviceManager:
         self.devices: list[Device] = []
         self.data_singleton = DataSingleton()
         self.current_device_index = 0
+        self.supervised = False
+        self.organization_name = ""
 
         # preferences
         self.apply_over_wifi = True
@@ -103,6 +105,11 @@ class DeviceManager:
                 self.data_singleton.device_available = True
                 tweaks["SpoofModel"].value[0] = self.data_singleton.current_device.model
             self.current_device_index = index
+    def set_supervision(self, supervised=None, organization=None):
+        if type(supervised) is bool:
+            self.supervised = supervised
+        if type(organization) is str:
+            self.organization_name = organization
         
     def get_current_device_name(self) -> str:
         if self.data_singleton.current_device == None:
@@ -153,6 +160,9 @@ class DeviceManager:
                 "CloudConfigurationUIComplete": True,
                 "IsSupervised": False
             }
+            if self.supervised == True:
+                cloud_config_plist["IsSupervised"] = True
+                cloud_config_plist["OrganizationName"] = self.organization_name
             files_to_restore.append(FileToRestore(
                 contents=plistlib.dumps(cloud_config_plist),
                 restore_path="systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist",

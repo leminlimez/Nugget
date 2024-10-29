@@ -42,7 +42,46 @@ tweaks = {
     ## AI Enabler
     "AIEligibility": AITweak(),
     "AIGestalt": MobileGestaltTweak("Enable Apple Intelligence (for Unsupported Devices) (Gestalt)", "A62OafQ85EJAiiqKn4agtg", min_version=Version("18.1")),
-    "SpoofModel": MobileGestaltPickerTweak("Spoofed Device Model", "h9jDsbgj7xIVeIQ8S3/X3Q", values=["Placeholder", "iPhone16,2", "iPhone17,4", "iPhone17,3", "iPhone17,2", "iPad16,3"], min_version=Version("18.1"), divider_below=True),
+    "SpoofModel": MobileGestaltPickerTweak("Spoofed Device Model", "h9jDsbgj7xIVeIQ8S3/X3Q", values=[
+        # Default
+        "Placeholder", # 0 | Original
+
+        # iPhone
+        "iPhone16,1", # 1 | iPhone 15 Pro
+        "iPhone16,2", # 2 | iPhone 15 Pro Max
+        "iPhone17,3", # 3 | iPhone 16
+        "iPhone17,4", # 4 | iPhone 16 Plus
+        "iPhone17,1", # 5 | iPhone 16 Pro
+        "iPhone17,2", # 6 | iPhone 16 Pro Max
+
+        # A17 Pro iPads
+        "iPad16,1", # 7 | iPad Mini (A17 Pro) (W)
+        "iPad16,2", # 8 | iPad Mini (A17 Pro) (C)
+    
+        # M4 iPads
+        "iPad16,5", # 9 | iPad Pro (13-inch) (M4) (W)
+        "iPad16,6", # 10 | iPad Pro (13-inch) (M4) (C)
+        "iPad16,3", # 11 | iPad Pro (11-inch) (M4) (W)
+        "iPad16,4", # 12 | iPad Pro (11-inch) (M4) (C)
+
+        # M2 iPads
+        "iPad14,5", # 13 | iPad Pro (12.9-inch) (M2) (W)
+        "iPad14,6", # 14 | iPad Pro (12.9-inch) (M2) (C)
+        "iPad14,3", # 15 | iPad Pro (11-inch) (M2) (W)
+        "iPad14,4", # 16 | iPad Pro (11-inch) (M2) (C)
+        "iPad14,10", # 17 | iPad Air (13-inch) (M2) (W)
+        "iPad14,11", # 18 | iPad Air (13-inch) (M2) (C)
+        "iPad14,8", # 19 | iPad Air (11-inch) (M2) (W)
+        "iPad14,9", # 20 | iPad Air (11-inch) (M2) (C)
+
+        # M1 iPads
+        "iPad13,4", # 21 | iPad Pro (11-inch) (M1) (W)
+        "iPad13,5", # 22 | iPad Pro (11-inch) (M1) (C)
+        "iPad13,8", # 23 | iPad Pro (12.9-inch) (M1) (W)
+        "iPad13,9", # 24 | iPad Pro (12.9-inch) (M1) (C)
+        "iPad13,16", # 25 | iPad Air (M1) (W)
+        "iPad13,17", # 26 | iPad Air (M1) (C)
+    ], min_version=Version("18.1"), divider_below=True),
 
     ## Springboard Tweaks
     "LockScreenFootnote": BasicPlistTweak(
