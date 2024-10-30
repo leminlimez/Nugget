@@ -564,12 +564,13 @@ class MainWindow(QtWidgets.QMainWindow):
     
     def on_spoofedModelDrp_activated(self, index: int):
         tweaks["SpoofModel"].set_selected_option(index)
+        tweaks["SpoofHardware"].set_selected_option(index)
         if index == 0:
-            tweaks["SpoofHardware"].set_selected_option(0)
             tweaks["SpoofCPU"].set_selected_option(0)
-        else:
-            tweaks["SpoofHardware"].set_selected_option(1)
+        elif index == 1 or index == 2:
             tweaks["SpoofCPU"].set_selected_option(1)
+        else:
+            tweaks["SpoofCPU"].set_selected_option(2)
 
 
     ## SPRINGBOARD OPTIONS PAGE

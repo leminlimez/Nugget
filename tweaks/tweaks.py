@@ -44,8 +44,8 @@ tweaks = {
     "AIGestalt": MobileGestaltTweak("Enable Apple Intelligence (for Unsupported Devices) (Gestalt)", "A62OafQ85EJAiiqKn4agtg", min_version=Version("18.1")),
     "AIExperiment": MobileGestaltTweak("Enable AI Experiment", "I3lidq+FVH2CeOi/ARa0tg", min_version=Version("18.1")),
     "SpoofModel": MobileGestaltPickerTweak("Spoofed Device Model", "h9jDsbgj7xIVeIQ8S3/X3Q", values=["Placeholder", "iPhone16,1" "iPhone16,2", "iPhone17,3", "iPhone17,4", "iPhone17,1", "iPhone17,2", "iPad16,3"], min_version=Version("18.1")),
-    "SpoofHardware": MobileGestaltPickerTweak("Spoof Hardware Model", "oYicEKzVTz4/CxxE05pEgQ", values=["Placeholder", "D93AP"], min_version=Version("18.1")),
-    "SpoofCPU": MobileGestaltPickerTweak("Spoof CPU Model", "5pYKlGnYYBzGvAlIU8RjEQ", values=["Placeholder", "t8130"], min_version=Version("18.1"), divider_below=True),
+    "SpoofHardware": MobileGestaltPickerTweak("Spoof Hardware Model", "oYicEKzVTz4/CxxE05pEgQ", values=["Placeholder", "D83AP", "D84AP", "D47AP", "D48AP", "D93AP", "D94AP", "J717AP"], min_version=Version("18.1")),
+    "SpoofCPU": MobileGestaltPickerTweak("Spoof CPU Model", "5pYKlGnYYBzGvAlIU8RjEQ", values=["Placeholder", "t8130", "t8140"], min_version=Version("18.1"), divider_below=True),
 
     ## Springboard Tweaks
     "LockScreenFootnote": BasicPlistTweak(
