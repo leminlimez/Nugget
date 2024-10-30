@@ -2806,8 +2806,9 @@ class Ui_Nugget(object):
         self.aiInfoLabel.setText(QCoreApplication.translate("Nugget", u"In order to download the AI model, you must spoof the device model. This will break Face ID until\n"
 "you revert.\n"
 "\n"
-"Once the model has downloaded, set \"Spoofed Device Model\" to \"None\" and click the \"Apply Tweaks\"\n"
-"button on the \"Apply\" page again to fix Face ID.", None))
+"Once the model has downloaded, turn off \"Apple Intelligence\" in Settings then set\n"
+"\"Spoofed Device Model\" to \"None\" and click the \"Apply Tweaks\" button on the \"Apply\" page\n"
+"again to fix Face ID.", None))
         self.label_8.setText(QCoreApplication.translate("Nugget", u"Spoofed Device Model", None))
         self.spoofedModelDrp.setItemText(0, QCoreApplication.translate("Nugget", u"None", None))
         self.spoofedModelDrp.setItemText(1, QCoreApplication.translate("Nugget", u"iPhone16,1 (iPhone 15 Pro)", None))

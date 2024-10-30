@@ -2754,8 +2754,9 @@ QComboBox QAbstractItemView::item:hover {
                        <string>In order to download the AI model, you must spoof the device model. This will break Face ID until
 you revert.
 
-Once the model has downloaded, set &quot;Spoofed Device Model&quot; to &quot;None&quot; and click the &quot;Apply Tweaks&quot;
-button on the &quot;Apply&quot; page again to fix Face ID.</string>
+Once the model has downloaded, turn off &quot;Apple Intelligence&quot; in Settings then set
+&quot;Spoofed Device Model&quot; to &quot;None&quot; and click the &quot;Apply Tweaks&quot; button on the &quot;Apply&quot; page
+again to fix Face ID.</string>
                       </property>
                       <property name="textFormat">
                        <enum>Qt::AutoText</enum>
