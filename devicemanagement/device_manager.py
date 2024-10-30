@@ -99,6 +99,8 @@ class DeviceManager:
                     print(f"ERROR with lockdown device with UUID {device.serial}")
                     show_error_msg(type(e).__name__ + ": " + repr(e))
                     connected_devices.remove(device)
+            else:
+                connected_devices.remove(device)
         
         if len(connected_devices) > 0:
             self.set_current_device(index=0)
