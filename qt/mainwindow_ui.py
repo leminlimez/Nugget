@@ -1482,10 +1482,10 @@ class Ui_Nugget(object):
         self.verticalLayout_34 = QVBoxLayout(self.aiEnablerContent)
         self.verticalLayout_34.setObjectName(u"verticalLayout_34")
         self.verticalLayout_34.setContentsMargins(0, 5, 0, 5)
-        self.writingToolsChk = QCheckBox(self.aiEnablerContent)
-        self.writingToolsChk.setObjectName(u"writingToolsChk")
+        self.eligFileChk = QCheckBox(self.aiEnablerContent)
+        self.eligFileChk.setObjectName(u"eligFileChk")
 
-        self.verticalLayout_34.addWidget(self.writingToolsChk)
+        self.verticalLayout_34.addWidget(self.eligFileChk)
 
         self.experimentalChk = QCheckBox(self.aiEnablerContent)
         self.experimentalChk.setObjectName(u"experimentalChk")
@@ -1532,6 +1532,8 @@ class Ui_Nugget(object):
         self.spoofedModelDrp.addItem("")
         self.spoofedModelDrp.addItem("")
         self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
         self.spoofedModelDrp.setObjectName(u"spoofedModelDrp")
         self.spoofedModelDrp.setMaximumSize(QSize(325, 16777215))
         self.spoofedModelDrp.setStyleSheet(u"QComboBox {\n"
@@ -1568,6 +1570,11 @@ class Ui_Nugget(object):
 "}")
 
         self.verticalLayout_34.addWidget(self.spoofedModelDrp)
+
+        self.spoofHardwareChk = QCheckBox(self.aiEnablerContent)
+        self.spoofHardwareChk.setObjectName(u"spoofHardwareChk")
+
+        self.verticalLayout_34.addWidget(self.spoofHardwareChk)
 
 
         self.verticalLayout_16.addWidget(self.aiEnablerContent)
@@ -2741,7 +2748,7 @@ class Ui_Nugget(object):
         self.toolButton_15.setText(QCoreApplication.translate("Nugget", u"Additional Thanks", None))
         self.libiBtn.setText(QCoreApplication.translate("Nugget", u"pymobiledevice3", None))
         self.qtBtn.setText(QCoreApplication.translate("Nugget", u"Qt Creator", None))
-        self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 4.0.1 (beta 2)", None))
+        self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 4.0.1 (beta 3)", None))
         self.statusBarLbl.setText(QCoreApplication.translate("Nugget", u"Mobile Gestalt", None))
         self.mgaWarningLbl.setText(QCoreApplication.translate("Nugget", u"! Your device's mobilegestalt file is required for this feature. Select it on the apply page.", None))
         self.label_9.setText(QCoreApplication.translate("Nugget", u"Device Subtype Preset", None))
@@ -2792,7 +2799,7 @@ class Ui_Nugget(object):
         self.regionCodeTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Region Code (Default: US)", None))
         self.mgaWarningLbl2.setText(QCoreApplication.translate("Nugget", u"! Your device's mobilegestalt file is required for this feature. Select it on the apply page.", None))
         self.enableAIChk.setText(QCoreApplication.translate("Nugget", u"Enable Apple Intelligence (for Unsupported Devices)", None))
-        self.writingToolsChk.setText(QCoreApplication.translate("Nugget", u"Enable Writing Tool Support (test)", None))
+        self.eligFileChk.setText(QCoreApplication.translate("Nugget", u"Enable Eligibility File (test)", None))
         self.experimentalChk.setText(QCoreApplication.translate("Nugget", u"Experimental Toggle", None))
         self.languageLbl.setText(QCoreApplication.translate("Nugget", u"Language Code (not needed for English)", None))
         self.languageTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Language Code (i.e. en)", None))
@@ -2803,13 +2810,16 @@ class Ui_Nugget(object):
 "button on the \"Apply\" page again to fix Face ID.", None))
         self.label_8.setText(QCoreApplication.translate("Nugget", u"Spoofed Device Model", None))
         self.spoofedModelDrp.setItemText(0, QCoreApplication.translate("Nugget", u"None", None))
-        self.spoofedModelDrp.setItemText(1, QCoreApplication.translate("Nugget", u"iPhone16,2 (iPhone 15 Pro Max)", None))
-        self.spoofedModelDrp.setItemText(2, QCoreApplication.translate("Nugget", u"iPhone17,4 (iPhone 16 Plus)", None))
+        self.spoofedModelDrp.setItemText(1, QCoreApplication.translate("Nugget", u"iPhone16,1 (iPhone 15 Pro)", None))
+        self.spoofedModelDrp.setItemText(2, QCoreApplication.translate("Nugget", u"iPhone16,2 (iPhone 15 Pro Max)", None))
         self.spoofedModelDrp.setItemText(3, QCoreApplication.translate("Nugget", u"iPhone17,3 (iPhone 16)", None))
-        self.spoofedModelDrp.setItemText(4, QCoreApplication.translate("Nugget", u"iPhone17,2 (iPhone 16 Pro)", None))
-        self.spoofedModelDrp.setItemText(5, QCoreApplication.translate("Nugget", u"iPad16,3 (iPad Pro M4)", None))
+        self.spoofedModelDrp.setItemText(4, QCoreApplication.translate("Nugget", u"iPhone17,4 (iPhone 16 Plus)", None))
+        self.spoofedModelDrp.setItemText(5, QCoreApplication.translate("Nugget", u"iPhone17,1 (iPhone 16 Pro)", None))
+        self.spoofedModelDrp.setItemText(6, QCoreApplication.translate("Nugget", u"iPhone17,2 (iPhone 16 Pro Max)", None))
+        self.spoofedModelDrp.setItemText(7, QCoreApplication.translate("Nugget", u"iPad16,3 (iPad Pro M4)", None))
 
         self.spoofedModelDrp.setCurrentText(QCoreApplication.translate("Nugget", u"None", None))
+        self.spoofHardwareChk.setText(QCoreApplication.translate("Nugget", u"Spoof Hardware Model (may cause issues)", None))
         self.springboardOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Springboard Options", None))
         self.label_13.setText(QCoreApplication.translate("Nugget", u"Lock Screen Footnote Text", None))
         self.footnoteTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Footnote Text", None))

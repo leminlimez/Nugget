@@ -1571,7 +1571,7 @@ QToolButton:pressed {
               <item>
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Nugget GUI - Version 4.0.1 (beta 2)</string>
+                 <string>Nugget GUI - Version 4.0.1 (beta 3)</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2700,9 +2700,9 @@ QComboBox QAbstractItemView::item:hover {
                      <number>5</number>
                     </property>
                     <item>
-                     <widget class="QCheckBox" name="writingToolsChk">
+                     <widget class="QCheckBox" name="eligFileChk">
                       <property name="text">
-                       <string>Enable Writing Tool Support (test)</string>
+                       <string>Enable Eligibility File (test)</string>
                       </property>
                      </widget>
                     </item>
@@ -2824,12 +2824,12 @@ QComboBox QAbstractItemView::item:hover {
                       </item>
                       <item>
                        <property name="text">
-                        <string>iPhone16,2 (iPhone 15 Pro Max)</string>
+                        <string>iPhone16,1 (iPhone 15 Pro)</string>
                        </property>
                       </item>
                       <item>
                        <property name="text">
-                        <string>iPhone17,4 (iPhone 16 Plus)</string>
+                        <string>iPhone16,2 (iPhone 15 Pro Max)</string>
                        </property>
                       </item>
                       <item>
@@ -2839,7 +2839,17 @@ QComboBox QAbstractItemView::item:hover {
                       </item>
                       <item>
                        <property name="text">
-                        <string>iPhone17,2 (iPhone 16 Pro)</string>
+                        <string>iPhone17,4 (iPhone 16 Plus)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPhone17,1 (iPhone 16 Pro)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>iPhone17,2 (iPhone 16 Pro Max)</string>
                        </property>
                       </item>
                       <item>
@@ -2847,6 +2857,13 @@ QComboBox QAbstractItemView::item:hover {
                         <string>iPad16,3 (iPad Pro M4)</string>
                        </property>
                       </item>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="spoofHardwareChk">
+                      <property name="text">
+                       <string>Spoof Hardware Model (may cause issues)</string>
+                      </property>
                      </widget>
                     </item>
                    </layout>

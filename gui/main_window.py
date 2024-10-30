@@ -76,10 +76,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.regionCodeTxt.textEdited.connect(self.on_regionCodeTxt_textEdited)
 
         self.ui.enableAIChk.toggled.connect(self.on_enableAIChk_toggled)
-        self.ui.writingToolsChk.toggled.connect(self.on_writingToolsChk_toggled)
+        self.ui.eligFileChk.toggled.connect(self.on_eligFileChk_toggled)
         self.ui.experimentalChk.toggled.connect(self.on_experimentalChk_toggled)
+        self.ui.languageTxt.hide() # to be removed later
+        self.ui.languageLbl.hide() # to be removed later
         self.ui.languageTxt.textEdited.connect(self.on_languageTxt_textEdited)
         self.ui.spoofedModelDrp.activated.connect(self.on_spoofedModelDrp_activated)
+        self.ui.spoofHardwareChk.toggled.connect(self.on_spoofHardwareChk_toggled)
 
         ## FEATURE FLAGS PAGE
         self.ui.clockAnimChk.toggled.connect(self.on_clockAnimChk_toggled)
@@ -538,7 +541,7 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["EUEnabler"].set_region_code(text)
 
     def on_enableAIChk_toggled(self, checked: bool):
-        tweaks["AIEligibility"].set_enabled(checked)
+        # tweaks["AIEligibility"].set_enabled(checked)
         tweaks["AIGestalt"].set_enabled(checked)
         # change the visibility of stuff
         if checked:
@@ -546,21 +549,39 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             self.ui.aiEnablerContent.hide()
 
-    def on_writingToolsChk_toggled(self, checked: bool):
-        tweaks["AIWritingTools"].set_enabled(checked)
+    def on_eligFileChk_toggled(self, checked: bool):
+        tweaks["AIEligibility"].set_enabled(checked)
+        if checked:
+            self.ui.languageTxt.show()
+            self.ui.languageLbl.show()
+        else:
+            self.ui.languageTxt.hide()
+            self.ui.languageLbl.hide()
     def on_experimentalChk_toggled(self, checked: bool):
         tweaks["AIExperiment"].set_enabled(checked)
 
     def on_languageTxt_textEdited(self, text: str):
         tweaks["AIEligibility"].set_language_code(text)
+    
+    def set_spoof_hardware(self, index: int):
+        if tweaks["SpoofHardware"].enabled:
+            tweaks["SpoofHardware"].set_selected_option(index)
     def on_spoofedModelDrp_activated(self, index: int):
         tweaks["SpoofModel"].set_selected_option(index)
         if index == 0:
-            tweaks["SpoofHardware"].set_selected_option(0)
+            self.set_spoof_hardware(0)
             tweaks["SpoofCPU"].set_selected_option(0)
         else:
-            tweaks["SpoofHardware"].set_selected_option(1)
-            tweaks["SpoofCPU"].set_selected_option(0)
+            self.set_spoof_hardware(1)
+            tweaks["SpoofCPU"].set_selected_option(1)
+    def on_spoofHardwareChk_toggled(self, checked: bool):
+        if checked:
+            spoofed_model = 0
+            if self.ui.spoofedModelDrp.currentIndex != 0:
+                spoofed_model = 1
+            tweaks["SpoofHardware"].set_selected_option(spoofed_model)
+        else:
+            tweaks["SpoofHardware"].set_enabled(False)
 
 
     ## SPRINGBOARD OPTIONS PAGE
