@@ -334,6 +334,12 @@ class DeviceManager:
                 detailsBox.setText("Find My must be disabled in order to use this tool.")
                 detailsBox.setDetailedText("Disable Find My from Settings (Settings -> [Your Name] -> Find My) and then try again.")
                 detailsBox.exec()
+            elif "SessionInactive" in str(e):
+                detailsBox = QMessageBox()
+                detailsBox.setIcon(QMessageBox.Critical)
+                detailsBox.setWindowTitle("Error!")
+                detailsBox.setText("The session was terminated. Refresh the device list and try again.")
+                detailsBox.exec()
             else:
                 print(traceback.format_exc())
                 update_label("Failed to restore")
