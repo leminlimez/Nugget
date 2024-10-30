@@ -82,7 +82,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.languageLbl.hide() # to be removed later
         self.ui.languageTxt.textEdited.connect(self.on_languageTxt_textEdited)
         self.ui.spoofedModelDrp.activated.connect(self.on_spoofedModelDrp_activated)
-        self.ui.spoofHardwareChk.toggled.connect(self.on_spoofHardwareChk_toggled)
 
         ## FEATURE FLAGS PAGE
         self.ui.clockAnimChk.toggled.connect(self.on_clockAnimChk_toggled)
@@ -563,25 +562,14 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_languageTxt_textEdited(self, text: str):
         tweaks["AIEligibility"].set_language_code(text)
     
-    def set_spoof_hardware(self, index: int):
-        if tweaks["SpoofHardware"].enabled:
-            tweaks["SpoofHardware"].set_selected_option(index)
     def on_spoofedModelDrp_activated(self, index: int):
         tweaks["SpoofModel"].set_selected_option(index)
         if index == 0:
-            self.set_spoof_hardware(0)
+            tweaks["SpoofHardware"].set_selected_option(0)
             tweaks["SpoofCPU"].set_selected_option(0)
         else:
-            self.set_spoof_hardware(1)
+            tweaks["SpoofHardware"].set_selected_option(1)
             tweaks["SpoofCPU"].set_selected_option(1)
-    def on_spoofHardwareChk_toggled(self, checked: bool):
-        if checked:
-            spoofed_model = 0
-            if self.ui.spoofedModelDrp.currentIndex != 0:
-                spoofed_model = 1
-            tweaks["SpoofHardware"].set_selected_option(spoofed_model)
-        else:
-            tweaks["SpoofHardware"].set_enabled(False)
 
 
     ## SPRINGBOARD OPTIONS PAGE

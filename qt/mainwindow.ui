@@ -2860,13 +2860,6 @@ QComboBox QAbstractItemView::item:hover {
                       </item>
                      </widget>
                     </item>
-                    <item>
-                     <widget class="QCheckBox" name="spoofHardwareChk">
-                      <property name="text">
-                       <string>Spoof Hardware Model (may cause issues)</string>
-                      </property>
-                     </widget>
-                    </item>
                    </layout>
                   </widget>
                  </item>

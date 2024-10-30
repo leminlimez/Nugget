@@ -1571,11 +1571,6 @@ class Ui_Nugget(object):
 
         self.verticalLayout_34.addWidget(self.spoofedModelDrp)
 
-        self.spoofHardwareChk = QCheckBox(self.aiEnablerContent)
-        self.spoofHardwareChk.setObjectName(u"spoofHardwareChk")
-
-        self.verticalLayout_34.addWidget(self.spoofHardwareChk)
-
 
         self.verticalLayout_16.addWidget(self.aiEnablerContent)
 
@@ -2820,7 +2815,6 @@ class Ui_Nugget(object):
         self.spoofedModelDrp.setItemText(7, QCoreApplication.translate("Nugget", u"iPad16,3 (iPad Pro M4)", None))
 
         self.spoofedModelDrp.setCurrentText(QCoreApplication.translate("Nugget", u"None", None))
-        self.spoofHardwareChk.setText(QCoreApplication.translate("Nugget", u"Spoof Hardware Model (may cause issues)", None))
         self.springboardOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Springboard Options", None))
         self.label_13.setText(QCoreApplication.translate("Nugget", u"Lock Screen Footnote Text", None))
         self.footnoteTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Footnote Text", None))
