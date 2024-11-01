@@ -273,6 +273,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.euEnablerPageBtn.show()
             else:
                 self.ui.euEnablerPageBtn.hide()
+            
+            # hide the ai content if not on
+            if device_ver >= Version("18.1") and not tweaks["AIGestalt"].enabled:
+                self.ui.aiEnablerContent.hide()
         else:
             self.device_manager.set_current_device(index=None)
 
