@@ -2,10 +2,6 @@ name: Build Nugget
 
 on:
   workflow_dispatch:
-    inputs:
-      release_version:
-        description: 'Which version is this release?'
-        required: true
 
 jobs:
   build-macos-intel:
