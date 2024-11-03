@@ -105,7 +105,7 @@ def restore_files(files: list, reboot: bool = False, lockdown_client: LockdownCl
     perform_restore(backup=back, reboot=reboot, lockdown_client=lockdown_client)
 
 
-# DEPRICATED
+# DEPRECATED
 def restore_file(fp: str, restore_path: str, restore_name: str, reboot: bool = False, lockdown_client: LockdownClient = None):
     # open the file and read the contents
     contents = open(fp, "rb").read()
