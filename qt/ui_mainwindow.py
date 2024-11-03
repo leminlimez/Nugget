@@ -2833,11 +2833,11 @@ class Ui_Nugget(object):
         self.aiInfoLabel.setText(QCoreApplication.translate("Nugget", u"In order to download the AI models, you must spoof your device model. However, this may break \n"
 "Face ID until you revert back. \n"
 "\n"
-"CAUTION: If your original device model does not support Apple Intelligence and it was spoofly \n"
-"enabled in the settings app, please disable it first before unspoofing! Returning to your original device \n"
-"model without disabling is going to cause a re-download and will require a full restore to fix. Also, \n"
-"there may be issues if you change between model groups like going from the iPhone 16 series \n"
-"to the iPhone 15 Pro series. You've have been warned!", None))
+"WARNING: If your original device model does not support Apple Intelligence, please disable it the \n"
+"AI models before unspoofing! Returning to your original device model without disabling is going to \n"
+"cause a re-download and may require a full restore to fix. Furthermore, if you switch between model \n"
+"groups, like spoofing from the iPhone 16s to the iPhone 15 Pro series, a re-download may also occur. \n"
+"Please be careful!", None))
         self.label_8.setText(QCoreApplication.translate("Nugget", u"Spoofed Device Model", None))
         self.spoofedModelDrp.setItemText(0, QCoreApplication.translate("Nugget", u"Original", None))
         self.spoofedModelDrp.setItemText(1, QCoreApplication.translate("Nugget", u"iPhone 15 Pro (iPhone16,1)", None))
