@@ -2,10 +2,6 @@ name: Build Nugget
 
 on:
   workflow_dispatch:
-    inputs:
-      release_version:
-        description: 'Which version is this release?'
-        required: true
 
 jobs:
   build-macos-intel:
@@ -30,7 +26,7 @@ jobs:
       - name: Zip Nugget.app (Intel)
         run: |
           cd dist
-          zip -r "Nugget_macOS_intel.zip" Nugget.app
+          zip -r -y "Nugget_macOS_intel.zip" Nugget.app
 
       - name: Upload ZIP (Intel)
         uses: actions/upload-artifact@v4
@@ -60,7 +56,7 @@ jobs:
       - name: Zip Nugget.app (ARM)
         run: |
           cd dist
-          zip -r "Nugget_macOS_arm.zip" Nugget.app
+          zip -r -y "Nugget_macOS_arm.zip" Nugget.app
 
       - name: Upload ZIP (ARM)
         uses: actions/upload-artifact@v4

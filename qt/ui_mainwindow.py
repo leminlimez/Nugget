@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -1516,7 +1516,9 @@ class Ui_Nugget(object):
         self.aiInfoLabel.setObjectName(u"aiInfoLabel")
         sizePolicy1.setHeightForWidth(self.aiInfoLabel.sizePolicy().hasHeightForWidth())
         self.aiInfoLabel.setSizePolicy(sizePolicy1)
+        self.aiInfoLabel.setMaximumSize(QSize(16777215, 16777215))
         self.aiInfoLabel.setTextFormat(Qt.AutoText)
+        self.aiInfoLabel.setScaledContents(False)
 
         self.verticalLayout_34.addWidget(self.aiInfoLabel)
 
@@ -1526,6 +1528,25 @@ class Ui_Nugget(object):
         self.verticalLayout_34.addWidget(self.label_8)
 
         self.spoofedModelDrp = QComboBox(self.aiEnablerContent)
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
         self.spoofedModelDrp.addItem("")
         self.spoofedModelDrp.addItem("")
         self.spoofedModelDrp.addItem("")
@@ -2143,6 +2164,17 @@ class Ui_Nugget(object):
 
         self._21.addWidget(self.autoRebootChk)
 
+        self.supervisionChk = QCheckBox(self.settingsPageContent)
+        self.supervisionChk.setObjectName(u"supervisionChk")
+        self.supervisionChk.setChecked(True)
+
+        self._21.addWidget(self.supervisionChk)
+
+        self.supervisionOrganization = QLineEdit(self.settingsPageContent)
+        self.supervisionOrganization.setObjectName(u"supervisionOrganization")
+
+        self._21.addWidget(self.supervisionOrganization)
+
         self.verticalSpacer_21 = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self._21.addItem(self.verticalSpacer_21)
@@ -2698,30 +2730,30 @@ class Ui_Nugget(object):
 
     def retranslateUi(self, Nugget):
         Nugget.setWindowTitle(QCoreApplication.translate("Nugget", u"Nugget", None))
-        self.centralwidget.setProperty("cls", QCoreApplication.translate("Nugget", u"central", None))
+        self.centralwidget.setProperty(u"cls", QCoreApplication.translate("Nugget", u"central", None))
         self.devicePicker.setPlaceholderText(QCoreApplication.translate("Nugget", u"None", None))
-        self.refreshBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"btn", None))
+        self.refreshBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"btn", None))
         self.titleBar.setText(QCoreApplication.translate("Nugget", u"Nugget", None))
         self.homePageBtn.setText(QCoreApplication.translate("Nugget", u"    Home", None))
-        self.homePageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
+        self.homePageBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.explorePageBtn.setText(QCoreApplication.translate("Nugget", u"    Explore", None))
-        self.explorePageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
+        self.explorePageBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.locSimPageBtn.setText(QCoreApplication.translate("Nugget", u"    Location Simulation", None))
-        self.locSimPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
+        self.locSimPageBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.gestaltPageBtn.setText(QCoreApplication.translate("Nugget", u"     Mobile Gestalt", None))
-        self.gestaltPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
+        self.gestaltPageBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.featureFlagsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Feature Flags", None))
-        self.featureFlagsPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
+        self.featureFlagsPageBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.euEnablerPageBtn.setText(QCoreApplication.translate("Nugget", u"    Eligibility", None))
-        self.euEnablerPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
+        self.euEnablerPageBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.springboardOptionsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Springboard Options", None))
-        self.springboardOptionsPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
+        self.springboardOptionsPageBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.internalOptionsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Internal Options", None))
-        self.internalOptionsPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
+        self.internalOptionsPageBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.applyPageBtn.setText(QCoreApplication.translate("Nugget", u"    Apply", None))
-        self.applyPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
+        self.applyPageBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.settingsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Settings", None))
-        self.settingsPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
+        self.settingsPageBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.phoneNameLbl.setText(QCoreApplication.translate("Nugget", u"Phone", None))
         self.phoneVersionLbl.setText(QCoreApplication.translate("Nugget", u"<a style=\"text-decoration:none; color: white\" href=\"#\">Version</a>", None))
         self.bigNuggetBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
@@ -2745,7 +2777,7 @@ class Ui_Nugget(object):
         self.qtBtn.setText(QCoreApplication.translate("Nugget", u"Qt Creator", None))
         self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 4.0.1", None))
         self.statusBarLbl.setText(QCoreApplication.translate("Nugget", u"Mobile Gestalt", None))
-        self.mgaWarningLbl.setText(QCoreApplication.translate("Nugget", u"! Your device's mobilegestalt file is required for this feature. Select it on the apply page.", None))
+        self.mgaWarningLbl.setText(QCoreApplication.translate("Nugget", u"! You will need a MobileGestalt file for this feature. Please select it in the Apply page !", None))
         self.label_9.setText(QCoreApplication.translate("Nugget", u"Device Subtype Preset", None))
         self.dynamicIslandDrp.setItemText(0, QCoreApplication.translate("Nugget", u"None", None))
         self.dynamicIslandDrp.setItemText(1, QCoreApplication.translate("Nugget", u"2436 (iPhone X Gestures for SE phones)", None))
@@ -2792,29 +2824,50 @@ class Ui_Nugget(object):
 
         self.label_6.setText(QCoreApplication.translate("Nugget", u"Region Code (Should be 2 letters)", None))
         self.regionCodeTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Region Code (Default: US)", None))
-        self.mgaWarningLbl2.setText(QCoreApplication.translate("Nugget", u"! Your device's mobilegestalt file is required for this feature. Select it on the apply page.", None))
+        self.mgaWarningLbl2.setText(QCoreApplication.translate("Nugget", u"! You will need a MobileGestalt file for this feature. Please select it in the Apply page !", None))
         self.enableAIChk.setText(QCoreApplication.translate("Nugget", u"Enable Apple Intelligence (for Unsupported Devices)", None))
         self.eligFileChk.setText(QCoreApplication.translate("Nugget", u"Enable Eligibility File (test)", None))
         self.experimentalChk.setText(QCoreApplication.translate("Nugget", u"Experimental Toggle", None))
         self.languageLbl.setText(QCoreApplication.translate("Nugget", u"Language Code (not needed for English)", None))
         self.languageTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Language Code (i.e. en)", None))
-        self.aiInfoLabel.setText(QCoreApplication.translate("Nugget", u"In order to download the AI model, you must spoof the device model. This will break Face ID until\n"
-"you revert.\n"
+        self.aiInfoLabel.setText(QCoreApplication.translate("Nugget", u"In order to download the AI models, you must spoof your device model. However, this may break \n"
+"Face ID until you revert back. \n"
 "\n"
-"Once the model has downloaded, turn off \"Apple Intelligence\" in Settings then set\n"
-"\"Spoofed Device Model\" to \"None\" and click the \"Apply Tweaks\" button on the \"Apply\" page\n"
-"again to fix Face ID.", None))
+"WARNING: If your original device model does not support Apple Intelligence, please disable the \n"
+"AI models before unspoofing! Returning to your original device model without disabling is going to \n"
+"cause a re-download and may require a full restore to fix. Furthermore, if you switch between model \n"
+"groups, like spoofing from the iPhone 16s to the iPhone 15 Pro series, a re-download may also occur. \n"
+"Please be careful!", None))
         self.label_8.setText(QCoreApplication.translate("Nugget", u"Spoofed Device Model", None))
-        self.spoofedModelDrp.setItemText(0, QCoreApplication.translate("Nugget", u"None", None))
-        self.spoofedModelDrp.setItemText(1, QCoreApplication.translate("Nugget", u"iPhone16,1 (iPhone 15 Pro)", None))
-        self.spoofedModelDrp.setItemText(2, QCoreApplication.translate("Nugget", u"iPhone16,2 (iPhone 15 Pro Max)", None))
-        self.spoofedModelDrp.setItemText(3, QCoreApplication.translate("Nugget", u"iPhone17,3 (iPhone 16)", None))
-        self.spoofedModelDrp.setItemText(4, QCoreApplication.translate("Nugget", u"iPhone17,4 (iPhone 16 Plus)", None))
-        self.spoofedModelDrp.setItemText(5, QCoreApplication.translate("Nugget", u"iPhone17,1 (iPhone 16 Pro)", None))
-        self.spoofedModelDrp.setItemText(6, QCoreApplication.translate("Nugget", u"iPhone17,2 (iPhone 16 Pro Max)", None))
-        self.spoofedModelDrp.setItemText(7, QCoreApplication.translate("Nugget", u"iPad16,3 (iPad Pro M4)", None))
+        self.spoofedModelDrp.setItemText(0, QCoreApplication.translate("Nugget", u"Original", None))
+        self.spoofedModelDrp.setItemText(1, QCoreApplication.translate("Nugget", u"iPhone 15 Pro (iPhone16,1)", None))
+        self.spoofedModelDrp.setItemText(2, QCoreApplication.translate("Nugget", u"iPhone 15 Pro Max (iPhone16,2)", None))
+        self.spoofedModelDrp.setItemText(3, QCoreApplication.translate("Nugget", u"iPhone 16 (iPhone17,3)", None))
+        self.spoofedModelDrp.setItemText(4, QCoreApplication.translate("Nugget", u"iPhone 16 Plus (iPhone17,4)", None))
+        self.spoofedModelDrp.setItemText(5, QCoreApplication.translate("Nugget", u"iPhone 16 Pro (iPhone17,1)", None))
+        self.spoofedModelDrp.setItemText(6, QCoreApplication.translate("Nugget", u"iPhone 16 Pro Max (iPhone17,2)", None))
+        self.spoofedModelDrp.setItemText(7, QCoreApplication.translate("Nugget", u"iPad Mini (A17 Pro) (W) (iPad16,1)", None))
+        self.spoofedModelDrp.setItemText(8, QCoreApplication.translate("Nugget", u"iPad Mini (A17 Pro) (C) (iPad16,2)", None))
+        self.spoofedModelDrp.setItemText(9, QCoreApplication.translate("Nugget", u"iPad Pro (13-inch) (M4) (W) (iPad16,5)", None))
+        self.spoofedModelDrp.setItemText(10, QCoreApplication.translate("Nugget", u"iPad Pro (13-inch) (M4) (C) (iPad16,6)", None))
+        self.spoofedModelDrp.setItemText(11, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M4) (W) (iPad16,3)", None))
+        self.spoofedModelDrp.setItemText(12, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M4) (C) (iPad16,4)", None))
+        self.spoofedModelDrp.setItemText(13, QCoreApplication.translate("Nugget", u"iPad Pro (12.9-inch) (M2) (W) (iPad14,5)", None))
+        self.spoofedModelDrp.setItemText(14, QCoreApplication.translate("Nugget", u"iPad Pro (12.9-inch) (M2) (C) (iPad14,6)", None))
+        self.spoofedModelDrp.setItemText(15, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M2) (W) (iPad14,3)", None))
+        self.spoofedModelDrp.setItemText(16, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M2) (C) (iPad14,4)", None))
+        self.spoofedModelDrp.setItemText(17, QCoreApplication.translate("Nugget", u"iPad Air (13-inch) (M2) (W) (iPad14,10)", None))
+        self.spoofedModelDrp.setItemText(18, QCoreApplication.translate("Nugget", u"iPad Air (13-inch) (M2) (C) (iPad14,11)", None))
+        self.spoofedModelDrp.setItemText(19, QCoreApplication.translate("Nugget", u"iPad Air (11-inch) (M2) (W) (iPad14,8)", None))
+        self.spoofedModelDrp.setItemText(20, QCoreApplication.translate("Nugget", u"iPad Air (11-inch) (M2) (C) (iPad14,9)", None))
+        self.spoofedModelDrp.setItemText(21, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M1) (W) (iPad13,4)", None))
+        self.spoofedModelDrp.setItemText(22, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M1) (C) (iPad13,5)", None))
+        self.spoofedModelDrp.setItemText(23, QCoreApplication.translate("Nugget", u"iPad Pro (12.9-inch) (M1) (W) (iPad13,8)", None))
+        self.spoofedModelDrp.setItemText(24, QCoreApplication.translate("Nugget", u"iPad Pro (12.9-inch) (M1) (C) (iPad13,9)", None))
+        self.spoofedModelDrp.setItemText(25, QCoreApplication.translate("Nugget", u"iPad Air (M1) (W) (iPad13,16)", None))
+        self.spoofedModelDrp.setItemText(26, QCoreApplication.translate("Nugget", u"iPad Air (M1) (C) (iPad13,17)", None))
 
-        self.spoofedModelDrp.setCurrentText(QCoreApplication.translate("Nugget", u"None", None))
+        self.spoofedModelDrp.setCurrentText(QCoreApplication.translate("Nugget", u"Original", None))
         self.springboardOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Springboard Options", None))
         self.label_13.setText(QCoreApplication.translate("Nugget", u"Lock Screen Footnote Text", None))
         self.footnoteTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Footnote Text", None))
@@ -2852,6 +2905,8 @@ class Ui_Nugget(object):
         self.allowWifiApplyingChk.setText(QCoreApplication.translate("Nugget", u"Allow Applying Over WiFi", None))
         self.skipSetupChk.setText(QCoreApplication.translate("Nugget", u"Skip Setup * (non-exploit files only)", None))
         self.autoRebootChk.setText(QCoreApplication.translate("Nugget", u"Auto Reboot After Applying", None))
+        self.supervisionChk.setText(QCoreApplication.translate("Nugget", u"Enable Supervision * (requires Skip Setup)", None))
+        self.supervisionOrganization.setPlaceholderText(QCoreApplication.translate("Nugget", u"Enter Organization Name", None))
         self.label_15.setText(QCoreApplication.translate("Nugget", u"* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.", None))
         self.resetPairBtn.setText(QCoreApplication.translate("Nugget", u"Reset Device Pairing", None))
         self.statusBarLbl_2.setText(QCoreApplication.translate("Nugget", u"Location Simulation", None))
