@@ -54,11 +54,22 @@ Note: It may be either `python`/`pip` or `python3`/`pip3` depending on your path
 The CLI version can be ran with `python3 cli_app.py`.
 
 ## Getting the File
-You need to get the mobilegestalt file that is specific to your device. To do that, follow these steps:
-1. Install the `Shortcuts` app from the iOS app store.
-2. Download this shortcut: https://www.icloud.com/shortcuts/d6f0a136ddda4714a80750512911c53b
+To obtain the mobilegestalt file specific to your device, you can use one of the following methods:
+
+### Method 1: Using Shortcuts
+
+1. Install the **Shortcuts** app from the iOS App Store.
+2. Download this shortcut: [Download Shortcut](https://www.icloud.com/shortcuts/d6f0a136ddda4714a80750512911c53b).
 3. Save the file and share it to your computer.
-4. Place it in the same folder as the python file (or specify the path in the program)
+4. Place it in the same folder as the Python file (or specify the path in the program).
+
+### Method 2: Direct File Path
+
+1. Paste this path into the search bar of the **Notes** app or **Settings** app:  
+   `file://a/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist`.   
+2. Select all the text and share it to your computer.
+3. Place the file in the same folder as the Python file (or specify the path in the program).
+
 
 ## Building
 To compile `mainwindow.ui` for Python, run the following command:
