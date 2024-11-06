@@ -1571,7 +1571,7 @@ QToolButton:pressed {
               <item>
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Nugget GUI - Version 4.0.1</string>
+                 <string>Nugget GUI - Version 4.1 (beta 1)</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2702,14 +2702,7 @@ QComboBox QAbstractItemView::item:hover {
                     <item>
                      <widget class="QCheckBox" name="eligFileChk">
                       <property name="text">
-                       <string>Enable Eligibility File (test)</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QCheckBox" name="experimentalChk">
-                      <property name="text">
-                       <string>Experimental Toggle</string>
+                       <string>Enable Eligibility File</string>
                       </property>
                      </widget>
                     </item>
@@ -4082,11 +4075,14 @@ QComboBox QAbstractItemView::item:hover {
                  </item>
                  <item>
                   <widget class="QCheckBox" name="supervisionChk">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
                    <property name="text">
                     <string>Enable Supervision * (requires Skip Setup)</string>
                    </property>
                    <property name="checked">
-                    <bool>true</bool>
+                    <bool>false</bool>
                    </property>
                   </widget>
                  </item>

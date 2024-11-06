@@ -77,7 +77,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.enableAIChk.toggled.connect(self.on_enableAIChk_toggled)
         self.ui.eligFileChk.toggled.connect(self.on_eligFileChk_toggled)
-        self.ui.experimentalChk.toggled.connect(self.on_experimentalChk_toggled)
         self.ui.languageTxt.hide() # to be removed later
         self.ui.languageLbl.hide() # to be removed later
         self.ui.languageTxt.textEdited.connect(self.on_languageTxt_textEdited)
@@ -226,7 +225,7 @@ class MainWindow(QtWidgets.QMainWindow):
             # hide options that are for newer versions
             # remove the new dynamic island options
             MinTweakVersions = {
-                "exploit": [("18.0", self.ui.featureFlagsPageBtn)],
+                "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk)],
                 "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
                 "18.0": [self.ui.aodChk, self.ui.iphone16SettingsChk]
             }
@@ -568,8 +567,6 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             self.ui.languageTxt.hide()
             self.ui.languageLbl.hide()
-    def on_experimentalChk_toggled(self, checked: bool):
-        tweaks["AIExperiment"].set_enabled(checked)
 
     def on_languageTxt_textEdited(self, text: str):
         tweaks["AIEligibility"].set_language_code(text)

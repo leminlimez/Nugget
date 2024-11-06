@@ -42,7 +42,6 @@ tweaks = {
     ## AI Enabler
     "AIEligibility": AITweak(),
     "AIGestalt": MobileGestaltTweak("Enable Apple Intelligence (for Unsupported Devices) (Gestalt)", "A62OafQ85EJAiiqKn4agtg", min_version=Version("18.1")),
-    "AIExperiment": MobileGestaltTweak("Enable AI Experiment", "I3lidq+FVH2CeOi/ARa0tg", min_version=Version("18.1")),
     "SpoofModel": MobileGestaltPickerTweak("Spoofed Device Model", "h9jDsbgj7xIVeIQ8S3/X3Q", values=[
         # Default
         "Placeholder", # 0 | Original
