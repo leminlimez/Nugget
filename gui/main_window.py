@@ -219,6 +219,22 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.devicePicker.setCurrentIndex(0)
         self.change_selected_device(0)
 
+    def setup_spoofedModelDrp_models(self):
+        # hide all the models first
+        for i in range(1, len(tweaks["SpoofModel"].value)):
+            try:
+                self.ui.spoofedModelDrp.removeItem(i)
+            except:
+                pass
+        # indexes 1-6 for iPhones, 7-(len(values) - 1) for iPads
+        spoof_drp_options = ["iPhone 15 Pro (iPhone16,1)", "iPhone 15 Pro Max (iPhone16,2)", "iPhone 16 (iPhone17,3)", "iPhone 16 Plus (iPhone17,4)", "iPhone 16 Pro (iPhone17,1)", "iPhone 16 Pro Max (iPhone17,2)", "iPad Mini (A17 Pro) (W) (iPad16,1)", "iPad Mini (A17 Pro) (C) (iPad16,2)", "iPad Pro (13-inch) (M4) (W) (iPad16,5)", "iPad Pro (13-inch) (M4) (C) (iPad16,6)", "iPad Pro (11-inch) (M4) (W) (iPad16,3)", "iPad Pro (11-inch) (M4) (C) (iPad16,4)", "iPad Pro (12.9-inch) (M2) (W) (iPad14,5)", "iPad Pro (12.9-inch) (M2) (C) (iPad14,6)", "iPad Pro (11-inch) (M2) (W) (iPad14,3)", "iPad Pro (11-inch) (M2) (C) (iPad14,4)", "iPad Air (13-inch) (M2) (W) (iPad14,10)", "iPad Air (13-inch) (M2) (C) (iPad14,11)", "iPad Air (11-inch) (M2) (W) (iPad14,8)", "iPad Air (11-inch) (M2) (C) (iPad14,9)", "iPad Pro (11-inch) (M1) (W) (iPad13,4)", "iPad Pro (11-inch) (M1) (C) (iPad13,5)", "iPad Pro (12.9-inch) (M1) (W) (iPad13,8)", "iPad Pro (12.9-inch) (M1) (C) (iPad13,9)", "iPad Air (M1) (W) (iPad13,16)", "iPad Air (M1) (C) (iPad13,17)"]
+        if self.device_manager.get_current_device_model().startswith("iPhone"):
+            # re-enable iPhone spoof models
+            self.ui.spoofedModelDrp.addItems(spoof_drp_options[:6])
+        else:
+            # re-enable iPad spoof models
+            self.ui.spoofedModelDrp.addItems(spoof_drp_options[6:])
+
     def change_selected_device(self, index):
         if len(self.device_manager.devices) > 0:
             self.device_manager.set_current_device(index=index)
@@ -278,6 +294,7 @@ class MainWindow(QtWidgets.QMainWindow):
             # hide the ai content if not on
             if device_ver >= Version("18.1") and not tweaks["AIGestalt"].enabled:
                 self.ui.aiEnablerContent.hide()
+            self.setup_spoofedModelDrp_models()
         else:
             self.device_manager.set_current_device(index=None)
 
@@ -572,9 +589,14 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["AIEligibility"].set_language_code(text)
     
     def on_spoofedModelDrp_activated(self, index: int):
-        tweaks["SpoofModel"].set_selected_option(index)
-        tweaks["SpoofHardware"].set_selected_option(index)
-        tweaks["SpoofCPU"].set_selected_option(index)
+        idx_to_apply = index
+        if index > 0 and not self.device_manager.get_current_device_model().startswith("iPhone"):
+            # offset the index for ipads
+            idx_to_apply += 7
+        tweaks["SpoofModel"].set_selected_option(idx_to_apply)
+        print(tweaks["SpoofModel"].value[tweaks["SpoofModel"].selected_option])
+        tweaks["SpoofHardware"].set_selected_option(idx_to_apply)
+        tweaks["SpoofCPU"].set_selected_option(idx_to_apply)
 
 
     ## SPRINGBOARD OPTIONS PAGE

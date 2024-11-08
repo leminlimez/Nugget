@@ -155,6 +155,12 @@ class DeviceManager:
         else:
             return self.data_singleton.current_device.uuid
         
+    def get_current_device_model(self) -> str:
+        if self.data_singleton.current_device == None:
+            return ""
+        else:
+            return self.data_singleton.current_device.model
+        
     def get_current_device_supported(self) -> bool:
         if self.data_singleton.current_device == None:
             return False
