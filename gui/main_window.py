@@ -593,7 +593,7 @@ class MainWindow(QtWidgets.QMainWindow):
         idx_to_apply = index
         if index > 0 and not self.device_manager.get_current_device_model().startswith("iPhone"):
             # offset the index for ipads
-            idx_to_apply += 7
+            idx_to_apply += 6
         tweaks["SpoofModel"].set_selected_option(idx_to_apply)
         print(tweaks["SpoofModel"].value[tweaks["SpoofModel"].selected_option])
         tweaks["SpoofHardware"].set_selected_option(idx_to_apply)
