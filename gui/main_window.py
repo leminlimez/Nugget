@@ -586,9 +586,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_disableLockRespringChk_clicked(self, checked: bool):
         tweaks["SBDontLockAfterCrash"].set_enabled(checked)
-    def on_disableBatteryAlertsChk_clicked(self, checked: bool):
-        tweaks["SBDontDimOrLockOnAC"].set_enabled(checked)
     def on_disableDimmingChk_clicked(self, checked: bool):
+        tweaks["SBDontDimOrLockOnAC"].set_enabled(checked)
+    def on_disableBatteryAlertsChk_clicked(self, checked: bool):
         tweaks["SBHideLowPowerAlerts"].set_enabled(checked)
     def on_disableCrumbChk_clicked(self, checked: bool):
         tweaks["SBNeverBreadcrumb"].set_enabled(checked)
