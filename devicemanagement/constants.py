@@ -13,6 +13,14 @@ class Device:
         self.locale = locale
         self.ld = ld
 
+    def is_exploit_fully_patched(self) -> bool:
+        parsed_ver: Version = Version(self.version)
+        # mobile gestalt methods are completely patched on iOS 18.2 dev beta 3+
+        if (parsed_ver < Version("18.2")
+            or self.build == "22C5109p" or self.build == "22C5125e"):
+            return False
+        return True
+
     def has_exploit(self) -> bool:
         parsed_ver: Version = Version(self.version)
         # make sure versions past 17.7.1 but before 18.0 aren't supported

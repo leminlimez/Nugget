@@ -181,6 +181,12 @@ class DeviceManager:
             return False
         else:
             return self.data_singleton.current_device.supported()
+    
+    def get_current_device_patched(self) -> bool:
+        if self.data_singleton.current_device == None:
+            return True
+        else:
+            return self.data_singleton.current_device.is_exploit_fully_patched()
         
 
     def reset_device_pairing(self):

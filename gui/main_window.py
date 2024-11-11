@@ -387,7 +387,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def show_version_text(self, version: str, build: str):
         support_str: str = "<span style=\"color: #32d74b;\">Supported!</span></a>"
-        if Version(version) < Version("17.0"):
+        if Version(version) < Version("17.0") or self.device_manager.get_current_device_patched():
             support_str = "<span style=\"color: #ff0000;\">Not Supported.</span></a>"
         elif not self.device_manager.get_current_device_supported():
             # sparserestore partially patched
