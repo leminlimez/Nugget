@@ -230,7 +230,13 @@ class DeviceManager:
                 domain="ManagedPreferencesDomain"
             ))
 
-    def get_domain_for_path(self, path: str) -> str:
+    def get_domain_for_path(self, path: str, fully_patched: bool = False) -> str:
+        # just make the Sys Containers to use the regular way (won't work for mga)
+        sysSharedContainer = "SysSharedContainerDomain-"
+        sysContainer = "SysContainerDomain-"
+        if not fully_patched:
+            sysSharedContainer += "."
+            sysContainer += "."
         mappings: dict = {
             "/var/Managed Preferences/": "ManagedPreferencesDomain",
             "/var/root/": "RootDomain",
@@ -238,13 +244,19 @@ class DeviceManager:
             "/var/MobileDevice/": "MobileDeviceDomain",
             "/var/mobile/": "HomeDomain",
             "/var/db/": "DatabaseDomain",
-            "/var/containers/Shared/SystemGroup/": "SysSharedContainerDomain-.",
-            "/var/containers/Data/SystemGroup/": "SysContainerDomain-."
+            "/var/containers/Shared/SystemGroup/": sysSharedContainer,
+            "/var/containers/Data/SystemGroup/": sysContainer
         }
         for mapping in mappings.keys():
             if path.startswith(mapping):
                 new_path = path.replace(mapping, "")
-                return mappings[mapping], new_path
+                new_domain = mappings[mapping]
+                # if patched, include the next part of the path in the domain
+                if fully_patched and (new_domain == sysSharedContainer or new_domain == sysContainer):
+                    parts = new_path.split("/")
+                    new_domain += parts[0]
+                    new_path = new_path.replace(parts[0] + "/", "")
+                return new_domain, new_path
         return None, path
     
     def concat_file(self, contents: str, path: str, files_to_restore: list[FileToRestore]):
@@ -254,7 +266,7 @@ class DeviceManager:
                 restore_path=path
             ))
         else:
-            domain, file_path = self.get_domain_for_path(path)
+            domain, file_path = self.get_domain_for_path(path, fully_patched=self.get_current_device_patched())
             files_to_restore.append(FileToRestore(
                 contents=contents,
                 restore_path=file_path,
@@ -374,7 +386,9 @@ class DeviceManager:
             settings.setValue(self.data_singleton.current_device.uuid + "_model", "")
             settings.setValue(self.data_singleton.current_device.uuid + "_hardware", "")
             settings.setValue(self.data_singleton.current_device.uuid + "_cpu", "")
-            domain, file_path = self.get_domain_for_path("/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist")
+            domain, file_path = self.get_domain_for_path(
+                "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
+                fully_patched=self.get_current_device_patched())
             restore_files(files=[FileToRestore(
                     contents=b"",
                     restore_path=file_path,
