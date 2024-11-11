@@ -14,7 +14,8 @@ args = [
     '--onedir',
     '--noconfirm',
     '--name=Nugget',
-    '--icon=nugget.ico'
+    '--icon=nugget.ico',
+    '--optimize=2'
 ]
 
 if platform == "darwin":
