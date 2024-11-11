@@ -75,8 +75,8 @@ class RdarFixTweak(BasicPlistTweak):
             or model == "iPhone11,8"
             or model == "iPhone12,1" or model == "iPhone12,3" or model == "iPhone12,5"):
             self.mode = 1
-        elif (model == "iPhone13,1" or model == "iPhone13,2" or model == "iPhone13,3" or model == "iPhone13,4"
-              or model == "iPhone14,4" or model == "iPhone14,5" or model == "iPhone14,2" or model == "iPhone14,3"
+        elif (model == "iPhone13,2" or model == "iPhone13,3" or model == "iPhone13,4"
+              or model == "iPhone14,5" or model == "iPhone14,2" or model == "iPhone14,3"
               or model == "iPhone14,7" or model == "iPhone14,8"):
             self.mode = 2
         elif (model == "iPhone12,8" or model == "iPhone14,6"):
