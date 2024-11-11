@@ -595,9 +595,12 @@ class MainWindow(QtWidgets.QMainWindow):
             # offset the index for ipads
             idx_to_apply += 6
         tweaks["SpoofModel"].set_selected_option(idx_to_apply)
-        print(tweaks["SpoofModel"].value[tweaks["SpoofModel"].selected_option])
         tweaks["SpoofHardware"].set_selected_option(idx_to_apply)
         tweaks["SpoofCPU"].set_selected_option(idx_to_apply)
+        if idx_to_apply == 0:
+            tweaks["SpoofModel"].set_enabled(False)
+            tweaks["SpoofHardware"].set_enabled(False)
+            tweaks["SpoofCPU"].set_enabled(False)
 
 
     ## SPRINGBOARD OPTIONS PAGE
