@@ -29,6 +29,9 @@ def show_apply_error(e: Exception, update_label=lambda x: None):
     if "Find My" in str(e):
         show_error_msg("Find My must be disabled in order to use this tool.",
                        detailed_txt="Disable Find My from Settings (Settings -> [Your Name] -> Find My) and then try again.")
+    elif "Encrypted Backup MDM" in str(e):
+        show_error_msg("Nugget cannot be used on this device. Click Show Details for more info.",
+                       detailed_txt="Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!")
     elif "SessionInactive" in str(e):
         show_error_msg("The session was terminated. Refresh the device list and try again.")
     elif "Password" in str(e):
