@@ -103,13 +103,22 @@ class RdarFixTweak(BasicPlistTweak):
         if self.di_type == -1:
             # revert the fix
             other_tweaks[self.file_location] = {}
-        elif self.mode == 1 or self.mode == 3:
+        elif self.mode == 1:
+            # iPhone XR, XS, and 11
             plist = {
                 "canvas_height": 1791,
                 "canvas_width": 828
             }
             other_tweaks[self.file_location] = plist
+        elif self.mode == 3:
+            # iPhone SEs
+            plist = {
+                "canvas_height": 1779,
+                "canvas_width": 1000
+            }
+            other_tweaks[self.file_location] = plist
         elif self.mode == 2:
+            # Status bar fix (iPhone 12+)
             width = 2868
             height = 1320
             if self.di_type == 2556:
