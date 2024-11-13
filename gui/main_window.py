@@ -438,7 +438,13 @@ class MainWindow(QtWidgets.QMainWindow):
             tweaks["DynamicIsland"].set_enabled(False)
             tweaks["RdarFix"].set_di_type(-1)
         else:
-            tweaks["DynamicIsland"].set_selected_option(index - 1)
+            # disable X gestures on devices other than iPhone SEs
+            # the lazy way, better option would be to remove it from the menu but I didn't want to rework all that
+            model = self.device_manager.get_current_device_model()
+            if index != 1 or (model == "iPhone12,8" or model == "iPhone14,6"):
+                tweaks["DynamicIsland"].set_selected_option(index - 1)
+            else:
+                tweaks["DynamicIsland"].set_enabled(False)
             tweaks["RdarFix"].set_di_type(tweaks["DynamicIsland"].value[tweaks["DynamicIsland"].get_selected_option()])
         self.set_rdar_fix_label()
     def on_rdarFixChk_clicked(self, checked: bool):
