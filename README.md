@@ -1,7 +1,9 @@
 # Nugget
 Unlock your device's full potential!
 
-Sparserestore works on all versions iOS 17.0-17.7 and iOS 18.0-18.1 beta 4. There is partial support for iOS 17.7.1 and iOS 18.1 beta 5+.
+Sparserestore works on all versions iOS 17.0-17.7 and iOS 18.0-18.1 beta 4. There is partial support for iOS 17.7.1 and iOS 18.1b5-18.2 beta 2.
+
+**iOS 18.2 beta 3 and newer is not supported.**
 
 This uses the sparserestore exploit to write to files outside of the intended restore location, like mobilegestalt.
 
@@ -73,5 +75,5 @@ The application itself can be compiled by running `compile.py`.
 - [JJTech](https://github.com/JJTech0130) for Sparserestore/[TrollRestore](https://github.com/JJTech0130/TrollRestore)
 - [pymobiledevice3](https://github.com/doronz88/pymobiledevice3)
 - [disfordottie](https://x.com/disfordottie) for some global flag features
-- [sneakyf1shy](https://github.com/f1shy-dev) for [AI Enabler](https://gist.github.com/f1shy-dev/23b4a78dc283edd30ae2b2e6429129b5)
+- [sneakyf1shy](https://github.com/f1shy-dev) for [AI Eligibility](https://gist.github.com/f1shy-dev/23b4a78dc283edd30ae2b2e6429129b5) (iOS 18.1 beta 4 and below)
 
