@@ -3418,13 +3418,6 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QCheckBox" name="accessoryChk">
-                   <property name="text">
-                    <string>Enable Accessory Developer</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
                   <widget class="QCheckBox" name="iMessageChk">
                    <property name="text">
                     <string>Enable iMessage Debugging</string>

@@ -1817,11 +1817,6 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.metalHUDChk)
 
-        self.accessoryChk = QCheckBox(self.internalOptionsPageContent)
-        self.accessoryChk.setObjectName(u"accessoryChk")
-
-        self.verticalLayout_131.addWidget(self.accessoryChk)
-
         self.iMessageChk = QCheckBox(self.internalOptionsPageContent)
         self.iMessageChk.setObjectName(u"iMessageChk")
 
@@ -2877,7 +2872,6 @@ class Ui_Nugget(object):
         self.buildVersionChk.setText(QCoreApplication.translate("Nugget", u"Show Build Version in Status Bar", None))
         self.RTLChk.setText(QCoreApplication.translate("Nugget", u"Force Right-to-Left Layout", None))
         self.metalHUDChk.setText(QCoreApplication.translate("Nugget", u"Enable Metal HUD Debug", None))
-        self.accessoryChk.setText(QCoreApplication.translate("Nugget", u"Enable Accessory Developer", None))
         self.iMessageChk.setText(QCoreApplication.translate("Nugget", u"Enable iMessage Debugging", None))
         self.IDSChk.setText(QCoreApplication.translate("Nugget", u"Enable Continuity Debugging", None))
         self.VCChk.setText(QCoreApplication.translate("Nugget", u"Enable FaceTime Debugging", None))

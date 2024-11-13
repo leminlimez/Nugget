@@ -218,11 +218,6 @@ tweaks = {
         FileLocation.globalPreferences,
         "MetalForceHudEnabled"
     ),
-    "AccessoryDeveloperEnabled": BasicPlistTweak(
-        "Enable Accessory Debugging",
-        FileLocation.globalPreferences,
-        "AccessoryDeveloperEnabled"
-    ),
     "iMessageDiagnosticsEnabled": BasicPlistTweak(
         "Enable iMessage Debugging",
         FileLocation.globalPreferences,

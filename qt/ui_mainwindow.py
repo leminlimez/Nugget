@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.3
+## Created by: Qt User Interface Compiler version 6.7.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -190,7 +190,7 @@ class Ui_Nugget(object):
 "	border-bottom-right-radius: 0px;\n"
 "}")
         icon = QIcon()
-        icon.addFile(u":/icon/phone.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/icon/phone.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.toolButton_6.setIcon(icon)
 
         self.horizontalLayout_15.addWidget(self.toolButton_6)
@@ -244,7 +244,7 @@ class Ui_Nugget(object):
 "	border-radius: 0px;\n"
 "}")
         icon1 = QIcon()
-        icon1.addFile(u":/icon/arrow-clockwise.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u":/icon/arrow-clockwise.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.refreshBtn.setIcon(icon1)
         self.refreshBtn.setCheckable(False)
         self.refreshBtn.setToolButtonStyle(Qt.ToolButtonIconOnly)
@@ -297,7 +297,7 @@ class Ui_Nugget(object):
         sizePolicy2.setHeightForWidth(self.homePageBtn.sizePolicy().hasHeightForWidth())
         self.homePageBtn.setSizePolicy(sizePolicy2)
         icon2 = QIcon()
-        icon2.addFile(u":/icon/house.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(u":/icon/house.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.homePageBtn.setIcon(icon2)
         self.homePageBtn.setCheckable(True)
         self.homePageBtn.setChecked(True)
@@ -312,7 +312,7 @@ class Ui_Nugget(object):
         sizePolicy2.setHeightForWidth(self.explorePageBtn.sizePolicy().hasHeightForWidth())
         self.explorePageBtn.setSizePolicy(sizePolicy2)
         icon3 = QIcon()
-        icon3.addFile(u":/icon/compass.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon3.addFile(u":/icon/compass.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.explorePageBtn.setIcon(icon3)
         self.explorePageBtn.setCheckable(True)
         self.explorePageBtn.setAutoExclusive(True)
@@ -325,7 +325,7 @@ class Ui_Nugget(object):
         sizePolicy2.setHeightForWidth(self.locSimPageBtn.sizePolicy().hasHeightForWidth())
         self.locSimPageBtn.setSizePolicy(sizePolicy2)
         icon4 = QIcon()
-        icon4.addFile(u":/icon/geo-alt.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon4.addFile(u":/icon/geo-alt.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.locSimPageBtn.setIcon(icon4)
         self.locSimPageBtn.setCheckable(True)
         self.locSimPageBtn.setAutoExclusive(True)
@@ -339,7 +339,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.sidebarDiv1.setFrameShadow(QFrame.Plain)
-        self.sidebarDiv1.setFrameShape(QFrame.HLine)
+        self.sidebarDiv1.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout.addWidget(self.sidebarDiv1)
 
@@ -348,7 +348,7 @@ class Ui_Nugget(object):
         sizePolicy2.setHeightForWidth(self.gestaltPageBtn.sizePolicy().hasHeightForWidth())
         self.gestaltPageBtn.setSizePolicy(sizePolicy2)
         icon5 = QIcon()
-        icon5.addFile(u":/icon/iphone-island.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon5.addFile(u":/icon/iphone-island.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.gestaltPageBtn.setIcon(icon5)
         self.gestaltPageBtn.setIconSize(QSize(24, 28))
         self.gestaltPageBtn.setCheckable(True)
@@ -366,7 +366,7 @@ class Ui_Nugget(object):
         font.setFamilies([u".AppleSystemUIFont"])
         self.featureFlagsPageBtn.setFont(font)
         icon6 = QIcon()
-        icon6.addFile(u":/icon/flag.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon6.addFile(u":/icon/flag.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.featureFlagsPageBtn.setIcon(icon6)
         self.featureFlagsPageBtn.setCheckable(True)
         self.featureFlagsPageBtn.setAutoExclusive(True)
@@ -390,7 +390,7 @@ class Ui_Nugget(object):
         sizePolicy2.setHeightForWidth(self.springboardOptionsPageBtn.sizePolicy().hasHeightForWidth())
         self.springboardOptionsPageBtn.setSizePolicy(sizePolicy2)
         icon7 = QIcon()
-        icon7.addFile(u":/icon/app-indicator.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon7.addFile(u":/icon/app-indicator.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.springboardOptionsPageBtn.setIcon(icon7)
         self.springboardOptionsPageBtn.setCheckable(True)
         self.springboardOptionsPageBtn.setAutoExclusive(True)
@@ -403,7 +403,7 @@ class Ui_Nugget(object):
         sizePolicy2.setHeightForWidth(self.internalOptionsPageBtn.sizePolicy().hasHeightForWidth())
         self.internalOptionsPageBtn.setSizePolicy(sizePolicy2)
         icon8 = QIcon()
-        icon8.addFile(u":/icon/hdd.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon8.addFile(u":/icon/hdd.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.internalOptionsPageBtn.setIcon(icon8)
         self.internalOptionsPageBtn.setCheckable(True)
         self.internalOptionsPageBtn.setAutoExclusive(True)
@@ -417,7 +417,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.sidebarDiv2.setFrameShadow(QFrame.Plain)
-        self.sidebarDiv2.setFrameShape(QFrame.HLine)
+        self.sidebarDiv2.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout.addWidget(self.sidebarDiv2)
 
@@ -426,7 +426,7 @@ class Ui_Nugget(object):
         sizePolicy2.setHeightForWidth(self.applyPageBtn.sizePolicy().hasHeightForWidth())
         self.applyPageBtn.setSizePolicy(sizePolicy2)
         icon9 = QIcon()
-        icon9.addFile(u":/icon/check-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon9.addFile(u":/icon/check-circle.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.applyPageBtn.setIcon(icon9)
         self.applyPageBtn.setCheckable(True)
         self.applyPageBtn.setAutoExclusive(True)
@@ -439,7 +439,7 @@ class Ui_Nugget(object):
         sizePolicy2.setHeightForWidth(self.settingsPageBtn.sizePolicy().hasHeightForWidth())
         self.settingsPageBtn.setSizePolicy(sizePolicy2)
         icon10 = QIcon()
-        icon10.addFile(u":/icon/gear.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon10.addFile(u":/icon/gear.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.settingsPageBtn.setIcon(icon10)
         self.settingsPageBtn.setCheckable(True)
         self.settingsPageBtn.setAutoExclusive(True)
@@ -509,7 +509,7 @@ class Ui_Nugget(object):
 
         self.phoneVersionLbl = QLabel(self.verticalWidget)
         self.phoneVersionLbl.setObjectName(u"phoneVersionLbl")
-        self.phoneVersionLbl.setCursor(QCursor(Qt.PointingHandCursor))
+        self.phoneVersionLbl.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.phoneVersionLbl.setTextFormat(Qt.RichText)
         self.phoneVersionLbl.setOpenExternalLinks(False)
 
@@ -531,7 +531,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_4.setFrameShadow(QFrame.Plain)
-        self.line_4.setFrameShape(QFrame.HLine)
+        self.line_4.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_2.addWidget(self.line_4)
 
@@ -552,7 +552,7 @@ class Ui_Nugget(object):
 "	padding: 0px;\n"
 "}")
         icon11 = QIcon()
-        icon11.addFile(u":/credits/big_nugget.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon11.addFile(u":/credits/big_nugget.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.bigNuggetBtn.setIcon(icon11)
         self.bigNuggetBtn.setIconSize(QSize(150, 200))
 
@@ -589,7 +589,7 @@ class Ui_Nugget(object):
         self.discordBtn = QToolButton(self.verticalWidget1)
         self.discordBtn.setObjectName(u"discordBtn")
         icon12 = QIcon()
-        icon12.addFile(u":/icon/discord.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon12.addFile(u":/icon/discord.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.discordBtn.setIcon(icon12)
         self.discordBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
@@ -598,7 +598,7 @@ class Ui_Nugget(object):
         self.starOnGithubBtn = QToolButton(self.verticalWidget1)
         self.starOnGithubBtn.setObjectName(u"starOnGithubBtn")
         icon13 = QIcon()
-        icon13.addFile(u":/icon/star.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon13.addFile(u":/icon/star.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.starOnGithubBtn.setIcon(icon13)
         self.starOnGithubBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
@@ -642,7 +642,7 @@ class Ui_Nugget(object):
 "	background: none;\n"
 "}")
         icon14 = QIcon()
-        icon14.addFile(u":/credits/LeminLimez.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon14.addFile(u":/credits/LeminLimez.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.leminBtn.setIcon(icon14)
         self.leminBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
@@ -662,7 +662,7 @@ class Ui_Nugget(object):
 "    color: #FFFFFF;\n"
 "}")
         icon15 = QIcon()
-        icon15.addFile(u":/icon/twitter.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon15.addFile(u":/icon/twitter.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.leminTwitterBtn.setIcon(icon15)
 
         self.horizontalLayout_6.addWidget(self.leminTwitterBtn)
@@ -681,7 +681,7 @@ class Ui_Nugget(object):
 "    color: #FFFFFF;\n"
 "}")
         icon16 = QIcon()
-        icon16.addFile(u":/icon/github.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon16.addFile(u":/icon/github.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.leminGithubBtn.setIcon(icon16)
 
         self.horizontalLayout_6.addWidget(self.leminGithubBtn)
@@ -701,7 +701,7 @@ class Ui_Nugget(object):
 "    color: #FFFFFF;\n"
 "}")
         icon17 = QIcon()
-        icon17.addFile(u":/icon/currency-dollar.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon17.addFile(u":/icon/currency-dollar.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.leminKoFiBtn.setIcon(icon17)
 
         self.horizontalLayout_6.addWidget(self.leminKoFiBtn)
@@ -934,7 +934,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_8.setFrameShadow(QFrame.Plain)
-        self.line_8.setFrameShape(QFrame.HLine)
+        self.line_8.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_4.addWidget(self.line_8)
 
@@ -1062,7 +1062,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_7.setFrameShadow(QFrame.Plain)
-        self.line_7.setFrameShape(QFrame.HLine)
+        self.line_7.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_8.addWidget(self.line_7)
 
@@ -1107,7 +1107,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_9.setFrameShadow(QFrame.Plain)
-        self.line_9.setFrameShape(QFrame.HLine)
+        self.line_9.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_8.addWidget(self.line_9)
 
@@ -1127,7 +1127,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_10.setFrameShadow(QFrame.Plain)
-        self.line_10.setFrameShape(QFrame.HLine)
+        self.line_10.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_8.addWidget(self.line_10)
 
@@ -1147,7 +1147,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_22.setFrameShadow(QFrame.Plain)
-        self.line_22.setFrameShape(QFrame.HLine)
+        self.line_22.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_8.addWidget(self.line_22)
 
@@ -1164,7 +1164,7 @@ class Ui_Nugget(object):
         self.addGestaltKeyBtn.setObjectName(u"addGestaltKeyBtn")
         self.addGestaltKeyBtn.setEnabled(True)
         icon18 = QIcon()
-        icon18.addFile(u":/icon/plus.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon18.addFile(u":/icon/plus.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.addGestaltKeyBtn.setIcon(icon18)
         self.addGestaltKeyBtn.setCheckable(False)
         self.addGestaltKeyBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
@@ -1185,7 +1185,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_23.setFrameShadow(QFrame.Plain)
-        self.line_23.setFrameShape(QFrame.HLine)
+        self.line_23.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_8.addWidget(self.line_23)
 
@@ -1271,7 +1271,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_12.setFrameShadow(QFrame.Plain)
-        self.line_12.setFrameShape(QFrame.HLine)
+        self.line_12.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_14.addWidget(self.line_12)
 
@@ -1298,7 +1298,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.div.setFrameShadow(QFrame.Plain)
-        self.div.setFrameShape(QFrame.HLine)
+        self.div.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_13.addWidget(self.div)
 
@@ -1377,7 +1377,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_13.setFrameShadow(QFrame.Plain)
-        self.line_13.setFrameShape(QFrame.HLine)
+        self.line_13.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_17.addWidget(self.line_13)
 
@@ -1459,7 +1459,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_16.setFrameShadow(QFrame.Plain)
-        self.line_16.setFrameShape(QFrame.HLine)
+        self.line_16.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_36.addWidget(self.line_16)
 
@@ -1503,7 +1503,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_21.setFrameShadow(QFrame.Plain)
-        self.line_21.setFrameShape(QFrame.HLine)
+        self.line_21.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_34.addWidget(self.line_21)
 
@@ -1655,7 +1655,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_11.setFrameShadow(QFrame.Plain)
-        self.line_11.setFrameShape(QFrame.HLine)
+        self.line_11.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_10.addWidget(self.line_11)
 
@@ -1682,7 +1682,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_6.setFrameShadow(QFrame.Plain)
-        self.line_6.setFrameShape(QFrame.HLine)
+        self.line_6.setFrameShape(QFrame.Shape.HLine)
 
         self._2.addWidget(self.line_6)
 
@@ -1781,7 +1781,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_121.setFrameShadow(QFrame.Plain)
-        self.line_121.setFrameShape(QFrame.HLine)
+        self.line_121.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_141.addWidget(self.line_121)
 
@@ -1808,7 +1808,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.div1.setFrameShadow(QFrame.Plain)
-        self.div1.setFrameShape(QFrame.HLine)
+        self.div1.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_131.addWidget(self.div1)
 
@@ -1816,11 +1816,6 @@ class Ui_Nugget(object):
         self.metalHUDChk.setObjectName(u"metalHUDChk")
 
         self.verticalLayout_131.addWidget(self.metalHUDChk)
-
-        self.accessoryChk = QCheckBox(self.internalOptionsPageContent)
-        self.accessoryChk.setObjectName(u"accessoryChk")
-
-        self.verticalLayout_131.addWidget(self.accessoryChk)
 
         self.iMessageChk = QCheckBox(self.internalOptionsPageContent)
         self.iMessageChk.setObjectName(u"iMessageChk")
@@ -1843,7 +1838,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_17.setFrameShadow(QFrame.Plain)
-        self.line_17.setFrameShape(QFrame.HLine)
+        self.line_17.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_131.addWidget(self.line_17)
 
@@ -1863,7 +1858,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_18.setFrameShadow(QFrame.Plain)
-        self.line_18.setFrameShape(QFrame.HLine)
+        self.line_18.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_131.addWidget(self.line_18)
 
@@ -1888,7 +1883,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_19.setFrameShadow(QFrame.Plain)
-        self.line_19.setFrameShape(QFrame.HLine)
+        self.line_19.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_131.addWidget(self.line_19)
 
@@ -1973,7 +1968,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_5.setFrameShadow(QFrame.Plain)
-        self.line_5.setFrameShape(QFrame.HLine)
+        self.line_5.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_24.addWidget(self.line_5)
 
@@ -1999,7 +1994,7 @@ class Ui_Nugget(object):
         self.chooseGestaltBtn = QToolButton(self.verticalWidget2)
         self.chooseGestaltBtn.setObjectName(u"chooseGestaltBtn")
         icon19 = QIcon()
-        icon19.addFile(u":/icon/folder.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon19.addFile(u":/icon/folder.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.chooseGestaltBtn.setIcon(icon19)
         self.chooseGestaltBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
@@ -2130,7 +2125,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_111.setFrameShadow(QFrame.Plain)
-        self.line_111.setFrameShape(QFrame.HLine)
+        self.line_111.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_101.addWidget(self.line_111)
 
@@ -2186,7 +2181,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_20.setFrameShadow(QFrame.Plain)
-        self.line_20.setFrameShape(QFrame.HLine)
+        self.line_20.setFrameShape(QFrame.Shape.HLine)
 
         self._21.addWidget(self.line_20)
 
@@ -2272,7 +2267,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_2.setFrameShadow(QFrame.Plain)
-        self.line_2.setFrameShape(QFrame.HLine)
+        self.line_2.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_28.addWidget(self.line_2)
 
@@ -2373,7 +2368,7 @@ class Ui_Nugget(object):
 "	border-radius: 0px;\n"
 "}")
         icon20 = QIcon()
-        icon20.addFile(u":/icon/pencil.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon20.addFile(u":/icon/pencil.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.toolButton_12.setIcon(icon20)
         self.toolButton_12.setIconSize(QSize(25, 25))
 
@@ -2412,7 +2407,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_14.setFrameShadow(QFrame.Plain)
-        self.line_14.setFrameShape(QFrame.HLine)
+        self.line_14.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_20.addWidget(self.line_14)
 
@@ -2436,7 +2431,7 @@ class Ui_Nugget(object):
         self.importOperationBtn.setObjectName(u"importOperationBtn")
         self.importOperationBtn.setEnabled(True)
         icon21 = QIcon()
-        icon21.addFile(u":/icon/import.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon21.addFile(u":/icon/import.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.importOperationBtn.setIcon(icon21)
         self.importOperationBtn.setIconSize(QSize(20, 20))
         self.importOperationBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
@@ -2533,7 +2528,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_3.setFrameShadow(QFrame.Plain)
-        self.line_3.setFrameShape(QFrame.HLine)
+        self.line_3.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_31.addWidget(self.line_3)
 
@@ -2613,7 +2608,7 @@ class Ui_Nugget(object):
         self.importThemeZipBtn = QToolButton(self.horizontalWidget7)
         self.importThemeZipBtn.setObjectName(u"importThemeZipBtn")
         icon22 = QIcon()
-        icon22.addFile(u":/icon/file-earmark-zip.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon22.addFile(u":/icon/file-earmark-zip.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.importThemeZipBtn.setIcon(icon22)
 
         self.horizontalLayout_26.addWidget(self.importThemeZipBtn)
@@ -2630,7 +2625,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line_15.setFrameShadow(QFrame.Plain)
-        self.line_15.setFrameShape(QFrame.HLine)
+        self.line_15.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_23.addWidget(self.line_15)
 
@@ -2651,7 +2646,7 @@ class Ui_Nugget(object):
 "	color: #414141;\n"
 "}")
         self.line.setFrameShadow(QFrame.Plain)
-        self.line.setFrameShape(QFrame.HLine)
+        self.line.setFrameShape(QFrame.Shape.HLine)
 
         self.verticalLayout_22.addWidget(self.line)
 
@@ -2877,7 +2872,6 @@ class Ui_Nugget(object):
         self.buildVersionChk.setText(QCoreApplication.translate("Nugget", u"Show Build Version in Status Bar", None))
         self.RTLChk.setText(QCoreApplication.translate("Nugget", u"Force Right-to-Left Layout", None))
         self.metalHUDChk.setText(QCoreApplication.translate("Nugget", u"Enable Metal HUD Debug", None))
-        self.accessoryChk.setText(QCoreApplication.translate("Nugget", u"Enable Accessory Developer", None))
         self.iMessageChk.setText(QCoreApplication.translate("Nugget", u"Enable iMessage Debugging", None))
         self.IDSChk.setText(QCoreApplication.translate("Nugget", u"Enable Continuity Debugging", None))
         self.VCChk.setText(QCoreApplication.translate("Nugget", u"Enable FaceTime Debugging", None))
