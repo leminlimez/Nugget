@@ -11,9 +11,9 @@ from pymobiledevice3.lockdown import create_using_usbmux
 from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
 
-from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, RdarFixTweak
+from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
-from tweaks.basic_plist_locations import FileLocationsList
+from tweaks.basic_plist_locations import FileLocationsList, RiskyFileLocationsList
 from Sparserestore.restore import restore_files, FileToRestore
 
 def show_error_msg(txt: str, detailed_txt: str = None):
@@ -302,8 +302,8 @@ class DeviceManager:
                     eligibility_files = tweak.apply_tweak()
                 elif isinstance(tweak, AITweak):
                     ai_file = tweak.apply_tweak()
-                elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak):
-                    basic_plists = tweak.apply_tweak(basic_plists)
+                elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak) or isinstance(tweak, AdvancedPlistTweak):
+                    basic_plists = tweak.apply_tweak(basic_plists, self.allow_risky_tweaks)
                 else:
                     if gestalt_plist != None:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
@@ -368,6 +368,13 @@ class DeviceManager:
                     path=location.value,
                     files_to_restore=files_to_restore
                 )
+            if self.allow_risky_tweaks:
+                for location in RiskyFileLocationsList:
+                    self.concat_file(
+                        contents=empty_data,
+                        path=location.value,
+                        files_to_restore=files_to_restore
+                    )
 
         # restore to the device
         update_label("Restoring to device...")

@@ -114,6 +114,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.pasteSoundChk.toggled.connect(self.on_pasteSoundChk_clicked)
         self.ui.notifyPastesChk.toggled.connect(self.on_notifyPastesChk_clicked)
 
+        ## RISKY OPTIONS PAGE ACTIONS
+        self.ui.disableOTAChk.toggled.connect(self.on_disableOTAChk_clicked)
+
         ## APPLY PAGE ACTIONS
         self.ui.applyTweaksBtn.clicked.connect(self.on_applyPageBtn_clicked)
         self.ui.removeTweaksBtn.clicked.connect(self.on_removeTweaksBtn_clicked)
@@ -219,6 +222,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.euEnablerPageContent.setDisabled(False)
             self.ui.springboardOptionsPageContent.setDisabled(False)
             self.ui.internalOptionsPageContent.setDisabled(False)
+            self.ui.advancedOptionsPageContent.setDisabled(False)
 
             self.ui.resetPairBtn.show()
         
@@ -321,14 +325,16 @@ class MainWindow(QtWidgets.QMainWindow):
             organization_name = self.settings.value("organization_name", "", type=str)
 
             self.ui.allowWifiApplyingChk.setChecked(apply_over_wifi)
-            self.ui.skipSetupChk.setChecked(skip_setup)
             self.ui.autoRebootChk.setChecked(auto_reboot)
+            self.ui.showRiskyChk.setChecked(risky_tweaks)
+            self.ui.skipSetupChk.setChecked(skip_setup)
             self.ui.supervisionChk.setChecked(supervised)
             self.ui.supervisionOrganization.setText(organization_name)
 
             self.device_manager.apply_over_wifi = apply_over_wifi
-            self.device_manager.skip_setup = skip_setup
             self.device_manager.auto_reboot = auto_reboot
+            self.device_manager.allow_risky_tweaks = risky_tweaks
+            self.device_manager.skip_setup = skip_setup
             self.device_manager.supervised = supervised
             self.device_manager.organization_name = organization_name
         except:
@@ -667,6 +673,10 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["PlaySoundOnPaste"].set_enabled(checked)
     def on_notifyPastesChk_clicked(self, checked: bool):
         tweaks["AnnounceAllPastes"].set_enabled(checked)
+
+    ## Risky Options Page
+    def on_disableOTAChk_clicked(self, checked: bool):
+        tweaks["DisableOTA"].set_enabled(checked)
 
     
     ## SETTINGS PAGE

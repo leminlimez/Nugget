@@ -2892,7 +2892,7 @@ class Ui_Nugget(object):
         self.springboardOptionsPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.internalOptionsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Internal Options", None))
         self.internalOptionsPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
-        self.advancedPageBtn.setText(QCoreApplication.translate("Nugget", u"    Advanced Options", None))
+        self.advancedPageBtn.setText(QCoreApplication.translate("Nugget", u"    Risky Options", None))
         self.advancedPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.applyPageBtn.setText(QCoreApplication.translate("Nugget", u"    Apply", None))
         self.applyPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
@@ -3035,7 +3035,7 @@ class Ui_Nugget(object):
         self.enableWakeVibrateChk.setText(QCoreApplication.translate("Nugget", u"Vibrate on Raise-to-Wake", None))
         self.pasteSoundChk.setText(QCoreApplication.translate("Nugget", u"Play Sound on Paste", None))
         self.notifyPastesChk.setText(QCoreApplication.translate("Nugget", u"Show Notifications for System Pastes", None))
-        self.advancedOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Advanced Options", None))
+        self.advancedOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Risky Options", None))
         self.label_17.setText(QCoreApplication.translate("Nugget", u"Disclaimer:\n"
 "\n"
 "The options on this page may be unsafe for your device. Use these options at your own risk. Changing\n"
