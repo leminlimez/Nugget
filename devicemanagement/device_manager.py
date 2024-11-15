@@ -51,8 +51,9 @@ class DeviceManager:
 
         # preferences
         self.apply_over_wifi = True
-        self.skip_setup = True
         self.auto_reboot = True
+        self.allow_risky_tweaks = False
+        self.skip_setup = True
         self.supervised = False
         self.organization_name = ""
     

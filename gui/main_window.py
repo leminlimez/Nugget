@@ -22,8 +22,9 @@ class Page(Enum):
     EUEnabler = 3
     Springboard = 4
     InternalOptions = 5
-    Apply = 6
-    Settings = 7
+    RiskyTweaks = 6
+    Apply = 7
+    Settings = 8
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager):
@@ -47,6 +48,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.euEnablerPageBtn.clicked.connect(self.on_euEnablerPageBtn_clicked)
         self.ui.springboardOptionsPageBtn.clicked.connect(self.on_springboardOptionsPageBtn_clicked)
         self.ui.internalOptionsPageBtn.clicked.connect(self.on_internalOptionsPageBtn_clicked)
+        self.ui.advancedPageBtn.clicked.connect(self.on_advancedPageBtn_clicked)
         self.ui.applyPageBtn.clicked.connect(self.on_applyPageBtn_clicked)
         self.ui.settingsPageBtn.clicked.connect(self.on_settingsPageBtn_clicked)
 
@@ -120,8 +122,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
         ## SETTINGS PAGE ACTIONS
         self.ui.allowWifiApplyingChk.toggled.connect(self.on_allowWifiApplyingChk_toggled)
-        self.ui.skipSetupChk.toggled.connect(self.on_skipSetupChk_toggled)
         self.ui.autoRebootChk.toggled.connect(self.on_autoRebootChk_toggled)
+        self.ui.showRiskyChk.toggled.connect(self.on_showRiskyChk_toggled)
+
+        self.ui.skipSetupChk.toggled.connect(self.on_skipSetupChk_toggled)
         self.ui.supervisionChk.toggled.connect(self.on_supervisionChk_toggled)
         self.ui.supervisionOrganization.textEdited.connect(self.on_supervisionOrgTxt_textEdited)
         self.ui.resetPairBtn.clicked.connect(self.on_resetPairBtn_clicked)
@@ -176,7 +180,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
             # hide all pages
             self.ui.explorePageBtn.hide()
-            self.ui.locSimPageBtn.hide()
             self.ui.sidebarDiv1.hide()
 
             self.ui.gestaltPageBtn.hide()
@@ -184,6 +187,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.euEnablerPageBtn.hide()
             self.ui.springboardOptionsPageBtn.hide()
             self.ui.internalOptionsPageBtn.hide()
+            self.ui.advancedPageBtn.hide()
 
             self.ui.sidebarDiv2.hide()
             self.ui.applyPageBtn.hide()
@@ -197,11 +201,15 @@ class MainWindow(QtWidgets.QMainWindow):
             
             # show all pages
             self.ui.explorePageBtn.hide()
-            self.ui.locSimPageBtn.hide()
             self.ui.sidebarDiv1.show()
             self.ui.gestaltPageBtn.show()
             self.ui.springboardOptionsPageBtn.show()
             self.ui.internalOptionsPageBtn.show()
+
+            if self.device_manager.allow_risky_tweaks:
+                self.ui.advancedPageBtn.show()
+            else:
+                self.ui.advancedPageBtn.hide()
             
             self.ui.sidebarDiv2.show()
             self.ui.applyPageBtn.show()
@@ -306,8 +314,9 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
             # load the settings
             apply_over_wifi = self.settings.value("apply_over_wifi", True, type=bool)
-            skip_setup = self.settings.value("skip_setup", True, type=bool)
             auto_reboot = self.settings.value("auto_reboot", True, type=bool)
+            risky_tweaks = self.settings.value("show_risky_tweaks", False, type=bool)
+            skip_setup = self.settings.value("skip_setup", True, type=bool)
             supervised = self.settings.value("supervised", False, type=bool)
             organization_name = self.settings.value("organization_name", "", type=str)
 
@@ -344,6 +353,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_internalOptionsPageBtn_clicked(self):
         self.ui.pages.setCurrentIndex(Page.InternalOptions.value)
+
+    def on_advancedPageBtn_clicked(self):
+        self.ui.pages.setCurrentIndex(Page.RiskyTweaks.value)
 
     def on_applyPageBtn_clicked(self):
         self.ui.pages.setCurrentIndex(Page.Apply.value)
@@ -662,14 +674,23 @@ class MainWindow(QtWidgets.QMainWindow):
         self.device_manager.apply_over_wifi = checked
         # save the setting
         self.settings.setValue("apply_over_wifi", checked)
-    def on_skipSetupChk_toggled(self, checked: bool):
-        self.device_manager.skip_setup = checked
+    def on_showRiskyChk_toggled(self, checked: bool):
+        self.device_manager.allow_risky_tweaks = checked
         # save the setting
-        self.settings.setValue("skip_setup", checked)
+        self.settings.setValue("show_risky_tweaks", checked)
+        # toggle the button visibility
+        if checked:
+            self.ui.advancedPageBtn.show()
+        else:
+            self.ui.advancedPageBtn.hide()
     def on_autoRebootChk_toggled(self, checked: bool):
         self.device_manager.auto_reboot = checked
         # save the setting
         self.settings.setValue("auto_reboot", checked)
+    def on_skipSetupChk_toggled(self, checked: bool):
+        self.device_manager.skip_setup = checked
+        # save the setting
+        self.settings.setValue("skip_setup", checked)
     def on_supervisionOrgTxt_textEdited(self, text: str):
         self.device_manager.organization_name = text
         self.settings.setValue("organization_name", text)
