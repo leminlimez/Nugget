@@ -116,6 +116,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
         ## RISKY OPTIONS PAGE ACTIONS
         self.ui.disableOTAChk.toggled.connect(self.on_disableOTAChk_clicked)
+        self.ui.enableResolutionChk.toggled.connect(self.on_enableResolutionChk_clicked)
+        self.ui.resHeightTxt.textEdited.connect(self.on_resHeightTxt_textEdited)
+        self.ui.resWidthTxt.textEdited.connect(self.on_resWidthTxt_textEdited)
 
         ## APPLY PAGE ACTIONS
         self.ui.applyTweaksBtn.clicked.connect(self.on_applyPageBtn_clicked)
@@ -159,6 +162,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.addGestaltKeyBtn.clicked.connect(self.on_addGestaltKeyBtn_clicked)
         self.ui.aiEnablerContent.hide()
+        self.ui.resChangerContent.hide()
+        self.ui.resHeightWarningLbl.hide()
+        self.ui.resWidthWarningLbl.hide()
 
 
     ## GENERAL INTERFACE FUNCTIONS
@@ -677,6 +683,38 @@ class MainWindow(QtWidgets.QMainWindow):
     ## Risky Options Page
     def on_disableOTAChk_clicked(self, checked: bool):
         tweaks["DisableOTA"].set_enabled(checked)
+
+    def on_enableResolutionChk_clicked(self, checked: bool):
+        tweaks["CustomResolution"].set_enabled(checked)
+        # toggle the ui content
+        if checked:
+            self.ui.resChangerContent.show()
+        else:
+            self.ui.resChangerContent.hide()
+    def on_resHeightTxt_textEdited(self, txt: str):
+        if txt == "":
+            # remove the canvas_height value
+            tweaks["CustomResolution"].value.pop("canvas_height", None)
+            self.ui.resHeightWarningLbl.hide()
+            return
+        try:
+            val = int(txt)
+            tweaks["CustomResolution"].value["canvas_height"] = val
+            self.ui.resHeightWarningLbl.hide()
+        except:
+            self.ui.resHeightWarningLbl.show()
+    def on_resWidthTxt_textEdited(self, txt: str):
+        if txt == "":
+            # remove the canvas_width value
+            tweaks["CustomResolution"].value.pop("canvas_width", None)
+            self.ui.resWidthWarningLbl.hide()
+            return
+        try:
+            val = int(txt)
+            tweaks["CustomResolution"].value["canvas_width"] = val
+            self.ui.resWidthWarningLbl.hide()
+        except:
+            self.ui.resWidthWarningLbl.show()
 
     
     ## SETTINGS PAGE

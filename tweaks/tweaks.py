@@ -281,6 +281,12 @@ tweaks = {
             "MobileAssetServerURL-com.apple.MobileAsset.RecoveryOSUpdateBrain": "https://mesu.apple.com/assets/tvOS16DeveloperSeed",
             "MobileAssetServerURL-com.apple.MobileAsset.SoftwareUpdate": "https://mesu.apple.com/assets/tvOS16DeveloperSeed",
             "MobileAssetAssetAudience": "65254ac3-f331-4c19-8559-cbe22f5bc1a6"
-        }
+        }, is_risky=True
+    ),
+    "CustomResolution": AdvancedPlistTweak(
+        "Set Custom Resolution real",
+        FileLocation.resolution,
+        {}, # empty as to not cause issues when only 1 value is inputted
+        is_risky=True
     )
 }

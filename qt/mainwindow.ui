@@ -3686,7 +3686,7 @@ QComboBox QAbstractItemView::item:hover {
               <item>
                <widget class="QWidget" name="advancedOptionsPageContent" native="true">
                 <property name="enabled">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_13">
                  <property name="leftMargin">
@@ -3758,45 +3758,135 @@ Nugget is not responsible if you mess up your device, especially with resolution
                   </widget>
                  </item>
                  <item>
-                  <layout class="QVBoxLayout" name="resolutionContent">
-                   <property name="bottomMargin">
-                    <number>10</number>
+                  <widget class="QWidget" name="resChangerContent" native="true">
+                   <property name="enabled">
+                    <bool>true</bool>
                    </property>
-                   <item>
-                    <widget class="QLabel" name="resHeightLbl">
-                     <property name="enabled">
-                      <bool>false</bool>
-                     </property>
-                     <property name="text">
-                      <string>Height:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLineEdit" name="resHeightTxt">
-                     <property name="enabled">
-                      <bool>false</bool>
-                     </property>
-                     <property name="placeholderText">
-                      <string>Resolution Height</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="resWidthLbl">
-                     <property name="text">
-                      <string>Width:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLineEdit" name="resWidthTxt">
-                     <property name="placeholderText">
-                      <string>Resolution Width</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
+                   <layout class="QVBoxLayout" name="verticalLayout_35">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="resHeightLbl">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
+                      <property name="text">
+                       <string>Height:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_9">
+                      <property name="bottomMargin">
+                       <number>5</number>
+                      </property>
+                      <item>
+                       <widget class="QLineEdit" name="resHeightTxt">
+                        <property name="enabled">
+                         <bool>true</bool>
+                        </property>
+                        <property name="placeholderText">
+                         <string>Resolution Height</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="resHeightWarningLbl">
+                        <property name="minimumSize">
+                         <size>
+                          <width>22</width>
+                          <height>0</height>
+                         </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QLabel {
+		border: 2px solid red;
+		border-radius: 25px;
+		color: red;
+}</string>
+                        </property>
+                        <property name="frameShape">
+                         <enum>QFrame::NoFrame</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Plain</enum>
+                        </property>
+                        <property name="text">
+                         <string>!</string>
+                        </property>
+                        <property name="scaledContents">
+                         <bool>false</bool>
+                        </property>
+                        <property name="alignment">
+                         <set>Qt::AlignCenter</set>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="resWidthLbl">
+                      <property name="text">
+                       <string>Width:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QVBoxLayout" name="resolutionContent">
+                      <property name="bottomMargin">
+                       <number>0</number>
+                      </property>
+                      <item>
+                       <layout class="QHBoxLayout" name="horizontalLayout_10">
+                        <property name="bottomMargin">
+                         <number>5</number>
+                        </property>
+                        <item>
+                         <widget class="QLineEdit" name="resWidthTxt">
+                          <property name="placeholderText">
+                           <string>Resolution Width</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="resWidthWarningLbl">
+                          <property name="minimumSize">
+                           <size>
+                            <width>22</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QLabel {
+		border: 2px solid red;
+		border-radius: 25px;
+		color: red;
+}</string>
+                          </property>
+                          <property name="text">
+                           <string>!</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
                  </item>
                  <item>
                   <spacer name="verticalSpacer_6">

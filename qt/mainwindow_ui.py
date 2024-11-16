@@ -1968,7 +1968,7 @@ class Ui_Nugget(object):
 
         self.advancedOptionsPageContent = QWidget(self.advancedOptionsPage)
         self.advancedOptionsPageContent.setObjectName(u"advancedOptionsPageContent")
-        self.advancedOptionsPageContent.setEnabled(False)
+        self.advancedOptionsPageContent.setEnabled(True)
         self.verticalLayout_132 = QVBoxLayout(self.advancedOptionsPageContent)
         self.verticalLayout_132.setObjectName(u"verticalLayout_132")
         self.verticalLayout_132.setContentsMargins(0, 0, 0, 0)
@@ -2007,33 +2007,81 @@ class Ui_Nugget(object):
 
         self.verticalLayout_132.addWidget(self.enableResolutionChk)
 
-        self.resolutionContent = QVBoxLayout()
-        self.resolutionContent.setObjectName(u"resolutionContent")
-        self.resolutionContent.setContentsMargins(-1, -1, -1, 10)
-        self.resHeightLbl = QLabel(self.advancedOptionsPageContent)
+        self.resChangerContent = QWidget(self.advancedOptionsPageContent)
+        self.resChangerContent.setObjectName(u"resChangerContent")
+        self.resChangerContent.setEnabled(True)
+        self.verticalLayout_35 = QVBoxLayout(self.resChangerContent)
+        self.verticalLayout_35.setObjectName(u"verticalLayout_35")
+        self.verticalLayout_35.setContentsMargins(0, 0, 0, 0)
+        self.resHeightLbl = QLabel(self.resChangerContent)
         self.resHeightLbl.setObjectName(u"resHeightLbl")
         self.resHeightLbl.setEnabled(False)
 
-        self.resolutionContent.addWidget(self.resHeightLbl)
+        self.verticalLayout_35.addWidget(self.resHeightLbl)
 
-        self.resHeightTxt = QLineEdit(self.advancedOptionsPageContent)
+        self.horizontalLayout_9 = QHBoxLayout()
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.horizontalLayout_9.setContentsMargins(-1, -1, -1, 5)
+        self.resHeightTxt = QLineEdit(self.resChangerContent)
         self.resHeightTxt.setObjectName(u"resHeightTxt")
-        self.resHeightTxt.setEnabled(False)
+        self.resHeightTxt.setEnabled(True)
 
-        self.resolutionContent.addWidget(self.resHeightTxt)
+        self.horizontalLayout_9.addWidget(self.resHeightTxt)
 
-        self.resWidthLbl = QLabel(self.advancedOptionsPageContent)
+        self.resHeightWarningLbl = QLabel(self.resChangerContent)
+        self.resHeightWarningLbl.setObjectName(u"resHeightWarningLbl")
+        self.resHeightWarningLbl.setMinimumSize(QSize(22, 0))
+        self.resHeightWarningLbl.setStyleSheet(u"QLabel {\n"
+"		border: 2px solid red;\n"
+"		border-radius: 25px;\n"
+"		color: red;\n"
+"}")
+        self.resHeightWarningLbl.setFrameShape(QFrame.NoFrame)
+        self.resHeightWarningLbl.setFrameShadow(QFrame.Plain)
+        self.resHeightWarningLbl.setScaledContents(False)
+        self.resHeightWarningLbl.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_9.addWidget(self.resHeightWarningLbl)
+
+
+        self.verticalLayout_35.addLayout(self.horizontalLayout_9)
+
+        self.resWidthLbl = QLabel(self.resChangerContent)
         self.resWidthLbl.setObjectName(u"resWidthLbl")
 
-        self.resolutionContent.addWidget(self.resWidthLbl)
+        self.verticalLayout_35.addWidget(self.resWidthLbl)
 
-        self.resWidthTxt = QLineEdit(self.advancedOptionsPageContent)
+        self.resolutionContent = QVBoxLayout()
+        self.resolutionContent.setObjectName(u"resolutionContent")
+        self.resolutionContent.setContentsMargins(-1, -1, -1, 0)
+        self.horizontalLayout_10 = QHBoxLayout()
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.horizontalLayout_10.setContentsMargins(-1, -1, -1, 5)
+        self.resWidthTxt = QLineEdit(self.resChangerContent)
         self.resWidthTxt.setObjectName(u"resWidthTxt")
 
-        self.resolutionContent.addWidget(self.resWidthTxt)
+        self.horizontalLayout_10.addWidget(self.resWidthTxt)
+
+        self.resWidthWarningLbl = QLabel(self.resChangerContent)
+        self.resWidthWarningLbl.setObjectName(u"resWidthWarningLbl")
+        self.resWidthWarningLbl.setMinimumSize(QSize(22, 0))
+        self.resWidthWarningLbl.setStyleSheet(u"QLabel {\n"
+"		border: 2px solid red;\n"
+"		border-radius: 25px;\n"
+"		color: red;\n"
+"}")
+        self.resWidthWarningLbl.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_10.addWidget(self.resWidthWarningLbl)
 
 
-        self.verticalLayout_132.addLayout(self.resolutionContent)
+        self.resolutionContent.addLayout(self.horizontalLayout_10)
+
+
+        self.verticalLayout_35.addLayout(self.resolutionContent)
+
+
+        self.verticalLayout_132.addWidget(self.resChangerContent)
 
         self.verticalSpacer_62 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -3046,8 +3094,10 @@ class Ui_Nugget(object):
         self.enableResolutionChk.setText(QCoreApplication.translate("Nugget", u"Set a Custom Device Resolution", None))
         self.resHeightLbl.setText(QCoreApplication.translate("Nugget", u"Height:", None))
         self.resHeightTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Resolution Height", None))
+        self.resHeightWarningLbl.setText(QCoreApplication.translate("Nugget", u"!", None))
         self.resWidthLbl.setText(QCoreApplication.translate("Nugget", u"Width:", None))
         self.resWidthTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Resolution Width", None))
+        self.resWidthWarningLbl.setText(QCoreApplication.translate("Nugget", u"!", None))
         self.statusBarLbl_5.setText(QCoreApplication.translate("Nugget", u"Apply", None))
         self.label_16.setText("")
         self.modifiedTweaksLbl.setText(QCoreApplication.translate("Nugget", u"Current gestalt file location:", None))
