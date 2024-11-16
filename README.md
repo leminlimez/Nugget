@@ -76,6 +76,9 @@ To compile the resources file for Python, run the following command:
 
 The application itself can be compiled by running `compile.py`.
 
+## Read More
+If you would like to read more about the inner workings of the exploit and iOS restore system, I made a write up which you can read [here](https://gist.github.com/leminlimez/c602c067349140fe979410ef69d39c28).
+
 ## Credits
 - [JJTech](https://github.com/JJTech0130) for Sparserestore/[TrollRestore](https://github.com/JJTech0130/TrollRestore)
 - [disfordottie](https://x.com/disfordottie) for some global flag features
