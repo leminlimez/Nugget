@@ -3,7 +3,7 @@ Unlock your device's full potential!
 
 Sparserestore works on all versions iOS 17.0-17.7 and iOS 18.0-18.1 beta 4. There is partial support for iOS 17.7.1 and iOS 18.1b5-18.2 beta 2.
 
-**iOS 18.2 beta 3 and newer is not supported.**
+**iOS 18.2 developer beta 3 (public beta 2) and newer is not supported.**
 
 This uses the sparserestore exploit to write to files outside of the intended restore location, like mobilegestalt.
 
