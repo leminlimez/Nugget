@@ -5,7 +5,7 @@ Sparserestore works on all versions iOS 17.0-17.7 and iOS 18.0-18.1 beta 4. Ther
 
 **iOS 18.2 developer beta 3 (public beta 2) and newer is not supported.**
 
-This uses the sparserestore exploit to write to files outside of the intended restore location, like mobilegestalt.
+This uses the sparserestore exploit to write to files outside of the intended restore location, like mobilegestalt. Read the [Getting the File](#getting-the-file) section to learn how to get your mobilegestalt file.
 
 Note: I am not responsible if your device bootloops. Please back up your data before using!
 
@@ -32,16 +32,21 @@ Note: I am not responsible if your device bootloops. Please back up your data be
 - AI Enabler
 - Springboard Options (from Cowabunga Lite)
 - Internal Options (from Cowabunga Lite)
+- Risky (Hidden) Options:
+  - OTA Killer
+  - Custom Resolution
 
 ## Running the Program
 **Requirements:**
-- pymobiledevice3
-- Python 3.8 or newer
-
 - **Windows:**
   - Either [Apple Devices (from Microsoft Store)](https://apps.microsoft.com/detail/9np83lwlpz9k%3Fhl%3Den-US%26gl%3DUS&ved=2ahUKEwjE-svo7qyJAxWTlYkEHQpbH3oQFnoECBoQAQ&usg=AOvVaw0rZTXCFmRaHAifkEEu9tMI) app or [iTunes (from Apple website)](https://support.apple.com/en-us/106372)
 - **Linux:**
   - [usbmuxd](https://github.com/libimobiledevice/usbmuxd) and [libimobiledevice](https://github.com/libimobiledevice/libimobiledevice)
+
+- **For Running Python:**
+  - pymobiledevice3
+  - PySide6
+  - Python 3.8 or newer
 
 Note: It is highly recommended to use a virtual environment:
 ```
@@ -73,7 +78,8 @@ The application itself can be compiled by running `compile.py`.
 
 ## Credits
 - [JJTech](https://github.com/JJTech0130) for Sparserestore/[TrollRestore](https://github.com/JJTech0130/TrollRestore)
-- [pymobiledevice3](https://github.com/doronz88/pymobiledevice3)
 - [disfordottie](https://x.com/disfordottie) for some global flag features
 - [sneakyf1shy](https://github.com/f1shy-dev) for [AI Eligibility](https://gist.github.com/f1shy-dev/23b4a78dc283edd30ae2b2e6429129b5) (iOS 18.1 beta 4 and below)
-
+- [lrdsnow](https://github.com/Lrdsnow) for [EU Enabler](https://github.com/Lrdsnow/EUEnabler)
+- [pymobiledevice3](https://github.com/doronz88/pymobiledevice3) for restoring and device algorithms.
+- [PySide6](https://doc.qt.io/qtforpython-6/) for the GUI library.
