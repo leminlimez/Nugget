@@ -211,7 +211,6 @@ class MainWindow(QtWidgets.QMainWindow):
             # show all pages
             self.ui.explorePageBtn.hide()
             self.ui.sidebarDiv1.show()
-            self.ui.gestaltPageBtn.show()
             self.ui.springboardOptionsPageBtn.show()
             self.ui.internalOptionsPageBtn.show()
 
@@ -259,6 +258,7 @@ class MainWindow(QtWidgets.QMainWindow):
             # hide options that are for newer versions
             # remove the new dynamic island options
             MinTweakVersions = {
+                "no_patch": [self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn, self.ui.resetGestaltBtn, self.ui.gestaltLocationLbl],
                 "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk)],
                 "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
                 "18.0": [self.ui.aodChk, self.ui.iphone16SettingsChk]
@@ -274,6 +274,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 pass
             self.set_rdar_fix_label()
             device_ver = Version(self.device_manager.data_singleton.current_device.version)
+            patched: bool = self.device_manager.get_current_device_patched()
             # toggle option visibility for the minimum versions
             for version in MinTweakVersions.keys():
                 if version == "exploit":
@@ -283,6 +284,13 @@ class MainWindow(QtWidgets.QMainWindow):
                             pair[1].show()
                         else:
                             pair[1].hide()
+                elif version == "no_patch":
+                    # hide patched version items
+                    for view in MinTweakVersions[version]:
+                        if patched:
+                            view.hide()
+                        else:
+                            view.show()
                 else:
                     # show views if the version is higher
                     parsed_ver = Version(version)
@@ -304,7 +312,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.dynamicIslandDrp.addItem("2622 (iPhone 16 Pro Dynamic Island)")
                 self.ui.dynamicIslandDrp.addItem("2868 (iPhone 16 Pro Max Dynamic Island)")
             # eligibility page button
-            if device_ver >= Version("17.4") and (device_ver <= Version("17.7") or device_ver >= Version("18.1")):
+            if not patched and device_ver >= Version("17.4") and (device_ver <= Version("17.7") or device_ver >= Version("18.1")):
                 self.ui.euEnablerPageBtn.show()
             else:
                 self.ui.euEnablerPageBtn.hide()
