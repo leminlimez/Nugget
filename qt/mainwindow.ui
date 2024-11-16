@@ -468,35 +468,6 @@ QSlider::tick:horizontal {
            </widget>
           </item>
           <item>
-           <widget class="QToolButton" name="locSimPageBtn">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>    Location Simulation</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>:/icon/geo-alt.svg</normaloff>:/icon/geo-alt.svg</iconset>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="autoExclusive">
-             <bool>true</bool>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
-            </property>
-            <property name="cls" stdset="0">
-             <string>sidebarBtn</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="Line" name="sidebarDiv1">
             <property name="styleSheet">
              <string notr="true">QFrame {
@@ -656,6 +627,35 @@ QSlider::tick:horizontal {
             <property name="icon">
              <iconset>
               <normaloff>:/icon/hdd.svg</normaloff>:/icon/hdd.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextBesideIcon</enum>
+            </property>
+            <property name="cls" stdset="0">
+             <string>sidebarBtn</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="advancedPageBtn">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>    Risky Options</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>:/icon/star.svg</normaloff>:/icon/star.svg</iconset>
             </property>
             <property name="checkable">
              <bool>true</bool>
@@ -1571,7 +1571,7 @@ QToolButton:pressed {
               <item>
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Nugget GUI - Version 4.0.1</string>
+                 <string>Nugget GUI - Version 4.1</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2702,14 +2702,7 @@ QComboBox QAbstractItemView::item:hover {
                     <item>
                      <widget class="QCheckBox" name="eligFileChk">
                       <property name="text">
-                       <string>Enable Eligibility File (test)</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QCheckBox" name="experimentalChk">
-                      <property name="text">
-                       <string>Experimental Toggle</string>
+                       <string>Enable Eligibility File</string>
                       </property>
                      </widget>
                     </item>
@@ -2760,10 +2753,11 @@ QComboBox QAbstractItemView::item:hover {
                        <string>In order to download the AI models, you must spoof your device model. However, this may break 
 Face ID until you revert back. 
 
-WARNING: If your original device model does not support Apple Intelligence, please disable the 
-AI models before unspoofing! Returning to your original device model without disabling is going to 
-cause a re-download and may require a full restore to fix. Furthermore, if you switch between model 
-groups, like spoofing from the iPhone 16s to the iPhone 15 Pro series, a re-download may also occur. 
+WARNING: Do not go to the Apple Intelligence menu in the Settings app after unspoofing.
+
+Entering the menu on your original device model will cause a re-download and may require a full
+restore to fix. Furthermore, if you switch between model groups, like spoofing from the iPhone 16s
+to the iPhone 15 Pro series, a re-download may also occur. 
 Please be careful!</string>
                       </property>
                       <property name="textFormat">
@@ -3424,13 +3418,6 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QCheckBox" name="accessoryChk">
-                   <property name="text">
-                    <string>Enable Accessory Developer</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
                   <widget class="QCheckBox" name="iMessageChk">
                    <property name="text">
                     <string>Enable iMessage Debugging</string>
@@ -3543,6 +3530,362 @@ QComboBox QAbstractItemView::item:hover {
                    <property name="text">
                     <string>Show Notifications for System Pastes</string>
                    </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer_6">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="advancedOptionsPage">
+             <layout class="QVBoxLayout" name="verticalLayout_14">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QWidget" name="horizontalWidget_5" native="true">
+                <layout class="QHBoxLayout" name="horizontalLayout_20">
+                 <property name="spacing">
+                  <number>10</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>9</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>9</number>
+                 </property>
+                 <item>
+                  <widget class="QToolButton" name="toolButton_10">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QToolButton {
+	icon-size: 24px;
+	background-color: transparent;
+	padding-left: 0px;
+	padding-right: 5px;
+	border-radius: 0px;
+}</string>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>:/icon/star.svg</normaloff>:/icon/star.svg</iconset>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="verticalWidget_4" native="true">
+                   <layout class="QVBoxLayout" name="verticalLayout_12">
+                    <property name="spacing">
+                     <number>6</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="advancedOptionsLbl">
+                      <property name="font">
+                       <font>
+                        <pointsize>-1</pointsize>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Risky Options</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_18">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeType">
+                       <enum>QSizePolicy::Fixed</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>16</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_7">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="Line" name="line_12">
+                <property name="styleSheet">
+                 <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="advancedOptionsPageContent" native="true">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_13">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_17">
+                   <property name="text">
+                    <string>Disclaimer:
+
+The options on this page may be unsafe for your device. Use these options at your own risk. Changing
+your device resolution has the potential to brick your device when used improperly.
+
+Nugget is not responsible if you mess up your device, especially with resolution changer.</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="Line" name="line_19">
+                   <property name="styleSheet">
+                    <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Plain</enum>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="disableOTAChk">
+                   <property name="text">
+                    <string>Disable OTA Updates</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="Line" name="line_18">
+                   <property name="styleSheet">
+                    <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Plain</enum>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="enableResolutionChk">
+                   <property name="text">
+                    <string>Set a Custom Device Resolution</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="resChangerContent" native="true">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_35">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="resHeightLbl">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
+                      <property name="text">
+                       <string>Height:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_9">
+                      <property name="bottomMargin">
+                       <number>5</number>
+                      </property>
+                      <item>
+                       <widget class="QLineEdit" name="resHeightTxt">
+                        <property name="enabled">
+                         <bool>true</bool>
+                        </property>
+                        <property name="placeholderText">
+                         <string>Resolution Height</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="resHeightWarningLbl">
+                        <property name="minimumSize">
+                         <size>
+                          <width>22</width>
+                          <height>0</height>
+                         </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QLabel {
+		border: 2px solid red;
+		border-radius: 25px;
+		color: red;
+}</string>
+                        </property>
+                        <property name="frameShape">
+                         <enum>QFrame::NoFrame</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Plain</enum>
+                        </property>
+                        <property name="text">
+                         <string>!</string>
+                        </property>
+                        <property name="scaledContents">
+                         <bool>false</bool>
+                        </property>
+                        <property name="alignment">
+                         <set>Qt::AlignCenter</set>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="resWidthLbl">
+                      <property name="text">
+                       <string>Width:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QVBoxLayout" name="resolutionContent">
+                      <property name="bottomMargin">
+                       <number>0</number>
+                      </property>
+                      <item>
+                       <layout class="QHBoxLayout" name="horizontalLayout_10">
+                        <property name="bottomMargin">
+                         <number>5</number>
+                        </property>
+                        <item>
+                         <widget class="QLineEdit" name="resWidthTxt">
+                          <property name="placeholderText">
+                           <string>Resolution Width</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="resWidthWarningLbl">
+                          <property name="minimumSize">
+                           <size>
+                            <width>22</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QLabel {
+		border: 2px solid red;
+		border-radius: 25px;
+		color: red;
+}</string>
+                          </property>
+                          <property name="text">
+                           <string>!</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
                   </widget>
                  </item>
                  <item>
@@ -4061,16 +4404,6 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QCheckBox" name="skipSetupChk">
-                   <property name="text">
-                    <string>Skip Setup * (non-exploit files only)</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
                   <widget class="QCheckBox" name="autoRebootChk">
                    <property name="text">
                     <string>Auto Reboot After Applying</string>
@@ -4081,12 +4414,47 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="showRiskyChk">
+                   <property name="text">
+                    <string>Show Risky Tweak Options</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="Line" name="line_24">
+                   <property name="styleSheet">
+                    <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Plain</enum>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="skipSetupChk">
+                   <property name="text">
+                    <string>Skip Setup * (non-exploit files only)</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="supervisionChk">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
                    <property name="text">
                     <string>Enable Supervision * (requires Skip Setup)</string>
                    </property>
                    <property name="checked">
-                    <bool>true</bool>
+                    <bool>false</bool>
                    </property>
                   </widget>
                  </item>

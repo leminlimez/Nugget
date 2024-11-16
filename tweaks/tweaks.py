@@ -1,5 +1,5 @@
 from devicemanagement.constants import Version
-from .tweak_classes import MobileGestaltTweak, MobileGestaltMultiTweak, MobileGestaltPickerTweak, FeatureFlagTweak, TweakModifyType, BasicPlistTweak, RdarFixTweak
+from .tweak_classes import MobileGestaltTweak, MobileGestaltMultiTweak, MobileGestaltPickerTweak, FeatureFlagTweak, TweakModifyType, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak
 from .eligibility_tweak import EligibilityTweak, AITweak
 from .basic_plist_locations import FileLocation
 
@@ -42,7 +42,6 @@ tweaks = {
     ## AI Enabler
     "AIEligibility": AITweak(),
     "AIGestalt": MobileGestaltTweak("Enable Apple Intelligence (for Unsupported Devices) (Gestalt)", "A62OafQ85EJAiiqKn4agtg", min_version=Version("18.1")),
-    "AIExperiment": MobileGestaltTweak("Enable AI Experiment", "I3lidq+FVH2CeOi/ARa0tg", min_version=Version("18.1")),
     "SpoofModel": MobileGestaltPickerTweak("Spoofed Device Model", "h9jDsbgj7xIVeIQ8S3/X3Q", values=[
         # Default
         "Placeholder", # 0 | Original
@@ -219,11 +218,6 @@ tweaks = {
         FileLocation.globalPreferences,
         "MetalForceHudEnabled"
     ),
-    "AccessoryDeveloperEnabled": BasicPlistTweak(
-        "Enable Accessory Debugging",
-        FileLocation.globalPreferences,
-        "AccessoryDeveloperEnabled"
-    ),
     "iMessageDiagnosticsEnabled": BasicPlistTweak(
         "Enable iMessage Debugging",
         FileLocation.globalPreferences,
@@ -273,5 +267,26 @@ tweaks = {
         "Show Notifications for System Pastes",
         FileLocation.pasteboard,
         "AnnounceAllPastes"
+    ),
+
+    ## Risky Options
+    "DisableOTA": AdvancedPlistTweak(
+        "Disable OTA Updates",
+        FileLocation.ota,
+        {
+            "MobileAssetServerURL-com.apple.MobileAsset.MobileSoftwareUpdate.UpdateBrain": "https://mesu.apple.com/assets/tvOS16DeveloperSeed",
+            "MobileAssetSUAllowOSVersionChange": False,
+            "MobileAssetSUAllowSameVersionFullReplacement": False,
+            "MobileAssetServerURL-com.apple.MobileAsset.RecoveryOSUpdate": "https://mesu.apple.com/assets/tvOS16DeveloperSeed",
+            "MobileAssetServerURL-com.apple.MobileAsset.RecoveryOSUpdateBrain": "https://mesu.apple.com/assets/tvOS16DeveloperSeed",
+            "MobileAssetServerURL-com.apple.MobileAsset.SoftwareUpdate": "https://mesu.apple.com/assets/tvOS16DeveloperSeed",
+            "MobileAssetAssetAudience": "65254ac3-f331-4c19-8559-cbe22f5bc1a6"
+        }, is_risky=True
+    ),
+    "CustomResolution": AdvancedPlistTweak(
+        "Set Custom Resolution real",
+        FileLocation.resolution,
+        {}, # empty as to not cause issues when only 1 value is inputted
+        is_risky=True
     )
 }

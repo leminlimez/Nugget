@@ -22,8 +22,9 @@ class Page(Enum):
     EUEnabler = 3
     Springboard = 4
     InternalOptions = 5
-    Apply = 6
-    Settings = 7
+    RiskyTweaks = 6
+    Apply = 7
+    Settings = 8
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager):
@@ -47,6 +48,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.euEnablerPageBtn.clicked.connect(self.on_euEnablerPageBtn_clicked)
         self.ui.springboardOptionsPageBtn.clicked.connect(self.on_springboardOptionsPageBtn_clicked)
         self.ui.internalOptionsPageBtn.clicked.connect(self.on_internalOptionsPageBtn_clicked)
+        self.ui.advancedPageBtn.clicked.connect(self.on_advancedPageBtn_clicked)
         self.ui.applyPageBtn.clicked.connect(self.on_applyPageBtn_clicked)
         self.ui.settingsPageBtn.clicked.connect(self.on_settingsPageBtn_clicked)
 
@@ -77,7 +79,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.enableAIChk.toggled.connect(self.on_enableAIChk_toggled)
         self.ui.eligFileChk.toggled.connect(self.on_eligFileChk_toggled)
-        self.ui.experimentalChk.toggled.connect(self.on_experimentalChk_toggled)
         self.ui.languageTxt.hide() # to be removed later
         self.ui.languageLbl.hide() # to be removed later
         self.ui.languageTxt.textEdited.connect(self.on_languageTxt_textEdited)
@@ -102,7 +103,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.buildVersionChk.toggled.connect(self.on_buildVersionChk_clicked)
         self.ui.RTLChk.toggled.connect(self.on_RTLChk_clicked)
         self.ui.metalHUDChk.toggled.connect(self.on_metalHUDChk_clicked)
-        self.ui.accessoryChk.toggled.connect(self.on_accessoryChk_clicked)
         self.ui.iMessageChk.toggled.connect(self.on_iMessageChk_clicked)
         self.ui.IDSChk.toggled.connect(self.on_IDSChk_clicked)
         self.ui.VCChk.toggled.connect(self.on_VCChk_clicked)
@@ -114,6 +114,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.pasteSoundChk.toggled.connect(self.on_pasteSoundChk_clicked)
         self.ui.notifyPastesChk.toggled.connect(self.on_notifyPastesChk_clicked)
 
+        ## RISKY OPTIONS PAGE ACTIONS
+        self.ui.disableOTAChk.toggled.connect(self.on_disableOTAChk_clicked)
+        self.ui.enableResolutionChk.toggled.connect(self.on_enableResolutionChk_clicked)
+        self.ui.resHeightTxt.textEdited.connect(self.on_resHeightTxt_textEdited)
+        self.ui.resWidthTxt.textEdited.connect(self.on_resWidthTxt_textEdited)
+
         ## APPLY PAGE ACTIONS
         self.ui.applyTweaksBtn.clicked.connect(self.on_applyPageBtn_clicked)
         self.ui.removeTweaksBtn.clicked.connect(self.on_removeTweaksBtn_clicked)
@@ -122,8 +128,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
         ## SETTINGS PAGE ACTIONS
         self.ui.allowWifiApplyingChk.toggled.connect(self.on_allowWifiApplyingChk_toggled)
-        self.ui.skipSetupChk.toggled.connect(self.on_skipSetupChk_toggled)
         self.ui.autoRebootChk.toggled.connect(self.on_autoRebootChk_toggled)
+        self.ui.showRiskyChk.toggled.connect(self.on_showRiskyChk_toggled)
+
+        self.ui.skipSetupChk.toggled.connect(self.on_skipSetupChk_toggled)
         self.ui.supervisionChk.toggled.connect(self.on_supervisionChk_toggled)
         self.ui.supervisionOrganization.textEdited.connect(self.on_supervisionOrgTxt_textEdited)
         self.ui.resetPairBtn.clicked.connect(self.on_resetPairBtn_clicked)
@@ -154,6 +162,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.addGestaltKeyBtn.clicked.connect(self.on_addGestaltKeyBtn_clicked)
         self.ui.aiEnablerContent.hide()
+        self.ui.resChangerContent.hide()
+        self.ui.resHeightWarningLbl.hide()
+        self.ui.resWidthWarningLbl.hide()
 
 
     ## GENERAL INTERFACE FUNCTIONS
@@ -178,7 +189,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
             # hide all pages
             self.ui.explorePageBtn.hide()
-            self.ui.locSimPageBtn.hide()
             self.ui.sidebarDiv1.hide()
 
             self.ui.gestaltPageBtn.hide()
@@ -186,6 +196,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.euEnablerPageBtn.hide()
             self.ui.springboardOptionsPageBtn.hide()
             self.ui.internalOptionsPageBtn.hide()
+            self.ui.advancedPageBtn.hide()
 
             self.ui.sidebarDiv2.hide()
             self.ui.applyPageBtn.hide()
@@ -199,11 +210,14 @@ class MainWindow(QtWidgets.QMainWindow):
             
             # show all pages
             self.ui.explorePageBtn.hide()
-            self.ui.locSimPageBtn.hide()
             self.ui.sidebarDiv1.show()
-            self.ui.gestaltPageBtn.show()
             self.ui.springboardOptionsPageBtn.show()
             self.ui.internalOptionsPageBtn.show()
+
+            if self.device_manager.allow_risky_tweaks:
+                self.ui.advancedPageBtn.show()
+            else:
+                self.ui.advancedPageBtn.hide()
             
             self.ui.sidebarDiv2.show()
             self.ui.applyPageBtn.show()
@@ -213,6 +227,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.euEnablerPageContent.setDisabled(False)
             self.ui.springboardOptionsPageContent.setDisabled(False)
             self.ui.internalOptionsPageContent.setDisabled(False)
+            self.ui.advancedOptionsPageContent.setDisabled(False)
 
             self.ui.resetPairBtn.show()
         
@@ -220,13 +235,31 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.devicePicker.setCurrentIndex(0)
         self.change_selected_device(0)
 
+    def setup_spoofedModelDrp_models(self):
+        # hide all the models first
+        for i in range(1, self.ui.spoofedModelDrp.count()):
+            try:
+                self.ui.spoofedModelDrp.removeItem(1)
+            except:
+                pass
+        # indexes 1-6 for iPhones, 7-(len(values) - 1) for iPads
+        # TODO: Make this get fetched from the gui on app startup
+        spoof_drp_options = ["iPhone 15 Pro (iPhone16,1)", "iPhone 15 Pro Max (iPhone16,2)", "iPhone 16 (iPhone17,3)", "iPhone 16 Plus (iPhone17,4)", "iPhone 16 Pro (iPhone17,1)", "iPhone 16 Pro Max (iPhone17,2)", "iPad Mini (A17 Pro) (W) (iPad16,1)", "iPad Mini (A17 Pro) (C) (iPad16,2)", "iPad Pro (13-inch) (M4) (W) (iPad16,5)", "iPad Pro (13-inch) (M4) (C) (iPad16,6)", "iPad Pro (11-inch) (M4) (W) (iPad16,3)", "iPad Pro (11-inch) (M4) (C) (iPad16,4)", "iPad Pro (12.9-inch) (M2) (W) (iPad14,5)", "iPad Pro (12.9-inch) (M2) (C) (iPad14,6)", "iPad Pro (11-inch) (M2) (W) (iPad14,3)", "iPad Pro (11-inch) (M2) (C) (iPad14,4)", "iPad Air (13-inch) (M2) (W) (iPad14,10)", "iPad Air (13-inch) (M2) (C) (iPad14,11)", "iPad Air (11-inch) (M2) (W) (iPad14,8)", "iPad Air (11-inch) (M2) (C) (iPad14,9)", "iPad Pro (11-inch) (M1) (W) (iPad13,4)", "iPad Pro (11-inch) (M1) (C) (iPad13,5)", "iPad Pro (12.9-inch) (M1) (W) (iPad13,8)", "iPad Pro (12.9-inch) (M1) (C) (iPad13,9)", "iPad Air (M1) (W) (iPad13,16)", "iPad Air (M1) (C) (iPad13,17)"]
+        if self.device_manager.get_current_device_model().startswith("iPhone"):
+            # re-enable iPhone spoof models
+            self.ui.spoofedModelDrp.addItems(spoof_drp_options[:6])
+        else:
+            # re-enable iPad spoof models
+            self.ui.spoofedModelDrp.addItems(spoof_drp_options[6:])
+
     def change_selected_device(self, index):
         if len(self.device_manager.devices) > 0:
             self.device_manager.set_current_device(index=index)
             # hide options that are for newer versions
             # remove the new dynamic island options
             MinTweakVersions = {
-                "exploit": [("18.0", self.ui.featureFlagsPageBtn)],
+                "no_patch": [self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn, self.ui.resetGestaltBtn, self.ui.gestaltLocationLbl],
+                "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk)],
                 "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
                 "18.0": [self.ui.aodChk, self.ui.iphone16SettingsChk]
             }
@@ -241,6 +274,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 pass
             self.set_rdar_fix_label()
             device_ver = Version(self.device_manager.data_singleton.current_device.version)
+            patched: bool = self.device_manager.get_current_device_patched()
             # toggle option visibility for the minimum versions
             for version in MinTweakVersions.keys():
                 if version == "exploit":
@@ -250,6 +284,13 @@ class MainWindow(QtWidgets.QMainWindow):
                             pair[1].show()
                         else:
                             pair[1].hide()
+                elif version == "no_patch":
+                    # hide patched version items
+                    for view in MinTweakVersions[version]:
+                        if patched:
+                            view.hide()
+                        else:
+                            view.show()
                 else:
                     # show views if the version is higher
                     parsed_ver = Version(version)
@@ -271,7 +312,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.dynamicIslandDrp.addItem("2622 (iPhone 16 Pro Dynamic Island)")
                 self.ui.dynamicIslandDrp.addItem("2868 (iPhone 16 Pro Max Dynamic Island)")
             # eligibility page button
-            if device_ver >= Version("17.4") and (device_ver <= Version("17.7") or device_ver >= Version("18.1")):
+            if not patched and device_ver >= Version("17.4") and (device_ver <= Version("17.7") or device_ver >= Version("18.1")):
                 self.ui.euEnablerPageBtn.show()
             else:
                 self.ui.euEnablerPageBtn.hide()
@@ -279,6 +320,7 @@ class MainWindow(QtWidgets.QMainWindow):
             # hide the ai content if not on
             if device_ver >= Version("18.1") and not tweaks["AIGestalt"].enabled:
                 self.ui.aiEnablerContent.hide()
+            self.setup_spoofedModelDrp_models()
         else:
             self.device_manager.set_current_device(index=None)
 
@@ -290,20 +332,23 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
             # load the settings
             apply_over_wifi = self.settings.value("apply_over_wifi", True, type=bool)
-            skip_setup = self.settings.value("skip_setup", True, type=bool)
             auto_reboot = self.settings.value("auto_reboot", True, type=bool)
+            risky_tweaks = self.settings.value("show_risky_tweaks", False, type=bool)
+            skip_setup = self.settings.value("skip_setup", True, type=bool)
             supervised = self.settings.value("supervised", False, type=bool)
             organization_name = self.settings.value("organization_name", "", type=str)
 
             self.ui.allowWifiApplyingChk.setChecked(apply_over_wifi)
-            self.ui.skipSetupChk.setChecked(skip_setup)
             self.ui.autoRebootChk.setChecked(auto_reboot)
+            self.ui.showRiskyChk.setChecked(risky_tweaks)
+            self.ui.skipSetupChk.setChecked(skip_setup)
             self.ui.supervisionChk.setChecked(supervised)
             self.ui.supervisionOrganization.setText(organization_name)
 
             self.device_manager.apply_over_wifi = apply_over_wifi
-            self.device_manager.skip_setup = skip_setup
             self.device_manager.auto_reboot = auto_reboot
+            self.device_manager.allow_risky_tweaks = risky_tweaks
+            self.device_manager.skip_setup = skip_setup
             self.device_manager.supervised = supervised
             self.device_manager.organization_name = organization_name
         except:
@@ -328,6 +373,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_internalOptionsPageBtn_clicked(self):
         self.ui.pages.setCurrentIndex(Page.InternalOptions.value)
+
+    def on_advancedPageBtn_clicked(self):
+        self.ui.pages.setCurrentIndex(Page.RiskyTweaks.value)
 
     def on_applyPageBtn_clicked(self):
         self.ui.pages.setCurrentIndex(Page.Apply.value)
@@ -370,7 +418,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def show_version_text(self, version: str, build: str):
         support_str: str = "<span style=\"color: #32d74b;\">Supported!</span></a>"
-        if Version(version) < Version("17.0"):
+        if Version(version) < Version("17.0") or self.device_manager.get_current_device_patched():
             support_str = "<span style=\"color: #ff0000;\">Not Supported.</span></a>"
         elif not self.device_manager.get_current_device_supported():
             # sparserestore partially patched
@@ -422,7 +470,13 @@ class MainWindow(QtWidgets.QMainWindow):
             tweaks["DynamicIsland"].set_enabled(False)
             tweaks["RdarFix"].set_di_type(-1)
         else:
-            tweaks["DynamicIsland"].set_selected_option(index - 1)
+            # disable X gestures on devices other than iPhone SEs
+            # the lazy way, better option would be to remove it from the menu but I didn't want to rework all that
+            model = self.device_manager.get_current_device_model()
+            if index != 1 or (model == "iPhone12,8" or model == "iPhone14,6"):
+                tweaks["DynamicIsland"].set_selected_option(index - 1)
+            else:
+                tweaks["DynamicIsland"].set_enabled(False)
             tweaks["RdarFix"].set_di_type(tweaks["DynamicIsland"].value[tweaks["DynamicIsland"].get_selected_option()])
         self.set_rdar_fix_label()
     def on_rdarFixChk_clicked(self, checked: bool):
@@ -568,16 +622,22 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             self.ui.languageTxt.hide()
             self.ui.languageLbl.hide()
-    def on_experimentalChk_toggled(self, checked: bool):
-        tweaks["AIExperiment"].set_enabled(checked)
 
     def on_languageTxt_textEdited(self, text: str):
         tweaks["AIEligibility"].set_language_code(text)
     
     def on_spoofedModelDrp_activated(self, index: int):
-        tweaks["SpoofModel"].set_selected_option(index)
-        tweaks["SpoofHardware"].set_selected_option(index)
-        tweaks["SpoofCPU"].set_selected_option(index)
+        idx_to_apply = index
+        if index > 0 and not self.device_manager.get_current_device_model().startswith("iPhone"):
+            # offset the index for ipads
+            idx_to_apply += 6
+        tweaks["SpoofModel"].set_selected_option(idx_to_apply)
+        tweaks["SpoofHardware"].set_selected_option(idx_to_apply)
+        tweaks["SpoofCPU"].set_selected_option(idx_to_apply)
+        if idx_to_apply == 0:
+            tweaks["SpoofModel"].set_enabled(False)
+            tweaks["SpoofHardware"].set_enabled(False)
+            tweaks["SpoofCPU"].set_enabled(False)
 
 
     ## SPRINGBOARD OPTIONS PAGE
@@ -605,8 +665,6 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["RTL"].set_enabled(checked)
     def on_metalHUDChk_clicked(self, checked: bool):
         tweaks["MetalForceHudEnabled"].set_enabled(checked)
-    def on_accessoryChk_clicked(self, checked: bool):
-        tweaks["AccessoryDeveloperEnabled"].set_enabled(checked)
     def on_iMessageChk_clicked(self, checked: bool):
         tweaks["iMessageDiagnosticsEnabled"].set_enabled(checked)
     def on_IDSChk_clicked(self, checked: bool):
@@ -630,20 +688,65 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_notifyPastesChk_clicked(self, checked: bool):
         tweaks["AnnounceAllPastes"].set_enabled(checked)
 
+    ## Risky Options Page
+    def on_disableOTAChk_clicked(self, checked: bool):
+        tweaks["DisableOTA"].set_enabled(checked)
+
+    def on_enableResolutionChk_clicked(self, checked: bool):
+        tweaks["CustomResolution"].set_enabled(checked)
+        # toggle the ui content
+        if checked:
+            self.ui.resChangerContent.show()
+        else:
+            self.ui.resChangerContent.hide()
+    def on_resHeightTxt_textEdited(self, txt: str):
+        if txt == "":
+            # remove the canvas_height value
+            tweaks["CustomResolution"].value.pop("canvas_height", None)
+            self.ui.resHeightWarningLbl.hide()
+            return
+        try:
+            val = int(txt)
+            tweaks["CustomResolution"].value["canvas_height"] = val
+            self.ui.resHeightWarningLbl.hide()
+        except:
+            self.ui.resHeightWarningLbl.show()
+    def on_resWidthTxt_textEdited(self, txt: str):
+        if txt == "":
+            # remove the canvas_width value
+            tweaks["CustomResolution"].value.pop("canvas_width", None)
+            self.ui.resWidthWarningLbl.hide()
+            return
+        try:
+            val = int(txt)
+            tweaks["CustomResolution"].value["canvas_width"] = val
+            self.ui.resWidthWarningLbl.hide()
+        except:
+            self.ui.resWidthWarningLbl.show()
+
     
     ## SETTINGS PAGE
     def on_allowWifiApplyingChk_toggled(self, checked: bool):
         self.device_manager.apply_over_wifi = checked
         # save the setting
         self.settings.setValue("apply_over_wifi", checked)
-    def on_skipSetupChk_toggled(self, checked: bool):
-        self.device_manager.skip_setup = checked
+    def on_showRiskyChk_toggled(self, checked: bool):
+        self.device_manager.allow_risky_tweaks = checked
         # save the setting
-        self.settings.setValue("skip_setup", checked)
+        self.settings.setValue("show_risky_tweaks", checked)
+        # toggle the button visibility
+        if checked:
+            self.ui.advancedPageBtn.show()
+        else:
+            self.ui.advancedPageBtn.hide()
     def on_autoRebootChk_toggled(self, checked: bool):
         self.device_manager.auto_reboot = checked
         # save the setting
         self.settings.setValue("auto_reboot", checked)
+    def on_skipSetupChk_toggled(self, checked: bool):
+        self.device_manager.skip_setup = checked
+        # save the setting
+        self.settings.setValue("skip_setup", checked)
     def on_supervisionOrgTxt_textEdited(self, text: str):
         self.device_manager.organization_name = text
         self.settings.setValue("organization_name", text)

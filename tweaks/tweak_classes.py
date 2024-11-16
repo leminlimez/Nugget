@@ -49,18 +49,41 @@ class BasicPlistTweak(Tweak):
             value: any = True,
             edit_type: TweakModifyType = TweakModifyType.TOGGLE,
             min_version: Version = Version("1.0"),
+            is_risky: bool = False,
             divider_below: bool = False
         ):
         super().__init__(label=label, key=key, subkey=None, value=value, edit_type=edit_type, min_version=min_version, divider_below=divider_below)
         self.file_location = file_location
+        self.is_risky = is_risky
 
-    def apply_tweak(self, other_tweaks: dict) -> dict:
-        if not self.enabled:
+    def apply_tweak(self, other_tweaks: dict, risky_allowed: bool = False) -> dict:
+        if not self.enabled or (self.is_risky and not risky_allowed):
             return other_tweaks
         if self.file_location in other_tweaks:
             other_tweaks[self.file_location][self.key] = self.value
         else:
             other_tweaks[self.file_location] = {self.key: self.value}
+        return other_tweaks
+    
+class AdvancedPlistTweak(BasicPlistTweak):
+    def __init__(
+        self, label: str,
+        file_location: FileLocation,
+        keyValues: dict,
+        edit_type: TweakModifyType = TweakModifyType.TOGGLE,
+        min_version: Version = Version("1.0"),
+        is_risky: bool = False,
+        divider_below: bool = False
+    ):
+        super().__init__(label=label, file_location=file_location, key=None, value=keyValues, edit_type=edit_type, min_version=min_version, is_risky=is_risky, divider_below=divider_below)
+
+    def apply_tweak(self, other_tweaks: dict, risky_allowed: bool = False) -> dict:
+        if not self.enabled or (self.is_risky and not risky_allowed):
+            return other_tweaks
+        plist = {}
+        for key in self.value:
+            plist[key] = self.value[key]
+        other_tweaks[self.file_location] = plist
         return other_tweaks
     
 
@@ -75,8 +98,8 @@ class RdarFixTweak(BasicPlistTweak):
             or model == "iPhone11,8"
             or model == "iPhone12,1" or model == "iPhone12,3" or model == "iPhone12,5"):
             self.mode = 1
-        elif (model == "iPhone13,1" or model == "iPhone13,2" or model == "iPhone13,3" or model == "iPhone13,4"
-              or model == "iPhone14,4" or model == "iPhone14,5" or model == "iPhone14,2" or model == "iPhone14,3"
+        elif (model == "iPhone13,2" or model == "iPhone13,3" or model == "iPhone13,4"
+              or model == "iPhone14,5" or model == "iPhone14,2" or model == "iPhone14,3"
               or model == "iPhone14,7" or model == "iPhone14,8"):
             self.mode = 2
         elif (model == "iPhone12,8" or model == "iPhone14,6"):
@@ -97,19 +120,28 @@ class RdarFixTweak(BasicPlistTweak):
     def set_di_type(self, type: int):
         self.di_type = type
 
-    def apply_tweak(self, other_tweaks: dict) -> dict:
+    def apply_tweak(self, other_tweaks: dict, risky_allowed: bool = False) -> dict:
         if not self.enabled:
             return other_tweaks
         if self.di_type == -1:
             # revert the fix
             other_tweaks[self.file_location] = {}
-        elif self.mode == 1 or self.mode == 3:
+        elif self.mode == 1:
+            # iPhone XR, XS, and 11
             plist = {
                 "canvas_height": 1791,
                 "canvas_width": 828
             }
             other_tweaks[self.file_location] = plist
+        elif self.mode == 3:
+            # iPhone SEs
+            plist = {
+                "canvas_height": 1779,
+                "canvas_width": 1000
+            }
+            other_tweaks[self.file_location] = plist
         elif self.mode == 2:
+            # Status bar fix (iPhone 12+)
             width = 2868
             height = 1320
             if self.di_type == 2556:

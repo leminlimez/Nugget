@@ -11,18 +11,36 @@ from pymobiledevice3.lockdown import create_using_usbmux
 from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
 
-from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, RdarFixTweak
+from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
-from tweaks.basic_plist_locations import FileLocationsList
+from tweaks.basic_plist_locations import FileLocationsList, RiskyFileLocationsList
 from Sparserestore.restore import restore_files, FileToRestore
 
-def show_error_msg(txt: str):
+def show_error_msg(txt: str, detailed_txt: str = None):
     detailsBox = QMessageBox()
     detailsBox.setIcon(QMessageBox.Critical)
     detailsBox.setWindowTitle("Error!")
     detailsBox.setText(txt)
-    detailsBox.setDetailedText(str(traceback.format_exc()))
+    if detailed_txt != None:
+        detailsBox.setDetailedText(detailed_txt)
     detailsBox.exec()
+
+def show_apply_error(e: Exception, update_label=lambda x: None):
+    if "Find My" in str(e):
+        show_error_msg("Find My must be disabled in order to use this tool.",
+                       detailed_txt="Disable Find My from Settings (Settings -> [Your Name] -> Find My) and then try again.")
+    elif "Encrypted Backup MDM" in str(e):
+        show_error_msg("Nugget cannot be used on this device. Click Show Details for more info.",
+                       detailed_txt="Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!")
+    elif "SessionInactive" in str(e):
+        show_error_msg("The session was terminated. Refresh the device list and try again.")
+    elif "Password" in str(e):
+        show_error_msg("Device is password protected! You must trust the computer on your device.",
+                       detailed_txt="Unlock your device. On the popup, click \"Trust\", enter your password, then try again.")
+    else:
+        show_error_msg(type(e).__name__ + ": " + repr(e), detailed_txt=str(traceback.format_exc()))
+    print(traceback.format_exc())
+    update_label("Failed to restore")
 
 class DeviceManager:
     ## Class Functions
@@ -33,8 +51,9 @@ class DeviceManager:
 
         # preferences
         self.apply_over_wifi = True
-        self.skip_setup = True
         self.auto_reboot = True
+        self.allow_risky_tweaks = False
+        self.skip_setup = True
         self.supervised = False
         self.organization_name = ""
     
@@ -50,7 +69,7 @@ class DeviceManager:
 
                 If you are on Windows, make sure you have the \"Apple Devices\" app from the Microsoft Store or iTunes from Apple's website.
                 If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.
-                """
+                """, detailed_txt=str(traceback.format_exc())
             )
             self.set_current_device(index=None)
             return
@@ -99,7 +118,7 @@ class DeviceManager:
                     self.devices.append(dev)
                 except Exception as e:
                     print(f"ERROR with lockdown device with UUID {device.serial}")
-                    show_error_msg(type(e).__name__ + ": " + repr(e))
+                    show_error_msg(type(e).__name__ + ": " + repr(e), detailed_txt=str(traceback.format_exc()))
                     connected_devices.remove(device)
             else:
                 connected_devices.remove(device)
@@ -155,11 +174,23 @@ class DeviceManager:
         else:
             return self.data_singleton.current_device.uuid
         
+    def get_current_device_model(self) -> str:
+        if self.data_singleton.current_device == None:
+            return ""
+        else:
+            return self.data_singleton.current_device.model
+        
     def get_current_device_supported(self) -> bool:
         if self.data_singleton.current_device == None:
             return False
         else:
             return self.data_singleton.current_device.supported()
+    
+    def get_current_device_patched(self) -> bool:
+        if self.data_singleton.current_device == None:
+            return True
+        else:
+            return self.data_singleton.current_device.is_exploit_fully_patched()
         
 
     def reset_device_pairing(self):
@@ -203,7 +234,13 @@ class DeviceManager:
                 domain="ManagedPreferencesDomain"
             ))
 
-    def get_domain_for_path(self, path: str) -> str:
+    def get_domain_for_path(self, path: str, fully_patched: bool = False) -> str:
+        # just make the Sys Containers to use the regular way (won't work for mga)
+        sysSharedContainer = "SysSharedContainerDomain-"
+        sysContainer = "SysContainerDomain-"
+        if not fully_patched:
+            sysSharedContainer += "."
+            sysContainer += "."
         mappings: dict = {
             "/var/Managed Preferences/": "ManagedPreferencesDomain",
             "/var/root/": "RootDomain",
@@ -211,13 +248,19 @@ class DeviceManager:
             "/var/MobileDevice/": "MobileDeviceDomain",
             "/var/mobile/": "HomeDomain",
             "/var/db/": "DatabaseDomain",
-            "/var/containers/Shared/SystemGroup/": "SysSharedContainerDomain-.",
-            "/var/containers/Data/SystemGroup/": "SysContainerDomain-."
+            "/var/containers/Shared/SystemGroup/": sysSharedContainer,
+            "/var/containers/Data/SystemGroup/": sysContainer
         }
         for mapping in mappings.keys():
             if path.startswith(mapping):
                 new_path = path.replace(mapping, "")
-                return mappings[mapping], new_path
+                new_domain = mappings[mapping]
+                # if patched, include the next part of the path in the domain
+                if fully_patched and (new_domain == sysSharedContainer or new_domain == sysContainer):
+                    parts = new_path.split("/")
+                    new_domain += parts[0]
+                    new_path = new_path.replace(parts[0] + "/", "")
+                return new_domain, new_path
         return None, path
     
     def concat_file(self, contents: str, path: str, files_to_restore: list[FileToRestore]):
@@ -227,7 +270,7 @@ class DeviceManager:
                 restore_path=path
             ))
         else:
-            domain, file_path = self.get_domain_for_path(path)
+            domain, file_path = self.get_domain_for_path(path, fully_patched=self.get_current_device_patched())
             files_to_restore.append(FileToRestore(
                 contents=contents,
                 restore_path=file_path,
@@ -259,8 +302,8 @@ class DeviceManager:
                     eligibility_files = tweak.apply_tweak()
                 elif isinstance(tweak, AITweak):
                     ai_file = tweak.apply_tweak()
-                elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak):
-                    basic_plists = tweak.apply_tweak(basic_plists)
+                elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak) or isinstance(tweak, AdvancedPlistTweak):
+                    basic_plists = tweak.apply_tweak(basic_plists, self.allow_risky_tweaks)
                 else:
                     if gestalt_plist != None:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
@@ -325,6 +368,13 @@ class DeviceManager:
                     path=location.value,
                     files_to_restore=files_to_restore
                 )
+            if self.allow_risky_tweaks:
+                for location in RiskyFileLocationsList:
+                    self.concat_file(
+                        contents=empty_data,
+                        path=location.value,
+                        files_to_restore=files_to_restore
+                    )
 
         # restore to the device
         update_label("Restoring to device...")
@@ -336,23 +386,7 @@ class DeviceManager:
             QMessageBox.information(None, "Success!", "All done! " + msg)
             update_label("Success!")
         except Exception as e:
-            if "Find My" in str(e):
-                detailsBox = QMessageBox()
-                detailsBox.setIcon(QMessageBox.Critical)
-                detailsBox.setWindowTitle("Error!")
-                detailsBox.setText("Find My must be disabled in order to use this tool.")
-                detailsBox.setDetailedText("Disable Find My from Settings (Settings -> [Your Name] -> Find My) and then try again.")
-                detailsBox.exec()
-            elif "SessionInactive" in str(e):
-                detailsBox = QMessageBox()
-                detailsBox.setIcon(QMessageBox.Critical)
-                detailsBox.setWindowTitle("Error!")
-                detailsBox.setText("The session was terminated. Refresh the device list and try again.")
-                detailsBox.exec()
-            else:
-                print(traceback.format_exc())
-                update_label("Failed to restore")
-                show_error_msg(type(e).__name__ + ": " + repr(e))
+            show_apply_error(e, update_label)
 
     ## RESETTING MOBILE GESTALT
     def reset_mobilegestalt(self, settings: QSettings, update_label=lambda x: None):
@@ -363,7 +397,9 @@ class DeviceManager:
             settings.setValue(self.data_singleton.current_device.uuid + "_model", "")
             settings.setValue(self.data_singleton.current_device.uuid + "_hardware", "")
             settings.setValue(self.data_singleton.current_device.uuid + "_cpu", "")
-            domain, file_path = self.get_domain_for_path("/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist")
+            domain, file_path = self.get_domain_for_path(
+                "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
+                fully_patched=self.get_current_device_patched())
             restore_files(files=[FileToRestore(
                     contents=b"",
                     restore_path=file_path,
@@ -375,14 +411,4 @@ class DeviceManager:
             QMessageBox.information(None, "Success!", "All done! " + msg)
             update_label("Success!")
         except Exception as e:
-            if "Find My" in str(e):
-                detailsBox = QMessageBox()
-                detailsBox.setIcon(QMessageBox.Critical)
-                detailsBox.setWindowTitle("Error!")
-                detailsBox.setText("Find My must be disabled in order to use this tool.")
-                detailsBox.setDetailedText("Disable Find My from Settings (Settings -> [Your Name] -> Find My) and then try again.")
-                detailsBox.exec()
-            else:
-                print(traceback.format_exc())
-                update_label("Failed to restore")
-                show_error_msg(type(e).__name__ + ": " + repr(e))
+            show_apply_error(e)
