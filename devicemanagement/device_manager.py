@@ -130,7 +130,7 @@ class DeviceManager:
 
     ## CURRENT DEVICE
     def set_current_device(self, index: int = None):
-        if index == None:
+        if index == None or len(self.devices) == 0:
             self.data_singleton.current_device = None
             self.data_singleton.device_available = False
             self.data_singleton.gestalt_path = None
