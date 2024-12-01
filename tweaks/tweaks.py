@@ -3,6 +3,14 @@ from .tweak_classes import MobileGestaltTweak, MobileGestaltMultiTweak, MobileGe
 from .eligibility_tweak import EligibilityTweak, AITweak
 from .basic_plist_locations import FileLocation
 
+default_disabled_daemons = {
+    "com.apple.magicswitchd.companion": True,
+    "com.apple.security.otpaird": True,
+    "com.apple.dhcp6d": True,
+    "com.apple.bootpd": True,
+    "com.apple.ftp-proxy-embedded": False,
+    "com.apple.relevanced": True
+}
     
 tweaks = {
     ## MobileGestalt Tweaks
@@ -269,9 +277,72 @@ tweaks = {
         "AnnounceAllPastes"
     ),
 
+    ## Daemons
+    "DisableThermalmonitord": AdvancedPlistTweak(
+        "Disable thermalmonitord",
+        FileLocation.disabledDaemons,
+        default_disabled_daemons.copy().update({"com.apple.thermalmonitord": True})
+    ),
+    "DisableOTADaemon": AdvancedPlistTweak(
+        "Disable OTA (daemon)",
+        FileLocation.disabledDaemons,
+        default_disabled_daemons.copy().update({
+            "com.apple.mobile.softwareupdated": True,
+            "com.apple.OTATaskingAgent": True,
+            "com.apple.softwareupdateservicesd": True
+        })
+    ),
+    "DisableUsageTracking": AdvancedPlistTweak(
+        "Disable Usage Tracking",
+        FileLocation.disabledDaemons,
+        default_disabled_daemons.copy().update({
+            "com.apple.UsageTrackingAgent": True
+        })
+    ),
+    "DisableGameCenter": AdvancedPlistTweak(
+        "Disable Game Center",
+        FileLocation.disabledDaemons,
+        default_disabled_daemons.copy().update({"com.apple.gamed": True})
+    ),
+    "DisableScreenTime": AdvancedPlistTweak(
+        "Disable Screen Time Agent",
+        FileLocation.disabledDaemons,
+        default_disabled_daemons.copy().update({"com.apple.ScreenTimeAgent": True})
+    ),
+    "DisableCrashReports": AdvancedPlistTweak(
+        "Disable Usage Tracking",
+        FileLocation.disabledDaemons,
+        default_disabled_daemons.copy().update({
+            "com.apple.ReportCrash": True,
+            "com.apple.ReportCrash.Jetsam": True,
+            "com.apple.ReportMemoryException": True,
+            "com.apple.OTACrashCopier": True,
+            "com.apple.analyticsd": True,
+            "com.apple.aslmanager": True,
+            "com.apple.coresymbolicationd": True,
+            "com.apple.crash_mover": True,
+            "com.apple.crashreportcopymobile": True,
+            "com.apple.DumpBasebandCrash": True,
+            "com.apple.DumpPanic": True,
+            "com.apple.logd": True,
+            "com.apple.logd.admin": True,
+            "com.apple.logd.events": True,
+            "com.apple.logd.watchdog": True,
+            "com.apple.logd_reporter": True,
+            "com.apple.logd_reporter.report_statistics": True,
+            "com.apple.system.logger": True,
+            "com.apple.syslogd": True
+        })
+    ),
+    "DisableTips": AdvancedPlistTweak(
+        "Disable Tips",
+        FileLocation.disabledDaemons,
+        default_disabled_daemons.copy().update({"com.apple.tipsd": True})
+    ),
+
     ## Risky Options
-    "DisableOTA": AdvancedPlistTweak(
-        "Disable OTA Updates",
+    "DisableOTAFile": AdvancedPlistTweak(
+        "Disable OTA Updates (file)",
         FileLocation.ota,
         {
             "MobileAssetServerURL-com.apple.MobileAsset.MobileSoftwareUpdate.UpdateBrain": "https://mesu.apple.com/assets/tvOS16DeveloperSeed",

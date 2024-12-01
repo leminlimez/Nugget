@@ -16,6 +16,9 @@ class FileLocation(Enum):
     pasteboard = "/var/Managed Preferences/mobile/com.apple.Pasteboard.plist"
     notes = "/var/Managed Preferences/mobile/com.apple.mobilenotes.plist"
 
+    # Daemons
+    disabledDaemons = "/var/db/com.apple.xpc.launchd/disabled.plist"
+
     # Risky Options
     ota = "/var/Managed Preferences/mobile/com.apple.MobileAsset.plist"
 

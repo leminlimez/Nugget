@@ -22,9 +22,10 @@ class Page(Enum):
     EUEnabler = 3
     Springboard = 4
     InternalOptions = 5
-    RiskyTweaks = 6
-    Apply = 7
-    Settings = 8
+    Daemons = 6
+    RiskyTweaks = 7
+    Apply = 8
+    Settings = 9
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager):
@@ -48,6 +49,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.euEnablerPageBtn.clicked.connect(self.on_euEnablerPageBtn_clicked)
         self.ui.springboardOptionsPageBtn.clicked.connect(self.on_springboardOptionsPageBtn_clicked)
         self.ui.internalOptionsPageBtn.clicked.connect(self.on_internalOptionsPageBtn_clicked)
+        self.ui.daemonsPageBtn.clicked.connect(self.on_daemonsPageBtn_clicked)
         self.ui.advancedPageBtn.clicked.connect(self.on_advancedPageBtn_clicked)
         self.ui.applyPageBtn.clicked.connect(self.on_applyPageBtn_clicked)
         self.ui.settingsPageBtn.clicked.connect(self.on_settingsPageBtn_clicked)
@@ -65,7 +67,7 @@ class MainWindow(QtWidgets.QMainWindow):
         
         self.ui.jjtechBtn.clicked.connect(self.on_jjtechBtn_clicked)
         self.ui.disfordottieBtn.clicked.connect(self.on_disfordottieBtn_clicked)
-        self.ui.lrdsnowBtn.clicked.connect(self.on_lrdsnowBtn_clicked)
+        self.ui.mikasaBtn.clicked.connect(self.on_mikasaBtn_clicked)
 
         self.ui.libiBtn.clicked.connect(self.on_libiBtn_clicked)
         self.ui.qtBtn.clicked.connect(self.on_qtBtn_clicked)
@@ -113,6 +115,15 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.enableWakeVibrateChk.toggled.connect(self.on_enableWakeVibrateChk_clicked)
         self.ui.pasteSoundChk.toggled.connect(self.on_pasteSoundChk_clicked)
         self.ui.notifyPastesChk.toggled.connect(self.on_notifyPastesChk_clicked)
+
+        ## DAEMONS PAGE ACTIONS
+        self.ui.thermalmonitordChk.toggled.connect(self.on_thermalmonitordChk_clicked)
+        self.ui.otadChk.toggled.connect(self.on_otadChk_clicked)
+        self.ui.usageTrackingAgentChk.toggled.connect(self.on_usageTrackingAgentChk_clicked)
+        self.ui.gameCenterChk.toggled.connect(self.on_gameCenterChk_clicked)
+        self.ui.screenTimeChk.toggled.connect(self.on_screenTimeChk_clicked)
+        self.ui.crashReportsChk.toggled.connect(self.on_crashReportsChk_clicked)
+        self.ui.tipsChk.toggled.connect(self.on_tipsChk_clicked)
 
         ## RISKY OPTIONS PAGE ACTIONS
         self.ui.disableOTAChk.toggled.connect(self.on_disableOTAChk_clicked)
@@ -188,7 +199,6 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.homePageBtn.setChecked(True)
 
             # hide all pages
-            self.ui.explorePageBtn.hide()
             self.ui.sidebarDiv1.hide()
 
             self.ui.gestaltPageBtn.hide()
@@ -196,6 +206,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.euEnablerPageBtn.hide()
             self.ui.springboardOptionsPageBtn.hide()
             self.ui.internalOptionsPageBtn.hide()
+            self.ui.daemonsPageBtn.hide()
             self.ui.advancedPageBtn.hide()
 
             self.ui.sidebarDiv2.hide()
@@ -209,10 +220,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.devicePicker.addItem(device.name)
             
             # show all pages
-            self.ui.explorePageBtn.hide()
             self.ui.sidebarDiv1.show()
             self.ui.springboardOptionsPageBtn.show()
             self.ui.internalOptionsPageBtn.show()
+            self.ui.daemonsPageBtn.show()
 
             if self.device_manager.allow_risky_tweaks:
                 self.ui.advancedPageBtn.show()
@@ -374,6 +385,9 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_internalOptionsPageBtn_clicked(self):
         self.ui.pages.setCurrentIndex(Page.InternalOptions.value)
 
+    def on_daemonsPageBtn_clicked(self):
+        self.ui.pages.setCurrentIndex(Page.Daemons.value)
+
     def on_advancedPageBtn_clicked(self):
         self.ui.pages.setCurrentIndex(Page.RiskyTweaks.value)
 
@@ -440,8 +454,8 @@ class MainWindow(QtWidgets.QMainWindow):
         webbrowser.open_new_tab("https://github.com/JJTech0130/TrollRestore")
     def on_disfordottieBtn_clicked(self):
         webbrowser.open_new_tab("https://twitter.com/disfordottie")
-    def on_lrdsnowBtn_clicked(self):
-        webbrowser.open_new_tab("https://github.com/Lrdsnow/EUEnabler")
+    def on_mikasaBtn_clicked(self):
+        webbrowser.open_new_tab("https://github.com/Mikasa-san/QuietDaemon")
 
     def on_libiBtn_clicked(self):
         webbrowser.open_new_tab("https://github.com/doronz88/pymobiledevice3")
@@ -688,9 +702,25 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_notifyPastesChk_clicked(self, checked: bool):
         tweaks["AnnounceAllPastes"].set_enabled(checked)
 
+    ## DAEMONS PAGE
+    def on_thermalmonitordChk_clicked(self, checked: bool):
+        tweaks["DisableThermalmonitord"].set_enabled(checked)
+    def on_otadChk_clicked(self, checked: bool):
+        tweaks["DisableOTADaemon"].set_enabled(checked)
+    def on_usageTrackingAgentChk_clicked(self, checked: bool):
+        tweaks["DisableUsageTracking"].set_enabled(checked)
+    def on_gameCenterChk_clicked(self, checked: bool):
+        tweaks["DisableGameCenter"].set_enabled(checked)
+    def on_screenTimeChk_clicked(self, checked: bool):
+        tweaks["DisableScreenTime"].set_enabled(checked)
+    def on_crashReportsChk_clicked(self, checked: bool):
+        tweaks["DisableCrashReports"].set_enabled(checked)
+    def on_tipsChk_clicked(self, checked: bool):
+        tweaks["DisableTips"].set_enabled(checked)
+
     ## Risky Options Page
     def on_disableOTAChk_clicked(self, checked: bool):
-        tweaks["DisableOTA"].set_enabled(checked)
+        tweaks["DisableOTAFile"].set_enabled(checked)
 
     def on_enableResolutionChk_clicked(self, checked: bool):
         tweaks["CustomResolution"].set_enabled(checked)

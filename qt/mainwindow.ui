@@ -436,38 +436,6 @@ QSlider::tick:horizontal {
            </widget>
           </item>
           <item>
-           <widget class="QToolButton" name="explorePageBtn">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>    Explore</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>:/icon/compass.svg</normaloff>:/icon/compass.svg</iconset>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="autoExclusive">
-             <bool>true</bool>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
-            </property>
-            <property name="cls" stdset="0">
-             <string>sidebarBtn</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="Line" name="sidebarDiv1">
             <property name="styleSheet">
              <string notr="true">QFrame {
@@ -627,6 +595,38 @@ QSlider::tick:horizontal {
             <property name="icon">
              <iconset>
               <normaloff>:/icon/hdd.svg</normaloff>:/icon/hdd.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextBesideIcon</enum>
+            </property>
+            <property name="cls" stdset="0">
+             <string>sidebarBtn</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="daemonsPageBtn">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>    Daemons</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>:/icon/toggles.svg</normaloff>:/icon/toggles.svg</iconset>
             </property>
             <property name="checkable">
              <bool>true</bool>
@@ -1434,7 +1434,7 @@ Clock Anim, Photos UI</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QToolButton" name="lrdsnowBtn">
+                     <widget class="QToolButton" name="mikasaBtn">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -1462,8 +1462,8 @@ QToolButton:pressed {
 }</string>
                       </property>
                       <property name="text">
-                       <string>lrdsnow
-EU Enabler</string>
+                       <string>Mikasa
+Quiet Daemon</string>
                       </property>
                      </widget>
                     </item>
@@ -1571,7 +1571,7 @@ QToolButton:pressed {
               <item>
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Nugget GUI - Version 4.1</string>
+                 <string>Nugget GUI - Version 4.2 (beta 1)</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -3529,6 +3529,224 @@ QComboBox QAbstractItemView::item:hover {
                   <widget class="QCheckBox" name="notifyPastesChk">
                    <property name="text">
                     <string>Show Notifications for System Pastes</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer_6">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="daemonsPage">
+             <layout class="QVBoxLayout" name="verticalLayout_14">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QWidget" name="horizontalWidget_5" native="true">
+                <layout class="QHBoxLayout" name="horizontalLayout_20">
+                 <property name="spacing">
+                  <number>10</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>9</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>9</number>
+                 </property>
+                 <item>
+                  <widget class="QToolButton" name="toolButton_10">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QToolButton {
+	icon-size: 24px;
+	background-color: transparent;
+	padding-left: 0px;
+	padding-right: 5px;
+	border-radius: 0px;
+}</string>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>:/icon/toggles.svg</normaloff>:/icon/toggles.svg</iconset>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="verticalWidget_4" native="true">
+                   <layout class="QVBoxLayout" name="verticalLayout_12">
+                    <property name="spacing">
+                     <number>6</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="daemonsLbl">
+                      <property name="font">
+                       <font>
+                        <pointsize>-1</pointsize>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Daemons</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_18">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeType">
+                       <enum>QSizePolicy::Fixed</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>16</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_7">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="Line" name="line_12">
+                <property name="styleSheet">
+                 <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="daemonsPageContent" native="true">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_13">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QCheckBox" name="thermalmonitordChk">
+                   <property name="text">
+                    <string>Disable thermalmonitord</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="otadChk">
+                   <property name="text">
+                    <string>Disable OTA</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="usageTrackingAgentChk">
+                   <property name="text">
+                    <string>Disable UsageTrackingAgent</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="gameCenterChk">
+                   <property name="text">
+                    <string>Disable Game Center</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="screenTimeChk">
+                   <property name="text">
+                    <string>Disable Screen Time Agent</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="crashReportsChk">
+                   <property name="text">
+                    <string>Disable Logs, Dumps, and Crash Reports</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="tipsChk">
+                   <property name="text">
+                    <string>Disable Tips Services</string>
                    </property>
                   </widget>
                  </item>
