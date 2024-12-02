@@ -14,6 +14,7 @@ class Tweak:
             value: any = 1,
             edit_type: TweakModifyType = TweakModifyType.TOGGLE,
             min_version: Version = Version("1.0"),
+            owner: int = 501, group: int = 501,
             divider_below: bool = False
         ):
         self.label = label
@@ -22,6 +23,8 @@ class Tweak:
         self.value = value
         self.min_version = min_version
         self.edit_type = edit_type
+        self.owner = owner
+        self.group = group
         self.divider_below = divider_below
         self.enabled = False
 
@@ -49,10 +52,11 @@ class BasicPlistTweak(Tweak):
             value: any = True,
             edit_type: TweakModifyType = TweakModifyType.TOGGLE,
             min_version: Version = Version("1.0"),
+            owner: int = 501, group: int = 501,
             is_risky: bool = False,
             divider_below: bool = False
         ):
-        super().__init__(label=label, key=key, subkey=None, value=value, edit_type=edit_type, min_version=min_version, divider_below=divider_below)
+        super().__init__(label=label, key=key, subkey=None, value=value, edit_type=edit_type, min_version=min_version, owner=owner, group=group, divider_below=divider_below)
         self.file_location = file_location
         self.is_risky = is_risky
 
@@ -72,10 +76,15 @@ class AdvancedPlistTweak(BasicPlistTweak):
         keyValues: dict,
         edit_type: TweakModifyType = TweakModifyType.TOGGLE,
         min_version: Version = Version("1.0"),
+        owner: int = 501, group: int = 501,
         is_risky: bool = False,
         divider_below: bool = False
     ):
-        super().__init__(label=label, file_location=file_location, key=None, value=keyValues, edit_type=edit_type, min_version=min_version, is_risky=is_risky, divider_below=divider_below)
+        super().__init__(label=label, file_location=file_location, key=None, value=keyValues, edit_type=edit_type, min_version=min_version, owner=owner, group=group, is_risky=is_risky, divider_below=divider_below)
+
+    def set_multiple_values(self, keys: list[str], value: any):
+        for key in keys:
+            self.value[key] = value
 
     def apply_tweak(self, other_tweaks: dict, risky_allowed: bool = False) -> dict:
         if not self.enabled or (self.is_risky and not risky_allowed):

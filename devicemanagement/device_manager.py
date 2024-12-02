@@ -235,6 +235,7 @@ class DeviceManager:
             ))
 
     def get_domain_for_path(self, path: str, fully_patched: bool = False) -> str:
+        # returns Domain: str?, Path: str
         # just make the Sys Containers to use the regular way (won't work for mga)
         sysSharedContainer = "SysSharedContainerDomain-"
         sysContainer = "SysContainerDomain-"
@@ -263,18 +264,20 @@ class DeviceManager:
                 return new_domain, new_path
         return None, path
     
-    def concat_file(self, contents: str, path: str, files_to_restore: list[FileToRestore]):
+    def concat_file(self, contents: str, path: str, files_to_restore: list[FileToRestore], owner: int = 501, group: int = 501):
         if self.get_current_device_supported():
             files_to_restore.append(FileToRestore(
                 contents=contents,
-                restore_path=path
+                restore_path=path,
+                owner=owner, group=group
             ))
         else:
             domain, file_path = self.get_domain_for_path(path, fully_patched=self.get_current_device_patched())
             files_to_restore.append(FileToRestore(
                 contents=contents,
                 restore_path=file_path,
-                domain=domain
+                domain=domain,
+                owner=owner, group=group
             ))
     
     ## APPLYING OR REMOVING TWEAKS AND RESTORING
@@ -291,6 +294,7 @@ class DeviceManager:
         eligibility_files = None
         ai_file = None
         basic_plists: dict = {}
+        basic_plists_ownership: dict = {}
 
         # set the plist keys
         if not resetting:
@@ -304,6 +308,7 @@ class DeviceManager:
                     ai_file = tweak.apply_tweak()
                 elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak) or isinstance(tweak, AdvancedPlistTweak):
                     basic_plists = tweak.apply_tweak(basic_plists, self.allow_risky_tweaks)
+                    basic_plists_ownership[tweak.file_location] = tweak.owner
                 else:
                     if gestalt_plist != None:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
@@ -354,10 +359,12 @@ class DeviceManager:
                 files_to_restore=files_to_restore
             )
         for location, plist in basic_plists.items():
+            ownership = basic_plists_ownership[location]
             self.concat_file(
                 contents=plistlib.dumps(plist),
                 path=location.value,
-                files_to_restore=files_to_restore
+                files_to_restore=files_to_restore,
+                owner=ownership, group=ownership
             )
         # reset basic tweaks
         if resetting:

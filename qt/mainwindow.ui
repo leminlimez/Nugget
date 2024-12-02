@@ -1571,7 +1571,7 @@ QToolButton:pressed {
               <item>
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Nugget GUI - Version 4.2 (beta 1)</string>
+                 <string>Nugget GUI - Version 4.2 (beta 2)</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -3634,20 +3634,11 @@ QComboBox QAbstractItemView::item:hover {
                      </widget>
                     </item>
                     <item>
-                     <spacer name="verticalSpacer_18">
-                      <property name="orientation">
-                       <enum>Qt::Vertical</enum>
+                     <widget class="QCheckBox" name="modifyDaemonsChk">
+                      <property name="text">
+                       <string>Modify</string>
                       </property>
-                      <property name="sizeType">
-                       <enum>QSizePolicy::Fixed</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>20</width>
-                        <height>16</height>
-                       </size>
-                      </property>
-                     </spacer>
+                     </widget>
                     </item>
                    </layout>
                   </widget>
@@ -3686,7 +3677,7 @@ QComboBox QAbstractItemView::item:hover {
               <item>
                <widget class="QWidget" name="daemonsPageContent" native="true">
                 <property name="enabled">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_13">
                  <property name="leftMargin">

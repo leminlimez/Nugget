@@ -117,6 +117,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.notifyPastesChk.toggled.connect(self.on_notifyPastesChk_clicked)
 
         ## DAEMONS PAGE ACTIONS
+        self.ui.modifyDaemonsChk.toggled.connect(self.on_modifyDaemonsChk_clicked)
         self.ui.thermalmonitordChk.toggled.connect(self.on_thermalmonitordChk_clicked)
         self.ui.otadChk.toggled.connect(self.on_otadChk_clicked)
         self.ui.usageTrackingAgentChk.toggled.connect(self.on_usageTrackingAgentChk_clicked)
@@ -259,9 +260,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.device_manager.get_current_device_model().startswith("iPhone"):
             # re-enable iPhone spoof models
             self.ui.spoofedModelDrp.addItems(spoof_drp_options[:6])
-        else:
-            # re-enable iPad spoof models
-            self.ui.spoofedModelDrp.addItems(spoof_drp_options[6:])
+        # add iPad models on phones (for testing)
+        # re-enable iPad spoof models
+        self.ui.spoofedModelDrp.addItems(spoof_drp_options[6:])
 
     def change_selected_device(self, index):
         if len(self.device_manager.devices) > 0:
@@ -703,20 +704,48 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["AnnounceAllPastes"].set_enabled(checked)
 
     ## DAEMONS PAGE
+    def on_modifyDaemonsChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_enabled(checked)
+        self.ui.daemonsPageContent.setDisabled(not checked)
+
     def on_thermalmonitordChk_clicked(self, checked: bool):
-        tweaks["DisableThermalmonitord"].set_enabled(checked)
+        tweaks["Daemons"].value["com.apple.thermalmonitord"] = checked
     def on_otadChk_clicked(self, checked: bool):
-        tweaks["DisableOTADaemon"].set_enabled(checked)
+        tweaks["Daemons"].set_multiple_values([
+            "com.apple.mobile.softwareupdated",
+            "com.apple.OTATaskingAgent",
+            "com.apple.softwareupdateservicesd"
+        ], value=checked)
     def on_usageTrackingAgentChk_clicked(self, checked: bool):
-        tweaks["DisableUsageTracking"].set_enabled(checked)
+        tweaks["Daemons"].value["com.apple.UsageTrackingAgent"] = checked
     def on_gameCenterChk_clicked(self, checked: bool):
-        tweaks["DisableGameCenter"].set_enabled(checked)
+        tweaks["Daemons"].value["com.apple.gamed"] = checked
     def on_screenTimeChk_clicked(self, checked: bool):
-        tweaks["DisableScreenTime"].set_enabled(checked)
+        tweaks["Daemons"].value["com.apple.ScreenTimeAgent"] = checked
     def on_crashReportsChk_clicked(self, checked: bool):
-        tweaks["DisableCrashReports"].set_enabled(checked)
+        tweaks["Daemons"].set_multiple_values([
+            "com.apple.ReportCrash",
+                "com.apple.ReportCrash.Jetsam",
+                "com.apple.ReportMemoryException",
+                "com.apple.OTACrashCopier",
+                "com.apple.analyticsd",
+                "com.apple.aslmanager",
+                "com.apple.coresymbolicationd",
+                "com.apple.crash_mover",
+                "com.apple.crashreportcopymobile",
+                "com.apple.DumpBasebandCrash",
+                "com.apple.DumpPanic",
+                "com.apple.logd",
+                "com.apple.logd.admin",
+                "com.apple.logd.events",
+                "com.apple.logd.watchdog",
+                "com.apple.logd_reporter",
+                "com.apple.logd_reporter.report_statistics",
+                "com.apple.system.logger",
+                "com.apple.syslogd"
+        ], value=checked)
     def on_tipsChk_clicked(self, checked: bool):
-        tweaks["DisableTips"].set_enabled(checked)
+        tweaks["Daemons"].value["com.apple.tipsd"] = checked
 
     ## Risky Options Page
     def on_disableOTAChk_clicked(self, checked: bool):

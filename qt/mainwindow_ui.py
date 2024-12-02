@@ -1942,9 +1942,10 @@ class Ui_Nugget(object):
 
         self.verticalLayout_122.addWidget(self.daemonsLbl)
 
-        self.verticalSpacer_181 = QSpacerItem(20, 16, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.modifyDaemonsChk = QCheckBox(self.verticalWidget_42)
+        self.modifyDaemonsChk.setObjectName(u"modifyDaemonsChk")
 
-        self.verticalLayout_122.addItem(self.verticalSpacer_181)
+        self.verticalLayout_122.addWidget(self.modifyDaemonsChk)
 
 
         self.horizontalLayout_202.addWidget(self.verticalWidget_42)
@@ -1968,7 +1969,7 @@ class Ui_Nugget(object):
 
         self.daemonsPageContent = QWidget(self.daemonsPage)
         self.daemonsPageContent.setObjectName(u"daemonsPageContent")
-        self.daemonsPageContent.setEnabled(True)
+        self.daemonsPageContent.setEnabled(False)
         self.verticalLayout_132 = QVBoxLayout(self.daemonsPageContent)
         self.verticalLayout_132.setObjectName(u"verticalLayout_132")
         self.verticalLayout_132.setContentsMargins(0, 0, 0, 0)
@@ -2052,9 +2053,9 @@ class Ui_Nugget(object):
 
         self.verticalLayout_123.addWidget(self.advancedOptionsLbl)
 
-        self.verticalSpacer_182 = QSpacerItem(20, 16, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_181 = QSpacerItem(20, 16, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
-        self.verticalLayout_123.addItem(self.verticalSpacer_182)
+        self.verticalLayout_123.addItem(self.verticalSpacer_181)
 
 
         self.horizontalLayout_203.addWidget(self.verticalWidget_43)
@@ -3079,7 +3080,7 @@ class Ui_Nugget(object):
         self.toolButton_15.setText(QCoreApplication.translate("Nugget", u"Additional Thanks", None))
         self.libiBtn.setText(QCoreApplication.translate("Nugget", u"pymobiledevice3", None))
         self.qtBtn.setText(QCoreApplication.translate("Nugget", u"Qt Creator", None))
-        self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 4.2 (beta 1)", None))
+        self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 4.2 (beta 2)", None))
         self.statusBarLbl.setText(QCoreApplication.translate("Nugget", u"Mobile Gestalt", None))
         self.mgaWarningLbl.setText(QCoreApplication.translate("Nugget", u"! You will need a MobileGestalt file for this feature. Please select it in the Apply page !", None))
         self.label_9.setText(QCoreApplication.translate("Nugget", u"Device Subtype Preset", None))
@@ -3196,6 +3197,7 @@ class Ui_Nugget(object):
         self.pasteSoundChk.setText(QCoreApplication.translate("Nugget", u"Play Sound on Paste", None))
         self.notifyPastesChk.setText(QCoreApplication.translate("Nugget", u"Show Notifications for System Pastes", None))
         self.daemonsLbl.setText(QCoreApplication.translate("Nugget", u"Daemons", None))
+        self.modifyDaemonsChk.setText(QCoreApplication.translate("Nugget", u"Modify", None))
         self.thermalmonitordChk.setText(QCoreApplication.translate("Nugget", u"Disable thermalmonitord", None))
         self.otadChk.setText(QCoreApplication.translate("Nugget", u"Disable OTA", None))
         self.usageTrackingAgentChk.setText(QCoreApplication.translate("Nugget", u"Disable UsageTrackingAgent", None))

