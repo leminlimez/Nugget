@@ -276,7 +276,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 "18.0": [self.ui.aodChk, self.ui.iphone16SettingsChk]
             }
             MaxTweakVersions = {
-                "17.7": [self.ui.euEnablerContent]
+                "17.7": [self.ui.euEnablerContent],
+                "18.0": [self.ui.photosChk, self.ui.aiChk]
             }
 
             try:
