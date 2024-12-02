@@ -7,6 +7,7 @@ from PySide6.QtCore import QSettings
 
 from pymobiledevice3 import usbmux
 from pymobiledevice3.lockdown import create_using_usbmux
+from pymobiledevice3.exceptions import MuxException, PasswordRequiredError
 
 from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
@@ -34,7 +35,7 @@ def show_apply_error(e: Exception, update_label=lambda x: None):
                        detailed_txt="Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!")
     elif "SessionInactive" in str(e):
         show_error_msg("The session was terminated. Refresh the device list and try again.")
-    elif "Password" in str(e):
+    elif isinstance(e, PasswordRequiredError):
         show_error_msg("Device is password protected! You must trust the computer on your device.",
                        detailed_txt="Unlock your device. On the popup, click \"Trust\", enter your password, then try again.")
     else:
@@ -116,14 +117,16 @@ class DeviceManager:
                         )
                     tweaks["RdarFix"].get_rdar_mode(model)
                     self.devices.append(dev)
+                except MuxException as e:
+                    # there is probably a cable issue
+                    print(f"MUX ERROR with lockdown device with UUID {device.serial}")
+                    show_error_msg("MuxException: " + repr(e) + "\n\nIf you keep receiving this error, try using a different cable or port.",
+                                   detailed_txt=str(traceback.format_exc()))
                 except Exception as e:
                     print(f"ERROR with lockdown device with UUID {device.serial}")
                     show_error_msg(type(e).__name__ + ": " + repr(e), detailed_txt=str(traceback.format_exc()))
-                    connected_devices.remove(device)
-            else:
-                connected_devices.remove(device)
         
-        if len(connected_devices) > 0:
+        if len(self.devices) > 0:
             self.set_current_device(index=0)
         else:
             self.set_current_device(index=None)
