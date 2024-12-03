@@ -28,8 +28,20 @@ Note: I am not responsible if your device bootloops. Please back up your data be
 - Show the Action Button options in Settings app
 - Show Internal Storage info (Might cause problems on some devices, use at your own risk)
 - EU Enabler (iOS 17.6-)
-- Springboard Options (from Cowabunga Lite)
-- Internal Options (from Cowabunga Lite)
+- Springboard Options (from [Cowabunga Lite](https://github.com/leminlimez/CowabungaLite))
+  - Set Lock Screen Footnote
+  - Disable Lock After Respring
+  - Disable Screen Dimming While Charging
+  - Disable Low Battery Alerts
+- Internal Options (from [Cowabunga Lite](https://github.com/leminlimez/CowabungaLite))
+  - Build Version in Status Bar
+  - Force Right to Left
+  - Force Metal HUD Debug
+  - iMessage Diagnostics
+  - IDS Diagnostics
+  - VC Diagnostics
+  - App Store Debug Gesture
+  - Notes App Debug Mode
 - Disable Daemons:
   - thermalmonitord
   - OTAd
