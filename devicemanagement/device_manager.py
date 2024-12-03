@@ -223,8 +223,8 @@ class DeviceManager:
                 cloud_config_plist["OrganizationName"] = self.organization_name
             files_to_restore.append(FileToRestore(
                 contents=plistlib.dumps(cloud_config_plist),
-                restore_path="systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist",
-                domain="SysSharedContainerDomain-."
+                restore_path="Library/ConfigurationProfiles/CloudConfigurationDetails.plist",
+                domain="SysSharedContainerDomain-systemgroup.com.apple.configurationprofiles"
             ))
             purplebuddy_plist: dict = {
                 "SetupDone": True,
@@ -237,8 +237,12 @@ class DeviceManager:
                 domain="ManagedPreferencesDomain"
             ))
 
-    def get_domain_for_path(self, path: str, fully_patched: bool = False) -> str:
+    def get_domain_for_path(self, path: str) -> str:
         # returns Domain: str?, Path: str
+        if self.get_current_device_supported():
+            # don't do anything on sparserestore versions
+            return None, path
+        fully_patched = self.get_current_device_patched()
         # just make the Sys Containers to use the regular way (won't work for mga)
         sysSharedContainer = "SysSharedContainerDomain-"
         sysContainer = "SysContainerDomain-"
@@ -275,7 +279,7 @@ class DeviceManager:
                 owner=owner, group=group
             ))
         else:
-            domain, file_path = self.get_domain_for_path(path, fully_patched=self.get_current_device_patched())
+            domain, file_path = self.get_domain_for_path(path)
             files_to_restore.append(FileToRestore(
                 contents=contents,
                 restore_path=file_path,
@@ -408,8 +412,8 @@ class DeviceManager:
             settings.setValue(self.data_singleton.current_device.uuid + "_hardware", "")
             settings.setValue(self.data_singleton.current_device.uuid + "_cpu", "")
             domain, file_path = self.get_domain_for_path(
-                "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
-                fully_patched=self.get_current_device_patched())
+                "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist"
+            )
             restore_files(files=[FileToRestore(
                     contents=b"",
                     restore_path=file_path,
