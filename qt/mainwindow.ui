@@ -1163,6 +1163,9 @@ QSlider::tick:horizontal {
                         <height>35</height>
                        </size>
                       </property>
+                      <property name="toolTip">
+                       <string/>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">QToolButton {
 	background: none;
@@ -1571,7 +1574,7 @@ QToolButton:pressed {
               <item>
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Nugget GUI - Version 4.2 (beta 2)</string>
+                 <string>Nugget GUI - Version 4.2 (beta 3)</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -3694,6 +3697,9 @@ QComboBox QAbstractItemView::item:hover {
                  </property>
                  <item>
                   <widget class="QCheckBox" name="thermalmonitordChk">
+                   <property name="toolTip">
+                    <string>Disables temperature monitoring daemon to reduce system checks.</string>
+                   </property>
                    <property name="text">
                     <string>Disable thermalmonitord</string>
                    </property>
@@ -3701,6 +3707,9 @@ QComboBox QAbstractItemView::item:hover {
                  </item>
                  <item>
                   <widget class="QCheckBox" name="otadChk">
+                   <property name="toolTip">
+                    <string>Stops over-the-air updates to prevent auto-downloads.</string>
+                   </property>
                    <property name="text">
                     <string>Disable OTA</string>
                    </property>
@@ -3708,6 +3717,9 @@ QComboBox QAbstractItemView::item:hover {
                  </item>
                  <item>
                   <widget class="QCheckBox" name="usageTrackingAgentChk">
+                   <property name="toolTip">
+                    <string>Disables usage tracking for improved privacy.</string>
+                   </property>
                    <property name="text">
                     <string>Disable UsageTrackingAgent</string>
                    </property>
@@ -3715,6 +3727,9 @@ QComboBox QAbstractItemView::item:hover {
                  </item>
                  <item>
                   <widget class="QCheckBox" name="gameCenterChk">
+                   <property name="toolTip">
+                    <string>Turns off Game Center background services.</string>
+                   </property>
                    <property name="text">
                     <string>Disable Game Center</string>
                    </property>
@@ -3722,6 +3737,9 @@ QComboBox QAbstractItemView::item:hover {
                  </item>
                  <item>
                   <widget class="QCheckBox" name="screenTimeChk">
+                   <property name="toolTip">
+                    <string>Disables Screen Time monitoring features.</string>
+                   </property>
                    <property name="text">
                     <string>Disable Screen Time Agent</string>
                    </property>
@@ -3729,6 +3747,9 @@ QComboBox QAbstractItemView::item:hover {
                  </item>
                  <item>
                   <widget class="QCheckBox" name="crashReportsChk">
+                   <property name="toolTip">
+                    <string>Stops logs, dumps, and crash reports collection.</string>
+                   </property>
                    <property name="text">
                     <string>Disable Logs, Dumps, and Crash Reports</string>
                    </property>
@@ -3736,6 +3757,9 @@ QComboBox QAbstractItemView::item:hover {
                  </item>
                  <item>
                   <widget class="QCheckBox" name="tipsChk">
+                   <property name="toolTip">
+                    <string>Disables the Tips service and notifications.</string>
+                   </property>
                    <property name="text">
                     <string>Disable Tips Services</string>
                    </property>
