@@ -722,7 +722,11 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_gameCenterChk_clicked(self, checked: bool):
         tweaks["Daemons"].value["com.apple.gamed"] = checked
     def on_screenTimeChk_clicked(self, checked: bool):
-        tweaks["Daemons"].value["com.apple.ScreenTimeAgent"] = checked
+        tweaks["Daemons"].set_multiple_values([
+            "com.apple.ScreenTimeAgent",
+            "com.apple.homed",
+            "com.apple.familycircled"
+        ], value=checked)
     def on_crashReportsChk_clicked(self, checked: bool):
         tweaks["Daemons"].set_multiple_values([
             "com.apple.ReportCrash",
