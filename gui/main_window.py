@@ -44,7 +44,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # Check for an update
         if is_update_available(App_Version, App_Build):
             # notify with prompt to download the new version from github
-            UpdateAppDialog()
+            UpdateAppDialog().exec()
         # Update the app version/build number label
         self.updateAppVersionLabel()
 

@@ -3,7 +3,7 @@ from PySide6.QtGui import QFont
 
 from webbrowser import open_new_tab
 
-from controllers.web_request_handler import Nugget_Repo_URL, get_latest_version
+from controllers.web_request_handler import Nugget_Repo, get_latest_version
 
 class GestaltDialog(QDialog):
     def __init__(self, device_manager, gestalt_label, selected_file, parent=None):
@@ -34,7 +34,7 @@ class GestaltDialog(QDialog):
 
 class UpdateAppDialog(QDialog):
     def __init__(self, parent=None):
-        super.__init__(parent)
+        super().__init__(parent)
 
         QBtn = (
             QDialogButtonBox.Ok | QDialogButtonBox.Cancel
@@ -64,5 +64,5 @@ class UpdateAppDialog(QDialog):
 
     def accept(self):
         # open up the repo page
-        open_new_tab(Nugget_Repo_URL)
+        open_new_tab(f"https://github.com/{Nugget_Repo}")
         super().accept()
