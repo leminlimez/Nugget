@@ -877,8 +877,6 @@ class MainWindow(QtWidgets.QMainWindow):
                         selected_file=selected_file
                     )
                 dialog.exec()
-            self.device_manager.data_singleton.gestalt_path = selected_file
-            self.ui.gestaltLocationLbl.setText(selected_file)
             # hide the warning labels
             self.ui.mgaWarningLbl.hide()
             self.ui.mgaWarningLbl2.hide()
