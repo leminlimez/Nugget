@@ -7,10 +7,12 @@ from pymobiledevice3.lockdown import create_using_usbmux
 
 from qt.ui_mainwindow import Ui_Nugget
 
+from controllers.web_request_handler import is_update_available
+
 from devicemanagement.constants import Version
 from devicemanagement.device_manager import DeviceManager
 
-from gui.gestalt_dialog import GestaltDialog
+from gui.dialogs import GestaltDialog, UpdateAppDialog
 
 from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
@@ -39,6 +41,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.show_uuid = False
         self.loadSettings()
 
+        # Check for an update
+        if is_update_available(App_Version, App_Build):
+            # notify with prompt to download the new version from github
+            UpdateAppDialog()
         # Update the app version/build number label
         self.updateAppVersionLabel()
 
