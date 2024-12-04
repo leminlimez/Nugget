@@ -1068,7 +1068,7 @@ QSlider::tick:horizontal {
                       <item>
                        <widget class="QToolButton" name="starOnGithubBtn">
                         <property name="text">
-                         <string>Star on Github</string>
+                         <string> Star on Github</string>
                         </property>
                         <property name="icon">
                          <iconset>
@@ -1898,6 +1898,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="rdarFixChk">
+                       <property name="toolTip">
+                        <string>Modifies the resolution to improve functionality of the changed device subtype. May cause weird visual bugs.</string>
+                       </property>
                        <property name="text">
                         <string>Fix RDAR (modifies resolution)</string>
                        </property>
@@ -1905,6 +1908,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="modelNameChk">
+                       <property name="toolTip">
+                        <string>Changes the model name in the 'About' page in the Settings app.</string>
+                       </property>
                        <property name="text">
                         <string>Change Device Model Name</string>
                        </property>
@@ -1919,6 +1925,11 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="bootChimeChk">
+                       <property name="toolTip">
+                        <string>Plays a sound when the device shuts down.
+
+After enabling, you can find the option to enable it in 'Accessibility' settings.</string>
+                       </property>
                        <property name="text">
                         <string>Enable Boot Chime</string>
                        </property>
@@ -1926,6 +1937,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="chargeLimitChk">
+                       <property name="toolTip">
+                        <string>Shows the charge limit menu in Settings. Actual limiting may not be functional.</string>
+                       </property>
                        <property name="text">
                         <string>Enable Charge Limit</string>
                        </property>
@@ -1940,6 +1954,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="iphone16SettingsChk">
+                       <property name="toolTip">
+                        <string>Enables Camera Control menu in Settings app and allows for downloading A17 Pro-exclusive apps (when spoofed).</string>
+                       </property>
                        <property name="text">
                         <string>Enable iPhone 16 Settings</string>
                        </property>
@@ -1947,6 +1964,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="parallaxChk">
+                       <property name="toolTip">
+                        <string>Disables the motion of the wallpaper.</string>
+                       </property>
                        <property name="text">
                         <string>Disable Wallpaper Parallax</string>
                        </property>
@@ -1970,14 +1990,14 @@ QComboBox QAbstractItemView::item:hover {
                      <item>
                       <widget class="QCheckBox" name="stageManagerChk">
                        <property name="text">
-                        <string>Enable Stage Manager Supported (WARNING: risky on some devices, mainly phones)</string>
+                        <string>Enable Stage Manager Supported</string>
                        </property>
                       </widget>
                      </item>
                      <item>
                       <widget class="QCheckBox" name="enableMedusaChk">
                        <property name="text">
-                        <string>Enable Medusa (iPad Multitasking) (WARNING: may be risky on some phones)</string>
+                        <string>Enable Medusa (iPad Multitasking)</string>
                        </property>
                       </widget>
                      </item>
@@ -1990,6 +2010,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="shutterChk">
+                       <property name="toolTip">
+                        <string>Sets the device's region to LL/A to bypass certain region restrictions like the forced shutter sound.</string>
+                       </property>
                        <property name="text">
                         <string>Disable Region Restrictions (ie. Shutter Sound)</string>
                        </property>
@@ -2033,6 +2056,11 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="internalInstallChk">
+                       <property name="toolTip">
+                        <string>Use the Metal HUD in any app. Enable Metal HUD through Springboard Options.
+
+Note: OTA updates will be broken until this is disabled.</string>
+                       </property>
                        <property name="text">
                         <string>Set as Apple Internal Install (ie Metal HUD in any app)</string>
                        </property>
@@ -2040,6 +2068,11 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="internalStorageChk">
+                       <property name="toolTip">
+                        <string>Shows internal files in storage settings.
+
+Note: OTA updates will be broken until this is disabled.</string>
+                       </property>
                        <property name="text">
                         <string>Enable Internal Storage (WARNING: risky for some devices, mainly iPads)</string>
                        </property>
@@ -2062,6 +2095,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="collisionSOSChk">
+                       <property name="toolTip">
+                        <string>Shows collision detection in the SOS page in Settings.</string>
+                       </property>
                        <property name="text">
                         <string>Enable Collision SOS</string>
                        </property>
@@ -2069,8 +2105,21 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="aodChk">
+                       <property name="toolTip">
+                        <string>Enable AOD on unsupported devices. May cause burn in, use with caution.</string>
+                       </property>
                        <property name="text">
                         <string>Enable Always On Display</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="aodVibrancyChk">
+                       <property name="toolTip">
+                        <string>Enable this if something is wonky when using the above toggle.</string>
+                       </property>
+                       <property name="text">
+                        <string>Enable AOD Vibrancy</string>
                        </property>
                       </widget>
                      </item>
@@ -2336,6 +2385,9 @@ what you are doing.</string>
                  </property>
                  <item>
                   <widget class="QCheckBox" name="clockAnimChk">
+                   <property name="toolTip">
+                    <string>Enables an animation when the lock screen clock changes time or style.</string>
+                   </property>
                    <property name="text">
                     <string>Enable Lockscreen Clock Animation</string>
                    </property>
@@ -2343,6 +2395,10 @@ what you are doing.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="lockscreenChk">
+                   <property name="toolTip">
+                    <string>Enables a button to duplicate the lock screen page in edit mode.
+Enables quickly switching lock screens by holding down and swiping.</string>
+                   </property>
                    <property name="text">
                     <string>Enable Duplicate Lockscreen Button and Lockscreen Quickswitch</string>
                    </property>
@@ -2368,6 +2424,11 @@ what you are doing.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="photosChk">
+                   <property name="toolTip">
+                    <string>Revert the photos app to the iOS 17 style.
+
+Does not work on iOS 18.0 RC.</string>
+                   </property>
                    <property name="text">
                     <string>Enable Old Photo UI</string>
                    </property>
@@ -2375,6 +2436,11 @@ what you are doing.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="aiChk">
+                   <property name="toolTip">
+                    <string>Enable the new Siri UI.
+
+Only works on iOS 18.0 beta 1-2.</string>
+                   </property>
                    <property name="text">
                     <string>Enable Apple Intelligence</string>
                    </property>
@@ -3193,6 +3259,9 @@ QComboBox QAbstractItemView::item:hover {
                  </item>
                  <item>
                   <widget class="QCheckBox" name="disableCrumbChk">
+                   <property name="toolTip">
+                    <string>Removes '&lt; PreviousAppName' glyph in Status Bar when being forwarded to another app.</string>
+                   </property>
                    <property name="text">
                     <string>Disable Breadcrumbs</string>
                    </property>
@@ -3200,6 +3269,9 @@ QComboBox QAbstractItemView::item:hover {
                  </item>
                  <item>
                   <widget class="QCheckBox" name="enableSupervisionTextChk">
+                   <property name="toolTip">
+                    <string>Shows info about the device supervision status and organization at the bottom of the lock screen.</string>
+                   </property>
                    <property name="text">
                     <string>Show Supervision Text on Lock Screen</string>
                    </property>
@@ -3964,7 +4036,9 @@ Nugget is not responsible if you mess up your device, especially with resolution
                  <item>
                   <widget class="QCheckBox" name="thermalmonitordChk">
                    <property name="toolTip">
-                    <string>Disables temperature monitoring daemon to reduce system checks.</string>
+                    <string>Disables temperature monitoring daemon to reduce system checks.
+
+Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &quot;Unverified&quot; in Settings.</string>
                    </property>
                    <property name="text">
                     <string>Disable thermalmonitord</string>
@@ -3988,6 +4062,9 @@ Nugget is not responsible if you mess up your device, especially with resolution
                  </item>
                  <item>
                   <widget class="QCheckBox" name="enableResolutionChk">
+                   <property name="toolTip">
+                    <string>Set a custom device screen resolution.</string>
+                   </property>
                    <property name="text">
                     <string>Set a Custom Device Resolution</string>
                    </property>
