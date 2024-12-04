@@ -183,6 +183,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.internalStorageChk.clicked.connect(self.on_internalStorageChk_clicked)
         self.ui.collisionSOSChk.clicked.connect(self.on_collisionSOSChk_clicked)
         self.ui.aodChk.clicked.connect(self.on_aodChk_clicked)
+        self.ui.aodVibrancyChk.clicked.connect(self.on_aodVibrancyChk_clicked)
 
         self.ui.addGestaltKeyBtn.clicked.connect(self.on_addGestaltKeyBtn_clicked)
         self.ui.aiEnablerContent.hide()
@@ -294,7 +295,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 "no_patch": [self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn, self.ui.resetGestaltBtn, self.ui.gestaltLocationLbl],
                 "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk)],
                 "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
-                "18.0": [self.ui.aodChk, self.ui.iphone16SettingsChk]
+                "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk]
             }
             MaxTweakVersions = {
                 "17.7": [self.ui.euEnablerContent],
@@ -560,6 +561,8 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["CollisionSOS"].set_enabled(checked)
     def on_aodChk_clicked(self, checked: bool):
         tweaks["AOD"].set_enabled(checked)
+    def on_aodVibrancyChk_clicked(self, checked: bool):
+        tweaks["AODVibrancy"].set_enabled(checked)
 
     def update_custom_gestalt_value_type(self, id, idx, valueField: QtWidgets.QLineEdit):
         new_str = CustomGestaltTweaks.set_tweak_value_type(id, idx)

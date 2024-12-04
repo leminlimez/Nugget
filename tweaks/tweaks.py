@@ -27,6 +27,7 @@ tweaks = {
     "AOD": MobileGestaltMultiTweak("Always On Display",
                             {"2OOJf1VhaM7NxfRok3HbWQ": 1, "j8/Omm6s1lsmTDFsXjsBfA": 1},
                             min_version=Version("18.0")),
+    "AODVibrancy": MobileGestaltTweak("AOD Vibrancy", "ykpu7qyhqFweVMKtxNylWA", min_version=Version("18.0")),
 
     ## Feature Flag Tweaks
     "ClockAnim": FeatureFlagTweak("Toggle Lockscreen Clock Animation", flag_category='SpringBoard',
