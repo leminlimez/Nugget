@@ -3788,16 +3788,6 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QCheckBox" name="gameCenterChk">
-                   <property name="toolTip">
-                    <string>Turns off Game Center background services.</string>
-                   </property>
-                   <property name="text">
-                    <string>Disable Game Center</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
                   <widget class="QCheckBox" name="screenTimeChk">
                    <property name="toolTip">
                     <string>Disables Screen Time monitoring features.</string>
@@ -3818,12 +3808,77 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="atwakeupChk">
+                   <property name="toolTip">
+                    <string>Disables pinging to sleeping bluetooth devices for improved battery life.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable ATWAKEUP</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="Line" name="line_25">
+                   <property name="styleSheet">
+                    <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Plain</enum>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="gameCenterChk">
+                   <property name="toolTip">
+                    <string>Turns off Game Center background services.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable Game Center</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="tipsChk">
                    <property name="toolTip">
                     <string>Disables the Tips service and notifications.</string>
                    </property>
                    <property name="text">
                     <string>Disable Tips Services</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="vpndChk">
+                   <property name="toolTip">
+                    <string>Disables the Virtual Private Network service.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable VPN Service</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="wapicChk">
+                   <property name="toolTip">
+                    <string>Disables the service that deals with errors with WiFi networks with Chinese characters in the name.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable Chinese WLAN Service</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="healthdChk">
+                   <property name="toolTip">
+                    <string>Disables HealthKit services used by the health app.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable HealthKit</string>
                    </property>
                   </widget>
                  </item>

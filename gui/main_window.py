@@ -136,7 +136,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.gameCenterChk.toggled.connect(self.on_gameCenterChk_clicked)
         self.ui.screenTimeChk.toggled.connect(self.on_screenTimeChk_clicked)
         self.ui.crashReportsChk.toggled.connect(self.on_crashReportsChk_clicked)
+        self.ui.atwakeupChk.toggled.connect(self.on_atwakeupChk_clicked)
         self.ui.tipsChk.toggled.connect(self.on_tipsChk_clicked)
+        self.ui.vpndChk.toggled.connect(self.on_vpndChk_clicked)
+        self.ui.wapicChk.toggled.connect(self.on_wapicChk_clicked)
+        self.ui.healthdChk.toggled.connect(self.on_healthdChk_clicked)
 
         ## RISKY OPTIONS PAGE ACTIONS
         self.ui.disableOTAChk.toggled.connect(self.on_disableOTAChk_clicked)
@@ -773,8 +777,16 @@ class MainWindow(QtWidgets.QMainWindow):
                 "com.apple.system.logger",
                 "com.apple.syslogd"
         ], value=checked)
+    def on_atwakeupChk_clicked(self, checked: bool):
+        tweaks["Daemons"].value["com.apple.atc.atwakeup"] = checked
     def on_tipsChk_clicked(self, checked: bool):
         tweaks["Daemons"].value["com.apple.tipsd"] = checked
+    def on_vpndChk_clicked(self, checked: bool):
+        tweaks["Daemons"].value["com.apple.racoon"] = checked
+    def on_wapicChk_clicked(self, checked: bool):
+        tweaks["Daemons"].value["com.apple.wapic"] = checked
+    def on_healthdChk_clicked(self, checked: bool):
+        tweaks["Daemons"].value["com.apple.healthd"] = checked
 
     ## Risky Options Page
     def on_disableOTAChk_clicked(self, checked: bool):

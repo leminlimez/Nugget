@@ -1988,11 +1988,6 @@ class Ui_Nugget(object):
 
         self.verticalLayout_132.addWidget(self.usageTrackingAgentChk)
 
-        self.gameCenterChk = QCheckBox(self.daemonsPageContent)
-        self.gameCenterChk.setObjectName(u"gameCenterChk")
-
-        self.verticalLayout_132.addWidget(self.gameCenterChk)
-
         self.screenTimeChk = QCheckBox(self.daemonsPageContent)
         self.screenTimeChk.setObjectName(u"screenTimeChk")
 
@@ -2003,10 +1998,45 @@ class Ui_Nugget(object):
 
         self.verticalLayout_132.addWidget(self.crashReportsChk)
 
+        self.atwakeupChk = QCheckBox(self.daemonsPageContent)
+        self.atwakeupChk.setObjectName(u"atwakeupChk")
+
+        self.verticalLayout_132.addWidget(self.atwakeupChk)
+
+        self.line_25 = QFrame(self.daemonsPageContent)
+        self.line_25.setObjectName(u"line_25")
+        self.line_25.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_25.setFrameShadow(QFrame.Plain)
+        self.line_25.setFrameShape(QFrame.HLine)
+
+        self.verticalLayout_132.addWidget(self.line_25)
+
+        self.gameCenterChk = QCheckBox(self.daemonsPageContent)
+        self.gameCenterChk.setObjectName(u"gameCenterChk")
+
+        self.verticalLayout_132.addWidget(self.gameCenterChk)
+
         self.tipsChk = QCheckBox(self.daemonsPageContent)
         self.tipsChk.setObjectName(u"tipsChk")
 
         self.verticalLayout_132.addWidget(self.tipsChk)
+
+        self.vpndChk = QCheckBox(self.daemonsPageContent)
+        self.vpndChk.setObjectName(u"vpndChk")
+
+        self.verticalLayout_132.addWidget(self.vpndChk)
+
+        self.wapicChk = QCheckBox(self.daemonsPageContent)
+        self.wapicChk.setObjectName(u"wapicChk")
+
+        self.verticalLayout_132.addWidget(self.wapicChk)
+
+        self.healthdChk = QCheckBox(self.daemonsPageContent)
+        self.healthdChk.setObjectName(u"healthdChk")
+
+        self.verticalLayout_132.addWidget(self.healthdChk)
 
         self.verticalSpacer_62 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -3281,10 +3311,6 @@ class Ui_Nugget(object):
 #endif // QT_CONFIG(tooltip)
         self.usageTrackingAgentChk.setText(QCoreApplication.translate("Nugget", u"Disable UsageTrackingAgent", None))
 #if QT_CONFIG(tooltip)
-        self.gameCenterChk.setToolTip(QCoreApplication.translate("Nugget", u"Turns off Game Center background services.", None))
-#endif // QT_CONFIG(tooltip)
-        self.gameCenterChk.setText(QCoreApplication.translate("Nugget", u"Disable Game Center", None))
-#if QT_CONFIG(tooltip)
         self.screenTimeChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables Screen Time monitoring features.", None))
 #endif // QT_CONFIG(tooltip)
         self.screenTimeChk.setText(QCoreApplication.translate("Nugget", u"Disable Screen Time Agent", None))
@@ -3293,9 +3319,29 @@ class Ui_Nugget(object):
 #endif // QT_CONFIG(tooltip)
         self.crashReportsChk.setText(QCoreApplication.translate("Nugget", u"Disable Logs, Dumps, and Crash Reports", None))
 #if QT_CONFIG(tooltip)
+        self.atwakeupChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables pinging to sleeping bluetooth devices for improved battery life.", None))
+#endif // QT_CONFIG(tooltip)
+        self.atwakeupChk.setText(QCoreApplication.translate("Nugget", u"Disable ATWAKEUP", None))
+#if QT_CONFIG(tooltip)
+        self.gameCenterChk.setToolTip(QCoreApplication.translate("Nugget", u"Turns off Game Center background services.", None))
+#endif // QT_CONFIG(tooltip)
+        self.gameCenterChk.setText(QCoreApplication.translate("Nugget", u"Disable Game Center", None))
+#if QT_CONFIG(tooltip)
         self.tipsChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables the Tips service and notifications.", None))
 #endif // QT_CONFIG(tooltip)
         self.tipsChk.setText(QCoreApplication.translate("Nugget", u"Disable Tips Services", None))
+#if QT_CONFIG(tooltip)
+        self.vpndChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables the Virtual Private Network service.", None))
+#endif // QT_CONFIG(tooltip)
+        self.vpndChk.setText(QCoreApplication.translate("Nugget", u"Disable VPN Service", None))
+#if QT_CONFIG(tooltip)
+        self.wapicChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables the service that deals with errors with WiFi networks with Chinese characters in the name.", None))
+#endif // QT_CONFIG(tooltip)
+        self.wapicChk.setText(QCoreApplication.translate("Nugget", u"Disable Chinese WLAN Service", None))
+#if QT_CONFIG(tooltip)
+        self.healthdChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables HealthKit services used by the health app.", None))
+#endif // QT_CONFIG(tooltip)
+        self.healthdChk.setText(QCoreApplication.translate("Nugget", u"Disable HealthKit", None))
         self.advancedOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Risky Options", None))
         self.label_17.setText(QCoreApplication.translate("Nugget", u"Disclaimer:\n"
 "\n"
