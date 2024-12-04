@@ -1572,9 +1572,9 @@ QToolButton:pressed {
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label">
+               <widget class="QLabel" name="appVersionLbl">
                 <property name="text">
-                 <string>Nugget GUI - Version 4.2 (beta 3)</string>
+                 <string>Nugget GUI - Version %VERSION %BETATAG</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -3696,16 +3696,6 @@ QComboBox QAbstractItemView::item:hover {
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QCheckBox" name="thermalmonitordChk">
-                   <property name="toolTip">
-                    <string>Disables temperature monitoring daemon to reduce system checks.</string>
-                   </property>
-                   <property name="text">
-                    <string>Disable thermalmonitord</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
                   <widget class="QCheckBox" name="otadChk">
                    <property name="toolTip">
                     <string>Stops over-the-air updates to prevent auto-downloads.</string>
@@ -3963,8 +3953,21 @@ Nugget is not responsible if you mess up your device, especially with resolution
                  </item>
                  <item>
                   <widget class="QCheckBox" name="disableOTAChk">
+                   <property name="toolTip">
+                    <string>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</string>
+                   </property>
                    <property name="text">
-                    <string>Disable OTA Updates</string>
+                    <string>Disable OTA Updates (file)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="thermalmonitordChk">
+                   <property name="toolTip">
+                    <string>Disables temperature monitoring daemon to reduce system checks.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable thermalmonitord</string>
                    </property>
                   </widget>
                  </item>

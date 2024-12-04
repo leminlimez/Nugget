@@ -15,6 +15,9 @@ from gui.gestalt_dialog import GestaltDialog
 from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 
+App_Version = "4.2"
+App_Build = 4
+
 class Page(Enum):
     Home = 0
     Gestalt = 1
@@ -35,6 +38,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.show_uuid = False
         self.loadSettings()
+
+        # Update the app version/build number label
+        self.updateAppVersionLabel()
 
         ## DEVICE BAR
         self.refresh_devices()
@@ -183,6 +189,15 @@ class MainWindow(QtWidgets.QMainWindow):
     def updateInterfaceForNewDevice(self):
         # update the home page
         self.updatePhoneInfo()
+    
+    def updateAppVersionLabel(self):
+        new_text: str = self.ui.appVersionLbl.text()
+        new_text = new_text.replace("%VERSION", App_Version)
+        if App_Build > 0:
+            new_text = new_text.replace("%BETATAG", f"(beta {App_Build})")
+        else:
+            new_text = new_text.replace("%BETATAG", "")
+        self.ui.appVersionLbl.setText(new_text)
 
 
     ## DEVICE BAR FUNCTIONS

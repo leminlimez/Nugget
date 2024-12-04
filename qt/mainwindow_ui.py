@@ -869,11 +869,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_2.addWidget(self.verticalWidget_2)
 
-        self.label = QLabel(self.homePage)
-        self.label.setObjectName(u"label")
-        self.label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.appVersionLbl = QLabel(self.homePage)
+        self.appVersionLbl.setObjectName(u"appVersionLbl")
+        self.appVersionLbl.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.verticalLayout_2.addWidget(self.label)
+        self.verticalLayout_2.addWidget(self.appVersionLbl)
 
         self.pages.addWidget(self.homePage)
         self.gestaltPage = QWidget()
@@ -1973,11 +1973,6 @@ class Ui_Nugget(object):
         self.verticalLayout_132 = QVBoxLayout(self.daemonsPageContent)
         self.verticalLayout_132.setObjectName(u"verticalLayout_132")
         self.verticalLayout_132.setContentsMargins(0, 0, 0, 0)
-        self.thermalmonitordChk = QCheckBox(self.daemonsPageContent)
-        self.thermalmonitordChk.setObjectName(u"thermalmonitordChk")
-
-        self.verticalLayout_132.addWidget(self.thermalmonitordChk)
-
         self.otadChk = QCheckBox(self.daemonsPageContent)
         self.otadChk.setObjectName(u"otadChk")
 
@@ -2102,6 +2097,11 @@ class Ui_Nugget(object):
         self.disableOTAChk.setObjectName(u"disableOTAChk")
 
         self.verticalLayout_133.addWidget(self.disableOTAChk)
+
+        self.thermalmonitordChk = QCheckBox(self.advancedOptionsPageContent)
+        self.thermalmonitordChk.setObjectName(u"thermalmonitordChk")
+
+        self.verticalLayout_133.addWidget(self.thermalmonitordChk)
 
         self.line_181 = QFrame(self.advancedOptionsPageContent)
         self.line_181.setObjectName(u"line_181")
@@ -3083,7 +3083,7 @@ class Ui_Nugget(object):
         self.toolButton_15.setText(QCoreApplication.translate("Nugget", u"Additional Thanks", None))
         self.libiBtn.setText(QCoreApplication.translate("Nugget", u"pymobiledevice3", None))
         self.qtBtn.setText(QCoreApplication.translate("Nugget", u"Qt Creator", None))
-        self.label.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version 4.2 (beta 3)", None))
+        self.appVersionLbl.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version %VERSION %BETATAG", None))
         self.statusBarLbl.setText(QCoreApplication.translate("Nugget", u"Mobile Gestalt", None))
         self.mgaWarningLbl.setText(QCoreApplication.translate("Nugget", u"! You will need a MobileGestalt file for this feature. Please select it in the Apply page !", None))
         self.label_9.setText(QCoreApplication.translate("Nugget", u"Device Subtype Preset", None))
@@ -3202,10 +3202,6 @@ class Ui_Nugget(object):
         self.daemonsLbl.setText(QCoreApplication.translate("Nugget", u"Daemons", None))
         self.modifyDaemonsChk.setText(QCoreApplication.translate("Nugget", u"Modify", None))
 #if QT_CONFIG(tooltip)
-        self.thermalmonitordChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables temperature monitoring daemon to reduce system checks.", None))
-#endif // QT_CONFIG(tooltip)
-        self.thermalmonitordChk.setText(QCoreApplication.translate("Nugget", u"Disable thermalmonitord", None))
-#if QT_CONFIG(tooltip)
         self.otadChk.setToolTip(QCoreApplication.translate("Nugget", u"Stops over-the-air updates to prevent auto-downloads.", None))
 #endif // QT_CONFIG(tooltip)
         self.otadChk.setText(QCoreApplication.translate("Nugget", u"Disable OTA", None))
@@ -3236,7 +3232,14 @@ class Ui_Nugget(object):
 "your device resolution has the potential to brick your device when used improperly.\n"
 "\n"
 "Nugget is not responsible if you mess up your device, especially with resolution changer.", None))
-        self.disableOTAChk.setText(QCoreApplication.translate("Nugget", u"Disable OTA Updates", None))
+#if QT_CONFIG(tooltip)
+        self.disableOTAChk.setToolTip(QCoreApplication.translate("Nugget", u"Uses the file method. Recommended to disable the daemon instead in the Daemons tab.", None))
+#endif // QT_CONFIG(tooltip)
+        self.disableOTAChk.setText(QCoreApplication.translate("Nugget", u"Disable OTA Updates (file)", None))
+#if QT_CONFIG(tooltip)
+        self.thermalmonitordChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables temperature monitoring daemon to reduce system checks.", None))
+#endif // QT_CONFIG(tooltip)
+        self.thermalmonitordChk.setText(QCoreApplication.translate("Nugget", u"Disable thermalmonitord", None))
         self.enableResolutionChk.setText(QCoreApplication.translate("Nugget", u"Set a Custom Device Resolution", None))
         self.resHeightLbl.setText(QCoreApplication.translate("Nugget", u"Height:", None))
         self.resHeightTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Resolution Height", None))
