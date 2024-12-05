@@ -18,7 +18,7 @@ from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 
 App_Version = "4.2"
-App_Build = 4
+App_Build = 5
 
 class Page(Enum):
     Home = 0
@@ -892,6 +892,9 @@ class MainWindow(QtWidgets.QMainWindow):
                         selected_file=selected_file
                     )
                 dialog.exec()
+            else:
+                self.device_manager.data_singleton.gestalt_path = selected_file
+                self.ui.gestaltLocationLbl.setText(selected_file)
             # hide the warning labels
             self.ui.mgaWarningLbl.hide()
             self.ui.mgaWarningLbl2.hide()
