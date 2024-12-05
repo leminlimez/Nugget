@@ -882,9 +882,9 @@ class MainWindow(QtWidgets.QMainWindow):
                 return
             if (
                 not "qNNddlUK+B/YlooNoymwgA" in gestalt_plist["CacheExtra"]
+                or not "0+nc/Udy4WNG8S+Q7a/s1A" in gestalt_plist["CacheExtra"]
                 or gestalt_plist["CacheExtra"]["qNNddlUK+B/YlooNoymwgA"] != self.device_manager.data_singleton.current_device.version
                 or gestalt_plist["CacheExtra"]["0+nc/Udy4WNG8S+Q7a/s1A"] != self.device_manager.data_singleton.current_device.model
-                or not "0+nc/Udy4WNG8S+Q7a/s1A" in gestalt_plist["CacheExtra"]
             ):
                 dialog = GestaltDialog(
                         device_manager=self.device_manager,
