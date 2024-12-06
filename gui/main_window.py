@@ -16,6 +16,7 @@ from gui.dialogs import GestaltDialog, UpdateAppDialog
 
 from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
+from tweaks.daemons_tweak import Daemon
 
 App_Version = "4.2"
 App_Build = 6
@@ -748,57 +749,29 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.daemonsPageContent.setDisabled(not checked)
 
     def on_thermalmonitordChk_clicked(self, checked: bool):
-        tweaks["Daemons"].value["com.apple.thermalmonitord"] = checked
+        tweaks["Daemons"].set_multiple_values(Daemon.thermalmonitord.value, value=checked)
     def on_otadChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values([
-            "com.apple.mobile.softwareupdated",
-            "com.apple.OTATaskingAgent",
-            "com.apple.softwareupdateservicesd"
-        ], value=checked)
+        tweaks["Daemons"].set_multiple_values(Daemon.OTA.value, value=checked)
     def on_usageTrackingAgentChk_clicked(self, checked: bool):
-        tweaks["Daemons"].value["com.apple.UsageTrackingAgent"] = checked
+        tweaks["Daemons"].set_multiple_values(Daemon.UsageTrackingAgent.value, value=checked)
     def on_gameCenterChk_clicked(self, checked: bool):
-        tweaks["Daemons"].value["com.apple.gamed"] = checked
+        tweaks["Daemons"].set_multiple_values(Daemon.GameCenter.value, value=checked)
     def on_screenTimeChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values([
-            "com.apple.ScreenTimeAgent",
-            "com.apple.homed",
-            "com.apple.familycircled"
-        ], value=checked)
+        tweaks["Daemons"].set_multiple_values(Daemon.ScreenTime.value, value=checked)
     def on_clearScreenTimeAgentChk_clicked(self, checked: bool):
         tweaks["ClearScreenTimeAgentPlist"].set_enabled(checked)
     def on_crashReportsChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values([
-            "com.apple.ReportCrash",
-                "com.apple.ReportCrash.Jetsam",
-                "com.apple.ReportMemoryException",
-                "com.apple.OTACrashCopier",
-                "com.apple.analyticsd",
-                "com.apple.aslmanager",
-                "com.apple.coresymbolicationd",
-                "com.apple.crash_mover",
-                "com.apple.crashreportcopymobile",
-                "com.apple.DumpBasebandCrash",
-                "com.apple.DumpPanic",
-                "com.apple.logd",
-                "com.apple.logd.admin",
-                "com.apple.logd.events",
-                "com.apple.logd.watchdog",
-                "com.apple.logd_reporter",
-                "com.apple.logd_reporter.report_statistics",
-                "com.apple.system.logger",
-                "com.apple.syslogd"
-        ], value=checked)
+        tweaks["Daemons"].set_multiple_values(Daemon.CrashReports.value, value=checked)
     def on_atwakeupChk_clicked(self, checked: bool):
-        tweaks["Daemons"].value["com.apple.atc.atwakeup"] = checked
+        tweaks["Daemons"].set_multiple_values(Daemon.ATWAKEUP.value, value=checked)
     def on_tipsChk_clicked(self, checked: bool):
-        tweaks["Daemons"].value["com.apple.tipsd"] = checked
+        tweaks["Daemons"].set_multiple_values(Daemon.Tips.value, value=checked)
     def on_vpndChk_clicked(self, checked: bool):
-        tweaks["Daemons"].value["com.apple.racoon"] = checked
+        tweaks["Daemons"].set_multiple_values(Daemon.VPN.value, value=checked)
     def on_wapicChk_clicked(self, checked: bool):
-        tweaks["Daemons"].value["com.apple.wapic"] = checked
+        tweaks["Daemons"].set_multiple_values(Daemon.ChineseLAN.value, value=checked)
     def on_healthdChk_clicked(self, checked: bool):
-        tweaks["Daemons"].value["com.apple.healthd"] = checked
+        tweaks["Daemons"].set_multiple_values(Daemon.HealthKit.value, value=checked)
 
     ## Risky Options Page
     def on_disableOTAChk_clicked(self, checked: bool):
