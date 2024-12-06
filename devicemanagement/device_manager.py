@@ -51,9 +51,11 @@ class DeviceManager:
         self.current_device_index = 0
 
         # preferences
-        self.apply_over_wifi = True
+        # TODO: Move to its own class
+        self.apply_over_wifi = False
         self.auto_reboot = True
         self.allow_risky_tweaks = False
+        self.show_all_spoofable_models = False
         self.skip_setup = True
         self.supervised = False
         self.organization_name = ""

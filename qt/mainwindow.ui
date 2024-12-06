@@ -4767,7 +4767,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     <string>Allow Applying Over WiFi</string>
                    </property>
                    <property name="checked">
-                    <bool>true</bool>
+                    <bool>false</bool>
                    </property>
                   </widget>
                  </item>
@@ -4785,6 +4785,22 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                   <widget class="QCheckBox" name="showRiskyChk">
                    <property name="text">
                     <string>Show Risky Tweak Options</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="showAllSpoofableChk">
+                   <property name="toolTip">
+                    <string>Show models for other device types in the AI device spoofing tab.</string>
+                   </property>
+                   <property name="statusTip">
+                    <string/>
+                   </property>
+                   <property name="whatsThis">
+                    <string/>
+                   </property>
+                   <property name="text">
+                    <string>Show All Spoofable Models</string>
                    </property>
                   </widget>
                  </item>

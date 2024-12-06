@@ -2470,7 +2470,7 @@ class Ui_Nugget(object):
         self._21.setContentsMargins(0, 0, 0, 0)
         self.allowWifiApplyingChk = QCheckBox(self.settingsPageContent)
         self.allowWifiApplyingChk.setObjectName(u"allowWifiApplyingChk")
-        self.allowWifiApplyingChk.setChecked(True)
+        self.allowWifiApplyingChk.setChecked(False)
 
         self._21.addWidget(self.allowWifiApplyingChk)
 
@@ -2484,6 +2484,11 @@ class Ui_Nugget(object):
         self.showRiskyChk.setObjectName(u"showRiskyChk")
 
         self._21.addWidget(self.showRiskyChk)
+
+        self.showAllSpoofableChk = QCheckBox(self.settingsPageContent)
+        self.showAllSpoofableChk.setObjectName(u"showAllSpoofableChk")
+
+        self._21.addWidget(self.showAllSpoofableChk)
 
         self.line_24 = QFrame(self.settingsPageContent)
         self.line_24.setObjectName(u"line_24")
@@ -3382,6 +3387,16 @@ class Ui_Nugget(object):
         self.allowWifiApplyingChk.setText(QCoreApplication.translate("Nugget", u"Allow Applying Over WiFi", None))
         self.autoRebootChk.setText(QCoreApplication.translate("Nugget", u"Auto Reboot After Applying", None))
         self.showRiskyChk.setText(QCoreApplication.translate("Nugget", u"Show Risky Tweak Options", None))
+#if QT_CONFIG(tooltip)
+        self.showAllSpoofableChk.setToolTip(QCoreApplication.translate("Nugget", u"Show models for other device types in the AI device spoofing tab.", None))
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(statustip)
+        self.showAllSpoofableChk.setStatusTip("")
+#endif // QT_CONFIG(statustip)
+#if QT_CONFIG(whatsthis)
+        self.showAllSpoofableChk.setWhatsThis("")
+#endif // QT_CONFIG(whatsthis)
+        self.showAllSpoofableChk.setText(QCoreApplication.translate("Nugget", u"Show All Spoofable Models", None))
         self.skipSetupChk.setText(QCoreApplication.translate("Nugget", u"Skip Setup * (non-exploit files only)", None))
         self.supervisionChk.setText(QCoreApplication.translate("Nugget", u"Enable Supervision * (requires Skip Setup)", None))
         self.supervisionOrganization.setPlaceholderText(QCoreApplication.translate("Nugget", u"Enter Organization Name", None))

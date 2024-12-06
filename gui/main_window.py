@@ -158,6 +158,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.allowWifiApplyingChk.toggled.connect(self.on_allowWifiApplyingChk_toggled)
         self.ui.autoRebootChk.toggled.connect(self.on_autoRebootChk_toggled)
         self.ui.showRiskyChk.toggled.connect(self.on_showRiskyChk_toggled)
+        self.ui.showAllSpoofableChk.toggled.connect(self.on_showAllSpoofableChk_toggled)
 
         self.ui.skipSetupChk.toggled.connect(self.on_skipSetupChk_toggled)
         self.ui.supervisionChk.toggled.connect(self.on_supervisionChk_toggled)
@@ -283,20 +284,21 @@ class MainWindow(QtWidgets.QMainWindow):
         # indexes 1-6 for iPhones, 7-(len(values) - 1) for iPads
         # TODO: Make this get fetched from the gui on app startup
         spoof_drp_options = ["iPhone 15 Pro (iPhone16,1)", "iPhone 15 Pro Max (iPhone16,2)", "iPhone 16 (iPhone17,3)", "iPhone 16 Plus (iPhone17,4)", "iPhone 16 Pro (iPhone17,1)", "iPhone 16 Pro Max (iPhone17,2)", "iPad Mini (A17 Pro) (W) (iPad16,1)", "iPad Mini (A17 Pro) (C) (iPad16,2)", "iPad Pro (13-inch) (M4) (W) (iPad16,5)", "iPad Pro (13-inch) (M4) (C) (iPad16,6)", "iPad Pro (11-inch) (M4) (W) (iPad16,3)", "iPad Pro (11-inch) (M4) (C) (iPad16,4)", "iPad Pro (12.9-inch) (M2) (W) (iPad14,5)", "iPad Pro (12.9-inch) (M2) (C) (iPad14,6)", "iPad Pro (11-inch) (M2) (W) (iPad14,3)", "iPad Pro (11-inch) (M2) (C) (iPad14,4)", "iPad Air (13-inch) (M2) (W) (iPad14,10)", "iPad Air (13-inch) (M2) (C) (iPad14,11)", "iPad Air (11-inch) (M2) (W) (iPad14,8)", "iPad Air (11-inch) (M2) (C) (iPad14,9)", "iPad Pro (11-inch) (M1) (W) (iPad13,4)", "iPad Pro (11-inch) (M1) (C) (iPad13,5)", "iPad Pro (12.9-inch) (M1) (W) (iPad13,8)", "iPad Pro (12.9-inch) (M1) (C) (iPad13,9)", "iPad Air (M1) (W) (iPad13,16)", "iPad Air (M1) (C) (iPad13,17)"]
-        if self.device_manager.get_current_device_model().startswith("iPhone"):
+        if self.device_manager.show_all_spoofable_models or self.device_manager.get_current_device_model().startswith("iPhone"):
             # re-enable iPhone spoof models
             self.ui.spoofedModelDrp.addItems(spoof_drp_options[:6])
-        # add iPad models on phones (for testing)
-        # re-enable iPad spoof models
-        self.ui.spoofedModelDrp.addItems(spoof_drp_options[6:])
+        if self.device_manager.show_all_spoofable_models or self.device_manager.get_current_device_model().startswith("iPad"):
+            # re-enable iPad spoof models
+            self.ui.spoofedModelDrp.addItems(spoof_drp_options[6:])
 
     def change_selected_device(self, index):
+        self.ui.showAllSpoofableChk.hide()
         if len(self.device_manager.devices) > 0:
             self.device_manager.set_current_device(index=index)
             # hide options that are for newer versions
             # remove the new dynamic island options
             MinTweakVersions = {
-                "no_patch": [self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn, self.ui.resetGestaltBtn, self.ui.gestaltLocationLbl],
+                "no_patch": [self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn, self.ui.resetGestaltBtn, self.ui.gestaltLocationLbl, self.ui.showAllSpoofableChk],
                 "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk)],
                 "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
                 "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk]
@@ -370,9 +372,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.settings = QtCore.QSettings()
         try:
             # load the settings
-            apply_over_wifi = self.settings.value("apply_over_wifi", True, type=bool)
+            apply_over_wifi = self.settings.value("apply_over_wifi", False, type=bool)
             auto_reboot = self.settings.value("auto_reboot", True, type=bool)
             risky_tweaks = self.settings.value("show_risky_tweaks", False, type=bool)
+            show_all_spoofable = self.settings.value("show_all_spoofable_models", False, type=bool)
             skip_setup = self.settings.value("skip_setup", True, type=bool)
             supervised = self.settings.value("supervised", False, type=bool)
             organization_name = self.settings.value("organization_name", "", type=str)
@@ -380,6 +383,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.allowWifiApplyingChk.setChecked(apply_over_wifi)
             self.ui.autoRebootChk.setChecked(auto_reboot)
             self.ui.showRiskyChk.setChecked(risky_tweaks)
+            self.ui.showAllSpoofableChk.setChecked(show_all_spoofable)
             self.ui.skipSetupChk.setChecked(skip_setup)
             self.ui.supervisionChk.setChecked(supervised)
             self.ui.supervisionOrganization.setText(organization_name)
@@ -387,6 +391,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.device_manager.apply_over_wifi = apply_over_wifi
             self.device_manager.auto_reboot = auto_reboot
             self.device_manager.allow_risky_tweaks = risky_tweaks
+            self.device_manager.show_all_spoofable_models = show_all_spoofable
             self.device_manager.skip_setup = skip_setup
             self.device_manager.supervised = supervised
             self.device_manager.organization_name = organization_name
@@ -672,13 +677,13 @@ class MainWindow(QtWidgets.QMainWindow):
     
     def on_spoofedModelDrp_activated(self, index: int):
         idx_to_apply = index
-        if index > 0 and not self.device_manager.get_current_device_model().startswith("iPhone"):
+        if not self.device_manager.show_all_spoofable_models and not self.device_manager.get_current_device_model().startswith("iPhone"):
             # offset the index for ipads
             idx_to_apply += 6
         tweaks["SpoofModel"].set_selected_option(idx_to_apply)
         tweaks["SpoofHardware"].set_selected_option(idx_to_apply)
         tweaks["SpoofCPU"].set_selected_option(idx_to_apply)
-        if idx_to_apply == 0:
+        if index == 0:
             tweaks["SpoofModel"].set_enabled(False)
             tweaks["SpoofHardware"].set_enabled(False)
             tweaks["SpoofCPU"].set_enabled(False)
@@ -839,6 +844,12 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.advancedPageBtn.show()
         else:
             self.ui.advancedPageBtn.hide()
+    def on_showAllSpoofableChk_toggled(self, checked: bool):
+        self.device_manager.show_all_spoofable_models = checked
+        # save the setting
+        self.settings.setValue("show_all_spoofable_models", checked)
+        # refresh the list of spoofable models
+        self.setup_spoofedModelDrp_models()
     def on_autoRebootChk_toggled(self, checked: bool):
         self.device_manager.auto_reboot = checked
         # save the setting
