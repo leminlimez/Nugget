@@ -1,5 +1,5 @@
 from devicemanagement.constants import Version
-from .tweak_classes import MobileGestaltTweak, MobileGestaltMultiTweak, MobileGestaltPickerTweak, FeatureFlagTweak, TweakModifyType, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak
+from .tweak_classes import MobileGestaltTweak, MobileGestaltMultiTweak, MobileGestaltPickerTweak, FeatureFlagTweak, TweakModifyType, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
 from .eligibility_tweak import EligibilityTweak, AITweak
 from .basic_plist_locations import FileLocation
     
@@ -282,6 +282,9 @@ tweaks = {
             "com.apple.relevanced": True
         },
         owner=0, group=0
+    ),
+    "ClearScreenTimeAgentPlist": NullifyFileTweak(
+        "Clear ScreenTimeAgent Plist", FileLocation.screentime
     ),
 
     ## Risky Options

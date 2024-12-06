@@ -12,7 +12,7 @@ from pymobiledevice3.exceptions import MuxException, PasswordRequiredError
 from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
 
-from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak
+from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.basic_plist_locations import FileLocationsList, RiskyFileLocationsList
 from Sparserestore.restore import restore_files, FileToRestore
@@ -208,8 +208,8 @@ class DeviceManager:
         QMessageBox.information(None, "Pairing Reset", "Your device's pairing was successfully reset. Refresh the device list before applying.")
         
 
-    def add_skip_setup(self, files_to_restore: list[FileToRestore]):
-        if self.skip_setup and not self.get_current_device_supported():
+    def add_skip_setup(self, files_to_restore: list[FileToRestore], restoring_domains: bool):
+        if self.skip_setup and (not self.get_current_device_supported() or restoring_domains):
             # add the 2 skip setup files
             cloud_config_plist: dict = {
                 "SkipSetup": ["WiFi", "Location", "Restore", "SIMSetup", "Android", "AppleID", "IntendedUser", "TOS", "Siri", "ScreenTime", "Diagnostics", "SoftwareUpdate", "Passcode", "Biometric", "Payment", "Zoom", "DisplayTone", "MessagingActivationUsingPhoneNumber", "HomeButtonSensitivity", "CloudStorage", "ScreenSaver", "TapToSetup", "Keyboard", "PreferredLanguage", "SpokenLanguage", "WatchMigration", "OnBoarding", "TVProviderSignIn", "TVHomeScreenSync", "Privacy", "TVRoom", "iMessageAndFaceTime", "AppStore", "Safety", "Multitasking", "ActionButton", "TermsOfAddress", "AccessibilityAppearance", "Welcome", "Appearance", "RestoreCompleted", "UpdateCompleted"],
@@ -241,7 +241,7 @@ class DeviceManager:
 
     def get_domain_for_path(self, path: str) -> str:
         # returns Domain: str?, Path: str
-        if self.get_current_device_supported():
+        if self.get_current_device_supported() and not path.startswith("/var/mobile/"):
             # don't do anything on sparserestore versions
             return None, path
         fully_patched = self.get_current_device_patched()
@@ -274,20 +274,13 @@ class DeviceManager:
         return None, path
     
     def concat_file(self, contents: str, path: str, files_to_restore: list[FileToRestore], owner: int = 501, group: int = 501):
-        if self.get_current_device_supported():
-            files_to_restore.append(FileToRestore(
-                contents=contents,
-                restore_path=path,
-                owner=owner, group=group
-            ))
-        else:
-            domain, file_path = self.get_domain_for_path(path)
-            files_to_restore.append(FileToRestore(
-                contents=contents,
-                restore_path=file_path,
-                domain=domain,
-                owner=owner, group=group
-            ))
+        domain, file_path = self.get_domain_for_path(path)
+        files_to_restore.append(FileToRestore(
+            contents=contents,
+            restore_path=file_path,
+            domain=domain,
+            owner=owner, group=group
+        ))
     
     ## APPLYING OR REMOVING TWEAKS AND RESTORING
     def apply_changes(self, resetting: bool = False, update_label=lambda x: None):
@@ -304,6 +297,8 @@ class DeviceManager:
         ai_file = None
         basic_plists: dict = {}
         basic_plists_ownership: dict = {}
+        files_data: dict = {}
+        uses_domains: bool = False
 
         # set the plist keys
         if not resetting:
@@ -318,6 +313,10 @@ class DeviceManager:
                 elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak) or isinstance(tweak, AdvancedPlistTweak):
                     basic_plists = tweak.apply_tweak(basic_plists, self.allow_risky_tweaks)
                     basic_plists_ownership[tweak.file_location] = tweak.owner
+                elif isinstance(tweak, NullifyFileTweak):
+                    tweak.apply_tweak(files_data)
+                    if tweak.enabled and tweak.file_location.value.startswith("/var/mobile/"):
+                        uses_domains = True
                 else:
                     if gestalt_plist != None:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
@@ -341,7 +340,7 @@ class DeviceManager:
             path="/var/preferences/FeatureFlags/Global.plist",
             files_to_restore=files_to_restore
         )
-        self.add_skip_setup(files_to_restore)
+        self.add_skip_setup(files_to_restore, uses_domains)
         if gestalt_data != None:
             self.concat_file(
                 contents=gestalt_data,
@@ -371,6 +370,13 @@ class DeviceManager:
             ownership = basic_plists_ownership[location]
             self.concat_file(
                 contents=plistlib.dumps(plist),
+                path=location.value,
+                files_to_restore=files_to_restore,
+                owner=ownership, group=ownership
+            )
+        for location, data in files_data.items():
+            self.concat_file(
+                contents=data,
                 path=location.value,
                 files_to_restore=files_to_restore,
                 owner=ownership, group=ownership

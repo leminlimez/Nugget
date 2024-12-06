@@ -43,6 +43,21 @@ class Tweak:
     def apply_tweak(self):
         raise NotImplementedError
     
+class NullifyFileTweak(Tweak):
+    def __init__(
+            self, label: str,
+            file_location: FileLocation,
+            min_version: Version = Version("1.0"),
+            owner: int = 501, group: int = 501,
+            divider_below: bool = False
+        ):
+        super().__init__(label=label, key=None, value=None, min_version=min_version, owner=owner, group=group, divider_below=divider_below)
+        self.file_location = file_location
+
+    def apply_tweak(self, other_tweaks: dict):
+        if self.enabled:
+            other_tweaks[self.file_location] = b""
+    
 
 class BasicPlistTweak(Tweak):
     def __init__(

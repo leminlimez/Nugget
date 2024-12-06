@@ -1993,6 +1993,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_132.addWidget(self.screenTimeChk)
 
+        self.clearScreenTimeAgentChk = QCheckBox(self.daemonsPageContent)
+        self.clearScreenTimeAgentChk.setObjectName(u"clearScreenTimeAgentChk")
+
+        self.verticalLayout_132.addWidget(self.clearScreenTimeAgentChk)
+
         self.crashReportsChk = QCheckBox(self.daemonsPageContent)
         self.crashReportsChk.setObjectName(u"crashReportsChk")
 
@@ -3319,6 +3324,12 @@ class Ui_Nugget(object):
         self.screenTimeChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables Screen Time monitoring features.", None))
 #endif // QT_CONFIG(tooltip)
         self.screenTimeChk.setText(QCoreApplication.translate("Nugget", u"Disable Screen Time Agent", None))
+#if QT_CONFIG(tooltip)
+        self.clearScreenTimeAgentChk.setToolTip(QCoreApplication.translate("Nugget", u"Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.\n"
+"\n"
+"To work properly, also disable the daemon using the toggle above.", None))
+#endif // QT_CONFIG(tooltip)
+        self.clearScreenTimeAgentChk.setText(QCoreApplication.translate("Nugget", u"Clear ScreenTimeAgent.plist file", None))
 #if QT_CONFIG(tooltip)
         self.crashReportsChk.setToolTip(QCoreApplication.translate("Nugget", u"Stops logs, dumps, and crash reports collection.", None))
 #endif // QT_CONFIG(tooltip)

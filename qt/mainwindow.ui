@@ -3798,6 +3798,18 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="clearScreenTimeAgentChk">
+                   <property name="toolTip">
+                    <string>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
+
+To work properly, also disable the daemon using the toggle above.</string>
+                   </property>
+                   <property name="text">
+                    <string>Clear ScreenTimeAgent.plist file</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="crashReportsChk">
                    <property name="toolTip">
                     <string>Stops logs, dumps, and crash reports collection.</string>

@@ -135,6 +135,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.usageTrackingAgentChk.toggled.connect(self.on_usageTrackingAgentChk_clicked)
         self.ui.gameCenterChk.toggled.connect(self.on_gameCenterChk_clicked)
         self.ui.screenTimeChk.toggled.connect(self.on_screenTimeChk_clicked)
+        self.ui.clearScreenTimeAgentChk.toggled.connect(self.on_clearScreenTimeAgentChk_clicked)
         self.ui.crashReportsChk.toggled.connect(self.on_crashReportsChk_clicked)
         self.ui.atwakeupChk.toggled.connect(self.on_atwakeupChk_clicked)
         self.ui.tipsChk.toggled.connect(self.on_tipsChk_clicked)
@@ -760,6 +761,8 @@ class MainWindow(QtWidgets.QMainWindow):
             "com.apple.homed",
             "com.apple.familycircled"
         ], value=checked)
+    def on_clearScreenTimeAgentChk_clicked(self, checked: bool):
+        tweaks["ClearScreenTimeAgentPlist"].set_enabled(checked)
     def on_crashReportsChk_clicked(self, checked: bool):
         tweaks["Daemons"].set_multiple_values([
             "com.apple.ReportCrash",
