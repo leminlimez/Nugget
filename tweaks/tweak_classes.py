@@ -9,23 +9,19 @@ class TweakModifyType(Enum):
 
 class Tweak:
     def __init__(
-            self, label: str,
-            key: str, subkey: str = None,
+            self,
+            key: str,
             value: any = 1,
             edit_type: TweakModifyType = TweakModifyType.TOGGLE,
             min_version: Version = Version("1.0"),
-            owner: int = 501, group: int = 501,
-            divider_below: bool = False
+            owner: int = 501, group: int = 501
         ):
-        self.label = label
         self.key = key
-        self.subkey = subkey
         self.value = value
         self.min_version = min_version
         self.edit_type = edit_type
         self.owner = owner
         self.group = group
-        self.divider_below = divider_below
         self.enabled = False
 
     def set_enabled(self, value: bool):
@@ -45,13 +41,12 @@ class Tweak:
     
 class NullifyFileTweak(Tweak):
     def __init__(
-            self, label: str,
+            self,
             file_location: FileLocation,
             min_version: Version = Version("1.0"),
-            owner: int = 501, group: int = 501,
-            divider_below: bool = False
+            owner: int = 501, group: int = 501
         ):
-        super().__init__(label=label, key=None, value=None, min_version=min_version, owner=owner, group=group, divider_below=divider_below)
+        super().__init__(key=None, value=None, min_version=min_version, owner=owner, group=group)
         self.file_location = file_location
 
     def apply_tweak(self, other_tweaks: dict):
@@ -61,17 +56,16 @@ class NullifyFileTweak(Tweak):
 
 class BasicPlistTweak(Tweak):
     def __init__(
-            self, label: str,
+            self,
             file_location: FileLocation,
             key: str,
             value: any = True,
             edit_type: TweakModifyType = TweakModifyType.TOGGLE,
             min_version: Version = Version("1.0"),
             owner: int = 501, group: int = 501,
-            is_risky: bool = False,
-            divider_below: bool = False
+            is_risky: bool = False
         ):
-        super().__init__(label=label, key=key, subkey=None, value=value, edit_type=edit_type, min_version=min_version, owner=owner, group=group, divider_below=divider_below)
+        super().__init__(key=key, value=value, edit_type=edit_type, min_version=min_version, owner=owner, group=group)
         self.file_location = file_location
         self.is_risky = is_risky
 
@@ -86,16 +80,15 @@ class BasicPlistTweak(Tweak):
     
 class AdvancedPlistTweak(BasicPlistTweak):
     def __init__(
-        self, label: str,
+        self,
         file_location: FileLocation,
         keyValues: dict,
         edit_type: TweakModifyType = TweakModifyType.TOGGLE,
         min_version: Version = Version("1.0"),
         owner: int = 501, group: int = 501,
-        is_risky: bool = False,
-        divider_below: bool = False
+        is_risky: bool = False
     ):
-        super().__init__(label=label, file_location=file_location, key=None, value=keyValues, edit_type=edit_type, min_version=min_version, owner=owner, group=group, is_risky=is_risky, divider_below=divider_below)
+        super().__init__(file_location=file_location, key=None, value=keyValues, edit_type=edit_type, min_version=min_version, owner=owner, group=group, is_risky=is_risky)
 
     def set_multiple_values(self, keys: list[str], value: any):
         for key in keys:
@@ -112,8 +105,8 @@ class AdvancedPlistTweak(BasicPlistTweak):
     
 
 class RdarFixTweak(BasicPlistTweak):
-    def __init__(self, divider_below: bool = False):
-        super().__init__(label="Fix RDAR (modifies resolution)", file_location=FileLocation.resolution, key=None, divider_below=divider_below)
+    def __init__(self):
+        super().__init__(file_location=FileLocation.resolution, key=None)
         self.mode = 0
         self.di_type = -1
 
@@ -201,13 +194,13 @@ class MobileGestaltTweak(Tweak):
     
 class MobileGestaltPickerTweak(Tweak):
     def __init__(
-            self, label: str,
+            self,
             key: str, subkey: str = None,
             values: list = [1],
-            min_version: Version = Version("1.0"),
-            divider_below: bool = False
+            min_version: Version = Version("1.0")
         ):
-        super().__init__(label=label, key=key, subkey=subkey, value=values, edit_type=TweakModifyType.PICKER, min_version=min_version, divider_below=divider_below)
+        super().__init__(key=key, value=values, edit_type=TweakModifyType.PICKER, min_version=min_version)
+        self.subkey = subkey
         self.selected_option = 0 # index of the selected option
 
     def apply_tweak(self, plist: dict):
@@ -228,8 +221,8 @@ class MobileGestaltPickerTweak(Tweak):
         return self.selected_option
     
 class MobileGestaltMultiTweak(Tweak):
-    def __init__(self, label: str, keyValues: dict, min_version: Version = Version("1.0"), divider_below: bool = False):
-        super().__init__(label=label, key=None, min_version=min_version, divider_below=divider_below)
+    def __init__(self, keyValues: dict, min_version: Version = Version("1.0")):
+        super().__init__(key=None, min_version=min_version)
         self.keyValues = keyValues
         # key values looks like ["key name" = value]
 
@@ -242,13 +235,12 @@ class MobileGestaltMultiTweak(Tweak):
     
 class FeatureFlagTweak(Tweak):
     def __init__(
-            self, label: str,
+            self,
                 flag_category: str, flag_names: list,
                 is_list: bool=True, inverted: bool=False,
-                min_version: Version = Version("1.0"),
-                divider_below: bool = False
+                min_version: Version = Version("1.0")
             ):
-        super().__init__(label=label, key=None, min_version=min_version, divider_below=divider_below)
+        super().__init__(key=None, min_version=min_version)
         self.flag_category = flag_category
         self.flag_names = flag_names
         self.is_list = is_list

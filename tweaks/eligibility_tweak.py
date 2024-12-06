@@ -23,11 +23,10 @@ def replace_region_code(plist_path: str, original_code: str = "US", new_code: st
 
 class EligibilityTweak(Tweak):
     def __init__(
-            self, label: str,
-            min_version: Version = Version("1.0"),
-            divider_below: bool = False
+            self,
+            min_version: Version = Version("1.0")
         ):
-        super().__init__(label=label, key=None, value=["Method 1", "Method 2"], edit_type=TweakModifyType.PICKER, min_version=min_version, divider_below=divider_below)
+        super().__init__(key=None, value=["Method 1", "Method 2"], edit_type=TweakModifyType.PICKER, min_version=min_version)
         self.code = "US"
         self.method = 0 # between 0 and 1
 
@@ -90,7 +89,7 @@ class EligibilityTweak(Tweak):
 
 class AITweak(Tweak):
     def __init__(self):
-        super().__init__(label="Enable Apple Intelligence (for Unsupported Devices) (Eligibility)", key=None, value="", min_version=Version("18.1"))
+        super().__init__(key=None, value="", min_version=Version("18.1"))
     
     def set_language_code(self, lang: str):
         self.value = lang
