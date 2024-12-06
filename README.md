@@ -43,19 +43,23 @@ Note: I am not responsible if your device bootloops. Please back up your data be
   - App Store Debug Gesture
   - Notes App Debug Mode
 - Disable Daemons:
-  - thermalmonitord
   - OTAd
   - UsageTrackingAgent
   - Game Center
   - Screen Time Agent
   - Logs, Dumps, and Crash Reports
+  - ATWAKEUP
   - Tipsd
+  - VPN
+  - Chinese WLAN service
+  - HealthKit
 - Risky (Hidden) Options:
+  - Disable thermalmonitord
   - OTA Killer
   - Custom Resolution
 ### iOS 18.0+
 - Enable iPhone 16 camera button page in the Settings app
-- Enable AOD on any device
+- Enable AOD & AOD Vibrancy on any device
 - Feature Flags (iOS 18.1b4-):
   - Enabling lock screen clock animation, lock screen page duplication button, and more!
   - Disabling the new iOS 18 Photos UI (iOS 18.0 betas only, unknown which patched it)
