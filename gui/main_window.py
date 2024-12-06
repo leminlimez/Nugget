@@ -244,6 +244,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.applyPageBtn.hide()
 
             self.ui.resetPairBtn.hide()
+            self.ui.showRiskyChk.hide()
         else:
             self.ui.devicePicker.setEnabled(True)
             # populate the ComboBox with device names
@@ -272,6 +273,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.advancedOptionsPageContent.setDisabled(False)
 
             self.ui.resetPairBtn.show()
+            self.ui.showRiskyChk.show()
         
         # update the selected device
         self.ui.devicePicker.setCurrentIndex(0)
