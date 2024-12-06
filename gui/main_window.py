@@ -18,7 +18,7 @@ from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 
 App_Version = "4.2"
-App_Build = 5
+App_Build = 6
 
 class Page(Enum):
     Home = 0
@@ -97,6 +97,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.languageLbl.hide() # to be removed later
         self.ui.languageTxt.textEdited.connect(self.on_languageTxt_textEdited)
         self.ui.spoofedModelDrp.activated.connect(self.on_spoofedModelDrp_activated)
+        self.ui.spoofHardwareChk.toggled.connect(self.on_spoofHardwareChk_toggled)
+        self.ui.spoofCPUChk.toggled.connect(self.on_spoofCPUChk_toggled)
 
         ## FEATURE FLAGS PAGE
         self.ui.clockAnimChk.toggled.connect(self.on_clockAnimChk_toggled)
@@ -681,13 +683,13 @@ class MainWindow(QtWidgets.QMainWindow):
         if not self.device_manager.show_all_spoofable_models and not self.device_manager.get_current_device_model().startswith("iPhone"):
             # offset the index for ipads
             idx_to_apply += 6
-        tweaks["SpoofModel"].set_selected_option(idx_to_apply)
-        tweaks["SpoofHardware"].set_selected_option(idx_to_apply)
-        tweaks["SpoofCPU"].set_selected_option(idx_to_apply)
-        if index == 0:
-            tweaks["SpoofModel"].set_enabled(False)
-            tweaks["SpoofHardware"].set_enabled(False)
-            tweaks["SpoofCPU"].set_enabled(False)
+        tweaks["SpoofModel"].set_selected_option(idx_to_apply, is_enabled=(index != 0))
+        tweaks["SpoofHardware"].set_selected_option(idx_to_apply, is_enabled=(index != 0 and self.ui.spoofHardwareChk.isChecked()))
+        tweaks["SpoofCPU"].set_selected_option(idx_to_apply, is_enabled=(index != 0 and self.ui.spoofCPUChk.isChecked()))
+    def on_spoofHardwareChk_toggled(self, checked: bool):
+        tweaks["SpoofHardware"].set_enabled(checked and tweaks["SpoofHardware"].selected_option != 0)
+    def on_spoofCPUChk_toggled(self, checked: bool):
+        tweaks["SpoofCPU"].set_enabled(checked and tweaks["SpoofCPU"].selected_option != 0)
 
 
     ## SPRINGBOARD OPTIONS PAGE

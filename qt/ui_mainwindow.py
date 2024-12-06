@@ -15,10 +15,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame,
-    QHBoxLayout, QLabel, QLineEdit, QMainWindow,
-    QProgressBar, QScrollArea, QSizePolicy, QSpacerItem,
-    QStackedWidget, QToolButton, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QCheckBox, QComboBox,
+    QFrame, QHBoxLayout, QLabel, QLineEdit,
+    QMainWindow, QProgressBar, QScrollArea, QSizePolicy,
+    QSpacerItem, QStackedWidget, QToolButton, QVBoxLayout,
+    QWidget)
 import resources_rc
 
 class Ui_Nugget(object):
@@ -1386,7 +1387,18 @@ class Ui_Nugget(object):
 
         self.verticalLayout_17.addWidget(self.line_13)
 
-        self.euEnablerPageContent = QWidget(self.euEnablerPage)
+        self.scrollArea_2 = QScrollArea(self.euEnablerPage)
+        self.scrollArea_2.setObjectName(u"scrollArea_2")
+        self.scrollArea_2.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.scrollArea_2.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.scrollArea_2.setSizeAdjustPolicy(QAbstractScrollArea.AdjustIgnored)
+        self.scrollArea_2.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_2 = QWidget()
+        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, -129, 660, 573))
+        self.verticalLayout_37 = QVBoxLayout(self.scrollAreaWidgetContents_2)
+        self.verticalLayout_37.setObjectName(u"verticalLayout_37")
+        self.euEnablerPageContent = QWidget(self.scrollAreaWidgetContents_2)
         self.euEnablerPageContent.setObjectName(u"euEnablerPageContent")
         self.euEnablerPageContent.setEnabled(False)
         self.verticalLayout_16 = QVBoxLayout(self.euEnablerPageContent)
@@ -1592,6 +1604,18 @@ class Ui_Nugget(object):
 
         self.verticalLayout_34.addWidget(self.spoofedModelDrp)
 
+        self.spoofHardwareChk = QCheckBox(self.aiEnablerContent)
+        self.spoofHardwareChk.setObjectName(u"spoofHardwareChk")
+        self.spoofHardwareChk.setChecked(True)
+
+        self.verticalLayout_34.addWidget(self.spoofHardwareChk)
+
+        self.spoofCPUChk = QCheckBox(self.aiEnablerContent)
+        self.spoofCPUChk.setObjectName(u"spoofCPUChk")
+        self.spoofCPUChk.setChecked(True)
+
+        self.verticalLayout_34.addWidget(self.spoofCPUChk)
+
 
         self.verticalLayout_16.addWidget(self.aiEnablerContent)
 
@@ -1600,7 +1624,11 @@ class Ui_Nugget(object):
         self.verticalLayout_16.addItem(self.verticalSpacer_7)
 
 
-        self.verticalLayout_17.addWidget(self.euEnablerPageContent)
+        self.verticalLayout_37.addWidget(self.euEnablerPageContent)
+
+        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
+
+        self.verticalLayout_17.addWidget(self.scrollArea_2)
 
         self.pages.addWidget(self.euEnablerPage)
         self.springboardOptionsPage = QWidget()
@@ -3281,6 +3309,14 @@ class Ui_Nugget(object):
         self.spoofedModelDrp.setItemText(26, QCoreApplication.translate("Nugget", u"iPad Air (M1) (C) (iPad13,17)", None))
 
         self.spoofedModelDrp.setCurrentText(QCoreApplication.translate("Nugget", u"Original", None))
+#if QT_CONFIG(tooltip)
+        self.spoofHardwareChk.setToolTip(QCoreApplication.translate("Nugget", u"Spoofs the device hardware model (ie D83AP)", None))
+#endif // QT_CONFIG(tooltip)
+        self.spoofHardwareChk.setText(QCoreApplication.translate("Nugget", u"Spoof Hardware Model", None))
+#if QT_CONFIG(tooltip)
+        self.spoofCPUChk.setToolTip(QCoreApplication.translate("Nugget", u"Spoofs the device CPU model (ie t8130)", None))
+#endif // QT_CONFIG(tooltip)
+        self.spoofCPUChk.setText(QCoreApplication.translate("Nugget", u"Spoof CPU Model", None))
         self.springboardOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Springboard Options", None))
         self.label_13.setText(QCoreApplication.translate("Nugget", u"Lock Screen Footnote Text", None))
         self.footnoteTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Footnote Text", None))

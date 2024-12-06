@@ -220,9 +220,9 @@ class MobileGestaltPickerTweak(Tweak):
             plist["CacheExtra"][self.key][self.subkey] = new_value
         return plist
     
-    def set_selected_option(self, new_option: int):
+    def set_selected_option(self, new_option: int, is_enabled: bool = True):
         self.selected_option = new_option
-        self.enabled = True
+        self.enabled = is_enabled
 
     def get_selected_option(self) -> int:
         return self.selected_option
