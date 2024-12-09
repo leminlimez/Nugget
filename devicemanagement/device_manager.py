@@ -239,11 +239,11 @@ class DeviceManager:
                 domain="ManagedPreferencesDomain"
             ))
 
-    def get_domain_for_path(self, path: str) -> str:
+    def get_domain_for_path(self, path: str, owner: int = 501) -> str:
         # returns Domain: str?, Path: str
-        if self.get_current_device_supported() and not path.startswith("/var/mobile/"):
+        if self.get_current_device_supported() and not path.startswith("/var/mobile/") and not owner == 0:
             # don't do anything on sparserestore versions
-            return None, path
+            return path, None
         fully_patched = self.get_current_device_patched()
         # just make the Sys Containers to use the regular way (won't work for mga)
         sysSharedContainer = "SysSharedContainerDomain-"
@@ -270,11 +270,12 @@ class DeviceManager:
                     parts = new_path.split("/")
                     new_domain += parts[0]
                     new_path = new_path.replace(parts[0] + "/", "")
-                return new_domain, new_path
-        return None, path
+                return new_path, new_domain
+        return path, None
     
     def concat_file(self, contents: str, path: str, files_to_restore: list[FileToRestore], owner: int = 501, group: int = 501):
-        domain, file_path = self.get_domain_for_path(path)
+        # TODO: try using inodes here instead
+        file_path, domain = self.get_domain_for_path(path, owner=owner)
         files_to_restore.append(FileToRestore(
             contents=contents,
             restore_path=file_path,
@@ -313,6 +314,8 @@ class DeviceManager:
                 elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak) or isinstance(tweak, AdvancedPlistTweak):
                     basic_plists = tweak.apply_tweak(basic_plists, self.allow_risky_tweaks)
                     basic_plists_ownership[tweak.file_location] = tweak.owner
+                    if tweak.owner == 0:
+                        uses_domains = True
                 elif isinstance(tweak, NullifyFileTweak):
                     tweak.apply_tweak(files_data)
                     if tweak.enabled and tweak.file_location.value.startswith("/var/mobile/"):
@@ -419,7 +422,7 @@ class DeviceManager:
             settings.setValue(self.data_singleton.current_device.uuid + "_model", "")
             settings.setValue(self.data_singleton.current_device.uuid + "_hardware", "")
             settings.setValue(self.data_singleton.current_device.uuid + "_cpu", "")
-            domain, file_path = self.get_domain_for_path(
+            file_path, domain = self.get_domain_for_path(
                 "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist"
             )
             restore_files(files=[FileToRestore(
