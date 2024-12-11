@@ -334,7 +334,7 @@ class MainWindow(QtWidgets.QMainWindow):
             apply_over_wifi = self.settings.value("apply_over_wifi", True, type=bool)
             auto_reboot = self.settings.value("auto_reboot", True, type=bool)
             risky_tweaks = self.settings.value("show_risky_tweaks", False, type=bool)
-            skip_setup = self.settings.value("skip_setup", True, type=bool)
+            skip_setup = self.settings.value("skip_setup", False, type=bool)
             supervised = self.settings.value("supervised", False, type=bool)
             organization_name = self.settings.value("organization_name", "", type=str)
 
