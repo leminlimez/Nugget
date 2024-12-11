@@ -305,7 +305,7 @@ class MainWindow(QtWidgets.QMainWindow):
             # remove the new dynamic island options
             MinTweakVersions = {
                 "no_patch": [self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn, self.ui.resetGestaltBtn, self.ui.gestaltLocationLbl, self.ui.showAllSpoofableChk],
-                "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk)],
+                "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk), ("1.0", self.ui.regularDomainsLbl)],
                 "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
                 "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk]
             }
@@ -393,6 +393,12 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.skipSetupChk.setChecked(skip_setup)
             self.ui.supervisionChk.setChecked(supervised)
             self.ui.supervisionOrganization.setText(organization_name)
+
+            # hide/show the warning label
+            if skip_setup:
+                self.ui.skipSetupOnLbl.show()
+            else:
+                self.ui.skipSetupOnLbl.hide()
 
             self.device_manager.apply_over_wifi = apply_over_wifi
             self.device_manager.auto_reboot = auto_reboot
@@ -838,6 +844,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.device_manager.skip_setup = checked
         # save the setting
         self.settings.setValue("skip_setup", checked)
+        # hide/show the warning label
+        if checked:
+            self.ui.skipSetupOnLbl.show()
+        else:
+            self.ui.skipSetupOnLbl.hide()
     def on_supervisionOrgTxt_textEdited(self, text: str):
         self.device_manager.organization_name = text
         self.settings.setValue("organization_name", text)

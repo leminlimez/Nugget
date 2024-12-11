@@ -1395,7 +1395,7 @@ class Ui_Nugget(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, -129, 660, 573))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 660, 573))
         self.verticalLayout_37 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_37.setObjectName(u"verticalLayout_37")
         self.euEnablerPageContent = QWidget(self.scrollAreaWidgetContents_2)
@@ -2000,6 +2000,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_142.addWidget(self.line_122)
 
+        self.regularDomainsLbl = QLabel(self.daemonsPage)
+        self.regularDomainsLbl.setObjectName(u"regularDomainsLbl")
+
+        self.verticalLayout_142.addWidget(self.regularDomainsLbl)
+
         self.daemonsPageContent = QWidget(self.daemonsPage)
         self.daemonsPageContent.setObjectName(u"daemonsPageContent")
         self.daemonsPageContent.setEnabled(False)
@@ -2398,6 +2403,13 @@ class Ui_Nugget(object):
         self.restoreProgressBar.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_24.addWidget(self.restoreProgressBar, 0, Qt.AlignHCenter)
+
+        self.skipSetupOnLbl = QLabel(self.verticalWidget2)
+        self.skipSetupOnLbl.setObjectName(u"skipSetupOnLbl")
+        self.skipSetupOnLbl.setFont(font1)
+        self.skipSetupOnLbl.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_24.addWidget(self.skipSetupOnLbl)
 
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -3348,6 +3360,8 @@ class Ui_Nugget(object):
         self.notifyPastesChk.setText(QCoreApplication.translate("Nugget", u"Show Notifications for System Pastes", None))
         self.daemonsLbl.setText(QCoreApplication.translate("Nugget", u"Daemons", None))
         self.modifyDaemonsChk.setText(QCoreApplication.translate("Nugget", u"Modify", None))
+        self.regularDomainsLbl.setText(QCoreApplication.translate("Nugget", u"Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have\n"
+"it enabled.", None))
 #if QT_CONFIG(tooltip)
         self.otadChk.setToolTip(QCoreApplication.translate("Nugget", u"Stops over-the-air updates to prevent auto-downloads.", None))
 #endif // QT_CONFIG(tooltip)
@@ -3428,6 +3442,8 @@ class Ui_Nugget(object):
         self.chooseGestaltBtn.setText(QCoreApplication.translate("Nugget", u"  Choose Gestalt File", None))
         self.applyTweaksBtn.setText(QCoreApplication.translate("Nugget", u"  Apply Changes", None))
         self.statusLbl.setText(QCoreApplication.translate("Nugget", u"Ready!", None))
+        self.skipSetupOnLbl.setText(QCoreApplication.translate("Nugget", u"Note: Skip Setup is currently turned on.\n"
+"It can be turned off in the Settings tab.", None))
         self.removeTweaksBtn.setText(QCoreApplication.translate("Nugget", u"Remove All Tweaks", None))
         self.resetGestaltBtn.setText(QCoreApplication.translate("Nugget", u"Reset Mobile Gestalt", None))
         self.springboardOptionsLbl1.setText(QCoreApplication.translate("Nugget", u"Nugget Settings", None))

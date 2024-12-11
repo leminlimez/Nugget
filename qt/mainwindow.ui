@@ -2615,7 +2615,7 @@ Only works on iOS 18.0 beta 1-2.</string>
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-129</y>
+                   <y>0</y>
                    <width>660</width>
                    <height>573</height>
                   </rect>
@@ -3804,6 +3804,14 @@ QComboBox QAbstractItemView::item:hover {
                </widget>
               </item>
               <item>
+               <widget class="QLabel" name="regularDomainsLbl">
+                <property name="text">
+                 <string>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
+it enabled.</string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QWidget" name="daemonsPageContent" native="true">
                 <property name="enabled">
                  <bool>false</bool>
@@ -4588,6 +4596,23 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                    </property>
                    <property name="value">
                     <number>0</number>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="skipSetupOnLbl">
+                   <property name="font">
+                    <font>
+                     <pointsize>-1</pointsize>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Note: Skip Setup is currently turned on.
+It can be turned off in the Settings tab.</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
