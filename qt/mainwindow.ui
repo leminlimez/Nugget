@@ -4611,8 +4611,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     </font>
                    </property>
                    <property name="text">
-                    <string>Note: Skip Setup is currently turned on.
-It can be turned off in the Settings tab.</string>
+                    <string>Note: Skip Setup is currently turned on.</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>

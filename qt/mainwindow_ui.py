@@ -3442,8 +3442,7 @@ class Ui_Nugget(object):
         self.chooseGestaltBtn.setText(QCoreApplication.translate("Nugget", u"  Choose Gestalt File", None))
         self.applyTweaksBtn.setText(QCoreApplication.translate("Nugget", u"  Apply Changes", None))
         self.statusLbl.setText(QCoreApplication.translate("Nugget", u"Ready!", None))
-        self.skipSetupOnLbl.setText(QCoreApplication.translate("Nugget", u"Note: Skip Setup is currently turned on.\n"
-"It can be turned off in the Settings tab.", None))
+        self.skipSetupOnLbl.setText(QCoreApplication.translate("Nugget", u"Note: Skip Setup is currently turned on.", None))
         self.removeTweaksBtn.setText(QCoreApplication.translate("Nugget", u"Remove All Tweaks", None))
         self.resetGestaltBtn.setText(QCoreApplication.translate("Nugget", u"Reset Mobile Gestalt", None))
         self.springboardOptionsLbl1.setText(QCoreApplication.translate("Nugget", u"Nugget Settings", None))
