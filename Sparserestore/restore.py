@@ -27,14 +27,14 @@ def concat_exploit_file(file: FileToRestore, files_list: list[FileToRestore], la
     if last_domain != domain_path:
         files_list.append(backup.Directory(
             "",
-            f"{domain_path}/",
+            f"{domain_path}",
             owner=file.owner,
             group=file.group
         ))
         new_last_domain = domain_path
     files_list.append(backup.ConcreteFile(
         "",
-        f"{domain_path}/{name}",
+        f"{domain_path}{name}",
         owner=file.owner,
         group=file.group,
         contents=file.contents

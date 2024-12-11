@@ -7,11 +7,12 @@ from PySide6.QtCore import QSettings
 
 from pymobiledevice3 import usbmux
 from pymobiledevice3.lockdown import create_using_usbmux
+from pymobiledevice3.exceptions import MuxException, PasswordRequiredError
 
 from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
 
-from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak
+from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.basic_plist_locations import FileLocationsList, RiskyFileLocationsList
 from Sparserestore.restore import restore_files, FileToRestore
@@ -34,7 +35,7 @@ def show_apply_error(e: Exception, update_label=lambda x: None):
                        detailed_txt="Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!")
     elif "SessionInactive" in str(e):
         show_error_msg("The session was terminated. Refresh the device list and try again.")
-    elif "Password" in str(e):
+    elif isinstance(e, PasswordRequiredError):
         show_error_msg("Device is password protected! You must trust the computer on your device.",
                        detailed_txt="Unlock your device. On the popup, click \"Trust\", enter your password, then try again.")
     else:
@@ -50,9 +51,11 @@ class DeviceManager:
         self.current_device_index = 0
 
         # preferences
-        self.apply_over_wifi = True
+        # TODO: Move to its own class
+        self.apply_over_wifi = False
         self.auto_reboot = True
         self.allow_risky_tweaks = False
+        self.show_all_spoofable_models = False
         self.skip_setup = True
         self.supervised = False
         self.organization_name = ""
@@ -116,14 +119,16 @@ class DeviceManager:
                         )
                     tweaks["RdarFix"].get_rdar_mode(model)
                     self.devices.append(dev)
+                except MuxException as e:
+                    # there is probably a cable issue
+                    print(f"MUX ERROR with lockdown device with UUID {device.serial}")
+                    show_error_msg("MuxException: " + repr(e) + "\n\nIf you keep receiving this error, try using a different cable or port.",
+                                   detailed_txt=str(traceback.format_exc()))
                 except Exception as e:
                     print(f"ERROR with lockdown device with UUID {device.serial}")
                     show_error_msg(type(e).__name__ + ": " + repr(e), detailed_txt=str(traceback.format_exc()))
-                    connected_devices.remove(device)
-            else:
-                connected_devices.remove(device)
         
-        if len(connected_devices) > 0:
+        if len(self.devices) > 0:
             self.set_current_device(index=0)
         else:
             self.set_current_device(index=None)
@@ -203,8 +208,8 @@ class DeviceManager:
         QMessageBox.information(None, "Pairing Reset", "Your device's pairing was successfully reset. Refresh the device list before applying.")
         
 
-    def add_skip_setup(self, files_to_restore: list[FileToRestore]):
-        if self.skip_setup and not self.get_current_device_supported():
+    def add_skip_setup(self, files_to_restore: list[FileToRestore], restoring_domains: bool):
+        if self.skip_setup and (not self.get_current_device_supported() or restoring_domains):
             # add the 2 skip setup files
             cloud_config_plist: dict = {
                 "SkipSetup": ["WiFi", "Location", "Restore", "SIMSetup", "Android", "AppleID", "IntendedUser", "TOS", "Siri", "ScreenTime", "Diagnostics", "SoftwareUpdate", "Passcode", "Biometric", "Payment", "Zoom", "DisplayTone", "MessagingActivationUsingPhoneNumber", "HomeButtonSensitivity", "CloudStorage", "ScreenSaver", "TapToSetup", "Keyboard", "PreferredLanguage", "SpokenLanguage", "WatchMigration", "OnBoarding", "TVProviderSignIn", "TVHomeScreenSync", "Privacy", "TVRoom", "iMessageAndFaceTime", "AppStore", "Safety", "Multitasking", "ActionButton", "TermsOfAddress", "AccessibilityAppearance", "Welcome", "Appearance", "RestoreCompleted", "UpdateCompleted"],
@@ -220,8 +225,8 @@ class DeviceManager:
                 cloud_config_plist["OrganizationName"] = self.organization_name
             files_to_restore.append(FileToRestore(
                 contents=plistlib.dumps(cloud_config_plist),
-                restore_path="systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist",
-                domain="SysSharedContainerDomain-."
+                restore_path="Library/ConfigurationProfiles/CloudConfigurationDetails.plist",
+                domain="SysSharedContainerDomain-systemgroup.com.apple.configurationprofiles"
             ))
             purplebuddy_plist: dict = {
                 "SetupDone": True,
@@ -234,7 +239,12 @@ class DeviceManager:
                 domain="ManagedPreferencesDomain"
             ))
 
-    def get_domain_for_path(self, path: str, fully_patched: bool = False) -> str:
+    def get_domain_for_path(self, path: str, owner: int = 501) -> str:
+        # returns Domain: str?, Path: str
+        if self.get_current_device_supported() and not path.startswith("/var/mobile/") and not owner == 0:
+            # don't do anything on sparserestore versions
+            return path, None
+        fully_patched = self.get_current_device_patched()
         # just make the Sys Containers to use the regular way (won't work for mga)
         sysSharedContainer = "SysSharedContainerDomain-"
         sysContainer = "SysContainerDomain-"
@@ -260,22 +270,18 @@ class DeviceManager:
                     parts = new_path.split("/")
                     new_domain += parts[0]
                     new_path = new_path.replace(parts[0] + "/", "")
-                return new_domain, new_path
-        return None, path
+                return new_path, new_domain
+        return path, None
     
-    def concat_file(self, contents: str, path: str, files_to_restore: list[FileToRestore]):
-        if self.get_current_device_supported():
-            files_to_restore.append(FileToRestore(
-                contents=contents,
-                restore_path=path
-            ))
-        else:
-            domain, file_path = self.get_domain_for_path(path, fully_patched=self.get_current_device_patched())
-            files_to_restore.append(FileToRestore(
-                contents=contents,
-                restore_path=file_path,
-                domain=domain
-            ))
+    def concat_file(self, contents: str, path: str, files_to_restore: list[FileToRestore], owner: int = 501, group: int = 501):
+        # TODO: try using inodes here instead
+        file_path, domain = self.get_domain_for_path(path, owner=owner)
+        files_to_restore.append(FileToRestore(
+            contents=contents,
+            restore_path=file_path,
+            domain=domain,
+            owner=owner, group=group
+        ))
     
     ## APPLYING OR REMOVING TWEAKS AND RESTORING
     def apply_changes(self, resetting: bool = False, update_label=lambda x: None):
@@ -291,6 +297,9 @@ class DeviceManager:
         eligibility_files = None
         ai_file = None
         basic_plists: dict = {}
+        basic_plists_ownership: dict = {}
+        files_data: dict = {}
+        uses_domains: bool = False
 
         # set the plist keys
         if not resetting:
@@ -304,6 +313,13 @@ class DeviceManager:
                     ai_file = tweak.apply_tweak()
                 elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak) or isinstance(tweak, AdvancedPlistTweak):
                     basic_plists = tweak.apply_tweak(basic_plists, self.allow_risky_tweaks)
+                    basic_plists_ownership[tweak.file_location] = tweak.owner
+                    if tweak.owner == 0:
+                        uses_domains = True
+                elif isinstance(tweak, NullifyFileTweak):
+                    tweak.apply_tweak(files_data)
+                    if tweak.enabled and tweak.file_location.value.startswith("/var/mobile/"):
+                        uses_domains = True
                 else:
                     if gestalt_plist != None:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
@@ -327,7 +343,7 @@ class DeviceManager:
             path="/var/preferences/FeatureFlags/Global.plist",
             files_to_restore=files_to_restore
         )
-        self.add_skip_setup(files_to_restore)
+        self.add_skip_setup(files_to_restore, uses_domains)
         if gestalt_data != None:
             self.concat_file(
                 contents=gestalt_data,
@@ -354,10 +370,19 @@ class DeviceManager:
                 files_to_restore=files_to_restore
             )
         for location, plist in basic_plists.items():
+            ownership = basic_plists_ownership[location]
             self.concat_file(
                 contents=plistlib.dumps(plist),
                 path=location.value,
-                files_to_restore=files_to_restore
+                files_to_restore=files_to_restore,
+                owner=ownership, group=ownership
+            )
+        for location, data in files_data.items():
+            self.concat_file(
+                contents=data,
+                path=location.value,
+                files_to_restore=files_to_restore,
+                owner=ownership, group=ownership
             )
         # reset basic tweaks
         if resetting:
@@ -397,9 +422,9 @@ class DeviceManager:
             settings.setValue(self.data_singleton.current_device.uuid + "_model", "")
             settings.setValue(self.data_singleton.current_device.uuid + "_hardware", "")
             settings.setValue(self.data_singleton.current_device.uuid + "_cpu", "")
-            domain, file_path = self.get_domain_for_path(
-                "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
-                fully_patched=self.get_current_device_patched())
+            file_path, domain = self.get_domain_for_path(
+                "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist"
+            )
             restore_files(files=[FileToRestore(
                     contents=b"",
                     restore_path=file_path,

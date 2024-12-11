@@ -7,13 +7,19 @@ from pymobiledevice3.lockdown import create_using_usbmux
 
 from qt.ui_mainwindow import Ui_Nugget
 
+from controllers.web_request_handler import is_update_available
+
 from devicemanagement.constants import Version
 from devicemanagement.device_manager import DeviceManager
 
-from gui.gestalt_dialog import GestaltDialog
+from gui.dialogs import GestaltDialog, UpdateAppDialog
 
 from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
+from tweaks.daemons_tweak import Daemon
+
+App_Version = "4.2"
+App_Build = 0
 
 class Page(Enum):
     Home = 0
@@ -22,9 +28,10 @@ class Page(Enum):
     EUEnabler = 3
     Springboard = 4
     InternalOptions = 5
-    RiskyTweaks = 6
-    Apply = 7
-    Settings = 8
+    Daemons = 6
+    RiskyTweaks = 7
+    Apply = 8
+    Settings = 9
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager):
@@ -34,6 +41,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.show_uuid = False
         self.loadSettings()
+
+        # Check for an update
+        if is_update_available(App_Version, App_Build):
+            # notify with prompt to download the new version from github
+            UpdateAppDialog().exec()
+        # Update the app version/build number label
+        self.updateAppVersionLabel()
 
         ## DEVICE BAR
         self.refresh_devices()
@@ -48,6 +62,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.euEnablerPageBtn.clicked.connect(self.on_euEnablerPageBtn_clicked)
         self.ui.springboardOptionsPageBtn.clicked.connect(self.on_springboardOptionsPageBtn_clicked)
         self.ui.internalOptionsPageBtn.clicked.connect(self.on_internalOptionsPageBtn_clicked)
+        self.ui.daemonsPageBtn.clicked.connect(self.on_daemonsPageBtn_clicked)
         self.ui.advancedPageBtn.clicked.connect(self.on_advancedPageBtn_clicked)
         self.ui.applyPageBtn.clicked.connect(self.on_applyPageBtn_clicked)
         self.ui.settingsPageBtn.clicked.connect(self.on_settingsPageBtn_clicked)
@@ -65,7 +80,7 @@ class MainWindow(QtWidgets.QMainWindow):
         
         self.ui.jjtechBtn.clicked.connect(self.on_jjtechBtn_clicked)
         self.ui.disfordottieBtn.clicked.connect(self.on_disfordottieBtn_clicked)
-        self.ui.lrdsnowBtn.clicked.connect(self.on_lrdsnowBtn_clicked)
+        self.ui.mikasaBtn.clicked.connect(self.on_mikasaBtn_clicked)
 
         self.ui.libiBtn.clicked.connect(self.on_libiBtn_clicked)
         self.ui.qtBtn.clicked.connect(self.on_qtBtn_clicked)
@@ -83,6 +98,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.languageLbl.hide() # to be removed later
         self.ui.languageTxt.textEdited.connect(self.on_languageTxt_textEdited)
         self.ui.spoofedModelDrp.activated.connect(self.on_spoofedModelDrp_activated)
+        self.ui.spoofHardwareChk.toggled.connect(self.on_spoofHardwareChk_toggled)
+        self.ui.spoofCPUChk.toggled.connect(self.on_spoofCPUChk_toggled)
 
         ## FEATURE FLAGS PAGE
         self.ui.clockAnimChk.toggled.connect(self.on_clockAnimChk_toggled)
@@ -114,6 +131,21 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.pasteSoundChk.toggled.connect(self.on_pasteSoundChk_clicked)
         self.ui.notifyPastesChk.toggled.connect(self.on_notifyPastesChk_clicked)
 
+        ## DAEMONS PAGE ACTIONS
+        self.ui.modifyDaemonsChk.toggled.connect(self.on_modifyDaemonsChk_clicked)
+        self.ui.thermalmonitordChk.toggled.connect(self.on_thermalmonitordChk_clicked)
+        self.ui.otadChk.toggled.connect(self.on_otadChk_clicked)
+        self.ui.usageTrackingAgentChk.toggled.connect(self.on_usageTrackingAgentChk_clicked)
+        self.ui.gameCenterChk.toggled.connect(self.on_gameCenterChk_clicked)
+        self.ui.screenTimeChk.toggled.connect(self.on_screenTimeChk_clicked)
+        self.ui.clearScreenTimeAgentChk.toggled.connect(self.on_clearScreenTimeAgentChk_clicked)
+        self.ui.crashReportsChk.toggled.connect(self.on_crashReportsChk_clicked)
+        self.ui.atwakeupChk.toggled.connect(self.on_atwakeupChk_clicked)
+        self.ui.tipsChk.toggled.connect(self.on_tipsChk_clicked)
+        self.ui.vpndChk.toggled.connect(self.on_vpndChk_clicked)
+        self.ui.wapicChk.toggled.connect(self.on_wapicChk_clicked)
+        self.ui.healthdChk.toggled.connect(self.on_healthdChk_clicked)
+
         ## RISKY OPTIONS PAGE ACTIONS
         self.ui.disableOTAChk.toggled.connect(self.on_disableOTAChk_clicked)
         self.ui.enableResolutionChk.toggled.connect(self.on_enableResolutionChk_clicked)
@@ -130,6 +162,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.allowWifiApplyingChk.toggled.connect(self.on_allowWifiApplyingChk_toggled)
         self.ui.autoRebootChk.toggled.connect(self.on_autoRebootChk_toggled)
         self.ui.showRiskyChk.toggled.connect(self.on_showRiskyChk_toggled)
+        self.ui.showAllSpoofableChk.toggled.connect(self.on_showAllSpoofableChk_toggled)
 
         self.ui.skipSetupChk.toggled.connect(self.on_skipSetupChk_toggled)
         self.ui.supervisionChk.toggled.connect(self.on_supervisionChk_toggled)
@@ -159,6 +192,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.internalStorageChk.clicked.connect(self.on_internalStorageChk_clicked)
         self.ui.collisionSOSChk.clicked.connect(self.on_collisionSOSChk_clicked)
         self.ui.aodChk.clicked.connect(self.on_aodChk_clicked)
+        self.ui.aodVibrancyChk.clicked.connect(self.on_aodVibrancyChk_clicked)
 
         self.ui.addGestaltKeyBtn.clicked.connect(self.on_addGestaltKeyBtn_clicked)
         self.ui.aiEnablerContent.hide()
@@ -171,6 +205,15 @@ class MainWindow(QtWidgets.QMainWindow):
     def updateInterfaceForNewDevice(self):
         # update the home page
         self.updatePhoneInfo()
+    
+    def updateAppVersionLabel(self):
+        new_text: str = self.ui.appVersionLbl.text()
+        new_text = new_text.replace("%VERSION", App_Version)
+        if App_Build > 0:
+            new_text = new_text.replace("%BETATAG", f"(beta {App_Build})")
+        else:
+            new_text = new_text.replace("%BETATAG", "")
+        self.ui.appVersionLbl.setText(new_text)
 
 
     ## DEVICE BAR FUNCTIONS
@@ -188,7 +231,6 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.homePageBtn.setChecked(True)
 
             # hide all pages
-            self.ui.explorePageBtn.hide()
             self.ui.sidebarDiv1.hide()
 
             self.ui.gestaltPageBtn.hide()
@@ -196,12 +238,14 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.euEnablerPageBtn.hide()
             self.ui.springboardOptionsPageBtn.hide()
             self.ui.internalOptionsPageBtn.hide()
+            self.ui.daemonsPageBtn.hide()
             self.ui.advancedPageBtn.hide()
 
             self.ui.sidebarDiv2.hide()
             self.ui.applyPageBtn.hide()
 
             self.ui.resetPairBtn.hide()
+            self.ui.showRiskyChk.hide()
         else:
             self.ui.devicePicker.setEnabled(True)
             # populate the ComboBox with device names
@@ -209,10 +253,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.devicePicker.addItem(device.name)
             
             # show all pages
-            self.ui.explorePageBtn.hide()
             self.ui.sidebarDiv1.show()
             self.ui.springboardOptionsPageBtn.show()
             self.ui.internalOptionsPageBtn.show()
+            self.ui.daemonsPageBtn.show()
 
             if self.device_manager.allow_risky_tweaks:
                 self.ui.advancedPageBtn.show()
@@ -230,6 +274,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.advancedOptionsPageContent.setDisabled(False)
 
             self.ui.resetPairBtn.show()
+            self.ui.showRiskyChk.show()
         
         # update the selected device
         self.ui.devicePicker.setCurrentIndex(0)
@@ -245,26 +290,28 @@ class MainWindow(QtWidgets.QMainWindow):
         # indexes 1-6 for iPhones, 7-(len(values) - 1) for iPads
         # TODO: Make this get fetched from the gui on app startup
         spoof_drp_options = ["iPhone 15 Pro (iPhone16,1)", "iPhone 15 Pro Max (iPhone16,2)", "iPhone 16 (iPhone17,3)", "iPhone 16 Plus (iPhone17,4)", "iPhone 16 Pro (iPhone17,1)", "iPhone 16 Pro Max (iPhone17,2)", "iPad Mini (A17 Pro) (W) (iPad16,1)", "iPad Mini (A17 Pro) (C) (iPad16,2)", "iPad Pro (13-inch) (M4) (W) (iPad16,5)", "iPad Pro (13-inch) (M4) (C) (iPad16,6)", "iPad Pro (11-inch) (M4) (W) (iPad16,3)", "iPad Pro (11-inch) (M4) (C) (iPad16,4)", "iPad Pro (12.9-inch) (M2) (W) (iPad14,5)", "iPad Pro (12.9-inch) (M2) (C) (iPad14,6)", "iPad Pro (11-inch) (M2) (W) (iPad14,3)", "iPad Pro (11-inch) (M2) (C) (iPad14,4)", "iPad Air (13-inch) (M2) (W) (iPad14,10)", "iPad Air (13-inch) (M2) (C) (iPad14,11)", "iPad Air (11-inch) (M2) (W) (iPad14,8)", "iPad Air (11-inch) (M2) (C) (iPad14,9)", "iPad Pro (11-inch) (M1) (W) (iPad13,4)", "iPad Pro (11-inch) (M1) (C) (iPad13,5)", "iPad Pro (12.9-inch) (M1) (W) (iPad13,8)", "iPad Pro (12.9-inch) (M1) (C) (iPad13,9)", "iPad Air (M1) (W) (iPad13,16)", "iPad Air (M1) (C) (iPad13,17)"]
-        if self.device_manager.get_current_device_model().startswith("iPhone"):
+        if self.device_manager.show_all_spoofable_models or self.device_manager.get_current_device_model().startswith("iPhone"):
             # re-enable iPhone spoof models
             self.ui.spoofedModelDrp.addItems(spoof_drp_options[:6])
-        else:
+        if self.device_manager.show_all_spoofable_models or self.device_manager.get_current_device_model().startswith("iPad"):
             # re-enable iPad spoof models
             self.ui.spoofedModelDrp.addItems(spoof_drp_options[6:])
 
     def change_selected_device(self, index):
+        self.ui.showAllSpoofableChk.hide()
         if len(self.device_manager.devices) > 0:
             self.device_manager.set_current_device(index=index)
             # hide options that are for newer versions
             # remove the new dynamic island options
             MinTweakVersions = {
-                "no_patch": [self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn, self.ui.resetGestaltBtn, self.ui.gestaltLocationLbl],
-                "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk)],
+                "no_patch": [self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn, self.ui.resetGestaltBtn, self.ui.gestaltLocationLbl, self.ui.showAllSpoofableChk],
+                "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk), ("1.0", self.ui.regularDomainsLbl)],
                 "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
-                "18.0": [self.ui.aodChk, self.ui.iphone16SettingsChk]
+                "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk]
             }
             MaxTweakVersions = {
-                "17.7": [self.ui.euEnablerContent]
+                "17.7": [self.ui.euEnablerContent],
+                "18.0": [self.ui.photosChk, self.ui.aiChk]
             }
 
             try:
@@ -331,9 +378,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.settings = QtCore.QSettings()
         try:
             # load the settings
-            apply_over_wifi = self.settings.value("apply_over_wifi", True, type=bool)
+            apply_over_wifi = self.settings.value("apply_over_wifi", False, type=bool)
             auto_reboot = self.settings.value("auto_reboot", True, type=bool)
             risky_tweaks = self.settings.value("show_risky_tweaks", False, type=bool)
+            show_all_spoofable = self.settings.value("show_all_spoofable_models", False, type=bool)
             skip_setup = self.settings.value("skip_setup", True, type=bool)
             supervised = self.settings.value("supervised", False, type=bool)
             organization_name = self.settings.value("organization_name", "", type=str)
@@ -341,13 +389,21 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.allowWifiApplyingChk.setChecked(apply_over_wifi)
             self.ui.autoRebootChk.setChecked(auto_reboot)
             self.ui.showRiskyChk.setChecked(risky_tweaks)
+            self.ui.showAllSpoofableChk.setChecked(show_all_spoofable)
             self.ui.skipSetupChk.setChecked(skip_setup)
             self.ui.supervisionChk.setChecked(supervised)
             self.ui.supervisionOrganization.setText(organization_name)
 
+            # hide/show the warning label
+            if skip_setup:
+                self.ui.skipSetupOnLbl.show()
+            else:
+                self.ui.skipSetupOnLbl.hide()
+
             self.device_manager.apply_over_wifi = apply_over_wifi
             self.device_manager.auto_reboot = auto_reboot
             self.device_manager.allow_risky_tweaks = risky_tweaks
+            self.device_manager.show_all_spoofable_models = show_all_spoofable
             self.device_manager.skip_setup = skip_setup
             self.device_manager.supervised = supervised
             self.device_manager.organization_name = organization_name
@@ -373,6 +429,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_internalOptionsPageBtn_clicked(self):
         self.ui.pages.setCurrentIndex(Page.InternalOptions.value)
+
+    def on_daemonsPageBtn_clicked(self):
+        self.ui.pages.setCurrentIndex(Page.Daemons.value)
 
     def on_advancedPageBtn_clicked(self):
         self.ui.pages.setCurrentIndex(Page.RiskyTweaks.value)
@@ -418,11 +477,11 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def show_version_text(self, version: str, build: str):
         support_str: str = "<span style=\"color: #32d74b;\">Supported!</span></a>"
-        if Version(version) < Version("17.0") or self.device_manager.get_current_device_patched():
+        if Version(version) < Version("17.0"):
             support_str = "<span style=\"color: #ff0000;\">Not Supported.</span></a>"
-        elif not self.device_manager.get_current_device_supported():
-            # sparserestore partially patched
-            support_str = "<span style=\"color: #ffff00;\">Supported, YMMV.</span></a>"
+        elif self.device_manager.get_current_device_patched():
+            # sparserestore fully patched
+            support_str = "<span style=\"color: #ffff00;\">Partially Supported.</span></a>"
         self.ui.phoneVersionLbl.setText(f"<a style=\"text-decoration:none; color: white;\" href=\"#\">iOS {version} ({build}) {support_str}")
 
     ## HOME PAGE LINKS
@@ -440,8 +499,8 @@ class MainWindow(QtWidgets.QMainWindow):
         webbrowser.open_new_tab("https://github.com/JJTech0130/TrollRestore")
     def on_disfordottieBtn_clicked(self):
         webbrowser.open_new_tab("https://twitter.com/disfordottie")
-    def on_lrdsnowBtn_clicked(self):
-        webbrowser.open_new_tab("https://github.com/Lrdsnow/EUEnabler")
+    def on_mikasaBtn_clicked(self):
+        webbrowser.open_new_tab("https://github.com/Mikasa-san/QuietDaemon")
 
     def on_libiBtn_clicked(self):
         webbrowser.open_new_tab("https://github.com/doronz88/pymobiledevice3")
@@ -523,6 +582,8 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["CollisionSOS"].set_enabled(checked)
     def on_aodChk_clicked(self, checked: bool):
         tweaks["AOD"].set_enabled(checked)
+    def on_aodVibrancyChk_clicked(self, checked: bool):
+        tweaks["AODVibrancy"].set_enabled(checked)
 
     def update_custom_gestalt_value_type(self, id, idx, valueField: QtWidgets.QLineEdit):
         new_str = CustomGestaltTweaks.set_tweak_value_type(id, idx)
@@ -628,16 +689,16 @@ class MainWindow(QtWidgets.QMainWindow):
     
     def on_spoofedModelDrp_activated(self, index: int):
         idx_to_apply = index
-        if index > 0 and not self.device_manager.get_current_device_model().startswith("iPhone"):
+        if not self.device_manager.show_all_spoofable_models and not self.device_manager.get_current_device_model().startswith("iPhone"):
             # offset the index for ipads
             idx_to_apply += 6
-        tweaks["SpoofModel"].set_selected_option(idx_to_apply)
-        tweaks["SpoofHardware"].set_selected_option(idx_to_apply)
-        tweaks["SpoofCPU"].set_selected_option(idx_to_apply)
-        if idx_to_apply == 0:
-            tweaks["SpoofModel"].set_enabled(False)
-            tweaks["SpoofHardware"].set_enabled(False)
-            tweaks["SpoofCPU"].set_enabled(False)
+        tweaks["SpoofModel"].set_selected_option(idx_to_apply, is_enabled=(index != 0))
+        tweaks["SpoofHardware"].set_selected_option(idx_to_apply, is_enabled=(index != 0 and self.ui.spoofHardwareChk.isChecked()))
+        tweaks["SpoofCPU"].set_selected_option(idx_to_apply, is_enabled=(index != 0 and self.ui.spoofCPUChk.isChecked()))
+    def on_spoofHardwareChk_toggled(self, checked: bool):
+        tweaks["SpoofHardware"].set_enabled(checked and tweaks["SpoofHardware"].selected_option != 0)
+    def on_spoofCPUChk_toggled(self, checked: bool):
+        tweaks["SpoofCPU"].set_enabled(checked and tweaks["SpoofCPU"].selected_option != 0)
 
 
     ## SPRINGBOARD OPTIONS PAGE
@@ -688,9 +749,39 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_notifyPastesChk_clicked(self, checked: bool):
         tweaks["AnnounceAllPastes"].set_enabled(checked)
 
+    ## DAEMONS PAGE
+    def on_modifyDaemonsChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_enabled(checked)
+        self.ui.daemonsPageContent.setDisabled(not checked)
+
+    def on_thermalmonitordChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.thermalmonitord.value, value=checked)
+    def on_otadChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.OTA.value, value=checked)
+    def on_usageTrackingAgentChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.UsageTrackingAgent.value, value=checked)
+    def on_gameCenterChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.GameCenter.value, value=checked)
+    def on_screenTimeChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.ScreenTime.value, value=checked)
+    def on_clearScreenTimeAgentChk_clicked(self, checked: bool):
+        tweaks["ClearScreenTimeAgentPlist"].set_enabled(checked)
+    def on_crashReportsChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.CrashReports.value, value=checked)
+    def on_atwakeupChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.ATWAKEUP.value, value=checked)
+    def on_tipsChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.Tips.value, value=checked)
+    def on_vpndChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.VPN.value, value=checked)
+    def on_wapicChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.ChineseLAN.value, value=checked)
+    def on_healthdChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.HealthKit.value, value=checked)
+
     ## Risky Options Page
     def on_disableOTAChk_clicked(self, checked: bool):
-        tweaks["DisableOTA"].set_enabled(checked)
+        tweaks["DisableOTAFile"].set_enabled(checked)
 
     def on_enableResolutionChk_clicked(self, checked: bool):
         tweaks["CustomResolution"].set_enabled(checked)
@@ -739,6 +830,12 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.advancedPageBtn.show()
         else:
             self.ui.advancedPageBtn.hide()
+    def on_showAllSpoofableChk_toggled(self, checked: bool):
+        self.device_manager.show_all_spoofable_models = checked
+        # save the setting
+        self.settings.setValue("show_all_spoofable_models", checked)
+        # refresh the list of spoofable models
+        self.setup_spoofedModelDrp_models()
     def on_autoRebootChk_toggled(self, checked: bool):
         self.device_manager.auto_reboot = checked
         # save the setting
@@ -747,6 +844,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.device_manager.skip_setup = checked
         # save the setting
         self.settings.setValue("skip_setup", checked)
+        # hide/show the warning label
+        if checked:
+            self.ui.skipSetupOnLbl.show()
+        else:
+            self.ui.skipSetupOnLbl.hide()
     def on_supervisionOrgTxt_textEdited(self, text: str):
         self.device_manager.organization_name = text
         self.settings.setValue("organization_name", text)
@@ -782,9 +884,9 @@ class MainWindow(QtWidgets.QMainWindow):
                 return
             if (
                 not "qNNddlUK+B/YlooNoymwgA" in gestalt_plist["CacheExtra"]
+                or not "0+nc/Udy4WNG8S+Q7a/s1A" in gestalt_plist["CacheExtra"]
                 or gestalt_plist["CacheExtra"]["qNNddlUK+B/YlooNoymwgA"] != self.device_manager.data_singleton.current_device.version
                 or gestalt_plist["CacheExtra"]["0+nc/Udy4WNG8S+Q7a/s1A"] != self.device_manager.data_singleton.current_device.model
-                or not "0+nc/Udy4WNG8S+Q7a/s1A" in gestalt_plist["CacheExtra"]
             ):
                 dialog = GestaltDialog(
                         device_manager=self.device_manager,
@@ -792,8 +894,9 @@ class MainWindow(QtWidgets.QMainWindow):
                         selected_file=selected_file
                     )
                 dialog.exec()
-            self.device_manager.data_singleton.gestalt_path = selected_file
-            self.ui.gestaltLocationLbl.setText(selected_file)
+            else:
+                self.device_manager.data_singleton.gestalt_path = selected_file
+                self.ui.gestaltLocationLbl.setText(selected_file)
             # hide the warning labels
             self.ui.mgaWarningLbl.hide()
             self.ui.mgaWarningLbl2.hide()

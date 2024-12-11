@@ -436,38 +436,6 @@ QSlider::tick:horizontal {
            </widget>
           </item>
           <item>
-           <widget class="QToolButton" name="explorePageBtn">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>    Explore</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>:/icon/compass.svg</normaloff>:/icon/compass.svg</iconset>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="autoExclusive">
-             <bool>true</bool>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
-            </property>
-            <property name="cls" stdset="0">
-             <string>sidebarBtn</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="Line" name="sidebarDiv1">
             <property name="styleSheet">
              <string notr="true">QFrame {
@@ -627,6 +595,38 @@ QSlider::tick:horizontal {
             <property name="icon">
              <iconset>
               <normaloff>:/icon/hdd.svg</normaloff>:/icon/hdd.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextBesideIcon</enum>
+            </property>
+            <property name="cls" stdset="0">
+             <string>sidebarBtn</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="daemonsPageBtn">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>    Daemons</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>:/icon/toggles.svg</normaloff>:/icon/toggles.svg</iconset>
             </property>
             <property name="checkable">
              <bool>true</bool>
@@ -1068,7 +1068,7 @@ QSlider::tick:horizontal {
                       <item>
                        <widget class="QToolButton" name="starOnGithubBtn">
                         <property name="text">
-                         <string>Star on Github</string>
+                         <string> Star on Github</string>
                         </property>
                         <property name="icon">
                          <iconset>
@@ -1162,6 +1162,9 @@ QSlider::tick:horizontal {
                         <width>150</width>
                         <height>35</height>
                        </size>
+                      </property>
+                      <property name="toolTip">
+                       <string/>
                       </property>
                       <property name="styleSheet">
                        <string notr="true">QToolButton {
@@ -1434,7 +1437,7 @@ Clock Anim, Photos UI</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QToolButton" name="lrdsnowBtn">
+                     <widget class="QToolButton" name="mikasaBtn">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -1462,8 +1465,8 @@ QToolButton:pressed {
 }</string>
                       </property>
                       <property name="text">
-                       <string>lrdsnow
-EU Enabler</string>
+                       <string>Mikasa
+Quiet Daemon</string>
                       </property>
                      </widget>
                     </item>
@@ -1569,9 +1572,9 @@ QToolButton:pressed {
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label">
+               <widget class="QLabel" name="appVersionLbl">
                 <property name="text">
-                 <string>Nugget GUI - Version 4.1</string>
+                 <string>Nugget GUI - Version %VERSION %BETATAG</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1895,6 +1898,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="rdarFixChk">
+                       <property name="toolTip">
+                        <string>Modifies the resolution to improve functionality of the changed device subtype. May cause weird visual bugs.</string>
+                       </property>
                        <property name="text">
                         <string>Fix RDAR (modifies resolution)</string>
                        </property>
@@ -1902,6 +1908,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="modelNameChk">
+                       <property name="toolTip">
+                        <string>Changes the model name in the 'About' page in the Settings app.</string>
+                       </property>
                        <property name="text">
                         <string>Change Device Model Name</string>
                        </property>
@@ -1916,6 +1925,11 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="bootChimeChk">
+                       <property name="toolTip">
+                        <string>Plays a sound when the device shuts down.
+
+After enabling, you can find the option to enable it in 'Accessibility' settings.</string>
+                       </property>
                        <property name="text">
                         <string>Enable Boot Chime</string>
                        </property>
@@ -1923,6 +1937,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="chargeLimitChk">
+                       <property name="toolTip">
+                        <string>Shows the charge limit menu in Settings. Actual limiting may not be functional.</string>
+                       </property>
                        <property name="text">
                         <string>Enable Charge Limit</string>
                        </property>
@@ -1937,6 +1954,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="iphone16SettingsChk">
+                       <property name="toolTip">
+                        <string>Enables Camera Control menu in Settings app and allows for downloading A17 Pro-exclusive apps (when spoofed).</string>
+                       </property>
                        <property name="text">
                         <string>Enable iPhone 16 Settings</string>
                        </property>
@@ -1944,6 +1964,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="parallaxChk">
+                       <property name="toolTip">
+                        <string>Disables the motion of the wallpaper.</string>
+                       </property>
                        <property name="text">
                         <string>Disable Wallpaper Parallax</string>
                        </property>
@@ -1967,14 +1990,14 @@ QComboBox QAbstractItemView::item:hover {
                      <item>
                       <widget class="QCheckBox" name="stageManagerChk">
                        <property name="text">
-                        <string>Enable Stage Manager Supported (WARNING: risky on some devices, mainly phones)</string>
+                        <string>Enable Stage Manager Supported</string>
                        </property>
                       </widget>
                      </item>
                      <item>
                       <widget class="QCheckBox" name="enableMedusaChk">
                        <property name="text">
-                        <string>Enable Medusa (iPad Multitasking) (WARNING: may be risky on some phones)</string>
+                        <string>Enable Medusa (iPad Multitasking)</string>
                        </property>
                       </widget>
                      </item>
@@ -1987,6 +2010,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="shutterChk">
+                       <property name="toolTip">
+                        <string>Sets the device's region to LL/A to bypass certain region restrictions like the forced shutter sound.</string>
+                       </property>
                        <property name="text">
                         <string>Disable Region Restrictions (ie. Shutter Sound)</string>
                        </property>
@@ -2030,6 +2056,11 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="internalInstallChk">
+                       <property name="toolTip">
+                        <string>Use the Metal HUD in any app. Enable Metal HUD through Springboard Options.
+
+Note: OTA updates will be broken until this is disabled.</string>
+                       </property>
                        <property name="text">
                         <string>Set as Apple Internal Install (ie Metal HUD in any app)</string>
                        </property>
@@ -2037,6 +2068,11 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="internalStorageChk">
+                       <property name="toolTip">
+                        <string>Shows internal files in storage settings.
+
+Note: OTA updates will be broken until this is disabled.</string>
+                       </property>
                        <property name="text">
                         <string>Enable Internal Storage (WARNING: risky for some devices, mainly iPads)</string>
                        </property>
@@ -2059,6 +2095,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="collisionSOSChk">
+                       <property name="toolTip">
+                        <string>Shows collision detection in the SOS page in Settings.</string>
+                       </property>
                        <property name="text">
                         <string>Enable Collision SOS</string>
                        </property>
@@ -2066,8 +2105,21 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="aodChk">
+                       <property name="toolTip">
+                        <string>Enable AOD on unsupported devices. May cause burn in, use with caution.</string>
+                       </property>
                        <property name="text">
                         <string>Enable Always On Display</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="aodVibrancyChk">
+                       <property name="toolTip">
+                        <string>Enable this if something is wonky when using the above toggle.</string>
+                       </property>
+                       <property name="text">
+                        <string>Enable AOD Vibrancy</string>
                        </property>
                       </widget>
                      </item>
@@ -2333,6 +2385,9 @@ what you are doing.</string>
                  </property>
                  <item>
                   <widget class="QCheckBox" name="clockAnimChk">
+                   <property name="toolTip">
+                    <string>Enables an animation when the lock screen clock changes time or style.</string>
+                   </property>
                    <property name="text">
                     <string>Enable Lockscreen Clock Animation</string>
                    </property>
@@ -2340,6 +2395,10 @@ what you are doing.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="lockscreenChk">
+                   <property name="toolTip">
+                    <string>Enables a button to duplicate the lock screen page in edit mode.
+Enables quickly switching lock screens by holding down and swiping.</string>
+                   </property>
                    <property name="text">
                     <string>Enable Duplicate Lockscreen Button and Lockscreen Quickswitch</string>
                    </property>
@@ -2365,6 +2424,11 @@ what you are doing.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="photosChk">
+                   <property name="toolTip">
+                    <string>Revert the photos app to the iOS 17 style.
+
+Does not work on iOS 18.0 RC.</string>
+                   </property>
                    <property name="text">
                     <string>Enable Old Photo UI</string>
                    </property>
@@ -2372,6 +2436,11 @@ what you are doing.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="aiChk">
+                   <property name="toolTip">
+                    <string>Enable the new Siri UI.
+
+Only works on iOS 18.0 beta 1-2.</string>
+                   </property>
                    <property name="text">
                     <string>Enable Apple Intelligence</string>
                    </property>
@@ -2529,62 +2598,86 @@ what you are doing.</string>
                </widget>
               </item>
               <item>
-               <widget class="QWidget" name="euEnablerPageContent" native="true">
-                <property name="enabled">
-                 <bool>false</bool>
+               <widget class="QScrollArea" name="scrollArea_2">
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAsNeeded</enum>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_16">
-                 <property name="leftMargin">
-                  <number>0</number>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                </property>
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
+                <widget class="QWidget" name="scrollAreaWidgetContents_2">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>660</width>
+                   <height>573</height>
+                  </rect>
                  </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QWidget" name="euEnablerContent" native="true">
-                   <layout class="QVBoxLayout" name="verticalLayout_36">
-                    <property name="leftMargin">
-                     <number>0</number>
+                 <layout class="QVBoxLayout" name="verticalLayout_37">
+                  <item>
+                   <widget class="QWidget" name="euEnablerPageContent" native="true">
+                    <property name="enabled">
+                     <bool>false</bool>
                     </property>
-                    <property name="topMargin">
-                     <number>0</number>
-                    </property>
-                    <property name="rightMargin">
-                     <number>0</number>
-                    </property>
-                    <property name="bottomMargin">
-                     <number>0</number>
-                    </property>
-                    <item>
-                     <widget class="QCheckBox" name="euEnablerEnabledChk">
-                      <property name="text">
-                       <string>Enable EU Enabler</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="label_5">
-                      <property name="text">
-                       <string>Method Type</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QComboBox" name="methodChoiceDrp">
-                      <property name="maximumSize">
-                       <size>
-                        <width>150</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">QComboBox {
+                    <layout class="QVBoxLayout" name="verticalLayout_16">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <widget class="QWidget" name="euEnablerContent" native="true">
+                       <layout class="QVBoxLayout" name="verticalLayout_36">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QCheckBox" name="euEnablerEnabledChk">
+                          <property name="text">
+                           <string>Enable EU Enabler</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_5">
+                          <property name="text">
+                           <string>Method Type</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QComboBox" name="methodChoiceDrp">
+                          <property name="maximumSize">
+                           <size>
+                            <width>150</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QComboBox {
 	background-color: #3b3b3b;
     border: none;
     color: #e8e8e8;
@@ -2616,141 +2709,141 @@ QComboBox QAbstractItemView::item:hover {
     background-color: #535353;
     color: #ffffff;
 }</string>
-                      </property>
-                      <item>
-                       <property name="text">
-                        <string>Method 1</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>Method 2</string>
-                       </property>
-                      </item>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="label_6">
-                      <property name="text">
-                       <string>Region Code (Should be 2 letters)</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLineEdit" name="regionCodeTxt">
-                      <property name="placeholderText">
-                       <string>Region Code (Default: US)</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="Line" name="line_16">
-                      <property name="enabled">
-                       <bool>false</bool>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">QFrame {
+                          </property>
+                          <item>
+                           <property name="text">
+                            <string>Method 1</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>Method 2</string>
+                           </property>
+                          </item>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_6">
+                          <property name="text">
+                           <string>Region Code (Should be 2 letters)</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="regionCodeTxt">
+                          <property name="placeholderText">
+                           <string>Region Code (Default: US)</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="Line" name="line_16">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QFrame {
 	color: #414141;
 }</string>
-                      </property>
-                      <property name="frameShadow">
-                       <enum>QFrame::Plain</enum>
-                      </property>
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="mgaWarningLbl2">
-                   <property name="font">
-                    <font>
-                     <pointsize>-1</pointsize>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="text">
-                    <string>! You will need a MobileGestalt file for this feature. Please select it in the Apply page !</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="enableAIChk">
-                   <property name="text">
-                    <string>Enable Apple Intelligence (for Unsupported Devices)</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QWidget" name="aiEnablerContent" native="true">
-                   <layout class="QVBoxLayout" name="verticalLayout_34">
-                    <property name="leftMargin">
-                     <number>0</number>
-                    </property>
-                    <property name="topMargin">
-                     <number>5</number>
-                    </property>
-                    <property name="rightMargin">
-                     <number>0</number>
-                    </property>
-                    <property name="bottomMargin">
-                     <number>5</number>
-                    </property>
-                    <item>
-                     <widget class="QCheckBox" name="eligFileChk">
-                      <property name="text">
-                       <string>Enable Eligibility File</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="languageLbl">
-                      <property name="text">
-                       <string>Language Code (not needed for English)</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLineEdit" name="languageTxt">
-                      <property name="placeholderText">
-                       <string>Language Code (i.e. en)</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="Line" name="line_21">
-                      <property name="styleSheet">
-                       <string notr="true">QFrame {
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Plain</enum>
+                          </property>
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="mgaWarningLbl2">
+                       <property name="font">
+                        <font>
+                         <pointsize>-1</pointsize>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>! You will need a MobileGestalt file for this feature. Please select it in the Apply page !</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="enableAIChk">
+                       <property name="text">
+                        <string>Enable Apple Intelligence (for Unsupported Devices)</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QWidget" name="aiEnablerContent" native="true">
+                       <layout class="QVBoxLayout" name="verticalLayout_34">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>5</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>5</number>
+                        </property>
+                        <item>
+                         <widget class="QCheckBox" name="eligFileChk">
+                          <property name="text">
+                           <string>Enable Eligibility File</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="languageLbl">
+                          <property name="text">
+                           <string>Language Code (not needed for English)</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="languageTxt">
+                          <property name="placeholderText">
+                           <string>Language Code (i.e. en)</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="Line" name="line_21">
+                          <property name="styleSheet">
+                           <string notr="true">QFrame {
 	color: #414141;
 }</string>
-                      </property>
-                      <property name="frameShadow">
-                       <enum>QFrame::Plain</enum>
-                      </property>
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="aiInfoLabel">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>16777215</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string>In order to download the AI models, you must spoof your device model. However, this may break 
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Plain</enum>
+                          </property>
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="aiInfoLabel">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>In order to download the AI models, you must spoof your device model. However, this may break 
 Face ID until you revert back. 
 
 WARNING: Do not go to the Apple Intelligence menu in the Settings app after unspoofing.
@@ -2759,32 +2852,32 @@ Entering the menu on your original device model will cause a re-download and may
 restore to fix. Furthermore, if you switch between model groups, like spoofing from the iPhone 16s
 to the iPhone 15 Pro series, a re-download may also occur. 
 Please be careful!</string>
-                      </property>
-                      <property name="textFormat">
-                       <enum>Qt::AutoText</enum>
-                      </property>
-                      <property name="scaledContents">
-                       <bool>false</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="label_8">
-                      <property name="text">
-                       <string>Spoofed Device Model</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QComboBox" name="spoofedModelDrp">
-                      <property name="maximumSize">
-                       <size>
-                        <width>325</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">QComboBox {
+                          </property>
+                          <property name="textFormat">
+                           <enum>Qt::AutoText</enum>
+                          </property>
+                          <property name="scaledContents">
+                           <bool>false</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_8">
+                          <property name="text">
+                           <string>Spoofed Device Model</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QComboBox" name="spoofedModelDrp">
+                          <property name="maximumSize">
+                           <size>
+                            <width>325</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QComboBox {
 	background-color: #3b3b3b;
     border: none;
     color: #e8e8e8;
@@ -2816,167 +2909,197 @@ QComboBox QAbstractItemView::item:hover {
     background-color: #535353;
     color: #ffffff;
 }</string>
-                      </property>
-                      <property name="currentText">
-                       <string>Original</string>
-                      </property>
-                      <property name="currentIndex">
-                       <number>0</number>
-                      </property>
-                      <item>
-                       <property name="text">
-                        <string>Original</string>
+                          </property>
+                          <property name="currentText">
+                           <string>Original</string>
+                          </property>
+                          <property name="currentIndex">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <property name="text">
+                            <string>Original</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPhone 15 Pro (iPhone16,1)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPhone 15 Pro Max (iPhone16,2)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPhone 16 (iPhone17,3)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPhone 16 Plus (iPhone17,4)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPhone 16 Pro (iPhone17,1)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPhone 16 Pro Max (iPhone17,2)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Mini (A17 Pro) (W) (iPad16,1)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Mini (A17 Pro) (C) (iPad16,2)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Pro (13-inch) (M4) (W) (iPad16,5)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Pro (13-inch) (M4) (C) (iPad16,6)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Pro (11-inch) (M4) (W) (iPad16,3)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Pro (11-inch) (M4) (C) (iPad16,4)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Pro (12.9-inch) (M2) (W) (iPad14,5)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Pro (12.9-inch) (M2) (C) (iPad14,6)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Pro (11-inch) (M2) (W) (iPad14,3)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Pro (11-inch) (M2) (C) (iPad14,4)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Air (13-inch) (M2) (W) (iPad14,10)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Air (13-inch) (M2) (C) (iPad14,11)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Air (11-inch) (M2) (W) (iPad14,8)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Air (11-inch) (M2) (C) (iPad14,9)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Pro (11-inch) (M1) (W) (iPad13,4)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Pro (11-inch) (M1) (C) (iPad13,5)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Pro (12.9-inch) (M1) (W) (iPad13,8)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Pro (12.9-inch) (M1) (C) (iPad13,9)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Air (M1) (W) (iPad13,16)</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>iPad Air (M1) (C) (iPad13,17)</string>
+                           </property>
+                          </item>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QCheckBox" name="spoofHardwareChk">
+                          <property name="toolTip">
+                           <string>Spoofs the device hardware model (ie D83AP)</string>
+                          </property>
+                          <property name="text">
+                           <string>Spoof Hardware Model</string>
+                          </property>
+                          <property name="checked">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QCheckBox" name="spoofCPUChk">
+                          <property name="toolTip">
+                           <string>Spoofs the device CPU model (ie t8130)</string>
+                          </property>
+                          <property name="text">
+                           <string>Spoof CPU Model</string>
+                          </property>
+                          <property name="checked">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="verticalSpacer_7">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
                        </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPhone 15 Pro (iPhone16,1)</string>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>40</height>
+                        </size>
                        </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPhone 15 Pro Max (iPhone16,2)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPhone 16 (iPhone17,3)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPhone 16 Plus (iPhone17,4)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPhone 16 Pro (iPhone17,1)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPhone 16 Pro Max (iPhone17,2)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Mini (A17 Pro) (W) (iPad16,1)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Mini (A17 Pro) (C) (iPad16,2)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Pro (13-inch) (M4) (W) (iPad16,5)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Pro (13-inch) (M4) (C) (iPad16,6)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Pro (11-inch) (M4) (W) (iPad16,3)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Pro (11-inch) (M4) (C) (iPad16,4)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Pro (12.9-inch) (M2) (W) (iPad14,5)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Pro (12.9-inch) (M2) (C) (iPad14,6)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Pro (11-inch) (M2) (W) (iPad14,3)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Pro (11-inch) (M2) (C) (iPad14,4)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Air (13-inch) (M2) (W) (iPad14,10)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Air (13-inch) (M2) (C) (iPad14,11)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Air (11-inch) (M2) (W) (iPad14,8)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Air (11-inch) (M2) (C) (iPad14,9)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Pro (11-inch) (M1) (W) (iPad13,4)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Pro (11-inch) (M1) (C) (iPad13,5)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Pro (12.9-inch) (M1) (W) (iPad13,8)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Pro (12.9-inch) (M1) (C) (iPad13,9)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Air (M1) (W) (iPad13,16)</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>iPad Air (M1) (C) (iPad13,17)</string>
-                       </property>
-                      </item>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item>
-                  <spacer name="verticalSpacer_7">
-                   <property name="orientation">
-                    <enum>Qt::Vertical</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>20</width>
-                     <height>40</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                </layout>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
                </widget>
               </item>
              </layout>
@@ -3190,6 +3313,9 @@ QComboBox QAbstractItemView::item:hover {
                  </item>
                  <item>
                   <widget class="QCheckBox" name="disableCrumbChk">
+                   <property name="toolTip">
+                    <string>Removes '&lt; PreviousAppName' glyph in Status Bar when being forwarded to another app.</string>
+                   </property>
                    <property name="text">
                     <string>Disable Breadcrumbs</string>
                    </property>
@@ -3197,6 +3323,9 @@ QComboBox QAbstractItemView::item:hover {
                  </item>
                  <item>
                   <widget class="QCheckBox" name="enableSupervisionTextChk">
+                   <property name="toolTip">
+                    <string>Shows info about the device supervision status and organization at the bottom of the lock screen.</string>
+                   </property>
                    <property name="text">
                     <string>Show Supervision Text on Lock Screen</string>
                    </property>
@@ -3550,6 +3679,301 @@ QComboBox QAbstractItemView::item:hover {
               </item>
              </layout>
             </widget>
+            <widget class="QWidget" name="daemonsPage">
+             <layout class="QVBoxLayout" name="verticalLayout_14">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QWidget" name="horizontalWidget_5" native="true">
+                <layout class="QHBoxLayout" name="horizontalLayout_20">
+                 <property name="spacing">
+                  <number>10</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>9</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>9</number>
+                 </property>
+                 <item>
+                  <widget class="QToolButton" name="toolButton_10">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QToolButton {
+	icon-size: 24px;
+	background-color: transparent;
+	padding-left: 0px;
+	padding-right: 5px;
+	border-radius: 0px;
+}</string>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>:/icon/toggles.svg</normaloff>:/icon/toggles.svg</iconset>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="verticalWidget_4" native="true">
+                   <layout class="QVBoxLayout" name="verticalLayout_12">
+                    <property name="spacing">
+                     <number>6</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="daemonsLbl">
+                      <property name="font">
+                       <font>
+                        <pointsize>-1</pointsize>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Daemons</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="modifyDaemonsChk">
+                      <property name="text">
+                       <string>Modify</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_7">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="Line" name="line_12">
+                <property name="styleSheet">
+                 <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="regularDomainsLbl">
+                <property name="text">
+                 <string>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
+it enabled.</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="daemonsPageContent" native="true">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_13">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QCheckBox" name="otadChk">
+                   <property name="toolTip">
+                    <string>Stops over-the-air updates to prevent auto-downloads.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable OTA</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="usageTrackingAgentChk">
+                   <property name="toolTip">
+                    <string>Disables usage tracking for improved privacy.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable UsageTrackingAgent</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="screenTimeChk">
+                   <property name="toolTip">
+                    <string>Disables Screen Time monitoring features.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable Screen Time Agent</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="clearScreenTimeAgentChk">
+                   <property name="toolTip">
+                    <string>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
+
+To work properly, also disable the daemon using the toggle above.</string>
+                   </property>
+                   <property name="text">
+                    <string>Clear ScreenTimeAgent.plist file</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="crashReportsChk">
+                   <property name="toolTip">
+                    <string>Stops logs, dumps, and crash reports collection.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable Logs, Dumps, and Crash Reports</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="atwakeupChk">
+                   <property name="toolTip">
+                    <string>Disables pinging to sleeping bluetooth devices for improved battery life.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable ATWAKEUP</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="Line" name="line_25">
+                   <property name="styleSheet">
+                    <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Plain</enum>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="gameCenterChk">
+                   <property name="toolTip">
+                    <string>Turns off Game Center background services.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable Game Center</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="tipsChk">
+                   <property name="toolTip">
+                    <string>Disables the Tips service and notifications.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable Tips Services</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="vpndChk">
+                   <property name="toolTip">
+                    <string>Disables the Virtual Private Network service.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable VPN Service</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="wapicChk">
+                   <property name="toolTip">
+                    <string>Disables the service that deals with errors with WiFi networks with Chinese characters in the name.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable Chinese WLAN Service</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="healthdChk">
+                   <property name="toolTip">
+                    <string>Disables HealthKit services used by the health app.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable HealthKit</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer_6">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
             <widget class="QWidget" name="advancedOptionsPage">
              <layout class="QVBoxLayout" name="verticalLayout_14">
               <property name="leftMargin">
@@ -3730,8 +4154,23 @@ Nugget is not responsible if you mess up your device, especially with resolution
                  </item>
                  <item>
                   <widget class="QCheckBox" name="disableOTAChk">
+                   <property name="toolTip">
+                    <string>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</string>
+                   </property>
                    <property name="text">
-                    <string>Disable OTA Updates</string>
+                    <string>Disable OTA Updates (file)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="thermalmonitordChk">
+                   <property name="toolTip">
+                    <string>Disables temperature monitoring daemon to reduce system checks.
+
+Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &quot;Unverified&quot; in Settings.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable thermalmonitord</string>
                    </property>
                   </widget>
                  </item>
@@ -3752,6 +4191,9 @@ Nugget is not responsible if you mess up your device, especially with resolution
                  </item>
                  <item>
                   <widget class="QCheckBox" name="enableResolutionChk">
+                   <property name="toolTip">
+                    <string>Set a custom device screen resolution.</string>
+                   </property>
                    <property name="text">
                     <string>Set a Custom Device Resolution</string>
                    </property>
@@ -4161,6 +4603,22 @@ Nugget is not responsible if you mess up your device, especially with resolution
                   </widget>
                  </item>
                  <item>
+                  <widget class="QLabel" name="skipSetupOnLbl">
+                   <property name="font">
+                    <font>
+                     <pointsize>-1</pointsize>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Note: Skip Setup is currently turned on.</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <spacer name="verticalSpacer_2">
                    <property name="orientation">
                     <enum>Qt::Vertical</enum>
@@ -4399,7 +4857,7 @@ Nugget is not responsible if you mess up your device, especially with resolution
                     <string>Allow Applying Over WiFi</string>
                    </property>
                    <property name="checked">
-                    <bool>true</bool>
+                    <bool>false</bool>
                    </property>
                   </widget>
                  </item>
@@ -4417,6 +4875,22 @@ Nugget is not responsible if you mess up your device, especially with resolution
                   <widget class="QCheckBox" name="showRiskyChk">
                    <property name="text">
                     <string>Show Risky Tweak Options</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="showAllSpoofableChk">
+                   <property name="toolTip">
+                    <string>Show models for other device types in the AI device spoofing tab.</string>
+                   </property>
+                   <property name="statusTip">
+                    <string/>
+                   </property>
+                   <property name="whatsThis">
+                    <string/>
+                   </property>
+                   <property name="text">
+                    <string>Show All Spoofable Models</string>
                    </property>
                   </widget>
                  </item>
