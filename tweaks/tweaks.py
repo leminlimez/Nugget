@@ -5,9 +5,9 @@ from .basic_plist_locations import FileLocation
     
 tweaks = {
     ## MobileGestalt Tweaks
-    "DynamicIsland": MobileGestaltPickerTweak("oPeik/9e8lQWMszEjbPzng", "ArtworkDeviceSubType", [2436, 2556, 2796, 2976, 2622, 2868]),
+    "DynamicIsland": MobileGestaltPickerTweak("oPeik/9e8lQWMszEjbPzng", subkey="ArtworkDeviceSubType", values=[2436, 2556, 2796, 2976, 2622, 2868]),
     "RdarFix": RdarFixTweak(),
-    "ModelName": MobileGestaltTweak("oPeik/9e8lQWMszEjbPzng", "ArtworkDeviceProductDescription", ""),
+    "ModelName": MobileGestaltTweak("oPeik/9e8lQWMszEjbPzng", subkey="ArtworkDeviceProductDescription", value=""),
     "BootChime": MobileGestaltTweak("QHxt+hGLaBPbQJbXiUJX3w"),
     "ChargeLimit": MobileGestaltTweak("37NVydb//GP/GrhuTN+exg"),
     "CollisionSOS": MobileGestaltTweak("HCzWusHQwZDea6nNhaKndw"),
