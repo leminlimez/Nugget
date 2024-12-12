@@ -3,7 +3,7 @@ Unlock your device's full potential!
 
 Sparserestore works on all versions iOS 17.0-18.2 developer beta 2. There is partial support for iOS 18.2 developer beta 3 and newer.
 
-**Mobilegestalt and AI Enabler tweaks are not supported for iOS 18.2.** It will never be supported, do not make issues asking for when it is supported.
+**Mobilegestalt and AI Enabler tweaks are not supported on iOS 18.2+.** It will never be supported, do not make issues asking for when it is supported.
 
 Make sure you have installed the [requirements](#requirements) if you are on Windows or Linux.
 
