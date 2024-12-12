@@ -323,6 +323,11 @@ class DeviceManager:
                 else:
                     if gestalt_plist != None:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
+                    elif tweak.enabled:
+                        # no mobilegestalt file provided but applying mga tweaks, give warning
+                        show_error_msg("No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.")
+                        update_label("Failed.")
+                        return
             # set the custom gestalt keys
             if gestalt_plist != None:
                 gestalt_plist = CustomGestaltTweaks.apply_tweaks(gestalt_plist)
