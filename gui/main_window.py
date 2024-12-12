@@ -18,7 +18,7 @@ from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
 
-App_Version = "4.2"
+App_Version = "4.2.1"
 App_Build = 0
 
 class Page(Enum):
@@ -906,12 +906,12 @@ class MainWindow(QtWidgets.QMainWindow):
     def update_bar(self, percent):
         self.ui.restoreProgressBar.setValue(int(percent))
     def on_removeTweaksBtn_clicked(self):
-        # TODO: Add safety here
+        # TODO: Add threading here
         self.device_manager.apply_changes(resetting=True, update_label=self.update_label)
     def on_resetGestaltBtn_clicked(self):
         self.device_manager.reset_mobilegestalt(self.settings, update_label=self.update_label)
 
     @QtCore.Slot()
     def on_applyTweaksBtn_clicked(self):
-        # TODO: Add safety here
+        # TODO: Add threading here
         self.device_manager.apply_changes(update_label=self.update_label)

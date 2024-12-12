@@ -314,7 +314,7 @@ class DeviceManager:
                 elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak) or isinstance(tweak, AdvancedPlistTweak):
                     basic_plists = tweak.apply_tweak(basic_plists, self.allow_risky_tweaks)
                     basic_plists_ownership[tweak.file_location] = tweak.owner
-                    if tweak.owner == 0:
+                    if tweak.enabled and tweak.owner == 0:
                         uses_domains = True
                 elif isinstance(tweak, NullifyFileTweak):
                     tweak.apply_tweak(files_data)
@@ -323,6 +323,11 @@ class DeviceManager:
                 else:
                     if gestalt_plist != None:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
+                    elif tweak.enabled:
+                        # no mobilegestalt file provided but applying mga tweaks, give warning
+                        show_error_msg("No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.")
+                        update_label("Failed.")
+                        return
             # set the custom gestalt keys
             if gestalt_plist != None:
                 gestalt_plist = CustomGestaltTweaks.apply_tweaks(gestalt_plist)
