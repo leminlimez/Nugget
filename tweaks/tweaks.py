@@ -1,5 +1,5 @@
 from devicemanagement.constants import Version
-from .tweak_classes import MobileGestaltTweak, MobileGestaltMultiTweak, MobileGestaltPickerTweak, FeatureFlagTweak, TweakModifyType, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
+from .tweak_classes import MobileGestaltTweak, MobileGestaltMultiTweak, MobileGestaltPickerTweak, FeatureFlagTweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
 from .eligibility_tweak import EligibilityTweak, AITweak
 from .basic_plist_locations import FileLocation
     
@@ -7,12 +7,12 @@ tweaks = {
     ## MobileGestalt Tweaks
     "DynamicIsland": MobileGestaltPickerTweak("oPeik/9e8lQWMszEjbPzng", "ArtworkDeviceSubType", [2436, 2556, 2796, 2976, 2622, 2868]),
     "RdarFix": RdarFixTweak(),
-    "ModelName": MobileGestaltTweak("oPeik/9e8lQWMszEjbPzng", "ArtworkDeviceProductDescription", "", TweakModifyType.TEXT),
+    "ModelName": MobileGestaltTweak("oPeik/9e8lQWMszEjbPzng", "ArtworkDeviceProductDescription", ""),
     "BootChime": MobileGestaltTweak("QHxt+hGLaBPbQJbXiUJX3w"),
     "ChargeLimit": MobileGestaltTweak("37NVydb//GP/GrhuTN+exg"),
     "CollisionSOS": MobileGestaltTweak("HCzWusHQwZDea6nNhaKndw"),
     "TapToWake": MobileGestaltTweak("yZf3GTRMGTuwSV/lD7Cagw"),
-    "CameraButton": MobileGestaltMultiTweak({"CwvKxM2cEogD3p+HYgaW0Q": 1, "oOV1jhJbdV3AddkcCg0AEA": 1}, min_version=Version("18.0")),
+    "CameraButton": MobileGestaltMultiTweak({"CwvKxM2cEogD3p+HYgaW0Q": 1, "oOV1jhJbdV3AddkcCg0AEA": 1}),
     "Parallax": MobileGestaltTweak("UIParallaxCapability", value=0),
     "StageManager": MobileGestaltTweak("qeaj75wk3HF4DwQ8qbIi7g", value=1),
     "Medusa": MobileGestaltMultiTweak({"mG0AnH/Vy1veoqoLRAIgTA": 1, "UCG5MkVahJxG1YULbbd5Bg": 1, "ZYqko/XM5zD3XBfN5RmaXA": 1, "nVh/gwNpy7Jv1NOk00CMrw": 1, "uKc7FPnEO++lVhHWHFlGbQ": 1}),
@@ -25,23 +25,20 @@ tweaks = {
     "InternalInstall": MobileGestaltTweak("EqrsVvjcYDdxHBiQmGhAWw"),
     "EUEnabler": EligibilityTweak(),
     "AOD": MobileGestaltMultiTweak(
-                            {"2OOJf1VhaM7NxfRok3HbWQ": 1, "j8/Omm6s1lsmTDFsXjsBfA": 1},
-                            min_version=Version("18.0")),
-    "AODVibrancy": MobileGestaltTweak("ykpu7qyhqFweVMKtxNylWA", min_version=Version("18.0")),
+                            {"2OOJf1VhaM7NxfRok3HbWQ": 1, "j8/Omm6s1lsmTDFsXjsBfA": 1}),
+    "AODVibrancy": MobileGestaltTweak("ykpu7qyhqFweVMKtxNylWA"),
 
     ## Feature Flag Tweaks
     "ClockAnim": FeatureFlagTweak(flag_category='SpringBoard',
-                     flag_names=['SwiftUITimeAnimation'],
-                     min_version=Version("18.0")),
+                     flag_names=['SwiftUITimeAnimation']),
     "Lockscreen": FeatureFlagTweak(flag_category="SpringBoard",
-                     flag_names=['AutobahnQuickSwitchTransition', 'SlipSwitch', 'PosterEditorKashida'],
-                     min_version=Version("18.0")),
-    "PhotoUI": FeatureFlagTweak(flag_category='Photos', flag_names=['Lemonade'], is_list=False, inverted=True, min_version=Version("18.0")),
-    "AI": FeatureFlagTweak(flag_category='SpringBoard', flag_names=['Domino', 'SuperDomino'], min_version=Version("18.1")),
+                     flag_names=['AutobahnQuickSwitchTransition', 'SlipSwitch', 'PosterEditorKashida']),
+    "PhotoUI": FeatureFlagTweak(flag_category='Photos', flag_names=['Lemonade'], is_list=False, inverted=True),
+    "AI": FeatureFlagTweak(flag_category='SpringBoard', flag_names=['Domino', 'SuperDomino']),
 
     ## AI Enabler
     "AIEligibility": AITweak(),
-    "AIGestalt": MobileGestaltTweak("A62OafQ85EJAiiqKn4agtg", min_version=Version("18.1")),
+    "AIGestalt": MobileGestaltTweak("A62OafQ85EJAiiqKn4agtg"),
     "SpoofModel": MobileGestaltPickerTweak("h9jDsbgj7xIVeIQ8S3/X3Q", values=[
         # Default
         "Placeholder", # 0 | Original
@@ -81,7 +78,7 @@ tweaks = {
         "iPad13,9", # 24 | iPad Pro (12.9-inch) (M1) (C)
         "iPad13,16", # 25 | iPad Air (M1) (W)
         "iPad13,17", # 26 | iPad Air (M1) (C)
-    ], min_version=Version("18.1")),
+    ]),
     "SpoofHardware": MobileGestaltPickerTweak("oYicEKzVTz4/CxxE05pEgQ", values=[
         # Default
         "Placeholder", # 0 | Original
@@ -121,7 +118,7 @@ tweaks = {
         "J522xAP", # 24 | iPad Pro (12.9-inch) (M1) (C)
         "J407AP", # 25 | iPad Air (M1) (W)
         "J408AP", # 26 | iPad Air (M1) (C)
-    ], min_version=Version("18.1")),
+    ]),
     "SpoofCPU": MobileGestaltPickerTweak("5pYKlGnYYBzGvAlIU8RjEQ", values=[
         # Default
         "Placeholder", # 0 | Original
@@ -161,13 +158,12 @@ tweaks = {
         "t8103", # 24 | iPad Pro (12.9-inch) (M1) (C)
         "t8103", # 25 | iPad Air (M1) (W)
         "t8103", # 26 | iPad Air (M1) (C)
-    ], min_version=Version("18.1")),
+    ]),
 
     ## Springboard Tweaks
     "LockScreenFootnote": BasicPlistTweak(
         FileLocation.footnote,
-        key="LockScreenFootnote", value="",
-        edit_type=TweakModifyType.TEXT
+        key="LockScreenFootnote", value=""
     ),
     "SBDontLockAfterCrash": BasicPlistTweak(
         FileLocation.springboard,
