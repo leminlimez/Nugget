@@ -156,7 +156,7 @@ QSlider::tick:horizontal {
     <bool>true</bool>
    </property>
    <property name="contextMenuPolicy">
-    <enum>Qt::NoContextMenu</enum>
+    <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
    </property>
    <property name="locale">
     <locale language="English" country="UnitedStates"/>
@@ -315,7 +315,7 @@ QSlider::tick:horizontal {
              <bool>false</bool>
             </property>
             <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonIconOnly</enum>
+             <enum>Qt::ToolButtonStyle::ToolButtonIconOnly</enum>
             </property>
             <property name="cls" stdset="0">
              <string>btn</string>
@@ -428,7 +428,7 @@ QSlider::tick:horizontal {
              <bool>true</bool>
             </property>
             <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
+             <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
             </property>
             <property name="cls" stdset="0">
              <string>sidebarBtn</string>
@@ -443,10 +443,10 @@ QSlider::tick:horizontal {
 }</string>
             </property>
             <property name="frameShadow">
-             <enum>QFrame::Plain</enum>
+             <enum>QFrame::Shadow::Plain</enum>
             </property>
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
            </widget>
           </item>
@@ -478,10 +478,10 @@ QSlider::tick:horizontal {
              <bool>true</bool>
             </property>
             <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
+             <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
             </property>
             <property name="arrowType">
-             <enum>Qt::NoArrow</enum>
+             <enum>Qt::ArrowType::NoArrow</enum>
             </property>
             <property name="cls" stdset="0">
              <string>sidebarBtn</string>
@@ -516,7 +516,7 @@ QSlider::tick:horizontal {
              <bool>true</bool>
             </property>
             <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
+             <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
             </property>
             <property name="cls" stdset="0">
              <string>sidebarBtn</string>
@@ -545,7 +545,7 @@ QSlider::tick:horizontal {
              <bool>true</bool>
             </property>
             <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
+             <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
             </property>
             <property name="cls" stdset="0">
              <string>sidebarBtn</string>
@@ -574,7 +574,7 @@ QSlider::tick:horizontal {
              <bool>true</bool>
             </property>
             <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
+             <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
             </property>
             <property name="cls" stdset="0">
              <string>sidebarBtn</string>
@@ -603,7 +603,7 @@ QSlider::tick:horizontal {
              <bool>true</bool>
             </property>
             <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
+             <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
             </property>
             <property name="cls" stdset="0">
              <string>sidebarBtn</string>
@@ -635,7 +635,7 @@ QSlider::tick:horizontal {
              <bool>true</bool>
             </property>
             <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
+             <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
             </property>
             <property name="cls" stdset="0">
              <string>sidebarBtn</string>
@@ -664,7 +664,7 @@ QSlider::tick:horizontal {
              <bool>true</bool>
             </property>
             <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
+             <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
             </property>
             <property name="cls" stdset="0">
              <string>sidebarBtn</string>
@@ -679,10 +679,10 @@ QSlider::tick:horizontal {
 }</string>
             </property>
             <property name="frameShadow">
-             <enum>QFrame::Plain</enum>
+             <enum>QFrame::Shadow::Plain</enum>
             </property>
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
            </widget>
           </item>
@@ -708,7 +708,7 @@ QSlider::tick:horizontal {
              <bool>true</bool>
             </property>
             <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
+             <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
             </property>
             <property name="cls" stdset="0">
              <string>sidebarBtn</string>
@@ -737,7 +737,7 @@ QSlider::tick:horizontal {
              <bool>true</bool>
             </property>
             <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
+             <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
             </property>
             <property name="cls" stdset="0">
              <string>sidebarBtn</string>
@@ -747,7 +747,7 @@ QSlider::tick:horizontal {
           <item>
            <spacer name="verticalSpacer">
             <property name="orientation">
-             <enum>Qt::Vertical</enum>
+             <enum>Qt::Orientation::Vertical</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -787,7 +787,7 @@ QSlider::tick:horizontal {
           <item>
            <widget class="QStackedWidget" name="pages">
             <property name="currentIndex">
-             <number>0</number>
+             <number>6</number>
             </property>
             <widget class="QWidget" name="homePage">
              <property name="font">
@@ -886,7 +886,7 @@ QSlider::tick:horizontal {
                        <string>&lt;a style=&quot;text-decoration:none; color: white&quot; href=&quot;#&quot;&gt;Version&lt;/a&gt;</string>
                       </property>
                       <property name="textFormat">
-                       <enum>Qt::RichText</enum>
+                       <enum>Qt::TextFormat::RichText</enum>
                       </property>
                       <property name="openExternalLinks">
                        <bool>false</bool>
@@ -899,7 +899,7 @@ QSlider::tick:horizontal {
                  <item>
                   <spacer name="horizontalSpacer_3">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -920,10 +920,10 @@ QSlider::tick:horizontal {
 }</string>
                 </property>
                 <property name="frameShadow">
-                 <enum>QFrame::Plain</enum>
+                 <enum>QFrame::Shadow::Plain</enum>
                 </property>
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                </widget>
               </item>
@@ -948,7 +948,7 @@ QSlider::tick:horizontal {
                  <item>
                   <spacer name="horizontalSpacer_2">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -999,7 +999,7 @@ QSlider::tick:horizontal {
                     <item>
                      <spacer name="verticalSpacer_11">
                       <property name="orientation">
-                       <enum>Qt::Vertical</enum>
+                       <enum>Qt::Orientation::Vertical</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -1026,14 +1026,14 @@ QSlider::tick:horizontal {
                        <string>Nugget</string>
                       </property>
                       <property name="alignment">
-                       <set>Qt::AlignCenter</set>
+                       <set>Qt::AlignmentFlag::AlignCenter</set>
                       </property>
                      </widget>
                     </item>
                     <item>
                      <spacer name="verticalSpacer_12">
                       <property name="orientation">
-                       <enum>Qt::Vertical</enum>
+                       <enum>Qt::Orientation::Vertical</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -1061,7 +1061,7 @@ QSlider::tick:horizontal {
                           <normaloff>:/icon/discord.svg</normaloff>:/icon/discord.svg</iconset>
                         </property>
                         <property name="toolButtonStyle">
-                         <enum>Qt::ToolButtonTextBesideIcon</enum>
+                         <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
                         </property>
                        </widget>
                       </item>
@@ -1075,7 +1075,7 @@ QSlider::tick:horizontal {
                           <normaloff>:/icon/star.svg</normaloff>:/icon/star.svg</iconset>
                         </property>
                         <property name="toolButtonStyle">
-                         <enum>Qt::ToolButtonTextBesideIcon</enum>
+                         <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
                         </property>
                        </widget>
                       </item>
@@ -1084,7 +1084,7 @@ QSlider::tick:horizontal {
                     <item>
                      <spacer name="verticalSpacer_4">
                       <property name="orientation">
-                       <enum>Qt::Vertical</enum>
+                       <enum>Qt::Orientation::Vertical</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -1100,7 +1100,7 @@ QSlider::tick:horizontal {
                  <item>
                   <spacer name="horizontalSpacer_12">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -1179,7 +1179,7 @@ QSlider::tick:horizontal {
                         <normaloff>:/credits/LeminLimez.png</normaloff>:/credits/LeminLimez.png</iconset>
                       </property>
                       <property name="toolButtonStyle">
-                       <enum>Qt::ToolButtonTextBesideIcon</enum>
+                       <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
                       </property>
                      </widget>
                     </item>
@@ -1259,10 +1259,10 @@ QToolButton:pressed {
                     <item>
                      <spacer name="horizontalSpacer">
                       <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
+                       <enum>Qt::Orientation::Horizontal</enum>
                       </property>
                       <property name="sizeType">
-                       <enum>QSizePolicy::Fixed</enum>
+                       <enum>QSizePolicy::Policy::Fixed</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -1296,10 +1296,10 @@ QToolButton:pressed {
                     <item>
                      <spacer name="horizontalSpacer_5">
                       <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
+                       <enum>Qt::Orientation::Horizontal</enum>
                       </property>
                       <property name="sizeType">
-                       <enum>QSizePolicy::Expanding</enum>
+                       <enum>QSizePolicy::Policy::Expanding</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -1315,10 +1315,10 @@ QToolButton:pressed {
                  <item>
                   <spacer name="verticalSpacer_16">
                    <property name="orientation">
-                    <enum>Qt::Vertical</enum>
+                    <enum>Qt::Orientation::Vertical</enum>
                    </property>
                    <property name="sizeType">
-                    <enum>QSizePolicy::Fixed</enum>
+                    <enum>QSizePolicy::Policy::Fixed</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -1366,7 +1366,7 @@ QToolButton:pressed {
                        <string>With Help From</string>
                       </property>
                       <property name="toolButtonStyle">
-                       <enum>Qt::ToolButtonTextBesideIcon</enum>
+                       <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
                       </property>
                      </widget>
                     </item>
@@ -1577,7 +1577,7 @@ QToolButton:pressed {
                  <string>Nugget GUI - Version %VERSION %BETATAG</string>
                 </property>
                 <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                </widget>
               </item>
@@ -1669,10 +1669,10 @@ QToolButton:pressed {
                     <item>
                      <spacer name="verticalSpacer_8">
                       <property name="orientation">
-                       <enum>Qt::Vertical</enum>
+                       <enum>Qt::Orientation::Vertical</enum>
                       </property>
                       <property name="sizeType">
-                       <enum>QSizePolicy::Fixed</enum>
+                       <enum>QSizePolicy::Policy::Fixed</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -1688,7 +1688,7 @@ QToolButton:pressed {
                  <item>
                   <spacer name="horizontalSpacer_4">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -1709,10 +1709,10 @@ QToolButton:pressed {
 }</string>
                 </property>
                 <property name="frameShadow">
-                 <enum>QFrame::Plain</enum>
+                 <enum>QFrame::Shadow::Plain</enum>
                 </property>
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                </widget>
               </item>
@@ -1732,16 +1732,16 @@ QToolButton:pressed {
               <item>
                <widget class="QScrollArea" name="scrollArea">
                 <property name="frameShape">
-                 <enum>QFrame::NoFrame</enum>
+                 <enum>QFrame::Shape::NoFrame</enum>
                 </property>
                 <property name="frameShadow">
-                 <enum>QFrame::Plain</enum>
+                 <enum>QFrame::Shadow::Plain</enum>
                 </property>
                 <property name="lineWidth">
                  <number>0</number>
                 </property>
                 <property name="horizontalScrollBarPolicy">
-                 <enum>Qt::ScrollBarAlwaysOff</enum>
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
                 </property>
                 <widget class="QWidget" name="scrollAreaWidgetContents">
                  <property name="geometry">
@@ -1980,10 +1980,10 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
 }</string>
                        </property>
                        <property name="frameShadow">
-                        <enum>QFrame::Plain</enum>
+                        <enum>QFrame::Shadow::Plain</enum>
                        </property>
                        <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
+                        <enum>Qt::Orientation::Horizontal</enum>
                        </property>
                       </widget>
                      </item>
@@ -2047,10 +2047,10 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
 }</string>
                        </property>
                        <property name="frameShadow">
-                        <enum>QFrame::Plain</enum>
+                        <enum>QFrame::Shadow::Plain</enum>
                        </property>
                        <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
+                        <enum>Qt::Orientation::Horizontal</enum>
                        </property>
                       </widget>
                      </item>
@@ -2086,10 +2086,10 @@ Note: OTA updates will be broken until this is disabled.</string>
 }</string>
                        </property>
                        <property name="frameShadow">
-                        <enum>QFrame::Plain</enum>
+                        <enum>QFrame::Shadow::Plain</enum>
                        </property>
                        <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
+                        <enum>Qt::Orientation::Horizontal</enum>
                        </property>
                       </widget>
                      </item>
@@ -2131,10 +2131,10 @@ Note: OTA updates will be broken until this is disabled.</string>
 }</string>
                        </property>
                        <property name="frameShadow">
-                        <enum>QFrame::Plain</enum>
+                        <enum>QFrame::Shadow::Plain</enum>
                        </property>
                        <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
+                        <enum>Qt::Orientation::Horizontal</enum>
                        </property>
                       </widget>
                      </item>
@@ -2169,7 +2169,7 @@ Note: OTA updates will be broken until this is disabled.</string>
                           <bool>false</bool>
                          </property>
                          <property name="toolButtonStyle">
-                          <enum>Qt::ToolButtonTextBesideIcon</enum>
+                          <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
                          </property>
                         </widget>
                        </item>
@@ -2191,10 +2191,10 @@ what you are doing.</string>
 }</string>
                        </property>
                        <property name="frameShadow">
-                        <enum>QFrame::Plain</enum>
+                        <enum>QFrame::Shadow::Plain</enum>
                        </property>
                        <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
+                        <enum>Qt::Orientation::Horizontal</enum>
                        </property>
                       </widget>
                      </item>
@@ -2213,7 +2213,7 @@ what you are doing.</string>
                      <item>
                       <spacer name="verticalSpacer_3">
                        <property name="orientation">
-                        <enum>Qt::Vertical</enum>
+                        <enum>Qt::Orientation::Vertical</enum>
                        </property>
                        <property name="sizeHint" stdset="0">
                         <size>
@@ -2318,10 +2318,10 @@ what you are doing.</string>
                     <item>
                      <spacer name="verticalSpacer_15">
                       <property name="orientation">
-                       <enum>Qt::Vertical</enum>
+                       <enum>Qt::Orientation::Vertical</enum>
                       </property>
                       <property name="sizeType">
-                       <enum>QSizePolicy::Fixed</enum>
+                       <enum>QSizePolicy::Policy::Fixed</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -2337,7 +2337,7 @@ what you are doing.</string>
                  <item>
                   <spacer name="horizontalSpacer_7">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -2358,10 +2358,10 @@ what you are doing.</string>
 }</string>
                 </property>
                 <property name="frameShadow">
-                 <enum>QFrame::Plain</enum>
+                 <enum>QFrame::Shadow::Plain</enum>
                 </property>
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                </widget>
               </item>
@@ -2415,10 +2415,10 @@ Enables quickly switching lock screens by holding down and swiping.</string>
 }</string>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
+                    <enum>QFrame::Shadow::Plain</enum>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -2449,7 +2449,7 @@ Only works on iOS 18.0 beta 1-2.</string>
                  <item>
                   <spacer name="verticalSpacer_6">
                    <property name="orientation">
-                    <enum>Qt::Vertical</enum>
+                    <enum>Qt::Orientation::Vertical</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -2550,10 +2550,10 @@ Only works on iOS 18.0 beta 1-2.</string>
                     <item>
                      <spacer name="verticalSpacer_20">
                       <property name="orientation">
-                       <enum>Qt::Vertical</enum>
+                       <enum>Qt::Orientation::Vertical</enum>
                       </property>
                       <property name="sizeType">
-                       <enum>QSizePolicy::Fixed</enum>
+                       <enum>QSizePolicy::Policy::Fixed</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -2569,7 +2569,7 @@ Only works on iOS 18.0 beta 1-2.</string>
                  <item>
                   <spacer name="horizontalSpacer_8">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -2590,23 +2590,23 @@ Only works on iOS 18.0 beta 1-2.</string>
 }</string>
                 </property>
                 <property name="frameShadow">
-                 <enum>QFrame::Plain</enum>
+                 <enum>QFrame::Shadow::Plain</enum>
                 </property>
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QScrollArea" name="scrollArea_2">
                 <property name="verticalScrollBarPolicy">
-                 <enum>Qt::ScrollBarAsNeeded</enum>
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
                 </property>
                 <property name="horizontalScrollBarPolicy">
-                 <enum>Qt::ScrollBarAlwaysOff</enum>
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
                 </property>
                 <property name="sizeAdjustPolicy">
-                 <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                 <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustIgnored</enum>
                 </property>
                 <property name="widgetResizable">
                  <bool>true</bool>
@@ -2616,8 +2616,8 @@ Only works on iOS 18.0 beta 1-2.</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>660</width>
-                   <height>573</height>
+                   <width>682</width>
+                   <height>584</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_37">
@@ -2747,10 +2747,10 @@ QComboBox QAbstractItemView::item:hover {
 }</string>
                           </property>
                           <property name="frameShadow">
-                           <enum>QFrame::Plain</enum>
+                           <enum>QFrame::Shadow::Plain</enum>
                           </property>
                           <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
+                           <enum>Qt::Orientation::Horizontal</enum>
                           </property>
                          </widget>
                         </item>
@@ -2821,10 +2821,10 @@ QComboBox QAbstractItemView::item:hover {
 }</string>
                           </property>
                           <property name="frameShadow">
-                           <enum>QFrame::Plain</enum>
+                           <enum>QFrame::Shadow::Plain</enum>
                           </property>
                           <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
+                           <enum>Qt::Orientation::Horizontal</enum>
                           </property>
                          </widget>
                         </item>
@@ -2854,7 +2854,7 @@ to the iPhone 15 Pro series, a re-download may also occur.
 Please be careful!</string>
                           </property>
                           <property name="textFormat">
-                           <enum>Qt::AutoText</enum>
+                           <enum>Qt::TextFormat::AutoText</enum>
                           </property>
                           <property name="scaledContents">
                            <bool>false</bool>
@@ -3085,7 +3085,7 @@ QComboBox QAbstractItemView::item:hover {
                      <item>
                       <spacer name="verticalSpacer_7">
                        <property name="orientation">
-                        <enum>Qt::Vertical</enum>
+                        <enum>Qt::Orientation::Vertical</enum>
                        </property>
                        <property name="sizeHint" stdset="0">
                         <size>
@@ -3190,10 +3190,10 @@ QComboBox QAbstractItemView::item:hover {
                     <item>
                      <spacer name="verticalSpacer_19">
                       <property name="orientation">
-                       <enum>Qt::Vertical</enum>
+                       <enum>Qt::Orientation::Vertical</enum>
                       </property>
                       <property name="sizeType">
-                       <enum>QSizePolicy::Fixed</enum>
+                       <enum>QSizePolicy::Policy::Fixed</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -3209,7 +3209,7 @@ QComboBox QAbstractItemView::item:hover {
                  <item>
                   <spacer name="horizontalSpacer_6">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -3230,10 +3230,10 @@ QComboBox QAbstractItemView::item:hover {
 }</string>
                 </property>
                 <property name="frameShadow">
-                 <enum>QFrame::Plain</enum>
+                 <enum>QFrame::Shadow::Plain</enum>
                 </property>
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                </widget>
               </item>
@@ -3283,10 +3283,10 @@ QComboBox QAbstractItemView::item:hover {
 }</string>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
+                    <enum>QFrame::Shadow::Plain</enum>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -3341,7 +3341,7 @@ QComboBox QAbstractItemView::item:hover {
                  <item>
                   <spacer name="verticalSpacer_5">
                    <property name="orientation">
-                    <enum>Qt::Vertical</enum>
+                    <enum>Qt::Orientation::Vertical</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -3442,10 +3442,10 @@ QComboBox QAbstractItemView::item:hover {
                     <item>
                      <spacer name="verticalSpacer_18">
                       <property name="orientation">
-                       <enum>Qt::Vertical</enum>
+                       <enum>Qt::Orientation::Vertical</enum>
                       </property>
                       <property name="sizeType">
-                       <enum>QSizePolicy::Fixed</enum>
+                       <enum>QSizePolicy::Policy::Fixed</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -3461,7 +3461,7 @@ QComboBox QAbstractItemView::item:hover {
                  <item>
                   <spacer name="horizontalSpacer_7">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -3482,10 +3482,10 @@ QComboBox QAbstractItemView::item:hover {
 }</string>
                 </property>
                 <property name="frameShadow">
-                 <enum>QFrame::Plain</enum>
+                 <enum>QFrame::Shadow::Plain</enum>
                 </property>
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                </widget>
               </item>
@@ -3532,10 +3532,10 @@ QComboBox QAbstractItemView::item:hover {
 }</string>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
+                    <enum>QFrame::Shadow::Plain</enum>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -3575,10 +3575,10 @@ QComboBox QAbstractItemView::item:hover {
 }</string>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
+                    <enum>QFrame::Shadow::Plain</enum>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -3604,10 +3604,10 @@ QComboBox QAbstractItemView::item:hover {
 }</string>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
+                    <enum>QFrame::Shadow::Plain</enum>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -3640,10 +3640,10 @@ QComboBox QAbstractItemView::item:hover {
 }</string>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
+                    <enum>QFrame::Shadow::Plain</enum>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -3664,7 +3664,7 @@ QComboBox QAbstractItemView::item:hover {
                  <item>
                   <spacer name="verticalSpacer_6">
                    <property name="orientation">
-                    <enum>Qt::Vertical</enum>
+                    <enum>Qt::Orientation::Vertical</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -3775,7 +3775,7 @@ QComboBox QAbstractItemView::item:hover {
                  <item>
                   <spacer name="horizontalSpacer_7">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -3796,10 +3796,10 @@ QComboBox QAbstractItemView::item:hover {
 }</string>
                 </property>
                 <property name="frameShadow">
-                 <enum>QFrame::Plain</enum>
+                 <enum>QFrame::Shadow::Plain</enum>
                 </property>
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                </widget>
               </item>
@@ -3836,6 +3836,16 @@ it enabled.</string>
                    </property>
                    <property name="text">
                     <string>Disable OTA</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="accessoryupdateChk">
+                   <property name="toolTip">
+                    <string>Prevent firmware upgrade for accessories such as AirPods.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable Accessory Updater</string>
                    </property>
                   </widget>
                  </item>
@@ -3899,10 +3909,10 @@ To work properly, also disable the daemon using the toggle above.</string>
 }</string>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
+                    <enum>QFrame::Shadow::Plain</enum>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -3957,9 +3967,19 @@ To work properly, also disable the daemon using the toggle above.</string>
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="spotlightKnowledgedChk">
+                   <property name="toolTip">
+                    <string>Disable for improved battery life. Does not affect Spotlight searches.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable spotlightknowledged</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <spacer name="verticalSpacer_6">
                    <property name="orientation">
-                    <enum>Qt::Vertical</enum>
+                    <enum>Qt::Orientation::Vertical</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -4060,10 +4080,10 @@ To work properly, also disable the daemon using the toggle above.</string>
                     <item>
                      <spacer name="verticalSpacer_18">
                       <property name="orientation">
-                       <enum>Qt::Vertical</enum>
+                       <enum>Qt::Orientation::Vertical</enum>
                       </property>
                       <property name="sizeType">
-                       <enum>QSizePolicy::Fixed</enum>
+                       <enum>QSizePolicy::Policy::Fixed</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -4079,7 +4099,7 @@ To work properly, also disable the daemon using the toggle above.</string>
                  <item>
                   <spacer name="horizontalSpacer_7">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -4100,10 +4120,10 @@ To work properly, also disable the daemon using the toggle above.</string>
 }</string>
                 </property>
                 <property name="frameShadow">
-                 <enum>QFrame::Plain</enum>
+                 <enum>QFrame::Shadow::Plain</enum>
                 </property>
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                </widget>
               </item>
@@ -4145,10 +4165,10 @@ Nugget is not responsible if you mess up your device, especially with resolution
 }</string>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
+                    <enum>QFrame::Shadow::Plain</enum>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -4182,10 +4202,10 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
 }</string>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
+                    <enum>QFrame::Shadow::Plain</enum>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -4258,10 +4278,10 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
 }</string>
                         </property>
                         <property name="frameShape">
-                         <enum>QFrame::NoFrame</enum>
+                         <enum>QFrame::Shape::NoFrame</enum>
                         </property>
                         <property name="frameShadow">
-                         <enum>QFrame::Plain</enum>
+                         <enum>QFrame::Shadow::Plain</enum>
                         </property>
                         <property name="text">
                          <string>!</string>
@@ -4270,7 +4290,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                          <bool>false</bool>
                         </property>
                         <property name="alignment">
-                         <set>Qt::AlignCenter</set>
+                         <set>Qt::AlignmentFlag::AlignCenter</set>
                         </property>
                        </widget>
                       </item>
@@ -4319,7 +4339,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                            <string>!</string>
                           </property>
                           <property name="alignment">
-                           <set>Qt::AlignCenter</set>
+                           <set>Qt::AlignmentFlag::AlignCenter</set>
                           </property>
                          </widget>
                         </item>
@@ -4333,7 +4353,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                  <item>
                   <spacer name="verticalSpacer_6">
                    <property name="orientation">
-                    <enum>Qt::Vertical</enum>
+                    <enum>Qt::Orientation::Vertical</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -4453,7 +4473,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     <item>
                      <spacer name="horizontalSpacer_15">
                       <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
+                       <enum>Qt::Orientation::Horizontal</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -4474,17 +4494,17 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
 }</string>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
+                    <enum>QFrame::Shadow::Plain</enum>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
                  <item>
                   <spacer name="verticalSpacer_10">
                    <property name="orientation">
-                    <enum>Qt::Vertical</enum>
+                    <enum>Qt::Orientation::Vertical</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -4500,7 +4520,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     <string>Current gestalt file location:</string>
                    </property>
                    <property name="alignment">
-                    <set>Qt::AlignCenter</set>
+                    <set>Qt::AlignmentFlag::AlignCenter</set>
                    </property>
                   </widget>
                  </item>
@@ -4510,7 +4530,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     <string>None</string>
                    </property>
                    <property name="alignment">
-                    <set>Qt::AlignCenter</set>
+                    <set>Qt::AlignmentFlag::AlignCenter</set>
                    </property>
                   </widget>
                  </item>
@@ -4532,7 +4552,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                        <normaloff>:/icon/folder.svg</normaloff>:/icon/folder.svg</iconset>
                      </property>
                      <property name="toolButtonStyle">
-                      <enum>Qt::ToolButtonTextBesideIcon</enum>
+                      <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
                      </property>
                     </widget>
                    </item>
@@ -4563,7 +4583,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                         <normaloff>:/icon/check-circle.svg</normaloff>:/icon/check-circle.svg</iconset>
                       </property>
                       <property name="toolButtonStyle">
-                       <enum>Qt::ToolButtonTextBesideIcon</enum>
+                       <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
                       </property>
                      </widget>
                     </item>
@@ -4576,11 +4596,11 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     <string>Ready!</string>
                    </property>
                    <property name="alignment">
-                    <set>Qt::AlignCenter</set>
+                    <set>Qt::AlignmentFlag::AlignCenter</set>
                    </property>
                   </widget>
                  </item>
-                 <item alignment="Qt::AlignHCenter">
+                 <item>
                   <widget class="QProgressBar" name="restoreProgressBar">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -4598,7 +4618,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     <number>0</number>
                    </property>
                    <property name="alignment">
-                    <set>Qt::AlignCenter</set>
+                    <set>Qt::AlignmentFlag::AlignCenter</set>
                    </property>
                   </widget>
                  </item>
@@ -4614,14 +4634,14 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     <string>Note: Skip Setup is currently turned on.</string>
                    </property>
                    <property name="alignment">
-                    <set>Qt::AlignCenter</set>
+                    <set>Qt::AlignmentFlag::AlignCenter</set>
                    </property>
                   </widget>
                  </item>
                  <item>
                   <spacer name="verticalSpacer_2">
                    <property name="orientation">
-                    <enum>Qt::Vertical</enum>
+                    <enum>Qt::Orientation::Vertical</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -4649,7 +4669,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     <item>
                      <spacer name="horizontalSpacer_14">
                       <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
+                       <enum>Qt::Orientation::Horizontal</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -4676,7 +4696,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     <item>
                      <spacer name="horizontalSpacer_16">
                       <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
+                       <enum>Qt::Orientation::Horizontal</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -4780,10 +4800,10 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     <item>
                      <spacer name="verticalSpacer_17">
                       <property name="orientation">
-                       <enum>Qt::Vertical</enum>
+                       <enum>Qt::Orientation::Vertical</enum>
                       </property>
                       <property name="sizeType">
-                       <enum>QSizePolicy::Fixed</enum>
+                       <enum>QSizePolicy::Policy::Fixed</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -4799,7 +4819,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                  <item>
                   <spacer name="horizontalSpacer_6">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -4820,10 +4840,10 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
 }</string>
                 </property>
                 <property name="frameShadow">
-                 <enum>QFrame::Plain</enum>
+                 <enum>QFrame::Shadow::Plain</enum>
                 </property>
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                </widget>
               </item>
@@ -4902,10 +4922,10 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
 }</string>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
+                    <enum>QFrame::Shadow::Plain</enum>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -4942,10 +4962,10 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                  <item>
                   <spacer name="verticalSpacer_21">
                    <property name="orientation">
-                    <enum>Qt::Vertical</enum>
+                    <enum>Qt::Orientation::Vertical</enum>
                    </property>
                    <property name="sizeType">
-                    <enum>QSizePolicy::Fixed</enum>
+                    <enum>QSizePolicy::Policy::Fixed</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -4970,10 +4990,10 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
 }</string>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
+                    <enum>QFrame::Shadow::Plain</enum>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -4994,7 +5014,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                  <item>
                   <spacer name="verticalSpacer_5">
                    <property name="orientation">
-                    <enum>Qt::Vertical</enum>
+                    <enum>Qt::Orientation::Vertical</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -5099,7 +5119,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                  <item>
                   <spacer name="horizontalSpacer_11">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -5127,17 +5147,17 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
 }</string>
                 </property>
                 <property name="frameShadow">
-                 <enum>QFrame::Plain</enum>
+                 <enum>QFrame::Shadow::Plain</enum>
                 </property>
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                </widget>
               </item>
               <item>
                <spacer name="verticalSpacer_14">
                 <property name="orientation">
-                 <enum>Qt::Vertical</enum>
+                 <enum>Qt::Orientation::Vertical</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -5183,14 +5203,14 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                        <string>Latitude</string>
                       </property>
                       <property name="alignment">
-                       <set>Qt::AlignCenter</set>
+                       <set>Qt::AlignmentFlag::AlignCenter</set>
                       </property>
                      </widget>
                     </item>
                     <item>
                      <widget class="QLineEdit" name="latitudeTxt">
                       <property name="alignment">
-                       <set>Qt::AlignCenter</set>
+                       <set>Qt::AlignmentFlag::AlignCenter</set>
                       </property>
                       <property name="placeholderText">
                        <string>XXX.XXXXX</string>
@@ -5203,14 +5223,14 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                        <string>Longitude</string>
                       </property>
                       <property name="alignment">
-                       <set>Qt::AlignCenter</set>
+                       <set>Qt::AlignmentFlag::AlignCenter</set>
                       </property>
                      </widget>
                     </item>
                     <item>
                      <widget class="QLineEdit" name="longitudeTxt">
                       <property name="alignment">
-                       <set>Qt::AlignCenter</set>
+                       <set>Qt::AlignmentFlag::AlignCenter</set>
                       </property>
                       <property name="placeholderText">
                        <string>XXX.XXXXX</string>
@@ -5276,7 +5296,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
               <item>
                <spacer name="verticalSpacer_13">
                 <property name="orientation">
-                 <enum>Qt::Vertical</enum>
+                 <enum>Qt::Orientation::Vertical</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -5390,7 +5410,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                  <item>
                   <spacer name="horizontalSpacer_9">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -5411,10 +5431,10 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
 }</string>
                 </property>
                 <property name="frameShadow">
-                 <enum>QFrame::Plain</enum>
+                 <enum>QFrame::Shadow::Plain</enum>
                 </property>
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                </widget>
               </item>
@@ -5439,7 +5459,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                  <item>
                   <layout class="QHBoxLayout" name="customOpsTopBtns">
                    <property name="spacing">
-                    <number>-1</number>
+                    <number>7</number>
                    </property>
                    <property name="bottomMargin">
                     <number>0</number>
@@ -5447,7 +5467,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                    <item>
                     <spacer name="horizontalSpacer_17">
                      <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
+                      <enum>Qt::Orientation::Horizontal</enum>
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
@@ -5457,7 +5477,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                      </property>
                     </spacer>
                    </item>
-                   <item alignment="Qt::AlignLeft">
+                   <item>
                     <widget class="QToolButton" name="importOperationBtn">
                      <property name="enabled">
                       <bool>true</bool>
@@ -5476,11 +5496,11 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                       </size>
                      </property>
                      <property name="toolButtonStyle">
-                      <enum>Qt::ToolButtonTextBesideIcon</enum>
+                      <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
                      </property>
                     </widget>
                    </item>
-                   <item alignment="Qt::AlignLeft">
+                   <item>
                     <widget class="QToolButton" name="newOperationBtn">
                      <property name="enabled">
                       <bool>true</bool>
@@ -5517,7 +5537,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                       <bool>true</bool>
                      </property>
                      <property name="toolButtonStyle">
-                      <enum>Qt::ToolButtonTextBesideIcon</enum>
+                      <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
                      </property>
                     </widget>
                    </item>
@@ -5631,7 +5651,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                  <item>
                   <spacer name="horizontalSpacer_13">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -5652,10 +5672,10 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
 }</string>
                 </property>
                 <property name="frameShadow">
-                 <enum>QFrame::Plain</enum>
+                 <enum>QFrame::Shadow::Plain</enum>
                 </property>
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                </widget>
               </item>
@@ -5766,7 +5786,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                  <item>
                   <spacer name="horizontalSpacer_10">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -5842,10 +5862,10 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
 }</string>
                 </property>
                 <property name="frameShadow">
-                 <enum>QFrame::Plain</enum>
+                 <enum>QFrame::Shadow::Plain</enum>
                 </property>
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                </widget>
               </item>
@@ -5878,10 +5898,10 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
 }</string>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
+                    <enum>QFrame::Shadow::Plain</enum>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -5898,7 +5918,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                  <item>
                   <spacer name="verticalSpacer_9">
                    <property name="orientation">
-                    <enum>Qt::Vertical</enum>
+                    <enum>Qt::Orientation::Vertical</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>

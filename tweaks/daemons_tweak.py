@@ -40,3 +40,9 @@ class Daemon(Enum):
     VPN = ["com.apple.racoon"]
     ChineseLAN = ["com.apple.wapic"]
     HealthKit = ["com.apple.healthd"]
+    SpotlightKnowledged = ["com.apple.spotlightknowledged"]
+    AccessoryUpdate = [
+        "com.apple.accessoryupdater",
+        "com.apple.UARPUpdaterServiceLegacyAudio",
+        "com.apple.MobileAccessoryUpdater"
+    ]
