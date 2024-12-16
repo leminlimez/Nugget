@@ -3840,6 +3840,16 @@ it enabled.</string>
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="accessoryupdateChk">
+                   <property name="toolTip">
+                    <string>Prevent firmware upgrade for accessories such as AirPods.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable Accessory Updater</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="usageTrackingAgentChk">
                    <property name="toolTip">
                     <string>Disables usage tracking for improved privacy.</string>
@@ -3953,6 +3963,16 @@ To work properly, also disable the daemon using the toggle above.</string>
                    </property>
                    <property name="text">
                     <string>Disable HealthKit</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="spotlightKnowledgedChk">
+                   <property name="toolTip">
+                    <string>Disable for improved battery life. Does not affect Spotlight searches.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable spotlightknowledged</string>
                    </property>
                   </widget>
                  </item>

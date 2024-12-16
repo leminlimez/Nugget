@@ -2016,6 +2016,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_132.addWidget(self.otadChk)
 
+        self.accessoryupdateChk = QCheckBox(self.daemonsPageContent)
+        self.accessoryupdateChk.setObjectName(u"accessoryupdateChk")
+
+        self.verticalLayout_132.addWidget(self.accessoryupdateChk)
+
         self.usageTrackingAgentChk = QCheckBox(self.daemonsPageContent)
         self.usageTrackingAgentChk.setObjectName(u"usageTrackingAgentChk")
 
@@ -2075,6 +2080,11 @@ class Ui_Nugget(object):
         self.healthdChk.setObjectName(u"healthdChk")
 
         self.verticalLayout_132.addWidget(self.healthdChk)
+
+        self.spotlightKnowledgedChk = QCheckBox(self.daemonsPageContent)
+        self.spotlightKnowledgedChk.setObjectName(u"spotlightKnowledgedChk")
+
+        self.verticalLayout_132.addWidget(self.spotlightKnowledgedChk)
 
         self.verticalSpacer_62 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -3367,6 +3377,10 @@ class Ui_Nugget(object):
 #endif // QT_CONFIG(tooltip)
         self.otadChk.setText(QCoreApplication.translate("Nugget", u"Disable OTA", None))
 #if QT_CONFIG(tooltip)
+        self.accessoryupdateChk.setToolTip(QCoreApplication.translate("Nugget", u"Prevent firmware upgrade for accessories such as AirPods.", None))
+#endif // QT_CONFIG(tooltip)
+        self.accessoryupdateChk.setText(QCoreApplication.translate("Nugget", u"Disable Accessory Updater", None))
+#if QT_CONFIG(tooltip)
         self.usageTrackingAgentChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables usage tracking for improved privacy.", None))
 #endif // QT_CONFIG(tooltip)
         self.usageTrackingAgentChk.setText(QCoreApplication.translate("Nugget", u"Disable UsageTrackingAgent", None))
@@ -3408,6 +3422,10 @@ class Ui_Nugget(object):
         self.healthdChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables HealthKit services used by the health app.", None))
 #endif // QT_CONFIG(tooltip)
         self.healthdChk.setText(QCoreApplication.translate("Nugget", u"Disable HealthKit", None))
+#if QT_CONFIG(tooltip)
+        self.spotlightKnowledgedChk.setToolTip(QCoreApplication.translate("Nugget", u"Disable for improved battery life. Does not affect Spotlight searches.", None))
+#endif // QT_CONFIG(tooltip)
+        self.spotlightKnowledgedChk.setText(QCoreApplication.translate("Nugget", u"Disable spotlightknowledged", None))
         self.advancedOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Risky Options", None))
         self.label_17.setText(QCoreApplication.translate("Nugget", u"Disclaimer:\n"
 "\n"

@@ -145,6 +145,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.vpndChk.toggled.connect(self.on_vpndChk_clicked)
         self.ui.wapicChk.toggled.connect(self.on_wapicChk_clicked)
         self.ui.healthdChk.toggled.connect(self.on_healthdChk_clicked)
+        self.ui.spotlightKnowledgedChk.toggled.connect(self.on_spotlightKnowledgedChk_clicked)
+        self.ui.accessoryupdateChk.toggled.connect(self.on_accessoryupdateChk_clicked)
 
         ## RISKY OPTIONS PAGE ACTIONS
         self.ui.disableOTAChk.toggled.connect(self.on_disableOTAChk_clicked)
@@ -778,6 +780,10 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["Daemons"].set_multiple_values(Daemon.ChineseLAN.value, value=checked)
     def on_healthdChk_clicked(self, checked: bool):
         tweaks["Daemons"].set_multiple_values(Daemon.HealthKit.value, value=checked)
+    def on_spotlightKnowledgedChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.SpotlightKnowledged.value, value=checked)
+    def on_accessoryupdateChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.AccessoryUpdate.value, value=checked)
 
     ## Risky Options Page
     def on_disableOTAChk_clicked(self, checked: bool):
