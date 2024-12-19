@@ -2076,6 +2076,51 @@ class Ui_Nugget(object):
 
         self.verticalLayout_132.addWidget(self.healthdChk)
 
+        self.line_26 = QFrame(self.daemonsPageContent)
+        self.line_26.setObjectName(u"line_26")
+        self.line_26.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_26.setFrameShadow(QFrame.Plain)
+        self.line_26.setFrameShape(QFrame.Shape.HLine)
+
+        self.verticalLayout_132.addWidget(self.line_26)
+
+        self.airprintChk = QCheckBox(self.daemonsPageContent)
+        self.airprintChk.setObjectName(u"airprintChk")
+
+        self.verticalLayout_132.addWidget(self.airprintChk)
+
+        self.assistiveTouchChk = QCheckBox(self.daemonsPageContent)
+        self.assistiveTouchChk.setObjectName(u"assistiveTouchChk")
+
+        self.verticalLayout_132.addWidget(self.assistiveTouchChk)
+
+        self.icloudChk = QCheckBox(self.daemonsPageContent)
+        self.icloudChk.setObjectName(u"icloudChk")
+
+        self.verticalLayout_132.addWidget(self.icloudChk)
+
+        self.hotspotChk = QCheckBox(self.daemonsPageContent)
+        self.hotspotChk.setObjectName(u"hotspotChk")
+
+        self.verticalLayout_132.addWidget(self.hotspotChk)
+
+        self.passbookChk = QCheckBox(self.daemonsPageContent)
+        self.passbookChk.setObjectName(u"passbookChk")
+
+        self.verticalLayout_132.addWidget(self.passbookChk)
+
+        self.spotlightChk = QCheckBox(self.daemonsPageContent)
+        self.spotlightChk.setObjectName(u"spotlightChk")
+
+        self.verticalLayout_132.addWidget(self.spotlightChk)
+
+        self.voiceControlChk = QCheckBox(self.daemonsPageContent)
+        self.voiceControlChk.setObjectName(u"voiceControlChk")
+
+        self.verticalLayout_132.addWidget(self.voiceControlChk)
+
         self.verticalSpacer_62 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_132.addItem(self.verticalSpacer_62)
@@ -3408,6 +3453,13 @@ class Ui_Nugget(object):
         self.healthdChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables HealthKit services used by the health app.", None))
 #endif // QT_CONFIG(tooltip)
         self.healthdChk.setText(QCoreApplication.translate("Nugget", u"Disable HealthKit", None))
+        self.airprintChk.setText(QCoreApplication.translate("Nugget", u"Disable AirPrint", None))
+        self.assistiveTouchChk.setText(QCoreApplication.translate("Nugget", u"Disable Assistive Touch", None))
+        self.icloudChk.setText(QCoreApplication.translate("Nugget", u"Disable iCloud", None))
+        self.hotspotChk.setText(QCoreApplication.translate("Nugget", u"Disable Internet Tethering (Hotspot)", None))
+        self.passbookChk.setText(QCoreApplication.translate("Nugget", u"Disable Passbook", None))
+        self.spotlightChk.setText(QCoreApplication.translate("Nugget", u"Disable Spotlight", None))
+        self.voiceControlChk.setText(QCoreApplication.translate("Nugget", u"Disable Voice Control", None))
         self.advancedOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Risky Options", None))
         self.label_17.setText(QCoreApplication.translate("Nugget", u"Disclaimer:\n"
 "\n"
