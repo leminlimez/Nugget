@@ -4559,7 +4559,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QLabel" name="modifiedTweaksLbl">
+                  <widget class="QLabel" name="gestaltLocationTitleLbl">
                    <property name="text">
                     <string>Current gestalt file location:</string>
                    </property>

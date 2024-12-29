@@ -2391,11 +2391,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_24.addItem(self.verticalSpacer_10)
 
-        self.modifiedTweaksLbl = QLabel(self.verticalWidget2)
-        self.modifiedTweaksLbl.setObjectName(u"modifiedTweaksLbl")
-        self.modifiedTweaksLbl.setAlignment(Qt.AlignCenter)
+        self.gestaltLocationTitleLbl = QLabel(self.verticalWidget2)
+        self.gestaltLocationTitleLbl.setObjectName(u"gestaltLocationTitleLbl")
+        self.gestaltLocationTitleLbl.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_24.addWidget(self.modifiedTweaksLbl)
+        self.verticalLayout_24.addWidget(self.gestaltLocationTitleLbl)
 
         self.gestaltLocationLbl = QLabel(self.verticalWidget2)
         self.gestaltLocationLbl.setObjectName(u"gestaltLocationLbl")
@@ -3489,7 +3489,7 @@ class Ui_Nugget(object):
         self.resWidthWarningLbl.setText(QCoreApplication.translate("Nugget", u"!", None))
         self.statusBarLbl_5.setText(QCoreApplication.translate("Nugget", u"Apply", None))
         self.label_16.setText("")
-        self.modifiedTweaksLbl.setText(QCoreApplication.translate("Nugget", u"Current gestalt file location:", None))
+        self.gestaltLocationTitleLbl.setText(QCoreApplication.translate("Nugget", u"Current gestalt file location:", None))
         self.gestaltLocationLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
         self.chooseGestaltBtn.setText(QCoreApplication.translate("Nugget", u"  Choose Gestalt File", None))
         self.applyTweaksBtn.setText(QCoreApplication.translate("Nugget", u"  Apply Changes", None))
