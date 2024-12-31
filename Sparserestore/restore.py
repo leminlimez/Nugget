@@ -83,7 +83,7 @@ def restore_files(files: list, reboot: bool = False, lockdown_client: LockdownCl
     # create the files to be backed up
     files_list = [
     ]
-    sorted_files = sorted(files, key=lambda x: x.restore_path, reverse=True)
+    sorted_files = sorted(files, key=lambda x: x.restore_path, reverse=False)
     # add the file paths
     last_domain = ""
     last_path = ""

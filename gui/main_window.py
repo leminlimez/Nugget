@@ -18,7 +18,7 @@ from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
 
-App_Version = "4.2.1"
+App_Version = "4.2.2"
 App_Build = 0
 
 class Page(Enum):
@@ -136,6 +136,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.thermalmonitordChk.toggled.connect(self.on_thermalmonitordChk_clicked)
         self.ui.otadChk.toggled.connect(self.on_otadChk_clicked)
         self.ui.usageTrackingAgentChk.toggled.connect(self.on_usageTrackingAgentChk_clicked)
+
         self.ui.gameCenterChk.toggled.connect(self.on_gameCenterChk_clicked)
         self.ui.screenTimeChk.toggled.connect(self.on_screenTimeChk_clicked)
         self.ui.clearScreenTimeAgentChk.toggled.connect(self.on_clearScreenTimeAgentChk_clicked)
@@ -145,6 +146,14 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.vpndChk.toggled.connect(self.on_vpndChk_clicked)
         self.ui.wapicChk.toggled.connect(self.on_wapicChk_clicked)
         self.ui.healthdChk.toggled.connect(self.on_healthdChk_clicked)
+
+        self.ui.airprintChk.toggled.connect(self.on_airprintChk_clicked)
+        self.ui.assistiveTouchChk.toggled.connect(self.on_assistiveTouchChk_clicked)
+        self.ui.icloudChk.toggled.connect(self.on_icloudChk_clicked)
+        self.ui.hotspotChk.toggled.connect(self.on_hotspotChk_clicked)
+        self.ui.passbookChk.toggled.connect(self.on_passbookChk_clicked)
+        self.ui.spotlightChk.toggled.connect(self.on_spotlightChk_clicked)
+        self.ui.voiceControlChk.toggled.connect(self.on_voiceControlChk_clicked)
 
         ## RISKY OPTIONS PAGE ACTIONS
         self.ui.disableOTAChk.toggled.connect(self.on_disableOTAChk_clicked)
@@ -304,7 +313,7 @@ class MainWindow(QtWidgets.QMainWindow):
             # hide options that are for newer versions
             # remove the new dynamic island options
             MinTweakVersions = {
-                "no_patch": [self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn, self.ui.resetGestaltBtn, self.ui.gestaltLocationLbl, self.ui.showAllSpoofableChk],
+                "no_patch": [self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn, self.ui.resetGestaltBtn, self.ui.gestaltLocationLbl, self.ui.gestaltLocationTitleLbl, self.ui.showAllSpoofableChk],
                 "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk), ("1.0", self.ui.regularDomainsLbl)],
                 "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
                 "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk]
@@ -778,6 +787,21 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["Daemons"].set_multiple_values(Daemon.ChineseLAN.value, value=checked)
     def on_healthdChk_clicked(self, checked: bool):
         tweaks["Daemons"].set_multiple_values(Daemon.HealthKit.value, value=checked)
+
+    def on_airprintChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.AirPrint.value, value=checked)
+    def on_assistiveTouchChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.AssistiveTouch.value, value=checked)
+    def on_icloudChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.iCloud.value, value=checked)
+    def on_hotspotChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.InternetTethering.value, value=checked)
+    def on_passbookChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.PassBook.value, value=checked)
+    def on_spotlightChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.Spotlight.value, value=checked)
+    def on_voiceControlChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.VoiceControl.value, value=checked)
 
     ## Risky Options Page
     def on_disableOTAChk_clicked(self, checked: bool):

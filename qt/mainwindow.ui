@@ -3957,6 +3957,70 @@ To work properly, also disable the daemon using the toggle above.</string>
                   </widget>
                  </item>
                  <item>
+                  <widget class="Line" name="line_26">
+                   <property name="styleSheet">
+                    <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Plain</enum>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="airprintChk">
+                   <property name="text">
+                    <string>Disable AirPrint</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="assistiveTouchChk">
+                   <property name="text">
+                    <string>Disable Assistive Touch</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="icloudChk">
+                   <property name="text">
+                    <string>Disable iCloud</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="hotspotChk">
+                   <property name="text">
+                    <string>Disable Internet Tethering (Hotspot)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="passbookChk">
+                   <property name="text">
+                    <string>Disable Passbook</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="spotlightChk">
+                   <property name="text">
+                    <string>Disable Spotlight</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="voiceControlChk">
+                   <property name="text">
+                    <string>Disable Voice Control</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <spacer name="verticalSpacer_6">
                    <property name="orientation">
                     <enum>Qt::Vertical</enum>
@@ -4495,7 +4559,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QLabel" name="modifiedTweaksLbl">
+                  <widget class="QLabel" name="gestaltLocationTitleLbl">
                    <property name="text">
                     <string>Current gestalt file location:</string>
                    </property>
