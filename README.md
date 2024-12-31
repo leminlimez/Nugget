@@ -53,6 +53,14 @@ Note: I am not responsible if your device bootloops. Please back up your data be
   - VPN
   - Chinese WLAN service
   - HealthKit
+  - HealthKit
+  - AirPrint
+  - Assistive Touch
+  - iCloud
+  - Internet Tethering (aka Personal Hotspot)
+  - PassBook
+  - Spotlight
+  - Voice Control
 - Risky (Hidden) Options:
   - Disable thermalmonitord
   - OTA Killer
