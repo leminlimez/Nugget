@@ -40,12 +40,12 @@ class Daemon(Enum):
     VPN = ["com.apple.racoon"]
     ChineseLAN = ["com.apple.wapic"]
     HealthKit = ["com.apple.healthd"]
-    AirPrint = ["com.apple.printd"],
-    AssistiveTouch = ["com.apple.assistivetouchd"],
-    iCloud = ["com.apple.itunescloudd"],
-    InternetTethering = ["com.apple.MobileInternetSharing"],
-    PassBook = ["com.apple.passd"],
-    Spotlight = ["com.apple.searchd"],
+    AirPrint = ["com.apple.printd"]
+    AssistiveTouch = ["com.apple.assistivetouchd"]
+    iCloud = ["com.apple.itunescloudd"]
+    InternetTethering = ["com.apple.MobileInternetSharing"]
+    PassBook = ["com.apple.passd"]
+    Spotlight = ["com.apple.searchd"]
     VoiceControl = [
         "com.apple.assistant_service",
         "com.apple.assistantd",
