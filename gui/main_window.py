@@ -774,6 +774,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_thermalmonitordChk_clicked(self, checked: bool):
         tweaks["Daemons"].set_multiple_values(Daemon.thermalmonitord.value, value=checked)
+        if checked:
+            # set the modify toggle checked so it actually applies
+            self.on_modifyDaemonsChk_clicked(True)
     def on_otadChk_clicked(self, checked: bool):
         tweaks["Daemons"].set_multiple_values(Daemon.OTA.value, value=checked)
     def on_usageTrackingAgentChk_clicked(self, checked: bool):
