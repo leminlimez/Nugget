@@ -4960,6 +4960,34 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                  </item>
                  <item>
                   <widget class="Line" name="line_24">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Plain</enum>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="revertRdarChk">
+                   <property name="toolTip">
+                    <string>If you used the rdar/status bar fix in a previous iOS version, this will revert that.</string>
+                   </property>
+                   <property name="text">
+                    <string>Revert rdar Fix (reset resolution)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="Line" name="revertRdarLine">
                    <property name="styleSheet">
                     <string notr="true">QFrame {
 	color: #414141;

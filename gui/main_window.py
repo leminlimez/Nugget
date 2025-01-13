@@ -18,7 +18,7 @@ from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
 
-App_Version = "4.2.2"
+App_Version = "4.2.3"
 App_Build = 0
 
 class Page(Enum):
@@ -173,6 +173,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.showRiskyChk.toggled.connect(self.on_showRiskyChk_toggled)
         self.ui.showAllSpoofableChk.toggled.connect(self.on_showAllSpoofableChk_toggled)
 
+        self.ui.revertRdarChk.toggled.connect(self.on_revertRdarChk_toggled)
+
         self.ui.skipSetupChk.toggled.connect(self.on_skipSetupChk_toggled)
         self.ui.supervisionChk.toggled.connect(self.on_supervisionChk_toggled)
         self.ui.supervisionOrganization.textEdited.connect(self.on_supervisionOrgTxt_textEdited)
@@ -319,6 +321,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk]
             }
             MaxTweakVersions = {
+                "patch": [self.ui.revertRdarChk, self.ui.revertRdarLine],
                 "17.7": [self.ui.euEnablerContent],
                 "18.0": [self.ui.photosChk, self.ui.aiChk]
             }
@@ -357,12 +360,18 @@ class MainWindow(QtWidgets.QMainWindow):
                             view.hide()
             # toggle option visibility for the max versions
             for version in MaxTweakVersions.keys():
-                parsed_ver = Version(version)
-                for view in MaxTweakVersions[version]:
-                    if device_ver <= parsed_ver:
-                        view.show()
-                    else:
+                if version == "patch":
+                    if patched:
                         view.hide()
+                    else:
+                        view.show()
+                else:
+                    parsed_ver = Version(version)
+                    for view in MaxTweakVersions[version]:
+                        if device_ver <= parsed_ver:
+                            view.show()
+                        else:
+                            view.hide()
             if device_ver >= Version("18.0"):
                 # show the other dynamic island options
                 self.ui.dynamicIslandDrp.addItem("2622 (iPhone 16 Pro Dynamic Island)")
@@ -765,6 +774,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_thermalmonitordChk_clicked(self, checked: bool):
         tweaks["Daemons"].set_multiple_values(Daemon.thermalmonitord.value, value=checked)
+        if checked:
+            # set the modify toggle checked so it actually applies
+            self.on_modifyDaemonsChk_clicked(True)
     def on_otadChk_clicked(self, checked: bool):
         tweaks["Daemons"].set_multiple_values(Daemon.OTA.value, value=checked)
     def on_usageTrackingAgentChk_clicked(self, checked: bool):
@@ -864,6 +876,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.device_manager.auto_reboot = checked
         # save the setting
         self.settings.setValue("auto_reboot", checked)
+
+    def on_revertRdarChk_toggled(self, checked: bool):
+        tweaks["RdarFix"].set_enabled(checked)
+
     def on_skipSetupChk_toggled(self, checked: bool):
         self.device_manager.skip_setup = checked
         # save the setting

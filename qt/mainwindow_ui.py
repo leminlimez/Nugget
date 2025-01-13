@@ -2590,6 +2590,21 @@ class Ui_Nugget(object):
 
         self._21.addWidget(self.line_24)
 
+        self.revertRdarChk = QCheckBox(self.settingsPageContent)
+        self.revertRdarChk.setObjectName(u"revertRdarChk")
+
+        self._21.addWidget(self.revertRdarChk)
+
+        self.revertRdarLine = QFrame(self.settingsPageContent)
+        self.revertRdarLine.setObjectName(u"revertRdarLine")
+        self.revertRdarLine.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.revertRdarLine.setFrameShadow(QFrame.Plain)
+        self.revertRdarLine.setFrameShape(QFrame.HLine)
+
+        self._21.addWidget(self.revertRdarLine)
+
         self.skipSetupChk = QCheckBox(self.settingsPageContent)
         self.skipSetupChk.setObjectName(u"skipSetupChk")
         self.skipSetupChk.setChecked(True)
@@ -3511,6 +3526,13 @@ class Ui_Nugget(object):
         self.showAllSpoofableChk.setWhatsThis("")
 #endif // QT_CONFIG(whatsthis)
         self.showAllSpoofableChk.setText(QCoreApplication.translate("Nugget", u"Show All Spoofable Models", None))
+#if QT_CONFIG(tooltip)
+        self.line_24.setToolTip("")
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
+        self.revertRdarChk.setToolTip(QCoreApplication.translate("Nugget", u"If you used the rdar/status bar fix in a previous iOS version, this will revert that.", None))
+#endif // QT_CONFIG(tooltip)
+        self.revertRdarChk.setText(QCoreApplication.translate("Nugget", u"Revert rdar Fix (reset resolution)", None))
         self.skipSetupChk.setText(QCoreApplication.translate("Nugget", u"Skip Setup * (non-exploit files only)", None))
         self.supervisionChk.setText(QCoreApplication.translate("Nugget", u"Enable Supervision * (requires Skip Setup)", None))
         self.supervisionOrganization.setPlaceholderText(QCoreApplication.translate("Nugget", u"Enter Organization Name", None))
