@@ -29,9 +29,10 @@ class Page(Enum):
     Springboard = 4
     InternalOptions = 5
     Daemons = 6
-    RiskyTweaks = 7
-    Apply = 8
-    Settings = 9
+    Posterboard = 7
+    RiskyTweaks = 8
+    Apply = 9
+    Settings = 10
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager):
@@ -63,6 +64,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.springboardOptionsPageBtn.clicked.connect(self.on_springboardOptionsPageBtn_clicked)
         self.ui.internalOptionsPageBtn.clicked.connect(self.on_internalOptionsPageBtn_clicked)
         self.ui.daemonsPageBtn.clicked.connect(self.on_daemonsPageBtn_clicked)
+        self.ui.posterboardPageBtn.clicked.connect(self.on_posterboardPageBtn_clicked)
         self.ui.advancedPageBtn.clicked.connect(self.on_advancedPageBtn_clicked)
         self.ui.applyPageBtn.clicked.connect(self.on_applyPageBtn_clicked)
         self.ui.settingsPageBtn.clicked.connect(self.on_settingsPageBtn_clicked)
@@ -450,6 +452,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_daemonsPageBtn_clicked(self):
         self.ui.pages.setCurrentIndex(Page.Daemons.value)
+
+    def on_posterboardPageBtn_clicked(self):
+        self.ui.pages.setCurrentIndex(Page.Posterboard.value)
 
     def on_advancedPageBtn_clicked(self):
         self.ui.pages.setCurrentIndex(Page.RiskyTweaks.value)
