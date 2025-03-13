@@ -280,8 +280,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
             if self.device_manager.allow_risky_tweaks:
                 self.ui.advancedPageBtn.show()
+                self.ui.resetPRBExtBtn.show()
             else:
                 self.ui.advancedPageBtn.hide()
+                self.ui.resetPRBExtBtn.hide()
             
             self.ui.sidebarDiv2.show()
             self.ui.applyPageBtn.show()
