@@ -901,8 +901,10 @@ class MainWindow(QtWidgets.QMainWindow):
         # toggle the button visibility
         if checked:
             self.ui.advancedPageBtn.show()
+            self.ui.resetPRBExtBtn.show()
         else:
             self.ui.advancedPageBtn.hide()
+            self.ui.resetPRBExtBtn.hide()
     def on_showAllSpoofableChk_toggled(self, checked: bool):
         self.device_manager.show_all_spoofable_models = checked
         # save the setting
