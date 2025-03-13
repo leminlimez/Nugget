@@ -13,7 +13,7 @@ class PosterboardTweak(Tweak):
 
     def recursive_add(self, files_to_restore: list[FileToRestore], curr_path: str, restore_path: str = "", isAdding: bool = False):
         for folder in sorted(os.listdir(curr_path)):
-            if folder.startswith('.'):
+            if folder == ".DS_Store" or folder == "__MACOSX":
                 continue
             if isAdding:
                 # if file then add it, otherwise recursively call again
