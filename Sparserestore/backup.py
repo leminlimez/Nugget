@@ -108,10 +108,17 @@ class SymbolicLink(BackupFile):
             flags=4,
             properties=[]
         )
+    
+@dataclass
+class AppBundle:
+    identifier: str
+    path: str
+    version: str = 804
 
 @dataclass
 class Backup:
     files: list[BackupFile]
+    apps: list[AppBundle]
 
     def write_to_directory(self, directory: Path):
         for file in self.files:
@@ -150,7 +157,7 @@ class Backup:
         })
     
     def generate_manifest(self) -> bytes: # Manifest.plist
-        return plistlib.dumps({
+        plist = {
             "BackupKeyBag": b64decode("""
     VkVSUwAAAAQAAAAFVFlQRQAAAAQAAAABVVVJRAAAABDud41d1b9NBICR1BH9JfVtSE1D
 	SwAAACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAV1JBUAAA
@@ -182,4 +189,15 @@ class Backup:
             "Lockdown": {},
             "SystemDomainsVersion": "20.0",
             "Version": "9.1"
-        })
+        }
+        # add the apps
+        if len(self.apps) > 0:
+            plist["Applications"] = {}
+            for app in self.apps:
+                appInfo = {
+                    "CFBundleIdentifier": app.identifier,
+                    "CFBundleVersion": app.version,
+                    "Path": app.path
+                }
+                plist["Applications"][app.identifier] = appInfo
+        return plistlib.dumps(plist)
