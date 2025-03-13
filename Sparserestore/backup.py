@@ -113,6 +113,7 @@ class SymbolicLink(BackupFile):
 class AppBundle:
     identifier: str
     path: str
+    container_content_class: str
     version: str = 804
 
 @dataclass
@@ -197,6 +198,7 @@ class Backup:
                 appInfo = {
                     "CFBundleIdentifier": app.identifier,
                     "CFBundleVersion": app.version,
+                    "ContainerContentClass": app.container_content_class,
                     "Path": app.path
                 }
                 plist["Applications"][app.identifier] = appInfo

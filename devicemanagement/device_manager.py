@@ -14,6 +14,7 @@ from devicemanagement.data_singleton import DataSingleton
 
 from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
+from tweaks.posterboard_tweak import PosterboardTweak
 from tweaks.basic_plist_locations import FileLocationsList, RiskyFileLocationsList
 from Sparserestore.restore import restore_files, FileToRestore
 
@@ -300,6 +301,9 @@ class DeviceManager:
         basic_plists_ownership: dict = {}
         files_data: dict = {}
         uses_domains: bool = False
+        # create the restore file list
+        files_to_restore: dict[FileToRestore] = [
+        ]
 
         # set the plist keys
         if not resetting:
@@ -320,6 +324,8 @@ class DeviceManager:
                     tweak.apply_tweak(files_data)
                     if tweak.enabled and tweak.file_location.value.startswith("/var/mobile/"):
                         uses_domains = True
+                elif isinstance(tweak, PosterboardTweak):
+                    tweak.apply_tweak(files_to_restore=files_to_restore, lockdown=self.data_singleton.current_device.ld)
                 else:
                     if gestalt_plist != None:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
@@ -340,9 +346,6 @@ class DeviceManager:
         
         # Generate backup
         update_label("Generating backup...")
-        # create the restore file list
-        files_to_restore: dict[FileToRestore] = [
-        ]
         self.concat_file(
             contents=plistlib.dumps(flag_plist),
             path="/var/preferences/FeatureFlags/Global.plist",

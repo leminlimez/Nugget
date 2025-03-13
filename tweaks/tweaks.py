@@ -1,6 +1,7 @@
 from devicemanagement.constants import Version
 from .tweak_classes import MobileGestaltTweak, MobileGestaltMultiTweak, MobileGestaltPickerTweak, FeatureFlagTweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
 from .eligibility_tweak import EligibilityTweak, AITweak
+from .posterboard_tweak import PosterboardTweak
 from .basic_plist_locations import FileLocation
     
 tweaks = {
@@ -258,6 +259,9 @@ tweaks = {
         owner=0, group=0
     ),
     "ClearScreenTimeAgentPlist": NullifyFileTweak(FileLocation.screentime),
+
+    ## PosterBoard
+    "PosterBoard": PosterboardTweak(),
 
     ## Risky Options
     "DisableOTAFile": AdvancedPlistTweak(

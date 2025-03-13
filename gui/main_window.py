@@ -157,6 +157,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.spotlightChk.toggled.connect(self.on_spotlightChk_clicked)
         self.ui.voiceControlChk.toggled.connect(self.on_voiceControlChk_clicked)
 
+        ## POSTERBOARD PAGE ACTIONS
+        self.ui.modifyPosterboardsChk.toggled.connect(self.on_modifyPosterboardsChk_clicked)
+        self.ui.selectPosterboardBtn.clicked.connect(self.on_selectPosterboardBtn_clicked)
+
         ## RISKY OPTIONS PAGE ACTIONS
         self.ui.disableOTAChk.toggled.connect(self.on_disableOTAChk_clicked)
         self.ui.enableResolutionChk.toggled.connect(self.on_enableResolutionChk_clicked)
@@ -819,6 +823,20 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["Daemons"].set_multiple_values(Daemon.Spotlight.value, value=checked)
     def on_voiceControlChk_clicked(self, checked: bool):
         tweaks["Daemons"].set_multiple_values(Daemon.VoiceControl.value, value=checked)
+
+    ## PosterBoard Page
+    def on_modifyPosterboardsChk_clicked(self, checked: bool):
+        tweaks["PosterBoard"].set_enabled(checked)
+        self.ui.posterboardPageContent.setDisabled(not checked)
+    def on_selectPosterboardBtn_clicked(self):
+        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select PosterBoard File", "", "Zip Files (*.zip)", options=QtWidgets.QFileDialog.ReadOnly)
+        if selected_file == "" or selected_file == None:
+            tweaks["PosterBoard"].zip_path = None
+            self.ui.currentPosterboardLbl.setText("None")
+        else:
+            # user selected zip, set it
+            tweaks["PosterBoard"].zip_path = selected_file
+            self.ui.currentPosterboardLbl.setText(selected_file)
 
     ## Risky Options Page
     def on_disableOTAChk_clicked(self, checked: bool):

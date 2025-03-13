@@ -11,10 +11,11 @@ class FileToRestore:
         self.group = group
 
 class AppBundleToRestore(FileToRestore):
-    def __init__(self, contents: str, bundle_id: str, bundle_version: str, bundle_path: str):
-        super().__init__(contents=contents, restore_path=bundle_path, domain=f"AppDomain-{bundle_id}")
+    def __init__(self, bundle_id: str, bundle_version: str, bundle_path: str, container_content_class: str):
+        super().__init__(contents=None, restore_path=bundle_path, domain=f"AppDomain-{bundle_id}")
         self.bundle_id = bundle_id
         self.bundle_version = bundle_version
+        self.container_content_class = container_content_class
 
 def concat_exploit_file(file: FileToRestore, files_list: list[FileToRestore], last_domain: str) -> str:
     base_path = "/var/backup"
@@ -101,6 +102,7 @@ def restore_files(files: list, reboot: bool = False, lockdown_client: LockdownCl
             apps_list.append(backup.AppBundle(
                 identifier=file.bundle_id,
                 path=file.restore_path,
+                container_content_class=file.container_content_class,
                 version=file.bundle_version
             ))
         elif file.domain == None:
