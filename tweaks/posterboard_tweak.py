@@ -1,10 +1,8 @@
 from .tweak_classes import Tweak
-from Sparserestore.restore import FileToRestore, AppBundleToRestore
+from Sparserestore.restore import FileToRestore
 import os
 import zipfile
 from tempfile import TemporaryDirectory
-from pymobiledevice3.services.installation_proxy import InstallationProxyService
-from pymobiledevice3.lockdown_service_provider import LockdownServiceProvider
 
 class PosterboardTweak(Tweak):
     def __init__(self):
@@ -39,22 +37,12 @@ class PosterboardTweak(Tweak):
                 else:
                     self.recursive_add(files_to_restore, os.path.join(curr_path, folder), isAdding=False)
 
-    def apply_tweak(self, files_to_restore: list[FileToRestore], lockdown: LockdownServiceProvider):
-        # get the app container and bundle version
-        pbapp = InstallationProxyService(lockdown=lockdown).get_apps(application_type="System", calculate_sizes=False)["com.apple.PosterBoard"]
+    def apply_tweak(self, files_to_restore: list[FileToRestore]):
         # unzip the file
         if self.zip_path == None or not self.enabled:
             return
         with TemporaryDirectory() as output_dir:
             with zipfile.ZipFile(self.zip_path, 'r') as zip_ref:
                 zip_ref.extractall(output_dir)
-            # first, add the files
+            # add the files
             self.recursive_add(files_to_restore, curr_path=output_dir)
-            # next, add the app bundle
-            # For UUID: pymobiledevice3 apps list -t System > apps.xml
-            files_to_restore.append(AppBundleToRestore(
-                bundle_id="com.apple.PosterBoard",
-                bundle_version=pbapp["CFBundleInfoDictionaryVersion"],
-                bundle_path=pbapp["Container"],
-                container_content_class="Data/Application"
-            ))

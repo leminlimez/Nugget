@@ -325,7 +325,7 @@ class DeviceManager:
                     if tweak.enabled and tweak.file_location.value.startswith("/var/mobile/"):
                         uses_domains = True
                 elif isinstance(tweak, PosterboardTweak):
-                    tweak.apply_tweak(files_to_restore=files_to_restore, lockdown=self.data_singleton.current_device.ld)
+                    tweak.apply_tweak(files_to_restore=files_to_restore)
                 else:
                     if gestalt_plist != None:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
