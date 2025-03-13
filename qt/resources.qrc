@@ -30,5 +30,6 @@
         <file>icon/iphone-island.svg</file>
         <file>icon/flag.svg</file>
         <file>credits/big_nugget.png</file>
+        <file>icon/photo-stack.svg</file>
     </qresource>
 </RCC>

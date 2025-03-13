@@ -407,7 +407,7 @@ class Ui_Nugget(object):
         sizePolicy2.setHeightForWidth(self.posterboardPageBtn.sizePolicy().hasHeightForWidth())
         self.posterboardPageBtn.setSizePolicy(sizePolicy2)
         icon9 = QIcon()
-        icon9.addFile(u":/icon/heart-fill.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon9.addFile(u":/icon/photo-stack.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.posterboardPageBtn.setIcon(icon9)
         self.posterboardPageBtn.setCheckable(True)
         self.posterboardPageBtn.setAutoExclusive(True)
