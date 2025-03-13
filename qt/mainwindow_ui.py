@@ -2232,6 +2232,15 @@ class Ui_Nugget(object):
 
         self.verticalLayout_133.addWidget(self.selectPosterboardBtn)
 
+        self.resetPRBExtBtn = QToolButton(self.posterboardPageContent)
+        self.resetPRBExtBtn.setObjectName(u"resetPRBExtBtn")
+        icon21 = QIcon()
+        icon21.addFile(u":/icon/trash.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.resetPRBExtBtn.setIcon(icon21)
+        self.resetPRBExtBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+
+        self.verticalLayout_133.addWidget(self.resetPRBExtBtn)
+
         self.verticalSpacer_22 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_133.addItem(self.verticalSpacer_22)
@@ -2519,9 +2528,9 @@ class Ui_Nugget(object):
         self.horizontalLayout_7.setContentsMargins(-1, 10, -1, 0)
         self.chooseGestaltBtn = QToolButton(self.verticalWidget2)
         self.chooseGestaltBtn.setObjectName(u"chooseGestaltBtn")
-        icon21 = QIcon()
-        icon21.addFile(u":/icon/folder.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.chooseGestaltBtn.setIcon(icon21)
+        icon22 = QIcon()
+        icon22.addFile(u":/icon/folder.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.chooseGestaltBtn.setIcon(icon22)
         self.chooseGestaltBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
         self.horizontalLayout_7.addWidget(self.chooseGestaltBtn)
@@ -2935,9 +2944,9 @@ class Ui_Nugget(object):
 "	padding-right: 5px;\n"
 "	border-radius: 0px;\n"
 "}")
-        icon22 = QIcon()
-        icon22.addFile(u":/icon/pencil.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.toolButton_12.setIcon(icon22)
+        icon23 = QIcon()
+        icon23.addFile(u":/icon/pencil.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.toolButton_12.setIcon(icon23)
         self.toolButton_12.setIconSize(QSize(25, 25))
 
         self.horizontalLayout_22.addWidget(self.toolButton_12)
@@ -2998,9 +3007,9 @@ class Ui_Nugget(object):
         self.importOperationBtn = QToolButton(self.customOperationsPageContent)
         self.importOperationBtn.setObjectName(u"importOperationBtn")
         self.importOperationBtn.setEnabled(True)
-        icon23 = QIcon()
-        icon23.addFile(u":/icon/import.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.importOperationBtn.setIcon(icon23)
+        icon24 = QIcon()
+        icon24.addFile(u":/icon/import.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.importOperationBtn.setIcon(icon24)
         self.importOperationBtn.setIconSize(QSize(20, 20))
         self.importOperationBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
@@ -3059,9 +3068,9 @@ class Ui_Nugget(object):
 "	padding-right: 5px;\n"
 "	border-radius: 0px;\n"
 "}")
-        icon24 = QIcon()
-        icon24.addFile(u":/icon/compass.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.toolButton_16.setIcon(icon24)
+        icon25 = QIcon()
+        icon25.addFile(u":/icon/compass.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.toolButton_16.setIcon(icon25)
 
         self.horizontalLayout_31.addWidget(self.toolButton_16)
 
@@ -3171,7 +3180,7 @@ class Ui_Nugget(object):
 
         self.importThemeFolderBtn = QToolButton(self.horizontalWidget7)
         self.importThemeFolderBtn.setObjectName(u"importThemeFolderBtn")
-        self.importThemeFolderBtn.setIcon(icon21)
+        self.importThemeFolderBtn.setIcon(icon22)
 
         self.horizontalLayout_26.addWidget(self.importThemeFolderBtn)
 
@@ -3591,6 +3600,7 @@ class Ui_Nugget(object):
         self.regularDomainsLbl_2.setText(QCoreApplication.translate("Nugget", u"Current File:", None))
         self.currentPosterboardLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
         self.selectPosterboardBtn.setText(QCoreApplication.translate("Nugget", u"  Select File", None))
+        self.resetPRBExtBtn.setText(QCoreApplication.translate("Nugget", u"   Reset PRB Extension", None))
         self.advancedOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Risky Options", None))
         self.label_17.setText(QCoreApplication.translate("Nugget", u"Disclaimer:\n"
 "\n"

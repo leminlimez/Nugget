@@ -9,6 +9,7 @@ class PosterboardTweak(Tweak):
         super().__init__(key=None)
         self.zip_path = None
         self.bundle_id = "com.apple.PosterBoard"
+        self.resetting = False
 
     def recursive_add(self, files_to_restore: list[FileToRestore], curr_path: str, restore_path: str = "", isAdding: bool = False):
         for folder in sorted(os.listdir(curr_path)):
@@ -39,7 +40,17 @@ class PosterboardTweak(Tweak):
 
     def apply_tweak(self, files_to_restore: list[FileToRestore]):
         # unzip the file
-        if self.zip_path == None or not self.enabled:
+        if not self.enabled:
+            return
+        if self.resetting:
+            # null out the prb folder
+            files_to_restore.append(FileToRestore(
+                contents=b"",
+                restore_path="/Library/Application Support/PRBPosterExtensionDataStore",
+                domain=f"AppDomain-{self.bundle_id}"
+            ))
+            return
+        elif self.zip_path == None:
             return
         with TemporaryDirectory() as output_dir:
             with zipfile.ZipFile(self.zip_path, 'r') as zip_ref:

@@ -4247,6 +4247,20 @@ To work properly, also disable the daemon using the toggle above.</string>
                   </widget>
                  </item>
                  <item>
+                  <widget class="QToolButton" name="resetPRBExtBtn">
+                   <property name="text">
+                    <string>   Reset PRB Extension</string>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="resources.qrc">
+                     <normaloff>:/icon/trash.svg</normaloff>:/icon/trash.svg</iconset>
+                   </property>
+                   <property name="toolButtonStyle">
+                    <enum>Qt::ToolButtonTextBesideIcon</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <spacer name="verticalSpacer_22">
                    <property name="orientation">
                     <enum>Qt::Vertical</enum>

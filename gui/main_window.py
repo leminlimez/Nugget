@@ -18,7 +18,7 @@ from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
 
-App_Version = "4.3"
+App_Version = "5.0"
 App_Build = 1
 
 class Page(Enum):
@@ -160,6 +160,7 @@ class MainWindow(QtWidgets.QMainWindow):
         ## POSTERBOARD PAGE ACTIONS
         self.ui.modifyPosterboardsChk.toggled.connect(self.on_modifyPosterboardsChk_clicked)
         self.ui.selectPosterboardBtn.clicked.connect(self.on_selectPosterboardBtn_clicked)
+        self.ui.resetPRBExtBtn.clicked.connect(self.on_resetPRBExtBtn_clicked)
 
         ## RISKY OPTIONS PAGE ACTIONS
         self.ui.disableOTAChk.toggled.connect(self.on_disableOTAChk_clicked)
@@ -830,6 +831,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.posterboardPageContent.setDisabled(not checked)
     def on_selectPosterboardBtn_clicked(self):
         selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select PosterBoard File", "", "Zip Files (*.zip)", options=QtWidgets.QFileDialog.ReadOnly)
+        tweaks["PosterBoard"].resetting = False
         if selected_file == "" or selected_file == None:
             tweaks["PosterBoard"].zip_path = None
             self.ui.currentPosterboardLbl.setText("None")
@@ -837,6 +839,14 @@ class MainWindow(QtWidgets.QMainWindow):
             # user selected zip, set it
             tweaks["PosterBoard"].zip_path = selected_file
             self.ui.currentPosterboardLbl.setText(selected_file)
+    def on_resetPRBExtBtn_clicked(self):
+        if tweaks["PosterBoard"].resetting:
+            tweaks["PosterBoard"].resetting = False
+            self.ui.currentPosterboardLbl.setText("None")
+        else:
+            tweaks["PosterBoard"].resetting = True
+            tweaks["PosterBoard"].zip_path = None
+            self.ui.currentPosterboardLbl.setText("Resetting PRB Extension")
 
     ## Risky Options Page
     def on_disableOTAChk_clicked(self, checked: bool):
