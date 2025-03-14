@@ -4,8 +4,9 @@ from pymobiledevice3.services.installation_proxy import InstallationProxyService
 import os
 
 class FileToRestore:
-    def __init__(self, contents: str, restore_path: str, domain: str = None, owner: int = 501, group: int = 501):
+    def __init__(self, contents: str, restore_path: str, contents_path: str = None, domain: str = None, owner: int = 501, group: int = 501):
         self.contents = contents
+        self.contents_path = contents_path
         self.restore_path = restore_path
         self.domain = domain
         self.owner = owner
@@ -75,7 +76,8 @@ def concat_regular_file(file: FileToRestore, files_list: list[FileToRestore], la
         file.domain,
         owner=file.owner,
         group=file.group,
-        contents=file.contents
+        contents=file.contents,
+        src_path=file.contents_path
     ))
     return new_last_domain, full_path
 

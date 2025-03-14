@@ -1,6 +1,6 @@
 import traceback
 import plistlib
-from pathlib import Path
+from tempfile import TemporaryDirectory
 
 from PySide6.QtWidgets import QMessageBox
 from PySide6.QtCore import QSettings
@@ -304,6 +304,7 @@ class DeviceManager:
         # create the restore file list
         files_to_restore: dict[FileToRestore] = [
         ]
+        tmp_pb_dir = None # temporary directory for unzipping pb files
 
         # set the plist keys
         if not resetting:
@@ -325,7 +326,8 @@ class DeviceManager:
                     if tweak.enabled and tweak.file_location.value.startswith("/var/mobile/"):
                         uses_domains = True
                 elif isinstance(tweak, PosterboardTweak):
-                    tweak.apply_tweak(files_to_restore=files_to_restore)
+                    tmp_pb_dir = TemporaryDirectory()
+                    tweak.apply_tweak(files_to_restore=files_to_restore, output_dir=tmp_pb_dir.name)
                 else:
                     if gestalt_plist != None:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
@@ -413,12 +415,16 @@ class DeviceManager:
         update_label("Restoring to device...")
         try:
             restore_files(files=files_to_restore, reboot=self.auto_reboot, lockdown_client=self.data_singleton.current_device.ld)
+            if tmp_pb_dir != None:
+                tmp_pb_dir.cleanup()
             msg = "Your device will now restart."
             if not self.auto_reboot:
                 msg = "Please restart your device to see changes."
             QMessageBox.information(None, "Success!", "All done! " + msg)
             update_label("Success!")
         except Exception as e:
+            if tmp_pb_dir != None:
+                tmp_pb_dir.cleanup()
             show_apply_error(e, update_label)
 
     ## RESETTING MOBILE GESTALT
