@@ -834,7 +834,7 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["PosterBoard"].set_enabled(checked)
         self.ui.posterboardPageContent.setDisabled(not checked)
     def on_selectPosterboardBtn_clicked(self):
-        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select PosterBoard File", "", "Zip Files (*.zip)", options=QtWidgets.QFileDialog.ReadOnly)
+        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select PosterBoard File", "", "Zip Files (*.tendies)", options=QtWidgets.QFileDialog.ReadOnly)
         tweaks["PosterBoard"].resetting = False
         if selected_file == "" or selected_file == None:
             tweaks["PosterBoard"].zip_path = None
