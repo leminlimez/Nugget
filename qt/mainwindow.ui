@@ -4247,6 +4247,20 @@ To work properly, also disable the daemon using the toggle above.</string>
                   </widget>
                  </item>
                  <item>
+                  <widget class="QToolButton" name="deleteAllDescriptorsBtn">
+                   <property name="text">
+                    <string>   Delete All Descriptors</string>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="resources.qrc">
+                     <normaloff>:/icon/trash.svg</normaloff>:/icon/trash.svg</iconset>
+                   </property>
+                   <property name="toolButtonStyle">
+                    <enum>Qt::ToolButtonTextBesideIcon</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QToolButton" name="resetPRBExtBtn">
                    <property name="text">
                     <string>   Reset PRB Extension</string>

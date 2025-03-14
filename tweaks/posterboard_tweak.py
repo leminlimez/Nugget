@@ -9,6 +9,7 @@ class PosterboardTweak(Tweak):
         self.zip_path = None
         self.bundle_id = "com.apple.PosterBoard"
         self.resetting = False
+        self.resetType = 0 # 0 for descriptor 1 for prb
 
     def recursive_add(self, files_to_restore: list[FileToRestore], curr_path: str, restore_path: str = "", isAdding: bool = False):
         for folder in sorted(os.listdir(curr_path)):
@@ -49,10 +50,14 @@ class PosterboardTweak(Tweak):
         if not self.enabled:
             return
         if self.resetting:
-            # null out the prb folder
+            # null out the folder
+            file_path = ""
+            if self.resetType == 0:
+                # resetting descriptors
+                file_path = "/61/Extensions/com.apple.WallpaperKit.CollectionsPoster/descriptors"
             files_to_restore.append(FileToRestore(
                 contents=b"",
-                restore_path="/Library/Application Support/PRBPosterExtensionDataStore",
+                restore_path=f"/Library/Application Support/PRBPosterExtensionDataStore{file_path}",
                 domain=f"AppDomain-{self.bundle_id}"
             ))
             return

@@ -161,6 +161,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.modifyPosterboardsChk.toggled.connect(self.on_modifyPosterboardsChk_clicked)
         self.ui.selectPosterboardBtn.clicked.connect(self.on_selectPosterboardBtn_clicked)
         self.ui.resetPRBExtBtn.clicked.connect(self.on_resetPRBExtBtn_clicked)
+        self.ui.deleteAllDescriptorsBtn.clicked.connect(self.on_deleteAllDescriptorsBtn_clicked)
 
         ## RISKY OPTIONS PAGE ACTIONS
         self.ui.disableOTAChk.toggled.connect(self.on_disableOTAChk_clicked)
@@ -280,9 +281,11 @@ class MainWindow(QtWidgets.QMainWindow):
 
             if self.device_manager.allow_risky_tweaks:
                 self.ui.advancedPageBtn.show()
+                self.ui.deleteAllDescriptorsBtn.show()
                 self.ui.resetPRBExtBtn.show()
             else:
                 self.ui.advancedPageBtn.hide()
+                self.ui.deleteAllDescriptorsBtn.hide()
                 self.ui.resetPRBExtBtn.hide()
             
             self.ui.sidebarDiv2.show()
@@ -843,13 +846,24 @@ class MainWindow(QtWidgets.QMainWindow):
             # user selected zip, set it
             tweaks["PosterBoard"].zip_path = selected_file
             self.ui.currentPosterboardLbl.setText(selected_file)
-    def on_resetPRBExtBtn_clicked(self):
-        if tweaks["PosterBoard"].resetting:
+
+    def on_deleteAllDescriptorsBtn_clicked(self):
+        if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 0:
             tweaks["PosterBoard"].resetting = False
             self.ui.currentPosterboardLbl.setText("None")
         else:
             tweaks["PosterBoard"].resetting = True
             tweaks["PosterBoard"].zip_path = None
+            tweaks["PosterBoard"].resetType = 0
+            self.ui.currentPosterboardLbl.setText("Removing All Descriptors")
+    def on_resetPRBExtBtn_clicked(self):
+        if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 1:
+            tweaks["PosterBoard"].resetting = False
+            self.ui.currentPosterboardLbl.setText("None")
+        else:
+            tweaks["PosterBoard"].resetting = True
+            tweaks["PosterBoard"].zip_path = None
+            tweaks["PosterBoard"].resetType = 1
             self.ui.currentPosterboardLbl.setText("Resetting PRB Extension")
 
     ## Risky Options Page
@@ -901,9 +915,11 @@ class MainWindow(QtWidgets.QMainWindow):
         # toggle the button visibility
         if checked:
             self.ui.advancedPageBtn.show()
+            self.ui.deleteAllDescriptorsBtn.show()
             self.ui.resetPRBExtBtn.show()
         else:
             self.ui.advancedPageBtn.hide()
+            self.ui.deleteAllDescriptorsBtn.hide()
             self.ui.resetPRBExtBtn.hide()
     def on_showAllSpoofableChk_toggled(self, checked: bool):
         self.device_manager.show_all_spoofable_models = checked

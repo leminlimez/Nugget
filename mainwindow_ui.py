@@ -2232,10 +2232,17 @@ class Ui_Nugget(object):
 
         self.verticalLayout_133.addWidget(self.selectPosterboardBtn)
 
-        self.resetPRBExtBtn = QToolButton(self.posterboardPageContent)
-        self.resetPRBExtBtn.setObjectName(u"resetPRBExtBtn")
+        self.deleteAllDescriptorsBtn = QToolButton(self.posterboardPageContent)
+        self.deleteAllDescriptorsBtn.setObjectName(u"deleteAllDescriptorsBtn")
         icon21 = QIcon()
         icon21.addFile(u":/icon/trash.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.deleteAllDescriptorsBtn.setIcon(icon21)
+        self.deleteAllDescriptorsBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+
+        self.verticalLayout_133.addWidget(self.deleteAllDescriptorsBtn)
+
+        self.resetPRBExtBtn = QToolButton(self.posterboardPageContent)
+        self.resetPRBExtBtn.setObjectName(u"resetPRBExtBtn")
         self.resetPRBExtBtn.setIcon(icon21)
         self.resetPRBExtBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
@@ -3600,6 +3607,7 @@ class Ui_Nugget(object):
         self.regularDomainsLbl_2.setText(QCoreApplication.translate("Nugget", u"Current File:", None))
         self.currentPosterboardLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
         self.selectPosterboardBtn.setText(QCoreApplication.translate("Nugget", u"  Select File", None))
+        self.deleteAllDescriptorsBtn.setText(QCoreApplication.translate("Nugget", u"   Delete All Descriptors", None))
         self.resetPRBExtBtn.setText(QCoreApplication.translate("Nugget", u"   Reset PRB Extension", None))
         self.advancedOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Risky Options", None))
         self.label_17.setText(QCoreApplication.translate("Nugget", u"Disclaimer:\n"
