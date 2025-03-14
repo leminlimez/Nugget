@@ -29,10 +29,18 @@ class PosterboardTweak(Tweak):
                 else:
                     self.recursive_add(files_to_restore, os.path.join(curr_path, folder), f"{restore_path}/{folder}", isAdding)
             else:
-                # look for contents folder
-                if folder == "Container":
+                # look for container folder
+                name = folder.lower()
+                if name == "container":
                     self.recursive_add(files_to_restore, os.path.join(curr_path, folder), restore_path="/", isAdding=True)
                     return
+                elif name == "descriptor" or name == "descriptors":
+                    self.recursive_add(
+                        files_to_restore,
+                        os.path.join(curr_path, folder),
+                        restore_path="/Library/Application Support/PRBPosterExtensionDataStore/61/Extensions/com.apple.WallpaperKit.CollectionsPoster/descriptors",
+                        isAdding=True
+                    )
                 else:
                     self.recursive_add(files_to_restore, os.path.join(curr_path, folder), isAdding=False)
 
