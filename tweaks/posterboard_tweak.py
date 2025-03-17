@@ -95,5 +95,8 @@ class PosterboardTweak(Tweak):
             return
         with zipfile.ZipFile(self.zip_path, 'r') as zip_ref:
             zip_ref.extractall(output_dir)
+        if os.name == "nt":
+            # try to get past directory name limit on windows
+            output_dir = "\\\\?\\" + output_dir
         # add the files
         self.recursive_add(files_to_restore, curr_path=output_dir)
