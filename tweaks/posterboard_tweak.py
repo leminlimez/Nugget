@@ -1,7 +1,10 @@
 from .tweak_classes import Tweak
 from Sparserestore.restore import FileToRestore
+from controllers.plist_handler import set_plist_value
 import os
 import zipfile
+import uuid
+from random import randint
 
 class PosterboardTweak(Tweak):
     def __init__(self):
@@ -11,24 +14,50 @@ class PosterboardTweak(Tweak):
         self.resetting = False
         self.resetType = 0 # 0 for descriptor 1 for prb
 
-    def recursive_add(self, files_to_restore: list[FileToRestore], curr_path: str, restore_path: str = "", isAdding: bool = False):
+    def update_plist_id(self, file_path: str, file_name: str, randomizedID: int):
+        if file_name == "com.apple.posterkit.provider.descriptor.identifier":
+            return randomizedID.to_bytes()
+        elif file_name == "com.apple.posterkit.provider.contents.userInfo":
+            return set_plist_value(file=os.path.join(file_path, file_name), key="wallpaperRepresentingIdentifier", value=randomizedID)
+        elif file_name == "Wallpaper.plist":
+            return set_plist_value(file=os.path.join(file_path, file_name), key="identifier", value=randomizedID)
+        return None
+        
+
+    def recursive_add(self,
+                      files_to_restore: list[FileToRestore],
+                      curr_path: str, restore_path: str = "",
+                      isAdding: bool = False,
+                      randomizeUUID: bool = False, randomizedID: int = None
+        ):
         for folder in sorted(os.listdir(curr_path)):
             if folder.startswith('.') or folder == "__MACOSX":
                 continue
             if isAdding:
+                # randomize uuid
+                folder_name = folder
+                if randomizeUUID:
+                    folder_name = str(uuid.uuid4()).upper()
                 # if file then add it, otherwise recursively call again
                 if os.path.isfile(os.path.join(curr_path, folder)):
                     try:
+                        # update plist ids if needed
+                        new_contents = None
+                        contents_path = os.path.join(curr_path, folder)
+                        if randomizedID != None:
+                            new_contents = self.update_plist_id(curr_path, folder, randomizedID)
+                            if new_contents != None:
+                                contents_path = None
                         files_to_restore.append(FileToRestore(
-                            contents=None,
-                            contents_path=os.path.join(curr_path, folder),
-                            restore_path=f"{restore_path}/{folder}",
+                            contents=new_contents,
+                            contents_path=contents_path,
+                            restore_path=f"{restore_path}/{folder_name}",
                             domain=f"AppDomain-{self.bundle_id}"
                         ))
                     except IOError:
                         print(f"Failed to open file: {folder}") # TODO: Add QDebug equivalent
                 else:
-                    self.recursive_add(files_to_restore, os.path.join(curr_path, folder), f"{restore_path}/{folder}", isAdding)
+                    self.recursive_add(files_to_restore, os.path.join(curr_path, folder), f"{restore_path}/{folder_name}", isAdding, randomizedID=randomizedID)
             else:
                 # look for container folder
                 name = folder.lower()
@@ -40,7 +69,8 @@ class PosterboardTweak(Tweak):
                         files_to_restore,
                         os.path.join(curr_path, folder),
                         restore_path="/Library/Application Support/PRBPosterExtensionDataStore/61/Extensions/com.apple.WallpaperKit.CollectionsPoster/descriptors",
-                        isAdding=True
+                        isAdding=True,
+                        randomizeUUID=True, randomizedID=randint(9999, 99999)
                     )
                 else:
                     self.recursive_add(files_to_restore, os.path.join(curr_path, folder), isAdding=False)
