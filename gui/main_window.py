@@ -281,11 +281,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
             if self.device_manager.allow_risky_tweaks:
                 self.ui.advancedPageBtn.show()
-                self.ui.deleteAllDescriptorsBtn.show()
                 self.ui.resetPRBExtBtn.show()
             else:
                 self.ui.advancedPageBtn.hide()
-                self.ui.deleteAllDescriptorsBtn.hide()
                 self.ui.resetPRBExtBtn.hide()
             
             self.ui.sidebarDiv2.show()
@@ -837,7 +835,7 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["PosterBoard"].set_enabled(checked)
         self.ui.posterboardPageContent.setDisabled(not checked)
     def on_selectPosterboardBtn_clicked(self):
-        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select PosterBoard File", "", "Zip Files (*.zip *.tendies)", options=QtWidgets.QFileDialog.ReadOnly)
+        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select PosterBoard File", "", "Zip Files (*.tendies)", options=QtWidgets.QFileDialog.ReadOnly)
         tweaks["PosterBoard"].resetting = False
         if selected_file == "" or selected_file == None:
             tweaks["PosterBoard"].zip_path = None
@@ -855,7 +853,7 @@ class MainWindow(QtWidgets.QMainWindow):
             tweaks["PosterBoard"].resetting = True
             tweaks["PosterBoard"].zip_path = None
             tweaks["PosterBoard"].resetType = 0
-            self.ui.currentPosterboardLbl.setText("Removing All Descriptors")
+            self.ui.currentPosterboardLbl.setText("Clearing Collections Wallpapers")
     def on_resetPRBExtBtn_clicked(self):
         if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 1:
             tweaks["PosterBoard"].resetting = False
@@ -915,11 +913,9 @@ class MainWindow(QtWidgets.QMainWindow):
         # toggle the button visibility
         if checked:
             self.ui.advancedPageBtn.show()
-            self.ui.deleteAllDescriptorsBtn.show()
             self.ui.resetPRBExtBtn.show()
         else:
             self.ui.advancedPageBtn.hide()
-            self.ui.deleteAllDescriptorsBtn.hide()
             self.ui.resetPRBExtBtn.hide()
     def on_showAllSpoofableChk_toggled(self, checked: bool):
         self.device_manager.show_all_spoofable_models = checked
