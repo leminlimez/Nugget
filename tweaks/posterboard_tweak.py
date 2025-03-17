@@ -16,7 +16,7 @@ class PosterboardTweak(Tweak):
 
     def update_plist_id(self, file_path: str, file_name: str, randomizedID: int):
         if file_name == "com.apple.posterkit.provider.descriptor.identifier":
-            return randomizedID.to_bytes()
+            return str(randomizedID).encode()
         elif file_name == "com.apple.posterkit.provider.contents.userInfo":
             return set_plist_value(file=os.path.join(file_path, file_name), key="wallpaperRepresentingIdentifier", value=randomizedID)
         elif file_name == "Wallpaper.plist":

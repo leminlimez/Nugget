@@ -2,11 +2,11 @@ import plistlib
 
 def recursive_set(plist: dict, key: str, value: any):
     new_plist: dict = plist
-    for curr_key in plist.keys:
-        if curr_key == key:
-            new_plist[curr_key] = value
-        elif isinstance(plist[curr_key], dict):
-            new_plist[curr_key] = recursive_set(plist[key], key, value)
+    for k, v in plist.items():
+        if k == key:
+            new_plist[k] = value
+        elif isinstance(v, dict):
+            new_plist[k] = recursive_set(v, key, value)
     return new_plist
 
 def set_plist_value(file: str, key: str, value: any):
