@@ -4260,34 +4260,6 @@ To work properly, also disable the daemon using the toggle above.</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QToolButton" name="pbPreviewIcn">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>0</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>225</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QToolButton { margin-left: 8px; min-height: 0px; background: none; padding: 0px; border: none; }</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
                   <widget class="QToolButton" name="selectPosterboardBtn">
                    <property name="toolTip">
                     <string>Select a wallpaper file with the .tendies extension.</string>

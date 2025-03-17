@@ -2241,16 +2241,6 @@ class Ui_Nugget(object):
 
         self.verticalLayout_133.addWidget(self.currentPosterboardLbl)
 
-        self.pbPreviewIcn = QToolButton(self.posterboardPageContent)
-        self.pbPreviewIcn.setObjectName(u"pbPreviewIcn")
-        sizePolicy1.setHeightForWidth(self.pbPreviewIcn.sizePolicy().hasHeightForWidth())
-        self.pbPreviewIcn.setSizePolicy(sizePolicy1)
-        self.pbPreviewIcn.setMinimumSize(QSize(0, 0))
-        self.pbPreviewIcn.setMaximumSize(QSize(16777215, 225))
-        self.pbPreviewIcn.setStyleSheet(u"QToolButton { margin-left: 8px; min-height: 0px; background: none; padding: 0px; border: none; }")
-
-        self.verticalLayout_133.addWidget(self.pbPreviewIcn)
-
         self.selectPosterboardBtn = QToolButton(self.posterboardPageContent)
         self.selectPosterboardBtn.setObjectName(u"selectPosterboardBtn")
         icon20 = QIcon()
@@ -3636,7 +3626,6 @@ class Ui_Nugget(object):
         self.modifyPosterboardsChk.setText(QCoreApplication.translate("Nugget", u"Modify", None))
         self.currentPBLbl.setText(QCoreApplication.translate("Nugget", u"Current File:", None))
         self.currentPosterboardLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
-        self.pbPreviewIcn.setText("")
 #if QT_CONFIG(tooltip)
         self.selectPosterboardBtn.setToolTip(QCoreApplication.translate("Nugget", u"Select a wallpaper file with the .tendies extension.", None))
 #endif // QT_CONFIG(tooltip)
