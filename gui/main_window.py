@@ -80,11 +80,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.leminTwitterBtn.clicked.connect(self.on_leminTwitterBtn_clicked)
         self.ui.leminKoFiBtn.clicked.connect(self.on_leminKoFiBtn_clicked)
         
-        self.ui.jjtechBtn.clicked.connect(self.on_jjtechBtn_clicked)
+        self.ui.posterRestoreBtn.clicked.connect(self.on_posterRestoreBtn_clicked)
         self.ui.disfordottieBtn.clicked.connect(self.on_disfordottieBtn_clicked)
         self.ui.mikasaBtn.clicked.connect(self.on_mikasaBtn_clicked)
 
         self.ui.libiBtn.clicked.connect(self.on_libiBtn_clicked)
+        self.ui.jjtechBtn.clicked.connect(self.on_jjtechBtn_clicked)
         self.ui.qtBtn.clicked.connect(self.on_qtBtn_clicked)
 
         self.ui.discordBtn.clicked.connect(self.on_discordBtn_clicked)
@@ -528,8 +529,8 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_leminKoFiBtn_clicked(self):
         webbrowser.open_new_tab("https://ko-fi.com/leminlimez")
 
-    def on_jjtechBtn_clicked(self):
-        webbrowser.open_new_tab("https://github.com/JJTech0130/TrollRestore")
+    def on_posterRestoreBtn_clicked(self):
+        webbrowser.open_new_tab("https://discord.gg/gWtzTVhMvh")
     def on_disfordottieBtn_clicked(self):
         webbrowser.open_new_tab("https://twitter.com/disfordottie")
     def on_mikasaBtn_clicked(self):
@@ -537,6 +538,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_libiBtn_clicked(self):
         webbrowser.open_new_tab("https://github.com/doronz88/pymobiledevice3")
+    def on_jjtechBtn_clicked(self):
+        webbrowser.open_new_tab("https://github.com/JJTech0130/TrollRestore")
     def on_qtBtn_clicked(self):
         webbrowser.open_new_tab("https://www.qt.io/product/development-tools")
 

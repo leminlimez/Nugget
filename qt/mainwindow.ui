@@ -1403,7 +1403,7 @@ QToolButton:pressed {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QToolButton" name="jjtechBtn">
+                     <widget class="QToolButton" name="posterRestoreBtn">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -1430,8 +1430,8 @@ QToolButton:pressed {
 }</string>
                       </property>
                       <property name="text">
-                       <string>JJTech
-Sparserestore</string>
+                       <string>PosterRestore Team
+Posterboard</string>
                       </property>
                      </widget>
                     </item>
@@ -1567,6 +1567,33 @@ QToolButton:pressed {
                       </property>
                       <property name="text">
                        <string>pymobiledevice3</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="jjtechBtn">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QToolButton {
+	border-radius: 0px;
+	background: none;
+	border: 1px solid #3b3b3b;
+	border-left: none;
+}
+
+QToolButton:pressed {
+    background-color: #535353;
+    color: #FFFFFF;
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>JJTech
+Sparserestore</string>
                       </property>
                      </widget>
                     </item>
@@ -4229,6 +4256,34 @@ To work properly, also disable the daemon using the toggle above.</string>
                   <widget class="QLabel" name="currentPosterboardLbl">
                    <property name="text">
                     <string>None</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QToolButton" name="pbPreviewIcn">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>225</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QToolButton { margin-left: 8px; min-height: 0px; background: none; padding: 0px; border: none; }</string>
+                   </property>
+                   <property name="text">
+                    <string/>
                    </property>
                   </widget>
                  </item>

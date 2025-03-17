@@ -764,12 +764,12 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_2.addWidget(self.helpFromBtn)
 
-        self.jjtechBtn = QToolButton(self.horizontalWidget_21)
-        self.jjtechBtn.setObjectName(u"jjtechBtn")
-        sizePolicy2.setHeightForWidth(self.jjtechBtn.sizePolicy().hasHeightForWidth())
-        self.jjtechBtn.setSizePolicy(sizePolicy2)
-        self.jjtechBtn.setMinimumSize(QSize(0, 37))
-        self.jjtechBtn.setStyleSheet(u"QToolButton {\n"
+        self.posterRestoreBtn = QToolButton(self.horizontalWidget_21)
+        self.posterRestoreBtn.setObjectName(u"posterRestoreBtn")
+        sizePolicy2.setHeightForWidth(self.posterRestoreBtn.sizePolicy().hasHeightForWidth())
+        self.posterRestoreBtn.setSizePolicy(sizePolicy2)
+        self.posterRestoreBtn.setMinimumSize(QSize(0, 37))
+        self.posterRestoreBtn.setStyleSheet(u"QToolButton {\n"
 "	border-top-right-radius: 0px;\n"
 "	border-bottom-right-radius: 0px;\n"
 "	background: none;\n"
@@ -781,7 +781,7 @@ class Ui_Nugget(object):
 "    color: #FFFFFF;\n"
 "}")
 
-        self.horizontalLayout_2.addWidget(self.jjtechBtn)
+        self.horizontalLayout_2.addWidget(self.posterRestoreBtn)
 
         self.disfordottieBtn = QToolButton(self.horizontalWidget_21)
         self.disfordottieBtn.setObjectName(u"disfordottieBtn")
@@ -858,6 +858,24 @@ class Ui_Nugget(object):
 "}")
 
         self.horizontalLayout_24.addWidget(self.libiBtn)
+
+        self.jjtechBtn = QToolButton(self.horizontalWidget3)
+        self.jjtechBtn.setObjectName(u"jjtechBtn")
+        sizePolicy2.setHeightForWidth(self.jjtechBtn.sizePolicy().hasHeightForWidth())
+        self.jjtechBtn.setSizePolicy(sizePolicy2)
+        self.jjtechBtn.setStyleSheet(u"QToolButton {\n"
+"	border-radius: 0px;\n"
+"	background: none;\n"
+"	border: 1px solid #3b3b3b;\n"
+"	border-left: none;\n"
+"}\n"
+"\n"
+"QToolButton:pressed {\n"
+"    background-color: #535353;\n"
+"    color: #FFFFFF;\n"
+"}")
+
+        self.horizontalLayout_24.addWidget(self.jjtechBtn)
 
         self.qtBtn = QToolButton(self.horizontalWidget3)
         self.qtBtn.setObjectName(u"qtBtn")
@@ -2223,6 +2241,16 @@ class Ui_Nugget(object):
 
         self.verticalLayout_133.addWidget(self.currentPosterboardLbl)
 
+        self.pbPreviewIcn = QToolButton(self.posterboardPageContent)
+        self.pbPreviewIcn.setObjectName(u"pbPreviewIcn")
+        sizePolicy1.setHeightForWidth(self.pbPreviewIcn.sizePolicy().hasHeightForWidth())
+        self.pbPreviewIcn.setSizePolicy(sizePolicy1)
+        self.pbPreviewIcn.setMinimumSize(QSize(0, 0))
+        self.pbPreviewIcn.setMaximumSize(QSize(16777215, 225))
+        self.pbPreviewIcn.setStyleSheet(u"QToolButton { margin-left: 8px; min-height: 0px; background: none; padding: 0px; border: none; }")
+
+        self.verticalLayout_133.addWidget(self.pbPreviewIcn)
+
         self.selectPosterboardBtn = QToolButton(self.posterboardPageContent)
         self.selectPosterboardBtn.setObjectName(u"selectPosterboardBtn")
         icon20 = QIcon()
@@ -3346,14 +3374,16 @@ class Ui_Nugget(object):
         self.leminKoFiBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
         self.toolButton_14.setText(QCoreApplication.translate("Nugget", u"Main Developer", None))
         self.helpFromBtn.setText(QCoreApplication.translate("Nugget", u"With Help From", None))
-        self.jjtechBtn.setText(QCoreApplication.translate("Nugget", u"JJTech\n"
-"Sparserestore", None))
+        self.posterRestoreBtn.setText(QCoreApplication.translate("Nugget", u"PosterRestore Team\n"
+"Posterboard", None))
         self.disfordottieBtn.setText(QCoreApplication.translate("Nugget", u"disfordottie\n"
 "Clock Anim, Photos UI", None))
         self.mikasaBtn.setText(QCoreApplication.translate("Nugget", u"Mikasa\n"
 "Quiet Daemon", None))
         self.toolButton_15.setText(QCoreApplication.translate("Nugget", u"Additional Thanks", None))
         self.libiBtn.setText(QCoreApplication.translate("Nugget", u"pymobiledevice3", None))
+        self.jjtechBtn.setText(QCoreApplication.translate("Nugget", u"JJTech\n"
+"Sparserestore", None))
         self.qtBtn.setText(QCoreApplication.translate("Nugget", u"Qt Creator", None))
         self.appVersionLbl.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version %VERSION %BETATAG", None))
         self.statusBarLbl.setText(QCoreApplication.translate("Nugget", u"Mobile Gestalt", None))
@@ -3606,6 +3636,7 @@ class Ui_Nugget(object):
         self.modifyPosterboardsChk.setText(QCoreApplication.translate("Nugget", u"Modify", None))
         self.currentPBLbl.setText(QCoreApplication.translate("Nugget", u"Current File:", None))
         self.currentPosterboardLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
+        self.pbPreviewIcn.setText("")
 #if QT_CONFIG(tooltip)
         self.selectPosterboardBtn.setToolTip(QCoreApplication.translate("Nugget", u"Select a wallpaper file with the .tendies extension.", None))
 #endif // QT_CONFIG(tooltip)
