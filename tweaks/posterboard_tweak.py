@@ -36,16 +36,18 @@ class PosterboardTweak(Tweak):
             if isAdding:
                 # randomize uuid
                 folder_name = folder
+                curr_randomized_id = randomizedID
                 if randomizeUUID:
                     folder_name = str(uuid.uuid4()).upper()
+                    curr_randomized_id = randint(9999, 99999)
                 # if file then add it, otherwise recursively call again
                 if os.path.isfile(os.path.join(curr_path, folder)):
                     try:
                         # update plist ids if needed
                         new_contents = None
                         contents_path = os.path.join(curr_path, folder)
-                        if randomizedID != None:
-                            new_contents = self.update_plist_id(curr_path, folder, randomizedID)
+                        if curr_randomized_id != None:
+                            new_contents = self.update_plist_id(curr_path, folder, curr_randomized_id)
                             if new_contents != None:
                                 contents_path = None
                         files_to_restore.append(FileToRestore(
@@ -57,7 +59,7 @@ class PosterboardTweak(Tweak):
                     except IOError:
                         print(f"Failed to open file: {folder}") # TODO: Add QDebug equivalent
                 else:
-                    self.recursive_add(files_to_restore, os.path.join(curr_path, folder), f"{restore_path}/{folder_name}", isAdding, randomizedID=randomizedID)
+                    self.recursive_add(files_to_restore, os.path.join(curr_path, folder), f"{restore_path}/{folder_name}", isAdding, randomizedID=curr_randomized_id)
             else:
                 # look for container folder
                 name = folder.lower()
@@ -70,7 +72,7 @@ class PosterboardTweak(Tweak):
                         os.path.join(curr_path, folder),
                         restore_path="/Library/Application Support/PRBPosterExtensionDataStore/61/Extensions/com.apple.WallpaperKit.CollectionsPoster/descriptors",
                         isAdding=True,
-                        randomizeUUID=True, randomizedID=randint(9999, 99999)
+                        randomizeUUID=True
                     )
                 else:
                     self.recursive_add(files_to_restore, os.path.join(curr_path, folder), isAdding=False)
