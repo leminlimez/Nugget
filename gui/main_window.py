@@ -19,7 +19,7 @@ from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
 
 App_Version = "5.0"
-App_Build = 5
+App_Build = 6
 
 class Page(Enum):
     Home = 0
@@ -874,11 +874,13 @@ class MainWindow(QtWidgets.QMainWindow):
             scrollLayout.addWidget(scrollArea)
             self.ui.pbFilesList.setLayout(scrollLayout)
 
+        widgets = {}
         # Iterate through the files
         for tendie in tweaks["PosterBoard"].tendies:
             if tendie.loaded:
                 continue
             widget = QtWidgets.QWidget()
+            widgets[tendie] = widget
 
             # create the icon/label
             titleBtn = QtWidgets.QToolButton(widget)
@@ -891,7 +893,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
             delBtn = QtWidgets.QToolButton(widget)
             delBtn.setIcon(QtGui.QIcon(":/icon/trash.svg"))
-            delBtn.clicked.connect(lambda _, file=tendie: self.delete_pb_file(file, widget))
+            delBtn.clicked.connect(lambda _, file=tendie: (widgets[file].deleteLater(), tweaks["PosterBoard"].tendies.remove(file)))
 
             spacer = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
             # main layout
