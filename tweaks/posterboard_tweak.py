@@ -58,6 +58,13 @@ class PosterboardTweak(Tweak):
         new_tendie = TendieFile(path=file)
         if new_tendie.descriptor_cnt + self.get_descriptor_count() <= 10:
             self.tendies.append(new_tendie)
+            # alert if prb reset is needed
+            if new_tendie.descriptor_cnt == -1:
+                detailsBox = QtWidgets.QMessageBox()
+                detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
+                detailsBox.setWindowTitle("Warning")
+                detailsBox.setText("NOTE: You may need to reset PRB Extensions (enable Risky Options in settings) and then re-apply for this file to work.")
+                detailsBox.exec()
             return True
         return False
 
