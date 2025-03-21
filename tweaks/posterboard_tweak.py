@@ -163,11 +163,11 @@ class PosterboardTweak(Tweak):
             return
         elif self.tendies == None or len(self.tendies) == 0:
             return
+        if os.name == "nt":
+                # try to get past directory name limit on windows
+                output_dir = "\\\\?\\" + output_dir
         for tendie in self.tendies:
             with zipfile.ZipFile(tendie.path, 'r') as zip_ref:
                 zip_ref.extractall(output_dir)
-            if os.name == "nt":
-                # try to get past directory name limit on windows
-                output_dir = "\\\\?\\" + output_dir
             # add the files
             self.recursive_add(files_to_restore, curr_path=output_dir)
