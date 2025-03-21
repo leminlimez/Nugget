@@ -924,13 +924,13 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["PosterBoard"].resetting = False
         if selected_files != None and len(selected_files) > 0:
             # user selected files, add them
-            # but limit to 15
-            if len(selected_files) + len(tweaks["PosterBoard"].zip_paths) > 15:
+            # but limit to 10
+            if len(selected_files) + len(tweaks["PosterBoard"].zip_paths) > 10:
                 # alert that there are too many
                 detailsBox = QtWidgets.QMessageBox()
                 detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
                 detailsBox.setWindowTitle("Error!")
-                detailsBox.setText("You selected too many descriptors! The limit is 15.")
+                detailsBox.setText("You selected too many descriptors! The limit is 10.")
                 detailsBox.exec()
             else:
                 tweaks["PosterBoard"].zip_paths.extend(selected_files)
