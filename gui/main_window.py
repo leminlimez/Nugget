@@ -41,6 +41,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui = Ui_Nugget()
         self.ui.setupUi(self)
         self.show_uuid = False
+        self.pb_mainLayout = None
         self.loadSettings()
 
         # Check for an update
@@ -835,52 +836,61 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["Daemons"].set_multiple_values(Daemon.VoiceControl.value, value=checked)
 
     ## PosterBoard Page
-    def delete_pb_file(self, file):
-        if file in tweaks["PosterBoard"].zip_paths:
-            tweaks["PosterBoard"].zip_paths.remove(file)
-            #self.load_posterboard()
+    def delete_pb_file(self, file, widget):
+        if file in tweaks["PosterBoard"].tendies:
+            tweaks["PosterBoard"].tendies.remove(file)
+        widget.deleteLater()
 
     def load_posterboard(self):
-        # Clear the layout
-        layout = self.ui.pbFilesList.layout()
-        if layout:
-            while layout.count():
-                child = layout.takeAt(0)
-                widget = child.widget()
-                if widget:
-                    widget.deleteLater()
-                del child
-            del layout
-        self.ui.pbFilesList.setLayout(None)
-
-        # Clear the widget contents
-        for child in self.ui.pbFilesList.children():
-            child.deleteLater()
-
-        if len(tweaks["PosterBoard"].zip_paths) == 0:
+        if len(tweaks["PosterBoard"].tendies) == 0:
             return
         
-        # Create scroll layout
-        mainLayout = QtWidgets.QVBoxLayout()
-        mainLayout.setContentsMargins(0, 0, 0, 0)
-        mainLayout.setAlignment(QtCore.Qt.AlignmentFlag.AlignTop)
+        if self.pb_mainLayout == None:
+            # Create scroll layout
+            self.pb_mainLayout = QtWidgets.QVBoxLayout()
+            self.pb_mainLayout.setContentsMargins(0, 0, 0, 0)
+            self.pb_mainLayout.setAlignment(QtCore.Qt.AlignmentFlag.AlignTop)
+            # Create a QWidget to act as the container for the scroll area
+            scrollWidget = QtWidgets.QWidget()
+
+            # Set the main layout (containing all the widgets) on the scroll widget
+            scrollWidget.setLayout(self.pb_mainLayout)
+
+            # Create a QScrollArea to hold the content widget (scrollWidget)
+            scrollArea = QtWidgets.QScrollArea()
+            scrollArea.setWidgetResizable(True)  # Allow the content widget to resize within the scroll area
+            scrollArea.setFrameStyle(QtWidgets.QScrollArea.NoFrame)  # Remove the outline from the scroll area
+
+            # Set the scrollWidget as the content widget of the scroll area
+            scrollArea.setWidget(scrollWidget)
+
+            # Set the size policy of the scroll area to expand in both directions
+            scrollArea.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+
+            # Set the scroll area as the central widget of the main window
+            scrollLayout = QtWidgets.QVBoxLayout()
+            scrollLayout.setContentsMargins(0, 0, 0, 0)
+            scrollLayout.addWidget(scrollArea)
+            self.ui.pbFilesList.setLayout(scrollLayout)
 
         # Iterate through the files
-        for tendie in tweaks["PosterBoard"].zip_paths:
+        for tendie in tweaks["PosterBoard"].tendies:
+            if tendie.loaded:
+                continue
             widget = QtWidgets.QWidget()
 
             # create the icon/label
             titleBtn = QtWidgets.QToolButton(widget)
-            titleBtn.setIcon(QtGui.QIcon(":/icon/photo-stack.svg"))
+            titleBtn.setIcon(QtGui.QIcon(tendie.get_icon()))
             titleBtn.setIconSize(QtCore.QSize(20, 20))
-            titleBtn.setText(f"   {tendie}")
+            titleBtn.setText(f"   {tendie.path}")
             titleBtn.setStyleSheet("QToolButton {\n    background-color: transparent;\n	icon-size: 20px;\n}")
             titleBtn.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
             titleBtn.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
 
             delBtn = QtWidgets.QToolButton(widget)
             delBtn.setIcon(QtGui.QIcon(":/icon/trash.svg"))
-            delBtn.clicked.connect(lambda _, file=tendie: self.delete_pb_file(file))
+            delBtn.clicked.connect(lambda _, file=tendie: self.delete_pb_file(file, widget))
 
             spacer = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
             # main layout
@@ -891,30 +901,8 @@ class MainWindow(QtWidgets.QMainWindow):
             layout.addWidget(delBtn)
             # Add the widget to the mainLayout
             widget.setLayout(layout)
-            mainLayout.addWidget(widget)
-
-        # Create a QWidget to act as the container for the scroll area
-        scrollWidget = QtWidgets.QWidget()
-
-        # Set the main layout (containing all the widgets) on the scroll widget
-        scrollWidget.setLayout(mainLayout)
-
-        # Create a QScrollArea to hold the content widget (scrollWidget)
-        scrollArea = QtWidgets.QScrollArea()
-        scrollArea.setWidgetResizable(True)  # Allow the content widget to resize within the scroll area
-        scrollArea.setFrameStyle(QtWidgets.QScrollArea.NoFrame)  # Remove the outline from the scroll area
-
-        # Set the scrollWidget as the content widget of the scroll area
-        scrollArea.setWidget(scrollWidget)
-
-        # Set the size policy of the scroll area to expand in both directions
-        scrollArea.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-
-        # Set the scroll area as the central widget of the main window
-        scrollLayout = QtWidgets.QVBoxLayout()
-        scrollLayout.setContentsMargins(0, 0, 0, 0)
-        scrollLayout.addWidget(scrollArea)
-        self.ui.pbFilesList.setLayout(scrollLayout)
+            self.pb_mainLayout.addWidget(widget)
+            tendie.loaded = True
 
     def on_modifyPosterboardsChk_clicked(self, checked: bool):
         tweaks["PosterBoard"].set_enabled(checked)
@@ -924,17 +912,15 @@ class MainWindow(QtWidgets.QMainWindow):
         tweaks["PosterBoard"].resetting = False
         if selected_files != None and len(selected_files) > 0:
             # user selected files, add them
-            # but limit to 10
-            if len(selected_files) + len(tweaks["PosterBoard"].zip_paths) > 10:
-                # alert that there are too many
-                detailsBox = QtWidgets.QMessageBox()
-                detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
-                detailsBox.setWindowTitle("Error!")
-                detailsBox.setText("You selected too many descriptors! The limit is 10.")
-                detailsBox.exec()
-            else:
-                tweaks["PosterBoard"].zip_paths.extend(selected_files)
-                self.load_posterboard()
+            for file in selected_files:
+                if not tweaks["PosterBoard"].add_tendie(file):
+                    # alert that there are too many
+                    detailsBox = QtWidgets.QMessageBox()
+                    detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
+                    detailsBox.setWindowTitle("Error!")
+                    detailsBox.setText("You selected too many descriptors! The limit is 10.")
+                    detailsBox.exec()
+            self.load_posterboard()
 
     def on_deleteAllDescriptorsBtn_clicked(self):
         if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 0:

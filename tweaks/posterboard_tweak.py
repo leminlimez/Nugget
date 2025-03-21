@@ -9,13 +9,66 @@ from Sparserestore.restore import FileToRestore
 from controllers.plist_handler import set_plist_value
 from qt.ui_mainwindow import Ui_Nugget
 
+class TendieFile:
+    path: str
+    descriptor_cnt: int
+    loaded: bool
+
+    def __init__(self, path: str):
+        self.path = path
+        self.descriptor_cnt = 0
+        self.loaded = False
+        # read the contents
+        with zipfile.ZipFile(path, mode="r") as archive:
+            for option in archive.namelist():
+                if "__macosx/" in option.lower():
+                    continue
+                elif "container" in option.lower():
+                    self.descriptor_cnt = -1
+                    return
+                elif "descriptor/" in option.lower():
+                    item = option.lower().split("descriptor/")[1]
+                    if item.count('/') == 1 and item.endswith('/'):
+                        self.descriptor_cnt += 1
+                elif "descriptors/" in option.lower():
+                    item = option.lower().split("descriptors/")[1]
+                    if item.count('/') == 1 and item.endswith('/'):
+                        self.descriptor_cnt += 1
+
+    def get_icon(self):
+        if self.descriptor_cnt == -1:
+            # container
+            return ":/icon/shippingbox.svg"
+        elif self.descriptor_cnt == 1:
+            # single descriptor
+            return ":/icon/photo.svg"
+        else:
+            # multiple descriptors
+            return ":/icon/photo-stack.svg"
+
 class PosterboardTweak(Tweak):
     def __init__(self):
         super().__init__(key=None)
-        self.zip_paths: list[str] = []
+        self.tendies: list[TendieFile] = []
         self.bundle_id = "com.apple.PosterBoard"
         self.resetting = False
         self.resetType = 0 # 0 for descriptor 1 for prb
+
+    def add_tendie(self, file: str):
+        new_tendie = TendieFile(path=file)
+        if new_tendie.descriptor_cnt + self.get_descriptor_count() <= 10:
+            self.tendies.append(new_tendie)
+            return True
+        return False
+
+    def get_descriptor_count(self):
+        cnt = 0
+        for tendie in self.tendies:
+            if tendie.descriptor_cnt == -1:
+                cnt += 1
+            else:
+                cnt += tendie.descriptor_cnt
+        return cnt
 
     def update_plist_id(self, file_path: str, file_name: str, randomizedID: int):
         if file_name == "com.apple.posterkit.provider.descriptor.identifier":
@@ -96,10 +149,10 @@ class PosterboardTweak(Tweak):
                 domain=f"AppDomain-{self.bundle_id}"
             ))
             return
-        elif self.zip_paths == None or len(self.zip_paths) == 0:
+        elif self.tendies == None or len(self.tendies) == 0:
             return
-        for zip_path in self.zip_paths:
-            with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+        for tendie in self.tendies:
+            with zipfile.ZipFile(tendie.path, 'r') as zip_ref:
                 zip_ref.extractall(output_dir)
             if os.name == "nt":
                 # try to get past directory name limit on windows
