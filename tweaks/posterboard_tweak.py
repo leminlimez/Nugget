@@ -1,6 +1,7 @@
 import os
 import zipfile
 import uuid
+import re
 from random import randint
 from PySide6 import QtWidgets, QtCore, QtGui
 
@@ -85,6 +86,10 @@ class PosterboardTweak(Tweak):
         elif file_name == "Wallpaper.plist":
             return set_plist_value(file=os.path.join(file_path, file_name), key="identifier", value=randomizedID)
         return None
+    
+
+    def clean_path_name(self, path: str):
+        return re.sub('[^a-zA-Z0-9\.\/\-_ ]', '', path)
         
 
     def recursive_add(self,
@@ -116,7 +121,7 @@ class PosterboardTweak(Tweak):
                         files_to_restore.append(FileToRestore(
                             contents=new_contents,
                             contents_path=contents_path,
-                            restore_path=f"{restore_path}/{folder_name}",
+                            restore_path=self.clean_path_name(f"{restore_path}/{folder_name}"),
                             domain=f"AppDomain-{self.bundle_id}"
                         ))
                     except IOError:
