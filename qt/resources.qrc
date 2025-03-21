@@ -35,5 +35,8 @@
         <file>icon/shippingbox.svg</file>
         <file>icon/wallpaper.svg</file>
         <file>icon/questionmark.circle.svg</file>
+        <file>icon/globe.svg</file>
+        <file>gui/pb_tutorial1.png</file>
+        <file>gui/pb_tutorial2.png</file>
     </qresource>
 </RCC>

@@ -164,6 +164,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.importTendiesBtn.clicked.connect(self.on_importTendiesBtn_clicked)
         self.ui.resetPRBExtBtn.clicked.connect(self.on_resetPRBExtBtn_clicked)
         self.ui.deleteAllDescriptorsBtn.clicked.connect(self.on_deleteAllDescriptorsBtn_clicked)
+        self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
 
         ## RISKY OPTIONS PAGE ACTIONS
         self.ui.disableOTAChk.toggled.connect(self.on_disableOTAChk_clicked)
@@ -940,6 +941,10 @@ class MainWindow(QtWidgets.QMainWindow):
             tweaks["PosterBoard"].resetType = 1
             self.ui.pbActionLbl.setText("! Resetting PRB Extension")
             self.ui.pbActionLbl.show()
+
+    def on_findPBBtn_clicked(self):
+        webbrowser.open_new_tab("https://cowabun.ga/wallpapers")
+
 
     ## Risky Options Page
     def on_disableOTAChk_clicked(self, checked: bool):

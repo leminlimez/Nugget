@@ -2210,13 +2210,22 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_203.addItem(self.horizontalSpacer_73)
 
+        self.findPBBtn = QToolButton(self.horizontalWidget_53)
+        self.findPBBtn.setObjectName(u"findPBBtn")
+        icon20 = QIcon()
+        icon20.addFile(u":/icon/globe.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.findPBBtn.setIcon(icon20)
+        self.findPBBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+
+        self.horizontalLayout_203.addWidget(self.findPBBtn)
+
         self.pbHelpBtn = QToolButton(self.horizontalWidget_53)
         self.pbHelpBtn.setObjectName(u"pbHelpBtn")
         self.pbHelpBtn.setMinimumSize(QSize(35, 35))
         self.pbHelpBtn.setMaximumSize(QSize(35, 35))
-        icon20 = QIcon()
-        icon20.addFile(u":/icon/questionmark.circle.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.pbHelpBtn.setIcon(icon20)
+        icon21 = QIcon()
+        icon21.addFile(u":/icon/questionmark.circle.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.pbHelpBtn.setIcon(icon21)
         self.pbHelpBtn.setIconSize(QSize(20, 20))
 
         self.horizontalLayout_203.addWidget(self.pbHelpBtn)
@@ -2245,9 +2254,9 @@ class Ui_Nugget(object):
         self.horizontalLayout_12.setContentsMargins(-1, -1, -1, 0)
         self.deleteAllDescriptorsBtn = QToolButton(self.posterboardPageContent)
         self.deleteAllDescriptorsBtn.setObjectName(u"deleteAllDescriptorsBtn")
-        icon21 = QIcon()
-        icon21.addFile(u":/icon/trash.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.deleteAllDescriptorsBtn.setIcon(icon21)
+        icon22 = QIcon()
+        icon22.addFile(u":/icon/trash.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.deleteAllDescriptorsBtn.setIcon(icon22)
         self.deleteAllDescriptorsBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
         self.horizontalLayout_12.addWidget(self.deleteAllDescriptorsBtn)
@@ -2259,9 +2268,9 @@ class Ui_Nugget(object):
         self.importTendiesBtn = QToolButton(self.posterboardPageContent)
         self.importTendiesBtn.setObjectName(u"importTendiesBtn")
         self.importTendiesBtn.setLayoutDirection(Qt.RightToLeft)
-        icon22 = QIcon()
-        icon22.addFile(u":/icon/import.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.importTendiesBtn.setIcon(icon22)
+        icon23 = QIcon()
+        icon23.addFile(u":/icon/import.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.importTendiesBtn.setIcon(icon23)
         self.importTendiesBtn.setIconSize(QSize(20, 20))
         self.importTendiesBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
@@ -2298,7 +2307,7 @@ class Ui_Nugget(object):
 
         self.resetPRBExtBtn = QToolButton(self.posterboardPageContent)
         self.resetPRBExtBtn.setObjectName(u"resetPRBExtBtn")
-        self.resetPRBExtBtn.setIcon(icon21)
+        self.resetPRBExtBtn.setIcon(icon22)
         self.resetPRBExtBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
         self.verticalLayout_133.addWidget(self.resetPRBExtBtn)
@@ -2586,9 +2595,9 @@ class Ui_Nugget(object):
         self.horizontalLayout_7.setContentsMargins(-1, 10, -1, 0)
         self.chooseGestaltBtn = QToolButton(self.verticalWidget2)
         self.chooseGestaltBtn.setObjectName(u"chooseGestaltBtn")
-        icon23 = QIcon()
-        icon23.addFile(u":/icon/folder.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.chooseGestaltBtn.setIcon(icon23)
+        icon24 = QIcon()
+        icon24.addFile(u":/icon/folder.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.chooseGestaltBtn.setIcon(icon24)
         self.chooseGestaltBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
         self.horizontalLayout_7.addWidget(self.chooseGestaltBtn)
@@ -3002,9 +3011,9 @@ class Ui_Nugget(object):
 "	padding-right: 5px;\n"
 "	border-radius: 0px;\n"
 "}")
-        icon24 = QIcon()
-        icon24.addFile(u":/icon/pencil.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.toolButton_12.setIcon(icon24)
+        icon25 = QIcon()
+        icon25.addFile(u":/icon/pencil.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.toolButton_12.setIcon(icon25)
         self.toolButton_12.setIconSize(QSize(25, 25))
 
         self.horizontalLayout_22.addWidget(self.toolButton_12)
@@ -3065,7 +3074,7 @@ class Ui_Nugget(object):
         self.importOperationBtn = QToolButton(self.customOperationsPageContent)
         self.importOperationBtn.setObjectName(u"importOperationBtn")
         self.importOperationBtn.setEnabled(True)
-        self.importOperationBtn.setIcon(icon22)
+        self.importOperationBtn.setIcon(icon23)
         self.importOperationBtn.setIconSize(QSize(20, 20))
         self.importOperationBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
@@ -3121,9 +3130,9 @@ class Ui_Nugget(object):
 "	padding-right: 5px;\n"
 "	border-radius: 0px;\n"
 "}")
-        icon25 = QIcon()
-        icon25.addFile(u":/icon/compass.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.toolButton_16.setIcon(icon25)
+        icon26 = QIcon()
+        icon26.addFile(u":/icon/compass.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.toolButton_16.setIcon(icon26)
 
         self.horizontalLayout_31.addWidget(self.toolButton_16)
 
@@ -3233,15 +3242,15 @@ class Ui_Nugget(object):
 
         self.importThemeFolderBtn = QToolButton(self.horizontalWidget7)
         self.importThemeFolderBtn.setObjectName(u"importThemeFolderBtn")
-        self.importThemeFolderBtn.setIcon(icon23)
+        self.importThemeFolderBtn.setIcon(icon24)
 
         self.horizontalLayout_26.addWidget(self.importThemeFolderBtn)
 
         self.importThemeZipBtn = QToolButton(self.horizontalWidget7)
         self.importThemeZipBtn.setObjectName(u"importThemeZipBtn")
-        icon26 = QIcon()
-        icon26.addFile(u":/icon/file-earmark-zip.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.importThemeZipBtn.setIcon(icon26)
+        icon27 = QIcon()
+        icon27.addFile(u":/icon/file-earmark-zip.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.importThemeZipBtn.setIcon(icon27)
 
         self.horizontalLayout_26.addWidget(self.importThemeZipBtn)
 
@@ -3654,6 +3663,7 @@ class Ui_Nugget(object):
         self.voiceControlChk.setText(QCoreApplication.translate("Nugget", u"Disable Voice Control", None))
         self.posterboardLbl.setText(QCoreApplication.translate("Nugget", u"Posterboard", None))
         self.modifyPosterboardsChk.setText(QCoreApplication.translate("Nugget", u"Modify", None))
+        self.findPBBtn.setText(QCoreApplication.translate("Nugget", u"  Find Wallpapers", None))
         self.pbHelpBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
 #if QT_CONFIG(tooltip)
         self.deleteAllDescriptorsBtn.setToolTip(QCoreApplication.translate("Nugget", u"Clears all the wallpapers in the Collections section so that you can import more.", None))
