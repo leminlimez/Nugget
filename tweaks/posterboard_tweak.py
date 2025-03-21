@@ -169,5 +169,5 @@ class PosterboardTweak(Tweak):
         for tendie in self.tendies:
             with zipfile.ZipFile(tendie.path, 'r') as zip_ref:
                 zip_ref.extractall(output_dir)
-            # add the files
-            self.recursive_add(files_to_restore, curr_path=output_dir)
+        # add the files
+        self.recursive_add(files_to_restore, curr_path=output_dir)
