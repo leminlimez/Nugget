@@ -1,5 +1,6 @@
-from PySide6.QtWidgets import QDialog, QDialogButtonBox, QLabel, QVBoxLayout, QWidget, QToolButton, QSizePolicy
-from PySide6.QtGui import QFont
+from PySide6.QtWidgets import QDialog, QDialogButtonBox, QLabel, QVBoxLayout, QHBoxLayout, QWidget, QToolButton, QSizePolicy
+from PySide6.QtGui import QFont, QIcon, QPixmap
+from PySide6.QtCore import QSize
 
 from webbrowser import open_new_tab
 
@@ -40,15 +41,31 @@ class PBHelpDialog(QDialog):
         )
         self.buttonBox = QDialogButtonBox(QBtn)
         self.buttonBox.accepted.connect(self.accept)
+        self.setWindowTitle("PosterBoard Info")
 
         layout = QVBoxLayout()
         message = QLabel("Descriptors will be under the Collections section when adding a new wallpaper.")
         layout.addWidget(message)
 
-        imgContainer = QWidget()
-        imgContainer.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        imgContainer.setStyleSheet("QWidget { border: none; }")
-        # tut1 = QToolButton()
+        imgBox = QWidget()
+        imgBox.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        imgBox.setStyleSheet("QWidget { background: none; padding: 0px; border: none; }")
+        hlayout = QHBoxLayout()
+        tut1 = QToolButton()
+        tut1.setIconSize(QSize(138, 300))
+        tut1.setStyleSheet("QToolButton { background: none; padding: 0px; border: none; }")
+        tut1.setIcon(QIcon(QPixmap(":/gui/pb_tutorial1.png")))
+        hlayout.addWidget(tut1)
+        tut2 = QToolButton()
+        tut2.setIconSize(QSize(138, 300))
+        tut2.setStyleSheet("QToolButton { background: none; padding: 0px; border: none; }")
+        tut2.setIcon(QIcon(QPixmap(":/gui/pb_tutorial2.png")))
+        hlayout.addWidget(tut2)
+        imgBox.setLayout(hlayout)
+
+        layout.addWidget(imgBox)
+        layout.addWidget(self.buttonBox)
+        self.setLayout(layout)
 
 
 class UpdateAppDialog(QDialog):

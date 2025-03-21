@@ -12,7 +12,7 @@ from controllers.web_request_handler import is_update_available
 from devicemanagement.constants import Version
 from devicemanagement.device_manager import DeviceManager
 
-from gui.dialogs import GestaltDialog, UpdateAppDialog
+from gui.dialogs import GestaltDialog, UpdateAppDialog, PBHelpDialog
 
 from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
@@ -165,6 +165,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.resetPRBExtBtn.clicked.connect(self.on_resetPRBExtBtn_clicked)
         self.ui.deleteAllDescriptorsBtn.clicked.connect(self.on_deleteAllDescriptorsBtn_clicked)
         self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
+        self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)
 
         ## RISKY OPTIONS PAGE ACTIONS
         self.ui.disableOTAChk.toggled.connect(self.on_disableOTAChk_clicked)
@@ -946,6 +947,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_findPBBtn_clicked(self):
         webbrowser.open_new_tab("https://cowabun.ga/wallpapers")
+
+    def on_pbHelpBtn_clicked(self):
+        dialog = PBHelpDialog()
+        dialog.exec()
 
 
     ## Risky Options Page
