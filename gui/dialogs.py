@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QDialog, QDialogButtonBox, QLabel, QVBoxLayout
+from PySide6.QtWidgets import QDialog, QDialogButtonBox, QLabel, QVBoxLayout, QWidget, QToolButton, QSizePolicy
 from PySide6.QtGui import QFont
 
 from webbrowser import open_new_tab
@@ -30,6 +30,25 @@ class GestaltDialog(QDialog):
         self.device_manager.data_singleton.gestalt_path = self.selected_file
         self.gestalt_label.setText(self.selected_file)
         super().accept()
+
+
+class PBHelpDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        QBtn = (
+            QDialogButtonBox.Ok
+        )
+        self.buttonBox = QDialogButtonBox(QBtn)
+        self.buttonBox.accepted.connect(self.accept)
+
+        layout = QVBoxLayout()
+        message = QLabel("Descriptors will be under the Collections section when adding a new wallpaper.")
+        layout.addWidget(message)
+
+        imgContainer = QWidget()
+        imgContainer.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        imgContainer.setStyleSheet("QWidget { border: none; }")
+        # tut1 = QToolButton()
 
 
 class UpdateAppDialog(QDialog):
