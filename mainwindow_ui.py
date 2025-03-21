@@ -407,7 +407,7 @@ class Ui_Nugget(object):
         sizePolicy2.setHeightForWidth(self.posterboardPageBtn.sizePolicy().hasHeightForWidth())
         self.posterboardPageBtn.setSizePolicy(sizePolicy2)
         icon9 = QIcon()
-        icon9.addFile(u":/icon/photo-stack.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon9.addFile(u":/icon/wallpaper.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.posterboardPageBtn.setIcon(icon9)
         self.posterboardPageBtn.setCheckable(True)
         self.posterboardPageBtn.setAutoExclusive(True)
@@ -764,12 +764,12 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_2.addWidget(self.helpFromBtn)
 
-        self.jjtechBtn = QToolButton(self.horizontalWidget_21)
-        self.jjtechBtn.setObjectName(u"jjtechBtn")
-        sizePolicy2.setHeightForWidth(self.jjtechBtn.sizePolicy().hasHeightForWidth())
-        self.jjtechBtn.setSizePolicy(sizePolicy2)
-        self.jjtechBtn.setMinimumSize(QSize(0, 37))
-        self.jjtechBtn.setStyleSheet(u"QToolButton {\n"
+        self.posterRestoreBtn = QToolButton(self.horizontalWidget_21)
+        self.posterRestoreBtn.setObjectName(u"posterRestoreBtn")
+        sizePolicy2.setHeightForWidth(self.posterRestoreBtn.sizePolicy().hasHeightForWidth())
+        self.posterRestoreBtn.setSizePolicy(sizePolicy2)
+        self.posterRestoreBtn.setMinimumSize(QSize(0, 37))
+        self.posterRestoreBtn.setStyleSheet(u"QToolButton {\n"
 "	border-top-right-radius: 0px;\n"
 "	border-bottom-right-radius: 0px;\n"
 "	background: none;\n"
@@ -781,7 +781,7 @@ class Ui_Nugget(object):
 "    color: #FFFFFF;\n"
 "}")
 
-        self.horizontalLayout_2.addWidget(self.jjtechBtn)
+        self.horizontalLayout_2.addWidget(self.posterRestoreBtn)
 
         self.disfordottieBtn = QToolButton(self.horizontalWidget_21)
         self.disfordottieBtn.setObjectName(u"disfordottieBtn")
@@ -858,6 +858,24 @@ class Ui_Nugget(object):
 "}")
 
         self.horizontalLayout_24.addWidget(self.libiBtn)
+
+        self.jjtechBtn = QToolButton(self.horizontalWidget3)
+        self.jjtechBtn.setObjectName(u"jjtechBtn")
+        sizePolicy2.setHeightForWidth(self.jjtechBtn.sizePolicy().hasHeightForWidth())
+        self.jjtechBtn.setSizePolicy(sizePolicy2)
+        self.jjtechBtn.setStyleSheet(u"QToolButton {\n"
+"	border-radius: 0px;\n"
+"	background: none;\n"
+"	border: 1px solid #3b3b3b;\n"
+"	border-left: none;\n"
+"}\n"
+"\n"
+"QToolButton:pressed {\n"
+"    background-color: #535353;\n"
+"    color: #FFFFFF;\n"
+"}")
+
+        self.horizontalLayout_24.addWidget(self.jjtechBtn)
 
         self.qtBtn = QToolButton(self.horizontalWidget3)
         self.qtBtn.setObjectName(u"qtBtn")
@@ -2192,6 +2210,17 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_203.addItem(self.horizontalSpacer_73)
 
+        self.pbHelpBtn = QToolButton(self.horizontalWidget_53)
+        self.pbHelpBtn.setObjectName(u"pbHelpBtn")
+        self.pbHelpBtn.setMinimumSize(QSize(35, 35))
+        self.pbHelpBtn.setMaximumSize(QSize(35, 35))
+        icon20 = QIcon()
+        icon20.addFile(u":/icon/questionmark.circle.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.pbHelpBtn.setIcon(icon20)
+        self.pbHelpBtn.setIconSize(QSize(20, 20))
+
+        self.horizontalLayout_203.addWidget(self.pbHelpBtn)
+
 
         self.verticalLayout_143.addWidget(self.horizontalWidget_53)
 
@@ -2211,27 +2240,9 @@ class Ui_Nugget(object):
         self.verticalLayout_133 = QVBoxLayout(self.posterboardPageContent)
         self.verticalLayout_133.setObjectName(u"verticalLayout_133")
         self.verticalLayout_133.setContentsMargins(0, 0, 0, 0)
-        self.regularDomainsLbl_2 = QLabel(self.posterboardPageContent)
-        self.regularDomainsLbl_2.setObjectName(u"regularDomainsLbl_2")
-        sizePolicy1.setHeightForWidth(self.regularDomainsLbl_2.sizePolicy().hasHeightForWidth())
-        self.regularDomainsLbl_2.setSizePolicy(sizePolicy1)
-
-        self.verticalLayout_133.addWidget(self.regularDomainsLbl_2)
-
-        self.currentPosterboardLbl = QLabel(self.posterboardPageContent)
-        self.currentPosterboardLbl.setObjectName(u"currentPosterboardLbl")
-
-        self.verticalLayout_133.addWidget(self.currentPosterboardLbl)
-
-        self.selectPosterboardBtn = QToolButton(self.posterboardPageContent)
-        self.selectPosterboardBtn.setObjectName(u"selectPosterboardBtn")
-        icon20 = QIcon()
-        icon20.addFile(u":/icon/file-earmark-zip.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.selectPosterboardBtn.setIcon(icon20)
-        self.selectPosterboardBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
-
-        self.verticalLayout_133.addWidget(self.selectPosterboardBtn)
-
+        self.horizontalLayout_12 = QHBoxLayout()
+        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
+        self.horizontalLayout_12.setContentsMargins(-1, -1, -1, 0)
         self.deleteAllDescriptorsBtn = QToolButton(self.posterboardPageContent)
         self.deleteAllDescriptorsBtn.setObjectName(u"deleteAllDescriptorsBtn")
         icon21 = QIcon()
@@ -2239,7 +2250,51 @@ class Ui_Nugget(object):
         self.deleteAllDescriptorsBtn.setIcon(icon21)
         self.deleteAllDescriptorsBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
-        self.verticalLayout_133.addWidget(self.deleteAllDescriptorsBtn)
+        self.horizontalLayout_12.addWidget(self.deleteAllDescriptorsBtn)
+
+        self.horizontalSpacer_18 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_12.addItem(self.horizontalSpacer_18)
+
+        self.importTendiesBtn = QToolButton(self.posterboardPageContent)
+        self.importTendiesBtn.setObjectName(u"importTendiesBtn")
+        self.importTendiesBtn.setLayoutDirection(Qt.RightToLeft)
+        icon22 = QIcon()
+        icon22.addFile(u":/icon/import.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.importTendiesBtn.setIcon(icon22)
+        self.importTendiesBtn.setIconSize(QSize(20, 20))
+        self.importTendiesBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+
+        self.horizontalLayout_12.addWidget(self.importTendiesBtn)
+
+
+        self.verticalLayout_133.addLayout(self.horizontalLayout_12)
+
+        self.pbActionLbl = QLabel(self.posterboardPageContent)
+        self.pbActionLbl.setObjectName(u"pbActionLbl")
+
+        self.verticalLayout_133.addWidget(self.pbActionLbl)
+
+        self.line_27 = QFrame(self.posterboardPageContent)
+        self.line_27.setObjectName(u"line_27")
+        self.line_27.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_27.setFrameShadow(QFrame.Plain)
+        self.line_27.setFrameShape(QFrame.Shape.HLine)
+
+        self.verticalLayout_133.addWidget(self.line_27)
+
+        self.pbFilesList = QWidget(self.posterboardPageContent)
+        self.pbFilesList.setObjectName(u"pbFilesList")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.pbFilesList.sizePolicy().hasHeightForWidth())
+        self.pbFilesList.setSizePolicy(sizePolicy5)
+        self.pbFilesList.setMinimumSize(QSize(200, 35))
+
+        self.verticalLayout_133.addWidget(self.pbFilesList)
 
         self.resetPRBExtBtn = QToolButton(self.posterboardPageContent)
         self.resetPRBExtBtn.setObjectName(u"resetPRBExtBtn")
@@ -2247,10 +2302,6 @@ class Ui_Nugget(object):
         self.resetPRBExtBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
         self.verticalLayout_133.addWidget(self.resetPRBExtBtn)
-
-        self.verticalSpacer_22 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.verticalLayout_133.addItem(self.verticalSpacer_22)
 
 
         self.verticalLayout_143.addWidget(self.posterboardPageContent)
@@ -2535,9 +2586,9 @@ class Ui_Nugget(object):
         self.horizontalLayout_7.setContentsMargins(-1, 10, -1, 0)
         self.chooseGestaltBtn = QToolButton(self.verticalWidget2)
         self.chooseGestaltBtn.setObjectName(u"chooseGestaltBtn")
-        icon22 = QIcon()
-        icon22.addFile(u":/icon/folder.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.chooseGestaltBtn.setIcon(icon22)
+        icon23 = QIcon()
+        icon23.addFile(u":/icon/folder.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.chooseGestaltBtn.setIcon(icon23)
         self.chooseGestaltBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
         self.horizontalLayout_7.addWidget(self.chooseGestaltBtn)
@@ -2951,9 +3002,9 @@ class Ui_Nugget(object):
 "	padding-right: 5px;\n"
 "	border-radius: 0px;\n"
 "}")
-        icon23 = QIcon()
-        icon23.addFile(u":/icon/pencil.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.toolButton_12.setIcon(icon23)
+        icon24 = QIcon()
+        icon24.addFile(u":/icon/pencil.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.toolButton_12.setIcon(icon24)
         self.toolButton_12.setIconSize(QSize(25, 25))
 
         self.horizontalLayout_22.addWidget(self.toolButton_12)
@@ -3014,9 +3065,7 @@ class Ui_Nugget(object):
         self.importOperationBtn = QToolButton(self.customOperationsPageContent)
         self.importOperationBtn.setObjectName(u"importOperationBtn")
         self.importOperationBtn.setEnabled(True)
-        icon24 = QIcon()
-        icon24.addFile(u":/icon/import.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.importOperationBtn.setIcon(icon24)
+        self.importOperationBtn.setIcon(icon22)
         self.importOperationBtn.setIconSize(QSize(20, 20))
         self.importOperationBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
@@ -3042,9 +3091,6 @@ class Ui_Nugget(object):
         self.operationsCnt = QWidget(self.customOperationsPageContent)
         self.operationsCnt.setObjectName(u"operationsCnt")
         self.operationsCnt.setEnabled(True)
-        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
         sizePolicy5.setHeightForWidth(self.operationsCnt.sizePolicy().hasHeightForWidth())
         self.operationsCnt.setSizePolicy(sizePolicy5)
 
@@ -3187,13 +3233,15 @@ class Ui_Nugget(object):
 
         self.importThemeFolderBtn = QToolButton(self.horizontalWidget7)
         self.importThemeFolderBtn.setObjectName(u"importThemeFolderBtn")
-        self.importThemeFolderBtn.setIcon(icon22)
+        self.importThemeFolderBtn.setIcon(icon23)
 
         self.horizontalLayout_26.addWidget(self.importThemeFolderBtn)
 
         self.importThemeZipBtn = QToolButton(self.horizontalWidget7)
         self.importThemeZipBtn.setObjectName(u"importThemeZipBtn")
-        self.importThemeZipBtn.setIcon(icon20)
+        icon26 = QIcon()
+        icon26.addFile(u":/icon/file-earmark-zip.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.importThemeZipBtn.setIcon(icon26)
 
         self.horizontalLayout_26.addWidget(self.importThemeZipBtn)
 
@@ -3346,14 +3394,16 @@ class Ui_Nugget(object):
         self.leminKoFiBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
         self.toolButton_14.setText(QCoreApplication.translate("Nugget", u"Main Developer", None))
         self.helpFromBtn.setText(QCoreApplication.translate("Nugget", u"With Help From", None))
-        self.jjtechBtn.setText(QCoreApplication.translate("Nugget", u"JJTech\n"
-"Sparserestore", None))
+        self.posterRestoreBtn.setText(QCoreApplication.translate("Nugget", u"PosterRestore Team\n"
+"Posterboard", None))
         self.disfordottieBtn.setText(QCoreApplication.translate("Nugget", u"disfordottie\n"
 "Clock Anim, Photos UI", None))
         self.mikasaBtn.setText(QCoreApplication.translate("Nugget", u"Mikasa\n"
 "Quiet Daemon", None))
         self.toolButton_15.setText(QCoreApplication.translate("Nugget", u"Additional Thanks", None))
         self.libiBtn.setText(QCoreApplication.translate("Nugget", u"pymobiledevice3", None))
+        self.jjtechBtn.setText(QCoreApplication.translate("Nugget", u"JJTech\n"
+"Sparserestore", None))
         self.qtBtn.setText(QCoreApplication.translate("Nugget", u"Qt Creator", None))
         self.appVersionLbl.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version %VERSION %BETATAG", None))
         self.statusBarLbl.setText(QCoreApplication.translate("Nugget", u"Mobile Gestalt", None))
@@ -3604,10 +3654,21 @@ class Ui_Nugget(object):
         self.voiceControlChk.setText(QCoreApplication.translate("Nugget", u"Disable Voice Control", None))
         self.posterboardLbl.setText(QCoreApplication.translate("Nugget", u"Posterboard", None))
         self.modifyPosterboardsChk.setText(QCoreApplication.translate("Nugget", u"Modify", None))
-        self.regularDomainsLbl_2.setText(QCoreApplication.translate("Nugget", u"Current File:", None))
-        self.currentPosterboardLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
-        self.selectPosterboardBtn.setText(QCoreApplication.translate("Nugget", u"  Select File", None))
-        self.deleteAllDescriptorsBtn.setText(QCoreApplication.translate("Nugget", u"   Delete All Descriptors", None))
+        self.pbHelpBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
+#if QT_CONFIG(tooltip)
+        self.deleteAllDescriptorsBtn.setToolTip(QCoreApplication.translate("Nugget", u"Clears all the wallpapers in the Collections section so that you can import more.", None))
+#endif // QT_CONFIG(tooltip)
+        self.deleteAllDescriptorsBtn.setText(QCoreApplication.translate("Nugget", u"   Clear Collections Wallpapers", None))
+#if QT_CONFIG(tooltip)
+        self.importTendiesBtn.setToolTip(QCoreApplication.translate("Nugget", u"Select a wallpaper file with the .tendies extension.", None))
+#endif // QT_CONFIG(tooltip)
+        self.importTendiesBtn.setText(QCoreApplication.translate("Nugget", u"  Import Files (.tendies)", None))
+        self.pbActionLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
+#if QT_CONFIG(tooltip)
+        self.resetPRBExtBtn.setToolTip(QCoreApplication.translate("Nugget", u"Wipes the PRB Extension folder.\n"
+"\n"
+"Warning: This will remove all of your wallpapers and will restrict you from adding new ones until you restore again.", None))
+#endif // QT_CONFIG(tooltip)
         self.resetPRBExtBtn.setText(QCoreApplication.translate("Nugget", u"   Reset PRB Extension", None))
         self.advancedOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Risky Options", None))
         self.label_17.setText(QCoreApplication.translate("Nugget", u"Disclaimer:\n"

@@ -1,15 +1,18 @@
-from .tweak_classes import Tweak
-from Sparserestore.restore import FileToRestore
-from controllers.plist_handler import set_plist_value
 import os
 import zipfile
 import uuid
 from random import randint
+from PySide6 import QtWidgets, QtCore, QtGui
+
+from .tweak_classes import Tweak
+from Sparserestore.restore import FileToRestore
+from controllers.plist_handler import set_plist_value
+from qt.ui_mainwindow import Ui_Nugget
 
 class PosterboardTweak(Tweak):
     def __init__(self):
         super().__init__(key=None)
-        self.zip_path = None
+        self.zip_paths: list[str] = []
         self.bundle_id = "com.apple.PosterBoard"
         self.resetting = False
         self.resetType = 0 # 0 for descriptor 1 for prb
@@ -93,12 +96,13 @@ class PosterboardTweak(Tweak):
                 domain=f"AppDomain-{self.bundle_id}"
             ))
             return
-        elif self.zip_path == None:
+        elif self.zip_paths == None or len(self.zip_paths) == 0:
             return
-        with zipfile.ZipFile(self.zip_path, 'r') as zip_ref:
-            zip_ref.extractall(output_dir)
-        if os.name == "nt":
-            # try to get past directory name limit on windows
-            output_dir = "\\\\?\\" + output_dir
-        # add the files
-        self.recursive_add(files_to_restore, curr_path=output_dir)
+        for zip_path in self.zip_paths:
+            with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+                zip_ref.extractall(output_dir)
+            if os.name == "nt":
+                # try to get past directory name limit on windows
+                output_dir = "\\\\?\\" + output_dir
+            # add the files
+            self.recursive_add(files_to_restore, curr_path=output_dir)

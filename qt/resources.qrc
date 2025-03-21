@@ -31,5 +31,9 @@
         <file>icon/flag.svg</file>
         <file>credits/big_nugget.png</file>
         <file>icon/photo-stack.svg</file>
+        <file>icon/photo.svg</file>
+        <file>icon/shippingbox.svg</file>
+        <file>icon/wallpaper.svg</file>
+        <file>icon/questionmark.circle.svg</file>
     </qresource>
 </RCC>
