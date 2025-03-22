@@ -60,6 +60,9 @@ Note: I am not responsible if your device bootloops. Please back up your data be
   - PassBook
   - Spotlight
   - Voice Control
+- PosterBoard: Animated wallpapers and descriptors.
+  - Community wallpapers can be found [here](https://cowabun.ga/wallpapers)
+  - See documentation on the structure of tendies files in `documentation.md`
 - Risky (Hidden) Options:
   - Disable thermalmonitord
   - OTA Killer
