@@ -167,7 +167,8 @@ class PosterboardTweak(Tweak):
             # try to get past directory name limit on windows
             output_dir = "\\\\?\\" + output_dir
         for tendie in self.tendies:
+            zip_output = os.makedirs(os.path.join(output_dir, str(uuid.uuid4())))
             with zipfile.ZipFile(tendie.path, 'r') as zip_ref:
-                zip_ref.extractall(output_dir)
+                zip_ref.extractall(zip_output)
         # add the files
         self.recursive_add(files_to_restore, curr_path=output_dir)
