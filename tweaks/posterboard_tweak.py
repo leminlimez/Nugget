@@ -89,7 +89,7 @@ class PosterboardTweak(Tweak):
     
 
     def clean_path_name(self, path: str):
-        return re.sub('[^a-zA-Z0-9\.\/\-_ ]', '', path)
+        return path# re.sub('[^a-zA-Z0-9\.\/\-_ ]', '', path)
         
 
     def recursive_add(self,
@@ -167,7 +167,8 @@ class PosterboardTweak(Tweak):
             # try to get past directory name limit on windows
             output_dir = "\\\\?\\" + output_dir
         for tendie in self.tendies:
-            zip_output = os.makedirs(os.path.join(output_dir, str(uuid.uuid4())))
+            zip_output = os.path.join(output_dir, str(uuid.uuid4()))
+            os.makedirs(zip_output)
             with zipfile.ZipFile(tendie.path, 'r') as zip_ref:
                 zip_ref.extractall(zip_output)
         # add the files
