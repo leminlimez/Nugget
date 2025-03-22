@@ -19,7 +19,7 @@ from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
 
 App_Version = "5.0"
-App_Build = 9
+App_Build = 10
 
 class Page(Enum):
     Home = 0
@@ -887,7 +887,7 @@ class MainWindow(QtWidgets.QMainWindow):
             titleBtn = QtWidgets.QToolButton(widget)
             titleBtn.setIcon(QtGui.QIcon(tendie.get_icon()))
             titleBtn.setIconSize(QtCore.QSize(20, 20))
-            titleBtn.setText(f"   {tendie.path}")
+            titleBtn.setText(f"   {tendie.name}")
             titleBtn.setStyleSheet("QToolButton {\n    background-color: transparent;\n	icon-size: 20px;\n}")
             titleBtn.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
             titleBtn.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)

@@ -12,22 +12,31 @@ from qt.ui_mainwindow import Ui_Nugget
 
 class TendieFile:
     path: str
+    name: str
     descriptor_cnt: int
+    is_container: bool
+    unsafe_container: bool
     loaded: bool
 
     def __init__(self, path: str):
         self.path = path
+        self.name = os.path.basename(path)
         self.descriptor_cnt = 0
+        self.is_container = False
+        self.unsafe_container = False
         self.loaded = False
+
         # read the contents
         with zipfile.ZipFile(path, mode="r") as archive:
             for option in archive.namelist():
                 if "__macosx/" in option.lower():
                     continue
-                elif "container" in option.lower():
-                    self.descriptor_cnt = -1
-                    return
-                elif "descriptor/" in option.lower():
+                if "container" in option.lower():
+                    self.is_container = True
+                    # check for the unsafe file that requires prb reset
+                    if "PBFPosterExtensionDataStoreSQLiteDatabase.sqlite3" in option:
+                        self.unsafe_container = True
+                if "descriptor/" in option.lower():
                     item = option.lower().split("descriptor/")[1]
                     if item.count('/') == 1 and item.endswith('/'):
                         self.descriptor_cnt += 1
@@ -37,7 +46,7 @@ class TendieFile:
                         self.descriptor_cnt += 1
 
     def get_icon(self):
-        if self.descriptor_cnt == -1:
+        if self.is_container:
             # container
             return ":/icon/shippingbox.svg"
         elif self.descriptor_cnt == 1:
@@ -60,7 +69,7 @@ class PosterboardTweak(Tweak):
         if new_tendie.descriptor_cnt + self.get_descriptor_count() <= 10:
             self.tendies.append(new_tendie)
             # alert if prb reset is needed
-            if new_tendie.descriptor_cnt == -1:
+            if new_tendie.unsafe_container:
                 detailsBox = QtWidgets.QMessageBox()
                 detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
                 detailsBox.setWindowTitle("Warning")
@@ -72,10 +81,7 @@ class PosterboardTweak(Tweak):
     def get_descriptor_count(self):
         cnt = 0
         for tendie in self.tendies:
-            if tendie.descriptor_cnt == -1:
-                cnt += 1
-            else:
-                cnt += tendie.descriptor_cnt
+            cnt += tendie.descriptor_cnt
         return cnt
 
     def update_plist_id(self, file_path: str, file_name: str, randomizedID: int):
