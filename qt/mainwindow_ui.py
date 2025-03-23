@@ -3679,7 +3679,7 @@ class Ui_Nugget(object):
 "\n"
 "Warning: This will remove all of your wallpapers and will restrict you from adding new ones until you restore again.", None))
 #endif // QT_CONFIG(tooltip)
-        self.resetPRBExtBtn.setText(QCoreApplication.translate("Nugget", u"   Reset PRB Extension", None))
+        self.resetPRBExtBtn.setText(QCoreApplication.translate("Nugget", u"   Remove All Wallpapers", None))
         self.advancedOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Risky Options", None))
         self.label_17.setText(QCoreApplication.translate("Nugget", u"Disclaimer:\n"
 "\n"
