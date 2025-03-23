@@ -185,7 +185,7 @@ class PosterboardTweak(Tweak):
                     overriding.write(contents)
                 del contents
             aar_path = os.path.join(contents_path, "input.segmentation/segmentation.data.aar")
-            wrap_in_aar(aar_path, self.videoFile, aar_path)
+            wrap_in_aar(get_bundle_files("files/posterboard/contents.plist"), self.videoFile, aar_path)
             
 
     def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str):
