@@ -3,11 +3,14 @@ import zipfile
 import uuid
 import re
 from random import randint
+from shutil import copytree
 from PySide6 import QtWidgets, QtCore, QtGui
 
 from .tweak_classes import Tweak
 from Sparserestore.restore import FileToRestore
 from controllers.plist_handler import set_plist_value
+from controllers.files_handler import get_bundle_files
+from controllers.aar.aar import wrap_in_aar
 from qt.ui_mainwindow import Ui_Nugget
 
 class TendieFile:
@@ -150,8 +153,40 @@ class PosterboardTweak(Tweak):
                         isAdding=True,
                         randomizeUUID=True
                     )
+                elif name == "video-descriptor" or name == "video-descriptors":
+                    self.recursive_add(
+                        files_to_restore,
+                        os.path.join(curr_path, folder),
+                        restore_path="/Library/Application Support/PRBPosterExtensionDataStore/61/Extensions/com.apple.PhotosUIPrivate.PhotosPosterProvider/descriptors",
+                        isAdding=True,
+                        randomizeUUID=True
+                    )
                 else:
                     self.recursive_add(files_to_restore, os.path.join(curr_path, folder), isAdding=False)
+
+    def create_live_photo_files(self, output_dir: str):
+        if self.videoThumbnail != None and self.videoFile != None:
+            source_dir = get_bundle_files("files/posterboard/1F20C883-EA98-4CCE-9923-0C9A01359721")
+            video_output_dir = os.path.join(output_dir, "video-descriptor/1F20C883-EA98-4CCE-9923-0C9A01359721")
+            copytree(source_dir, video_output_dir, dirs_exist_ok=True)
+            contents_path = os.path.join(video_output_dir, "versions/0/contents/0EFB6A0F-7052-4D24-8859-AB22BADF2E93")
+            # replace the heic files first
+            with open(self.videoThumbnail, "rb") as thumb:
+                contents = thumb.read()
+                to_override = ["input.segmentation/asset.resource/Adjusted.HEIC", "input.segmentation/asset.resource/proxy.heic", "output.layerStack/portrait-layer_background.HEIC"]
+                for file in to_override:
+                    with open(os.path.join(contents_path, file), "w") as overriding:
+                        overriding.write(contents)
+                del contents
+            # now replace video
+            with open(self.videoFile, "rb") as vid:
+                contents = vid.read()
+                with open(os.path.join(contents_path, "output.layerStack/portrait-layer_settling-video.MOV"), "w") as overriding:
+                    overriding.write(contents)
+                del contents
+            aar_path = os.path.join(contents_path, "input.segmentation/segmentation.data.aar")
+            wrap_in_aar(aar_path, self.videoFile, aar_path)
+            
 
     def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str):
         # unzip the file
@@ -169,11 +204,12 @@ class PosterboardTweak(Tweak):
                 domain=f"AppDomain-{self.bundle_id}"
             ))
             return
-        elif self.tendies == None or len(self.tendies) == 0:
+        elif (self.tendies == None or len(self.tendies) == 0) and (self.videoThumbnail == None or self.videoThumbnail == None):
             return
         if os.name == "nt":
             # try to get past directory name limit on windows
             output_dir = "\\\\?\\" + output_dir
+        self.create_live_photo_files(output_dir)
         for tendie in self.tendies:
             zip_output = os.path.join(output_dir, str(uuid.uuid4()))
             os.makedirs(zip_output)

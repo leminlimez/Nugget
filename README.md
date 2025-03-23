@@ -123,6 +123,7 @@ If you would like to read more about the inner workings of the exploit and iOS r
 - [JJTech](https://github.com/JJTech0130) for Sparserestore/[TrollRestore](https://github.com/JJTech0130/TrollRestore)
 - [PosterRestore](https://discord.gg/gWtzTVhMvh) for their help with PosterBoard
   - Special thanks to dootskyre, [Middo](https://twitter.com/MWRevamped), [dulark](https://github.com/dularkian), forcequitOS, and pingubow for their work on this. It would not have been possible without them!
+  - Also thanks to [Snoolie for aar handling](https://github.com/0xilis/python-aar-stuff)
 - [disfordottie](https://x.com/disfordottie) for some global flag features
 - [Mikasa-san](https://github.com/Mikasa-san) for [Quiet Daemon](https://github.com/Mikasa-san/QuietDaemon)
 - [sneakyf1shy](https://github.com/f1shy-dev) for [AI Eligibility](https://gist.github.com/f1shy-dev/23b4a78dc283edd30ae2b2e6429129b5) (iOS 18.1 beta 4 and below)

@@ -1,0 +1,68 @@
+{
+  "version" : 10,
+  "layers" : [
+    {
+      "frame" : {
+        "Width" : 1042.4546142208774,
+        "Height" : 2868.5230711043873,
+        "Y" : -0.52307110438732707,
+        "X" : 174.92435703479578
+      },
+      "filename" : "portrait-layer_background.HEIC",
+      "zPosition" : 5,
+      "identifier" : "background"
+    },
+    {
+      "frame" : {
+        "Width" : 1182.5,
+        "Height" : 2569.25,
+        "Y" : 149.37503513892489,
+        "X" : 68.749995738267913
+      },
+      "filename" : "portrait-layer_settling-video.MOV",
+      "zPosition" : 5,
+      "identifier" : "settling-video"
+    }
+  ],
+  "properties" : {
+    "portraitLayout" : {
+      "clockIntersection" : 2,
+      "deviceResolution" : {
+        "Width" : 750,
+        "Height" : 1334
+      },
+      "visibleFrame" : {
+        "Width" : 886.43178410794587,
+        "Height" : 2569.25,
+        "Y" : 149.37496486107506,
+        "X" : 252.31008241168968
+      },
+      "timeFrame" : {
+        "Width" : 763.51324337831068,
+        "Height" : 227.26499250374812,
+        "Y" : 2135.0546874997553,
+        "X" : 313.76935277650728
+      },
+      "clockLayerOrder" : "ClockAboveForeground",
+      "hasTopEdgeContact" : false,
+      "inactiveFrame" : {
+        "Width" : 913.02473763118462,
+        "Height" : 2646.3274999999999,
+        "Y" : 149.39630414678933,
+        "X" : 239.01360565007042
+      },
+      "imageSize" : {
+        "Width" : 1320,
+        "Height" : 2868
+      },
+      "parallaxPadding" : {
+        "Width" : 61.45927036481757,
+        "Height" : 151.28435782108946
+      }
+    },
+    "settlingEffectEnabled" : true,
+    "depthEnabled" : false,
+    "clockAreaLuminance" : 0.64877637987012982,
+    "parallaxDisabled" : false
+  }
+}
