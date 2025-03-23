@@ -18,8 +18,8 @@ from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
 
-App_Version = "5.0"
-App_Build = 10
+App_Version = "5.1"
+App_Build = 1
 
 class Page(Enum):
     Home = 0
@@ -161,9 +161,16 @@ class MainWindow(QtWidgets.QMainWindow):
 
         ## POSTERBOARD PAGE ACTIONS
         self.ui.modifyPosterboardsChk.toggled.connect(self.on_modifyPosterboardsChk_clicked)
+        self.ui.tendiesPageBtn.clicked.connect(self.on_tendiesPageBtn_clicked)
+        self.ui.videoPageBtn.clicked.connect(self.on_videoPageBtn_clicked)
+
         self.ui.importTendiesBtn.clicked.connect(self.on_importTendiesBtn_clicked)
         self.ui.resetPRBExtBtn.clicked.connect(self.on_resetPRBExtBtn_clicked)
         self.ui.deleteAllDescriptorsBtn.clicked.connect(self.on_deleteAllDescriptorsBtn_clicked)
+
+        self.ui.chooseThumbBtn.clicked.connect(self.on_chooseThumbBtn_clicked)
+        self.ui.chooseVideoBtn.clicked.connect(self.on_chooseVideoBtn_clicked)
+        
         self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
         self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)
 
@@ -910,7 +917,19 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_modifyPosterboardsChk_clicked(self, checked: bool):
         tweaks["PosterBoard"].set_enabled(checked)
-        self.ui.posterboardPageContent.setDisabled(not checked)
+        self.ui.pbPages.setDisabled(not checked)
+
+    # PB Pages Selectors
+    def on_tendiesPageBtn_clicked(self):
+        self.ui.tendiesPageBtn.setChecked(True)
+        self.ui.videoPageBtn.setChecked(False)
+        self.ui.pbPages.setCurrentIndex(0)
+    def on_videoPageBtn_clicked(self):
+        self.ui.tendiesPageBtn.setChecked(False)
+        self.ui.videoPageBtn.setChecked(True)
+        self.ui.pbPages.setCurrentIndex(1)
+    
+    # Tendies Page
     def on_importTendiesBtn_clicked(self):
         selected_files, _ = QtWidgets.QFileDialog.getOpenFileNames(self, "Select PosterBoard Files", "", "Zip Files (*.tendies)", options=QtWidgets.QFileDialog.ReadOnly)
         tweaks["PosterBoard"].resetting = False
@@ -925,7 +944,6 @@ class MainWindow(QtWidgets.QMainWindow):
                     detailsBox.setText("You selected too many descriptors! The limit is 10.")
                     detailsBox.exec()
             self.load_posterboard()
-
     def on_deleteAllDescriptorsBtn_clicked(self):
         if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 0:
             tweaks["PosterBoard"].resetting = False
@@ -944,6 +962,26 @@ class MainWindow(QtWidgets.QMainWindow):
             tweaks["PosterBoard"].resetType = 1
             self.ui.pbActionLbl.setText("! Resetting PRB Extension")
             self.ui.pbActionLbl.show()
+    
+    # Video Page
+    def on_chooseThumbBtn_clicked(self):
+        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select Image File", "", "Image Files (*.heic)", options=QtWidgets.QFileDialog.ReadOnly)
+        tweaks["PosterBoard"].resetting = False
+        if selected_file != None and selected_file != "":
+            tweaks["PosterBoard"].videoThumbnail = selected_file
+            self.ui.pbVideoThumbLbl.setText(f"Current Thumbnail: {selected_file}")
+        else:
+            tweaks["PosterBoard"].videoThumbnail = None
+            self.ui.pbVideoThumbLbl.setText("Current Thumbnail: None")
+    def on_chooseVideoBtn_clicked(self):
+        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select Video File", "", "Video Files (*.mov)", options=QtWidgets.QFileDialog.ReadOnly)
+        tweaks["PosterBoard"].resetting = False
+        if selected_file != None and selected_file != "":
+            tweaks["PosterBoard"].videoFile = selected_file
+            self.ui.pbVideoLbl.setText(f"Current Video: {selected_file}")
+        else:
+            tweaks["PosterBoard"].videoFile = None
+            self.ui.pbVideoLbl.setText("Current Video: None")
 
     def on_findPBBtn_clicked(self):
         webbrowser.open_new_tab("https://cowabun.ga/wallpapers")

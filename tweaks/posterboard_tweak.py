@@ -60,6 +60,8 @@ class PosterboardTweak(Tweak):
     def __init__(self):
         super().__init__(key=None)
         self.tendies: list[TendieFile] = []
+        self.videoThumbnail = None
+        self.videoFile = None
         self.bundle_id = "com.apple.PosterBoard"
         self.resetting = False
         self.resetType = 0 # 0 for descriptor 1 for prb

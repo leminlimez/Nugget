@@ -4265,144 +4265,301 @@ To work properly, also disable the daemon using the toggle above.</string>
                </widget>
               </item>
               <item>
-               <widget class="QWidget" name="posterboardPageContent" native="true">
-                <property name="enabled">
-                 <bool>false</bool>
+               <widget class="QWidget" name="pbPagePicker" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_13">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_14">
                  <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
                   <number>0</number>
                  </property>
                  <property name="bottomMargin">
                   <number>0</number>
                  </property>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_12">
-                   <property name="bottomMargin">
-                    <number>0</number>
-                   </property>
-                   <item>
-                    <widget class="QToolButton" name="deleteAllDescriptorsBtn">
-                     <property name="toolTip">
-                      <string>Clears all the wallpapers in the Collections section so that you can import more.</string>
-                     </property>
-                     <property name="text">
-                      <string>   Clear Collections Wallpapers</string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="resources.qrc">
-                       <normaloff>:/icon/trash.svg</normaloff>:/icon/trash.svg</iconset>
-                     </property>
-                     <property name="toolButtonStyle">
-                      <enum>Qt::ToolButtonTextBesideIcon</enum>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <spacer name="horizontalSpacer_18">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QToolButton" name="importTendiesBtn">
-                     <property name="toolTip">
-                      <string>Select a wallpaper file with the .tendies extension.</string>
-                     </property>
-                     <property name="layoutDirection">
-                      <enum>Qt::RightToLeft</enum>
-                     </property>
-                     <property name="text">
-                      <string>  Import Files (.tendies)</string>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="resources.qrc">
-                       <normaloff>:/icon/import.svg</normaloff>:/icon/import.svg</iconset>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>20</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                     <property name="toolButtonStyle">
-                      <enum>Qt::ToolButtonTextBesideIcon</enum>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="pbActionLbl">
-                   <property name="text">
-                    <string>None</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="Line" name="line_27">
-                   <property name="styleSheet">
-                    <string notr="true">QFrame {
-	color: #414141;
-}</string>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
-                   </property>
+                  <spacer name="horizontalSpacer_20">
                    <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
-                  </widget>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
                  </item>
                  <item>
-                  <widget class="QWidget" name="pbFilesList" native="true">
+                  <widget class="QToolButton" name="tendiesPageBtn">
                    <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
                    <property name="minimumSize">
                     <size>
-                     <width>200</width>
+                     <width>0</width>
                      <height>35</height>
                     </size>
                    </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QToolButton" name="resetPRBExtBtn">
-                   <property name="toolTip">
-                    <string>Wipes the PRB Extension folder.
-
-Warning: This will remove all of your wallpapers and will restrict you from adding new ones until you restore again.</string>
-                   </property>
                    <property name="text">
-                    <string>   Reset PRB Extension</string>
+                    <string>  Tendies</string>
                    </property>
                    <property name="icon">
                     <iconset resource="resources.qrc">
-                     <normaloff>:/icon/trash.svg</normaloff>:/icon/trash.svg</iconset>
+                     <normaloff>:/icon/file-earmark-zip.svg</normaloff>:/icon/file-earmark-zip.svg</iconset>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
                    </property>
                    <property name="toolButtonStyle">
                     <enum>Qt::ToolButtonTextBesideIcon</enum>
                    </property>
                   </widget>
                  </item>
+                 <item>
+                  <widget class="QToolButton" name="videoPageBtn">
+                   <property name="text">
+                    <string>  Video</string>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="resources.qrc">
+                     <normaloff>:/icon/photo.svg</normaloff>:/icon/photo.svg</iconset>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="toolButtonStyle">
+                    <enum>Qt::ToolButtonTextBesideIcon</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_21">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
                 </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QStackedWidget" name="pbPages">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <widget class="QWidget" name="pbTendiesPage">
+                 <layout class="QVBoxLayout" name="verticalLayout_38">
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_12">
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QToolButton" name="deleteAllDescriptorsBtn">
+                      <property name="toolTip">
+                       <string>Clears all the wallpapers in the Collections section so that you can import more.</string>
+                      </property>
+                      <property name="text">
+                       <string>   Clear Collections Wallpapers</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="resources.qrc">
+                        <normaloff>:/icon/trash.svg</normaloff>:/icon/trash.svg</iconset>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextBesideIcon</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="horizontalSpacer_18">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="importTendiesBtn">
+                      <property name="toolTip">
+                       <string>Select a wallpaper file with the .tendies extension.</string>
+                      </property>
+                      <property name="layoutDirection">
+                       <enum>Qt::RightToLeft</enum>
+                      </property>
+                      <property name="text">
+                       <string>  Import Files (.tendies)</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="resources.qrc">
+                        <normaloff>:/icon/import.svg</normaloff>:/icon/import.svg</iconset>
+                      </property>
+                      <property name="iconSize">
+                       <size>
+                        <width>20</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextBesideIcon</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="pbActionLbl">
+                    <property name="text">
+                     <string>None</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="Line" name="line_27">
+                    <property name="styleSheet">
+                     <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Plain</enum>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="pbFilesList" native="true">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>35</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="resetPRBExtBtn">
+                    <property name="toolTip">
+                     <string>Wipes the PRB Extension folder.
+
+Warning: This will remove all of your wallpapers and will restrict you from adding new ones until you restore again.</string>
+                    </property>
+                    <property name="text">
+                     <string>   Reset PRB Extension</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="resources.qrc">
+                      <normaloff>:/icon/trash.svg</normaloff>:/icon/trash.svg</iconset>
+                    </property>
+                    <property name="toolButtonStyle">
+                     <enum>Qt::ToolButtonTextBesideIcon</enum>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="pbVideoPage">
+                 <layout class="QVBoxLayout" name="verticalLayout_39">
+                  <item>
+                   <widget class="QLabel" name="pbVideoThumbLbl">
+                    <property name="text">
+                     <string>Current Thumbnail: None</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="pbVideoLbl">
+                    <property name="text">
+                     <string>Current Video: None</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_30">
+                    <item>
+                     <widget class="QToolButton" name="chooseThumbBtn">
+                      <property name="text">
+                       <string>Choose Thumbnail (.HEIC)</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="chooseVideoBtn">
+                      <property name="text">
+                       <string>Choose Video (.MOV)</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="horizontalSpacer_19">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer_22">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
                </widget>
               </item>
              </layout>
