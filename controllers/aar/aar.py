@@ -57,4 +57,3 @@ def wrap_in_aar(input_file, input_mov, output_file):
         f.write(header2)
         f.write(file_data2)
 
-wrap_in_aar('contents.plist', 'settlingEffect.mov', 'output.aar')
