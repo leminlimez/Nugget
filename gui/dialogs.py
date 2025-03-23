@@ -44,7 +44,7 @@ class PBHelpDialog(QDialog):
         self.setWindowTitle("PosterBoard Info")
 
         layout = QVBoxLayout()
-        message = QLabel("Descriptors will be under the Collections section when adding a new wallpaper.")
+        message = QLabel("Descriptors will be under the Collections section when adding a new wallpaper.\n\nIf the wallpapers don't appear in the menu, you either have to wait a bit for them to load,\nor you've reached the maximum amount of wallpapers (15) and have to wipe them.")
         layout.addWidget(message)
 
         imgBox = QWidget()
