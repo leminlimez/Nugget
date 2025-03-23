@@ -73,7 +73,7 @@ class PosterboardTweak(Tweak):
                 detailsBox = QtWidgets.QMessageBox()
                 detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
                 detailsBox.setWindowTitle("Warning")
-                detailsBox.setText("NOTE: You may need to reset PRB Extensions (enable Risky Options in settings) and then re-apply for this file to work.")
+                detailsBox.setText("NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.")
                 detailsBox.exec()
             return True
         return False
