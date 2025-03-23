@@ -167,9 +167,9 @@ class PosterboardTweak(Tweak):
     def create_live_photo_files(self, output_dir: str):
         if self.videoThumbnail != None and self.videoFile != None:
             source_dir = get_bundle_files("files/posterboard/1F20C883-EA98-4CCE-9923-0C9A01359721")
-            video_output_dir = os.path.join(output_dir, "video-descriptor")
+            video_output_dir = os.path.join(output_dir, "video-descriptor/1F20C883-EA98-4CCE-9923-0C9A01359721")
             copytree(source_dir, video_output_dir, dirs_exist_ok=True)
-            contents_path = os.path.join(video_output_dir, "1F20C883-EA98-4CCE-9923-0C9A01359721/versions/0/contents/0EFB6A0F-7052-4D24-8859-AB22BADF2E93")
+            contents_path = os.path.join(video_output_dir, "versions/0/contents/0EFB6A0F-7052-4D24-8859-AB22BADF2E93")
             # replace the heic files first
             with open(self.videoThumbnail, "rb") as thumb:
                 contents = thumb.read()
