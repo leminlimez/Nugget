@@ -914,6 +914,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_importTendiesBtn_clicked(self):
         selected_files, _ = QtWidgets.QFileDialog.getOpenFileNames(self, "Select PosterBoard Files", "", "Zip Files (*.tendies)", options=QtWidgets.QFileDialog.ReadOnly)
         tweaks["PosterBoard"].resetting = False
+        self.ui.pbActionLbl.hide()
         if selected_files != None and len(selected_files) > 0:
             # user selected files, add them
             for file in selected_files:
