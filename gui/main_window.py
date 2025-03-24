@@ -170,6 +170,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.chooseThumbBtn.clicked.connect(self.on_chooseThumbBtn_clicked)
         self.ui.chooseVideoBtn.clicked.connect(self.on_chooseVideoBtn_clicked)
+        self.ui.clearSuggestedBtn.clicked.connect(self.on_clearSuggestedBtn_clicked)
         
         self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
         self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)
@@ -982,6 +983,15 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             tweaks["PosterBoard"].videoFile = None
             self.ui.pbVideoLbl.setText("Current Video: None")
+    def on_clearSuggestedBtn_clicked(self):
+        if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 2:
+            tweaks["PosterBoard"].resetting = False
+            self.ui.pbActionLbl.hide()
+        else:
+            tweaks["PosterBoard"].resetting = True
+            tweaks["PosterBoard"].resetType = 2
+            self.ui.pbActionLbl.setText("! Clearing Suggested Photos")
+            self.ui.pbActionLbl.show()
 
     def on_findPBBtn_clicked(self):
         webbrowser.open_new_tab("https://cowabun.ga/wallpapers")

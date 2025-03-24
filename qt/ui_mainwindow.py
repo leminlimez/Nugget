@@ -2303,15 +2303,6 @@ class Ui_Nugget(object):
         self.horizontalLayout_12 = QHBoxLayout()
         self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
         self.horizontalLayout_12.setContentsMargins(-1, -1, -1, 0)
-        self.deleteAllDescriptorsBtn = QToolButton(self.pbTendiesPage)
-        self.deleteAllDescriptorsBtn.setObjectName(u"deleteAllDescriptorsBtn")
-        icon24 = QIcon()
-        icon24.addFile(u":/icon/trash.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.deleteAllDescriptorsBtn.setIcon(icon24)
-        self.deleteAllDescriptorsBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
-
-        self.horizontalLayout_12.addWidget(self.deleteAllDescriptorsBtn)
-
         self.horizontalSpacer_18 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_12.addItem(self.horizontalSpacer_18)
@@ -2319,9 +2310,9 @@ class Ui_Nugget(object):
         self.importTendiesBtn = QToolButton(self.pbTendiesPage)
         self.importTendiesBtn.setObjectName(u"importTendiesBtn")
         self.importTendiesBtn.setLayoutDirection(Qt.RightToLeft)
-        icon25 = QIcon()
-        icon25.addFile(u":/icon/import.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.importTendiesBtn.setIcon(icon25)
+        icon24 = QIcon()
+        icon24.addFile(u":/icon/import.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.importTendiesBtn.setIcon(icon24)
         self.importTendiesBtn.setIconSize(QSize(20, 20))
         self.importTendiesBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
@@ -2356,12 +2347,35 @@ class Ui_Nugget(object):
 
         self.verticalLayout_38.addWidget(self.pbFilesList)
 
+        self.horizontalLayout_32 = QHBoxLayout()
+        self.horizontalLayout_32.setObjectName(u"horizontalLayout_32")
+        self.horizontalLayout_32.setContentsMargins(-1, -1, -1, 10)
+        self.horizontalSpacer_22 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_32.addItem(self.horizontalSpacer_22)
+
+        self.deleteAllDescriptorsBtn = QToolButton(self.pbTendiesPage)
+        self.deleteAllDescriptorsBtn.setObjectName(u"deleteAllDescriptorsBtn")
+        icon25 = QIcon()
+        icon25.addFile(u":/icon/arrow.clockwise.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.deleteAllDescriptorsBtn.setIcon(icon25)
+        self.deleteAllDescriptorsBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+
+        self.horizontalLayout_32.addWidget(self.deleteAllDescriptorsBtn)
+
         self.resetPRBExtBtn = QToolButton(self.pbTendiesPage)
         self.resetPRBExtBtn.setObjectName(u"resetPRBExtBtn")
-        self.resetPRBExtBtn.setIcon(icon24)
+        self.resetPRBExtBtn.setIcon(icon25)
         self.resetPRBExtBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
-        self.verticalLayout_38.addWidget(self.resetPRBExtBtn)
+        self.horizontalLayout_32.addWidget(self.resetPRBExtBtn)
+
+        self.horizontalSpacer_23 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_32.addItem(self.horizontalSpacer_23)
+
+
+        self.verticalLayout_38.addLayout(self.horizontalLayout_32)
 
         self.pbPages.addWidget(self.pbTendiesPage)
         self.pbVideoPage = QWidget()
@@ -2389,6 +2403,13 @@ class Ui_Nugget(object):
         self.chooseVideoBtn.setObjectName(u"chooseVideoBtn")
 
         self.horizontalLayout_30.addWidget(self.chooseVideoBtn)
+
+        self.clearSuggestedBtn = QToolButton(self.pbVideoPage)
+        self.clearSuggestedBtn.setObjectName(u"clearSuggestedBtn")
+        self.clearSuggestedBtn.setIcon(icon25)
+        self.clearSuggestedBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+
+        self.horizontalLayout_30.addWidget(self.clearSuggestedBtn)
 
         self.horizontalSpacer_19 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
@@ -3164,7 +3185,7 @@ class Ui_Nugget(object):
         self.importOperationBtn = QToolButton(self.customOperationsPageContent)
         self.importOperationBtn.setObjectName(u"importOperationBtn")
         self.importOperationBtn.setEnabled(True)
-        self.importOperationBtn.setIcon(icon25)
+        self.importOperationBtn.setIcon(icon24)
         self.importOperationBtn.setIconSize(QSize(20, 20))
         self.importOperationBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
@@ -3754,26 +3775,27 @@ class Ui_Nugget(object):
         self.findPBBtn.setText(QCoreApplication.translate("Nugget", u"  Find Wallpapers", None))
         self.pbHelpBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
         self.tendiesPageBtn.setText(QCoreApplication.translate("Nugget", u"  Tendies", None))
-        self.videoPageBtn.setText(QCoreApplication.translate("Nugget", u"  Video", None))
-#if QT_CONFIG(tooltip)
-        self.deleteAllDescriptorsBtn.setToolTip(QCoreApplication.translate("Nugget", u"Clears all the wallpapers in the Collections section so that you can import more.", None))
-#endif // QT_CONFIG(tooltip)
-        self.deleteAllDescriptorsBtn.setText(QCoreApplication.translate("Nugget", u"   Clear Collections Wallpapers", None))
+        self.videoPageBtn.setText(QCoreApplication.translate("Nugget", u"  Live", None))
 #if QT_CONFIG(tooltip)
         self.importTendiesBtn.setToolTip(QCoreApplication.translate("Nugget", u"Select a wallpaper file with the .tendies extension.", None))
 #endif // QT_CONFIG(tooltip)
         self.importTendiesBtn.setText(QCoreApplication.translate("Nugget", u"  Import Files (.tendies)", None))
         self.pbActionLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
 #if QT_CONFIG(tooltip)
+        self.deleteAllDescriptorsBtn.setToolTip(QCoreApplication.translate("Nugget", u"Clears all the wallpapers in the Collections section so that you can import more.", None))
+#endif // QT_CONFIG(tooltip)
+        self.deleteAllDescriptorsBtn.setText(QCoreApplication.translate("Nugget", u"  Clear Collections Wallpapers", None))
+#if QT_CONFIG(tooltip)
         self.resetPRBExtBtn.setToolTip(QCoreApplication.translate("Nugget", u"Wipes the PRB Extension folder.\n"
 "\n"
 "Warning: This will remove all of your wallpapers and will restrict you from adding new ones until you restore again.", None))
 #endif // QT_CONFIG(tooltip)
-        self.resetPRBExtBtn.setText(QCoreApplication.translate("Nugget", u"   Reset PRB Extension", None))
+        self.resetPRBExtBtn.setText(QCoreApplication.translate("Nugget", u"  Remove All Wallpapers", None))
         self.pbVideoThumbLbl.setText(QCoreApplication.translate("Nugget", u"Current Thumbnail: None", None))
         self.pbVideoLbl.setText(QCoreApplication.translate("Nugget", u"Current Video: None", None))
         self.chooseThumbBtn.setText(QCoreApplication.translate("Nugget", u"Choose Thumbnail (.HEIC)", None))
         self.chooseVideoBtn.setText(QCoreApplication.translate("Nugget", u"Choose Video (.MOV)", None))
+        self.clearSuggestedBtn.setText(QCoreApplication.translate("Nugget", u"  Clear Suggested Photos", None))
         self.advancedOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Risky Options", None))
         self.label_17.setText(QCoreApplication.translate("Nugget", u"Disclaimer:\n"
 "\n"

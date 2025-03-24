@@ -67,7 +67,7 @@ class PosterboardTweak(Tweak):
         self.videoFile = None
         self.bundle_id = "com.apple.PosterBoard"
         self.resetting = False
-        self.resetType = 0 # 0 for descriptor 1 for prb
+        self.resetType = 0 # 0 for descriptor, 1 for prb, 2 for suggested photos
 
     def add_tendie(self, file: str):
         new_tendie = TendieFile(path=file)
@@ -198,6 +198,9 @@ class PosterboardTweak(Tweak):
             if self.resetType == 0:
                 # resetting descriptors
                 file_path = "/61/Extensions/com.apple.WallpaperKit.CollectionsPoster/descriptors"
+            elif self.resetType == 2:
+                # resetting suggested photos
+                file_path = "/61/Extensions/com.apple.PhotosUIPrivate.PhotosPosterProvider/descriptors"
             files_to_restore.append(FileToRestore(
                 contents=b"",
                 restore_path=f"/Library/Application Support/PRBPosterExtensionDataStore{file_path}",

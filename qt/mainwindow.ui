@@ -4333,7 +4333,7 @@ To work properly, also disable the daemon using the toggle above.</string>
                  <item>
                   <widget class="QToolButton" name="videoPageBtn">
                    <property name="text">
-                    <string>  Video</string>
+                    <string>  Live</string>
                    </property>
                    <property name="icon">
                     <iconset resource="resources.qrc">
@@ -4381,23 +4381,6 @@ To work properly, also disable the daemon using the toggle above.</string>
                     <property name="bottomMargin">
                      <number>0</number>
                     </property>
-                    <item>
-                     <widget class="QToolButton" name="deleteAllDescriptorsBtn">
-                      <property name="toolTip">
-                       <string>Clears all the wallpapers in the Collections section so that you can import more.</string>
-                      </property>
-                      <property name="text">
-                       <string>   Clear Collections Wallpapers</string>
-                      </property>
-                      <property name="icon">
-                       <iconset resource="resources.qrc">
-                        <normaloff>:/icon/trash.svg</normaloff>:/icon/trash.svg</iconset>
-                      </property>
-                      <property name="toolButtonStyle">
-                       <enum>Qt::ToolButtonTextBesideIcon</enum>
-                      </property>
-                     </widget>
-                    </item>
                     <item>
                      <spacer name="horizontalSpacer_18">
                       <property name="orientation">
@@ -4478,23 +4461,73 @@ To work properly, also disable the daemon using the toggle above.</string>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QToolButton" name="resetPRBExtBtn">
-                    <property name="toolTip">
-                     <string>Wipes the PRB Extension folder.
+                   <layout class="QHBoxLayout" name="horizontalLayout_32">
+                    <property name="bottomMargin">
+                     <number>10</number>
+                    </property>
+                    <item>
+                     <spacer name="horizontalSpacer_22">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="deleteAllDescriptorsBtn">
+                      <property name="toolTip">
+                       <string>Clears all the wallpapers in the Collections section so that you can import more.</string>
+                      </property>
+                      <property name="text">
+                       <string>  Clear Collections Wallpapers</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="resources.qrc">
+                        <normaloff>:/icon/arrow.clockwise.svg</normaloff>:/icon/arrow.clockwise.svg</iconset>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextBesideIcon</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="resetPRBExtBtn">
+                      <property name="toolTip">
+                       <string>Wipes the PRB Extension folder.
 
 Warning: This will remove all of your wallpapers and will restrict you from adding new ones until you restore again.</string>
-                    </property>
-                    <property name="text">
-                     <string>   Reset PRB Extension</string>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="resources.qrc">
-                      <normaloff>:/icon/trash.svg</normaloff>:/icon/trash.svg</iconset>
-                    </property>
-                    <property name="toolButtonStyle">
-                     <enum>Qt::ToolButtonTextBesideIcon</enum>
-                    </property>
-                   </widget>
+                      </property>
+                      <property name="text">
+                       <string>  Remove All Wallpapers</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="resources.qrc">
+                        <normaloff>:/icon/arrow.clockwise.svg</normaloff>:/icon/arrow.clockwise.svg</iconset>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextBesideIcon</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="horizontalSpacer_23">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
                   </item>
                  </layout>
                 </widget>
@@ -4527,6 +4560,20 @@ Warning: This will remove all of your wallpapers and will restrict you from addi
                      <widget class="QToolButton" name="chooseVideoBtn">
                       <property name="text">
                        <string>Choose Video (.MOV)</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="clearSuggestedBtn">
+                      <property name="text">
+                       <string>  Clear Suggested Photos</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="resources.qrc">
+                        <normaloff>:/icon/arrow.clockwise.svg</normaloff>:/icon/arrow.clockwise.svg</iconset>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextBesideIcon</enum>
                       </property>
                      </widget>
                     </item>
