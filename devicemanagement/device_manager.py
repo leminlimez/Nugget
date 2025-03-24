@@ -109,6 +109,7 @@ class DeviceManager:
                         pass
                     dev = Device(
                             uuid=device.serial,
+                            usb=device.is_usb,
                             name=vals['DeviceName'],
                             version=vals['ProductVersion'],
                             build=vals['BuildVersion'],

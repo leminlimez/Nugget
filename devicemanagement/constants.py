@@ -2,8 +2,9 @@ from enum import Enum
 from pymobiledevice3.lockdown import LockdownClient
 
 class Device:
-    def __init__(self, uuid: int, name: str, version: str, build: str, model: str, hardware: str, cpu: str, locale: str, ld: LockdownClient):
+    def __init__(self, uuid: int, usb: bool, name: str, version: str, build: str, model: str, hardware: str, cpu: str, locale: str, ld: LockdownClient):
         self.uuid = uuid
+        self.connected_via_usb = usb
         self.name = name
         self.version = version
         self.build = build

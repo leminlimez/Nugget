@@ -275,7 +275,13 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.devicePicker.setEnabled(True)
             # populate the ComboBox with device names
             for device in self.device_manager.devices:
-                self.ui.devicePicker.addItem(device.name)
+                tag = ""
+                if self.device_manager.apply_over_wifi:
+                    if device.connected_via_usb:
+                        tag = " (@ USB)"
+                    else:
+                        tag = " (@ WiFi)"
+                self.ui.devicePicker.addItem(f"{device.name}{tag}")
             
             # show all pages
             self.ui.sidebarDiv1.show()
