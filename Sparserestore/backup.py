@@ -23,19 +23,35 @@ class BackupFile:
 @dataclass
 class ConcreteFile(BackupFile):
     contents: bytes
+    src_path: Optional[str] = None
     owner: int = 0
     group: int = 0
     inode: Optional[int] = None
     mode: _FileMode = DEFAULT
 
+    hash: bytes = None
+    size: int = None
+
+    def read_contents(self) -> bytes:
+        contents = self.contents
+        if self.contents == None:
+            with open(self.src_path, "rb") as in_file:
+                contents = in_file.read()
+        # prepopulate hash and size
+        self.hash = sha1(contents).digest()
+        self.size = len(contents)
+        return contents
+
     def to_record(self) -> mbdb.MbdbRecord:
         if self.inode is None:
             self.inode = int.from_bytes(randbytes(8), "big")
+        if self.hash == None or self.size == None:
+            self.read_contents()
         return mbdb.MbdbRecord(
             domain=self.domain,
             filename=self.path,
             link="",
-            hash=sha1(self.contents).digest(),
+            hash=self.hash,
             key=b"",
             mode=self.mode | _FileMode.S_IFREG,
             #unknown2=0,
@@ -46,7 +62,7 @@ class ConcreteFile(BackupFile):
             mtime=int(datetime.now().timestamp()),
             atime=int(datetime.now().timestamp()),
             ctime=int(datetime.now().timestamp()),
-            size=len(self.contents),
+            size=self.size,
             flags=4,
             properties=[]
         )
@@ -108,17 +124,25 @@ class SymbolicLink(BackupFile):
             flags=4,
             properties=[]
         )
+    
+@dataclass
+class AppBundle:
+    identifier: str
+    path: str
+    container_content_class: str
+    version: str = 804
 
 @dataclass
 class Backup:
     files: list[BackupFile]
+    apps: list[AppBundle]
 
     def write_to_directory(self, directory: Path):
         for file in self.files:
             if isinstance(file, ConcreteFile):
                 #print("Writing", file.path, "to", directory / sha1((file.domain + "-" + file.path).encode()).digest().hex())
                 with open(directory / sha1((file.domain + "-" + file.path).encode()).digest().hex(), "wb") as f:
-                    f.write(file.contents)
+                    f.write(file.read_contents())
             
         with open(directory / "Manifest.mbdb", "wb") as f:
             f.write(self.generate_manifest_db().to_bytes())
@@ -150,7 +174,7 @@ class Backup:
         })
     
     def generate_manifest(self) -> bytes: # Manifest.plist
-        return plistlib.dumps({
+        plist = {
             "BackupKeyBag": b64decode("""
     VkVSUwAAAAQAAAAFVFlQRQAAAAQAAAABVVVJRAAAABDud41d1b9NBICR1BH9JfVtSE1D
 	SwAAACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAV1JBUAAA
@@ -182,4 +206,16 @@ class Backup:
             "Lockdown": {},
             "SystemDomainsVersion": "20.0",
             "Version": "9.1"
-        })
+        }
+        # add the apps
+        if len(self.apps) > 0:
+            plist["Applications"] = {}
+            for app in self.apps:
+                appInfo = {
+                    "CFBundleIdentifier": app.identifier,
+                    "CFBundleVersion": app.version,
+                    "ContainerContentClass": app.container_content_class,
+                    "Path": app.path
+                }
+                plist["Applications"][app.identifier] = appInfo
+        return plistlib.dumps(plist)

@@ -1,10 +1,12 @@
 from . import backup, perform_restore
 from pymobiledevice3.lockdown import LockdownClient
+from pymobiledevice3.services.installation_proxy import InstallationProxyService
 import os
 
 class FileToRestore:
-    def __init__(self, contents: str, restore_path: str, domain: str = None, owner: int = 501, group: int = 501):
+    def __init__(self, contents: str, restore_path: str, contents_path: str = None, domain: str = None, owner: int = 501, group: int = 501):
         self.contents = contents
+        self.contents_path = contents_path
         self.restore_path = restore_path
         self.domain = domain
         self.owner = owner
@@ -74,7 +76,8 @@ def concat_regular_file(file: FileToRestore, files_list: list[FileToRestore], la
         file.domain,
         owner=file.owner,
         group=file.group,
-        contents=file.contents
+        contents=file.contents,
+        src_path=file.contents_path
     ))
     return new_last_domain, full_path
 
@@ -83,6 +86,9 @@ def restore_files(files: list, reboot: bool = False, lockdown_client: LockdownCl
     # create the files to be backed up
     files_list = [
     ]
+    apps_list = []
+    active_bundle_ids = []
+    apps = None
     sorted_files = sorted(files, key=lambda x: x.restore_path, reverse=False)
     # add the file paths
     last_domain = ""
@@ -94,13 +100,27 @@ def restore_files(files: list, reboot: bool = False, lockdown_client: LockdownCl
         else:
             last_domain, last_path = concat_regular_file(file, files_list, last_domain, last_path)
             exploit_only = False
+            # add the app bundle to the list
+            if last_domain.startswith("AppDomain"):
+                bundle_id = last_domain.removeprefix("AppDomain-")
+                if not bundle_id in active_bundle_ids:
+                    if apps == None:
+                        apps = InstallationProxyService(lockdown=lockdown_client).get_apps(application_type="Any", calculate_sizes=False)
+                    app_info = apps[bundle_id]
+                    active_bundle_ids.append(bundle_id)
+                    apps_list.append(backup.AppBundle(
+                        identifier=bundle_id,
+                        path=app_info["Container"],
+                        version=app_info["CFBundleVersion"],
+                        container_content_class="Data/Application"
+                    ))
 
     # crash the restore to skip the setup (only works for exploit files)
     if exploit_only:
         files_list.append(backup.ConcreteFile("", "SysContainerDomain-../../../../../../../.." + "/crash_on_purpose", contents=b""))
 
     # create the backup
-    back = backup.Backup(files=files_list)
+    back = backup.Backup(files=files_list, apps=apps_list)
 
     perform_restore(backup=back, reboot=reboot, lockdown_client=lockdown_client)
 

@@ -1,5 +1,6 @@
-from PySide6.QtWidgets import QDialog, QDialogButtonBox, QLabel, QVBoxLayout
-from PySide6.QtGui import QFont
+from PySide6.QtWidgets import QDialog, QDialogButtonBox, QLabel, QVBoxLayout, QHBoxLayout, QWidget, QToolButton, QSizePolicy
+from PySide6.QtGui import QFont, QIcon, QPixmap
+from PySide6.QtCore import QSize
 
 from webbrowser import open_new_tab
 
@@ -30,6 +31,41 @@ class GestaltDialog(QDialog):
         self.device_manager.data_singleton.gestalt_path = self.selected_file
         self.gestalt_label.setText(self.selected_file)
         super().accept()
+
+
+class PBHelpDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        QBtn = (
+            QDialogButtonBox.Ok
+        )
+        self.buttonBox = QDialogButtonBox(QBtn)
+        self.buttonBox.accepted.connect(self.accept)
+        self.setWindowTitle("PosterBoard Info")
+
+        layout = QVBoxLayout()
+        message = QLabel("Descriptors will be under the Collections section when adding a new wallpaper.\n\nIf the wallpapers don't appear in the menu, you either have to wait a bit for them to load,\nor you've reached the maximum amount of wallpapers (15) and have to wipe them.")
+        layout.addWidget(message)
+
+        imgBox = QWidget()
+        imgBox.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        imgBox.setStyleSheet("QWidget { background: none; padding: 0px; border: none; }")
+        hlayout = QHBoxLayout()
+        tut1 = QToolButton()
+        tut1.setIconSize(QSize(138, 300))
+        tut1.setStyleSheet("QToolButton { background: none; padding: 0px; border: none; }")
+        tut1.setIcon(QIcon(QPixmap(":/gui/pb_tutorial1.png")))
+        hlayout.addWidget(tut1)
+        tut2 = QToolButton()
+        tut2.setIconSize(QSize(138, 300))
+        tut2.setStyleSheet("QToolButton { background: none; padding: 0px; border: none; }")
+        tut2.setIcon(QIcon(QPixmap(":/gui/pb_tutorial2.png")))
+        hlayout.addWidget(tut2)
+        imgBox.setLayout(hlayout)
+
+        layout.addWidget(imgBox)
+        layout.addWidget(self.buttonBox)
+        self.setLayout(layout)
 
 
 class UpdateAppDialog(QDialog):

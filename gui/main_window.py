@@ -12,13 +12,13 @@ from controllers.web_request_handler import is_update_available
 from devicemanagement.constants import Version
 from devicemanagement.device_manager import DeviceManager
 
-from gui.dialogs import GestaltDialog, UpdateAppDialog
+from gui.dialogs import GestaltDialog, UpdateAppDialog, PBHelpDialog
 
 from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
 
-App_Version = "4.2.3"
+App_Version = "5.0"
 App_Build = 0
 
 class Page(Enum):
@@ -29,9 +29,10 @@ class Page(Enum):
     Springboard = 4
     InternalOptions = 5
     Daemons = 6
-    RiskyTweaks = 7
-    Apply = 8
-    Settings = 9
+    Posterboard = 7
+    RiskyTweaks = 8
+    Apply = 9
+    Settings = 10
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager):
@@ -40,6 +41,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui = Ui_Nugget()
         self.ui.setupUi(self)
         self.show_uuid = False
+        self.pb_mainLayout = None
         self.loadSettings()
 
         # Check for an update
@@ -63,6 +65,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.springboardOptionsPageBtn.clicked.connect(self.on_springboardOptionsPageBtn_clicked)
         self.ui.internalOptionsPageBtn.clicked.connect(self.on_internalOptionsPageBtn_clicked)
         self.ui.daemonsPageBtn.clicked.connect(self.on_daemonsPageBtn_clicked)
+        self.ui.posterboardPageBtn.clicked.connect(self.on_posterboardPageBtn_clicked)
         self.ui.advancedPageBtn.clicked.connect(self.on_advancedPageBtn_clicked)
         self.ui.applyPageBtn.clicked.connect(self.on_applyPageBtn_clicked)
         self.ui.settingsPageBtn.clicked.connect(self.on_settingsPageBtn_clicked)
@@ -78,11 +81,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.leminTwitterBtn.clicked.connect(self.on_leminTwitterBtn_clicked)
         self.ui.leminKoFiBtn.clicked.connect(self.on_leminKoFiBtn_clicked)
         
-        self.ui.jjtechBtn.clicked.connect(self.on_jjtechBtn_clicked)
+        self.ui.posterRestoreBtn.clicked.connect(self.on_posterRestoreBtn_clicked)
         self.ui.disfordottieBtn.clicked.connect(self.on_disfordottieBtn_clicked)
         self.ui.mikasaBtn.clicked.connect(self.on_mikasaBtn_clicked)
 
         self.ui.libiBtn.clicked.connect(self.on_libiBtn_clicked)
+        self.ui.jjtechBtn.clicked.connect(self.on_jjtechBtn_clicked)
         self.ui.qtBtn.clicked.connect(self.on_qtBtn_clicked)
 
         self.ui.discordBtn.clicked.connect(self.on_discordBtn_clicked)
@@ -155,6 +159,14 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.spotlightChk.toggled.connect(self.on_spotlightChk_clicked)
         self.ui.voiceControlChk.toggled.connect(self.on_voiceControlChk_clicked)
 
+        ## POSTERBOARD PAGE ACTIONS
+        self.ui.modifyPosterboardsChk.toggled.connect(self.on_modifyPosterboardsChk_clicked)
+        self.ui.importTendiesBtn.clicked.connect(self.on_importTendiesBtn_clicked)
+        self.ui.resetPRBExtBtn.clicked.connect(self.on_resetPRBExtBtn_clicked)
+        self.ui.deleteAllDescriptorsBtn.clicked.connect(self.on_deleteAllDescriptorsBtn_clicked)
+        self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
+        self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)
+
         ## RISKY OPTIONS PAGE ACTIONS
         self.ui.disableOTAChk.toggled.connect(self.on_disableOTAChk_clicked)
         self.ui.enableResolutionChk.toggled.connect(self.on_enableResolutionChk_clicked)
@@ -210,6 +222,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.resChangerContent.hide()
         self.ui.resHeightWarningLbl.hide()
         self.ui.resWidthWarningLbl.hide()
+        self.ui.pbActionLbl.hide()
 
 
     ## GENERAL INTERFACE FUNCTIONS
@@ -250,6 +263,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.springboardOptionsPageBtn.hide()
             self.ui.internalOptionsPageBtn.hide()
             self.ui.daemonsPageBtn.hide()
+            self.ui.posterboardPageBtn.hide()
             self.ui.advancedPageBtn.hide()
 
             self.ui.sidebarDiv2.hide()
@@ -261,18 +275,27 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.devicePicker.setEnabled(True)
             # populate the ComboBox with device names
             for device in self.device_manager.devices:
-                self.ui.devicePicker.addItem(device.name)
+                tag = ""
+                if self.device_manager.apply_over_wifi:
+                    if device.connected_via_usb:
+                        tag = " (@ USB)"
+                    else:
+                        tag = " (@ WiFi)"
+                self.ui.devicePicker.addItem(f"{device.name}{tag}")
             
             # show all pages
             self.ui.sidebarDiv1.show()
             self.ui.springboardOptionsPageBtn.show()
             self.ui.internalOptionsPageBtn.show()
             self.ui.daemonsPageBtn.show()
+            self.ui.posterboardPageBtn.show()
 
             if self.device_manager.allow_risky_tweaks:
                 self.ui.advancedPageBtn.show()
+                self.ui.resetPRBExtBtn.show()
             else:
                 self.ui.advancedPageBtn.hide()
+                self.ui.resetPRBExtBtn.hide()
             
             self.ui.sidebarDiv2.show()
             self.ui.applyPageBtn.show()
@@ -451,6 +474,9 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_daemonsPageBtn_clicked(self):
         self.ui.pages.setCurrentIndex(Page.Daemons.value)
 
+    def on_posterboardPageBtn_clicked(self):
+        self.ui.pages.setCurrentIndex(Page.Posterboard.value)
+
     def on_advancedPageBtn_clicked(self):
         self.ui.pages.setCurrentIndex(Page.RiskyTweaks.value)
 
@@ -513,8 +539,8 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_leminKoFiBtn_clicked(self):
         webbrowser.open_new_tab("https://ko-fi.com/leminlimez")
 
-    def on_jjtechBtn_clicked(self):
-        webbrowser.open_new_tab("https://github.com/JJTech0130/TrollRestore")
+    def on_posterRestoreBtn_clicked(self):
+        webbrowser.open_new_tab("https://discord.gg/gWtzTVhMvh")
     def on_disfordottieBtn_clicked(self):
         webbrowser.open_new_tab("https://twitter.com/disfordottie")
     def on_mikasaBtn_clicked(self):
@@ -522,6 +548,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_libiBtn_clicked(self):
         webbrowser.open_new_tab("https://github.com/doronz88/pymobiledevice3")
+    def on_jjtechBtn_clicked(self):
+        webbrowser.open_new_tab("https://github.com/JJTech0130/TrollRestore")
     def on_qtBtn_clicked(self):
         webbrowser.open_new_tab("https://www.qt.io/product/development-tools")
 
@@ -815,6 +843,123 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_voiceControlChk_clicked(self, checked: bool):
         tweaks["Daemons"].set_multiple_values(Daemon.VoiceControl.value, value=checked)
 
+    ## PosterBoard Page
+    def delete_pb_file(self, file, widget):
+        if file in tweaks["PosterBoard"].tendies:
+            tweaks["PosterBoard"].tendies.remove(file)
+        widget.deleteLater()
+
+    def load_posterboard(self):
+        if len(tweaks["PosterBoard"].tendies) == 0:
+            return
+        
+        if self.pb_mainLayout == None:
+            # Create scroll layout
+            self.pb_mainLayout = QtWidgets.QVBoxLayout()
+            self.pb_mainLayout.setContentsMargins(0, 0, 0, 0)
+            self.pb_mainLayout.setAlignment(QtCore.Qt.AlignmentFlag.AlignTop)
+            # Create a QWidget to act as the container for the scroll area
+            scrollWidget = QtWidgets.QWidget()
+
+            # Set the main layout (containing all the widgets) on the scroll widget
+            scrollWidget.setLayout(self.pb_mainLayout)
+
+            # Create a QScrollArea to hold the content widget (scrollWidget)
+            scrollArea = QtWidgets.QScrollArea()
+            scrollArea.setWidgetResizable(True)  # Allow the content widget to resize within the scroll area
+            scrollArea.setFrameStyle(QtWidgets.QScrollArea.NoFrame)  # Remove the outline from the scroll area
+
+            # Set the scrollWidget as the content widget of the scroll area
+            scrollArea.setWidget(scrollWidget)
+
+            # Set the size policy of the scroll area to expand in both directions
+            scrollArea.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+
+            # Set the scroll area as the central widget of the main window
+            scrollLayout = QtWidgets.QVBoxLayout()
+            scrollLayout.setContentsMargins(0, 0, 0, 0)
+            scrollLayout.addWidget(scrollArea)
+            self.ui.pbFilesList.setLayout(scrollLayout)
+
+        widgets = {}
+        # Iterate through the files
+        for tendie in tweaks["PosterBoard"].tendies:
+            if tendie.loaded:
+                continue
+            widget = QtWidgets.QWidget()
+            widgets[tendie] = widget
+
+            # create the icon/label
+            titleBtn = QtWidgets.QToolButton(widget)
+            titleBtn.setIcon(QtGui.QIcon(tendie.get_icon()))
+            titleBtn.setIconSize(QtCore.QSize(20, 20))
+            titleBtn.setText(f"   {tendie.name}")
+            titleBtn.setStyleSheet("QToolButton {\n    background-color: transparent;\n	icon-size: 20px;\n}")
+            titleBtn.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
+            titleBtn.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+
+            delBtn = QtWidgets.QToolButton(widget)
+            delBtn.setIcon(QtGui.QIcon(":/icon/trash.svg"))
+            delBtn.clicked.connect(lambda _, file=tendie: (widgets[file].deleteLater(), tweaks["PosterBoard"].tendies.remove(file)))
+
+            spacer = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+            # main layout
+            layout = QtWidgets.QHBoxLayout(widget)
+            layout.setContentsMargins(0, 0, 0, 9)
+            layout.addWidget(titleBtn)
+            layout.addItem(spacer)
+            layout.addWidget(delBtn)
+            # Add the widget to the mainLayout
+            widget.setLayout(layout)
+            self.pb_mainLayout.addWidget(widget)
+            tendie.loaded = True
+
+    def on_modifyPosterboardsChk_clicked(self, checked: bool):
+        tweaks["PosterBoard"].set_enabled(checked)
+        self.ui.posterboardPageContent.setDisabled(not checked)
+    def on_importTendiesBtn_clicked(self):
+        selected_files, _ = QtWidgets.QFileDialog.getOpenFileNames(self, "Select PosterBoard Files", "", "Zip Files (*.tendies)", options=QtWidgets.QFileDialog.ReadOnly)
+        tweaks["PosterBoard"].resetting = False
+        self.ui.pbActionLbl.hide()
+        if selected_files != None and len(selected_files) > 0:
+            # user selected files, add them
+            for file in selected_files:
+                if not tweaks["PosterBoard"].add_tendie(file):
+                    # alert that there are too many
+                    detailsBox = QtWidgets.QMessageBox()
+                    detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
+                    detailsBox.setWindowTitle("Error!")
+                    detailsBox.setText("You selected too many descriptors! The limit is 10.")
+                    detailsBox.exec()
+            self.load_posterboard()
+
+    def on_deleteAllDescriptorsBtn_clicked(self):
+        if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 0:
+            tweaks["PosterBoard"].resetting = False
+            self.ui.pbActionLbl.hide()
+        else:
+            tweaks["PosterBoard"].resetting = True
+            tweaks["PosterBoard"].resetType = 0
+            self.ui.pbActionLbl.setText("! Clearing Collections Wallpapers")
+            self.ui.pbActionLbl.show()
+    def on_resetPRBExtBtn_clicked(self):
+        if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 1:
+            tweaks["PosterBoard"].resetting = False
+            self.ui.pbActionLbl.hide()
+        else:
+            tweaks["PosterBoard"].resetting = True
+            tweaks["PosterBoard"].resetType = 1
+            self.ui.pbActionLbl.setText("! Resetting PRB Extension")
+            self.ui.pbActionLbl.show()
+
+    def on_findPBBtn_clicked(self):
+        webbrowser.open_new_tab("https://cowabun.ga/wallpapers")
+
+    def on_pbHelpBtn_clicked(self):
+        dialog = PBHelpDialog()
+        dialog.exec()
+
+
     ## Risky Options Page
     def on_disableOTAChk_clicked(self, checked: bool):
         tweaks["DisableOTAFile"].set_enabled(checked)
@@ -864,8 +1009,10 @@ class MainWindow(QtWidgets.QMainWindow):
         # toggle the button visibility
         if checked:
             self.ui.advancedPageBtn.show()
+            self.ui.resetPRBExtBtn.show()
         else:
             self.ui.advancedPageBtn.hide()
+            self.ui.resetPRBExtBtn.hide()
     def on_showAllSpoofableChk_toggled(self, checked: bool):
         self.device_manager.show_all_spoofable_models = checked
         # save the setting

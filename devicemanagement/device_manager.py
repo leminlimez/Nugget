@@ -1,6 +1,6 @@
 import traceback
 import plistlib
-from pathlib import Path
+from tempfile import TemporaryDirectory
 
 from PySide6.QtWidgets import QMessageBox
 from PySide6.QtCore import QSettings
@@ -14,6 +14,7 @@ from devicemanagement.data_singleton import DataSingleton
 
 from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
+from tweaks.posterboard_tweak import PosterboardTweak
 from tweaks.basic_plist_locations import FileLocationsList, RiskyFileLocationsList
 from Sparserestore.restore import restore_files, FileToRestore
 
@@ -108,6 +109,7 @@ class DeviceManager:
                         pass
                     dev = Device(
                             uuid=device.serial,
+                            usb=device.is_usb,
                             name=vals['DeviceName'],
                             version=vals['ProductVersion'],
                             build=vals['BuildVersion'],
@@ -285,137 +287,145 @@ class DeviceManager:
     
     ## APPLYING OR REMOVING TWEAKS AND RESTORING
     def apply_changes(self, resetting: bool = False, update_label=lambda x: None):
-        # set the tweaks and apply
-        # first open the file in read mode
-        update_label("Applying changes to files...")
-        gestalt_plist = None
-        if self.data_singleton.gestalt_path != None:
-            with open(self.data_singleton.gestalt_path, 'rb') as in_fp:
-                gestalt_plist = plistlib.load(in_fp)
-        # create the other plists
-        flag_plist: dict = {}
-        eligibility_files = None
-        ai_file = None
-        basic_plists: dict = {}
-        basic_plists_ownership: dict = {}
-        files_data: dict = {}
-        uses_domains: bool = False
+        try:
+            # set the tweaks and apply
+            # first open the file in read mode
+            update_label("Applying changes to files...")
+            gestalt_plist = None
+            if self.data_singleton.gestalt_path != None:
+                with open(self.data_singleton.gestalt_path, 'rb') as in_fp:
+                    gestalt_plist = plistlib.load(in_fp)
+            # create the other plists
+            flag_plist: dict = {}
+            eligibility_files = None
+            ai_file = None
+            basic_plists: dict = {}
+            basic_plists_ownership: dict = {}
+            files_data: dict = {}
+            uses_domains: bool = False
+            # create the restore file list
+            files_to_restore: dict[FileToRestore] = [
+            ]
+            tmp_pb_dir = None # temporary directory for unzipping pb files
 
-        # set the plist keys
-        if not resetting:
-            for tweak_name in tweaks:
-                tweak = tweaks[tweak_name]
-                if isinstance(tweak, FeatureFlagTweak):
-                    flag_plist = tweak.apply_tweak(flag_plist)
-                elif isinstance(tweak, EligibilityTweak):
-                    eligibility_files = tweak.apply_tweak()
-                elif isinstance(tweak, AITweak):
-                    ai_file = tweak.apply_tweak()
-                elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak) or isinstance(tweak, AdvancedPlistTweak):
-                    basic_plists = tweak.apply_tweak(basic_plists, self.allow_risky_tweaks)
-                    basic_plists_ownership[tweak.file_location] = tweak.owner
-                    if tweak.enabled and tweak.owner == 0:
-                        uses_domains = True
-                elif isinstance(tweak, NullifyFileTweak):
-                    tweak.apply_tweak(files_data)
-                    if tweak.enabled and tweak.file_location.value.startswith("/var/mobile/"):
-                        uses_domains = True
-                else:
-                    if gestalt_plist != None:
-                        gestalt_plist = tweak.apply_tweak(gestalt_plist)
-                    elif tweak.enabled:
-                        # no mobilegestalt file provided but applying mga tweaks, give warning
-                        show_error_msg("No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.")
-                        update_label("Failed.")
-                        return
-            # set the custom gestalt keys
-            if gestalt_plist != None:
-                gestalt_plist = CustomGestaltTweaks.apply_tweaks(gestalt_plist)
-        
-        gestalt_data = None
-        if resetting:
-            gestalt_data = b""
-        elif gestalt_plist != None:
-            gestalt_data = plistlib.dumps(gestalt_plist)
-        
-        # Generate backup
-        update_label("Generating backup...")
-        # create the restore file list
-        files_to_restore: dict[FileToRestore] = [
-        ]
-        self.concat_file(
-            contents=plistlib.dumps(flag_plist),
-            path="/var/preferences/FeatureFlags/Global.plist",
-            files_to_restore=files_to_restore
-        )
-        self.add_skip_setup(files_to_restore, uses_domains)
-        if gestalt_data != None:
+            # set the plist keys
+            if not resetting:
+                for tweak_name in tweaks:
+                    tweak = tweaks[tweak_name]
+                    if isinstance(tweak, FeatureFlagTweak):
+                        flag_plist = tweak.apply_tweak(flag_plist)
+                    elif isinstance(tweak, EligibilityTweak):
+                        eligibility_files = tweak.apply_tweak()
+                    elif isinstance(tweak, AITweak):
+                        ai_file = tweak.apply_tweak()
+                    elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak) or isinstance(tweak, AdvancedPlistTweak):
+                        basic_plists = tweak.apply_tweak(basic_plists, self.allow_risky_tweaks)
+                        basic_plists_ownership[tweak.file_location] = tweak.owner
+                        if tweak.enabled and tweak.owner == 0:
+                            uses_domains = True
+                    elif isinstance(tweak, NullifyFileTweak):
+                        tweak.apply_tweak(files_data)
+                        if tweak.enabled and tweak.file_location.value.startswith("/var/mobile/"):
+                            uses_domains = True
+                    elif isinstance(tweak, PosterboardTweak):
+                        tmp_pb_dir = TemporaryDirectory()
+                        tweak.apply_tweak(files_to_restore=files_to_restore, output_dir=tmp_pb_dir.name)
+                    else:
+                        if gestalt_plist != None:
+                            gestalt_plist = tweak.apply_tweak(gestalt_plist)
+                        elif tweak.enabled:
+                            # no mobilegestalt file provided but applying mga tweaks, give warning
+                            show_error_msg("No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.")
+                            update_label("Failed.")
+                            return
+                # set the custom gestalt keys
+                if gestalt_plist != None:
+                    gestalt_plist = CustomGestaltTweaks.apply_tweaks(gestalt_plist)
+            
+            gestalt_data = None
+            if resetting:
+                gestalt_data = b""
+            elif gestalt_plist != None:
+                gestalt_data = plistlib.dumps(gestalt_plist)
+            
+            # Generate backup
+            update_label("Generating backup...")
             self.concat_file(
-                contents=gestalt_data,
-                path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
+                contents=plistlib.dumps(flag_plist),
+                path="/var/preferences/FeatureFlags/Global.plist",
                 files_to_restore=files_to_restore
             )
-        if eligibility_files:
-            new_eligibility_files: dict[FileToRestore] = []
-            if not self.get_current_device_supported():
-                # update the files
-                for file in eligibility_files:
-                    self.concat_file(
-                        contents=file.contents,
-                        path=file.restore_path,
-                        files_to_restore=new_eligibility_files
-                    )
-            else:
-                new_eligibility_files = eligibility_files
-            files_to_restore += new_eligibility_files
-        if ai_file != None:
-            self.concat_file(
-                contents=ai_file.contents,
-                path=ai_file.restore_path,
-                files_to_restore=files_to_restore
-            )
-        for location, plist in basic_plists.items():
-            ownership = basic_plists_ownership[location]
-            self.concat_file(
-                contents=plistlib.dumps(plist),
-                path=location.value,
-                files_to_restore=files_to_restore,
-                owner=ownership, group=ownership
-            )
-        for location, data in files_data.items():
-            self.concat_file(
-                contents=data,
-                path=location.value,
-                files_to_restore=files_to_restore,
-                owner=ownership, group=ownership
-            )
-        # reset basic tweaks
-        if resetting:
-            empty_data = plistlib.dumps({})
-            for location in FileLocationsList:
+            self.add_skip_setup(files_to_restore, uses_domains)
+            if gestalt_data != None:
                 self.concat_file(
-                    contents=empty_data,
-                    path=location.value,
+                    contents=gestalt_data,
+                    path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
                     files_to_restore=files_to_restore
                 )
-            if self.allow_risky_tweaks:
-                for location in RiskyFileLocationsList:
+            if eligibility_files:
+                new_eligibility_files: dict[FileToRestore] = []
+                if not self.get_current_device_supported():
+                    # update the files
+                    for file in eligibility_files:
+                        self.concat_file(
+                            contents=file.contents,
+                            path=file.restore_path,
+                            files_to_restore=new_eligibility_files
+                        )
+                else:
+                    new_eligibility_files = eligibility_files
+                files_to_restore += new_eligibility_files
+            if ai_file != None:
+                self.concat_file(
+                    contents=ai_file.contents,
+                    path=ai_file.restore_path,
+                    files_to_restore=files_to_restore
+                )
+            for location, plist in basic_plists.items():
+                ownership = basic_plists_ownership[location]
+                self.concat_file(
+                    contents=plistlib.dumps(plist),
+                    path=location.value,
+                    files_to_restore=files_to_restore,
+                    owner=ownership, group=ownership
+                )
+            for location, data in files_data.items():
+                self.concat_file(
+                    contents=data,
+                    path=location.value,
+                    files_to_restore=files_to_restore,
+                    owner=ownership, group=ownership
+                )
+            # reset basic tweaks
+            if resetting:
+                empty_data = plistlib.dumps({})
+                for location in FileLocationsList:
                     self.concat_file(
                         contents=empty_data,
                         path=location.value,
                         files_to_restore=files_to_restore
                     )
+                if self.allow_risky_tweaks:
+                    for location in RiskyFileLocationsList:
+                        self.concat_file(
+                            contents=empty_data,
+                            path=location.value,
+                            files_to_restore=files_to_restore
+                        )
 
-        # restore to the device
-        update_label("Restoring to device...")
-        try:
+            # restore to the device
+            update_label("Restoring to device...")
             restore_files(files=files_to_restore, reboot=self.auto_reboot, lockdown_client=self.data_singleton.current_device.ld)
+            if tmp_pb_dir != None:
+                tmp_pb_dir.cleanup()
             msg = "Your device will now restart."
             if not self.auto_reboot:
                 msg = "Please restart your device to see changes."
             QMessageBox.information(None, "Success!", "All done! " + msg)
             update_label("Success!")
         except Exception as e:
+            if tmp_pb_dir != None:
+                tmp_pb_dir.cleanup()
             show_apply_error(e, update_label)
 
     ## RESETTING MOBILE GESTALT
