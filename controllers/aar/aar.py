@@ -31,8 +31,11 @@ def wrap_in_aar(input_file, input_mov, output_file):
     # Hardcoded settlingEffect.mov header
     header2 = bytearray.fromhex("4141303129005459503146504154501200736574746C696E674566666563742E6D6F7644415441F4B8")
     
-    with open(input_mov, 'rb') as f:
-        file_data2 = f.read()
+    if isinstance(input_mov, bytes):
+        file_data2 = input_mov
+    else:
+        with open(input_mov, 'rb') as f:
+            file_data2 = f.read()
     
     file_size2 = len(file_data2)
     

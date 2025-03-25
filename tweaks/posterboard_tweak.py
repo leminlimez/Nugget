@@ -10,6 +10,7 @@ from .tweak_classes import Tweak
 from Sparserestore.restore import FileToRestore
 from controllers.plist_handler import set_plist_value
 from controllers.files_handler import get_bundle_files
+from controllers import video_handler
 from controllers.aar.aar import wrap_in_aar
 from qt.ui_mainwindow import Ui_Nugget
 
@@ -165,27 +166,42 @@ class PosterboardTweak(Tweak):
                     self.recursive_add(files_to_restore, os.path.join(curr_path, folder), isAdding=False)
 
     def create_live_photo_files(self, output_dir: str):
-        if self.videoThumbnail != None and self.videoFile != None:
+        if self.videoFile != None:
             source_dir = get_bundle_files("files/posterboard/1F20C883-EA98-4CCE-9923-0C9A01359721")
             video_output_dir = os.path.join(output_dir, "video-descriptor/1F20C883-EA98-4CCE-9923-0C9A01359721")
             copytree(source_dir, video_output_dir, dirs_exist_ok=True)
             contents_path = os.path.join(video_output_dir, "versions/0/contents/0EFB6A0F-7052-4D24-8859-AB22BADF2E93")
-            # replace the heic files first
-            with open(self.videoThumbnail, "rb") as thumb:
-                contents = thumb.read()
-                to_override = ["input.segmentation/asset.resource/Adjusted.HEIC", "input.segmentation/asset.resource/proxy.heic", "output.layerStack/portrait-layer_background.HEIC"]
-                for file in to_override:
-                    with open(os.path.join(contents_path, file), "wb") as overriding:
-                        overriding.write(contents)
-                del contents
+
+            # convert the video first
+            video_contents = None
+            if self.videoFile.endswith('.mov'):
+                # no need to convert
+                with open(self.videoFile, "rb") as vid:
+                    video_contents = vid.read()
+            else:
+                # convert to mov
+                video_contents = video_handler.convert_to_mov(input_file=self.videoFile)
             # now replace video
-            with open(self.videoFile, "rb") as vid:
-                contents = vid.read()
-                with open(os.path.join(contents_path, "output.layerStack/portrait-layer_settling-video.MOV"), "wb") as overriding:
-                    overriding.write(contents)
-                del contents
+            with open(os.path.join(contents_path, "output.layerStack/portrait-layer_settling-video.MOV"), "wb") as overriding:
+                overriding.write(video_contents)
             aar_path = os.path.join(contents_path, "input.segmentation/segmentation.data.aar")
-            wrap_in_aar(get_bundle_files("files/posterboard/contents.plist"), self.videoFile, aar_path)
+            wrap_in_aar(get_bundle_files("files/posterboard/contents.plist"), video_contents, aar_path)
+
+            # replace the heic files
+            if self.videoThumbnail != None:
+                del video_contents
+                with open(self.videoThumbnail, "rb") as thumb:
+                    thumb_contents = thumb.read()
+            else:
+                # get the thumbnail from the video
+                thumb_contents = video_handler.get_thumbnail_from_contents(contents=video_contents)
+                del video_contents
+            to_override = ["input.segmentation/asset.resource/Adjusted.HEIC", "input.segmentation/asset.resource/proxy.heic", "output.layerStack/portrait-layer_background.HEIC"]
+            for file in to_override:
+                with open(os.path.join(contents_path, file), "wb") as overriding:
+                    overriding.write(thumb_contents)
+            del thumb_contents
+            
             
 
     def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str):
