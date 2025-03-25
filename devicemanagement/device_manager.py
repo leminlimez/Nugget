@@ -334,6 +334,8 @@ class DeviceManager:
                             files_to_restore=files_to_restore, output_dir=tmp_pb_dir.name,
                             windows_path_fix=self.windows_path_fix
                         )
+                        if tweak.enabled:
+                            uses_domains = True
                     else:
                         if gestalt_plist != None:
                             gestalt_plist = tweak.apply_tweak(gestalt_plist)
