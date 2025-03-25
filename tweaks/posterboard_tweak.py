@@ -151,25 +151,29 @@ class PosterboardTweak(Tweak):
                 else:
                     self.recursive_add(files_to_restore, os.path.join(curr_path, folder), isAdding=False)
 
-    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str):
+    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, windows_path_fix: bool):
         # unzip the file
         if not self.enabled:
             return
         if self.resetting:
             # null out the folder
-            file_path = ""
+            file_paths = []
             if self.resetType == 0:
                 # resetting descriptors
-                file_path = "/61/Extensions/com.apple.WallpaperKit.CollectionsPoster/descriptors"
-            files_to_restore.append(FileToRestore(
-                contents=b"",
-                restore_path=f"/Library/Application Support/PRBPosterExtensionDataStore{file_path}",
-                domain=f"AppDomain-{self.bundle_id}"
-            ))
+                file_paths.append("/61/Extensions/com.apple.WallpaperKit.CollectionsPoster/descriptors")
+                file_paths.append("/61/Extensions/com.apple.MercuryPoster/descriptors")
+            else:
+                file_paths.append("")
+            for file_path in file_paths:
+                files_to_restore.append(FileToRestore(
+                    contents=b"",
+                    restore_path=f"/Library/Application Support/PRBPosterExtensionDataStore{file_path}",
+                    domain=f"AppDomain-{self.bundle_id}"
+                ))
             return
         elif self.tendies == None or len(self.tendies) == 0:
             return
-        if os.name == "nt":
+        if os.name == "nt" and windows_path_fix:
             # try to get past directory name limit on windows
             output_dir = "\\\\?\\" + output_dir
         for tendie in self.tendies:

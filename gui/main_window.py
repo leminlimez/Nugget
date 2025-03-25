@@ -1,5 +1,6 @@
 from PySide6 import QtCore, QtWidgets, QtGui
 from enum import Enum
+from os import name as os_name
 import webbrowser
 import plistlib
 
@@ -18,7 +19,7 @@ from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
 
-App_Version = "5.0"
+App_Version = "5.0.1"
 App_Build = 0
 
 class Page(Enum):
@@ -183,6 +184,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.allowWifiApplyingChk.toggled.connect(self.on_allowWifiApplyingChk_toggled)
         self.ui.autoRebootChk.toggled.connect(self.on_autoRebootChk_toggled)
         self.ui.showRiskyChk.toggled.connect(self.on_showRiskyChk_toggled)
+        # windows path fix toggle
+        if os_name == "nt":
+            self.ui.windowsPathFixChk.toggled.connect(self.on_windowsPathFixChk_toggled)
+        else:
+            self.ui.windowsPathFixChk.hide()
         self.ui.showAllSpoofableChk.toggled.connect(self.on_showAllSpoofableChk_toggled)
 
         self.ui.revertRdarChk.toggled.connect(self.on_revertRdarChk_toggled)
@@ -1013,6 +1019,10 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             self.ui.advancedPageBtn.hide()
             self.ui.resetPRBExtBtn.hide()
+    def on_windowsPathFixChk_toggled(self, checked: bool):
+        self.device_manager.windows_path_fix = checked
+        # save the setting
+        self.settings.setValue("windows_path_fix", checked)
     def on_showAllSpoofableChk_toggled(self, checked: bool):
         self.device_manager.show_all_spoofable_models = checked
         # save the setting
