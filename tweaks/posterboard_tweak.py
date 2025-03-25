@@ -151,7 +151,7 @@ class PosterboardTweak(Tweak):
                 else:
                     self.recursive_add(files_to_restore, os.path.join(curr_path, folder), isAdding=False)
 
-    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str):
+    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, windows_path_fix: bool):
         # unzip the file
         if not self.enabled:
             return
@@ -173,7 +173,7 @@ class PosterboardTweak(Tweak):
             return
         elif self.tendies == None or len(self.tendies) == 0:
             return
-        if os.name == "nt":
+        if os.name == "nt" and windows_path_fix:
             # try to get past directory name limit on windows
             output_dir = "\\\\?\\" + output_dir
         for tendie in self.tendies:

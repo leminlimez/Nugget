@@ -2776,6 +2776,12 @@ class Ui_Nugget(object):
 
         self._21.addWidget(self.showRiskyChk)
 
+        self.windowsPathFixChk = QCheckBox(self.settingsPageContent)
+        self.windowsPathFixChk.setObjectName(u"windowsPathFixChk")
+        self.windowsPathFixChk.setChecked(True)
+
+        self._21.addWidget(self.windowsPathFixChk)
+
         self.showAllSpoofableChk = QCheckBox(self.settingsPageContent)
         self.showAllSpoofableChk.setObjectName(u"showAllSpoofableChk")
 
@@ -3735,6 +3741,7 @@ class Ui_Nugget(object):
         self.allowWifiApplyingChk.setText(QCoreApplication.translate("Nugget", u"Allow Applying Over WiFi", None))
         self.autoRebootChk.setText(QCoreApplication.translate("Nugget", u"Auto Reboot After Applying", None))
         self.showRiskyChk.setText(QCoreApplication.translate("Nugget", u"Show Risky Tweak Options", None))
+        self.windowsPathFixChk.setText(QCoreApplication.translate("Nugget", u"Use Windows Path Fix (for Posterboard)", None))
 #if QT_CONFIG(tooltip)
         self.showAllSpoofableChk.setToolTip(QCoreApplication.translate("Nugget", u"Show models for other device types in the AI device spoofing tab.", None))
 #endif // QT_CONFIG(tooltip)
