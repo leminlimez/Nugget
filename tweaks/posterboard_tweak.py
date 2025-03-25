@@ -157,15 +157,19 @@ class PosterboardTweak(Tweak):
             return
         if self.resetting:
             # null out the folder
-            file_path = ""
+            file_paths = []
             if self.resetType == 0:
                 # resetting descriptors
-                file_path = "/61/Extensions/com.apple.WallpaperKit.CollectionsPoster/descriptors"
-            files_to_restore.append(FileToRestore(
-                contents=b"",
-                restore_path=f"/Library/Application Support/PRBPosterExtensionDataStore{file_path}",
-                domain=f"AppDomain-{self.bundle_id}"
-            ))
+                file_paths.append("/61/Extensions/com.apple.WallpaperKit.CollectionsPoster/descriptors")
+                file_paths.append("/61/Extensions/com.apple.MercuryPoster/descriptors")
+            else:
+                file_paths.append("")
+            for file_path in file_paths:
+                files_to_restore.append(FileToRestore(
+                    contents=b"",
+                    restore_path=f"/Library/Application Support/PRBPosterExtensionDataStore{file_path}",
+                    domain=f"AppDomain-{self.bundle_id}"
+                ))
             return
         elif self.tendies == None or len(self.tendies) == 0:
             return
