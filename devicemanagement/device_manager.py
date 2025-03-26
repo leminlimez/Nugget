@@ -56,6 +56,7 @@ class DeviceManager:
         self.apply_over_wifi = False
         self.auto_reboot = True
         self.allow_risky_tweaks = False
+        self.windows_path_fix = True
         self.show_all_spoofable_models = False
         self.skip_setup = True
         self.supervised = False
@@ -329,7 +330,12 @@ class DeviceManager:
                             uses_domains = True
                     elif isinstance(tweak, PosterboardTweak):
                         tmp_pb_dir = TemporaryDirectory()
-                        tweak.apply_tweak(files_to_restore=files_to_restore, output_dir=tmp_pb_dir.name)
+                        tweak.apply_tweak(
+                            files_to_restore=files_to_restore, output_dir=tmp_pb_dir.name,
+                            windows_path_fix=self.windows_path_fix
+                        )
+                        if tweak.enabled:
+                            uses_domains = True
                     else:
                         if gestalt_plist != None:
                             gestalt_plist = tweak.apply_tweak(gestalt_plist)
