@@ -66,6 +66,7 @@ class PosterboardTweak(Tweak):
         self.tendies: list[TendieFile] = []
         self.videoThumbnail = None
         self.videoFile = None
+        self.loop_video = False
         self.bundle_id = "com.apple.PosterBoard"
         self.resetting = False
         self.resetType = 0 # 0 for descriptor, 1 for prb, 2 for suggested photos
@@ -166,7 +167,7 @@ class PosterboardTweak(Tweak):
                     self.recursive_add(files_to_restore, os.path.join(curr_path, folder), isAdding=False)
 
     def create_live_photo_files(self, output_dir: str):
-        if self.videoFile != None:
+        if self.videoFile != None and not self.loop_video:
             source_dir = get_bundle_files("files/posterboard/1F20C883-EA98-4CCE-9923-0C9A01359721")
             video_output_dir = os.path.join(output_dir, "video-descriptor/1F20C883-EA98-4CCE-9923-0C9A01359721")
             copytree(source_dir, video_output_dir, dirs_exist_ok=True)
@@ -201,6 +202,16 @@ class PosterboardTweak(Tweak):
                 with open(os.path.join(contents_path, file), "wb") as overriding:
                     overriding.write(thumb_contents)
             del thumb_contents
+
+    def create_video_loop_files(self, output_dir: str):
+        print(f"file: {self.videoFile}, looping: {self.loop_video}")
+        if self.videoFile and self.loop_video:
+            source_dir = get_bundle_files("files/posterboard/VideoCAML")
+            video_output_dir = os.path.join(output_dir, "descriptor/VideoCAML")
+            copytree(source_dir, video_output_dir, dirs_exist_ok=True)
+            contents_path = os.path.join(video_output_dir, "versions/1/contents/9183.Custom-810w-1080h@2x~ipad.wallpaper/9183.Custom_Floating-810w-1080h@2x~ipad.ca")
+            print(f"path at {contents_path}, creating caml")
+            video_handler.create_caml(video_path=self.videoFile, output_file=contents_path)
             
             
 
@@ -227,12 +238,13 @@ class PosterboardTweak(Tweak):
                     domain=f"AppDomain-{self.bundle_id}"
                 ))
             return
-        elif (self.tendies == None or len(self.tendies) == 0) and (self.videoThumbnail == None or self.videoThumbnail == None):
+        elif (self.tendies == None or len(self.tendies) == 0) and (self.videoFile == None):
             return
         if os.name == "nt" and windows_path_fix:
             # try to get past directory name limit on windows
             output_dir = "\\\\?\\" + output_dir
         self.create_live_photo_files(output_dir)
+        self.create_video_loop_files(output_dir)
         for tendie in self.tendies:
             zip_output = os.path.join(output_dir, str(uuid.uuid4()))
             os.makedirs(zip_output)

@@ -4275,8 +4275,20 @@ To work properly, also disable the daemon using the toggle above.</string>
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
-                  <height>30</height>
+                  <height>20</height>
                  </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>25</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QToolButton {
+	min-height: 25px;
+	border-radius: 5px;
+}</string>
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_14">
                  <property name="topMargin">
@@ -4309,14 +4321,14 @@ To work properly, also disable the daemon using the toggle above.</string>
                    <property name="minimumSize">
                     <size>
                      <width>0</width>
-                     <height>35</height>
+                     <height>25</height>
                     </size>
                    </property>
                    <property name="text">
                     <string>  Tendies</string>
                    </property>
                    <property name="icon">
-                    <iconset resource="resources.qrc">
+                    <iconset>
                      <normaloff>:/icon/file-earmark-zip.svg</normaloff>:/icon/file-earmark-zip.svg</iconset>
                    </property>
                    <property name="checkable">
@@ -4332,11 +4344,17 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QToolButton" name="videoPageBtn">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>25</height>
+                    </size>
+                   </property>
                    <property name="text">
                     <string>  Live</string>
                    </property>
                    <property name="icon">
-                    <iconset resource="resources.qrc">
+                    <iconset>
                      <normaloff>:/icon/photo.svg</normaloff>:/icon/photo.svg</iconset>
                    </property>
                    <property name="checkable">
@@ -4382,6 +4400,13 @@ To work properly, also disable the daemon using the toggle above.</string>
                      <number>0</number>
                     </property>
                     <item>
+                     <widget class="QLabel" name="pbActionLbl">
+                      <property name="text">
+                       <string>None</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
                      <spacer name="horizontalSpacer_18">
                       <property name="orientation">
                        <enum>Qt::Horizontal</enum>
@@ -4406,7 +4431,7 @@ To work properly, also disable the daemon using the toggle above.</string>
                        <string>  Import Files (.tendies)</string>
                       </property>
                       <property name="icon">
-                       <iconset resource="resources.qrc">
+                       <iconset>
                         <normaloff>:/icon/import.svg</normaloff>:/icon/import.svg</iconset>
                       </property>
                       <property name="iconSize">
@@ -4421,13 +4446,6 @@ To work properly, also disable the daemon using the toggle above.</string>
                      </widget>
                     </item>
                    </layout>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="pbActionLbl">
-                    <property name="text">
-                     <string>None</string>
-                    </property>
-                   </widget>
                   </item>
                   <item>
                    <widget class="Line" name="line_27">
@@ -4487,7 +4505,7 @@ To work properly, also disable the daemon using the toggle above.</string>
                        <string>  Clear Collections Wallpapers</string>
                       </property>
                       <property name="icon">
-                       <iconset resource="resources.qrc">
+                       <iconset>
                         <normaloff>:/icon/arrow.clockwise.svg</normaloff>:/icon/arrow.clockwise.svg</iconset>
                       </property>
                       <property name="toolButtonStyle">
@@ -4506,7 +4524,7 @@ Warning: This will remove all of your wallpapers and will restrict you from addi
                        <string>  Remove All Wallpapers</string>
                       </property>
                       <property name="icon">
-                       <iconset resource="resources.qrc">
+                       <iconset>
                         <normaloff>:/icon/arrow.clockwise.svg</normaloff>:/icon/arrow.clockwise.svg</iconset>
                       </property>
                       <property name="toolButtonStyle">
@@ -4569,7 +4587,7 @@ Warning: This will remove all of your wallpapers and will restrict you from addi
                        <string>  Clear Suggested Photos</string>
                       </property>
                       <property name="icon">
-                       <iconset resource="resources.qrc">
+                       <iconset>
                         <normaloff>:/icon/arrow.clockwise.svg</normaloff>:/icon/arrow.clockwise.svg</iconset>
                       </property>
                       <property name="toolButtonStyle">
@@ -4591,6 +4609,13 @@ Warning: This will remove all of your wallpapers and will restrict you from addi
                      </spacer>
                     </item>
                    </layout>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="caVideoChk">
+                    <property name="text">
+                     <string>Loop (use CoreAnimation method)</string>
+                    </property>
+                   </widget>
                   </item>
                   <item>
                    <spacer name="verticalSpacer_22">

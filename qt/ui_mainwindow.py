@@ -2250,7 +2250,12 @@ class Ui_Nugget(object):
         sizePolicy5.setVerticalStretch(0)
         sizePolicy5.setHeightForWidth(self.pbPagePicker.sizePolicy().hasHeightForWidth())
         self.pbPagePicker.setSizePolicy(sizePolicy5)
-        self.pbPagePicker.setMinimumSize(QSize(0, 30))
+        self.pbPagePicker.setMinimumSize(QSize(0, 20))
+        self.pbPagePicker.setMaximumSize(QSize(16777215, 25))
+        self.pbPagePicker.setStyleSheet(u"QToolButton {\n"
+"	min-height: 25px;\n"
+"	border-radius: 5px;\n"
+"}")
         self.horizontalLayout_14 = QHBoxLayout(self.pbPagePicker)
         self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
         self.horizontalLayout_14.setContentsMargins(-1, 0, -1, 0)
@@ -2265,7 +2270,7 @@ class Ui_Nugget(object):
         sizePolicy6.setVerticalStretch(0)
         sizePolicy6.setHeightForWidth(self.tendiesPageBtn.sizePolicy().hasHeightForWidth())
         self.tendiesPageBtn.setSizePolicy(sizePolicy6)
-        self.tendiesPageBtn.setMinimumSize(QSize(0, 35))
+        self.tendiesPageBtn.setMinimumSize(QSize(0, 25))
         icon22 = QIcon()
         icon22.addFile(u":/icon/file-earmark-zip.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.tendiesPageBtn.setIcon(icon22)
@@ -2277,6 +2282,7 @@ class Ui_Nugget(object):
 
         self.videoPageBtn = QToolButton(self.pbPagePicker)
         self.videoPageBtn.setObjectName(u"videoPageBtn")
+        self.videoPageBtn.setMinimumSize(QSize(0, 25))
         icon23 = QIcon()
         icon23.addFile(u":/icon/photo.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.videoPageBtn.setIcon(icon23)
@@ -2303,6 +2309,11 @@ class Ui_Nugget(object):
         self.horizontalLayout_12 = QHBoxLayout()
         self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
         self.horizontalLayout_12.setContentsMargins(-1, -1, -1, 0)
+        self.pbActionLbl = QLabel(self.pbTendiesPage)
+        self.pbActionLbl.setObjectName(u"pbActionLbl")
+
+        self.horizontalLayout_12.addWidget(self.pbActionLbl)
+
         self.horizontalSpacer_18 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_12.addItem(self.horizontalSpacer_18)
@@ -2320,11 +2331,6 @@ class Ui_Nugget(object):
 
 
         self.verticalLayout_38.addLayout(self.horizontalLayout_12)
-
-        self.pbActionLbl = QLabel(self.pbTendiesPage)
-        self.pbActionLbl.setObjectName(u"pbActionLbl")
-
-        self.verticalLayout_38.addWidget(self.pbActionLbl)
 
         self.line_27 = QFrame(self.pbTendiesPage)
         self.line_27.setObjectName(u"line_27")
@@ -2417,6 +2423,11 @@ class Ui_Nugget(object):
 
 
         self.verticalLayout_39.addLayout(self.horizontalLayout_30)
+
+        self.caVideoChk = QCheckBox(self.pbVideoPage)
+        self.caVideoChk.setObjectName(u"caVideoChk")
+
+        self.verticalLayout_39.addWidget(self.caVideoChk)
 
         self.verticalSpacer_22 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -3782,11 +3793,11 @@ class Ui_Nugget(object):
         self.pbHelpBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
         self.tendiesPageBtn.setText(QCoreApplication.translate("Nugget", u"  Tendies", None))
         self.videoPageBtn.setText(QCoreApplication.translate("Nugget", u"  Live", None))
+        self.pbActionLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
 #if QT_CONFIG(tooltip)
         self.importTendiesBtn.setToolTip(QCoreApplication.translate("Nugget", u"Select a wallpaper file with the .tendies extension.", None))
 #endif // QT_CONFIG(tooltip)
         self.importTendiesBtn.setText(QCoreApplication.translate("Nugget", u"  Import Files (.tendies)", None))
-        self.pbActionLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
 #if QT_CONFIG(tooltip)
         self.deleteAllDescriptorsBtn.setToolTip(QCoreApplication.translate("Nugget", u"Clears all the wallpapers in the Collections section so that you can import more.", None))
 #endif // QT_CONFIG(tooltip)
@@ -3802,6 +3813,7 @@ class Ui_Nugget(object):
         self.chooseThumbBtn.setText(QCoreApplication.translate("Nugget", u"Choose Thumbnail (.HEIC)", None))
         self.chooseVideoBtn.setText(QCoreApplication.translate("Nugget", u"Choose Video (.MOV)", None))
         self.clearSuggestedBtn.setText(QCoreApplication.translate("Nugget", u"  Clear Suggested Photos", None))
+        self.caVideoChk.setText(QCoreApplication.translate("Nugget", u"Loop (use CoreAnimation method)", None))
         self.advancedOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Risky Options", None))
         self.label_17.setText(QCoreApplication.translate("Nugget", u"Disclaimer:\n"
 "\n"

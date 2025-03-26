@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<caml xmlns="http://www.apple.com/CoreAnimation/1.0">
+  <CALayer allowsEdgeAntialiasing="1" allowsGroupOpacity="1" bounds="0 0 3176 3176" contentsFormat="RGBA8" cornerCurve="circular" hidden="0" name="_BACKGROUND" position="1588 1588">
+    <sublayers>
+      <CALayer allowsEdgeAntialiasing="1" allowsGroupOpacity="1" anchorPoint="0 0" bounds="0 0 0 0" contentsFormat="RGBA8" cornerCurve="circular" name="_CENTER_BACKGROUND" position="1588 1588">
+	<sublayers>
+	  <CALayer allowsEdgeAntialiasing="1" allowsGroupOpacity="1" anchorPoint="0.5 0.25" backgroundColor="1 1 1" bounds="0 0 3177 3175.5" contentsFormat="RGBA8" contentsScale="0.612339" cornerCurve="circular" hidden="0" name="Background Image Light" position="-0.5 -794.125" rasterizationScale="0.612339">
+	    <contentsMultiplyColor opacity="0" value="1 1 1"/>
+	    <sublayers>
+	      <CALayer id="#1" allowsEdgeAntialiasing="1" allowsGroupOpacity="1" anchorPoint="0 0" backgroundColor="0 0 0" bounds="0 0 3177 3176.5" contentsFormat="RGBA8" contentsScale="0.612339" cornerCurve="circular" hidden="0" name="Background Image Dark" opacity="0" position="4.547473508865e-13 0" rasterizationScale="0.612339">
+		<contentsMultiplyColor opacity="0" value="1 1 1"/>
+	      </CALayer>
+	    </sublayers>
+	  </CALayer>
+	</sublayers>
+      </CALayer>
+    </sublayers>
+    <states>
+      <LKState name="Sleep PortraitUp Light">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="0"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Lock PortraitUp Light">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="0"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Home PortraitUp Light">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="0"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Sleep LandscapeLeft Light">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="0"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Lock LandscapeLeft Light">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="0"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Home LandscapeLeft Light">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="0"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Sleep PortraitDown Light">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="0"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Lock PortraitDown Light">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="0"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Home PortraitDown Light">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="0"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Sleep LandscapeRight Light">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="0"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Lock LandscapeRight Light">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="0"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Home LandscapeRight Light">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="0"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Sleep PortraitUp Dark">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="1"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Lock PortraitUp Dark">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="1"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Home PortraitUp Dark">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="1"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Sleep LandscapeLeft Dark">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="1"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Lock LandscapeLeft Dark">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="1"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Home LandscapeLeft Dark">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="1"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Sleep PortraitDown Dark">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="1"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Lock PortraitDown Dark">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="1"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Home PortraitDown Dark">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="1"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Sleep LandscapeRight Dark">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="1"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Lock LandscapeRight Dark">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="1"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+      <LKState name="Home LandscapeRight Dark">
+	<elements>
+	  <LKStateSetValue targetId="#1" keyPath="opacity">
+	    <value type="integer" value="1"/>
+	  </LKStateSetValue>
+	</elements>
+      </LKState>
+    </states>
+    <stateTransitions>
+      <LKStateTransition fromState="*" toState="Sleep PortraitUp Light">
+	<elements>
+	  <LKStateTransitionElement id="#2" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Sleep PortraitUp Light" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#2"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Lock PortraitUp Light">
+	<elements>
+	  <LKStateTransitionElement id="#3" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Lock PortraitUp Light" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#3"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Home PortraitUp Light">
+	<elements>
+	  <LKStateTransitionElement id="#4" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Home PortraitUp Light" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#4"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Sleep LandscapeLeft Light">
+	<elements>
+	  <LKStateTransitionElement id="#5" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Sleep LandscapeLeft Light" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#5"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Lock LandscapeLeft Light">
+	<elements>
+	  <LKStateTransitionElement id="#6" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Lock LandscapeLeft Light" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#6"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Home LandscapeLeft Light">
+	<elements>
+	  <LKStateTransitionElement id="#7" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Home LandscapeLeft Light" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#7"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Sleep PortraitDown Light">
+	<elements>
+	  <LKStateTransitionElement id="#8" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Sleep PortraitDown Light" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#8"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Lock PortraitDown Light">
+	<elements>
+	  <LKStateTransitionElement id="#9" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Lock PortraitDown Light" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#9"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Home PortraitDown Light">
+	<elements>
+	  <LKStateTransitionElement id="#10" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Home PortraitDown Light" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#10"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Sleep LandscapeRight Light">
+	<elements>
+	  <LKStateTransitionElement id="#11" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Sleep LandscapeRight Light" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#11"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Lock LandscapeRight Light">
+	<elements>
+	  <LKStateTransitionElement id="#12" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Lock LandscapeRight Light" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#12"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Home LandscapeRight Light">
+	<elements>
+	  <LKStateTransitionElement id="#13" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Home LandscapeRight Light" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#13"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Sleep PortraitUp Dark">
+	<elements>
+	  <LKStateTransitionElement id="#14" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Sleep PortraitUp Dark" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#14"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Lock PortraitUp Dark">
+	<elements>
+	  <LKStateTransitionElement id="#15" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Lock PortraitUp Dark" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#15"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Home PortraitUp Dark">
+	<elements>
+	  <LKStateTransitionElement id="#16" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Home PortraitUp Dark" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#16"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Sleep LandscapeLeft Dark">
+	<elements>
+	  <LKStateTransitionElement id="#17" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Sleep LandscapeLeft Dark" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#17"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Lock LandscapeLeft Dark">
+	<elements>
+	  <LKStateTransitionElement id="#18" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Lock LandscapeLeft Dark" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#18"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Home LandscapeLeft Dark">
+	<elements>
+	  <LKStateTransitionElement id="#19" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Home LandscapeLeft Dark" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#19"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Sleep PortraitDown Dark">
+	<elements>
+	  <LKStateTransitionElement id="#20" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Sleep PortraitDown Dark" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#20"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Lock PortraitDown Dark">
+	<elements>
+	  <LKStateTransitionElement id="#21" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Lock PortraitDown Dark" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#21"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Home PortraitDown Dark">
+	<elements>
+	  <LKStateTransitionElement id="#22" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Home PortraitDown Dark" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#22"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Sleep LandscapeRight Dark">
+	<elements>
+	  <LKStateTransitionElement id="#23" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Sleep LandscapeRight Dark" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#23"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Lock LandscapeRight Dark">
+	<elements>
+	  <LKStateTransitionElement id="#24" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Lock LandscapeRight Dark" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#24"/>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="*" toState="Home LandscapeRight Dark">
+	<elements>
+	  <LKStateTransitionElement id="#25" key="opacity" targetId="#1">
+	    <animation type="CASpringAnimation" damping="10000" mass="1" stiffness="81" keyPath="opacity" duration="2.2" timingFunction="0.125 0 0.125 0"/>
+	  </LKStateTransitionElement>
+	</elements>
+      </LKStateTransition>
+      <LKStateTransition fromState="Home LandscapeRight Dark" toState="*">
+	<elements>
+	  <LKStateTransitionElement object="#25"/>
+	</elements>
+      </LKStateTransition>
+    </stateTransitions>
+  </CALayer>
+</caml>
