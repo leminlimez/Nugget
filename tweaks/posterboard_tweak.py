@@ -209,7 +209,7 @@ class PosterboardTweak(Tweak):
             source_dir = get_bundle_files("files/posterboard/VideoCAML")
             video_output_dir = os.path.join(output_dir, "descriptor/VideoCAML")
             copytree(source_dir, video_output_dir, dirs_exist_ok=True)
-            contents_path = os.path.join(video_output_dir, "versions/1/contents/9183.Custom-810w-1080h@2x~ipad.wallpaper/9183.Custom_Floating-810w-1080h@2x~ipad.ca")
+            contents_path = os.path.join(video_output_dir, "versions/1/contents/9183.Custom-810w-1080h@2x~ipad.wallpaper/9183.Custom_Background-810w-1080h@2x~ipad.ca")
             print(f"path at {contents_path}, creating caml")
             video_handler.create_caml(video_path=self.videoFile, output_file=contents_path, update_label=update_label)
             

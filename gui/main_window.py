@@ -21,7 +21,7 @@ from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
 
 App_Version = "5.1"
-App_Build = 2
+App_Build = 3
 
 class Page(Enum):
     Home = 0
