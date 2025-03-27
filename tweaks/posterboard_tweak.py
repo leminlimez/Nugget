@@ -203,7 +203,7 @@ class PosterboardTweak(Tweak):
                     overriding.write(thumb_contents)
             del thumb_contents
 
-    def create_video_loop_files(self, output_dir: str):
+    def create_video_loop_files(self, output_dir: str, update_label=lambda x: None):
         print(f"file: {self.videoFile}, looping: {self.loop_video}")
         if self.videoFile and self.loop_video:
             source_dir = get_bundle_files("files/posterboard/VideoCAML")
@@ -211,11 +211,11 @@ class PosterboardTweak(Tweak):
             copytree(source_dir, video_output_dir, dirs_exist_ok=True)
             contents_path = os.path.join(video_output_dir, "versions/1/contents/9183.Custom-810w-1080h@2x~ipad.wallpaper/9183.Custom_Floating-810w-1080h@2x~ipad.ca")
             print(f"path at {contents_path}, creating caml")
-            video_handler.create_caml(video_path=self.videoFile, output_file=contents_path)
+            video_handler.create_caml(video_path=self.videoFile, output_file=contents_path, update_label=update_label)
             
             
 
-    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, windows_path_fix: bool):
+    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, windows_path_fix: bool, update_label=lambda x: None):
         # unzip the file
         if not self.enabled:
             return
@@ -243,8 +243,10 @@ class PosterboardTweak(Tweak):
         if os.name == "nt" and windows_path_fix:
             # try to get past directory name limit on windows
             output_dir = "\\\\?\\" + output_dir
+        update_label("Generating PosterBoard Video...")
         self.create_live_photo_files(output_dir)
-        self.create_video_loop_files(output_dir)
+        self.create_video_loop_files(output_dir, update_label=update_label)
+        update_label("Adding tendies...")
         for tendie in self.tendies:
             zip_output = os.path.join(output_dir, str(uuid.uuid4()))
             os.makedirs(zip_output)
@@ -252,3 +254,4 @@ class PosterboardTweak(Tweak):
                 zip_ref.extractall(zip_output)
         # add the files
         self.recursive_add(files_to_restore, curr_path=output_dir)
+        update_label("Adding other tweaks...")

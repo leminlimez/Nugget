@@ -3,7 +3,7 @@ import plistlib
 from tempfile import TemporaryDirectory
 
 from PySide6.QtWidgets import QMessageBox
-from PySide6.QtCore import QSettings
+from PySide6.QtCore import QSettings, QThread
 
 from pymobiledevice3 import usbmux
 from pymobiledevice3.lockdown import create_using_usbmux
@@ -12,37 +12,38 @@ from pymobiledevice3.exceptions import MuxException, PasswordRequiredError
 from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
 
+from gui.apply_worker import ApplyAlertMessage
 from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.posterboard_tweak import PosterboardTweak
 from tweaks.basic_plist_locations import FileLocationsList, RiskyFileLocationsList
 from Sparserestore.restore import restore_files, FileToRestore
 
-def show_error_msg(txt: str, detailed_txt: str = None):
+def show_error_msg(txt: str, title: str = "Error!", icon = QMessageBox.Critical, detailed_txt: str = None):
     detailsBox = QMessageBox()
-    detailsBox.setIcon(QMessageBox.Critical)
-    detailsBox.setWindowTitle("Error!")
+    detailsBox.setIcon(icon)
+    detailsBox.setWindowTitle(title)
     detailsBox.setText(txt)
     if detailed_txt != None:
         detailsBox.setDetailedText(detailed_txt)
     detailsBox.exec()
 
 def show_apply_error(e: Exception, update_label=lambda x: None):
-    if "Find My" in str(e):
-        show_error_msg("Find My must be disabled in order to use this tool.",
-                       detailed_txt="Disable Find My from Settings (Settings -> [Your Name] -> Find My) and then try again.")
-    elif "Encrypted Backup MDM" in str(e):
-        show_error_msg("Nugget cannot be used on this device. Click Show Details for more info.",
-                       detailed_txt="Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!")
-    elif "SessionInactive" in str(e):
-        show_error_msg("The session was terminated. Refresh the device list and try again.")
-    elif isinstance(e, PasswordRequiredError):
-        show_error_msg("Device is password protected! You must trust the computer on your device.",
-                       detailed_txt="Unlock your device. On the popup, click \"Trust\", enter your password, then try again.")
-    else:
-        show_error_msg(type(e).__name__ + ": " + repr(e), detailed_txt=str(traceback.format_exc()))
     print(traceback.format_exc())
     update_label("Failed to restore")
+    if "Find My" in str(e):
+        return ApplyAlertMessage("Find My must be disabled in order to use this tool.",
+                       detailed_txt="Disable Find My from Settings (Settings -> [Your Name] -> Find My) and then try again.")
+    elif "Encrypted Backup MDM" in str(e):
+        return ApplyAlertMessage("Nugget cannot be used on this device. Click Show Details for more info.",
+                       detailed_txt="Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!")
+    elif "SessionInactive" in str(e):
+        return ApplyAlertMessage("The session was terminated. Refresh the device list and try again.")
+    elif "PasswordRequiredError" in str(e):
+        return ApplyAlertMessage("Device is password protected! You must trust the computer on your device.",
+                       detailed_txt="Unlock your device. On the popup, click \"Trust\", enter your password, then try again.")
+    else:
+        return ApplyAlertMessage(type(e).__name__ + ": " + repr(e), detailed_txt=str(traceback.format_exc()))
 
 class DeviceManager:
     ## Class Functions
@@ -287,7 +288,7 @@ class DeviceManager:
         ))
     
     ## APPLYING OR REMOVING TWEAKS AND RESTORING
-    def apply_changes(self, resetting: bool = False, update_label=lambda x: None):
+    def apply_changes(self, resetting: bool = False, update_label=lambda x: None, show_alert=lambda x: None):
         try:
             # set the tweaks and apply
             # first open the file in read mode
@@ -332,7 +333,7 @@ class DeviceManager:
                         tmp_pb_dir = TemporaryDirectory()
                         tweak.apply_tweak(
                             files_to_restore=files_to_restore, output_dir=tmp_pb_dir.name,
-                            windows_path_fix=self.windows_path_fix
+                            windows_path_fix=self.windows_path_fix, update_label=update_label
                         )
                         if tweak.enabled:
                             uses_domains = True
@@ -341,7 +342,7 @@ class DeviceManager:
                             gestalt_plist = tweak.apply_tweak(gestalt_plist)
                         elif tweak.enabled:
                             # no mobilegestalt file provided but applying mga tweaks, give warning
-                            show_error_msg("No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.")
+                            show_alert(show_error_msg("No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.", exec=False))
                             update_label("Failed.")
                             return
                 # set the custom gestalt keys
@@ -427,12 +428,12 @@ class DeviceManager:
             msg = "Your device will now restart."
             if not self.auto_reboot:
                 msg = "Please restart your device to see changes."
-            QMessageBox.information(None, "Success!", "All done! " + msg)
+            show_alert(ApplyAlertMessage(txt="All done! " + msg, title="Success!", icon=QMessageBox.Information))
             update_label("Success!")
         except Exception as e:
             if tmp_pb_dir != None:
                 tmp_pb_dir.cleanup()
-            show_apply_error(e, update_label)
+            show_alert(show_apply_error(e, update_label))
 
     ## RESETTING MOBILE GESTALT
     def reset_mobilegestalt(self, settings: QSettings, update_label=lambda x: None):
@@ -457,4 +458,4 @@ class DeviceManager:
             QMessageBox.information(None, "Success!", "All done! " + msg)
             update_label("Success!")
         except Exception as e:
-            show_apply_error(e)
+            show_error_msg(str(e))

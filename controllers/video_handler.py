@@ -40,7 +40,7 @@ def get_thumbnail_from_contents(contents: bytes, output_file: str = None):
         contents = get_thumbnail_from_mov(inp_file, output_file)
     return contents
 
-def create_caml(video_path: str, output_file: str):
+def create_caml(video_path: str, output_file: str, update_label=lambda x: None):
     cam = cv2.VideoCapture(video_path)
     assets_path = os.path.join(output_file, "assets")
     try:
@@ -80,7 +80,10 @@ def create_caml(video_path: str, output_file: str):
             if ret: 
                 # if video is still left continue creating images 
                 name = 'assets/' + str(currentframe) + '.jpg'
-                print ('Creating...' + name)
+                if update_label:
+                    update_label('Creating...' + name)
+                else:
+                    print ('Creating...' + name)
         
                 # writing the extracted images
                 cv2.imwrite(os.path.join(output_file, name), frame)

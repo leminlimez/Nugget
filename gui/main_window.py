@@ -14,6 +14,7 @@ from devicemanagement.constants import Version
 from devicemanagement.device_manager import DeviceManager
 
 from gui.dialogs import GestaltDialog, UpdateAppDialog, PBHelpDialog
+from gui.apply_worker import ApplyThread, ApplyAlertMessage
 
 from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
@@ -43,6 +44,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.show_uuid = False
         self.pb_mainLayout = None
+        self.applying_in_progress = False
+        self.threadpool = QtCore.QThreadPool()
         self.loadSettings()
 
         # Check for an update
@@ -1154,12 +1157,31 @@ class MainWindow(QtWidgets.QMainWindow):
     def update_bar(self, percent):
         self.ui.restoreProgressBar.setValue(int(percent))
     def on_removeTweaksBtn_clicked(self):
-        # TODO: Add threading here
-        self.device_manager.apply_changes(resetting=True, update_label=self.update_label)
+        self.apply_changes(resetting=True)
     def on_resetGestaltBtn_clicked(self):
         self.device_manager.reset_mobilegestalt(self.settings, update_label=self.update_label)
 
     @QtCore.Slot()
     def on_applyTweaksBtn_clicked(self):
-        # TODO: Add threading here
-        self.device_manager.apply_changes(update_label=self.update_label)
+        self.apply_changes()
+
+    def apply_changes(self, resetting: bool = False):
+        if not self.applying_in_progress:
+            self.applying_in_progress = True
+            self.worker_thread = ApplyThread(manager=self.device_manager, resetting=resetting)
+            self.worker_thread.progress.connect(self.ui.statusLbl.setText)
+            self.worker_thread.alert.connect(self.alert_message)
+            self.worker_thread.finished.connect(self.finish_apply_thread)
+            self.worker_thread.finished.connect(self.worker_thread.deleteLater)
+            self.worker_thread.start()
+    def alert_message(self, alert: ApplyAlertMessage):
+        print(alert.txt)
+        detailsBox = QtWidgets.QMessageBox()
+        detailsBox.setIcon(alert.icon)
+        detailsBox.setWindowTitle(alert.title)
+        detailsBox.setText(alert.txt)
+        if alert.detailed_txt != None:
+            detailsBox.setDetailedText(alert.detailed_txt)
+        detailsBox.exec()
+    def finish_apply_thread(self):
+        self.applying_in_progress = False
