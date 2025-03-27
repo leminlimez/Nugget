@@ -43,6 +43,10 @@ def get_thumbnail_from_contents(contents: bytes, output_file: str = None):
 def create_caml(video_path: str, output_file: str, update_label=lambda x: None):
     cam = cv2.VideoCapture(video_path)
     assets_path = os.path.join(output_file, "assets")
+    frame_count = int(cam.get(cv2.CAP_PROP_FRAME_COUNT))
+    FRAME_LIMIT = 300
+    if frame_count > FRAME_LIMIT:
+        raise Exception(f"Videos must be under {FRAME_LIMIT} fps to loop. Either reduce the frame rate or make it shorter.")
     try:
         # creating a folder named data
         if not os.path.exists(assets_path): 
@@ -59,7 +63,6 @@ def create_caml(video_path: str, output_file: str, update_label=lambda x: None):
     with open(os.path.join(output_file, "main.caml"), "w") as caml:
         # write caml header
         fps = cam.get(cv2.CAP_PROP_FPS)
-        frame_count = int(cam.get(cv2.CAP_PROP_FRAME_COUNT))
         duration = frame_count / fps
         caml.write(f"""<?xml version="1.0" encoding="UTF-8"?>
 
