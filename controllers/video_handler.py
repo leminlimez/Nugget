@@ -1,7 +1,8 @@
 import cv2
 import os
 import ffmpeg
-from tempfile import NamedTemporaryFile
+from tempfile import mkdtemp, NamedTemporaryFile
+from shutil import rmtree
 
 import ffmpeg.stream
 import ffmpeg.video
@@ -9,35 +10,36 @@ import ffmpeg.video
 def convert_to_mov(input_file: str, output_file: str = None):
     # if there is no output file specified, create a temp file then return contents
     if output_file == None:
-        with NamedTemporaryFile("rb+", suffix=".mov") as tmp:
-            convert_to_mov(input_file, tmp)
-            contents = tmp.read()
+        tmpdir = mkdtemp()
+        tmp = os.path.join(tmpdir, "vid.mov")
+        convert_to_mov(input_file, tmp)
+        with open(tmp, "rb") as tmpfile:
+            contents = tmpfile.read()
+        rmtree(tmpdir)
         return contents
-    (
-        ffmpeg
-        .input(input_file)
-        .output(output_file, vcodec='copy', acodec='copy', format='mov')
-        .run()
-    )
+    inp = ffmpeg.input(input_file)
+    out = ffmpeg.output(inp, output_file, f='mov', vcodec='copy', acodec='copy')
+    ffmpeg.run(out)
 
 def get_thumbnail_from_mov(input_file: str, output_file: str = None):
     # if there is no output file specified, create a temp file and then return contents
     if output_file == None:
-        with NamedTemporaryFile("rb+", suffix=".heic") as tmp:
-            get_thumbnail_from_mov(input_file, tmp)
-            contents = tmp.read()
+        tmpdir = mkdtemp()
+        tmp = os.path.join(tmpdir, "thumb.png")
+        get_thumbnail_from_mov(input_file, tmp)
+        with open(tmp, "rb") as tmpfile:
+            contents = tmpfile.read()
+        rmtree(tmpdir)
         return contents
-    (
-        ffmpeg
-        .input(input_file, ss=0)
-        .output(output_file, vframes=1, format='heic')
-        .run()
-    )
+
+    inp = ffmpeg.input(input_file, ss=0)
+    out = ffmpeg.output(inp, output_file, vframes=1)
+    ffmpeg.run(out)
 
 def get_thumbnail_from_contents(contents: bytes, output_file: str = None):
-    with NamedTemporaryFile("rb+", suffix=".heic") as inp_file:
+    with NamedTemporaryFile("rb+", suffix=".mov") as inp_file:
         inp_file.write(contents)
-        contents = get_thumbnail_from_mov(inp_file, output_file)
+        contents = get_thumbnail_from_mov(inp_file.name, output_file)
     return contents
 
 def create_caml(video_path: str, output_file: str, update_label=lambda x: None):

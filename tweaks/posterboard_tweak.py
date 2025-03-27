@@ -194,6 +194,7 @@ class PosterboardTweak(Tweak):
                 with open(self.videoThumbnail, "rb") as thumb:
                     thumb_contents = thumb.read()
             else:
+                raise Exception("No thumbnail heic selected!")
                 # get the thumbnail from the video
                 thumb_contents = video_handler.get_thumbnail_from_contents(contents=video_contents)
                 del video_contents

@@ -4577,7 +4577,7 @@ Warning: This will remove all of your wallpapers and will restrict you from addi
                     <item>
                      <widget class="QToolButton" name="chooseVideoBtn">
                       <property name="text">
-                       <string>Choose Video (.MOV)</string>
+                       <string>Choose Video</string>
                       </property>
                      </widget>
                     </item>

@@ -3811,7 +3811,7 @@ class Ui_Nugget(object):
         self.pbVideoThumbLbl.setText(QCoreApplication.translate("Nugget", u"Current Thumbnail: None", None))
         self.pbVideoLbl.setText(QCoreApplication.translate("Nugget", u"Current Video: None", None))
         self.chooseThumbBtn.setText(QCoreApplication.translate("Nugget", u"Choose Thumbnail (.HEIC)", None))
-        self.chooseVideoBtn.setText(QCoreApplication.translate("Nugget", u"Choose Video (.MOV)", None))
+        self.chooseVideoBtn.setText(QCoreApplication.translate("Nugget", u"Choose Video", None))
         self.clearSuggestedBtn.setText(QCoreApplication.translate("Nugget", u"  Clear Suggested Photos", None))
         self.caVideoChk.setText(QCoreApplication.translate("Nugget", u"Loop (use CoreAnimation method)", None))
         self.advancedOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Risky Options", None))
