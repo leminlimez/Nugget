@@ -1385,7 +1385,7 @@ QToolButton:pressed {
                       </property>
                       <property name="minimumSize">
                        <size>
-                        <width>150</width>
+                        <width>145</width>
                         <height>35</height>
                        </size>
                       </property>
@@ -1436,6 +1436,27 @@ Posterboard</string>
                      </widget>
                     </item>
                     <item>
+                     <widget class="QToolButton" name="snoolieBtn">
+                      <property name="styleSheet">
+                       <string notr="true">QToolButton {
+	border-radius: 0px;
+	background: none;
+	border: 1px solid #3b3b3b;
+	border-left: none;
+}
+
+QToolButton:pressed {
+    background-color: #535353;
+    color: #FFFFFF;
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Snoolie
+.aar Handling</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
                      <widget class="QToolButton" name="disfordottieBtn">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -1464,7 +1485,7 @@ QToolButton:pressed {
                       </property>
                       <property name="text">
                        <string>disfordottie
-Clock Anim, Photos UI</string>
+Feature Flags</string>
                       </property>
                      </widget>
                     </item>
@@ -1530,7 +1551,7 @@ Quiet Daemon</string>
                       </property>
                       <property name="minimumSize">
                        <size>
-                        <width>150</width>
+                        <width>145</width>
                         <height>35</height>
                        </size>
                       </property>

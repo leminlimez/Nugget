@@ -86,6 +86,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.leminKoFiBtn.clicked.connect(self.on_leminKoFiBtn_clicked)
         
         self.ui.posterRestoreBtn.clicked.connect(self.on_posterRestoreBtn_clicked)
+        self.ui.snoolieBtn.clicked.connect(self.on_snoolieBtn_clicked)
         self.ui.disfordottieBtn.clicked.connect(self.on_disfordottieBtn_clicked)
         self.ui.mikasaBtn.clicked.connect(self.on_mikasaBtn_clicked)
 
@@ -562,6 +563,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_posterRestoreBtn_clicked(self):
         webbrowser.open_new_tab("https://discord.gg/gWtzTVhMvh")
+    def on_snoolieBtn_clicked(self):
+        webbrowser.open_new_tab("https://github.com/0xilis/python-aar-stuff")
     def on_disfordottieBtn_clicked(self):
         webbrowser.open_new_tab("https://twitter.com/disfordottie")
     def on_mikasaBtn_clicked(self):

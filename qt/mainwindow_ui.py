@@ -756,7 +756,7 @@ class Ui_Nugget(object):
         self.helpFromBtn = QToolButton(self.horizontalWidget_21)
         self.helpFromBtn.setObjectName(u"helpFromBtn")
         self.helpFromBtn.setEnabled(True)
-        self.helpFromBtn.setMinimumSize(QSize(150, 35))
+        self.helpFromBtn.setMinimumSize(QSize(145, 35))
         self.helpFromBtn.setStyleSheet(u"QToolButton {\n"
 "	background: none;\n"
 "}")
@@ -782,6 +782,22 @@ class Ui_Nugget(object):
 "}")
 
         self.horizontalLayout_2.addWidget(self.posterRestoreBtn)
+
+        self.snoolieBtn = QToolButton(self.horizontalWidget_21)
+        self.snoolieBtn.setObjectName(u"snoolieBtn")
+        self.snoolieBtn.setStyleSheet(u"QToolButton {\n"
+"	border-radius: 0px;\n"
+"	background: none;\n"
+"	border: 1px solid #3b3b3b;\n"
+"	border-left: none;\n"
+"}\n"
+"\n"
+"QToolButton:pressed {\n"
+"    background-color: #535353;\n"
+"    color: #FFFFFF;\n"
+"}")
+
+        self.horizontalLayout_2.addWidget(self.snoolieBtn)
 
         self.disfordottieBtn = QToolButton(self.horizontalWidget_21)
         self.disfordottieBtn.setObjectName(u"disfordottieBtn")
@@ -834,7 +850,7 @@ class Ui_Nugget(object):
         self.toolButton_15 = QToolButton(self.horizontalWidget3)
         self.toolButton_15.setObjectName(u"toolButton_15")
         self.toolButton_15.setEnabled(False)
-        self.toolButton_15.setMinimumSize(QSize(150, 35))
+        self.toolButton_15.setMinimumSize(QSize(145, 35))
         self.toolButton_15.setStyleSheet(u"QToolButton {\n"
 "	background: none;\n"
 "}")
@@ -3541,8 +3557,10 @@ class Ui_Nugget(object):
         self.helpFromBtn.setText(QCoreApplication.translate("Nugget", u"With Help From", None))
         self.posterRestoreBtn.setText(QCoreApplication.translate("Nugget", u"PosterRestore Team\n"
 "Posterboard", None))
+        self.snoolieBtn.setText(QCoreApplication.translate("Nugget", u"Snoolie\n"
+".aar Handling", None))
         self.disfordottieBtn.setText(QCoreApplication.translate("Nugget", u"disfordottie\n"
-"Clock Anim, Photos UI", None))
+"Feature Flags", None))
         self.mikasaBtn.setText(QCoreApplication.translate("Nugget", u"Mikasa\n"
 "Quiet Daemon", None))
         self.toolButton_15.setText(QCoreApplication.translate("Nugget", u"Additional Thanks", None))
