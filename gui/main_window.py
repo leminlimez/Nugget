@@ -21,7 +21,7 @@ from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
 
 App_Version = "5.1"
-App_Build = 3
+App_Build = 4
 
 class Page(Enum):
     Home = 0
@@ -444,6 +444,7 @@ class MainWindow(QtWidgets.QMainWindow):
             skip_setup = self.settings.value("skip_setup", True, type=bool)
             supervised = self.settings.value("supervised", False, type=bool)
             organization_name = self.settings.value("organization_name", "", type=str)
+            windows_path_fix = self.settings.value("windows_path_fix", False, type=bool)
 
             self.ui.allowWifiApplyingChk.setChecked(apply_over_wifi)
             self.ui.autoRebootChk.setChecked(auto_reboot)
@@ -452,6 +453,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.skipSetupChk.setChecked(skip_setup)
             self.ui.supervisionChk.setChecked(supervised)
             self.ui.supervisionOrganization.setText(organization_name)
+            self.ui.windowsPathFixChk.setChecked(windows_path_fix)
 
             # hide/show the warning label
             if skip_setup:
@@ -466,6 +468,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.device_manager.skip_setup = skip_setup
             self.device_manager.supervised = supervised
             self.device_manager.organization_name = organization_name
+            self.device_manager.windows_path_fix = windows_path_fix
         except:
             pass
     
