@@ -2298,6 +2298,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_143.addWidget(self.pbPagePicker)
 
+        self.pbActionLbl = QLabel(self.posterboardPage)
+        self.pbActionLbl.setObjectName(u"pbActionLbl")
+
+        self.verticalLayout_143.addWidget(self.pbActionLbl)
+
         self.pbPages = QStackedWidget(self.posterboardPage)
         self.pbPages.setObjectName(u"pbPages")
         self.pbPages.setEnabled(False)
@@ -2309,11 +2314,6 @@ class Ui_Nugget(object):
         self.horizontalLayout_12 = QHBoxLayout()
         self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
         self.horizontalLayout_12.setContentsMargins(-1, -1, -1, 0)
-        self.pbActionLbl = QLabel(self.pbTendiesPage)
-        self.pbActionLbl.setObjectName(u"pbActionLbl")
-
-        self.horizontalLayout_12.addWidget(self.pbActionLbl)
-
         self.horizontalSpacer_18 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_12.addItem(self.horizontalSpacer_18)
@@ -2388,15 +2388,10 @@ class Ui_Nugget(object):
         self.pbVideoPage.setObjectName(u"pbVideoPage")
         self.verticalLayout_39 = QVBoxLayout(self.pbVideoPage)
         self.verticalLayout_39.setObjectName(u"verticalLayout_39")
-        self.pbVideoThumbLbl = QLabel(self.pbVideoPage)
-        self.pbVideoThumbLbl.setObjectName(u"pbVideoThumbLbl")
+        self.caVideoChk = QCheckBox(self.pbVideoPage)
+        self.caVideoChk.setObjectName(u"caVideoChk")
 
-        self.verticalLayout_39.addWidget(self.pbVideoThumbLbl)
-
-        self.pbVideoLbl = QLabel(self.pbVideoPage)
-        self.pbVideoLbl.setObjectName(u"pbVideoLbl")
-
-        self.verticalLayout_39.addWidget(self.pbVideoLbl)
+        self.verticalLayout_39.addWidget(self.caVideoChk)
 
         self.horizontalLayout_30 = QHBoxLayout()
         self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
@@ -2410,13 +2405,6 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_30.addWidget(self.chooseVideoBtn)
 
-        self.clearSuggestedBtn = QToolButton(self.pbVideoPage)
-        self.clearSuggestedBtn.setObjectName(u"clearSuggestedBtn")
-        self.clearSuggestedBtn.setIcon(icon25)
-        self.clearSuggestedBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
-
-        self.horizontalLayout_30.addWidget(self.clearSuggestedBtn)
-
         self.horizontalSpacer_19 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_30.addItem(self.horizontalSpacer_19)
@@ -2424,14 +2412,36 @@ class Ui_Nugget(object):
 
         self.verticalLayout_39.addLayout(self.horizontalLayout_30)
 
-        self.caVideoChk = QCheckBox(self.pbVideoPage)
-        self.caVideoChk.setObjectName(u"caVideoChk")
+        self.pbVideoThumbLbl = QLabel(self.pbVideoPage)
+        self.pbVideoThumbLbl.setObjectName(u"pbVideoThumbLbl")
 
-        self.verticalLayout_39.addWidget(self.caVideoChk)
+        self.verticalLayout_39.addWidget(self.pbVideoThumbLbl)
+
+        self.pbVideoLbl = QLabel(self.pbVideoPage)
+        self.pbVideoLbl.setObjectName(u"pbVideoLbl")
+
+        self.verticalLayout_39.addWidget(self.pbVideoLbl)
 
         self.verticalSpacer_22 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_39.addItem(self.verticalSpacer_22)
+
+        self.horizontalLayout_34 = QHBoxLayout()
+        self.horizontalLayout_34.setObjectName(u"horizontalLayout_34")
+        self.horizontalLayout_34.setContentsMargins(-1, 0, -1, -1)
+        self.clearSuggestedBtn = QToolButton(self.pbVideoPage)
+        self.clearSuggestedBtn.setObjectName(u"clearSuggestedBtn")
+        self.clearSuggestedBtn.setIcon(icon25)
+        self.clearSuggestedBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+
+        self.horizontalLayout_34.addWidget(self.clearSuggestedBtn)
+
+        self.horizontalSpacer_24 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_34.addItem(self.horizontalSpacer_24)
+
+
+        self.verticalLayout_39.addLayout(self.horizontalLayout_34)
 
         self.pbPages.addWidget(self.pbVideoPage)
 
@@ -3808,12 +3818,22 @@ class Ui_Nugget(object):
 "Warning: This will remove all of your wallpapers and will restrict you from adding new ones until you restore again.", None))
 #endif // QT_CONFIG(tooltip)
         self.resetPRBExtBtn.setText(QCoreApplication.translate("Nugget", u"  Remove All Wallpapers", None))
+#if QT_CONFIG(tooltip)
+        self.caVideoChk.setToolTip(QCoreApplication.translate("Nugget", u"Uses the CoreAnimation file to play the video (300 fps limit)\n"
+"Will show up in Collections", None))
+#endif // QT_CONFIG(tooltip)
+        self.caVideoChk.setText(QCoreApplication.translate("Nugget", u"Loop (use CoreAnimation method)", None))
+#if QT_CONFIG(tooltip)
+        self.chooseThumbBtn.setToolTip(QCoreApplication.translate("Nugget", u"Choose a photo for the wallpaper to freeze on when finished (.heic files only)", None))
+#endif // QT_CONFIG(tooltip)
+        self.chooseThumbBtn.setText(QCoreApplication.translate("Nugget", u"Choose Freeze Frame (.HEIC)", None))
+#if QT_CONFIG(tooltip)
+        self.chooseVideoBtn.setToolTip(QCoreApplication.translate("Nugget", u"Choose a video file for the wallpaper (.mov or .mp4)", None))
+#endif // QT_CONFIG(tooltip)
+        self.chooseVideoBtn.setText(QCoreApplication.translate("Nugget", u"Choose Video", None))
         self.pbVideoThumbLbl.setText(QCoreApplication.translate("Nugget", u"Current Thumbnail: None", None))
         self.pbVideoLbl.setText(QCoreApplication.translate("Nugget", u"Current Video: None", None))
-        self.chooseThumbBtn.setText(QCoreApplication.translate("Nugget", u"Choose Thumbnail (.HEIC)", None))
-        self.chooseVideoBtn.setText(QCoreApplication.translate("Nugget", u"Choose Video", None))
         self.clearSuggestedBtn.setText(QCoreApplication.translate("Nugget", u"  Clear Suggested Photos", None))
-        self.caVideoChk.setText(QCoreApplication.translate("Nugget", u"Loop (use CoreAnimation method)", None))
         self.advancedOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Risky Options", None))
         self.label_17.setText(QCoreApplication.translate("Nugget", u"Disclaimer:\n"
 "\n"

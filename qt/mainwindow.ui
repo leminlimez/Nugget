@@ -4382,6 +4382,13 @@ To work properly, also disable the daemon using the toggle above.</string>
                </widget>
               </item>
               <item>
+               <widget class="QLabel" name="pbActionLbl">
+                <property name="text">
+                 <string>None</string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QStackedWidget" name="pbPages">
                 <property name="enabled">
                  <bool>false</bool>
@@ -4399,13 +4406,6 @@ To work properly, also disable the daemon using the toggle above.</string>
                     <property name="bottomMargin">
                      <number>0</number>
                     </property>
-                    <item>
-                     <widget class="QLabel" name="pbActionLbl">
-                      <property name="text">
-                       <string>None</string>
-                      </property>
-                     </widget>
-                    </item>
                     <item>
                      <spacer name="horizontalSpacer_18">
                       <property name="orientation">
@@ -4552,16 +4552,13 @@ Warning: This will remove all of your wallpapers and will restrict you from addi
                 <widget class="QWidget" name="pbVideoPage">
                  <layout class="QVBoxLayout" name="verticalLayout_39">
                   <item>
-                   <widget class="QLabel" name="pbVideoThumbLbl">
-                    <property name="text">
-                     <string>Current Thumbnail: None</string>
+                   <widget class="QCheckBox" name="caVideoChk">
+                    <property name="toolTip">
+                     <string>Uses the CoreAnimation file to play the video (300 fps limit)
+Will show up in Collections</string>
                     </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="pbVideoLbl">
                     <property name="text">
-                     <string>Current Video: None</string>
+                     <string>Loop (use CoreAnimation method)</string>
                     </property>
                    </widget>
                   </item>
@@ -4569,29 +4566,21 @@ Warning: This will remove all of your wallpapers and will restrict you from addi
                    <layout class="QHBoxLayout" name="horizontalLayout_30">
                     <item>
                      <widget class="QToolButton" name="chooseThumbBtn">
+                      <property name="toolTip">
+                       <string>Choose a photo for the wallpaper to freeze on when finished (.heic files only)</string>
+                      </property>
                       <property name="text">
-                       <string>Choose Thumbnail (.HEIC)</string>
+                       <string>Choose Freeze Frame (.HEIC)</string>
                       </property>
                      </widget>
                     </item>
                     <item>
                      <widget class="QToolButton" name="chooseVideoBtn">
+                      <property name="toolTip">
+                       <string>Choose a video file for the wallpaper (.mov or .mp4)</string>
+                      </property>
                       <property name="text">
                        <string>Choose Video</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QToolButton" name="clearSuggestedBtn">
-                      <property name="text">
-                       <string>  Clear Suggested Photos</string>
-                      </property>
-                      <property name="icon">
-                       <iconset>
-                        <normaloff>:/icon/arrow.clockwise.svg</normaloff>:/icon/arrow.clockwise.svg</iconset>
-                      </property>
-                      <property name="toolButtonStyle">
-                       <enum>Qt::ToolButtonTextBesideIcon</enum>
                       </property>
                      </widget>
                     </item>
@@ -4611,9 +4600,16 @@ Warning: This will remove all of your wallpapers and will restrict you from addi
                    </layout>
                   </item>
                   <item>
-                   <widget class="QCheckBox" name="caVideoChk">
+                   <widget class="QLabel" name="pbVideoThumbLbl">
                     <property name="text">
-                     <string>Loop (use CoreAnimation method)</string>
+                     <string>Current Thumbnail: None</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="pbVideoLbl">
+                    <property name="text">
+                     <string>Current Video: None</string>
                     </property>
                    </widget>
                   </item>
@@ -4629,6 +4625,40 @@ Warning: This will remove all of your wallpapers and will restrict you from addi
                      </size>
                     </property>
                    </spacer>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_34">
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QToolButton" name="clearSuggestedBtn">
+                      <property name="text">
+                       <string>  Clear Suggested Photos</string>
+                      </property>
+                      <property name="icon">
+                       <iconset>
+                        <normaloff>:/icon/arrow.clockwise.svg</normaloff>:/icon/arrow.clockwise.svg</iconset>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextBesideIcon</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="horizontalSpacer_24">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
                   </item>
                  </layout>
                 </widget>

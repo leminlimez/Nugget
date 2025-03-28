@@ -1014,6 +1014,15 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.pbActionLbl.show()
     def on_caVideoChk_toggled(self, checked: bool):
         tweaks["PosterBoard"].loop_video = checked
+        # hide thumbnail button and label
+        if checked:
+            self.ui.chooseThumbBtn.hide()
+            self.ui.pbVideoThumbLbl.hide()
+            self.ui.clearSuggestedBtn.hide()
+        else:
+            self.ui.chooseThumbBtn.show()
+            self.ui.pbVideoThumbLbl.show()
+            self.ui.clearSuggestedBtn.show()
 
     def on_findPBBtn_clicked(self):
         webbrowser.open_new_tab("https://cowabun.ga/wallpapers")
