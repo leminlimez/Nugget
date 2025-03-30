@@ -177,6 +177,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.chooseVideoBtn.clicked.connect(self.on_chooseVideoBtn_clicked)
         self.ui.clearSuggestedBtn.clicked.connect(self.on_clearSuggestedBtn_clicked)
         self.ui.caVideoChk.toggled.connect(self.on_caVideoChk_toggled)
+        self.ui.reverseLoopChk.toggled.connect(self.on_reverseLoopChk_toggled)
+        self.ui.reverseLoopChk.hide() # hide by default
         
         self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
         self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)
@@ -1014,10 +1016,14 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.chooseThumbBtn.hide()
             self.ui.pbVideoThumbLbl.hide()
             self.ui.clearSuggestedBtn.hide()
+            self.ui.reverseLoopChk.show()
         else:
             self.ui.chooseThumbBtn.show()
             self.ui.pbVideoThumbLbl.show()
             self.ui.clearSuggestedBtn.show()
+            self.ui.reverseLoopChk.hide()
+    def on_reverseLoopChk_toggled(self, checked: bool):
+        tweaks["PosterBoard"].reverse_video = checked
 
     def on_findPBBtn_clicked(self):
         webbrowser.open_new_tab("https://cowabun.ga/wallpapers")
