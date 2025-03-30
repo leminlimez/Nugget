@@ -332,7 +332,7 @@ class DeviceManager:
                         tmp_pb_dir = TemporaryDirectory()
                         tweak.apply_tweak(
                             files_to_restore=files_to_restore, output_dir=tmp_pb_dir.name,
-                            windows_path_fix=self.windows_path_fix
+                            version=self.get_current_device_version()
                         )
                         if tweak.enabled:
                             uses_domains = True

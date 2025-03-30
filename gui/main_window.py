@@ -19,7 +19,7 @@ from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
 
-App_Version = "5.0.1"
+App_Version = "5.0.2"
 App_Build = 0
 
 class Page(Enum):
@@ -184,11 +184,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.allowWifiApplyingChk.toggled.connect(self.on_allowWifiApplyingChk_toggled)
         self.ui.autoRebootChk.toggled.connect(self.on_autoRebootChk_toggled)
         self.ui.showRiskyChk.toggled.connect(self.on_showRiskyChk_toggled)
-        # windows path fix toggle
-        if os_name == "nt":
-            self.ui.windowsPathFixChk.toggled.connect(self.on_windowsPathFixChk_toggled)
-        else:
-            self.ui.windowsPathFixChk.hide()
+        # windows path fix toggle (depreciated)
+        # TODO: Remove this from the UI and everything
+        self.ui.windowsPathFixChk.hide()
         self.ui.showAllSpoofableChk.toggled.connect(self.on_showAllSpoofableChk_toggled)
 
         self.ui.revertRdarChk.toggled.connect(self.on_revertRdarChk_toggled)

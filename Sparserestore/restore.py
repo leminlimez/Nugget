@@ -82,14 +82,14 @@ def concat_regular_file(file: FileToRestore, files_list: list[FileToRestore], la
     return new_last_domain, full_path
 
 # files is a list of FileToRestore objects
-def restore_files(files: list, reboot: bool = False, lockdown_client: LockdownClient = None):
+def restore_files(files: list[FileToRestore], reboot: bool = False, lockdown_client: LockdownClient = None):
     # create the files to be backed up
     files_list = [
     ]
     apps_list = []
     active_bundle_ids = []
     apps = None
-    sorted_files = sorted(files, key=lambda x: x.restore_path, reverse=False)
+    sorted_files = sorted(files, key=lambda x: (x.domain, x.restore_path), reverse=False)
     # add the file paths
     last_domain = ""
     last_path = ""
