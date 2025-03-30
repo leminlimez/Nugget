@@ -4,7 +4,7 @@ from pymobiledevice3.services.installation_proxy import InstallationProxyService
 import os
 
 class FileToRestore:
-    def __init__(self, contents: str, restore_path: str, contents_path: str = None, domain: str = None, owner: int = 501, group: int = 501):
+    def __init__(self, contents: str, restore_path: str, contents_path: str = None, domain: str = "", owner: int = 501, group: int = 501):
         self.contents = contents
         self.contents_path = contents_path
         self.restore_path = restore_path
@@ -95,7 +95,7 @@ def restore_files(files: list[FileToRestore], reboot: bool = False, lockdown_cli
     last_path = ""
     exploit_only = True
     for file in sorted_files:
-        if file.domain == None:
+        if file.domain == "":
             last_domain = concat_exploit_file(file, files_list, last_domain)
         else:
             last_domain, last_path = concat_regular_file(file, files_list, last_domain, last_path)
