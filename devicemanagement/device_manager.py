@@ -36,7 +36,7 @@ def show_apply_error(e: Exception, update_label=lambda x: None):
                        detailed_txt="Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!")
     elif "SessionInactive" in str(e):
         show_error_msg("The session was terminated. Refresh the device list and try again.")
-    elif isinstance(e, PasswordRequiredError):
+    elif "PasswordRequiredError" in str(e):
         show_error_msg("Device is password protected! You must trust the computer on your device.",
                        detailed_txt="Unlock your device. On the popup, click \"Trust\", enter your password, then try again.")
     else:
