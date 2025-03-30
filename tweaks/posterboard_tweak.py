@@ -70,6 +70,7 @@ class PosterboardTweak(Tweak):
         self.bundle_id = "com.apple.PosterBoard"
         self.resetting = False
         self.resetType = 0 # 0 for descriptor, 1 for prb, 2 for suggested photos
+        self.structure_version = 61
 
     def add_tendie(self, file: str):
         new_tendie = TendieFile(path=file)
@@ -151,7 +152,7 @@ class PosterboardTweak(Tweak):
                     self.recursive_add(
                         files_to_restore,
                         os.path.join(curr_path, folder),
-                        restore_path="/Library/Application Support/PRBPosterExtensionDataStore/61/Extensions/com.apple.WallpaperKit.CollectionsPoster/descriptors",
+                        restore_path=f"/Library/Application Support/PRBPosterExtensionDataStore/{self.structure_version}/Extensions/com.apple.WallpaperKit.CollectionsPoster/descriptors",
                         isAdding=True,
                         randomizeUUID=True
                     )
@@ -216,20 +217,25 @@ class PosterboardTweak(Tweak):
             
             
 
-    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, windows_path_fix: bool, update_label=lambda x: None):
+    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, version: str, update_label=lambda x: None):
         # unzip the file
         if not self.enabled:
             return
+        if version.startswith("16"):
+            # iOS 16 has a different number for the structure
+            self.structure_version = 59
+        else:
+            self.structure_version = 61
         if self.resetting:
             # null out the folder
             file_paths = []
             if self.resetType == 0:
                 # resetting descriptors
-                file_paths.append("/61/Extensions/com.apple.WallpaperKit.CollectionsPoster/descriptors")
-                file_paths.append("/61/Extensions/com.apple.MercuryPoster/descriptors")
+                file_paths.append(f"/{self.structure_version}/Extensions/com.apple.WallpaperKit.CollectionsPoster/descriptors")
+                file_paths.append(f"/{self.structure_version}/Extensions/com.apple.MercuryPoster/descriptors")
             elif self.resetType == 2:
                 # resetting suggested photos
-                file_paths.append("/61/Extensions/com.apple.PhotosUIPrivate.PhotosPosterProvider/descriptors")
+                file_paths.append(f"/{self.structure_version}/Extensions/com.apple.PhotosUIPrivate.PhotosPosterProvider/descriptors")
             else:
                 file_paths.append("")
             for file_path in file_paths:
@@ -241,9 +247,6 @@ class PosterboardTweak(Tweak):
             return
         elif (self.tendies == None or len(self.tendies) == 0) and (self.videoFile == None):
             return
-        if os.name == "nt" and windows_path_fix:
-            # try to get past directory name limit on windows
-            output_dir = "\\\\?\\" + output_dir
         update_label("Generating PosterBoard Video...")
         self.create_live_photo_files(output_dir)
         self.create_video_loop_files(output_dir, update_label=update_label)

@@ -247,7 +247,7 @@ class DeviceManager:
         # returns Domain: str?, Path: str
         if self.get_current_device_supported() and not path.startswith("/var/mobile/") and not owner == 0:
             # don't do anything on sparserestore versions
-            return path, None
+            return path, ""
         fully_patched = self.get_current_device_patched()
         # just make the Sys Containers to use the regular way (won't work for mga)
         sysSharedContainer = "SysSharedContainerDomain-"
@@ -275,7 +275,7 @@ class DeviceManager:
                     new_domain += parts[0]
                     new_path = new_path.replace(parts[0] + "/", "")
                 return new_path, new_domain
-        return path, None
+        return path, ""
     
     def concat_file(self, contents: str, path: str, files_to_restore: list[FileToRestore], owner: int = 501, group: int = 501):
         # TODO: try using inodes here instead
@@ -333,7 +333,7 @@ class DeviceManager:
                         tmp_pb_dir = TemporaryDirectory()
                         tweak.apply_tweak(
                             files_to_restore=files_to_restore, output_dir=tmp_pb_dir.name,
-                            windows_path_fix=self.windows_path_fix, update_label=update_label
+                            version=self.get_current_device_version(), update_label=update_label
                         )
                         if tweak.enabled:
                             uses_domains = True
