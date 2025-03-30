@@ -4584,6 +4584,13 @@ Will show up in Collections</string>
                    </widget>
                   </item>
                   <item>
+                   <widget class="QCheckBox" name="reverseLoopChk">
+                    <property name="text">
+                     <string>Reverse on Loop</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_30">
                     <item>
                      <widget class="QToolButton" name="chooseThumbBtn">
@@ -5588,16 +5595,6 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                   <widget class="QCheckBox" name="showRiskyChk">
                    <property name="text">
                     <string>Show Risky Tweak Options</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="windowsPathFixChk">
-                   <property name="text">
-                    <string>Use Windows Path Fix (for Posterboard)</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
                    </property>
                   </widget>
                  </item>

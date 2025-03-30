@@ -2409,6 +2409,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_39.addWidget(self.caVideoChk)
 
+        self.reverseLoopChk = QCheckBox(self.pbVideoPage)
+        self.reverseLoopChk.setObjectName(u"reverseLoopChk")
+
+        self.verticalLayout_39.addWidget(self.reverseLoopChk)
+
         self.horizontalLayout_30 = QHBoxLayout()
         self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
         self.chooseThumbBtn = QToolButton(self.pbVideoPage)
@@ -2909,12 +2914,6 @@ class Ui_Nugget(object):
         self.showRiskyChk.setObjectName(u"showRiskyChk")
 
         self._21.addWidget(self.showRiskyChk)
-
-        self.windowsPathFixChk = QCheckBox(self.settingsPageContent)
-        self.windowsPathFixChk.setObjectName(u"windowsPathFixChk")
-        self.windowsPathFixChk.setChecked(True)
-
-        self._21.addWidget(self.windowsPathFixChk)
 
         self.showAllSpoofableChk = QCheckBox(self.settingsPageContent)
         self.showAllSpoofableChk.setObjectName(u"showAllSpoofableChk")
@@ -3841,6 +3840,7 @@ class Ui_Nugget(object):
 "Will show up in Collections", None))
 #endif // QT_CONFIG(tooltip)
         self.caVideoChk.setText(QCoreApplication.translate("Nugget", u"Loop (use CoreAnimation method)", None))
+        self.reverseLoopChk.setText(QCoreApplication.translate("Nugget", u"Reverse on Loop", None))
 #if QT_CONFIG(tooltip)
         self.chooseThumbBtn.setToolTip(QCoreApplication.translate("Nugget", u"Choose a photo for the wallpaper to freeze on when finished (.heic files only)", None))
 #endif // QT_CONFIG(tooltip)
@@ -3893,7 +3893,6 @@ class Ui_Nugget(object):
         self.allowWifiApplyingChk.setText(QCoreApplication.translate("Nugget", u"Allow Applying Over WiFi", None))
         self.autoRebootChk.setText(QCoreApplication.translate("Nugget", u"Auto Reboot After Applying", None))
         self.showRiskyChk.setText(QCoreApplication.translate("Nugget", u"Show Risky Tweak Options", None))
-        self.windowsPathFixChk.setText(QCoreApplication.translate("Nugget", u"Use Windows Path Fix (for Posterboard)", None))
 #if QT_CONFIG(tooltip)
         self.showAllSpoofableChk.setToolTip(QCoreApplication.translate("Nugget", u"Show models for other device types in the AI device spoofing tab.", None))
 #endif // QT_CONFIG(tooltip)
