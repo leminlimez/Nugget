@@ -55,7 +55,7 @@ def create_caml(video_path: str, output_file: str, auto_reverses: bool, update_l
     try:
         # creating a folder named data
         if not os.path.exists(assets_path): 
-            os.makedirs(assets_path) 
+            os.makedirs(assets_path, exist_ok=True) 
     # if not created then raise error
     except OSError:
         print ('Error: Creating directory of data')
@@ -110,222 +110,33 @@ def create_caml(video_path: str, output_file: str, auto_reverses: bool, update_l
       </CATransformLayer>
     </sublayers>
     <states>
-      <LKState name="Sleep PortraitUp Light">
+      <LKState name="Locked">
 	<elements/>
       </LKState>
-      <LKState name="Lock PortraitUp Light">
+      <LKState name="Unlock">
 	<elements/>
       </LKState>
-      <LKState name="Home PortraitUp Light">
-	<elements/>
-      </LKState>
-      <LKState name="Sleep LandscapeLeft Light" basedOn="Sleep PortraitUp Light">
-	<elements/>
-      </LKState>
-      <LKState name="Lock LandscapeLeft Light">
-	<elements/>
-      </LKState>
-      <LKState name="Home LandscapeLeft Light" basedOn="Home PortraitUp Light">
-	<elements/>
-      </LKState>
-      <LKState name="Sleep PortraitDown Light" basedOn="Sleep PortraitUp Light">
-	<elements/>
-      </LKState>
-      <LKState name="Lock PortraitDown Light">
-	<elements/>
-      </LKState>
-      <LKState name="Home PortraitDown Light" basedOn="Home PortraitUp Light">
-	<elements/>
-      </LKState>
-      <LKState name="Sleep LandscapeRight Light" basedOn="Sleep PortraitUp Light">
-	<elements/>
-      </LKState>
-      <LKState name="Lock LandscapeRight Light">
-	<elements/>
-      </LKState>
-      <LKState name="Home LandscapeRight Light" basedOn="Home PortraitUp Light">
-	<elements/>
-      </LKState>
-      <LKState name="Sleep PortraitUp Dark" basedOn="Sleep PortraitUp Light">
-	<elements/>
-      </LKState>
-      <LKState name="Lock PortraitUp Dark">
-	<elements/>
-      </LKState>
-      <LKState name="Home PortraitUp Dark" basedOn="Home PortraitUp Light">
-	<elements/>
-      </LKState>
-      <LKState name="Sleep LandscapeLeft Dark" basedOn="Sleep PortraitUp Light">
-	<elements/>
-      </LKState>
-      <LKState name="Lock LandscapeLeft Dark">
-	<elements/>
-      </LKState>
-      <LKState name="Home LandscapeLeft Dark" basedOn="Home PortraitUp Light">
-	<elements/>
-      </LKState>
-      <LKState name="Sleep PortraitDown Dark" basedOn="Sleep PortraitUp Light">
-	<elements/>
-      </LKState>
-      <LKState name="Lock PortraitDown Dark">
-	<elements/>
-      </LKState>
-      <LKState name="Home PortraitDown Dark" basedOn="Home PortraitUp Light">
-	<elements/>
-      </LKState>
-      <LKState name="Sleep LandscapeRight Dark" basedOn="Sleep PortraitUp Light">
-	<elements/>
-      </LKState>
-      <LKState name="Lock LandscapeRight Dark">
-	<elements/>
-      </LKState>
-      <LKState name="Home LandscapeRight Dark" basedOn="Home PortraitUp Light">
+      <LKState name="Sleep">
 	<elements/>
       </LKState>
     </states>
     <stateTransitions>
-      <LKStateTransition fromState="*" toState="Sleep PortraitUp Light">
+      <LKStateTransition fromState="*" toState="Unlock">
 	<elements/>
       </LKStateTransition>
-      <LKStateTransition fromState="Sleep PortraitUp Light" toState="*">
+      <LKStateTransition fromState="Unlock" toState="*">
 	<elements/>
       </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Lock PortraitUp Light">
+      <LKStateTransition fromState="*" toState="Locked">
 	<elements/>
       </LKStateTransition>
-      <LKStateTransition fromState="Lock PortraitUp Light" toState="*">
+      <LKStateTransition fromState="Locked" toState="*">
 	<elements/>
       </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Home PortraitUp Light">
+      <LKStateTransition fromState="*" toState="Sleep">
 	<elements/>
       </LKStateTransition>
-      <LKStateTransition fromState="Home PortraitUp Light" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Sleep LandscapeLeft Light">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Sleep LandscapeLeft Light" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Lock LandscapeLeft Light">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Lock LandscapeLeft Light" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Home LandscapeLeft Light">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Home LandscapeLeft Light" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Sleep PortraitDown Light">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Sleep PortraitDown Light" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Lock PortraitDown Light">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Lock PortraitDown Light" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Home PortraitDown Light">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Home PortraitDown Light" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Sleep LandscapeRight Light">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Sleep LandscapeRight Light" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Lock LandscapeRight Light">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Lock LandscapeRight Light" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Home LandscapeRight Light">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Home LandscapeRight Light" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Sleep PortraitUp Dark">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Sleep PortraitUp Dark" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Lock PortraitUp Dark">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Lock PortraitUp Dark" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Home PortraitUp Dark">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Home PortraitUp Dark" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Sleep LandscapeLeft Dark">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Sleep LandscapeLeft Dark" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Lock LandscapeLeft Dark">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Lock LandscapeLeft Dark" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Home LandscapeLeft Dark">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Home LandscapeLeft Dark" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Sleep PortraitDown Dark">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Sleep PortraitDown Dark" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Lock PortraitDown Dark">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Lock PortraitDown Dark" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Home PortraitDown Dark">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Home PortraitDown Dark" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Sleep LandscapeRight Dark">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Sleep LandscapeRight Dark" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Lock LandscapeRight Dark">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Lock LandscapeRight Dark" toState="*">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="*" toState="Home LandscapeRight Dark">
-	<elements/>
-      </LKStateTransition>
-      <LKStateTransition fromState="Home LandscapeRight Dark" toState="*">
+      <LKStateTransition fromState="Sleep" toState="*">
 	<elements/>
       </LKStateTransition>
     </stateTransitions>
