@@ -317,13 +317,27 @@ class Ui_Nugget(object):
 
         self.verticalLayout.addWidget(self.sidebarDiv1)
 
+        self.posterboardPageBtn = QToolButton(self.sidebar)
+        self.posterboardPageBtn.setObjectName(u"posterboardPageBtn")
+        self.posterboardPageBtn.setEnabled(True)
+        sizePolicy2.setHeightForWidth(self.posterboardPageBtn.sizePolicy().hasHeightForWidth())
+        self.posterboardPageBtn.setSizePolicy(sizePolicy2)
+        icon3 = QIcon()
+        icon3.addFile(u":/icon/wallpaper.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.posterboardPageBtn.setIcon(icon3)
+        self.posterboardPageBtn.setCheckable(True)
+        self.posterboardPageBtn.setAutoExclusive(True)
+        self.posterboardPageBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+
+        self.verticalLayout.addWidget(self.posterboardPageBtn)
+
         self.gestaltPageBtn = QToolButton(self.sidebar)
         self.gestaltPageBtn.setObjectName(u"gestaltPageBtn")
         sizePolicy2.setHeightForWidth(self.gestaltPageBtn.sizePolicy().hasHeightForWidth())
         self.gestaltPageBtn.setSizePolicy(sizePolicy2)
-        icon3 = QIcon()
-        icon3.addFile(u":/icon/iphone-island.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.gestaltPageBtn.setIcon(icon3)
+        icon4 = QIcon()
+        icon4.addFile(u":/icon/iphone-island.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.gestaltPageBtn.setIcon(icon4)
         self.gestaltPageBtn.setIconSize(QSize(24, 28))
         self.gestaltPageBtn.setCheckable(True)
         self.gestaltPageBtn.setAutoExclusive(True)
@@ -339,9 +353,9 @@ class Ui_Nugget(object):
         font = QFont()
         font.setFamilies([u".AppleSystemUIFont"])
         self.featureFlagsPageBtn.setFont(font)
-        icon4 = QIcon()
-        icon4.addFile(u":/icon/flag.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.featureFlagsPageBtn.setIcon(icon4)
+        icon5 = QIcon()
+        icon5.addFile(u":/icon/flag.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.featureFlagsPageBtn.setIcon(icon5)
         self.featureFlagsPageBtn.setCheckable(True)
         self.featureFlagsPageBtn.setAutoExclusive(True)
         self.featureFlagsPageBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
@@ -352,9 +366,9 @@ class Ui_Nugget(object):
         self.euEnablerPageBtn.setObjectName(u"euEnablerPageBtn")
         sizePolicy2.setHeightForWidth(self.euEnablerPageBtn.sizePolicy().hasHeightForWidth())
         self.euEnablerPageBtn.setSizePolicy(sizePolicy2)
-        icon5 = QIcon()
-        icon5.addFile(u":/icon/geo-alt.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.euEnablerPageBtn.setIcon(icon5)
+        icon6 = QIcon()
+        icon6.addFile(u":/icon/geo-alt.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.euEnablerPageBtn.setIcon(icon6)
         self.euEnablerPageBtn.setCheckable(True)
         self.euEnablerPageBtn.setAutoExclusive(True)
         self.euEnablerPageBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
@@ -365,9 +379,9 @@ class Ui_Nugget(object):
         self.springboardOptionsPageBtn.setObjectName(u"springboardOptionsPageBtn")
         sizePolicy2.setHeightForWidth(self.springboardOptionsPageBtn.sizePolicy().hasHeightForWidth())
         self.springboardOptionsPageBtn.setSizePolicy(sizePolicy2)
-        icon6 = QIcon()
-        icon6.addFile(u":/icon/app-indicator.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.springboardOptionsPageBtn.setIcon(icon6)
+        icon7 = QIcon()
+        icon7.addFile(u":/icon/app-indicator.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.springboardOptionsPageBtn.setIcon(icon7)
         self.springboardOptionsPageBtn.setCheckable(True)
         self.springboardOptionsPageBtn.setAutoExclusive(True)
         self.springboardOptionsPageBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
@@ -378,9 +392,9 @@ class Ui_Nugget(object):
         self.internalOptionsPageBtn.setObjectName(u"internalOptionsPageBtn")
         sizePolicy2.setHeightForWidth(self.internalOptionsPageBtn.sizePolicy().hasHeightForWidth())
         self.internalOptionsPageBtn.setSizePolicy(sizePolicy2)
-        icon7 = QIcon()
-        icon7.addFile(u":/icon/hdd.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.internalOptionsPageBtn.setIcon(icon7)
+        icon8 = QIcon()
+        icon8.addFile(u":/icon/hdd.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.internalOptionsPageBtn.setIcon(icon8)
         self.internalOptionsPageBtn.setCheckable(True)
         self.internalOptionsPageBtn.setAutoExclusive(True)
         self.internalOptionsPageBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
@@ -392,28 +406,14 @@ class Ui_Nugget(object):
         self.daemonsPageBtn.setEnabled(True)
         sizePolicy2.setHeightForWidth(self.daemonsPageBtn.sizePolicy().hasHeightForWidth())
         self.daemonsPageBtn.setSizePolicy(sizePolicy2)
-        icon8 = QIcon()
-        icon8.addFile(u":/icon/toggles.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.daemonsPageBtn.setIcon(icon8)
+        icon9 = QIcon()
+        icon9.addFile(u":/icon/toggles.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.daemonsPageBtn.setIcon(icon9)
         self.daemonsPageBtn.setCheckable(True)
         self.daemonsPageBtn.setAutoExclusive(True)
         self.daemonsPageBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
         self.verticalLayout.addWidget(self.daemonsPageBtn)
-
-        self.posterboardPageBtn = QToolButton(self.sidebar)
-        self.posterboardPageBtn.setObjectName(u"posterboardPageBtn")
-        self.posterboardPageBtn.setEnabled(True)
-        sizePolicy2.setHeightForWidth(self.posterboardPageBtn.sizePolicy().hasHeightForWidth())
-        self.posterboardPageBtn.setSizePolicy(sizePolicy2)
-        icon9 = QIcon()
-        icon9.addFile(u":/icon/wallpaper.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.posterboardPageBtn.setIcon(icon9)
-        self.posterboardPageBtn.setCheckable(True)
-        self.posterboardPageBtn.setAutoExclusive(True)
-        self.posterboardPageBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
-
-        self.verticalLayout.addWidget(self.posterboardPageBtn)
 
         self.advancedPageBtn = QToolButton(self.sidebar)
         self.advancedPageBtn.setObjectName(u"advancedPageBtn")
@@ -930,7 +930,7 @@ class Ui_Nugget(object):
 "	padding-right: 5px;\n"
 "	border-radius: 0px;\n"
 "}")
-        self.toolButton_8.setIcon(icon3)
+        self.toolButton_8.setIcon(icon4)
         self.toolButton_8.setIconSize(QSize(30, 30))
 
         self.horizontalLayout_5.addWidget(self.toolButton_8)
@@ -1273,7 +1273,7 @@ class Ui_Nugget(object):
 "	padding-right: 5px;\n"
 "	border-radius: 0px;\n"
 "}")
-        self.toolButton_10.setIcon(icon4)
+        self.toolButton_10.setIcon(icon5)
 
         self.horizontalLayout_20.addWidget(self.toolButton_10)
 
@@ -1379,7 +1379,7 @@ class Ui_Nugget(object):
 "	padding-right: 5px;\n"
 "	border-radius: 0px;\n"
 "}")
-        self.toolButton_11.setIcon(icon5)
+        self.toolButton_11.setIcon(icon6)
 
         self.horizontalLayout_21.addWidget(self.toolButton_11)
 
@@ -1684,7 +1684,7 @@ class Ui_Nugget(object):
 "	padding-right: 5px;\n"
 "	border-radius: 0px;\n"
 "}")
-        self.toolButton_7.setIcon(icon6)
+        self.toolButton_7.setIcon(icon7)
 
         self.horizontalLayout_13.addWidget(self.toolButton_7)
 
@@ -1810,7 +1810,7 @@ class Ui_Nugget(object):
 "	padding-right: 5px;\n"
 "	border-radius: 0px;\n"
 "}")
-        self.toolButton_101.setIcon(icon7)
+        self.toolButton_101.setIcon(icon8)
 
         self.horizontalLayout_201.addWidget(self.toolButton_101)
 
@@ -1991,7 +1991,7 @@ class Ui_Nugget(object):
 "	padding-right: 5px;\n"
 "	border-radius: 0px;\n"
 "}")
-        self.toolButton_102.setIcon(icon8)
+        self.toolButton_102.setIcon(icon9)
 
         self.horizontalLayout_202.addWidget(self.toolButton_102)
 
@@ -2182,7 +2182,7 @@ class Ui_Nugget(object):
 "	padding-right: 5px;\n"
 "	border-radius: 0px;\n"
 "}")
-        self.toolButton_103.setIcon(icon9)
+        self.toolButton_103.setIcon(icon3)
 
         self.horizontalLayout_203.addWidget(self.toolButton_103)
 
@@ -2889,7 +2889,7 @@ class Ui_Nugget(object):
 "	padding-right: 5px;\n"
 "	border-radius: 0px;\n"
 "}")
-        self.toolButton_13.setIcon(icon5)
+        self.toolButton_13.setIcon(icon6)
 
         self.horizontalLayout_28.addWidget(self.toolButton_13)
 
@@ -3222,7 +3222,7 @@ class Ui_Nugget(object):
 "	padding-right: 5px;\n"
 "	border-radius: 0px;\n"
 "}")
-        self.themesBtn.setIcon(icon3)
+        self.themesBtn.setIcon(icon4)
         self.themesBtn.setIconSize(QSize(30, 30))
 
         self.horizontalLayout_23.addWidget(self.themesBtn)
@@ -3388,6 +3388,8 @@ class Ui_Nugget(object):
         self.titleBar.setText(QCoreApplication.translate("Nugget", u"Nugget", None))
         self.homePageBtn.setText(QCoreApplication.translate("Nugget", u"    Home", None))
         self.homePageBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
+        self.posterboardPageBtn.setText(QCoreApplication.translate("Nugget", u"    Posterboard", None))
+        self.posterboardPageBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.gestaltPageBtn.setText(QCoreApplication.translate("Nugget", u"     Mobile Gestalt", None))
         self.gestaltPageBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.featureFlagsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Feature Flags", None))
@@ -3400,8 +3402,6 @@ class Ui_Nugget(object):
         self.internalOptionsPageBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.daemonsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Daemons", None))
         self.daemonsPageBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
-        self.posterboardPageBtn.setText(QCoreApplication.translate("Nugget", u"    Posterboard", None))
-        self.posterboardPageBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.advancedPageBtn.setText(QCoreApplication.translate("Nugget", u"    Risky Options", None))
         self.advancedPageBtn.setProperty(u"cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.applyPageBtn.setText(QCoreApplication.translate("Nugget", u"    Apply", None))
