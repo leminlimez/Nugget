@@ -244,9 +244,9 @@ class DeviceManager:
                 domain="ManagedPreferencesDomain"
             ))
 
-    def get_domain_for_path(self, path: str, owner: int = 501) -> str:
+    def get_domain_for_path(self, path: str, owner: int = 501, uses_domains: bool = False) -> str:
         # returns Domain: str?, Path: str
-        if self.get_current_device_supported() and not path.startswith("/var/mobile/") and not owner == 0:
+        if self.get_current_device_supported() and not path.startswith("/var/mobile/") and not owner == 0 and not uses_domains:
             # don't do anything on sparserestore versions
             return path, ""
         fully_patched = self.get_current_device_patched()
@@ -278,9 +278,9 @@ class DeviceManager:
                 return new_path, new_domain
         return path, ""
     
-    def concat_file(self, contents: str, path: str, files_to_restore: list[FileToRestore], owner: int = 501, group: int = 501):
+    def concat_file(self, contents: str, path: str, files_to_restore: list[FileToRestore], owner: int = 501, group: int = 501, uses_domains: bool = False):
         # TODO: try using inodes here instead
-        file_path, domain = self.get_domain_for_path(path, owner=owner)
+        file_path, domain = self.get_domain_for_path(path, owner=owner, uses_domains=uses_domains)
         files_to_restore.append(FileToRestore(
             contents=contents,
             restore_path=file_path,
@@ -368,7 +368,7 @@ class DeviceManager:
                 self.concat_file(
                     contents=gestalt_data,
                     path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
-                    files_to_restore=files_to_restore
+                    files_to_restore=files_to_restore, uses_domains=uses_domains
                 )
             if eligibility_files:
                 new_eligibility_files: dict[FileToRestore] = []
@@ -422,7 +422,7 @@ class DeviceManager:
                         )
 
             # restore to the device
-            update_label("Restoring to device, do NOT unplug...")
+            update_label("Restoring to device...\nDo NOT Unplug")
             restore_files(files=files_to_restore, reboot=self.auto_reboot, lockdown_client=self.data_singleton.current_device.ld)
             if tmp_pb_dir != None:
                 try:
@@ -430,7 +430,7 @@ class DeviceManager:
                 except Exception as e:
                     # ignore clean up errors
                     print(str(e))
-            msg = "Your device will now restart."
+            msg = "Your device will now restart.\nRemember to turn Find My back on!"
             if not self.auto_reboot:
                 msg = "Please restart your device to see changes."
             show_alert(ApplyAlertMessage(txt="All done! " + msg, title="Success!", icon=QMessageBox.Information))
