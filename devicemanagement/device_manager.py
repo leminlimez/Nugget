@@ -430,7 +430,7 @@ class DeviceManager:
                 except Exception as e:
                     # ignore clean up errors
                     print(str(e))
-            msg = "Your device will now restart.\nRemember to turn Find My back on!"
+            msg = "Your device will now restart.\n\nRemember to turn Find My back on!"
             if not self.auto_reboot:
                 msg = "Please restart your device to see changes."
             show_alert(ApplyAlertMessage(txt="All done! " + msg, title="Success!", icon=QMessageBox.Information))

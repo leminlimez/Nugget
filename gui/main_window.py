@@ -178,7 +178,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.clearSuggestedBtn.clicked.connect(self.on_clearSuggestedBtn_clicked)
         self.ui.caVideoChk.toggled.connect(self.on_caVideoChk_toggled)
         self.ui.reverseLoopChk.toggled.connect(self.on_reverseLoopChk_toggled)
+        self.ui.useForegroundChk.toggled.connect(self.on_useForegroundChk_toggled)
         self.ui.reverseLoopChk.hide() # hide by default
+        self.ui.useForegroundChk.hide()
         
         self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
         self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)
@@ -923,7 +925,7 @@ class MainWindow(QtWidgets.QMainWindow):
             spacer = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
             # main layout
             layout = QtWidgets.QHBoxLayout(widget)
-            layout.setContentsMargins(0, 0, 0, 9)
+            layout.setContentsMargins(0, 0, 0, 3)
             layout.addWidget(titleBtn)
             layout.addItem(spacer)
             layout.addWidget(delBtn)
@@ -1017,13 +1019,17 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.pbVideoThumbLbl.hide()
             self.ui.clearSuggestedBtn.hide()
             self.ui.reverseLoopChk.show()
+            self.ui.useForegroundChk.show()
         else:
             self.ui.chooseThumbBtn.show()
             self.ui.pbVideoThumbLbl.show()
             self.ui.clearSuggestedBtn.show()
             self.ui.reverseLoopChk.hide()
+            self.ui.useForegroundChk.hide()
     def on_reverseLoopChk_toggled(self, checked: bool):
         tweaks["PosterBoard"].reverse_video = checked
+    def on_useForegroundChk_toggled(self, checked: bool):
+        tweaks["PosterBoard"].use_foreground = checked
 
     def on_findPBBtn_clicked(self):
         webbrowser.open_new_tab("https://cowabun.ga/wallpapers")

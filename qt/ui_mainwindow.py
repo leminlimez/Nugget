@@ -2187,7 +2187,7 @@ class Ui_Nugget(object):
         self.horizontalLayout_203 = QHBoxLayout(self.horizontalWidget_53)
         self.horizontalLayout_203.setSpacing(10)
         self.horizontalLayout_203.setObjectName(u"horizontalLayout_203")
-        self.horizontalLayout_203.setContentsMargins(0, 9, 0, 9)
+        self.horizontalLayout_203.setContentsMargins(0, 9, 0, 0)
         self.toolButton_103 = QToolButton(self.horizontalWidget_53)
         self.toolButton_103.setObjectName(u"toolButton_103")
         self.toolButton_103.setEnabled(True)
@@ -2249,16 +2249,6 @@ class Ui_Nugget(object):
 
         self.verticalLayout_143.addWidget(self.horizontalWidget_53)
 
-        self.line_123 = QFrame(self.posterboardPage)
-        self.line_123.setObjectName(u"line_123")
-        self.line_123.setStyleSheet(u"QFrame {\n"
-"	color: #414141;\n"
-"}")
-        self.line_123.setFrameShadow(QFrame.Plain)
-        self.line_123.setFrameShape(QFrame.HLine)
-
-        self.verticalLayout_143.addWidget(self.line_123)
-
         self.pbPagePicker = QWidget(self.posterboardPage)
         self.pbPagePicker.setObjectName(u"pbPagePicker")
         sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
@@ -2313,6 +2303,16 @@ class Ui_Nugget(object):
 
 
         self.verticalLayout_143.addWidget(self.pbPagePicker)
+
+        self.line_123 = QFrame(self.posterboardPage)
+        self.line_123.setObjectName(u"line_123")
+        self.line_123.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_123.setFrameShadow(QFrame.Plain)
+        self.line_123.setFrameShape(QFrame.HLine)
+
+        self.verticalLayout_143.addWidget(self.line_123)
 
         self.pbActionLbl = QLabel(self.posterboardPage)
         self.pbActionLbl.setObjectName(u"pbActionLbl")
@@ -2413,6 +2413,11 @@ class Ui_Nugget(object):
         self.reverseLoopChk.setObjectName(u"reverseLoopChk")
 
         self.verticalLayout_39.addWidget(self.reverseLoopChk)
+
+        self.useForegroundChk = QCheckBox(self.pbVideoPage)
+        self.useForegroundChk.setObjectName(u"useForegroundChk")
+
+        self.verticalLayout_39.addWidget(self.useForegroundChk)
 
         self.horizontalLayout_30 = QHBoxLayout()
         self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
@@ -3841,6 +3846,7 @@ class Ui_Nugget(object):
 #endif // QT_CONFIG(tooltip)
         self.caVideoChk.setText(QCoreApplication.translate("Nugget", u"Loop (use CoreAnimation method)", None))
         self.reverseLoopChk.setText(QCoreApplication.translate("Nugget", u"Reverse on Loop", None))
+        self.useForegroundChk.setText(QCoreApplication.translate("Nugget", u"Make Foreground (hides clock)", None))
 #if QT_CONFIG(tooltip)
         self.chooseThumbBtn.setToolTip(QCoreApplication.translate("Nugget", u"Choose a photo for the wallpaper to freeze on when finished (.heic files only)", None))
 #endif // QT_CONFIG(tooltip)

@@ -4148,7 +4148,7 @@ To work properly, also disable the daemon using the toggle above.</string>
                   <number>0</number>
                  </property>
                  <property name="bottomMargin">
-                  <number>9</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <widget class="QToolButton" name="toolButton_10">
@@ -4271,21 +4271,6 @@ To work properly, also disable the daemon using the toggle above.</string>
                </widget>
               </item>
               <item>
-               <widget class="Line" name="line_12">
-                <property name="styleSheet">
-                 <string notr="true">QFrame {
-	color: #414141;
-}</string>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Plain</enum>
-                </property>
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-               </widget>
-              </item>
-              <item>
                <widget class="QWidget" name="pbPagePicker" native="true">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -4400,6 +4385,21 @@ To work properly, also disable the daemon using the toggle above.</string>
                   </spacer>
                  </item>
                 </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="Line" name="line_12">
+                <property name="styleSheet">
+                 <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
                </widget>
               </item>
               <item>
@@ -4587,6 +4587,13 @@ Will show up in Collections</string>
                    <widget class="QCheckBox" name="reverseLoopChk">
                     <property name="text">
                      <string>Reverse on Loop</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="useForegroundChk">
+                    <property name="text">
+                     <string>Make Foreground (hides clock)</string>
                     </property>
                    </widget>
                   </item>
