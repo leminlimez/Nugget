@@ -12,6 +12,8 @@ from pymobiledevice3.exceptions import MuxException, PasswordRequiredError
 from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
 
+from controllers.path_handler import fix_windows_path
+
 from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.posterboard_tweak import PosterboardTweak
@@ -331,7 +333,7 @@ class DeviceManager:
                     elif isinstance(tweak, PosterboardTweak):
                         tmp_pb_dir = TemporaryDirectory()
                         tweak.apply_tweak(
-                            files_to_restore=files_to_restore, output_dir=tmp_pb_dir.name,
+                            files_to_restore=files_to_restore, output_dir=fix_windows_path(tmp_pb_dir.name),
                             version=self.get_current_device_version()
                         )
                         if tweak.enabled:
@@ -437,9 +439,9 @@ class DeviceManager:
             if tmp_pb_dir != None:
                 try:
                     tmp_pb_dir.cleanup()
-                except Exception as e:
+                except Exception as e2:
                     # ignore clean up errors
-                    print(str(e))
+                    print(str(e2))
             show_apply_error(e, update_label)
 
     ## RESETTING MOBILE GESTALT

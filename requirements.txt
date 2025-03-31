@@ -1,4 +1,3 @@
 pymobiledevice3
 PySide6-Essentials
 PyInstaller
-rarfile

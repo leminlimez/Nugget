@@ -1,6 +1,5 @@
 import os
 import zipfile
-import rarfile
 import uuid
 import re
 from random import randint
@@ -9,6 +8,7 @@ from PySide6 import QtWidgets, QtCore, QtGui
 from .tweak_classes import Tweak
 from Sparserestore.restore import FileToRestore
 from controllers.plist_handler import set_plist_value
+from controllers.path_handler import fix_windows_path
 from qt.ui_mainwindow import Ui_Nugget
 
 class TendieFile:
@@ -183,16 +183,7 @@ class PosterboardTweak(Tweak):
         for tendie in self.tendies:
             zip_output = os.path.join(output_dir, str(uuid.uuid4()))
             os.makedirs(zip_output)
-            if os == 'nt':
-                rar_archive = rarfile.RarFile(tendie.path)
-                try:
-                    # Extract the contents to the target directory
-                    rar_archive.extractall(path=zip_output)
-                finally:
-                    # Close the RAR file to release resources
-                    rar_archive.close()
-            else:
-                with zipfile.ZipFile(tendie.path, 'r') as zip_ref:
-                    zip_ref.extractall(zip_output)
+            with zipfile.ZipFile(tendie.path, 'r') as zip_ref:
+                zip_ref.extractall(zip_output)
         # add the files
         self.recursive_add(files_to_restore, curr_path=output_dir)
