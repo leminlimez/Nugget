@@ -8,6 +8,7 @@ from PySide6 import QtWidgets, QtCore, QtGui
 from .tweak_classes import Tweak
 from Sparserestore.restore import FileToRestore
 from controllers.plist_handler import set_plist_value
+from controllers.path_handler import fix_windows_path
 from qt.ui_mainwindow import Ui_Nugget
 
 class TendieFile:

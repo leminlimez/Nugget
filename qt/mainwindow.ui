@@ -451,6 +451,38 @@ QSlider::tick:horizontal {
            </widget>
           </item>
           <item>
+           <widget class="QToolButton" name="posterboardPageBtn">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>    Posterboard</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>:/icon/wallpaper.svg</normaloff>:/icon/wallpaper.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextBesideIcon</enum>
+            </property>
+            <property name="cls" stdset="0">
+             <string>sidebarBtn</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QToolButton" name="gestaltPageBtn">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -627,38 +659,6 @@ QSlider::tick:horizontal {
             <property name="icon">
              <iconset>
               <normaloff>:/icon/toggles.svg</normaloff>:/icon/toggles.svg</iconset>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="autoExclusive">
-             <bool>true</bool>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextBesideIcon</enum>
-            </property>
-            <property name="cls" stdset="0">
-             <string>sidebarBtn</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="posterboardPageBtn">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>    Posterboard</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>:/icon/wallpaper.svg</normaloff>:/icon/wallpaper.svg</iconset>
             </property>
             <property name="checkable">
              <bool>true</bool>

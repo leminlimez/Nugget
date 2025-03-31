@@ -12,6 +12,8 @@ from pymobiledevice3.exceptions import MuxException, PasswordRequiredError
 from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
 
+from controllers.path_handler import fix_windows_path
+
 from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.posterboard_tweak import PosterboardTweak
@@ -331,7 +333,7 @@ class DeviceManager:
                     elif isinstance(tweak, PosterboardTweak):
                         tmp_pb_dir = TemporaryDirectory()
                         tweak.apply_tweak(
-                            files_to_restore=files_to_restore, output_dir=tmp_pb_dir.name,
+                            files_to_restore=files_to_restore, output_dir=fix_windows_path(tmp_pb_dir.name),
                             version=self.get_current_device_version()
                         )
                         if tweak.enabled:
@@ -423,7 +425,11 @@ class DeviceManager:
             update_label("Restoring to device...")
             restore_files(files=files_to_restore, reboot=self.auto_reboot, lockdown_client=self.data_singleton.current_device.ld)
             if tmp_pb_dir != None:
-                tmp_pb_dir.cleanup()
+                try:
+                    tmp_pb_dir.cleanup()
+                except Exception as e:
+                    # ignore clean up errors
+                    print(str(e))
             msg = "Your device will now restart."
             if not self.auto_reboot:
                 msg = "Please restart your device to see changes."
@@ -431,7 +437,11 @@ class DeviceManager:
             update_label("Success!")
         except Exception as e:
             if tmp_pb_dir != None:
-                tmp_pb_dir.cleanup()
+                try:
+                    tmp_pb_dir.cleanup()
+                except Exception as e2:
+                    # ignore clean up errors
+                    print(str(e2))
             show_apply_error(e, update_label)
 
     ## RESETTING MOBILE GESTALT
