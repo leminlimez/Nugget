@@ -250,12 +250,13 @@ class PosterboardTweak(Tweak):
         update_label("Generating PosterBoard Video...")
         self.create_live_photo_files(output_dir)
         self.create_video_loop_files(output_dir, update_label=update_label)
-        update_label("Adding tendies...")
         for tendie in self.tendies:
+            update_label(f"Extracting {tendie.name}...")
             zip_output = os.path.join(output_dir, str(uuid.uuid4()))
             os.makedirs(zip_output)
             with zipfile.ZipFile(tendie.path, 'r') as zip_ref:
                 zip_ref.extractall(zip_output)
         # add the files
+        update_label("Adding tendies...")
         self.recursive_add(files_to_restore, curr_path=output_dir)
         update_label("Adding other tweaks...")
