@@ -963,6 +963,7 @@ class MainWindow(QtWidgets.QMainWindow):
                     detailsBox.setWindowTitle("Error!")
                     detailsBox.setText("You selected too many descriptors! The limit is 10.")
                     detailsBox.exec()
+                    break
             self.load_posterboard()
     def on_deleteAllDescriptorsBtn_clicked(self):
         if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 0:
