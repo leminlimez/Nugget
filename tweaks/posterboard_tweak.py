@@ -4,7 +4,7 @@ import uuid
 import re
 from random import randint
 from shutil import copytree
-from PySide6 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets
 
 from .tweak_classes import Tweak
 from Sparserestore.restore import FileToRestore
@@ -12,7 +12,6 @@ from controllers.plist_handler import set_plist_value
 from controllers.files_handler import get_bundle_files
 from controllers import video_handler
 from controllers.aar.aar import wrap_in_aar
-from qt.ui_mainwindow import Ui_Nugget
 
 class TendieFile:
     path: str
