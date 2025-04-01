@@ -19,8 +19,8 @@ from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
 
-App_Version = "5.0.3"
-App_Build = 0
+App_Version = "6"
+App_Build = 9
 
 class Page(Enum):
     Home = 0
@@ -530,7 +530,7 @@ class MainWindow(QtWidgets.QMainWindow):
         elif self.device_manager.get_current_device_patched():
             # sparserestore fully patched
             support_str = "<span style=\"color: #ffff00;\">Partially Supported.</span></a>"
-        self.ui.phoneVersionLbl.setText(f"<a style=\"text-decoration:none; color: white;\" href=\"#\">iOS {version} ({build}) {support_str}")
+        self.ui.phoneVersionLbl.setText(f"<a style=\"text-decoration:none; color: white;\" href=\"#\">fjordOS {version} ({build}) {support_str}")
 
     ## HOME PAGE LINKS
     def on_bigMilkBtn_clicked(self):

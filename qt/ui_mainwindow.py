@@ -564,6 +564,8 @@ class Ui_Nugget(object):
 
         self.bigNuggetBtn = QToolButton(self.horizontalWidget1)
         self.bigNuggetBtn.setObjectName(u"bigNuggetBtn")
+        sizePolicy.setHeightForWidth(self.bigNuggetBtn.sizePolicy().hasHeightForWidth())
+        self.bigNuggetBtn.setSizePolicy(sizePolicy)
         self.bigNuggetBtn.setStyleSheet(u"QToolButton {\n"
 "	background-color: transparent;\n"
 "	padding: 0px;\n"
@@ -571,7 +573,7 @@ class Ui_Nugget(object):
         icon13 = QIcon()
         icon13.addFile(u":/credits/big_nugget.png", QSize(), QIcon.Normal, QIcon.Off)
         self.bigNuggetBtn.setIcon(icon13)
-        self.bigNuggetBtn.setIconSize(QSize(150, 200))
+        self.bigNuggetBtn.setIconSize(QSize(175, 175))
 
         self.horizontalLayout_27.addWidget(self.bigNuggetBtn)
 
@@ -595,6 +597,12 @@ class Ui_Nugget(object):
         self.label_2.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_26.addWidget(self.label_2)
+
+        self.label = QLabel(self.verticalWidget1)
+        self.label.setObjectName(u"label")
+        self.label.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_26.addWidget(self.label)
 
         self.verticalSpacer_12 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -3381,39 +3389,40 @@ class Ui_Nugget(object):
     # setupUi
 
     def retranslateUi(self, Nugget):
-        Nugget.setWindowTitle(QCoreApplication.translate("Nugget", u"Nugget", None))
+        Nugget.setWindowTitle(QCoreApplication.translate("Nugget", u"Horse.app", None))
         self.centralwidget.setProperty("cls", QCoreApplication.translate("Nugget", u"central", None))
         self.devicePicker.setPlaceholderText(QCoreApplication.translate("Nugget", u"None", None))
         self.refreshBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"btn", None))
-        self.titleBar.setText(QCoreApplication.translate("Nugget", u"Nugget", None))
+        self.titleBar.setText(QCoreApplication.translate("Nugget", u"Horse.app", None))
         self.homePageBtn.setText(QCoreApplication.translate("Nugget", u"    Home", None))
         self.homePageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
-        self.posterboardPageBtn.setText(QCoreApplication.translate("Nugget", u"    Posterboard", None))
+        self.posterboardPageBtn.setText(QCoreApplication.translate("Nugget", u"    Horseshoes", None))
         self.posterboardPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
-        self.gestaltPageBtn.setText(QCoreApplication.translate("Nugget", u"     Mobile Gestalt", None))
+        self.gestaltPageBtn.setText(QCoreApplication.translate("Nugget", u"     Saddles", None))
         self.gestaltPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
-        self.featureFlagsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Feature Flags", None))
+        self.featureFlagsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Duels", None))
         self.featureFlagsPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.euEnablerPageBtn.setText(QCoreApplication.translate("Nugget", u"    Eligibility", None))
         self.euEnablerPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
-        self.springboardOptionsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Springboard Options", None))
+        self.springboardOptionsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Gallops", None))
         self.springboardOptionsPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
-        self.internalOptionsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Internal Options", None))
+        self.internalOptionsPageBtn.setText(QCoreApplication.translate("Nugget", u"    High Horse", None))
         self.internalOptionsPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
-        self.daemonsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Daemons", None))
+        self.daemonsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Haymons", None))
         self.daemonsPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.advancedPageBtn.setText(QCoreApplication.translate("Nugget", u"    Risky Options", None))
         self.advancedPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
-        self.applyPageBtn.setText(QCoreApplication.translate("Nugget", u"    Apply", None))
+        self.applyPageBtn.setText(QCoreApplication.translate("Nugget", u"    Control your Cavalry", None))
         self.applyPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.settingsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Settings", None))
         self.settingsPageBtn.setProperty("cls", QCoreApplication.translate("Nugget", u"sidebarBtn", None))
         self.phoneNameLbl.setText(QCoreApplication.translate("Nugget", u"Phone", None))
         self.phoneVersionLbl.setText(QCoreApplication.translate("Nugget", u"<a style=\"text-decoration:none; color: white\" href=\"#\">Version</a>", None))
         self.bigNuggetBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
-        self.label_2.setText(QCoreApplication.translate("Nugget", u"Nugget", None))
-        self.discordBtn.setText(QCoreApplication.translate("Nugget", u"  Join the Discord", None))
-        self.starOnGithubBtn.setText(QCoreApplication.translate("Nugget", u" Star on Github", None))
+        self.label_2.setText(QCoreApplication.translate("Nugget", u"Horse App", None))
+        self.label.setText(QCoreApplication.translate("Nugget", u"Your Steed. Your Town.", None))
+        self.discordBtn.setText(QCoreApplication.translate("Nugget", u"  Join the Stallion", None))
+        self.starOnGithubBtn.setText(QCoreApplication.translate("Nugget", u" Star on GitHorse", None))
 #if QT_CONFIG(tooltip)
         self.leminBtn.setToolTip("")
 #endif // QT_CONFIG(tooltip)
@@ -3421,7 +3430,7 @@ class Ui_Nugget(object):
         self.leminTwitterBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
         self.leminGithubBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
         self.leminKoFiBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
-        self.toolButton_14.setText(QCoreApplication.translate("Nugget", u"Main Developer", None))
+        self.toolButton_14.setText(QCoreApplication.translate("Nugget", u"Lone Cowboy", None))
         self.helpFromBtn.setText(QCoreApplication.translate("Nugget", u"With Help From", None))
         self.posterRestoreBtn.setText(QCoreApplication.translate("Nugget", u"PosterRestore Team\n"
 "Posterboard", None))
@@ -3434,7 +3443,7 @@ class Ui_Nugget(object):
         self.jjtechBtn.setText(QCoreApplication.translate("Nugget", u"JJTech\n"
 "Sparserestore", None))
         self.qtBtn.setText(QCoreApplication.translate("Nugget", u"Qt Creator", None))
-        self.appVersionLbl.setText(QCoreApplication.translate("Nugget", u"Nugget GUI - Version %VERSION %BETATAG", None))
+        self.appVersionLbl.setText(QCoreApplication.translate("Nugget", u"Horse App - Version %VERSION %BETATAG", None))
         self.statusBarLbl.setText(QCoreApplication.translate("Nugget", u"Mobile Gestalt", None))
         self.mgaWarningLbl.setText(QCoreApplication.translate("Nugget", u"! You will need a MobileGestalt file for this feature. Please select it in the Apply page !", None))
         self.label_9.setText(QCoreApplication.translate("Nugget", u"Device Subtype Preset", None))

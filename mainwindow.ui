@@ -29,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Nugget</string>
+   <string>Horse.app</string>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>
@@ -243,7 +243,7 @@ QSlider::tick:horizontal {
 }</string>
                </property>
                <property name="icon">
-                <iconset>
+                <iconset resource="resources.qrc">
                  <normaloff>:/icon/phone.svg</normaloff>:/icon/phone.svg</iconset>
                </property>
               </widget>
@@ -308,7 +308,7 @@ QSlider::tick:horizontal {
 }</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="resources.qrc">
               <normaloff>:/icon/arrow-clockwise.svg</normaloff>:/icon/arrow-clockwise.svg</iconset>
             </property>
             <property name="checkable">
@@ -343,7 +343,7 @@ QSlider::tick:horizontal {
 }</string>
          </property>
          <property name="text">
-          <string>Nugget</string>
+          <string>Horse.app</string>
          </property>
         </widget>
        </item>
@@ -415,7 +415,7 @@ QSlider::tick:horizontal {
              <string>    Home</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="resources.qrc">
               <normaloff>:/icon/house.svg</normaloff>:/icon/house.svg</iconset>
             </property>
             <property name="checkable">
@@ -462,10 +462,10 @@ QSlider::tick:horizontal {
              </sizepolicy>
             </property>
             <property name="text">
-             <string>    Posterboard</string>
+             <string>    Horseshoes</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="resources.qrc">
               <normaloff>:/icon/wallpaper.svg</normaloff>:/icon/wallpaper.svg</iconset>
             </property>
             <property name="checkable">
@@ -491,10 +491,10 @@ QSlider::tick:horizontal {
              </sizepolicy>
             </property>
             <property name="text">
-             <string>     Mobile Gestalt</string>
+             <string>     Saddles</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="resources.qrc">
               <normaloff>:/icon/iphone-island.svg</normaloff>:/icon/iphone-island.svg</iconset>
             </property>
             <property name="iconSize">
@@ -535,10 +535,10 @@ QSlider::tick:horizontal {
              </font>
             </property>
             <property name="text">
-             <string>    Feature Flags</string>
+             <string>    Duels</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="resources.qrc">
               <normaloff>:/icon/flag.svg</normaloff>:/icon/flag.svg</iconset>
             </property>
             <property name="checkable">
@@ -567,7 +567,7 @@ QSlider::tick:horizontal {
              <string>    Eligibility</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="resources.qrc">
               <normaloff>:/icon/geo-alt.svg</normaloff>:/icon/geo-alt.svg</iconset>
             </property>
             <property name="checkable">
@@ -593,10 +593,10 @@ QSlider::tick:horizontal {
              </sizepolicy>
             </property>
             <property name="text">
-             <string>    Springboard Options</string>
+             <string>    Gallops</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="resources.qrc">
               <normaloff>:/icon/app-indicator.svg</normaloff>:/icon/app-indicator.svg</iconset>
             </property>
             <property name="checkable">
@@ -622,10 +622,10 @@ QSlider::tick:horizontal {
              </sizepolicy>
             </property>
             <property name="text">
-             <string>    Internal Options</string>
+             <string>    High Horse</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="resources.qrc">
               <normaloff>:/icon/hdd.svg</normaloff>:/icon/hdd.svg</iconset>
             </property>
             <property name="checkable">
@@ -654,10 +654,10 @@ QSlider::tick:horizontal {
              </sizepolicy>
             </property>
             <property name="text">
-             <string>    Daemons</string>
+             <string>    Haymons</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="resources.qrc">
               <normaloff>:/icon/toggles.svg</normaloff>:/icon/toggles.svg</iconset>
             </property>
             <property name="checkable">
@@ -686,7 +686,7 @@ QSlider::tick:horizontal {
              <string>    Risky Options</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="resources.qrc">
               <normaloff>:/icon/star.svg</normaloff>:/icon/star.svg</iconset>
             </property>
             <property name="checkable">
@@ -727,10 +727,10 @@ QSlider::tick:horizontal {
              </sizepolicy>
             </property>
             <property name="text">
-             <string>    Apply</string>
+             <string>    Control your Cavalry</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="resources.qrc">
               <normaloff>:/icon/check-circle.svg</normaloff>:/icon/check-circle.svg</iconset>
             </property>
             <property name="checkable">
@@ -759,7 +759,7 @@ QSlider::tick:horizontal {
              <string>    Settings</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="resources.qrc">
               <normaloff>:/icon/gear.svg</normaloff>:/icon/gear.svg</iconset>
             </property>
             <property name="checkable">
@@ -873,7 +873,7 @@ QSlider::tick:horizontal {
 }</string>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resources.qrc">
                      <normaloff>:/icon/phone.svg</normaloff>:/icon/phone.svg</iconset>
                    </property>
                   </widget>
@@ -992,6 +992,12 @@ QSlider::tick:horizontal {
                  </item>
                  <item>
                   <widget class="QToolButton" name="bigNuggetBtn">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
                    <property name="styleSheet">
                     <string notr="true">QToolButton {
 	background-color: transparent;
@@ -1002,13 +1008,13 @@ QSlider::tick:horizontal {
                     <string>...</string>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resources.qrc">
                      <normaloff>:/credits/big_nugget.png</normaloff>:/credits/big_nugget.png</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
-                     <width>150</width>
-                     <height>200</height>
+                     <width>175</width>
+                     <height>175</height>
                     </size>
                    </property>
                   </widget>
@@ -1055,7 +1061,17 @@ QSlider::tick:horizontal {
 }</string>
                       </property>
                       <property name="text">
-                       <string>Nugget</string>
+                       <string>Horse App</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label">
+                      <property name="text">
+                       <string>Your Steed. Your Town.</string>
                       </property>
                       <property name="alignment">
                        <set>Qt::AlignCenter</set>
@@ -1086,10 +1102,10 @@ QSlider::tick:horizontal {
                       <item>
                        <widget class="QToolButton" name="discordBtn">
                         <property name="text">
-                         <string>  Join the Discord</string>
+                         <string>  Join the Stallion</string>
                         </property>
                         <property name="icon">
-                         <iconset>
+                         <iconset resource="resources.qrc">
                           <normaloff>:/icon/discord.svg</normaloff>:/icon/discord.svg</iconset>
                         </property>
                         <property name="toolButtonStyle">
@@ -1100,10 +1116,10 @@ QSlider::tick:horizontal {
                       <item>
                        <widget class="QToolButton" name="starOnGithubBtn">
                         <property name="text">
-                         <string> Star on Github</string>
+                         <string> Star on GitHorse</string>
                         </property>
                         <property name="icon">
-                         <iconset>
+                         <iconset resource="resources.qrc">
                           <normaloff>:/icon/star.svg</normaloff>:/icon/star.svg</iconset>
                         </property>
                         <property name="toolButtonStyle">
@@ -1207,7 +1223,7 @@ QSlider::tick:horizontal {
                        <string>  LeminLimez</string>
                       </property>
                       <property name="icon">
-                       <iconset>
+                       <iconset resource="resources.qrc">
                         <normaloff>:/credits/LeminLimez.png</normaloff>:/credits/LeminLimez.png</iconset>
                       </property>
                       <property name="toolButtonStyle">
@@ -1234,7 +1250,7 @@ QToolButton:pressed {
                        <string>...</string>
                       </property>
                       <property name="icon">
-                       <iconset>
+                       <iconset resource="resources.qrc">
                         <normaloff>:/icon/twitter.svg</normaloff>:/icon/twitter.svg</iconset>
                       </property>
                      </widget>
@@ -1258,7 +1274,7 @@ QToolButton:pressed {
                        <string>...</string>
                       </property>
                       <property name="icon">
-                       <iconset>
+                       <iconset resource="resources.qrc">
                         <normaloff>:/icon/github.svg</normaloff>:/icon/github.svg</iconset>
                       </property>
                      </widget>
@@ -1283,7 +1299,7 @@ QToolButton:pressed {
                        <string>...</string>
                       </property>
                       <property name="icon">
-                       <iconset>
+                       <iconset resource="resources.qrc">
                         <normaloff>:/icon/currency-dollar.svg</normaloff>:/icon/currency-dollar.svg</iconset>
                       </property>
                      </widget>
@@ -1321,7 +1337,7 @@ QToolButton:pressed {
 }</string>
                       </property>
                       <property name="text">
-                       <string>Main Developer</string>
+                       <string>Lone Cowboy</string>
                       </property>
                      </widget>
                     </item>
@@ -1633,7 +1649,7 @@ QToolButton:pressed {
               <item>
                <widget class="QLabel" name="appVersionLbl">
                 <property name="text">
-                 <string>Nugget GUI - Version %VERSION %BETATAG</string>
+                 <string>Horse App - Version %VERSION %BETATAG</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1683,7 +1699,7 @@ QToolButton:pressed {
 }</string>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resources.qrc">
                      <normaloff>:/icon/iphone-island.svg</normaloff>:/icon/iphone-island.svg</iconset>
                    </property>
                    <property name="iconSize">
@@ -2221,7 +2237,7 @@ Note: OTA updates will be broken until this is disabled.</string>
                           <string>  Add Key</string>
                          </property>
                          <property name="icon">
-                          <iconset>
+                          <iconset resource="resources.qrc">
                            <normaloff>:/icon/plus.svg</normaloff>:/icon/plus.svg</iconset>
                          </property>
                          <property name="checkable">
@@ -2338,7 +2354,7 @@ what you are doing.</string>
 }</string>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resources.qrc">
                      <normaloff>:/icon/flag.svg</normaloff>:/icon/flag.svg</iconset>
                    </property>
                   </widget>
@@ -2570,7 +2586,7 @@ Only works on iOS 18.0 beta 1-2.</string>
 }</string>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resources.qrc">
                      <normaloff>:/icon/geo-alt.svg</normaloff>:/icon/geo-alt.svg</iconset>
                    </property>
                   </widget>
@@ -3210,7 +3226,7 @@ QComboBox QAbstractItemView::item:hover {
 }</string>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resources.qrc">
                      <normaloff>:/icon/app-indicator.svg</normaloff>:/icon/app-indicator.svg</iconset>
                    </property>
                   </widget>
@@ -3462,7 +3478,7 @@ QComboBox QAbstractItemView::item:hover {
 }</string>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resources.qrc">
                      <normaloff>:/icon/hdd.svg</normaloff>:/icon/hdd.svg</iconset>
                    </property>
                   </widget>
@@ -3785,7 +3801,7 @@ QComboBox QAbstractItemView::item:hover {
 }</string>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resources.qrc">
                      <normaloff>:/icon/toggles.svg</normaloff>:/icon/toggles.svg</iconset>
                    </property>
                   </widget>
@@ -4144,7 +4160,7 @@ To work properly, also disable the daemon using the toggle above.</string>
 }</string>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resources.qrc">
                      <normaloff>:/icon/wallpaper.svg</normaloff>:/icon/wallpaper.svg</iconset>
                    </property>
                   </widget>
@@ -4209,7 +4225,7 @@ To work properly, also disable the daemon using the toggle above.</string>
                     <string>  Find Wallpapers</string>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resources.qrc">
                      <normaloff>:/icon/globe.svg</normaloff>:/icon/globe.svg</iconset>
                    </property>
                    <property name="toolButtonStyle">
@@ -4235,7 +4251,7 @@ To work properly, also disable the daemon using the toggle above.</string>
                     <string>...</string>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resources.qrc">
                      <normaloff>:/icon/questionmark.circle.svg</normaloff>:/icon/questionmark.circle.svg</iconset>
                    </property>
                    <property name="iconSize">
@@ -4312,7 +4328,7 @@ To work properly, also disable the daemon using the toggle above.</string>
                       <string>  Import Files (.tendies)</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icon/import.svg</normaloff>:/icon/import.svg</iconset>
                      </property>
                      <property name="iconSize">
@@ -4393,7 +4409,7 @@ To work properly, also disable the daemon using the toggle above.</string>
                       <string>  Clear Collections Wallpapers</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icon/arrow.clockwise.svg</normaloff>:/icon/arrow.clockwise.svg</iconset>
                      </property>
                      <property name="toolButtonStyle">
@@ -4412,7 +4428,7 @@ Warning: This will remove all of your wallpapers and will restrict you from addi
                       <string>  Remove All Wallpapers</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icon/arrow.clockwise.svg</normaloff>:/icon/arrow.clockwise.svg</iconset>
                      </property>
                      <property name="toolButtonStyle">
@@ -4487,7 +4503,7 @@ Warning: This will remove all of your wallpapers and will restrict you from addi
 }</string>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resources.qrc">
                      <normaloff>:/icon/star.svg</normaloff>:/icon/star.svg</iconset>
                    </property>
                   </widget>
@@ -4870,7 +4886,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
 }</string>
                       </property>
                       <property name="icon">
-                       <iconset>
+                       <iconset resource="resources.qrc">
                         <normaloff>:/icon/check-circle.svg</normaloff>:/icon/check-circle.svg</iconset>
                       </property>
                      </widget>
@@ -4994,7 +5010,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                       <string>  Choose Gestalt File</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icon/folder.svg</normaloff>:/icon/folder.svg</iconset>
                      </property>
                      <property name="toolButtonStyle">
@@ -5025,7 +5041,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                        <string>  Apply Changes</string>
                       </property>
                       <property name="icon">
-                       <iconset>
+                       <iconset resource="resources.qrc">
                         <normaloff>:/icon/check-circle.svg</normaloff>:/icon/check-circle.svg</iconset>
                       </property>
                       <property name="toolButtonStyle">
@@ -5207,7 +5223,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
 }</string>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resources.qrc">
                      <normaloff>:/icon/gear.svg</normaloff>:/icon/gear.svg</iconset>
                    </property>
                   </widget>
@@ -5554,7 +5570,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
 }</string>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resources.qrc">
                      <normaloff>:/icon/geo-alt.svg</normaloff>:/icon/geo-alt.svg</iconset>
                    </property>
                   </widget>
@@ -5839,7 +5855,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
 }</string>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resources.qrc">
                      <normaloff>:/icon/pencil.svg</normaloff>:/icon/pencil.svg</iconset>
                    </property>
                    <property name="iconSize">
@@ -5970,7 +5986,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                       <string>  Import .cowperation</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icon/import.svg</normaloff>:/icon/import.svg</iconset>
                      </property>
                      <property name="iconSize">
@@ -6005,7 +6021,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                       <string>  New Operation</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icon/plus.svg</normaloff>:/icon/plus.svg</iconset>
                      </property>
                      <property name="iconSize">
@@ -6086,7 +6102,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
 }</string>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resources.qrc">
                      <normaloff>:/icon/compass.svg</normaloff>:/icon/compass.svg</iconset>
                    </property>
                   </widget>
@@ -6222,7 +6238,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
 }</string>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resources.qrc">
                      <normaloff>:/icon/iphone-island.svg</normaloff>:/icon/iphone-island.svg</iconset>
                    </property>
                    <property name="iconSize">
@@ -6316,7 +6332,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                        <string>...</string>
                       </property>
                       <property name="icon">
-                       <iconset>
+                       <iconset resource="resources.qrc">
                         <normaloff>:/icon/folder.svg</normaloff>:/icon/folder.svg</iconset>
                       </property>
                      </widget>
@@ -6327,7 +6343,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                        <string>...</string>
                       </property>
                       <property name="icon">
-                       <iconset>
+                       <iconset resource="resources.qrc">
                         <normaloff>:/icon/file-earmark-zip.svg</normaloff>:/icon/file-earmark-zip.svg</iconset>
                       </property>
                      </widget>
