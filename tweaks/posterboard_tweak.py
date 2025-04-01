@@ -113,6 +113,8 @@ class PosterboardTweak(Tweak):
                       isAdding: bool = False,
                       randomizeUUID: bool = False, randomizedID: int = None
         ):
+        if not os.path.isdir(curr_path):
+            return
         for folder in sorted(os.listdir(curr_path)):
             if folder.startswith('.') or folder == "__MACOSX":
                 continue
