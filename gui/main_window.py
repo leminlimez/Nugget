@@ -21,7 +21,7 @@ from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
 
 App_Version = "5.1"
-App_Build = 6
+App_Build = 7
 
 class Page(Enum):
     Home = 0
@@ -173,14 +173,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.resetPRBExtBtn.clicked.connect(self.on_resetPRBExtBtn_clicked)
         self.ui.deleteAllDescriptorsBtn.clicked.connect(self.on_deleteAllDescriptorsBtn_clicked)
 
-        self.ui.chooseThumbBtn.clicked.connect(self.on_chooseThumbBtn_clicked)
         self.ui.chooseVideoBtn.clicked.connect(self.on_chooseVideoBtn_clicked)
-        self.ui.clearSuggestedBtn.clicked.connect(self.on_clearSuggestedBtn_clicked)
-        self.ui.caVideoChk.toggled.connect(self.on_caVideoChk_toggled)
         self.ui.reverseLoopChk.toggled.connect(self.on_reverseLoopChk_toggled)
         self.ui.useForegroundChk.toggled.connect(self.on_useForegroundChk_toggled)
-        self.ui.reverseLoopChk.hide() # hide by default
-        self.ui.useForegroundChk.hide()
+        self.ui.caVideoChk.hide()
+        self.ui.clearSuggestedBtn.hide()
+        self.ui.chooseThumbBtn.hide()
+        self.ui.pbVideoThumbLbl.hide()
         
         self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
         self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)

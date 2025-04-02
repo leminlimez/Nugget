@@ -4,9 +4,6 @@ import ffmpeg
 from tempfile import mkdtemp, NamedTemporaryFile
 from shutil import rmtree
 
-import ffmpeg.stream
-import ffmpeg.video
-
 def convert_to_mov(input_file: str, output_file: str = None):
     # if there is no output file specified, create a temp file then return contents
     if output_file == None:

@@ -1,7 +1,6 @@
 import os
 import zipfile
 import uuid
-import re
 from random import randint
 from shutil import copytree
 from PySide6 import QtWidgets
@@ -65,7 +64,7 @@ class PosterboardTweak(Tweak):
         self.tendies: list[TendieFile] = []
         self.videoThumbnail = None
         self.videoFile = None
-        self.loop_video = False
+        self.loop_video = True
         self.reverse_video = False
         self.use_foreground = False
         self.bundle_id = "com.apple.PosterBoard"
@@ -258,7 +257,6 @@ class PosterboardTweak(Tweak):
         elif (self.tendies == None or len(self.tendies) == 0) and (self.videoFile == None):
             return
         update_label("Generating PosterBoard Video...")
-        self.create_live_photo_files(output_dir)
         self.create_video_loop_files(output_dir, update_label=update_label)
         for tendie in self.tendies:
             update_label(f"Extracting {tendie.name}...")
