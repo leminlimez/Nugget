@@ -112,7 +112,7 @@ To compile `mainwindow.ui` for Python, run the following command:
 `pyside6-uic qt/mainwindow.ui -o qt/ui_mainwindow.py`
 
 To compile the resources file for Python, run the following command:
-`pyside6-rcc qt/resources.qrc -o resources_rc.py`
+`pyside6-rcc resources.qrc -o resources_rc.py`
 
 The application itself can be compiled by running `compile.py`.
 

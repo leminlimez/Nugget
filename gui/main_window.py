@@ -19,9 +19,10 @@ from gui.apply_worker import ApplyThread, ApplyAlertMessage
 from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
+from tweaks.posterboard.template_options import OptionType as TemplateOptionTypePB
 
-App_Version = "5.1"
-App_Build = 7
+App_Version = "5.2"
+App_Build = 1
 
 class Page(Enum):
     Home = 0
@@ -44,6 +45,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.show_uuid = False
         self.pb_mainLayout = None
+        self.pb_templateLayout = None
         self.applying_in_progress = False
         self.threadpool = QtCore.QThreadPool()
         self.loadSettings()
@@ -167,11 +169,14 @@ class MainWindow(QtWidgets.QMainWindow):
         ## POSTERBOARD PAGE ACTIONS
         self.ui.modifyPosterboardsChk.toggled.connect(self.on_modifyPosterboardsChk_clicked)
         self.ui.tendiesPageBtn.clicked.connect(self.on_tendiesPageBtn_clicked)
+        self.ui.templatePageBtn.clicked.connect(self.on_templatePageBtn_clicked)
         self.ui.videoPageBtn.clicked.connect(self.on_videoPageBtn_clicked)
 
         self.ui.importTendiesBtn.clicked.connect(self.on_importTendiesBtn_clicked)
         self.ui.resetPRBExtBtn.clicked.connect(self.on_resetPRBExtBtn_clicked)
         self.ui.deleteAllDescriptorsBtn.clicked.connect(self.on_deleteAllDescriptorsBtn_clicked)
+
+        self.ui.importTemplateBtn.clicked.connect(self.on_importTemplatesBtn_clicked)
 
         self.ui.chooseVideoBtn.clicked.connect(self.on_chooseVideoBtn_clicked)
         self.ui.reverseLoopChk.toggled.connect(self.on_reverseLoopChk_toggled)
@@ -868,7 +873,17 @@ class MainWindow(QtWidgets.QMainWindow):
             tweaks["PosterBoard"].tendies.remove(file)
         widget.deleteLater()
 
-    def load_posterboard(self):
+    def create_title_widget(self, tendie, widget: QtWidgets.QWidget) -> QtWidgets.QToolButton:
+        titleBtn = QtWidgets.QToolButton(widget)
+        titleBtn.setIcon(QtGui.QIcon(tendie.get_icon()))
+        titleBtn.setIconSize(QtCore.QSize(20, 20))
+        titleBtn.setText(f"   {tendie.name}")
+        titleBtn.setStyleSheet("QToolButton {\n    background-color: transparent;\n	icon-size: 20px;\n}")
+        titleBtn.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
+        titleBtn.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        return titleBtn
+
+    def load_pb_tendies(self):
         if len(tweaks["PosterBoard"].tendies) == 0:
             return
         
@@ -909,13 +924,7 @@ class MainWindow(QtWidgets.QMainWindow):
             widgets[tendie] = widget
 
             # create the icon/label
-            titleBtn = QtWidgets.QToolButton(widget)
-            titleBtn.setIcon(QtGui.QIcon(tendie.get_icon()))
-            titleBtn.setIconSize(QtCore.QSize(20, 20))
-            titleBtn.setText(f"   {tendie.name}")
-            titleBtn.setStyleSheet("QToolButton {\n    background-color: transparent;\n	icon-size: 20px;\n}")
-            titleBtn.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
-            titleBtn.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+            titleBtn = self.create_title_widget(tendie=tendie, widget=widget)
 
             delBtn = QtWidgets.QToolButton(widget)
             delBtn.setIcon(QtGui.QIcon(":/icon/trash.svg"))
@@ -933,6 +942,106 @@ class MainWindow(QtWidgets.QMainWindow):
             self.pb_mainLayout.addWidget(widget)
             tendie.loaded = True
 
+    def load_pb_templates(self):
+        if len(tweaks["PosterBoard"].templates) == 0:
+            return
+        if self.pb_templateLayout == None:
+            # Create scroll layout
+            self.pb_templateLayout = QtWidgets.QVBoxLayout()
+            self.pb_templateLayout.setContentsMargins(0, 0, 0, 0)
+            self.pb_templateLayout.setAlignment(QtCore.Qt.AlignmentFlag.AlignTop)
+            # Create a QWidget to act as the container for the scroll area
+            scrollWidget = QtWidgets.QWidget()
+
+            # Set the main layout (containing all the widgets) on the scroll widget
+            scrollWidget.setLayout(self.pb_templateLayout)
+
+            # Create a QScrollArea to hold the content widget (scrollWidget)
+            scrollArea = QtWidgets.QScrollArea()
+            scrollArea.setWidgetResizable(True)  # Allow the content widget to resize within the scroll area
+            scrollArea.setFrameStyle(QtWidgets.QScrollArea.NoFrame)  # Remove the outline from the scroll area
+
+            # Set the scrollWidget as the content widget of the scroll area
+            scrollArea.setWidget(scrollWidget)
+
+            # Set the size policy of the scroll area to expand in both directions
+            scrollArea.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+
+            # Set the scroll area as the central widget of the main window
+            scrollLayout = QtWidgets.QVBoxLayout()
+            scrollLayout.setContentsMargins(0, 0, 0, 0)
+            scrollLayout.addWidget(scrollArea)
+            self.ui.pbTemplatesList.setLayout(scrollLayout)
+        
+        widgets = {}
+        # Iterate through the templates
+        for template in tweaks["PosterBoard"].templates:
+            if template.loaded:
+                continue
+            widget = QtWidgets.QWidget()
+            widgets[template] = widget
+
+            # create the icon/label + delete button
+            left_widget = QtWidgets.QWidget(widget)
+            titleBtn = self.create_title_widget(tendie=template, widget=widget)
+            delBtn = QtWidgets.QToolButton(widget)
+            delBtn.setIcon(QtGui.QIcon(":/icon/trash.svg"))
+            delBtn.clicked.connect(lambda _, file=template: (widgets[file].deleteLater(), tweaks["PosterBoard"].templates.remove(file)))
+            # align to left layout
+            left_layout = QtWidgets.QVBoxLayout(widget)
+            left_layout.setContentsMargins(0, 0, 4, 0)
+            left_layout.addWidget(titleBtn)
+            left_layout.addWidget(delBtn)
+            left_widget.setLayout(left_layout)
+
+            # create options
+            options_widget = QtWidgets.QWidget(widget)
+            # options_widget.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
+            opt_layout = QtWidgets.QVBoxLayout()
+            opt_layout.setContentsMargins(3, 0, 0, 0)
+            for option in template.options:
+                if option.type == TemplateOptionTypePB.replace:
+                    # replacable object
+                    repl_widget = QtWidgets.QWidget(options_widget)
+                    repl_layout = QtWidgets.QHBoxLayout(options_widget)
+                    repl_layout.setContentsMargins(0, 2, 0, 2)
+                    repl_lbl = QtWidgets.QLabel(repl_widget)
+                    repl_lbl.setText(option.label)
+                    repl_layout.addWidget(repl_lbl)
+                    # button for importing files
+                    repl_btn = QtWidgets.QToolButton(options_widget)
+                    repl_btn.setIcon(QtGui.QIcon(":/icon/import.svg"))
+                    repl_btn.setIconSize(QtCore.QSize(20, 20))
+                    btn_lbl = option.button_label
+                    if btn_lbl == None:
+                        btn_lbl = f"Import {option.allowed_files}"
+                    repl_btn.setText(f"  {btn_lbl}")
+                    repl_btn.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
+                    repl_btn.clicked.connect(lambda _, opt=option: (self.on_importReplaceBtn_clicked(opt)))
+                    repl_layout.addWidget(repl_btn)
+                    repl_widget.setLayout(repl_layout)
+                    opt_layout.addWidget(repl_widget)
+                elif option.type == TemplateOptionTypePB.remove:
+                    # remove object
+                    remove_chk = QtWidgets.QCheckBox(options_widget)
+                    remove_chk.setText(option.label)
+                    remove_chk.toggled.connect(option.set_option)
+            options_widget.setLayout(opt_layout)
+
+            # main layout
+            layout = QtWidgets.QHBoxLayout(widget)
+            layout.setContentsMargins(4, 2, 4, 2)
+            layout.addWidget(left_widget)
+            line = QtWidgets.QFrame
+            line.setFrameShape(QtWidgets.QFrame.Shape.VLine)
+            line.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
+            layout.addWidget(line)
+            layout.addWidget(options_widget)
+            # Add the widget to the mainLayout
+            widget.setLayout(layout)
+            self.pb_templateLayout.addWidget(widget)
+            template.loaded = True
+
     def on_modifyPosterboardsChk_clicked(self, checked: bool):
         tweaks["PosterBoard"].set_enabled(checked)
         self.ui.pbPages.setDisabled(not checked)
@@ -940,12 +1049,24 @@ class MainWindow(QtWidgets.QMainWindow):
     # PB Pages Selectors
     def on_tendiesPageBtn_clicked(self):
         self.ui.tendiesPageBtn.setChecked(True)
+        self.ui.templatePageBtn.setChecked(False)
         self.ui.videoPageBtn.setChecked(False)
         self.ui.pbPages.setCurrentIndex(0)
+    def on_templatePageBtn_clicked(self):
+        self.ui.tendiesPageBtn.setChecked(False)
+        self.ui.templatePageBtn.setChecked(True)
+        self.ui.videoPageBtn.setChecked(False)
+        self.ui.pbPages.setCurrentIndex(1)
     def on_videoPageBtn_clicked(self):
         self.ui.tendiesPageBtn.setChecked(False)
+        self.ui.templatePageBtn.setChecked(False)
         self.ui.videoPageBtn.setChecked(True)
-        self.ui.pbPages.setCurrentIndex(1)
+        self.ui.pbPages.setCurrentIndex(2)
+
+    def on_importReplaceBtn_clicked(self, option):
+        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select Template File", "", option.allowed_files, options=QtWidgets.QFileDialog.ReadOnly)
+        if selected_file != None and selected_file != "":
+            option.value = selected_file
     
     # Tendies Page
     def on_importTendiesBtn_clicked(self):
@@ -963,7 +1084,7 @@ class MainWindow(QtWidgets.QMainWindow):
                     detailsBox.setText("You selected too many descriptors! The limit is 10.")
                     detailsBox.exec()
                     break
-            self.load_posterboard()
+            self.load_pb_tendies()
     def on_deleteAllDescriptorsBtn_clicked(self):
         if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 0:
             tweaks["PosterBoard"].resetting = False
@@ -982,6 +1103,24 @@ class MainWindow(QtWidgets.QMainWindow):
             tweaks["PosterBoard"].resetType = 1
             self.ui.pbActionLbl.setText("! Resetting PRB Extension")
             self.ui.pbActionLbl.show()
+
+    # Templates Page
+    def on_importTemplatesBtn_clicked(self):
+        selected_files, _ = QtWidgets.QFileDialog.getOpenFileNames(self, "Select PosterBoard Template Files", "", "Zip Files (*.batter)", options=QtWidgets.QFileDialog.ReadOnly)
+        tweaks["PosterBoard"].resetting = False
+        self.ui.pbActionLbl.hide()
+        if selected_files != None and len(selected_files) > 0:
+            # user selected files, add them
+            for file in selected_files:
+                if not tweaks["PosterBoard"].add_template(file):
+                    # alert that there are too many
+                    detailsBox = QtWidgets.QMessageBox()
+                    detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
+                    detailsBox.setWindowTitle("Error!")
+                    detailsBox.setText("You selected too many descriptors! The limit is 10.")
+                    detailsBox.exec()
+                    break
+            self.load_pb_templates()
     
     # Video Page
     def on_chooseThumbBtn_clicked(self):

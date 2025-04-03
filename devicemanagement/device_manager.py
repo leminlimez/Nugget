@@ -17,7 +17,7 @@ from controllers.path_handler import fix_windows_path
 
 from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
-from tweaks.posterboard_tweak import PosterboardTweak
+from tweaks.posterboard.posterboard_tweak import PosterboardTweak
 from tweaks.basic_plist_locations import FileLocationsList, RiskyFileLocationsList
 from Sparserestore.restore import restore_files, FileToRestore
 
