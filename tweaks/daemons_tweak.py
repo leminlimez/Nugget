@@ -20,6 +20,7 @@ class Daemon(Enum):
         "com.apple.ReportMemoryException",
         "com.apple.OTACrashCopier",
         "com.apple.analyticsd",
+        "com.apple.wifianalyticsd",
         "com.apple.aslmanager",
         "com.apple.coresymbolicationd",
         "com.apple.crash_mover",
@@ -30,15 +31,23 @@ class Daemon(Enum):
         "com.apple.logd.admin",
         "com.apple.logd.events",
         "com.apple.logd.watchdog",
+        "com.apple.logd_helper",
         "com.apple.logd_reporter",
         "com.apple.logd_reporter.report_statistics",
         "com.apple.system.logger",
+        "com.apple.hangreporter",
+        "com.apple.hangtracerd",
+        "com.apple.spindump",
+        "com.apple.rtcreportingd",
         "com.apple.syslogd"
     ]
     ATWAKEUP = ["com.apple.atc.atwakeup"]
     Tips = ["com.apple.tipsd"]
     VPN = ["com.apple.racoon"]
-    ChineseLAN = ["com.apple.wapic"]
+    ChineseLAN = [
+        "com.apple.wapic",
+        "com.apple.wifi.wapic"
+    ]
     HealthKit = ["com.apple.healthd"]
     AirPrint = ["com.apple.printd"]
     AssistiveTouch = ["com.apple.assistivetouchd"]
