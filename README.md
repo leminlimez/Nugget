@@ -1,4 +1,4 @@
-![Artboard](https://github.com/leminlimez/Nugget/blob/d383d2af50ed12382b2e19d0d95dd815f1b15d4f/credits/big_nugget.png)
+![Artboard](https://github.com/leminlimez/Nugget/blob/6a22a8fe572fdf41753d99da4337feb7ffe939a7/credits/small_nugget.png)
 
 # Nugget
 Unlock your device's full potential!
