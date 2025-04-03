@@ -178,10 +178,12 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.importTemplateBtn.clicked.connect(self.on_importTemplatesBtn_clicked)
 
+        self.ui.chooseThumbBtn.clicked.connect(self.on_chooseThumbBtn_clicked)
         self.ui.chooseVideoBtn.clicked.connect(self.on_chooseVideoBtn_clicked)
+        self.ui.clearSuggestedBtn.clicked.connect(self.on_clearSuggestedBtn_clicked)
+        self.ui.caVideoChk.toggled.connect(self.on_caVideoChk_toggled)
         self.ui.reverseLoopChk.toggled.connect(self.on_reverseLoopChk_toggled)
         self.ui.useForegroundChk.toggled.connect(self.on_useForegroundChk_toggled)
-        self.ui.caVideoChk.hide()
         self.ui.clearSuggestedBtn.hide()
         self.ui.chooseThumbBtn.hide()
         self.ui.pbVideoThumbLbl.hide()

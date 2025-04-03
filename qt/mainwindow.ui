@@ -4685,6 +4685,9 @@ Will show up in Collections</string>
                     <property name="text">
                      <string>Loop (use CoreAnimation method)</string>
                     </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
                    </widget>
                   </item>
                   <item>

@@ -230,6 +230,7 @@ class PosterboardTweak(Tweak):
         elif (self.tendies == None or len(self.tendies) == 0) and (self.templates == None or len(self.templates) == 0) and (self.videoFile == None):
             return
         update_label("Generating PosterBoard Video...")
+        self.create_live_photo_files(output_dir)
         self.create_video_loop_files(output_dir, update_label=update_label)
         # extract tendies
         for tendie in self.tendies:

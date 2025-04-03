@@ -2459,6 +2459,7 @@ class Ui_Nugget(object):
         self.verticalLayout_39.setObjectName(u"verticalLayout_39")
         self.caVideoChk = QCheckBox(self.pbVideoPage)
         self.caVideoChk.setObjectName(u"caVideoChk")
+        self.caVideoChk.setChecked(True)
 
         self.verticalLayout_39.addWidget(self.caVideoChk)
 
