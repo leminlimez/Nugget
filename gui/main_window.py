@@ -1006,7 +1006,10 @@ class MainWindow(QtWidgets.QMainWindow):
                     repl_layout = QtWidgets.QHBoxLayout(options_widget)
                     repl_layout.setContentsMargins(0, 2, 0, 2)
                     repl_lbl = QtWidgets.QLabel(repl_widget)
-                    repl_lbl.setText(option.label)
+                    req_label = ""
+                    if option.required:
+                        req_label = "* "
+                    repl_lbl.setText(f"{req_label}{option.label}")
                     repl_layout.addWidget(repl_lbl)
                     # button for importing files
                     repl_btn = QtWidgets.QToolButton(options_widget)
@@ -1032,9 +1035,10 @@ class MainWindow(QtWidgets.QMainWindow):
             layout = QtWidgets.QHBoxLayout(widget)
             layout.setContentsMargins(4, 2, 4, 2)
             layout.addWidget(left_widget)
-            line = QtWidgets.QFrame
+            line = QtWidgets.QFrame()
             line.setFrameShape(QtWidgets.QFrame.Shape.VLine)
             line.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
+            line.setStyleSheet("QFrame {\n	color: #414141;\n}")
             layout.addWidget(line)
             layout.addWidget(options_widget)
             # Add the widget to the mainLayout
