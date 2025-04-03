@@ -756,7 +756,7 @@ class Ui_Nugget(object):
         self.helpFromBtn = QToolButton(self.horizontalWidget_21)
         self.helpFromBtn.setObjectName(u"helpFromBtn")
         self.helpFromBtn.setEnabled(True)
-        self.helpFromBtn.setMinimumSize(QSize(150, 35))
+        self.helpFromBtn.setMinimumSize(QSize(145, 35))
         self.helpFromBtn.setStyleSheet(u"QToolButton {\n"
 "	background: none;\n"
 "}")
@@ -782,6 +782,22 @@ class Ui_Nugget(object):
 "}")
 
         self.horizontalLayout_2.addWidget(self.posterRestoreBtn)
+
+        self.snoolieBtn = QToolButton(self.horizontalWidget_21)
+        self.snoolieBtn.setObjectName(u"snoolieBtn")
+        self.snoolieBtn.setStyleSheet(u"QToolButton {\n"
+"	border-radius: 0px;\n"
+"	background: none;\n"
+"	border: 1px solid #3b3b3b;\n"
+"	border-left: none;\n"
+"}\n"
+"\n"
+"QToolButton:pressed {\n"
+"    background-color: #535353;\n"
+"    color: #FFFFFF;\n"
+"}")
+
+        self.horizontalLayout_2.addWidget(self.snoolieBtn)
 
         self.disfordottieBtn = QToolButton(self.horizontalWidget_21)
         self.disfordottieBtn.setObjectName(u"disfordottieBtn")
@@ -834,7 +850,7 @@ class Ui_Nugget(object):
         self.toolButton_15 = QToolButton(self.horizontalWidget3)
         self.toolButton_15.setObjectName(u"toolButton_15")
         self.toolButton_15.setEnabled(False)
-        self.toolButton_15.setMinimumSize(QSize(150, 35))
+        self.toolButton_15.setMinimumSize(QSize(145, 35))
         self.toolButton_15.setStyleSheet(u"QToolButton {\n"
 "	background: none;\n"
 "}")
@@ -2171,7 +2187,7 @@ class Ui_Nugget(object):
         self.horizontalLayout_203 = QHBoxLayout(self.horizontalWidget_53)
         self.horizontalLayout_203.setSpacing(10)
         self.horizontalLayout_203.setObjectName(u"horizontalLayout_203")
-        self.horizontalLayout_203.setContentsMargins(0, 9, 0, 9)
+        self.horizontalLayout_203.setContentsMargins(0, 9, 0, 0)
         self.toolButton_103 = QToolButton(self.horizontalWidget_53)
         self.toolButton_103.setObjectName(u"toolButton_103")
         self.toolButton_103.setEnabled(True)
@@ -2233,6 +2249,61 @@ class Ui_Nugget(object):
 
         self.verticalLayout_143.addWidget(self.horizontalWidget_53)
 
+        self.pbPagePicker = QWidget(self.posterboardPage)
+        self.pbPagePicker.setObjectName(u"pbPagePicker")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.pbPagePicker.sizePolicy().hasHeightForWidth())
+        self.pbPagePicker.setSizePolicy(sizePolicy5)
+        self.pbPagePicker.setMinimumSize(QSize(0, 20))
+        self.pbPagePicker.setMaximumSize(QSize(16777215, 25))
+        self.pbPagePicker.setStyleSheet(u"QToolButton {\n"
+"	min-height: 25px;\n"
+"	border-radius: 5px;\n"
+"}")
+        self.horizontalLayout_14 = QHBoxLayout(self.pbPagePicker)
+        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.horizontalLayout_14.setContentsMargins(-1, 0, -1, 0)
+        self.horizontalSpacer_20 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_14.addItem(self.horizontalSpacer_20)
+
+        self.tendiesPageBtn = QToolButton(self.pbPagePicker)
+        self.tendiesPageBtn.setObjectName(u"tendiesPageBtn")
+        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Expanding)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.tendiesPageBtn.sizePolicy().hasHeightForWidth())
+        self.tendiesPageBtn.setSizePolicy(sizePolicy6)
+        self.tendiesPageBtn.setMinimumSize(QSize(0, 25))
+        icon22 = QIcon()
+        icon22.addFile(u":/icon/file-earmark-zip.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.tendiesPageBtn.setIcon(icon22)
+        self.tendiesPageBtn.setCheckable(True)
+        self.tendiesPageBtn.setChecked(True)
+        self.tendiesPageBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+
+        self.horizontalLayout_14.addWidget(self.tendiesPageBtn)
+
+        self.videoPageBtn = QToolButton(self.pbPagePicker)
+        self.videoPageBtn.setObjectName(u"videoPageBtn")
+        self.videoPageBtn.setMinimumSize(QSize(0, 25))
+        icon23 = QIcon()
+        icon23.addFile(u":/icon/photo.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.videoPageBtn.setIcon(icon23)
+        self.videoPageBtn.setCheckable(True)
+        self.videoPageBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+
+        self.horizontalLayout_14.addWidget(self.videoPageBtn)
+
+        self.horizontalSpacer_21 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_14.addItem(self.horizontalSpacer_21)
+
+
+        self.verticalLayout_143.addWidget(self.pbPagePicker)
+
         self.line_123 = QFrame(self.posterboardPage)
         self.line_123.setObjectName(u"line_123")
         self.line_123.setStyleSheet(u"QFrame {\n"
@@ -2243,12 +2314,19 @@ class Ui_Nugget(object):
 
         self.verticalLayout_143.addWidget(self.line_123)
 
-        self.posterboardPageContent = QWidget(self.posterboardPage)
-        self.posterboardPageContent.setObjectName(u"posterboardPageContent")
-        self.posterboardPageContent.setEnabled(False)
-        self.verticalLayout_133 = QVBoxLayout(self.posterboardPageContent)
-        self.verticalLayout_133.setObjectName(u"verticalLayout_133")
-        self.verticalLayout_133.setContentsMargins(0, 0, 0, 0)
+        self.pbActionLbl = QLabel(self.posterboardPage)
+        self.pbActionLbl.setObjectName(u"pbActionLbl")
+
+        self.verticalLayout_143.addWidget(self.pbActionLbl)
+
+        self.pbPages = QStackedWidget(self.posterboardPage)
+        self.pbPages.setObjectName(u"pbPages")
+        self.pbPages.setEnabled(False)
+        self.pbTendiesPage = QWidget()
+        self.pbTendiesPage.setObjectName(u"pbTendiesPage")
+        self.verticalLayout_38 = QVBoxLayout(self.pbTendiesPage)
+        self.verticalLayout_38.setObjectName(u"verticalLayout_38")
+        self.verticalLayout_38.setContentsMargins(-1, 0, -1, 0)
         self.horizontalLayout_12 = QHBoxLayout()
         self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
         self.horizontalLayout_12.setContentsMargins(-1, -1, -1, 0)
@@ -2256,26 +2334,21 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_12.addItem(self.horizontalSpacer_18)
 
-        self.importTendiesBtn = QToolButton(self.posterboardPageContent)
+        self.importTendiesBtn = QToolButton(self.pbTendiesPage)
         self.importTendiesBtn.setObjectName(u"importTendiesBtn")
         self.importTendiesBtn.setLayoutDirection(Qt.RightToLeft)
-        icon22 = QIcon()
-        icon22.addFile(u":/icon/import.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.importTendiesBtn.setIcon(icon22)
+        icon24 = QIcon()
+        icon24.addFile(u":/icon/import.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.importTendiesBtn.setIcon(icon24)
         self.importTendiesBtn.setIconSize(QSize(20, 20))
         self.importTendiesBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
         self.horizontalLayout_12.addWidget(self.importTendiesBtn)
 
 
-        self.verticalLayout_133.addLayout(self.horizontalLayout_12)
+        self.verticalLayout_38.addLayout(self.horizontalLayout_12)
 
-        self.pbActionLbl = QLabel(self.posterboardPageContent)
-        self.pbActionLbl.setObjectName(u"pbActionLbl")
-
-        self.verticalLayout_133.addWidget(self.pbActionLbl)
-
-        self.line_27 = QFrame(self.posterboardPageContent)
+        self.line_27 = QFrame(self.pbTendiesPage)
         self.line_27.setObjectName(u"line_27")
         self.line_27.setStyleSheet(u"QFrame {\n"
 "	color: #414141;\n"
@@ -2283,51 +2356,122 @@ class Ui_Nugget(object):
         self.line_27.setFrameShadow(QFrame.Plain)
         self.line_27.setFrameShape(QFrame.Shape.HLine)
 
-        self.verticalLayout_133.addWidget(self.line_27)
+        self.verticalLayout_38.addWidget(self.line_27)
 
-        self.pbFilesList = QWidget(self.posterboardPageContent)
+        self.pbFilesList = QWidget(self.pbTendiesPage)
         self.pbFilesList.setObjectName(u"pbFilesList")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.pbFilesList.sizePolicy().hasHeightForWidth())
-        self.pbFilesList.setSizePolicy(sizePolicy5)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.pbFilesList.sizePolicy().hasHeightForWidth())
+        self.pbFilesList.setSizePolicy(sizePolicy7)
         self.pbFilesList.setMinimumSize(QSize(200, 35))
 
-        self.verticalLayout_133.addWidget(self.pbFilesList)
+        self.verticalLayout_38.addWidget(self.pbFilesList)
 
-        self.horizontalLayout_14 = QHBoxLayout()
-        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
-        self.horizontalLayout_14.setContentsMargins(-1, -1, -1, 0)
-        self.horizontalSpacer_19 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_32 = QHBoxLayout()
+        self.horizontalLayout_32.setObjectName(u"horizontalLayout_32")
+        self.horizontalLayout_32.setContentsMargins(-1, -1, -1, 10)
+        self.horizontalSpacer_22 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.horizontalLayout_14.addItem(self.horizontalSpacer_19)
+        self.horizontalLayout_32.addItem(self.horizontalSpacer_22)
 
-        self.deleteAllDescriptorsBtn = QToolButton(self.posterboardPageContent)
+        self.deleteAllDescriptorsBtn = QToolButton(self.pbTendiesPage)
         self.deleteAllDescriptorsBtn.setObjectName(u"deleteAllDescriptorsBtn")
-        icon23 = QIcon()
-        icon23.addFile(u":/icon/arrow.clockwise.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.deleteAllDescriptorsBtn.setIcon(icon23)
+        icon25 = QIcon()
+        icon25.addFile(u":/icon/arrow.clockwise.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.deleteAllDescriptorsBtn.setIcon(icon25)
         self.deleteAllDescriptorsBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
-        self.horizontalLayout_14.addWidget(self.deleteAllDescriptorsBtn)
+        self.horizontalLayout_32.addWidget(self.deleteAllDescriptorsBtn)
 
-        self.resetPRBExtBtn = QToolButton(self.posterboardPageContent)
+        self.resetPRBExtBtn = QToolButton(self.pbTendiesPage)
         self.resetPRBExtBtn.setObjectName(u"resetPRBExtBtn")
-        self.resetPRBExtBtn.setIcon(icon23)
+        self.resetPRBExtBtn.setIcon(icon25)
         self.resetPRBExtBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
-        self.horizontalLayout_14.addWidget(self.resetPRBExtBtn)
+        self.horizontalLayout_32.addWidget(self.resetPRBExtBtn)
 
-        self.horizontalSpacer_20 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_23 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.horizontalLayout_14.addItem(self.horizontalSpacer_20)
-
-
-        self.verticalLayout_133.addLayout(self.horizontalLayout_14)
+        self.horizontalLayout_32.addItem(self.horizontalSpacer_23)
 
 
-        self.verticalLayout_143.addWidget(self.posterboardPageContent)
+        self.verticalLayout_38.addLayout(self.horizontalLayout_32)
+
+        self.pbPages.addWidget(self.pbTendiesPage)
+        self.pbVideoPage = QWidget()
+        self.pbVideoPage.setObjectName(u"pbVideoPage")
+        self.verticalLayout_39 = QVBoxLayout(self.pbVideoPage)
+        self.verticalLayout_39.setObjectName(u"verticalLayout_39")
+        self.caVideoChk = QCheckBox(self.pbVideoPage)
+        self.caVideoChk.setObjectName(u"caVideoChk")
+
+        self.verticalLayout_39.addWidget(self.caVideoChk)
+
+        self.reverseLoopChk = QCheckBox(self.pbVideoPage)
+        self.reverseLoopChk.setObjectName(u"reverseLoopChk")
+
+        self.verticalLayout_39.addWidget(self.reverseLoopChk)
+
+        self.useForegroundChk = QCheckBox(self.pbVideoPage)
+        self.useForegroundChk.setObjectName(u"useForegroundChk")
+
+        self.verticalLayout_39.addWidget(self.useForegroundChk)
+
+        self.horizontalLayout_30 = QHBoxLayout()
+        self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
+        self.chooseThumbBtn = QToolButton(self.pbVideoPage)
+        self.chooseThumbBtn.setObjectName(u"chooseThumbBtn")
+
+        self.horizontalLayout_30.addWidget(self.chooseThumbBtn)
+
+        self.chooseVideoBtn = QToolButton(self.pbVideoPage)
+        self.chooseVideoBtn.setObjectName(u"chooseVideoBtn")
+
+        self.horizontalLayout_30.addWidget(self.chooseVideoBtn)
+
+        self.horizontalSpacer_19 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_30.addItem(self.horizontalSpacer_19)
+
+
+        self.verticalLayout_39.addLayout(self.horizontalLayout_30)
+
+        self.pbVideoThumbLbl = QLabel(self.pbVideoPage)
+        self.pbVideoThumbLbl.setObjectName(u"pbVideoThumbLbl")
+
+        self.verticalLayout_39.addWidget(self.pbVideoThumbLbl)
+
+        self.pbVideoLbl = QLabel(self.pbVideoPage)
+        self.pbVideoLbl.setObjectName(u"pbVideoLbl")
+
+        self.verticalLayout_39.addWidget(self.pbVideoLbl)
+
+        self.verticalSpacer_22 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_39.addItem(self.verticalSpacer_22)
+
+        self.horizontalLayout_34 = QHBoxLayout()
+        self.horizontalLayout_34.setObjectName(u"horizontalLayout_34")
+        self.horizontalLayout_34.setContentsMargins(-1, 0, -1, -1)
+        self.clearSuggestedBtn = QToolButton(self.pbVideoPage)
+        self.clearSuggestedBtn.setObjectName(u"clearSuggestedBtn")
+        self.clearSuggestedBtn.setIcon(icon25)
+        self.clearSuggestedBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+
+        self.horizontalLayout_34.addWidget(self.clearSuggestedBtn)
+
+        self.horizontalSpacer_24 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_34.addItem(self.horizontalSpacer_24)
+
+
+        self.verticalLayout_39.addLayout(self.horizontalLayout_34)
+
+        self.pbPages.addWidget(self.pbVideoPage)
+
+        self.verticalLayout_143.addWidget(self.pbPages)
 
         self.pages.addWidget(self.posterboardPage)
         self.advancedOptionsPage = QWidget()
@@ -2394,13 +2538,13 @@ class Ui_Nugget(object):
         self.advancedOptionsPageContent = QWidget(self.advancedOptionsPage)
         self.advancedOptionsPageContent.setObjectName(u"advancedOptionsPageContent")
         self.advancedOptionsPageContent.setEnabled(True)
-        self.verticalLayout_134 = QVBoxLayout(self.advancedOptionsPageContent)
-        self.verticalLayout_134.setObjectName(u"verticalLayout_134")
-        self.verticalLayout_134.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_133 = QVBoxLayout(self.advancedOptionsPageContent)
+        self.verticalLayout_133.setObjectName(u"verticalLayout_133")
+        self.verticalLayout_133.setContentsMargins(0, 0, 0, 0)
         self.label_17 = QLabel(self.advancedOptionsPageContent)
         self.label_17.setObjectName(u"label_17")
 
-        self.verticalLayout_134.addWidget(self.label_17)
+        self.verticalLayout_133.addWidget(self.label_17)
 
         self.line_191 = QFrame(self.advancedOptionsPageContent)
         self.line_191.setObjectName(u"line_191")
@@ -2410,17 +2554,17 @@ class Ui_Nugget(object):
         self.line_191.setFrameShadow(QFrame.Plain)
         self.line_191.setFrameShape(QFrame.Shape.HLine)
 
-        self.verticalLayout_134.addWidget(self.line_191)
+        self.verticalLayout_133.addWidget(self.line_191)
 
         self.disableOTAChk = QCheckBox(self.advancedOptionsPageContent)
         self.disableOTAChk.setObjectName(u"disableOTAChk")
 
-        self.verticalLayout_134.addWidget(self.disableOTAChk)
+        self.verticalLayout_133.addWidget(self.disableOTAChk)
 
         self.thermalmonitordChk = QCheckBox(self.advancedOptionsPageContent)
         self.thermalmonitordChk.setObjectName(u"thermalmonitordChk")
 
-        self.verticalLayout_134.addWidget(self.thermalmonitordChk)
+        self.verticalLayout_133.addWidget(self.thermalmonitordChk)
 
         self.line_181 = QFrame(self.advancedOptionsPageContent)
         self.line_181.setObjectName(u"line_181")
@@ -2430,12 +2574,12 @@ class Ui_Nugget(object):
         self.line_181.setFrameShadow(QFrame.Plain)
         self.line_181.setFrameShape(QFrame.Shape.HLine)
 
-        self.verticalLayout_134.addWidget(self.line_181)
+        self.verticalLayout_133.addWidget(self.line_181)
 
         self.enableResolutionChk = QCheckBox(self.advancedOptionsPageContent)
         self.enableResolutionChk.setObjectName(u"enableResolutionChk")
 
-        self.verticalLayout_134.addWidget(self.enableResolutionChk)
+        self.verticalLayout_133.addWidget(self.enableResolutionChk)
 
         self.resChangerContent = QWidget(self.advancedOptionsPageContent)
         self.resChangerContent.setObjectName(u"resChangerContent")
@@ -2511,11 +2655,11 @@ class Ui_Nugget(object):
         self.verticalLayout_35.addLayout(self.resolutionContent)
 
 
-        self.verticalLayout_134.addWidget(self.resChangerContent)
+        self.verticalLayout_133.addWidget(self.resChangerContent)
 
         self.verticalSpacer_63 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.verticalLayout_134.addItem(self.verticalSpacer_63)
+        self.verticalLayout_133.addItem(self.verticalSpacer_63)
 
 
         self.verticalLayout_144.addWidget(self.advancedOptionsPageContent)
@@ -2609,9 +2753,9 @@ class Ui_Nugget(object):
         self.horizontalLayout_7.setContentsMargins(-1, 10, -1, 0)
         self.chooseGestaltBtn = QToolButton(self.verticalWidget2)
         self.chooseGestaltBtn.setObjectName(u"chooseGestaltBtn")
-        icon24 = QIcon()
-        icon24.addFile(u":/icon/folder.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.chooseGestaltBtn.setIcon(icon24)
+        icon26 = QIcon()
+        icon26.addFile(u":/icon/folder.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.chooseGestaltBtn.setIcon(icon26)
         self.chooseGestaltBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
         self.horizontalLayout_7.addWidget(self.chooseGestaltBtn)
@@ -2775,12 +2919,6 @@ class Ui_Nugget(object):
         self.showRiskyChk.setObjectName(u"showRiskyChk")
 
         self._21.addWidget(self.showRiskyChk)
-
-        self.windowsPathFixChk = QCheckBox(self.settingsPageContent)
-        self.windowsPathFixChk.setObjectName(u"windowsPathFixChk")
-        self.windowsPathFixChk.setChecked(True)
-
-        self._21.addWidget(self.windowsPathFixChk)
 
         self.showAllSpoofableChk = QCheckBox(self.settingsPageContent)
         self.showAllSpoofableChk.setObjectName(u"showAllSpoofableChk")
@@ -3031,9 +3169,9 @@ class Ui_Nugget(object):
 "	padding-right: 5px;\n"
 "	border-radius: 0px;\n"
 "}")
-        icon25 = QIcon()
-        icon25.addFile(u":/icon/pencil.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.toolButton_12.setIcon(icon25)
+        icon27 = QIcon()
+        icon27.addFile(u":/icon/pencil.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.toolButton_12.setIcon(icon27)
         self.toolButton_12.setIconSize(QSize(25, 25))
 
         self.horizontalLayout_22.addWidget(self.toolButton_12)
@@ -3094,7 +3232,7 @@ class Ui_Nugget(object):
         self.importOperationBtn = QToolButton(self.customOperationsPageContent)
         self.importOperationBtn.setObjectName(u"importOperationBtn")
         self.importOperationBtn.setEnabled(True)
-        self.importOperationBtn.setIcon(icon22)
+        self.importOperationBtn.setIcon(icon24)
         self.importOperationBtn.setIconSize(QSize(20, 20))
         self.importOperationBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
@@ -3120,8 +3258,8 @@ class Ui_Nugget(object):
         self.operationsCnt = QWidget(self.customOperationsPageContent)
         self.operationsCnt.setObjectName(u"operationsCnt")
         self.operationsCnt.setEnabled(True)
-        sizePolicy5.setHeightForWidth(self.operationsCnt.sizePolicy().hasHeightForWidth())
-        self.operationsCnt.setSizePolicy(sizePolicy5)
+        sizePolicy7.setHeightForWidth(self.operationsCnt.sizePolicy().hasHeightForWidth())
+        self.operationsCnt.setSizePolicy(sizePolicy7)
 
         self.verticalLayout_19.addWidget(self.operationsCnt)
 
@@ -3150,9 +3288,9 @@ class Ui_Nugget(object):
 "	padding-right: 5px;\n"
 "	border-radius: 0px;\n"
 "}")
-        icon26 = QIcon()
-        icon26.addFile(u":/icon/compass.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.toolButton_16.setIcon(icon26)
+        icon28 = QIcon()
+        icon28.addFile(u":/icon/compass.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.toolButton_16.setIcon(icon28)
 
         self.horizontalLayout_31.addWidget(self.toolButton_16)
 
@@ -3195,8 +3333,8 @@ class Ui_Nugget(object):
 
         self.exploreThemesCnt = QWidget(self.explorePage)
         self.exploreThemesCnt.setObjectName(u"exploreThemesCnt")
-        sizePolicy5.setHeightForWidth(self.exploreThemesCnt.sizePolicy().hasHeightForWidth())
-        self.exploreThemesCnt.setSizePolicy(sizePolicy5)
+        sizePolicy7.setHeightForWidth(self.exploreThemesCnt.sizePolicy().hasHeightForWidth())
+        self.exploreThemesCnt.setSizePolicy(sizePolicy7)
 
         self.verticalLayout_31.addWidget(self.exploreThemesCnt)
 
@@ -3262,15 +3400,13 @@ class Ui_Nugget(object):
 
         self.importThemeFolderBtn = QToolButton(self.horizontalWidget7)
         self.importThemeFolderBtn.setObjectName(u"importThemeFolderBtn")
-        self.importThemeFolderBtn.setIcon(icon24)
+        self.importThemeFolderBtn.setIcon(icon26)
 
         self.horizontalLayout_26.addWidget(self.importThemeFolderBtn)
 
         self.importThemeZipBtn = QToolButton(self.horizontalWidget7)
         self.importThemeZipBtn.setObjectName(u"importThemeZipBtn")
-        icon27 = QIcon()
-        icon27.addFile(u":/icon/file-earmark-zip.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.importThemeZipBtn.setIcon(icon27)
+        self.importThemeZipBtn.setIcon(icon22)
 
         self.horizontalLayout_26.addWidget(self.importThemeZipBtn)
 
@@ -3425,8 +3561,10 @@ class Ui_Nugget(object):
         self.helpFromBtn.setText(QCoreApplication.translate("Nugget", u"With Help From", None))
         self.posterRestoreBtn.setText(QCoreApplication.translate("Nugget", u"PosterRestore Team\n"
 "Posterboard", None))
+        self.snoolieBtn.setText(QCoreApplication.translate("Nugget", u"Snoolie\n"
+".aar Handling", None))
         self.disfordottieBtn.setText(QCoreApplication.translate("Nugget", u"disfordottie\n"
-"Clock Anim, Photos UI", None))
+"Feature Flags", None))
         self.mikasaBtn.setText(QCoreApplication.translate("Nugget", u"Mikasa\n"
 "Quiet Daemon", None))
         self.toolButton_15.setText(QCoreApplication.translate("Nugget", u"Additional Thanks", None))
@@ -3685,11 +3823,13 @@ class Ui_Nugget(object):
         self.modifyPosterboardsChk.setText(QCoreApplication.translate("Nugget", u"Modify", None))
         self.findPBBtn.setText(QCoreApplication.translate("Nugget", u"  Find Wallpapers", None))
         self.pbHelpBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
+        self.tendiesPageBtn.setText(QCoreApplication.translate("Nugget", u"  Tendies", None))
+        self.videoPageBtn.setText(QCoreApplication.translate("Nugget", u"  Live", None))
+        self.pbActionLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
 #if QT_CONFIG(tooltip)
         self.importTendiesBtn.setToolTip(QCoreApplication.translate("Nugget", u"Select a wallpaper file with the .tendies extension.", None))
 #endif // QT_CONFIG(tooltip)
         self.importTendiesBtn.setText(QCoreApplication.translate("Nugget", u"  Import Files (.tendies)", None))
-        self.pbActionLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
 #if QT_CONFIG(tooltip)
         self.deleteAllDescriptorsBtn.setToolTip(QCoreApplication.translate("Nugget", u"Clears all the wallpapers in the Collections section so that you can import more.", None))
 #endif // QT_CONFIG(tooltip)
@@ -3700,6 +3840,24 @@ class Ui_Nugget(object):
 "Warning: This will remove all of your wallpapers and will restrict you from adding new ones until you restore again.", None))
 #endif // QT_CONFIG(tooltip)
         self.resetPRBExtBtn.setText(QCoreApplication.translate("Nugget", u"  Remove All Wallpapers", None))
+#if QT_CONFIG(tooltip)
+        self.caVideoChk.setToolTip(QCoreApplication.translate("Nugget", u"Uses the CoreAnimation file to play the video (300 fps limit)\n"
+"Will show up in Collections", None))
+#endif // QT_CONFIG(tooltip)
+        self.caVideoChk.setText(QCoreApplication.translate("Nugget", u"Loop (use CoreAnimation method)", None))
+        self.reverseLoopChk.setText(QCoreApplication.translate("Nugget", u"Reverse on Loop", None))
+        self.useForegroundChk.setText(QCoreApplication.translate("Nugget", u"Make Foreground (hides clock)", None))
+#if QT_CONFIG(tooltip)
+        self.chooseThumbBtn.setToolTip(QCoreApplication.translate("Nugget", u"Choose a photo for the wallpaper to freeze on when finished (.heic files only)", None))
+#endif // QT_CONFIG(tooltip)
+        self.chooseThumbBtn.setText(QCoreApplication.translate("Nugget", u"Choose Freeze Frame (.HEIC)", None))
+#if QT_CONFIG(tooltip)
+        self.chooseVideoBtn.setToolTip(QCoreApplication.translate("Nugget", u"Choose a video file for the wallpaper (.mov or .mp4)", None))
+#endif // QT_CONFIG(tooltip)
+        self.chooseVideoBtn.setText(QCoreApplication.translate("Nugget", u"Choose Video", None))
+        self.pbVideoThumbLbl.setText(QCoreApplication.translate("Nugget", u"Current Thumbnail: None", None))
+        self.pbVideoLbl.setText(QCoreApplication.translate("Nugget", u"Current Video: None", None))
+        self.clearSuggestedBtn.setText(QCoreApplication.translate("Nugget", u"  Clear Suggested Photos", None))
         self.advancedOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Risky Options", None))
         self.label_17.setText(QCoreApplication.translate("Nugget", u"Disclaimer:\n"
 "\n"
@@ -3741,7 +3899,6 @@ class Ui_Nugget(object):
         self.allowWifiApplyingChk.setText(QCoreApplication.translate("Nugget", u"Allow Applying Over WiFi", None))
         self.autoRebootChk.setText(QCoreApplication.translate("Nugget", u"Auto Reboot After Applying", None))
         self.showRiskyChk.setText(QCoreApplication.translate("Nugget", u"Show Risky Tweak Options", None))
-        self.windowsPathFixChk.setText(QCoreApplication.translate("Nugget", u"Use Windows Path Fix (for Posterboard)", None))
 #if QT_CONFIG(tooltip)
         self.showAllSpoofableChk.setToolTip(QCoreApplication.translate("Nugget", u"Show models for other device types in the AI device spoofing tab.", None))
 #endif // QT_CONFIG(tooltip)

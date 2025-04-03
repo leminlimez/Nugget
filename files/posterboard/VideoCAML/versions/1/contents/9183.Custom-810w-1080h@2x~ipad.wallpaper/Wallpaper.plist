@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>appearanceAware</key>
+	<true/>
+	<key>assets</key>
+	<dict>
+		<key>lockAndHome</key>
+		<dict>
+			<key>default</key>
+			<dict>
+				<key>backgroundAnimationFileName</key>
+				<string>9183.Custom_Background-810w-1080h@2x~ipad.ca</string>
+				<key>floatingAnimationFileNameKey</key>
+				<string>9183.Custom_Floating-810w-1080h@2x~ipad.ca</string>
+				<key>identifier</key>
+				<integer>9183</integer>
+				<key>name</key>
+				<string>Chip</string>
+				<key>type</key>
+				<string>LayeredAnimation</string>
+			</dict>
+		</dict>
+	</dict>
+	<key>contentVersion</key>
+	<real>2.01</real>
+	<key>family</key>
+	<string>Chip</string>
+	<key>identifier</key>
+	<integer>9183</integer>
+	<key>logicalScreenClass</key>
+	<string>810w-1080h@2x~ipad</string>
+	<key>name</key>
+	<string>Chip</string>
+	<key>preferredProminentColor</key>
+	<dict>
+		<key>dark</key>
+		<string>#00000</string>
+		<key>default</key>
+		<string>#FFFFFF</string>
+	</dict>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>

@@ -14,12 +14,13 @@ from devicemanagement.constants import Version
 from devicemanagement.device_manager import DeviceManager
 
 from gui.dialogs import GestaltDialog, UpdateAppDialog, PBHelpDialog
+from gui.apply_worker import ApplyThread, ApplyAlertMessage
 
 from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
 
-App_Version = "5.0.3"
+App_Version = "5.1"
 App_Build = 0
 
 class Page(Enum):
@@ -43,6 +44,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.show_uuid = False
         self.pb_mainLayout = None
+        self.applying_in_progress = False
+        self.threadpool = QtCore.QThreadPool()
         self.loadSettings()
 
         # Check for an update
@@ -83,6 +86,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.leminKoFiBtn.clicked.connect(self.on_leminKoFiBtn_clicked)
         
         self.ui.posterRestoreBtn.clicked.connect(self.on_posterRestoreBtn_clicked)
+        self.ui.snoolieBtn.clicked.connect(self.on_snoolieBtn_clicked)
         self.ui.disfordottieBtn.clicked.connect(self.on_disfordottieBtn_clicked)
         self.ui.mikasaBtn.clicked.connect(self.on_mikasaBtn_clicked)
 
@@ -162,9 +166,21 @@ class MainWindow(QtWidgets.QMainWindow):
 
         ## POSTERBOARD PAGE ACTIONS
         self.ui.modifyPosterboardsChk.toggled.connect(self.on_modifyPosterboardsChk_clicked)
+        self.ui.tendiesPageBtn.clicked.connect(self.on_tendiesPageBtn_clicked)
+        self.ui.videoPageBtn.clicked.connect(self.on_videoPageBtn_clicked)
+
         self.ui.importTendiesBtn.clicked.connect(self.on_importTendiesBtn_clicked)
         self.ui.resetPRBExtBtn.clicked.connect(self.on_resetPRBExtBtn_clicked)
         self.ui.deleteAllDescriptorsBtn.clicked.connect(self.on_deleteAllDescriptorsBtn_clicked)
+
+        self.ui.chooseVideoBtn.clicked.connect(self.on_chooseVideoBtn_clicked)
+        self.ui.reverseLoopChk.toggled.connect(self.on_reverseLoopChk_toggled)
+        self.ui.useForegroundChk.toggled.connect(self.on_useForegroundChk_toggled)
+        self.ui.caVideoChk.hide()
+        self.ui.clearSuggestedBtn.hide()
+        self.ui.chooseThumbBtn.hide()
+        self.ui.pbVideoThumbLbl.hide()
+        
         self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
         self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)
 
@@ -184,9 +200,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.allowWifiApplyingChk.toggled.connect(self.on_allowWifiApplyingChk_toggled)
         self.ui.autoRebootChk.toggled.connect(self.on_autoRebootChk_toggled)
         self.ui.showRiskyChk.toggled.connect(self.on_showRiskyChk_toggled)
-        # windows path fix toggle (depreciated)
-        # TODO: Remove this from the UI and everything
-        self.ui.windowsPathFixChk.hide()
         self.ui.showAllSpoofableChk.toggled.connect(self.on_showAllSpoofableChk_toggled)
 
         self.ui.revertRdarChk.toggled.connect(self.on_revertRdarChk_toggled)
@@ -545,6 +558,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_posterRestoreBtn_clicked(self):
         webbrowser.open_new_tab("https://discord.gg/gWtzTVhMvh")
+    def on_snoolieBtn_clicked(self):
+        webbrowser.open_new_tab("https://github.com/0xilis/python-aar-stuff")
     def on_disfordottieBtn_clicked(self):
         webbrowser.open_new_tab("https://twitter.com/disfordottie")
     def on_mikasaBtn_clicked(self):
@@ -909,7 +924,7 @@ class MainWindow(QtWidgets.QMainWindow):
             spacer = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
             # main layout
             layout = QtWidgets.QHBoxLayout(widget)
-            layout.setContentsMargins(0, 0, 0, 9)
+            layout.setContentsMargins(0, 0, 0, 3)
             layout.addWidget(titleBtn)
             layout.addItem(spacer)
             layout.addWidget(delBtn)
@@ -920,7 +935,19 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_modifyPosterboardsChk_clicked(self, checked: bool):
         tweaks["PosterBoard"].set_enabled(checked)
-        self.ui.posterboardPageContent.setDisabled(not checked)
+        self.ui.pbPages.setDisabled(not checked)
+
+    # PB Pages Selectors
+    def on_tendiesPageBtn_clicked(self):
+        self.ui.tendiesPageBtn.setChecked(True)
+        self.ui.videoPageBtn.setChecked(False)
+        self.ui.pbPages.setCurrentIndex(0)
+    def on_videoPageBtn_clicked(self):
+        self.ui.tendiesPageBtn.setChecked(False)
+        self.ui.videoPageBtn.setChecked(True)
+        self.ui.pbPages.setCurrentIndex(1)
+    
+    # Tendies Page
     def on_importTendiesBtn_clicked(self):
         selected_files, _ = QtWidgets.QFileDialog.getOpenFileNames(self, "Select PosterBoard Files", "", "Zip Files (*.tendies)", options=QtWidgets.QFileDialog.ReadOnly)
         tweaks["PosterBoard"].resetting = False
@@ -935,8 +962,8 @@ class MainWindow(QtWidgets.QMainWindow):
                     detailsBox.setWindowTitle("Error!")
                     detailsBox.setText("You selected too many descriptors! The limit is 10.")
                     detailsBox.exec()
+                    break
             self.load_posterboard()
-
     def on_deleteAllDescriptorsBtn_clicked(self):
         if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 0:
             tweaks["PosterBoard"].resetting = False
@@ -944,7 +971,7 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             tweaks["PosterBoard"].resetting = True
             tweaks["PosterBoard"].resetType = 0
-            self.ui.pbActionLbl.setText("! Clearing Collections Wallpapers")
+            self.ui.pbActionLbl.setText("! Set to Clear Collections Wallpapers")
             self.ui.pbActionLbl.show()
     def on_resetPRBExtBtn_clicked(self):
         if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 1:
@@ -953,8 +980,56 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             tweaks["PosterBoard"].resetting = True
             tweaks["PosterBoard"].resetType = 1
-            self.ui.pbActionLbl.setText("! Resetting PRB Extension")
+            self.ui.pbActionLbl.setText("! Set to Reset PRB Extension")
             self.ui.pbActionLbl.show()
+    
+    # Video Page
+    def on_chooseThumbBtn_clicked(self):
+        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select Image File", "", "Image Files (*.heic)", options=QtWidgets.QFileDialog.ReadOnly)
+        tweaks["PosterBoard"].resetting = False
+        if selected_file != None and selected_file != "":
+            tweaks["PosterBoard"].videoThumbnail = selected_file
+            self.ui.pbVideoThumbLbl.setText(f"Current Thumbnail: {selected_file}")
+        else:
+            tweaks["PosterBoard"].videoThumbnail = None
+            self.ui.pbVideoThumbLbl.setText("Current Thumbnail: None")
+    def on_chooseVideoBtn_clicked(self):
+        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select Video File", "", "Video Files (*.mov *.mp4)", options=QtWidgets.QFileDialog.ReadOnly)
+        tweaks["PosterBoard"].resetting = False
+        if selected_file != None and selected_file != "":
+            tweaks["PosterBoard"].videoFile = selected_file
+            self.ui.pbVideoLbl.setText(f"Current Video: {selected_file}")
+        else:
+            tweaks["PosterBoard"].videoFile = None
+            self.ui.pbVideoLbl.setText("Current Video: None")
+    def on_clearSuggestedBtn_clicked(self):
+        if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 2:
+            tweaks["PosterBoard"].resetting = False
+            self.ui.pbActionLbl.hide()
+        else:
+            tweaks["PosterBoard"].resetting = True
+            tweaks["PosterBoard"].resetType = 2
+            self.ui.pbActionLbl.setText("! Set to Clear Suggested Photos")
+            self.ui.pbActionLbl.show()
+    def on_caVideoChk_toggled(self, checked: bool):
+        tweaks["PosterBoard"].loop_video = checked
+        # hide thumbnail button and label
+        if checked:
+            self.ui.chooseThumbBtn.hide()
+            self.ui.pbVideoThumbLbl.hide()
+            self.ui.clearSuggestedBtn.hide()
+            self.ui.reverseLoopChk.show()
+            self.ui.useForegroundChk.show()
+        else:
+            self.ui.chooseThumbBtn.show()
+            self.ui.pbVideoThumbLbl.show()
+            self.ui.clearSuggestedBtn.show()
+            self.ui.reverseLoopChk.hide()
+            self.ui.useForegroundChk.hide()
+    def on_reverseLoopChk_toggled(self, checked: bool):
+        tweaks["PosterBoard"].reverse_video = checked
+    def on_useForegroundChk_toggled(self, checked: bool):
+        tweaks["PosterBoard"].use_foreground = checked
 
     def on_findPBBtn_clicked(self):
         webbrowser.open_new_tab("https://cowabun.ga/wallpapers")
@@ -1017,10 +1092,6 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             self.ui.advancedPageBtn.hide()
             self.ui.resetPRBExtBtn.hide()
-    def on_windowsPathFixChk_toggled(self, checked: bool):
-        self.device_manager.windows_path_fix = checked
-        # save the setting
-        self.settings.setValue("windows_path_fix", checked)
     def on_showAllSpoofableChk_toggled(self, checked: bool):
         self.device_manager.show_all_spoofable_models = checked
         # save the setting
@@ -1101,12 +1172,31 @@ class MainWindow(QtWidgets.QMainWindow):
     def update_bar(self, percent):
         self.ui.restoreProgressBar.setValue(int(percent))
     def on_removeTweaksBtn_clicked(self):
-        # TODO: Add threading here
-        self.device_manager.apply_changes(resetting=True, update_label=self.update_label)
+        self.apply_changes(resetting=True)
     def on_resetGestaltBtn_clicked(self):
         self.device_manager.reset_mobilegestalt(self.settings, update_label=self.update_label)
 
     @QtCore.Slot()
     def on_applyTweaksBtn_clicked(self):
-        # TODO: Add threading here
-        self.device_manager.apply_changes(update_label=self.update_label)
+        self.apply_changes()
+
+    def apply_changes(self, resetting: bool = False):
+        if not self.applying_in_progress:
+            self.applying_in_progress = True
+            self.worker_thread = ApplyThread(manager=self.device_manager, resetting=resetting)
+            self.worker_thread.progress.connect(self.ui.statusLbl.setText)
+            self.worker_thread.alert.connect(self.alert_message)
+            self.worker_thread.finished.connect(self.finish_apply_thread)
+            self.worker_thread.finished.connect(self.worker_thread.deleteLater)
+            self.worker_thread.start()
+    def alert_message(self, alert: ApplyAlertMessage):
+        print(alert.txt)
+        detailsBox = QtWidgets.QMessageBox()
+        detailsBox.setIcon(alert.icon)
+        detailsBox.setWindowTitle(alert.title)
+        detailsBox.setText(alert.txt)
+        if alert.detailed_txt != None:
+            detailsBox.setDetailedText(alert.detailed_txt)
+        detailsBox.exec()
+    def finish_apply_thread(self):
+        self.applying_in_progress = False

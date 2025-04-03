@@ -1,3 +1,6 @@
 pymobiledevice3
 PySide6-Essentials
 PyInstaller
+ffmpeg
+ffmpeg-python
+opencv-python
