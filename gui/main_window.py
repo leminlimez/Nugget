@@ -1096,7 +1096,7 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             tweaks["PosterBoard"].resetting = True
             tweaks["PosterBoard"].resetType = 0
-            self.ui.pbActionLbl.setText("! Clearing Collections Wallpapers")
+            self.ui.pbActionLbl.setText("! Set to Clear Collections Wallpapers")
             self.ui.pbActionLbl.show()
     def on_resetPRBExtBtn_clicked(self):
         if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 1:
@@ -1105,7 +1105,7 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             tweaks["PosterBoard"].resetting = True
             tweaks["PosterBoard"].resetType = 1
-            self.ui.pbActionLbl.setText("! Resetting PRB Extension")
+            self.ui.pbActionLbl.setText("! Set to Reset PRB Extension")
             self.ui.pbActionLbl.show()
 
     # Templates Page
@@ -1152,7 +1152,7 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             tweaks["PosterBoard"].resetting = True
             tweaks["PosterBoard"].resetType = 2
-            self.ui.pbActionLbl.setText("! Clearing Suggested Photos")
+            self.ui.pbActionLbl.setText("! Set to Clear Suggested Photos")
             self.ui.pbActionLbl.show()
     def on_caVideoChk_toggled(self, checked: bool):
         tweaks["PosterBoard"].loop_video = checked

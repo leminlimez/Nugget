@@ -1,7 +1,9 @@
+![Artboard](https://github.com/leminlimez/Nugget/blob/d383d2af50ed12382b2e19d0d95dd815f1b15d4f/credits/big_nugget.png)
+
 # Nugget
 Unlock your device's full potential!
 
-Sparserestore works on all versions iOS 17.0-18.2 developer beta 2. There is partial support for iOS 18.2 developer beta 3 and newer.
+Sparserestore works on all versions iOS 17.0-18.1.1. There is partial support for iOS 18.2 developer beta 3 and newer not using any exploits.
 
 **Mobilegestalt and AI Enabler tweaks are not supported on iOS 18.2+.** It will never be supported, do not make issues asking for when it is supported.
 
@@ -9,25 +11,12 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
 
 This uses the sparserestore exploit to write to files outside of the intended restore location, like mobilegestalt. Read the [Getting the File](#getting-the-file) section to learn how to get your mobilegestalt file.
 
-Note: I am not responsible if your device bootloops. Please back up your data before using!
+**Note:** I am not responsible if your device bootloops. Please back up your data before using!
 
 ## Features
-### iOS 17.0+
-- Enable Dynamic Island on any device
-- Enable iPhone X gestures on iPhone SEs
-- Change Device Model Name (ie what shows in the Settings app)
-- Enable Boot Chime
-- Enable Charge Limit
-- Enable Tap to Wake on unsupported devices (ie iPhone SEs)
-- Enable Collision SOS
-- Enable Stage Manager
-- Disable the Wallpaper Parallax
-- Disable Region Restrictions (ie. Shutter Sound)
-  - Note: This does not include enabling EU sideloading outside the EU. That will come later.
-- Show the Apple Pencil options in Settings app
-- Show the Action Button options in Settings app
-- Show Internal Storage info (Might cause problems on some devices, use at your own risk)
-- EU Enabler (iOS 17.6-)
+<details>
+<summary>iOS 17.0+</summary>
+
 - Springboard Options (from [Cowabunga Lite](https://github.com/leminlimez/CowabungaLite))
   - Set Lock Screen Footnote
   - Disable Lock After Respring
@@ -67,14 +56,44 @@ Note: I am not responsible if your device bootloops. Please back up your data be
   - Disable thermalmonitord
   - OTA Killer
   - Custom Resolution
-### iOS 18.0+
-- Enable iPhone 16 camera button page in the Settings app
-- Enable AOD & AOD Vibrancy on any device
+</details>
+<details>
+<summary>iOS 17.0 - 18.1.1</summary>
+
+- Enable Dynamic Island on any device
+- Enable iPhone X gestures on iPhone SEs
+- Change Device Model Name (ie what shows in the Settings app)
+- Enable Boot Chime
+- Enable Charge Limit
+- Enable Tap to Wake on unsupported devices (ie iPhone SEs)
+- Enable Collision SOS
+- Enable Stage Manager
+- Disable the Wallpaper Parallax
+- Disable Region Restrictions (ie. Shutter Sound)
+  - Note: This does not include enabling EU sideloading outside the EU. That will come later.
+- Show the Apple Pencil options in Settings app
+- Show the Action Button options in Settings app
+- Show Internal Storage info (Might cause problems on some devices, use at your own risk)
+- EU Enabler (iOS 17.6-)
+</details>
+<details>
+<summary>iOS 18.0 - iOS 18.0.1</summary>
+
 - Feature Flags (iOS 18.1b4-):
   - Enabling lock screen clock animation, lock screen page duplication button, and more!
   - Disabling the new iOS 18 Photos UI (iOS 18.0 betas only, unknown which patched it)
-### iOS 18.1+
-- AI Enabler + Device Spoofing (fixed in iOS 18.2db3)
+</details>
+<details>
+<summary>iOS 18.0 - iOS 18.1.1</summary>
+
+- Enable iPhone 16 camera button page in the Settings app
+- Enable AOD & AOD Vibrancy on any device
+</details>
+<details>
+<summary>iOS 18.1 - 18.1.1</summary>
+
+- AI Enabler + Device Spoofing
+</details>
 
 ## Requirements:
 - **Windows:**
@@ -101,7 +120,7 @@ Note: It may be either `python`/`pip` or `python3`/`pip3` depending on your path
 The CLI version can be ran with `python3 cli_app.py`.
 
 ## Getting the File
-You need to get the mobilegestalt file that is specific to your device. To do that, follow these steps:
+On iOS 18.1.1 and below, you may need to get the mobilegestalt file that is specific to your device. To do that, follow these steps:
 1. Install the `Shortcuts` app from the iOS app store.
 2. Download this shortcut: https://www.icloud.com/shortcuts/d6f0a136ddda4714a80750512911c53b
 3. Save the file and share it to your computer.
@@ -118,6 +137,7 @@ The application itself can be compiled by running `compile.py`.
 
 ## Read More
 If you would like to read more about the inner workings of the exploit and iOS restore system, I made a write up which you can read [here](https://gist.github.com/leminlimez/c602c067349140fe979410ef69d39c28).
+For clarity, up to iOS 18.2 developer beta 2 (public beta 1) is fully supported by Nugget. I said iOS 18.1.1 because mentioning the betas confused people.
 
 ## Credits
 - [JJTech](https://github.com/JJTech0130) for Sparserestore/[TrollRestore](https://github.com/JJTech0130/TrollRestore)
