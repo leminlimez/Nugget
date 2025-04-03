@@ -30,17 +30,9 @@ class TemplateFile(TendieFile):
                 for option in data:
                     opt_type = OptionType[option['type']]
                     if opt_type == OptionType.replace:
-                        btn_lbl = None
-                        if 'button_label' in option:
-                            btn_lbl = option['button_label']
-                        self.options.append(ReplaceOption(
-                            type=opt_type, label=option['label'], files=option['files'], button_label=btn_lbl,
-                            allowed_files=option['allowed_files'], required=option['required']
-                        ))
+                        self.options.append(ReplaceOption(data=option))
                     elif opt_type == OptionType.remove:
-                        self.options.append(RemoveOption(
-                            type=opt_type, label=option['label'], files=option['files']
-                        ))
+                        self.options.append(RemoveOption(data=option))
                     else:
                         raise Exception("Invalid option type in template")
             else:

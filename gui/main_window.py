@@ -22,7 +22,7 @@ from tweaks.daemons_tweak import Daemon
 from tweaks.posterboard.template_options import OptionType as TemplateOptionTypePB
 
 App_Version = "5.2"
-App_Build = 1
+App_Build = 2
 
 class Page(Enum):
     Home = 0
@@ -1030,6 +1030,7 @@ class MainWindow(QtWidgets.QMainWindow):
                     # remove object
                     remove_chk = QtWidgets.QCheckBox(options_widget)
                     remove_chk.setText(option.label)
+                    remove_chk.setChecked(option.default_value)
                     remove_chk.toggled.connect(option.set_option)
             options_widget.setLayout(opt_layout)
 

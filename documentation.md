@@ -29,6 +29,13 @@ An example format of `config.json` looks like this:
     "type": "remove",
     "label": "File Thing Visible",
     "files": ["descriptors/UUID2/version/1/bg/assets/file1.png"]
+  },
+  {
+    "type": "remove",
+    "label": "Include collection item",
+    "files": ["descriptors/UUID3"],
+    "inverted": true,
+    "default_value": true
   }
 ]
 ```
@@ -57,7 +64,8 @@ Properties:
 "type": "remove"
 ```
 Properties:
-- None
+- `inverted` *(Optional)* - if set to true, the files will only be deleted if the checkbox is unchecked
+- `default_value` *(Optional)* - whether the checkbox starts as true or false (will be false by default)
 
 The `label` property will apply to the checkbox itself.
 </details>
