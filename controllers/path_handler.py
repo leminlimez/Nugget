@@ -10,3 +10,12 @@ def fix_windows_path(dos_path: str, encoding=None):
         return u"\\\\?\\" + path
     else:
         return dos_path
+
+def windows_join_path(og_path: str, join: str):
+    if os.name == 'nt':
+        final_path = og_path
+        for dir in join.split('/'):
+            final_path = os.path.join(final_path, dir)
+        return final_path
+    else:
+        return os.path.join(og_path, join)
