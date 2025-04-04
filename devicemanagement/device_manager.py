@@ -333,7 +333,7 @@ class DeviceManager:
                     elif isinstance(tweak, PosterboardTweak):
                         tmp_pb_dir = TemporaryDirectory()
                         tweak.apply_tweak(
-                            files_to_restore=files_to_restore, output_dir=tmp_pb_dir.name,
+                            files_to_restore=files_to_restore, output_dir=fix_windows_path(tmp_pb_dir.name),
                             version=self.get_current_device_version(), update_label=update_label
                         )
                         if tweak.enabled:
