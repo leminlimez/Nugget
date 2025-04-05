@@ -1,4 +1,5 @@
 from .tweak_classes import Tweak
+from controllers.files_handler import get_bundle_files
 from Sparserestore.restore import FileToRestore
 from devicemanagement.constants import Version
 
@@ -47,10 +48,7 @@ class EligibilityTweak(Tweak):
             return None
         print(f"Applying EU Enabler for region \'{self.code}\'...")
         # get the plists directory
-        try:
-            source_dir = path.join(sys._MEIPASS, "files/eligibility")
-        except:
-            source_dir = path.join(getcwd(), "files/eligibility")
+        source_dir = get_bundle_files("files/eligibility")
 
         # start with eligibility.plist
         file_path = path.join(source_dir, 'eligibility.plist')
