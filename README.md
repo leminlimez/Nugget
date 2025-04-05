@@ -139,6 +139,9 @@ The application itself can be compiled by running `compile.py`.
 If you would like to read more about the inner workings of the exploit and iOS restore system, I made a write up which you can read [here](https://gist.github.com/leminlimez/c602c067349140fe979410ef69d39c28).
 For clarity, up to iOS 18.2 developer beta 2 (public beta 1) is fully supported by Nugget. I said iOS 18.1.1 because mentioning the betas confused people.
 
+## Arbitrary Star Graph
+[![Star History Chart](https://api.star-history.com/svg?repos=leminlimez/Nugget&type=Date)](https://www.star-history.com/#leminlimez/Nugget&Date)
+
 ## Credits
 - [JJTech](https://github.com/JJTech0130) for Sparserestore/[TrollRestore](https://github.com/JJTech0130/TrollRestore)
 - [PosterRestore](https://discord.gg/gWtzTVhMvh) for their help with PosterBoard

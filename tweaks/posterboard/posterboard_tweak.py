@@ -184,9 +184,9 @@ class PosterboardTweak(Tweak):
         print(f"file: {self.videoFile}, looping: {self.loop_video}")
         if self.videoFile and self.loop_video:
             source_dir = get_bundle_files("files/posterboard/VideoCAML")
-            video_output_dir = os.path.join(output_dir, "descriptor/VideoCAML")
+            video_output_dir = os.path.join(output_dir, "descriptor", "VideoCAML")
             copytree(source_dir, video_output_dir, dirs_exist_ok=True)
-            contents_path = os.path.join(video_output_dir, "versions/1/contents/9183.Custom-810w-1080h@2x~ipad.wallpaper")
+            contents_path = os.path.join(video_output_dir, "versions", "1", "contents", "9183.Custom-810w-1080h@2x~ipad.wallpaper")
             if self.use_foreground:
                 # rename the foreground layer to background
                 bg_path = os.path.join(contents_path, "9183.Custom_Background-810w-1080h@2x~ipad.ca")
