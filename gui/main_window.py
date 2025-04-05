@@ -20,7 +20,7 @@ from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
 
-App_Version = "5.1.1"
+App_Version = "5.1"
 App_Build = 0
 
 class Page(Enum):

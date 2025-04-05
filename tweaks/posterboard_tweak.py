@@ -11,7 +11,6 @@ from controllers.plist_handler import set_plist_value
 from controllers.files_handler import get_bundle_files
 from controllers import video_handler
 from controllers.aar.aar import wrap_in_aar
-from controllers.path_handler import fix_windows_path, windows_join_path
 
 class TendieFile:
     path: str
@@ -204,7 +203,7 @@ class PosterboardTweak(Tweak):
                 del video_contents
             to_override = ["input.segmentation/asset.resource/Adjusted.HEIC", "input.segmentation/asset.resource/proxy.heic", "output.layerStack/portrait-layer_background.HEIC"]
             for file in to_override:
-                with open(windows_join_path(contents_path, file), "wb") as overriding:
+                with open(os.path.join(contents_path, file), "wb") as overriding:
                     overriding.write(thumb_contents)
             del thumb_contents
 
@@ -212,9 +211,9 @@ class PosterboardTweak(Tweak):
         print(f"file: {self.videoFile}, looping: {self.loop_video}")
         if self.videoFile and self.loop_video:
             source_dir = get_bundle_files("files/posterboard/VideoCAML")
-            video_output_dir = windows_join_path(output_dir, "descriptor/VideoCAML")
-            copytree(fix_windows_path(source_dir), video_output_dir, dirs_exist_ok=True)
-            contents_path = windows_join_path(video_output_dir, "versions/1/contents/9183.Custom-810w-1080h@2x~ipad.wallpaper")
+            video_output_dir = os.path.join(output_dir, "descriptor/VideoCAML")
+            copytree(source_dir, video_output_dir, dirs_exist_ok=True)
+            contents_path = os.path.join(video_output_dir, "versions/1/contents/9183.Custom-810w-1080h@2x~ipad.wallpaper")
             if self.use_foreground:
                 # rename the foreground layer to background
                 bg_path = os.path.join(contents_path, "9183.Custom_Background-810w-1080h@2x~ipad.ca")
