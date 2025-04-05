@@ -295,9 +295,9 @@ class MainWindow(QtWidgets.QMainWindow):
                 tag = ""
                 if self.device_manager.apply_over_wifi:
                     if device.connected_via_usb:
-                        tag = " (@ USB)"
+                        tag = " (@ USB)"; self.device_manager.is_using_wifi = False
                     else:
-                        tag = " (@ WiFi)"
+                        tag = " (@ WiFi)"; self.device_manager.is_using_wifi = True
                 self.ui.devicePicker.addItem(f"{device.name}{tag}")
             
             # show all pages

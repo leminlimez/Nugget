@@ -63,6 +63,10 @@ class DeviceManager:
         self.skip_setup = True
         self.supervised = False
         self.organization_name = ""
+        self.is_using_wifi = False
+    
+    def is_using_wifi(self):
+        return self.is_using_wifi
     
     def get_devices(self, settings: QSettings):
         self.devices.clear()
@@ -422,7 +426,7 @@ class DeviceManager:
                         )
 
             # restore to the device
-            update_label("Restoring to device...\nDo NOT Unplug")
+            update_label("Restoring to device...\n" + ("Do NOT Unplug" if not self.is_using_wifi else "Keep your device unlocked"))
             restore_files(files=files_to_restore, reboot=self.auto_reboot, lockdown_client=self.data_singleton.current_device.ld)
             if tmp_pb_dir != None:
                 try:
