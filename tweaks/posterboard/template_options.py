@@ -23,10 +23,10 @@ class TemplateOption:
     def apply(self, container_path: str):
         raise NotImplementedError
 
-@dataclass
+
 class ReplaceOption(TemplateOption):
-    button_label: Optional[str] = None
     allowed_files: str # Qt format - ex. "Image Files (*.png)"
+    button_label: Optional[str] = None
     required: bool = False
     value: Optional[str] = None # path of file selected by user
 
