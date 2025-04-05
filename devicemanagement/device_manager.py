@@ -65,9 +65,6 @@ class DeviceManager:
         self.organization_name = ""
         self.is_using_wifi = False
     
-    def is_using_wifi(self):
-        return self.is_using_wifi
-    
     def get_devices(self, settings: QSettings):
         self.devices.clear()
         # handle errors when failing to get connected devices
