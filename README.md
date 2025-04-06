@@ -1,4 +1,4 @@
-![Artboard](https://github.com/leminlimez/Nugget/blob/6a22a8fe572fdf41753d99da4337feb7ffe939a7/credits/small_nugget.png)
+![Artboard][NuggetLogo]
 
 # Nugget
 Unlock your device's full potential!
@@ -19,12 +19,12 @@ This uses the sparserestore exploit to write to files outside of the intended re
 <details>
 <summary>iOS 17.0+</summary>
 
-- Springboard Options (from [Cowabunga Lite](https://github.com/leminlimez/CowabungaLite))
+- Springboard Options (from [Cowabunga Lite][CowabungaLite])
   - Set Lock Screen Footnote
   - Disable Lock After Respring
   - Disable Screen Dimming While Charging
   - Disable Low Battery Alerts
-- Internal Options (from [Cowabunga Lite](https://github.com/leminlimez/CowabungaLite))
+- Internal Options (from [Cowabunga Lite][CowabungaLite])
   - Build Version in Status Bar
   - Force Right to Left
   - Force Metal HUD Debug
@@ -52,8 +52,8 @@ This uses the sparserestore exploit to write to files outside of the intended re
   - Spotlight
   - Voice Control
 - PosterBoard: Animated wallpapers and descriptors.
-  - Community wallpapers can be found [here](https://cowabun.ga/wallpapers)
-  - See documentation on the structure of tendies files in `documentation.md`
+  - Community wallpapers can be found [here][WallpapersWebsite]
+  - See documentation on the structure of tendies files in [documentation.md](documentation.md)
 - Risky (Hidden) Options:
   - Disable thermalmonitord
   - OTA Killer
@@ -102,14 +102,14 @@ This uses the sparserestore exploit to write to files outside of the intended re
 <details>
 <summary>Windows</summary>
   
-  - Either [Apple Devices (from Microsoft Store)](https://apps.microsoft.com/detail/9np83lwlpz9k%3Fhl%3Den-US%26gl%3DUS&ved=2ahUKEwjE-svo7qyJAxWTlYkEHQpbH3oQFnoECBoQAQ&usg=AOvVaw0rZTXCFmRaHAifkEEu9tMI) App or [iTunes (from Apple website)](https://support.apple.com/en-us/106372)
+  - Either [Apple Devices (from Microsoft Store)][AppleDevices] App or [iTunes (from Apple website)][iTunes]
 </details>
 
 <details>
 <summary>Linux</summary>
 
-  - [usbmuxd](https://github.com/libimobiledevice/usbmuxd)
-  - [libimobiledevice](https://github.com/libimobiledevice/libimobiledevice)
+  - [usbmuxd][usbmuxdGitHub]
+  - [libimobiledevice][libimobiledeviceGitHub]
 </details>
 
 <details>
@@ -149,8 +149,8 @@ python3 cli_app.py
 
 ## Getting the File
 On iOS 18.1.1 and below, you may need to get the mobilegestalt file that is specific to your device. To do that, follow these steps:
-1. Install the [Shortcuts](https://apps.apple.com/us/app/shortcuts/id915249334) app from the iOS app store.
-2. Download this shortcut: [Save MobileGestalt](https://www.icloud.com/shortcuts/d6f0a136ddda4714a80750512911c53b)
+1. Install the [Shortcuts][ShortcutsApp] app from the iOS app store.
+2. Download this shortcut: [Save MobileGestalt][MobilegestaltShortcut]
 3. Save the file and share it to your computer.
 4. Place it in the same folder as the python file (or specify the path in the program)
 
@@ -168,7 +168,7 @@ pyside6-rcc qt/resources.qrc -o resources_rc.py
 The application itself can be compiled by running `compile.py`.
 
 ## Read More
-If you would like to read more about the inner workings of the exploit and iOS restore system, I made a write up which you can read [here](https://gist.github.com/leminlimez/c602c067349140fe979410ef69d39c28).
+If you would like to read more about the inner workings of the exploit and iOS restore system, I made a write up which you can read [here][ReadMoreGist].
 For clarity, up to iOS 18.2 developer beta 2 (public beta 1) is fully supported by Nugget. I said iOS 18.1.1 because mentioning the betas confused people.
 
 ## Arbitrary Star Graph
@@ -181,14 +181,43 @@ For clarity, up to iOS 18.2 developer beta 2 (public beta 1) is fully supported 
 </a>
 
 ## Credits
-- [JJTech](https://github.com/JJTech0130) for Sparserestore/[TrollRestore](https://github.com/JJTech0130/TrollRestore)
-- [PosterRestore](https://discord.gg/gWtzTVhMvh) for their help with PosterBoard
-  - Special thanks to [dootskyre](https://x.com/dootskyre), [Middo](https://x.com/MWRevamped), [dulark](https://github.com/dularkian), forcequitOS, and pingubow for their work on this. It would not have been possible without them!
-  - Thanks to [Snoolie for aar handling](https://github.com/0xilis/python-aar-stuff)!
-  - Thanks to [SerStars](https://x.com/SerStars_lol) for creating [the website](https://cowabun.ga/wallpapers)!
-- [disfordottie](https://x.com/disfordottie) for some global flag features
-- [Mikasa-san](https://github.com/Mikasa-san) for [Quiet Daemon](https://github.com/Mikasa-san/QuietDaemon)
-- [sneakyf1shy](https://github.com/f1shy-dev) for [AI Eligibility](https://gist.github.com/f1shy-dev/23b4a78dc283edd30ae2b2e6429129b5) (iOS 18.1 beta 4 and below)
-- [lrdsnow](https://github.com/Lrdsnow) for [EU Enabler](https://github.com/Lrdsnow/EUEnabler)
-- [pymobiledevice3](https://github.com/doronz88/pymobiledevice3) for restoring and device algorithms.
-- [PySide6](https://doc.qt.io/qtforpython-6/) for the GUI library.
+- [JJTech][JJTechGitHub] for Sparserestore/[TrollRestore][TrollStoreGitHub]
+- [PosterRestore][PosterRestoreDiscord] for their help with PosterBoard
+  - Special thanks to [dootskyre][dootskyreX], [Middo][MiddoX], [dulark][dularkGitHub], forcequitOS, and pingubow for their work on this. It would not have been possible without them!
+  - Thanks to [Snoolie for aar handling][python-aar-stuffGitHub]!
+  - Thanks to [SerStars][SerStarsX] for creating [the website][WallpapersWebsite]!
+- [disfordottie][disfordottieX] for some global flag features
+- [Mikasa-san][Mikasa-sanGitHub] for [Quiet Daemon][QuietDaemonGitHub]
+- [sneakyf1shy][sneakyf1shyGitHub] for [AI Eligibility][AIEligibilityGist] (iOS 18.1 beta 4 and below)
+- [lrdsnow][lrdsnowGitHub] for [EU Enabler][EUEnablerGitHub]
+- [pymobiledevice3][pymobiledevice3GitHub] for restoring and device algorithms.
+- [PySide6][PySide6Doc] for the GUI library.
+
+[NuggetLogo]: https://raw.githubusercontent.com/leminlimez/Nugget/refs/heads/main/credits/small_nugget.png
+[CowabungaLite]: https://github.com/leminlimez/CowabungaLite
+[WallpapersWebsite]: https://cowabun.ga/wallpapers
+[AppleDevices]: https://apps.microsoft.com/detail/9np83lwlpz9k
+[iTunes]: https://support.apple.com/en-us/106372
+[usbmuxdGitHub]: https://github.com/libimobiledevice/usbmuxd
+[libimobiledeviceGitHub]: https://github.com/libimobiledevice/libimobiledevice
+[ShortcutsApp]: https://apps.apple.com/us/app/shortcuts/id915249334
+[MobilegestaltShortcut]: https://www.icloud.com/shortcuts/d6f0a136ddda4714a80750512911c53b
+[ReadMoreGist]: https://gist.github.com/leminlimez/c602c067349140fe979410ef69d39c28
+
+[JJTechGitHub]: https://github.com/JJTech0130
+[TrollStoreGitHub]: https://github.com/JJTech0130/TrollRestore
+[PosterRestoreDiscord]: https://discord.gg/gWtzTVhMvh
+[dootskyreX]: https://x.com/dootskyre
+[MiddoX]: https://x.com/MWRevamped
+[dularkGitHub]: https://github.com/dularkian
+[SerStarsX]: https://x.com/SerStars_lol
+[disfordottieX]: https://x.com/disfordottie
+[Mikasa-sanGitHub]: https://github.com/Mikasa-san
+[QuietDaemonGitHub]: https://github.com/Mikasa-san/QuietDaemon
+[sneakyf1shyGitHub]: https://github.com/f1shy-dev
+[lrdsnowGitHub]: https://github.com/Lrdsnow
+[EUEnablerGitHub]: https://github.com/Lrdsnow/EUEnabler
+[pymobiledevice3GitHub]: https://github.com/doronz88/pymobiledevice3
+[PySide6Doc]: https://doc.qt.io/qtforpython-6/
+[python-aar-stuffGitHub]: https://github.com/0xilis/python-aar-stuff
+[AIEligibilityGist]: https://gist.github.com/f1shy-dev/23b4a78dc283edd30ae2b2e6429129b5
