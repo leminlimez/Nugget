@@ -115,8 +115,8 @@ This uses the sparserestore exploit to write to files outside of the intended re
 <details>
 <summary>For Running Python</summary>
 
-  - pymobiledevice3
-  - PySide6
+  - [pymobiledevice3][pymobiledevice3GitHub]
+  - [PySide6][PySide6Doc]
   - Python 3.8 or newer
 </details>
 
