@@ -5,13 +5,15 @@ Unlock your device's full potential!
 
 Sparserestore works on all versions iOS 17.0-18.1.1. There is partial support for iOS 18.2 developer beta 3 and newer not using any exploits.
 
-**Mobilegestalt and AI Enabler tweaks are not supported on iOS 18.2+.** It will never be supported, do not make issues asking for when it is supported.
+> [!WARNING]
+> **Mobilegestalt and AI Enabler tweaks are not supported on iOS 18.2+.** It will never be supported, do not make issues asking for when it is supported.
 
 Make sure you have installed the [requirements](#requirements) if you are on Windows or Linux.
 
 This uses the sparserestore exploit to write to files outside of the intended restore location, like mobilegestalt. Read the [Getting the File](#getting-the-file) section to learn how to get your mobilegestalt file.
 
-**Note:** I am not responsible if your device bootloops. Please back up your data before using!
+> [!NOTE]
+> I am not responsible if your device bootloops. Please back up your data before using!
 
 ## Features
 <details>
@@ -92,46 +94,76 @@ This uses the sparserestore exploit to write to files outside of the intended re
 <details>
 <summary>iOS 18.1 - 18.1.1</summary>
 
-- AI Enabler + Device Spoofing
+- AI Enabler
+- Device Spoofing
 </details>
 
 ## Requirements:
-- **Windows:**
-  - Either [Apple Devices (from Microsoft Store)](https://apps.microsoft.com/detail/9np83lwlpz9k%3Fhl%3Den-US%26gl%3DUS&ved=2ahUKEwjE-svo7qyJAxWTlYkEHQpbH3oQFnoECBoQAQ&usg=AOvVaw0rZTXCFmRaHAifkEEu9tMI) app or [iTunes (from Apple website)](https://support.apple.com/en-us/106372)
-- **Linux:**
-  - [usbmuxd](https://github.com/libimobiledevice/usbmuxd) and [libimobiledevice](https://github.com/libimobiledevice/libimobiledevice)
+<details>
+<summary>Windows</summary>
+  
+  - Either [Apple Devices (from Microsoft Store)](https://apps.microsoft.com/detail/9np83lwlpz9k%3Fhl%3Den-US%26gl%3DUS&ved=2ahUKEwjE-svo7qyJAxWTlYkEHQpbH3oQFnoECBoQAQ&usg=AOvVaw0rZTXCFmRaHAifkEEu9tMI) App or [iTunes (from Apple website)](https://support.apple.com/en-us/106372)
+</details>
 
-- **For Running Python:**
+<details>
+<summary>Linux</summary>
+
+  - [usbmuxd](https://github.com/libimobiledevice/usbmuxd)
+  - [libimobiledevice](https://github.com/libimobiledevice/libimobiledevice)
+</details>
+
+<details>
+<summary>For Running Python</summary>
+
   - pymobiledevice3
   - PySide6
   - Python 3.8 or newer
+</details>
 
 ## Running the Python Program
-Note: It is highly recommended to use a virtual environment:
+> [!NOTE]
+> It is highly recommended to use a virtual environment:
+> ```py
+> python3 -m venv .env # only needed once
+> ```
+macOS/Linux:
+```py
+source .env/bin/activate
 ```
-python3 -m venv .env # only needed once
-# macOS/Linux:  source .env/bin/activate
-# Windows:      .env/Scripts/activate.bat
+Windows:
+```py
+.env/Scripts/activate.bat
+```
+Install Packages:
+```py
 pip3 install -r requirements.txt # only needed once
 python3 main_app.py
 ```
-Note: It may be either `python`/`pip` or `python3`/`pip3` depending on your path.
+> [!NOTE]
+> It may be either `python`/`pip` or `python3`/`pip3` depending on your path.
 
-The CLI version can be ran with `python3 cli_app.py`.
+The CLI version can be ran with:
+```py 
+python3 cli_app.py
+```
 
 ## Getting the File
 On iOS 18.1.1 and below, you may need to get the mobilegestalt file that is specific to your device. To do that, follow these steps:
-1. Install the `Shortcuts` app from the iOS app store.
-2. Download this shortcut: https://www.icloud.com/shortcuts/d6f0a136ddda4714a80750512911c53b
+1. Install the [Shortcuts](https://apps.apple.com/us/app/shortcuts/id915249334) app from the iOS app store.
+2. Download this shortcut: [Save MobileGestalt](https://www.icloud.com/shortcuts/d6f0a136ddda4714a80750512911c53b)
 3. Save the file and share it to your computer.
 4. Place it in the same folder as the python file (or specify the path in the program)
 
 ## Building
 To compile `mainwindow.ui` for Python, run the following command:
-`pyside6-uic qt/mainwindow.ui -o qt/ui_mainwindow.py`
+```py
+pyside6-uic qt/mainwindow.ui -o qt/ui_mainwindow.py
+```
 
 To compile the resources file for Python, run the following command:
-`pyside6-rcc qt/resources.qrc -o resources_rc.py`
+```py
+pyside6-rcc qt/resources.qrc -o resources_rc.py
+```
 
 The application itself can be compiled by running `compile.py`.
 
@@ -140,13 +172,20 @@ If you would like to read more about the inner workings of the exploit and iOS r
 For clarity, up to iOS 18.2 developer beta 2 (public beta 1) is fully supported by Nugget. I said iOS 18.1.1 because mentioning the betas confused people.
 
 ## Arbitrary Star Graph
-[![Star History Chart](https://api.star-history.com/svg?repos=leminlimez/Nugget&type=Date)](https://www.star-history.com/#leminlimez/Nugget&Date)
+<a href="https://www.star-history.com/#leminlimez/Nugget&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=leminlimez/Nugget&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=leminlimez/Nugget&type=Date" />
+    <img alt="Star History" src="https://api.star-history.com/svg?repos=leminlimez/Nugget&type=Date" />
+  </picture>
+</a>
 
 ## Credits
 - [JJTech](https://github.com/JJTech0130) for Sparserestore/[TrollRestore](https://github.com/JJTech0130/TrollRestore)
 - [PosterRestore](https://discord.gg/gWtzTVhMvh) for their help with PosterBoard
-  - Special thanks to dootskyre, [Middo](https://twitter.com/MWRevamped), [dulark](https://github.com/dularkian), forcequitOS, and pingubow for their work on this. It would not have been possible without them!
-  - Also thanks to [Snoolie for aar handling](https://github.com/0xilis/python-aar-stuff)
+  - Special thanks to [dootskyre](https://x.com/dootskyre), [Middo](https://x.com/MWRevamped), [dulark](https://github.com/dularkian), forcequitOS, and pingubow for their work on this. It would not have been possible without them!
+  - Thanks to [Snoolie for aar handling](https://github.com/0xilis/python-aar-stuff)!
+  - Thanks to [SerStars](https://x.com/SerStars_lol) for creating [the website](https://cowabun.ga/wallpapers)!
 - [disfordottie](https://x.com/disfordottie) for some global flag features
 - [Mikasa-san](https://github.com/Mikasa-san) for [Quiet Daemon](https://github.com/Mikasa-san/QuietDaemon)
 - [sneakyf1shy](https://github.com/f1shy-dev) for [AI Eligibility](https://gist.github.com/f1shy-dev/23b4a78dc283edd30ae2b2e6429129b5) (iOS 18.1 beta 4 and below)
