@@ -21,7 +21,7 @@ from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 from tweaks.daemons_tweak import Daemon
 
 App_Version = "5.1.1"
-App_Build = 1
+App_Build = 0
 
 class Page(Enum):
     Home = 0
@@ -994,7 +994,7 @@ class MainWindow(QtWidgets.QMainWindow):
             tweaks["PosterBoard"].videoThumbnail = None
             self.ui.pbVideoThumbLbl.setText("Current Thumbnail: None")
     def on_chooseVideoBtn_clicked(self):
-        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select Video File", "", "Video Files (*.mov *.mp4)", options=QtWidgets.QFileDialog.ReadOnly)
+        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select Video File", "", "Video Files (*.mov *.mp4 *.mkv)", options=QtWidgets.QFileDialog.ReadOnly)
         tweaks["PosterBoard"].resetting = False
         if selected_file != None and selected_file != "":
             tweaks["PosterBoard"].videoFile = selected_file
