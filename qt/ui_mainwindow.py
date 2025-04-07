@@ -756,7 +756,7 @@ class Ui_Nugget(object):
         self.helpFromBtn = QToolButton(self.horizontalWidget_21)
         self.helpFromBtn.setObjectName(u"helpFromBtn")
         self.helpFromBtn.setEnabled(True)
-        self.helpFromBtn.setMinimumSize(QSize(145, 35))
+        self.helpFromBtn.setMinimumSize(QSize(140, 35))
         self.helpFromBtn.setStyleSheet(u"QToolButton {\n"
 "	background: none;\n"
 "}")
@@ -3611,6 +3611,9 @@ class Ui_Nugget(object):
         self.leminKoFiBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
         self.toolButton_14.setText(QCoreApplication.translate("Nugget", u"Main Developer", None))
         self.helpFromBtn.setText(QCoreApplication.translate("Nugget", u"With Help From", None))
+#if QT_CONFIG(tooltip)
+        self.posterRestoreBtn.setToolTip(QCoreApplication.translate("Nugget", u"dootskyre, dulark, forcequitOS, pengubow, Middo, and SerStars", None))
+#endif // QT_CONFIG(tooltip)
         self.posterRestoreBtn.setText(QCoreApplication.translate("Nugget", u"PosterRestore Team\n"
 "Posterboard", None))
         self.snoolieBtn.setText(QCoreApplication.translate("Nugget", u"Snoolie\n"
