@@ -424,7 +424,10 @@ class DeviceManager:
                         )
 
             # restore to the device
-            update_label("Restoring to device...\nDo NOT Unplug")
+            do_not_unplug = ""
+            if self.data_singleton.current_device.connected_via_usb:
+                do_not_unplug = "\nDo NOT Unplug"
+            update_label(f"Restoring to device...{do_not_unplug}")
             restore_files(files=files_to_restore, reboot=self.auto_reboot, lockdown_client=self.data_singleton.current_device.ld)
             if tmp_pb_dir != None:
                 try:
