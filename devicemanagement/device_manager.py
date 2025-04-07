@@ -109,7 +109,7 @@ class DeviceManager:
                         else:
                             cpu = cpu_type
                     except:
-                        pass
+                        show_error_msg(txt="Click \"Show Details\" for the traceback.", detailed_txt=str(traceback.format_exc()))
                     dev = Device(
                             uuid=device.serial,
                             usb=device.is_usb,
@@ -124,6 +124,8 @@ class DeviceManager:
                         )
                     tweaks["RdarFix"].get_rdar_mode(model)
                     self.devices.append(dev)
+                except PasswordRequiredError as e:
+                    show_error_msg(txt="Device is password protected! You must trust the computer on your device.\n\nUnlock your device. On the popup, click \"Trust\", enter your password, then try again.")
                 except MuxException as e:
                     # there is probably a cable issue
                     print(f"MUX ERROR with lockdown device with UUID {device.serial}")
