@@ -1385,7 +1385,7 @@ QToolButton:pressed {
                       </property>
                       <property name="minimumSize">
                        <size>
-                        <width>145</width>
+                        <width>140</width>
                         <height>35</height>
                        </size>
                       </property>
@@ -1415,6 +1415,9 @@ QToolButton:pressed {
                         <width>0</width>
                         <height>37</height>
                        </size>
+                      </property>
+                      <property name="toolTip">
+                       <string>dootskyre, dulark, forcequitOS, pengubow, Middo, and SerStars</string>
                       </property>
                       <property name="styleSheet">
                        <string notr="true">QToolButton {
