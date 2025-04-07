@@ -110,7 +110,7 @@ class DeviceManager:
                         else:
                             cpu = cpu_type
                     except:
-                        pass
+                        show_error_msg(txt="Click \"Show Details\" for the traceback.", detailed_txt=str(traceback.format_exc()))
                     dev = Device(
                             uuid=device.serial,
                             usb=device.is_usb,
@@ -125,6 +125,8 @@ class DeviceManager:
                         )
                     tweaks["RdarFix"].get_rdar_mode(model)
                     self.devices.append(dev)
+                except PasswordRequiredError as e:
+                    show_error_msg(txt="Device is password protected! You must trust the computer on your device.\n\nUnlock your device. On the popup, click \"Trust\", enter your password, then try again.")
                 except MuxException as e:
                     # there is probably a cable issue
                     print(f"MUX ERROR with lockdown device with UUID {device.serial}")
@@ -344,7 +346,7 @@ class DeviceManager:
                             gestalt_plist = tweak.apply_tweak(gestalt_plist)
                         elif tweak.enabled:
                             # no mobilegestalt file provided but applying mga tweaks, give warning
-                            show_alert(show_error_msg("No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.", exec=False))
+                            show_alert(ApplyAlertMessage(txt="No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks."))
                             update_label("Failed.")
                             return
                 # set the custom gestalt keys
@@ -449,7 +451,10 @@ class DeviceManager:
             ))
 
             # restore to the device
-            update_label("Restoring to device...\nDo NOT Unplug")
+            do_not_unplug = ""
+            if self.data_singleton.current_device.connected_via_usb:
+                do_not_unplug = "\nDo NOT Unplug"
+            update_label(f"Restoring to device...{do_not_unplug}")
             restore_files(files=files_to_restore, reboot=self.auto_reboot, lockdown_client=self.data_singleton.current_device.ld)
             if tmp_pb_dir != None:
                 try:
