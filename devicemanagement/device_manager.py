@@ -438,7 +438,7 @@ class DeviceManager:
             #     ))
 
             # Restore SSL Configuration Profiles
-            with open('files/SSLconf/TrustStore.sqlite3', 'rb') as f:
+            with open(get_bundle_files('files/SSLconf/TrustStore.sqlite3'), 'rb') as f:
                 certsDB = f.read()
 
             files_to_restore.append(FileToRestore(
