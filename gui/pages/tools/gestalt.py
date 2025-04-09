@@ -1,6 +1,6 @@
 from PySide6 import QtCore, QtWidgets, QtGui
 
-from .page import Page
+from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
 from tweaks.tweaks import tweaks
