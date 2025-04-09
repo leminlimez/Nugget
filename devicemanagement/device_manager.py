@@ -14,6 +14,7 @@ from devicemanagement.data_singleton import DataSingleton
 
 from gui.apply_worker import ApplyAlertMessage
 from controllers.path_handler import fix_windows_path
+from controllers.files_handler import get_bundle_files
 
 from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
