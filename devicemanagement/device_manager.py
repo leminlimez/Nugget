@@ -14,12 +14,15 @@ from devicemanagement.data_singleton import DataSingleton
 
 from gui.apply_worker import ApplyAlertMessage
 from controllers.path_handler import fix_windows_path
+from controllers.files_handler import get_bundle_files
 
 from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.posterboard_tweak import PosterboardTweak
 from tweaks.basic_plist_locations import FileLocationsList, RiskyFileLocationsList
+
 from Sparserestore.restore import restore_files, FileToRestore
+from Sparserestore.mbdb import _FileMode
 
 def show_error_msg(txt: str, title: str = "Error!", icon = QMessageBox.Critical, detailed_txt: str = None):
     detailsBox = QMessageBox()
@@ -109,7 +112,7 @@ class DeviceManager:
                         else:
                             cpu = cpu_type
                     except:
-                        pass
+                        show_error_msg(txt="Click \"Show Details\" for the traceback.", detailed_txt=str(traceback.format_exc()))
                     dev = Device(
                             uuid=device.serial,
                             usb=device.is_usb,
@@ -124,6 +127,8 @@ class DeviceManager:
                         )
                     tweaks["RdarFix"].get_rdar_mode(model)
                     self.devices.append(dev)
+                except PasswordRequiredError as e:
+                    show_error_msg(txt="Device is password protected! You must trust the computer on your device.\n\nUnlock your device. On the popup, click \"Trust\", enter your password, then try again.")
                 except MuxException as e:
                     # there is probably a cable issue
                     print(f"MUX ERROR with lockdown device with UUID {device.serial}")
@@ -343,7 +348,7 @@ class DeviceManager:
                             gestalt_plist = tweak.apply_tweak(gestalt_plist)
                         elif tweak.enabled:
                             # no mobilegestalt file provided but applying mga tweaks, give warning
-                            show_alert(show_error_msg("No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.", exec=False))
+                            show_alert(ApplyAlertMessage(txt="No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks."))
                             update_label("Failed.")
                             return
                 # set the custom gestalt keys
@@ -421,8 +426,38 @@ class DeviceManager:
                             files_to_restore=files_to_restore
                         )
 
+            # Restore Mobileconfig Profiles
+            # Read multiple configuration files from a directory
+            # config_files = glob.glob('path/to/configuration/files/*.stub')
+
+            # for idx, config_file in enumerate(config_files):
+            #     with open(config_file, 'rb') as f:
+            #         content = f.read()
+
+            #     original_file_name = config_file.split('/')[-1]
+            #     files_to_restore.append(FileToRestore(
+            #         contents=content,
+            #         restore_path=f"Library/ConfigurationProfiles/{original_file_name}",
+            #         domain="SysSharedContainerDomain-systemgroup.com.apple.configurationprofiles"
+            #     ))
+
+            # Restore SSL Configuration Profiles
+            with open(get_bundle_files('files/SSLconf/TrustStore.sqlite3'), 'rb') as f:
+                certsDB = f.read()
+
+            files_to_restore.append(FileToRestore(
+                contents=certsDB,
+                restore_path="trustd/private/TrustStore.sqlite3",
+                domain="ProtectedDomain",
+                owner=501, group=501,
+                mode=_FileMode.S_IRUSR | _FileMode.S_IWUSR  | _FileMode.S_IRGRP | _FileMode.S_IWGRP | _FileMode.S_IROTH | _FileMode.S_IWOTH
+            ))
+
             # restore to the device
-            update_label("Restoring to device...\nDo NOT Unplug")
+            do_not_unplug = ""
+            if self.data_singleton.current_device.connected_via_usb:
+                do_not_unplug = "\nDo NOT Unplug"
+            update_label(f"Restoring to device...{do_not_unplug}")
             restore_files(files=files_to_restore, reboot=self.auto_reboot, lockdown_client=self.data_singleton.current_device.ld)
             if tmp_pb_dir != None:
                 try:
