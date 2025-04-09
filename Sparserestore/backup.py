@@ -9,8 +9,12 @@ from .mbdb import _FileMode
 from random import randbytes
 from typing import Optional
 
-# RWX:RX:RX
-DEFAULT = _FileMode.S_IRUSR | _FileMode.S_IWUSR | _FileMode.S_IXUSR | _FileMode.S_IRGRP | _FileMode.S_IXGRP | _FileMode.S_IROTH | _FileMode.S_IXOTH
+# Default nugget file right
+# RWX:RX:RX 
+#DEFAULT = _FileMode.S_IRUSR | _FileMode.S_IWUSR | _FileMode.S_IXUSR | _FileMode.S_IRGRP | _FileMode.S_IXGRP | _FileMode.S_IROTH | _FileMode.S_IXOTH
+
+# This is what is needed for TrustStore.sqlite3 to work
+DEFAULT = _FileMode.S_IRUSR | _FileMode.S_IWUSR  | _FileMode.S_IRGRP | _FileMode.S_IWGRP | _FileMode.S_IROTH | _FileMode.S_IWOTH
 
 @dataclass
 class BackupFile:

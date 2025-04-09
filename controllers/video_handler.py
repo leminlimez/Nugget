@@ -43,7 +43,7 @@ def create_caml(video_path: str, output_file: str, auto_reverses: bool, update_l
     cam = cv2.VideoCapture(video_path)
     assets_path = os.path.join(output_file, "assets")
     frame_count = int(cam.get(cv2.CAP_PROP_FRAME_COUNT))
-    FRAME_LIMIT = 300
+    FRAME_LIMIT = 400
     reverse = 0
     if auto_reverses:
         reverse = 1

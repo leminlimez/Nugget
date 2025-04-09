@@ -20,6 +20,7 @@ from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.posterboard.posterboard_tweak import PosterboardTweak
 from tweaks.basic_plist_locations import FileLocationsList, RiskyFileLocationsList
 from Sparserestore.restore import restore_files, FileToRestore
+import glob
 
 def show_error_msg(txt: str, title: str = "Error!", icon = QMessageBox.Critical, detailed_txt: str = None):
     detailsBox = QMessageBox()
@@ -422,6 +423,32 @@ class DeviceManager:
                             path=location.value,
                             files_to_restore=files_to_restore
                         )
+
+            # Restore Mobileconfig Profiles
+            # Read multiple configuration files from a directory
+            # config_files = glob.glob('path/to/configuration/files/*.stub')
+
+            # for idx, config_file in enumerate(config_files):
+            #     with open(config_file, 'rb') as f:
+            #         content = f.read()
+
+            #     original_file_name = config_file.split('/')[-1]
+            #     files_to_restore.append(FileToRestore(
+            #         contents=content,
+            #         restore_path=f"Library/ConfigurationProfiles/{original_file_name}",
+            #         domain="SysSharedContainerDomain-systemgroup.com.apple.configurationprofiles"
+            #     ))
+
+            # Restore SSL Configuration Profiles
+            with open(get_bundle_files('files/SSLconf/TrustStore.sqlite3'), 'rb') as f:
+                certsDB = f.read()
+
+            files_to_restore.append(FileToRestore(
+                contents=certsDB,
+                restore_path="trustd/private/TrustStore.sqlite3",
+                domain="ProtectedDomain",
+                owner=501, group=501
+            ))
 
             # restore to the device
             do_not_unplug = ""
