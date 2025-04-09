@@ -7,22 +7,20 @@ import plistlib
 from pymobiledevice3.lockdown import create_using_usbmux
 
 from qt.ui_mainwindow import Ui_Nugget
+import gui.pages as Pages
 
 from controllers.web_request_handler import is_update_available
 
 from devicemanagement.constants import Version
 from devicemanagement.device_manager import DeviceManager
 
-from gui.dialogs import GestaltDialog, UpdateAppDialog, PBHelpDialog
+from gui.dialogs import GestaltDialog, UpdateAppDialog
 from gui.apply_worker import ApplyThread, ApplyAlertMessage
 
 from tweaks.tweaks import tweaks
-from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
-from tweaks.daemons_tweak import Daemon
-from tweaks.posterboard.template_options import OptionType as TemplateOptionTypePB
 
 App_Version = "5.2"
-App_Build = 2
+App_Build = 3
 
 class Page(Enum):
     Home = 0
@@ -44,11 +42,22 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui = Ui_Nugget()
         self.ui.setupUi(self)
         self.show_uuid = False
-        self.pb_mainLayout = None
-        self.pb_templateLayout = None
-        self.applying_in_progress = False
+        self.thread_in_progress = False
         self.threadpool = QtCore.QThreadPool()
         self.loadSettings()
+
+        # pre-load the pages
+        self.pages = {
+            Page.Posterboard: Pages.Posterboard(window=self, ui=self.ui),
+            Page.Gestalt: Pages.MobileGestalt(window=self, ui=self.ui),
+            Page.EUEnabler: Pages.Eligibility(window=self, ui=self.ui),
+            Page.FeatureFlags: Pages.FeatureFlags(ui=self.ui),
+            Page.Springboard: Pages.Springboard(ui=self.ui),
+            Page.InternalOptions: Pages.Internal(ui=self.ui),
+            Page.Daemons: Pages.Daemons(ui=self.ui),
+            Page.RiskyTweaks: Pages.Risky(ui=self.ui),
+            Page.Settings: Pages.Settings(window=self, ui=self.ui)
+        }
 
         # Check for an update
         if is_update_available(App_Version, App_Build):
@@ -98,154 +107,12 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.discordBtn.clicked.connect(self.on_discordBtn_clicked)
 
-        ## ELIGIBILITY PAGE ACTIONS
-        self.ui.euEnablerEnabledChk.toggled.connect(self.on_euEnablerEnabledChk_toggled)
-        self.ui.methodChoiceDrp.activated.connect(self.on_methodChoiceDrp_activated)
-        self.ui.regionCodeTxt.textEdited.connect(self.on_regionCodeTxt_textEdited)
-
-        self.ui.enableAIChk.toggled.connect(self.on_enableAIChk_toggled)
-        self.ui.eligFileChk.toggled.connect(self.on_eligFileChk_toggled)
-        self.ui.languageTxt.hide() # to be removed later
-        self.ui.languageLbl.hide() # to be removed later
-        self.ui.languageTxt.textEdited.connect(self.on_languageTxt_textEdited)
-        self.ui.spoofedModelDrp.activated.connect(self.on_spoofedModelDrp_activated)
-        self.ui.spoofHardwareChk.toggled.connect(self.on_spoofHardwareChk_toggled)
-        self.ui.spoofCPUChk.toggled.connect(self.on_spoofCPUChk_toggled)
-
-        ## FEATURE FLAGS PAGE
-        self.ui.clockAnimChk.toggled.connect(self.on_clockAnimChk_toggled)
-        self.ui.lockscreenChk.toggled.connect(self.on_lockscreenChk_clicked)
-        self.ui.photosChk.toggled.connect(self.on_photosChk_clicked)
-        self.ui.aiChk.toggled.connect(self.on_aiChk_clicked)
-
-        ## SPRINGBOARD OPTIONS PAGE ACTIONS
-        self.ui.footnoteTxt.textEdited.connect(self.on_footnoteTxt_textEdited)
-        self.ui.disableLockRespringChk.toggled.connect(self.on_disableLockRespringChk_clicked)
-        self.ui.disableDimmingChk.toggled.connect(self.on_disableDimmingChk_clicked)
-        self.ui.disableBatteryAlertsChk.toggled.connect(self.on_disableBatteryAlertsChk_clicked)
-        self.ui.disableCrumbChk.toggled.connect(self.on_disableCrumbChk_clicked)
-        self.ui.enableSupervisionTextChk.toggled.connect(self.on_enableSupervisionTextChk_clicked)
-        self.ui.enableAirPlayChk.toggled.connect(self.on_enableAirPlayChk_clicked)
-
-        ## INTERNAL OPTIONS PAGE ACTIONS
-        self.ui.buildVersionChk.toggled.connect(self.on_buildVersionChk_clicked)
-        self.ui.RTLChk.toggled.connect(self.on_RTLChk_clicked)
-        self.ui.metalHUDChk.toggled.connect(self.on_metalHUDChk_clicked)
-        self.ui.iMessageChk.toggled.connect(self.on_iMessageChk_clicked)
-        self.ui.IDSChk.toggled.connect(self.on_IDSChk_clicked)
-        self.ui.VCChk.toggled.connect(self.on_VCChk_clicked)
-        self.ui.appStoreChk.toggled.connect(self.on_appStoreChk_clicked)
-        self.ui.notesChk.toggled.connect(self.on_notesChk_clicked)
-        self.ui.showTouchesChk.toggled.connect(self.on_showTouchesChk_clicked)
-        self.ui.hideRespringChk.toggled.connect(self.on_hideRespringChk_clicked)
-        self.ui.enableWakeVibrateChk.toggled.connect(self.on_enableWakeVibrateChk_clicked)
-        self.ui.pasteSoundChk.toggled.connect(self.on_pasteSoundChk_clicked)
-        self.ui.notifyPastesChk.toggled.connect(self.on_notifyPastesChk_clicked)
-
-        ## DAEMONS PAGE ACTIONS
-        self.ui.modifyDaemonsChk.toggled.connect(self.on_modifyDaemonsChk_clicked)
-        self.ui.thermalmonitordChk.toggled.connect(self.on_thermalmonitordChk_clicked)
-        self.ui.otadChk.toggled.connect(self.on_otadChk_clicked)
-        self.ui.usageTrackingAgentChk.toggled.connect(self.on_usageTrackingAgentChk_clicked)
-
-        self.ui.gameCenterChk.toggled.connect(self.on_gameCenterChk_clicked)
-        self.ui.screenTimeChk.toggled.connect(self.on_screenTimeChk_clicked)
-        self.ui.clearScreenTimeAgentChk.toggled.connect(self.on_clearScreenTimeAgentChk_clicked)
-        self.ui.crashReportsChk.toggled.connect(self.on_crashReportsChk_clicked)
-        self.ui.atwakeupChk.toggled.connect(self.on_atwakeupChk_clicked)
-        self.ui.tipsChk.toggled.connect(self.on_tipsChk_clicked)
-        self.ui.vpndChk.toggled.connect(self.on_vpndChk_clicked)
-        self.ui.wapicChk.toggled.connect(self.on_wapicChk_clicked)
-        self.ui.healthdChk.toggled.connect(self.on_healthdChk_clicked)
-
-        self.ui.airprintChk.toggled.connect(self.on_airprintChk_clicked)
-        self.ui.assistiveTouchChk.toggled.connect(self.on_assistiveTouchChk_clicked)
-        self.ui.icloudChk.toggled.connect(self.on_icloudChk_clicked)
-        self.ui.hotspotChk.toggled.connect(self.on_hotspotChk_clicked)
-        self.ui.passbookChk.toggled.connect(self.on_passbookChk_clicked)
-        self.ui.spotlightChk.toggled.connect(self.on_spotlightChk_clicked)
-        self.ui.voiceControlChk.toggled.connect(self.on_voiceControlChk_clicked)
-
-        ## POSTERBOARD PAGE ACTIONS
-        self.ui.modifyPosterboardsChk.toggled.connect(self.on_modifyPosterboardsChk_clicked)
-        self.ui.tendiesPageBtn.clicked.connect(self.on_tendiesPageBtn_clicked)
-        self.ui.templatePageBtn.clicked.connect(self.on_templatePageBtn_clicked)
-        self.ui.videoPageBtn.clicked.connect(self.on_videoPageBtn_clicked)
-
-        self.ui.importTendiesBtn.clicked.connect(self.on_importTendiesBtn_clicked)
-        self.ui.resetPRBExtBtn.clicked.connect(self.on_resetPRBExtBtn_clicked)
-        self.ui.deleteAllDescriptorsBtn.clicked.connect(self.on_deleteAllDescriptorsBtn_clicked)
-
-        self.ui.importTemplateBtn.clicked.connect(self.on_importTemplatesBtn_clicked)
-
-        self.ui.chooseThumbBtn.clicked.connect(self.on_chooseThumbBtn_clicked)
-        self.ui.chooseVideoBtn.clicked.connect(self.on_chooseVideoBtn_clicked)
-        self.ui.clearSuggestedBtn.clicked.connect(self.on_clearSuggestedBtn_clicked)
-        self.ui.caVideoChk.toggled.connect(self.on_caVideoChk_toggled)
-        self.ui.reverseLoopChk.toggled.connect(self.on_reverseLoopChk_toggled)
-        self.ui.useForegroundChk.toggled.connect(self.on_useForegroundChk_toggled)
-        self.ui.clearSuggestedBtn.hide()
-        self.ui.chooseThumbBtn.hide()
-        self.ui.pbVideoThumbLbl.hide()
-        
-        self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
-        self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)
-
-        ## RISKY OPTIONS PAGE ACTIONS
-        self.ui.disableOTAChk.toggled.connect(self.on_disableOTAChk_clicked)
-        self.ui.enableResolutionChk.toggled.connect(self.on_enableResolutionChk_clicked)
-        self.ui.resHeightTxt.textEdited.connect(self.on_resHeightTxt_textEdited)
-        self.ui.resWidthTxt.textEdited.connect(self.on_resWidthTxt_textEdited)
-
         ## APPLY PAGE ACTIONS
         self.ui.applyTweaksBtn.clicked.connect(self.on_applyPageBtn_clicked)
         self.ui.removeTweaksBtn.clicked.connect(self.on_removeTweaksBtn_clicked)
         self.ui.chooseGestaltBtn.clicked.connect(self.on_chooseGestaltBtn_clicked)
         self.ui.resetGestaltBtn.clicked.connect(self.on_resetGestaltBtn_clicked)
 
-        ## SETTINGS PAGE ACTIONS
-        self.ui.allowWifiApplyingChk.toggled.connect(self.on_allowWifiApplyingChk_toggled)
-        self.ui.autoRebootChk.toggled.connect(self.on_autoRebootChk_toggled)
-        self.ui.showRiskyChk.toggled.connect(self.on_showRiskyChk_toggled)
-        self.ui.showAllSpoofableChk.toggled.connect(self.on_showAllSpoofableChk_toggled)
-
-        self.ui.revertRdarChk.toggled.connect(self.on_revertRdarChk_toggled)
-
-        self.ui.skipSetupChk.toggled.connect(self.on_skipSetupChk_toggled)
-        self.ui.supervisionChk.toggled.connect(self.on_supervisionChk_toggled)
-        self.ui.supervisionOrganization.textEdited.connect(self.on_supervisionOrgTxt_textEdited)
-        self.ui.resetPairBtn.clicked.connect(self.on_resetPairBtn_clicked)
-
-        ## MOBILE GESTALT PAGE ACTIONS
-        self.ui.dynamicIslandDrp.activated.connect(self.on_dynamicIslandDrp_activated)
-        self.ui.rdarFixChk.clicked.connect(self.on_rdarFixChk_clicked)
-        self.ui.modelNameChk.toggled.connect(self.on_modelNameChk_clicked)
-        self.ui.modelNameTxt.textEdited.connect(self.on_modelNameTxt_textEdited)
-
-        self.ui.bootChimeChk.clicked.connect(self.on_bootChimeChk_clicked)
-        self.ui.chargeLimitChk.clicked.connect(self.on_chargeLimitChk_clicked)
-        self.ui.tapToWakeChk.clicked.connect(self.on_tapToWakeChk_clicked)
-        self.ui.iphone16SettingsChk.clicked.connect(self.on_iphone16SettingsChk_clicked)
-        self.ui.parallaxChk.clicked.connect(self.on_parallaxChk_clicked)
-        self.ui.stageManagerChk.clicked.connect(self.on_stageManagerChk_clicked)
-        self.ui.enableMedusaChk.clicked.connect(self.on_enableMedusaChk_clicked)
-        self.ui.ipadAppsChk.clicked.connect(self.on_ipadAppsChk_clicked)
-        self.ui.shutterChk.clicked.connect(self.on_shutterChk_clicked)
-        self.ui.findMyFriendsChk.clicked.connect(self.on_findMyFriendsChk_clicked)
-        self.ui.pencilChk.clicked.connect(self.on_pencilChk_clicked)
-        self.ui.actionButtonChk.clicked.connect(self.on_actionButtonChk_clicked)
-
-        self.ui.internalInstallChk.clicked.connect(self.on_internalInstallChk_clicked)
-        self.ui.internalStorageChk.clicked.connect(self.on_internalStorageChk_clicked)
-        self.ui.collisionSOSChk.clicked.connect(self.on_collisionSOSChk_clicked)
-        self.ui.aodChk.clicked.connect(self.on_aodChk_clicked)
-        self.ui.aodVibrancyChk.clicked.connect(self.on_aodVibrancyChk_clicked)
-
-        self.ui.addGestaltKeyBtn.clicked.connect(self.on_addGestaltKeyBtn_clicked)
-        self.ui.aiEnablerContent.hide()
-        self.ui.resChangerContent.hide()
-        self.ui.resHeightWarningLbl.hide()
-        self.ui.resWidthWarningLbl.hide()
         self.ui.pbActionLbl.hide()
 
 
@@ -432,7 +299,8 @@ class MainWindow(QtWidgets.QMainWindow):
             # hide the ai content if not on
             if device_ver >= Version("18.1") and not tweaks["AIGestalt"].enabled:
                 self.ui.aiEnablerContent.hide()
-            self.setup_spoofedModelDrp_models()
+            if device_ver < Version("18.2"):
+                self.setup_spoofedModelDrp_models()
         else:
             self.device_manager.set_current_device(index=None)
 
@@ -481,33 +349,42 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.pages.setCurrentIndex(Page.Home.value)
     
     def on_gestaltPageBtn_clicked(self):
+        self.pages[Page.Gestalt].load()
         self.ui.pages.setCurrentIndex(Page.Gestalt.value)
 
     def on_featureFlagsPageBtn_clicked(self):
+        self.pages[Page.FeatureFlags].load()
         self.ui.pages.setCurrentIndex(Page.FeatureFlags.value)
     
     def on_euEnablerPageBtn_clicked(self):
+        self.pages[Page.EUEnabler].load()
         self.ui.pages.setCurrentIndex(Page.EUEnabler.value)
 
     def on_springboardOptionsPageBtn_clicked(self):
+        self.pages[Page.Springboard].load()
         self.ui.pages.setCurrentIndex(Page.Springboard.value)
 
     def on_internalOptionsPageBtn_clicked(self):
+        self.pages[Page.InternalOptions].load()
         self.ui.pages.setCurrentIndex(Page.InternalOptions.value)
 
     def on_daemonsPageBtn_clicked(self):
+        self.pages[Page.Daemons].load()
         self.ui.pages.setCurrentIndex(Page.Daemons.value)
 
     def on_posterboardPageBtn_clicked(self):
+        self.pages[Page.Posterboard].load()
         self.ui.pages.setCurrentIndex(Page.Posterboard.value)
 
     def on_advancedPageBtn_clicked(self):
+        self.pages[Page.RiskyTweaks].load()
         self.ui.pages.setCurrentIndex(Page.RiskyTweaks.value)
 
     def on_applyPageBtn_clicked(self):
         self.ui.pages.setCurrentIndex(Page.Apply.value)
 
     def on_settingsPageBtn_clicked(self):
+        self.pages[Page.Settings].load()
         self.ui.pages.setCurrentIndex(Page.Settings.value)
 
     def update_side_btn_color(self, btn: QtWidgets.QToolButton, toggled: bool):
@@ -587,693 +464,6 @@ class MainWindow(QtWidgets.QMainWindow):
         webbrowser.open_new_tab("https://cowabun.ga")
 
 
-    ## MOBILE GESTALT PAGE
-    def set_rdar_fix_label(self):
-        rdar_title = tweaks["RdarFix"].get_rdar_title()
-        if rdar_title == "hide":
-            self.ui.rdarFixChk.hide()
-        else:
-            self.ui.rdarFixChk.show()
-            self.ui.rdarFixChk.setText(f"{rdar_title} (modifies resolution)")
-    
-    def on_dynamicIslandDrp_activated(self, index: int):
-        if index == 0:
-            tweaks["DynamicIsland"].set_enabled(False)
-            tweaks["RdarFix"].set_di_type(-1)
-        else:
-            # disable X gestures on devices other than iPhone SEs
-            # the lazy way, better option would be to remove it from the menu but I didn't want to rework all that
-            model = self.device_manager.get_current_device_model()
-            if index != 1 or (model == "iPhone12,8" or model == "iPhone14,6"):
-                tweaks["DynamicIsland"].set_selected_option(index - 1)
-            else:
-                tweaks["DynamicIsland"].set_enabled(False)
-            tweaks["RdarFix"].set_di_type(tweaks["DynamicIsland"].value[tweaks["DynamicIsland"].get_selected_option()])
-        self.set_rdar_fix_label()
-    def on_rdarFixChk_clicked(self, checked: bool):
-        tweaks["RdarFix"].set_enabled(checked)
-
-    def on_modelNameChk_clicked(self, checked: bool):
-        tweaks["ModelName"].set_enabled(checked)
-    def on_modelNameTxt_textEdited(self, text: str):
-        tweaks["ModelName"].set_value(text, toggle_enabled=False)
-
-    def on_bootChimeChk_clicked(self, checked: bool):
-        tweaks["BootChime"].set_enabled(checked)
-    def on_chargeLimitChk_clicked(self, checked: bool):
-        tweaks["ChargeLimit"].set_enabled(checked)
-    def on_tapToWakeChk_clicked(self, checked: bool):
-        tweaks["TapToWake"].set_enabled(checked)
-    def on_iphone16SettingsChk_clicked(self, checked: bool):
-        tweaks["CameraButton"].set_enabled(checked)
-    def on_parallaxChk_clicked(self, checked: bool):
-        tweaks["Parallax"].set_enabled(checked)
-
-    def on_stageManagerChk_clicked(self, checked: bool):
-        tweaks["StageManager"].set_enabled(checked)
-    def on_enableMedusaChk_clicked(self, checked: bool):
-        tweaks["Medusa"].set_enabled(checked)
-    def on_ipadAppsChk_clicked(self, checked: bool):
-        tweaks["iPadApps"].set_enabled(checked)
-    def on_shutterChk_clicked(self, checked: bool):
-        # TODO: allow the user to select the region
-        tweaks["Shutter"].set_enabled(checked)
-    def on_findMyFriendsChk_clicked(self, checked: bool):
-        tweaks["FindMyFriends"].set_enabled(checked)
-    def on_pencilChk_clicked(self, checked: bool):
-        tweaks["Pencil"].set_enabled(checked)
-    def on_actionButtonChk_clicked(self, checked: bool):
-        tweaks["ActionButton"].set_enabled(checked)
-
-    def on_internalInstallChk_clicked(self, checked: bool):
-        tweaks["InternalInstall"].set_enabled(checked)
-    def on_internalStorageChk_clicked(self, checked: bool):
-        tweaks["InternalStorage"].set_enabled(checked)
-
-    def on_collisionSOSChk_clicked(self, checked: bool):
-        tweaks["CollisionSOS"].set_enabled(checked)
-    def on_aodChk_clicked(self, checked: bool):
-        tweaks["AOD"].set_enabled(checked)
-    def on_aodVibrancyChk_clicked(self, checked: bool):
-        tweaks["AODVibrancy"].set_enabled(checked)
-
-    def update_custom_gestalt_value_type(self, id, idx, valueField: QtWidgets.QLineEdit):
-        new_str = CustomGestaltTweaks.set_tweak_value_type(id, idx)
-        # update the value
-        valueField.setText(new_str)
-
-    def delete_custom_gestalt_key(self, id: int, widget: QtWidgets.QWidget):
-        CustomGestaltTweaks.deactivate_tweak(id)
-        self.ui.customKeysLayout.removeWidget(widget)
-        widget.setParent(None)
-
-    def on_addGestaltKeyBtn_clicked(self):
-        # create a blank gestalt value with default value of 1
-        key_identifier = CustomGestaltTweaks.create_tweak()
-
-        widget = QtWidgets.QWidget()
-        widget.setFixedHeight(35)
-        widget.setStyleSheet("QWidget { background: none; border: 1px solid #3b3b3b; border-radius: 8px; }")
-        hlayout = QtWidgets.QHBoxLayout(widget)
-        hlayout.setContentsMargins(9, 2, 9, 2)
-
-        # create the key field
-        keyField = QtWidgets.QLineEdit(widget)
-        # keyField.setMaximumWidth(200)
-        keyField.setPlaceholderText("Key")
-        keyField.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
-        keyField.setTextMargins(5, 0, 5, 0)
-        keyField.textEdited.connect(lambda txt, id=key_identifier: CustomGestaltTweaks.set_tweak_key(id, txt))
-        hlayout.addWidget(keyField)
-
-        # create the delete button
-        delBtn = QtWidgets.QToolButton(widget)
-        delBtn.setIcon(QtGui.QIcon(":/icon/trash.svg"))
-        delBtn.setStyleSheet("QToolButton { margin-right: 8px; background: none; border: none; }\nQToolButton:pressed { background: none; color: #FFFFFF; }")
-        delBtn.clicked.connect(lambda _, id=key_identifier, w=widget: self.delete_custom_gestalt_key(id, w))
-        hlayout.addWidget(delBtn)
-
-        # create the type dropdown
-        valueTypeDrp = QtWidgets.QComboBox(widget)
-        valueTypeDrp.setStyleSheet("QComboBox {\n	background-color: #3b3b3b;\n    border: none;\n    color: #e8e8e8;\n    font-size: 14px;\n	padding-left: 8px;\n	border-radius: 8px;\n}\n\nQComboBox::drop-down {\n    image: url(:/icon/caret-down-fill.svg);\n	icon-size: 16px;\n    subcontrol-position: right center;\n	margin-right: 8px;\n}\n\nQComboBox QAbstractItemView {\n	background-color: #3b3b3b;\n    outline: none;\n	margin-top: 1px;\n}\n\nQComboBox QAbstractItemView::item {\n	background-color: #3b3b3b;\n	color: #e8e8e8;\n    padding-left: 8px;\n}\n\nQComboBox QAbstractItemView::item:hover {\n    background-color: #535353;\n    color: #ffffff;\n}")
-        valueTypeDrp.setFixedWidth(120)
-        valueTypeDrp.addItems(ValueTypeStrings)
-        valueTypeDrp.setCurrentIndex(0)
-
-        # create the value edit field
-        valueField = QtWidgets.QLineEdit(widget)
-        valueField.setMaximumWidth(175)
-        valueField.setPlaceholderText("Value")
-        valueField.setText("1")
-        valueField.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight)
-        valueField.setTextMargins(5, 0, 5, 0)
-        valueField.textEdited.connect(lambda txt, id=key_identifier: CustomGestaltTweaks.set_tweak_value(id, txt))
-
-        valueTypeDrp.activated.connect(lambda idx, id=key_identifier, vf=valueField: self.update_custom_gestalt_value_type(id, idx, vf))
-        hlayout.addWidget(valueTypeDrp)
-        hlayout.addWidget(valueField)
-        
-        # add it to the main widget
-        widget.setDisabled(False)
-        self.ui.customKeysLayout.addWidget(widget)
-
-    
-    ## FEATURE FLAGS PAGE
-    def on_clockAnimChk_toggled(self, checked: bool):
-        tweaks["ClockAnim"].set_enabled(checked)
-    def on_lockscreenChk_clicked(self, checked: bool):
-        tweaks["Lockscreen"].set_enabled(checked)
-
-    def on_photosChk_clicked(self, checked: bool):
-        tweaks["PhotoUI"].set_enabled(checked)
-    def on_aiChk_clicked(self, checked: bool):
-        tweaks["AI"].set_enabled(checked)
-
-
-    ## ELIGIBILITY PAGE
-    def on_euEnablerEnabledChk_toggled(self, checked: bool):
-        tweaks["EUEnabler"].set_enabled(checked)
-    def on_methodChoiceDrp_activated(self, index: int):
-        tweaks["EUEnabler"].set_selected_option(index)
-    def on_regionCodeTxt_textEdited(self, text: str):
-        tweaks["EUEnabler"].set_region_code(text)
-
-    def on_enableAIChk_toggled(self, checked: bool):
-        # tweaks["AIEligibility"].set_enabled(checked)
-        tweaks["AIGestalt"].set_enabled(checked)
-        # change the visibility of stuff
-        if checked:
-            self.ui.aiEnablerContent.show()
-        else:
-            self.ui.aiEnablerContent.hide()
-
-    def on_eligFileChk_toggled(self, checked: bool):
-        tweaks["AIEligibility"].set_enabled(checked)
-        if checked:
-            self.ui.languageTxt.show()
-            self.ui.languageLbl.show()
-        else:
-            self.ui.languageTxt.hide()
-            self.ui.languageLbl.hide()
-
-    def on_languageTxt_textEdited(self, text: str):
-        tweaks["AIEligibility"].set_language_code(text)
-    
-    def on_spoofedModelDrp_activated(self, index: int):
-        idx_to_apply = index
-        if not self.device_manager.show_all_spoofable_models and not self.device_manager.get_current_device_model().startswith("iPhone"):
-            # offset the index for ipads
-            idx_to_apply += 6
-        tweaks["SpoofModel"].set_selected_option(idx_to_apply, is_enabled=(index != 0))
-        tweaks["SpoofHardware"].set_selected_option(idx_to_apply, is_enabled=(index != 0 and self.ui.spoofHardwareChk.isChecked()))
-        tweaks["SpoofCPU"].set_selected_option(idx_to_apply, is_enabled=(index != 0 and self.ui.spoofCPUChk.isChecked()))
-    def on_spoofHardwareChk_toggled(self, checked: bool):
-        tweaks["SpoofHardware"].set_enabled(checked and tweaks["SpoofHardware"].selected_option != 0)
-    def on_spoofCPUChk_toggled(self, checked: bool):
-        tweaks["SpoofCPU"].set_enabled(checked and tweaks["SpoofCPU"].selected_option != 0)
-
-
-    ## SPRINGBOARD OPTIONS PAGE
-    def on_footnoteTxt_textEdited(self, text: str):
-        tweaks["LockScreenFootnote"].set_value(text, toggle_enabled=True)
-
-    def on_disableLockRespringChk_clicked(self, checked: bool):
-        tweaks["SBDontLockAfterCrash"].set_enabled(checked)
-    def on_disableDimmingChk_clicked(self, checked: bool):
-        tweaks["SBDontDimOrLockOnAC"].set_enabled(checked)
-    def on_disableBatteryAlertsChk_clicked(self, checked: bool):
-        tweaks["SBHideLowPowerAlerts"].set_enabled(checked)
-    def on_disableCrumbChk_clicked(self, checked: bool):
-        tweaks["SBNeverBreadcrumb"].set_enabled(checked)
-    def on_enableSupervisionTextChk_clicked(self, checked: bool):
-        tweaks["SBShowSupervisionTextOnLockScreen"].set_enabled(checked)
-    def on_enableAirPlayChk_clicked(self, checked: bool):
-        tweaks["AirplaySupport"].set_enabled(checked)
-
-    
-    ## INTERNAL OPTIONS PAGE
-    def on_buildVersionChk_clicked(self, checked: bool):
-        tweaks["SBBuildNumber"].set_enabled(checked)
-    def on_RTLChk_clicked(self, checked: bool):
-        tweaks["RTL"].set_enabled(checked)
-    def on_metalHUDChk_clicked(self, checked: bool):
-        tweaks["MetalForceHudEnabled"].set_enabled(checked)
-    def on_iMessageChk_clicked(self, checked: bool):
-        tweaks["iMessageDiagnosticsEnabled"].set_enabled(checked)
-    def on_IDSChk_clicked(self, checked: bool):
-        tweaks["IDSDiagnosticsEnabled"].set_enabled(checked)
-    def on_VCChk_clicked(self, checked: bool):
-        tweaks["VCDiagnosticsEnabled"].set_enabled(checked)
-
-    def on_appStoreChk_clicked(self, checked: bool):
-        tweaks["AppStoreDebug"].set_enabled(checked)
-    def on_notesChk_clicked(self, checked: bool):
-        tweaks["NotesDebugMode"].set_enabled(checked)
-
-    def on_showTouchesChk_clicked(self, checked: bool):
-        tweaks["BKDigitizerVisualizeTouches"].set_enabled(checked)
-    def on_hideRespringChk_clicked(self, checked: bool):
-        tweaks["BKHideAppleLogoOnLaunch"].set_enabled(checked)
-    def on_enableWakeVibrateChk_clicked(self, checked: bool):
-        tweaks["EnableWakeGestureHaptic"].set_enabled(checked)
-    def on_pasteSoundChk_clicked(self, checked: bool):
-        tweaks["PlaySoundOnPaste"].set_enabled(checked)
-    def on_notifyPastesChk_clicked(self, checked: bool):
-        tweaks["AnnounceAllPastes"].set_enabled(checked)
-
-    ## DAEMONS PAGE
-    def on_modifyDaemonsChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_enabled(checked)
-        self.ui.daemonsPageContent.setDisabled(not checked)
-
-    def on_thermalmonitordChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.thermalmonitord.value, value=checked)
-        if checked:
-            # set the modify toggle checked so it actually applies
-            self.on_modifyDaemonsChk_clicked(True)
-    def on_otadChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.OTA.value, value=checked)
-    def on_usageTrackingAgentChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.UsageTrackingAgent.value, value=checked)
-    def on_gameCenterChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.GameCenter.value, value=checked)
-    def on_screenTimeChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.ScreenTime.value, value=checked)
-    def on_clearScreenTimeAgentChk_clicked(self, checked: bool):
-        tweaks["ClearScreenTimeAgentPlist"].set_enabled(checked)
-    def on_crashReportsChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.CrashReports.value, value=checked)
-    def on_atwakeupChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.ATWAKEUP.value, value=checked)
-    def on_tipsChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.Tips.value, value=checked)
-    def on_vpndChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.VPN.value, value=checked)
-    def on_wapicChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.ChineseLAN.value, value=checked)
-    def on_healthdChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.HealthKit.value, value=checked)
-
-    def on_airprintChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.AirPrint.value, value=checked)
-    def on_assistiveTouchChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.AssistiveTouch.value, value=checked)
-    def on_icloudChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.iCloud.value, value=checked)
-    def on_hotspotChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.InternetTethering.value, value=checked)
-    def on_passbookChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.PassBook.value, value=checked)
-    def on_spotlightChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.Spotlight.value, value=checked)
-    def on_voiceControlChk_clicked(self, checked: bool):
-        tweaks["Daemons"].set_multiple_values(Daemon.VoiceControl.value, value=checked)
-
-    ## PosterBoard Page
-    def delete_pb_file(self, file, widget):
-        if file in tweaks["PosterBoard"].tendies:
-            tweaks["PosterBoard"].tendies.remove(file)
-        widget.deleteLater()
-
-    def create_title_widget(self, tendie, widget: QtWidgets.QWidget) -> QtWidgets.QToolButton:
-        titleBtn = QtWidgets.QToolButton(widget)
-        titleBtn.setIcon(QtGui.QIcon(tendie.get_icon()))
-        titleBtn.setIconSize(QtCore.QSize(20, 20))
-        titleBtn.setText(f"   {tendie.name}")
-        titleBtn.setStyleSheet("QToolButton {\n    background-color: transparent;\n	icon-size: 20px;\n}")
-        titleBtn.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
-        titleBtn.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
-        return titleBtn
-
-    def load_pb_tendies(self):
-        if len(tweaks["PosterBoard"].tendies) == 0:
-            return
-        
-        if self.pb_mainLayout == None:
-            # Create scroll layout
-            self.pb_mainLayout = QtWidgets.QVBoxLayout()
-            self.pb_mainLayout.setContentsMargins(0, 0, 0, 0)
-            self.pb_mainLayout.setAlignment(QtCore.Qt.AlignmentFlag.AlignTop)
-            # Create a QWidget to act as the container for the scroll area
-            scrollWidget = QtWidgets.QWidget()
-
-            # Set the main layout (containing all the widgets) on the scroll widget
-            scrollWidget.setLayout(self.pb_mainLayout)
-
-            # Create a QScrollArea to hold the content widget (scrollWidget)
-            scrollArea = QtWidgets.QScrollArea()
-            scrollArea.setWidgetResizable(True)  # Allow the content widget to resize within the scroll area
-            scrollArea.setFrameStyle(QtWidgets.QScrollArea.NoFrame)  # Remove the outline from the scroll area
-
-            # Set the scrollWidget as the content widget of the scroll area
-            scrollArea.setWidget(scrollWidget)
-
-            # Set the size policy of the scroll area to expand in both directions
-            scrollArea.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-
-            # Set the scroll area as the central widget of the main window
-            scrollLayout = QtWidgets.QVBoxLayout()
-            scrollLayout.setContentsMargins(0, 0, 0, 0)
-            scrollLayout.addWidget(scrollArea)
-            self.ui.pbFilesList.setLayout(scrollLayout)
-
-        widgets = {}
-        # Iterate through the files
-        for tendie in tweaks["PosterBoard"].tendies:
-            if tendie.loaded:
-                continue
-            widget = QtWidgets.QWidget()
-            widgets[tendie] = widget
-
-            # create the icon/label
-            titleBtn = self.create_title_widget(tendie=tendie, widget=widget)
-
-            delBtn = QtWidgets.QToolButton(widget)
-            delBtn.setIcon(QtGui.QIcon(":/icon/trash.svg"))
-            delBtn.clicked.connect(lambda _, file=tendie: (widgets[file].deleteLater(), tweaks["PosterBoard"].tendies.remove(file)))
-
-            spacer = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-            # main layout
-            layout = QtWidgets.QHBoxLayout(widget)
-            layout.setContentsMargins(0, 0, 0, 3)
-            layout.addWidget(titleBtn)
-            layout.addItem(spacer)
-            layout.addWidget(delBtn)
-            # Add the widget to the mainLayout
-            widget.setLayout(layout)
-            self.pb_mainLayout.addWidget(widget)
-            tendie.loaded = True
-
-    def load_pb_templates(self):
-        if len(tweaks["PosterBoard"].templates) == 0:
-            return
-        if self.pb_templateLayout == None:
-            # Create scroll layout
-            self.pb_templateLayout = QtWidgets.QVBoxLayout()
-            self.pb_templateLayout.setContentsMargins(0, 0, 0, 0)
-            self.pb_templateLayout.setAlignment(QtCore.Qt.AlignmentFlag.AlignTop)
-            # Create a QWidget to act as the container for the scroll area
-            scrollWidget = QtWidgets.QWidget()
-
-            # Set the main layout (containing all the widgets) on the scroll widget
-            scrollWidget.setLayout(self.pb_templateLayout)
-
-            # Create a QScrollArea to hold the content widget (scrollWidget)
-            scrollArea = QtWidgets.QScrollArea()
-            scrollArea.setWidgetResizable(True)  # Allow the content widget to resize within the scroll area
-            scrollArea.setFrameStyle(QtWidgets.QScrollArea.NoFrame)  # Remove the outline from the scroll area
-
-            # Set the scrollWidget as the content widget of the scroll area
-            scrollArea.setWidget(scrollWidget)
-
-            # Set the size policy of the scroll area to expand in both directions
-            scrollArea.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-
-            # Set the scroll area as the central widget of the main window
-            scrollLayout = QtWidgets.QVBoxLayout()
-            scrollLayout.setContentsMargins(0, 0, 0, 0)
-            scrollLayout.addWidget(scrollArea)
-            self.ui.pbTemplatesList.setLayout(scrollLayout)
-        
-        widgets = {}
-        # Iterate through the templates
-        for template in tweaks["PosterBoard"].templates:
-            if template.loaded:
-                continue
-            widget = QtWidgets.QWidget()
-            widgets[template] = widget
-
-            # create the icon/label + delete button
-            left_widget = QtWidgets.QWidget(widget)
-            titleBtn = self.create_title_widget(tendie=template, widget=widget)
-            delBtn = QtWidgets.QToolButton(widget)
-            delBtn.setIcon(QtGui.QIcon(":/icon/trash.svg"))
-            delBtn.clicked.connect(lambda _, file=template: (widgets[file].deleteLater(), tweaks["PosterBoard"].templates.remove(file)))
-            # align to left layout
-            left_layout = QtWidgets.QVBoxLayout(widget)
-            left_layout.setContentsMargins(0, 0, 4, 0)
-            left_layout.addWidget(titleBtn)
-            left_layout.addWidget(delBtn)
-            left_widget.setLayout(left_layout)
-
-            # create options
-            options_widget = QtWidgets.QWidget(widget)
-            # options_widget.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
-            opt_layout = QtWidgets.QVBoxLayout()
-            opt_layout.setContentsMargins(3, 0, 0, 0)
-            for option in template.options:
-                if option.type == TemplateOptionTypePB.replace:
-                    # replacable object
-                    repl_widget = QtWidgets.QWidget(options_widget)
-                    repl_layout = QtWidgets.QHBoxLayout(options_widget)
-                    repl_layout.setContentsMargins(0, 2, 0, 2)
-                    repl_lbl = QtWidgets.QLabel(repl_widget)
-                    req_label = ""
-                    if option.required:
-                        req_label = "* "
-                    repl_lbl.setText(f"{req_label}{option.label}")
-                    repl_layout.addWidget(repl_lbl)
-                    # button for importing files
-                    repl_btn = QtWidgets.QToolButton(options_widget)
-                    repl_btn.setIcon(QtGui.QIcon(":/icon/import.svg"))
-                    repl_btn.setIconSize(QtCore.QSize(20, 20))
-                    btn_lbl = option.button_label
-                    if btn_lbl == None:
-                        btn_lbl = f"Import {option.allowed_files}"
-                    repl_btn.setText(f"  {btn_lbl}")
-                    repl_btn.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
-                    repl_btn.clicked.connect(lambda _, opt=option: (self.on_importReplaceBtn_clicked(opt)))
-                    repl_layout.addWidget(repl_btn)
-                    repl_widget.setLayout(repl_layout)
-                    opt_layout.addWidget(repl_widget)
-                elif option.type == TemplateOptionTypePB.remove:
-                    # remove object
-                    remove_chk = QtWidgets.QCheckBox(options_widget)
-                    remove_chk.setText(option.label)
-                    remove_chk.setChecked(option.default_value)
-                    remove_chk.toggled.connect(option.set_option)
-            options_widget.setLayout(opt_layout)
-
-            # main layout
-            layout = QtWidgets.QHBoxLayout(widget)
-            layout.setContentsMargins(4, 2, 4, 2)
-            layout.addWidget(left_widget)
-            line = QtWidgets.QFrame()
-            line.setFrameShape(QtWidgets.QFrame.Shape.VLine)
-            line.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
-            line.setStyleSheet("QFrame {\n	color: #414141;\n}")
-            layout.addWidget(line)
-            layout.addWidget(options_widget)
-            # Add the widget to the mainLayout
-            widget.setLayout(layout)
-            self.pb_templateLayout.addWidget(widget)
-            template.loaded = True
-
-    def on_modifyPosterboardsChk_clicked(self, checked: bool):
-        tweaks["PosterBoard"].set_enabled(checked)
-        self.ui.pbPages.setDisabled(not checked)
-
-    # PB Pages Selectors
-    def on_tendiesPageBtn_clicked(self):
-        self.ui.tendiesPageBtn.setChecked(True)
-        self.ui.templatePageBtn.setChecked(False)
-        self.ui.videoPageBtn.setChecked(False)
-        self.ui.pbPages.setCurrentIndex(0)
-    def on_templatePageBtn_clicked(self):
-        self.ui.tendiesPageBtn.setChecked(False)
-        self.ui.templatePageBtn.setChecked(True)
-        self.ui.videoPageBtn.setChecked(False)
-        self.ui.pbPages.setCurrentIndex(1)
-    def on_videoPageBtn_clicked(self):
-        self.ui.tendiesPageBtn.setChecked(False)
-        self.ui.templatePageBtn.setChecked(False)
-        self.ui.videoPageBtn.setChecked(True)
-        self.ui.pbPages.setCurrentIndex(2)
-
-    def on_importReplaceBtn_clicked(self, option):
-        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select Template File", "", option.allowed_files, options=QtWidgets.QFileDialog.ReadOnly)
-        if selected_file != None and selected_file != "":
-            option.value = selected_file
-    
-    # Tendies Page
-    def on_importTendiesBtn_clicked(self):
-        selected_files, _ = QtWidgets.QFileDialog.getOpenFileNames(self, "Select PosterBoard Files", "", "Zip Files (*.tendies)", options=QtWidgets.QFileDialog.ReadOnly)
-        tweaks["PosterBoard"].resetting = False
-        self.ui.pbActionLbl.hide()
-        if selected_files != None and len(selected_files) > 0:
-            # user selected files, add them
-            for file in selected_files:
-                if not tweaks["PosterBoard"].add_tendie(file):
-                    # alert that there are too many
-                    detailsBox = QtWidgets.QMessageBox()
-                    detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
-                    detailsBox.setWindowTitle("Error!")
-                    detailsBox.setText("You selected too many descriptors! The limit is 10.")
-                    detailsBox.exec()
-                    break
-            self.load_pb_tendies()
-    def on_deleteAllDescriptorsBtn_clicked(self):
-        if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 0:
-            tweaks["PosterBoard"].resetting = False
-            self.ui.pbActionLbl.hide()
-        else:
-            tweaks["PosterBoard"].resetting = True
-            tweaks["PosterBoard"].resetType = 0
-            self.ui.pbActionLbl.setText("! Set to Clear Collections Wallpapers")
-            self.ui.pbActionLbl.show()
-    def on_resetPRBExtBtn_clicked(self):
-        if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 1:
-            tweaks["PosterBoard"].resetting = False
-            self.ui.pbActionLbl.hide()
-        else:
-            tweaks["PosterBoard"].resetting = True
-            tweaks["PosterBoard"].resetType = 1
-            self.ui.pbActionLbl.setText("! Set to Reset PRB Extension")
-            self.ui.pbActionLbl.show()
-
-    # Templates Page
-    def on_importTemplatesBtn_clicked(self):
-        selected_files, _ = QtWidgets.QFileDialog.getOpenFileNames(self, "Select PosterBoard Template Files", "", "Zip Files (*.batter)", options=QtWidgets.QFileDialog.ReadOnly)
-        tweaks["PosterBoard"].resetting = False
-        self.ui.pbActionLbl.hide()
-        if selected_files != None and len(selected_files) > 0:
-            # user selected files, add them
-            for file in selected_files:
-                if not tweaks["PosterBoard"].add_template(file):
-                    # alert that there are too many
-                    detailsBox = QtWidgets.QMessageBox()
-                    detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
-                    detailsBox.setWindowTitle("Error!")
-                    detailsBox.setText("You selected too many descriptors! The limit is 10.")
-                    detailsBox.exec()
-                    break
-            self.load_pb_templates()
-    
-    # Video Page
-    def on_chooseThumbBtn_clicked(self):
-        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select Image File", "", "Image Files (*.heic)", options=QtWidgets.QFileDialog.ReadOnly)
-        tweaks["PosterBoard"].resetting = False
-        if selected_file != None and selected_file != "":
-            tweaks["PosterBoard"].videoThumbnail = selected_file
-            self.ui.pbVideoThumbLbl.setText(f"Current Thumbnail: {selected_file}")
-        else:
-            tweaks["PosterBoard"].videoThumbnail = None
-            self.ui.pbVideoThumbLbl.setText("Current Thumbnail: None")
-    def on_chooseVideoBtn_clicked(self):
-        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select Video File", "", "Video Files (*.mov *.mp4 *.mkv)", options=QtWidgets.QFileDialog.ReadOnly)
-        tweaks["PosterBoard"].resetting = False
-        if selected_file != None and selected_file != "":
-            tweaks["PosterBoard"].videoFile = selected_file
-            self.ui.pbVideoLbl.setText(f"Current Video: {selected_file}")
-        else:
-            tweaks["PosterBoard"].videoFile = None
-            self.ui.pbVideoLbl.setText("Current Video: None")
-    def on_clearSuggestedBtn_clicked(self):
-        if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 2:
-            tweaks["PosterBoard"].resetting = False
-            self.ui.pbActionLbl.hide()
-        else:
-            tweaks["PosterBoard"].resetting = True
-            tweaks["PosterBoard"].resetType = 2
-            self.ui.pbActionLbl.setText("! Set to Clear Suggested Photos")
-            self.ui.pbActionLbl.show()
-    def on_caVideoChk_toggled(self, checked: bool):
-        tweaks["PosterBoard"].loop_video = checked
-        # hide thumbnail button and label
-        if checked:
-            self.ui.chooseThumbBtn.hide()
-            self.ui.pbVideoThumbLbl.hide()
-            self.ui.clearSuggestedBtn.hide()
-            self.ui.reverseLoopChk.show()
-            self.ui.useForegroundChk.show()
-        else:
-            self.ui.chooseThumbBtn.show()
-            self.ui.pbVideoThumbLbl.show()
-            self.ui.clearSuggestedBtn.show()
-            self.ui.reverseLoopChk.hide()
-            self.ui.useForegroundChk.hide()
-    def on_reverseLoopChk_toggled(self, checked: bool):
-        tweaks["PosterBoard"].reverse_video = checked
-    def on_useForegroundChk_toggled(self, checked: bool):
-        tweaks["PosterBoard"].use_foreground = checked
-
-    def on_findPBBtn_clicked(self):
-        webbrowser.open_new_tab("https://cowabun.ga/wallpapers")
-
-    def on_pbHelpBtn_clicked(self):
-        dialog = PBHelpDialog()
-        dialog.exec()
-
-
-    ## Risky Options Page
-    def on_disableOTAChk_clicked(self, checked: bool):
-        tweaks["DisableOTAFile"].set_enabled(checked)
-
-    def on_enableResolutionChk_clicked(self, checked: bool):
-        tweaks["CustomResolution"].set_enabled(checked)
-        # toggle the ui content
-        if checked:
-            self.ui.resChangerContent.show()
-        else:
-            self.ui.resChangerContent.hide()
-    def on_resHeightTxt_textEdited(self, txt: str):
-        if txt == "":
-            # remove the canvas_height value
-            tweaks["CustomResolution"].value.pop("canvas_height", None)
-            self.ui.resHeightWarningLbl.hide()
-            return
-        try:
-            val = int(txt)
-            tweaks["CustomResolution"].value["canvas_height"] = val
-            self.ui.resHeightWarningLbl.hide()
-        except:
-            self.ui.resHeightWarningLbl.show()
-    def on_resWidthTxt_textEdited(self, txt: str):
-        if txt == "":
-            # remove the canvas_width value
-            tweaks["CustomResolution"].value.pop("canvas_width", None)
-            self.ui.resWidthWarningLbl.hide()
-            return
-        try:
-            val = int(txt)
-            tweaks["CustomResolution"].value["canvas_width"] = val
-            self.ui.resWidthWarningLbl.hide()
-        except:
-            self.ui.resWidthWarningLbl.show()
-
-    
-    ## SETTINGS PAGE
-    def on_allowWifiApplyingChk_toggled(self, checked: bool):
-        self.device_manager.apply_over_wifi = checked
-        # save the setting
-        self.settings.setValue("apply_over_wifi", checked)
-    def on_showRiskyChk_toggled(self, checked: bool):
-        self.device_manager.allow_risky_tweaks = checked
-        # save the setting
-        self.settings.setValue("show_risky_tweaks", checked)
-        # toggle the button visibility
-        if checked:
-            self.ui.advancedPageBtn.show()
-            self.ui.resetPRBExtBtn.show()
-        else:
-            self.ui.advancedPageBtn.hide()
-            self.ui.resetPRBExtBtn.hide()
-    def on_showAllSpoofableChk_toggled(self, checked: bool):
-        self.device_manager.show_all_spoofable_models = checked
-        # save the setting
-        self.settings.setValue("show_all_spoofable_models", checked)
-        # refresh the list of spoofable models
-        self.setup_spoofedModelDrp_models()
-    def on_autoRebootChk_toggled(self, checked: bool):
-        self.device_manager.auto_reboot = checked
-        # save the setting
-        self.settings.setValue("auto_reboot", checked)
-
-    def on_revertRdarChk_toggled(self, checked: bool):
-        tweaks["RdarFix"].set_enabled(checked)
-
-    def on_skipSetupChk_toggled(self, checked: bool):
-        self.device_manager.skip_setup = checked
-        # save the setting
-        self.settings.setValue("skip_setup", checked)
-        # hide/show the warning label
-        if checked:
-            self.ui.skipSetupOnLbl.show()
-        else:
-            self.ui.skipSetupOnLbl.hide()
-    def on_supervisionOrgTxt_textEdited(self, text: str):
-        self.device_manager.organization_name = text
-        self.settings.setValue("organization_name", text)
-    def on_supervisionChk_toggled(self, checked: bool):
-        self.device_manager.supervised = checked
-        # save the setting
-        self.settings.setValue("supervised", checked)
-
-    # Device Options
-    def on_resetPairBtn_clicked(self):
-        self.device_manager.reset_device_pairing()
-
-
     ## APPLY PAGE
     def on_chooseGestaltBtn_clicked(self):
         selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select Mobile Gestalt File", "", "Plist Files (*.plist)", options=QtWidgets.QFileDialog.ReadOnly)
@@ -1327,8 +517,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.apply_changes()
 
     def apply_changes(self, resetting: bool = False):
-        if not self.applying_in_progress:
-            self.applying_in_progress = True
+        if not self.thread_in_progress:
+            self.thread_in_progress = True
+            self.toggle_thread_btns(disabled=True)
             self.worker_thread = ApplyThread(manager=self.device_manager, resetting=resetting)
             self.worker_thread.progress.connect(self.ui.statusLbl.setText)
             self.worker_thread.alert.connect(self.alert_message)
@@ -1344,5 +535,11 @@ class MainWindow(QtWidgets.QMainWindow):
         if alert.detailed_txt != None:
             detailsBox.setDetailedText(alert.detailed_txt)
         detailsBox.exec()
-    def finish_apply_thread(self):
-        self.applying_in_progress = False
+
+    def finish_thread(self):
+        self.thread_in_progress = False
+        self.toggle_thread_btns(disabled=False)
+    def toggle_thread_btns(self, disabled: bool):
+        self.ui.applyTweaksBtn.setDisabled(disabled)
+        self.ui.resetGestaltBtn.setDisabled(disabled)
+        self.ui.removeTweaksBtn.setDisabled(disabled)

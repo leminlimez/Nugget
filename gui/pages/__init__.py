@@ -1,0 +1,9 @@
+from .posterboard import PosterboardPage as Posterboard
+from .gestalt import GestaltPage as MobileGestalt
+from .eligibility import EligibilityPage as Eligibility
+from .featureflags import FeatureFlagsPage as FeatureFlags
+from .springboard import SpringboardPage as Springboard
+from .internal import InternalPage as Internal
+from .daemons import DaemonsPage as Daemons
+from .risky import RiskyPage as Risky
+from .settings import SettingsPage as Settings
