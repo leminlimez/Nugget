@@ -65,20 +65,15 @@ class DeviceManager:
         self.supervised = False
         self.organization_name = ""
     
-    def get_devices(self, settings: QSettings):
+    def get_devices(self, settings: QSettings, show_alert=lambda x: None):
         self.devices.clear()
         # handle errors when failing to get connected devices
         try:
             connected_devices = usbmux.list_devices()
         except:
-            show_error_msg(
-                """
-                Failed to get device list. Click \"Show Details\" for the traceback.
-
-                If you are on Windows, make sure you have the \"Apple Devices\" app from the Microsoft Store or iTunes from Apple's website.
-                If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.
-                """, detailed_txt=str(traceback.format_exc())
-            )
+            show_alert(ApplyAlertMessage(
+                txt="Failed to get device list. Click \"Show Details\" for the traceback.\n\nIf you are on Windows, make sure you have the \"Apple Devices\" app from the Microsoft Store or iTunes from Apple's website.\nIf you are on Linux, make sure you have usbmuxd and libimobiledevice installed.", detailed_txt=str(traceback.format_exc())
+            ))
             self.set_current_device(index=None)
             return
         # Connect via usbmuxd
@@ -110,7 +105,7 @@ class DeviceManager:
                         else:
                             cpu = cpu_type
                     except:
-                        show_error_msg(txt="Click \"Show Details\" for the traceback.", detailed_txt=str(traceback.format_exc()))
+                        show_alert(ApplyAlertMessage(txt="Click \"Show Details\" for the traceback.", detailed_txt=str(traceback.format_exc())))
                     dev = Device(
                             uuid=device.serial,
                             usb=device.is_usb,
@@ -126,15 +121,15 @@ class DeviceManager:
                     tweaks["RdarFix"].get_rdar_mode(model)
                     self.devices.append(dev)
                 except PasswordRequiredError as e:
-                    show_error_msg(txt="Device is password protected! You must trust the computer on your device.\n\nUnlock your device. On the popup, click \"Trust\", enter your password, then try again.")
+                    show_alert(ApplyAlertMessage(txt="Device is password protected! You must trust the computer on your device.\n\nUnlock your device. On the popup, click \"Trust\", enter your password, then try again."))
                 except MuxException as e:
                     # there is probably a cable issue
                     print(f"MUX ERROR with lockdown device with UUID {device.serial}")
-                    show_error_msg("MuxException: " + repr(e) + "\n\nIf you keep receiving this error, try using a different cable or port.",
-                                   detailed_txt=str(traceback.format_exc()))
+                    show_alert(ApplyAlertMessage(txt="MuxException: " + repr(e) + "\n\nIf you keep receiving this error, try using a different cable or port.",
+                                   detailed_txt=str(traceback.format_exc())))
                 except Exception as e:
                     print(f"ERROR with lockdown device with UUID {device.serial}")
-                    show_error_msg(type(e).__name__ + ": " + repr(e), detailed_txt=str(traceback.format_exc()))
+                    show_alert(ApplyAlertMessage(txt=f"{type(e).__name__}: {repr(e)}", detailed_txt=str(traceback.format_exc())))
         
         if len(self.devices) > 0:
             self.set_current_device(index=0)

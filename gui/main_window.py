@@ -15,7 +15,7 @@ from devicemanagement.constants import Version
 from devicemanagement.device_manager import DeviceManager
 
 from gui.dialogs import GestaltDialog, UpdateAppDialog
-from gui.apply_worker import ApplyThread, ApplyAlertMessage
+from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThread
 
 from tweaks.tweaks import tweaks
 
@@ -134,8 +134,17 @@ class MainWindow(QtWidgets.QMainWindow):
     ## DEVICE BAR FUNCTIONS
     @QtCore.Slot()
     def refresh_devices(self):
-        # get the devices
-        self.device_manager.get_devices(self.settings)
+        if not self.thread_in_progress:
+            self.thread_in_progress = True
+            self.toggle_thread_btns(disabled=True)
+            self.worker_thread = RefreshDevicesThread(manager=self.device_manager, settings=self.settings)
+            self.worker_thread.alert.connect(self.alert_message)
+            self.worker_thread.finished.connect(self.refresh_devices_finished)
+            self.worker_thread.finished.connect(self.worker_thread.deleteLater)
+            self.worker_thread.start()
+
+    def refresh_devices_finished(self):
+        self.finish_thread()
         # clear the picker
         self.ui.devicePicker.clear()
         self.ui.restoreProgressBar.hide()
@@ -245,7 +254,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.dynamicIslandDrp.removeItem(5)
             except:
                 pass
-            self.set_rdar_fix_label()
+            self.pages[Page.Gestalt].set_rdar_fix_label()
             device_ver = Version(self.device_manager.data_singleton.current_device.version)
             patched: bool = self.device_manager.get_current_device_patched()
             # toggle option visibility for the minimum versions
@@ -543,3 +552,4 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.applyTweaksBtn.setDisabled(disabled)
         self.ui.resetGestaltBtn.setDisabled(disabled)
         self.ui.removeTweaksBtn.setDisabled(disabled)
+        self.ui.refreshBtn.setDisabled(disabled)

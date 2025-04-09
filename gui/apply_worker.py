@@ -27,3 +27,20 @@ class ApplyThread(QThread):
 
     def run(self):
         self.do_work()
+
+class RefreshDevicesThread(QThread):
+    alert = Signal(ApplyAlertMessage)
+
+    def alert_window(self, msg: ApplyAlertMessage):
+        self.alert.emit(msg)
+
+    def __init__(self, manager, settings):
+        super().__init__()
+        self.manager = manager
+        self.settings = settings
+
+    def do_work(self):
+        self.manager.get_devices(self.settings, self.alert_window)
+
+    def run(self):
+        self.do_work()
