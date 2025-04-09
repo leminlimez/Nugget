@@ -40,6 +40,7 @@ class PosterboardPage(Page):
         
         self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
         self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)
+        self.ui.pbActionLbl.hide()
 
     ## ACTIONS
     def delete_pb_file(self, file, widget):

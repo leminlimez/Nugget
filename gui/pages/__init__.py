@@ -1,3 +1,4 @@
+from .home import HomePage as Home
 from .posterboard import PosterboardPage as Posterboard
 from .gestalt import GestaltPage as MobileGestalt
 from .eligibility import EligibilityPage as Eligibility

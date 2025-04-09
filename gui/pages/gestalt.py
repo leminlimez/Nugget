@@ -39,6 +39,23 @@ class GestaltPage(Page):
 
         self.ui.addGestaltKeyBtn.clicked.connect(self.on_addGestaltKeyBtn_clicked)
 
+    def setup_spoofedModelDrp_models(self):
+        # hide all the models first
+        for i in range(1, self.ui.spoofedModelDrp.count()):
+            try:
+                self.ui.spoofedModelDrp.removeItem(1)
+            except:
+                pass
+        # indexes 1-6 for iPhones, 7-(len(values) - 1) for iPads
+        # TODO: Make this get fetched from the gui on app startup
+        spoof_drp_options = ["iPhone 15 Pro (iPhone16,1)", "iPhone 15 Pro Max (iPhone16,2)", "iPhone 16 (iPhone17,3)", "iPhone 16 Plus (iPhone17,4)", "iPhone 16 Pro (iPhone17,1)", "iPhone 16 Pro Max (iPhone17,2)", "iPad Mini (A17 Pro) (W) (iPad16,1)", "iPad Mini (A17 Pro) (C) (iPad16,2)", "iPad Pro (13-inch) (M4) (W) (iPad16,5)", "iPad Pro (13-inch) (M4) (C) (iPad16,6)", "iPad Pro (11-inch) (M4) (W) (iPad16,3)", "iPad Pro (11-inch) (M4) (C) (iPad16,4)", "iPad Pro (12.9-inch) (M2) (W) (iPad14,5)", "iPad Pro (12.9-inch) (M2) (C) (iPad14,6)", "iPad Pro (11-inch) (M2) (W) (iPad14,3)", "iPad Pro (11-inch) (M2) (C) (iPad14,4)", "iPad Air (13-inch) (M2) (W) (iPad14,10)", "iPad Air (13-inch) (M2) (C) (iPad14,11)", "iPad Air (11-inch) (M2) (W) (iPad14,8)", "iPad Air (11-inch) (M2) (C) (iPad14,9)", "iPad Pro (11-inch) (M1) (W) (iPad13,4)", "iPad Pro (11-inch) (M1) (C) (iPad13,5)", "iPad Pro (12.9-inch) (M1) (W) (iPad13,8)", "iPad Pro (12.9-inch) (M1) (C) (iPad13,9)", "iPad Air (M1) (W) (iPad13,16)", "iPad Air (M1) (C) (iPad13,17)"]
+        if self.window.device_manager.show_all_spoofable_models or self.window.device_manager.get_current_device_model().startswith("iPhone"):
+            # re-enable iPhone spoof models
+            self.ui.spoofedModelDrp.addItems(spoof_drp_options[:6])
+        if self.window.device_manager.show_all_spoofable_models or self.window.device_manager.get_current_device_model().startswith("iPad"):
+            # re-enable iPad spoof models
+            self.ui.spoofedModelDrp.addItems(spoof_drp_options[6:])
+
     ## ACTIONS
     def set_rdar_fix_label(self):
         rdar_title = tweaks["RdarFix"].get_rdar_title()

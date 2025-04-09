@@ -1,10 +1,6 @@
-from PySide6 import QtCore, QtWidgets, QtGui
+from PySide6 import QtCore, QtWidgets
 from enum import Enum
-from os import name as os_name
-import webbrowser
 import plistlib
-
-from pymobiledevice3.lockdown import create_using_usbmux
 
 from qt.ui_mainwindow import Ui_Nugget
 import gui.pages as Pages
@@ -41,13 +37,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.device_manager = device_manager
         self.ui = Ui_Nugget()
         self.ui.setupUi(self)
-        self.show_uuid = False
         self.thread_in_progress = False
         self.threadpool = QtCore.QThreadPool()
         self.loadSettings()
 
         # pre-load the pages
         self.pages = {
+            Page.Home: Pages.Home(window=self, ui=self.ui),
             Page.Posterboard: Pages.Posterboard(window=self, ui=self.ui),
             Page.Gestalt: Pages.MobileGestalt(window=self, ui=self.ui),
             Page.EUEnabler: Pages.Eligibility(window=self, ui=self.ui),
@@ -65,6 +61,7 @@ class MainWindow(QtWidgets.QMainWindow):
             UpdateAppDialog().exec()
         # Update the app version/build number label
         self.updateAppVersionLabel()
+        self.pages[Page.Home].load()
 
         ## DEVICE BAR
         self.refresh_devices()
@@ -85,41 +82,17 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.applyPageBtn.clicked.connect(self.on_applyPageBtn_clicked)
         self.ui.settingsPageBtn.clicked.connect(self.on_settingsPageBtn_clicked)
 
-        ## HOME PAGE ACTIONS
-        self.ui.phoneVersionLbl.linkActivated.connect(self.toggle_version_label)
-
-        ## HOME PAGE LINKS
-        self.ui.bigNuggetBtn.clicked.connect(self.on_bigNuggetBtn_clicked)
-        self.ui.starOnGithubBtn.clicked.connect(self.on_githubBtn_clicked)
-
-        self.ui.leminGithubBtn.clicked.connect(self.on_leminGitHubBtn_clicked)
-        self.ui.leminTwitterBtn.clicked.connect(self.on_leminTwitterBtn_clicked)
-        self.ui.leminKoFiBtn.clicked.connect(self.on_leminKoFiBtn_clicked)
-        
-        self.ui.posterRestoreBtn.clicked.connect(self.on_posterRestoreBtn_clicked)
-        self.ui.snoolieBtn.clicked.connect(self.on_snoolieBtn_clicked)
-        self.ui.disfordottieBtn.clicked.connect(self.on_disfordottieBtn_clicked)
-        self.ui.mikasaBtn.clicked.connect(self.on_mikasaBtn_clicked)
-
-        self.ui.libiBtn.clicked.connect(self.on_libiBtn_clicked)
-        self.ui.jjtechBtn.clicked.connect(self.on_jjtechBtn_clicked)
-        self.ui.qtBtn.clicked.connect(self.on_qtBtn_clicked)
-
-        self.ui.discordBtn.clicked.connect(self.on_discordBtn_clicked)
-
         ## APPLY PAGE ACTIONS
         self.ui.applyTweaksBtn.clicked.connect(self.on_applyPageBtn_clicked)
         self.ui.removeTweaksBtn.clicked.connect(self.on_removeTweaksBtn_clicked)
         self.ui.chooseGestaltBtn.clicked.connect(self.on_chooseGestaltBtn_clicked)
         self.ui.resetGestaltBtn.clicked.connect(self.on_resetGestaltBtn_clicked)
 
-        self.ui.pbActionLbl.hide()
-
 
     ## GENERAL INTERFACE FUNCTIONS
     def updateInterfaceForNewDevice(self):
         # update the home page
-        self.updatePhoneInfo()
+        self.pages[Page.Home].updatePhoneInfo()
     
     def updateAppVersionLabel(self):
         new_text: str = self.ui.appVersionLbl.text()
@@ -214,23 +187,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.devicePicker.setCurrentIndex(0)
         self.change_selected_device(0)
 
-    def setup_spoofedModelDrp_models(self):
-        # hide all the models first
-        for i in range(1, self.ui.spoofedModelDrp.count()):
-            try:
-                self.ui.spoofedModelDrp.removeItem(1)
-            except:
-                pass
-        # indexes 1-6 for iPhones, 7-(len(values) - 1) for iPads
-        # TODO: Make this get fetched from the gui on app startup
-        spoof_drp_options = ["iPhone 15 Pro (iPhone16,1)", "iPhone 15 Pro Max (iPhone16,2)", "iPhone 16 (iPhone17,3)", "iPhone 16 Plus (iPhone17,4)", "iPhone 16 Pro (iPhone17,1)", "iPhone 16 Pro Max (iPhone17,2)", "iPad Mini (A17 Pro) (W) (iPad16,1)", "iPad Mini (A17 Pro) (C) (iPad16,2)", "iPad Pro (13-inch) (M4) (W) (iPad16,5)", "iPad Pro (13-inch) (M4) (C) (iPad16,6)", "iPad Pro (11-inch) (M4) (W) (iPad16,3)", "iPad Pro (11-inch) (M4) (C) (iPad16,4)", "iPad Pro (12.9-inch) (M2) (W) (iPad14,5)", "iPad Pro (12.9-inch) (M2) (C) (iPad14,6)", "iPad Pro (11-inch) (M2) (W) (iPad14,3)", "iPad Pro (11-inch) (M2) (C) (iPad14,4)", "iPad Air (13-inch) (M2) (W) (iPad14,10)", "iPad Air (13-inch) (M2) (C) (iPad14,11)", "iPad Air (11-inch) (M2) (W) (iPad14,8)", "iPad Air (11-inch) (M2) (C) (iPad14,9)", "iPad Pro (11-inch) (M1) (W) (iPad13,4)", "iPad Pro (11-inch) (M1) (C) (iPad13,5)", "iPad Pro (12.9-inch) (M1) (W) (iPad13,8)", "iPad Pro (12.9-inch) (M1) (C) (iPad13,9)", "iPad Air (M1) (W) (iPad13,16)", "iPad Air (M1) (C) (iPad13,17)"]
-        if self.device_manager.show_all_spoofable_models or self.device_manager.get_current_device_model().startswith("iPhone"):
-            # re-enable iPhone spoof models
-            self.ui.spoofedModelDrp.addItems(spoof_drp_options[:6])
-        if self.device_manager.show_all_spoofable_models or self.device_manager.get_current_device_model().startswith("iPad"):
-            # re-enable iPad spoof models
-            self.ui.spoofedModelDrp.addItems(spoof_drp_options[6:])
-
     def change_selected_device(self, index):
         self.ui.showAllSpoofableChk.hide()
         if len(self.device_manager.devices) > 0:
@@ -309,7 +265,7 @@ class MainWindow(QtWidgets.QMainWindow):
             if device_ver >= Version("18.1") and not tweaks["AIGestalt"].enabled:
                 self.ui.aiEnablerContent.hide()
             if device_ver < Version("18.2"):
-                self.setup_spoofedModelDrp_models()
+                self.pages[Page.Gestalt].setup_spoofedModelDrp_models()
         else:
             self.device_manager.set_current_device(index=None)
 
@@ -401,76 +357,6 @@ class MainWindow(QtWidgets.QMainWindow):
             btn.setStyleSheet("QToolButton {\ncolor: #00FF00;\n}")
         else:
             btn.setStyleSheet("")
-    
-
-    ## HOME PAGE
-    def updatePhoneInfo(self):
-        # name label
-        self.ui.phoneNameLbl.setText(self.device_manager.get_current_device_name())
-        # version label
-        ver = self.device_manager.get_current_device_version()
-        build = self.device_manager.get_current_device_build()
-        self.show_uuid = False
-        if ver != "":
-            self.show_version_text(version=ver, build=build)
-        else:
-            self.ui.phoneVersionLbl.setText("Please connect a device.")
-
-    def toggle_version_label(self):
-        if self.show_uuid:
-            self.show_uuid = False
-            ver = self.device_manager.get_current_device_version()
-            build = self.device_manager.get_current_device_build()
-            if ver != "":
-                self.show_version_text(version=ver, build=build)
-        else:
-            self.show_uuid = True
-            uuid = self.device_manager.get_current_device_uuid()
-            if uuid != "":
-                self.ui.phoneVersionLbl.setText(f"<a style=\"text-decoration:none; color: white\" href=\"#\">{uuid}</a>")
-
-    def show_version_text(self, version: str, build: str):
-        support_str: str = "<span style=\"color: #32d74b;\">Supported!</span></a>"
-        if Version(version) < Version("17.0"):
-            support_str = "<span style=\"color: #ff0000;\">Not Supported.</span></a>"
-        elif self.device_manager.get_current_device_patched():
-            # sparserestore fully patched
-            support_str = "<span style=\"color: #ffff00;\">Partially Supported.</span></a>"
-        self.ui.phoneVersionLbl.setText(f"<a style=\"text-decoration:none; color: white;\" href=\"#\">iOS {version} ({build}) {support_str}")
-
-    ## HOME PAGE LINKS
-    def on_bigMilkBtn_clicked(self):
-        webbrowser.open_new_tab("https://cowabun.ga")
-
-    def on_leminGitHubBtn_clicked(self):
-        webbrowser.open_new_tab("https://github.com/leminlimez")
-    def on_leminTwitterBtn_clicked(self):
-        webbrowser.open_new_tab("https://twitter.com/LeminLimez")
-    def on_leminKoFiBtn_clicked(self):
-        webbrowser.open_new_tab("https://ko-fi.com/leminlimez")
-
-    def on_posterRestoreBtn_clicked(self):
-        webbrowser.open_new_tab("https://discord.gg/gWtzTVhMvh")
-    def on_snoolieBtn_clicked(self):
-        webbrowser.open_new_tab("https://github.com/0xilis/python-aar-stuff")
-    def on_disfordottieBtn_clicked(self):
-        webbrowser.open_new_tab("https://twitter.com/disfordottie")
-    def on_mikasaBtn_clicked(self):
-        webbrowser.open_new_tab("https://github.com/Mikasa-san/QuietDaemon")
-
-    def on_libiBtn_clicked(self):
-        webbrowser.open_new_tab("https://github.com/doronz88/pymobiledevice3")
-    def on_jjtechBtn_clicked(self):
-        webbrowser.open_new_tab("https://github.com/JJTech0130/TrollRestore")
-    def on_qtBtn_clicked(self):
-        webbrowser.open_new_tab("https://www.qt.io/product/development-tools")
-
-    def on_discordBtn_clicked(self):
-        webbrowser.open_new_tab("https://discord.gg/MN8JgqSAqT")
-    def on_githubBtn_clicked(self):
-        webbrowser.open_new_tab("https://github.com/leminlimez/Nugget")
-    def on_bigNuggetBtn_clicked(self):
-        webbrowser.open_new_tab("https://cowabun.ga")
 
 
     ## APPLY PAGE
