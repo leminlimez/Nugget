@@ -6,6 +6,7 @@ from qt.ui_mainwindow import Ui_Nugget
 import gui.pages as Pages
 
 from controllers.web_request_handler import is_update_available
+import controllers.video_handler as video_handler
 
 from devicemanagement.constants import Version
 from devicemanagement.device_manager import DeviceManager
@@ -279,6 +280,7 @@ class MainWindow(QtWidgets.QMainWindow):
             apply_over_wifi = self.settings.value("apply_over_wifi", False, type=bool)
             auto_reboot = self.settings.value("auto_reboot", True, type=bool)
             risky_tweaks = self.settings.value("show_risky_tweaks", False, type=bool)
+            ignore_frame_limit = self.settings.value("ignore_pb_frame_limit", False, type=bool)
             show_all_spoofable = self.settings.value("show_all_spoofable_models", False, type=bool)
             skip_setup = self.settings.value("skip_setup", True, type=bool)
             supervised = self.settings.value("supervised", False, type=bool)
@@ -287,6 +289,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.allowWifiApplyingChk.setChecked(apply_over_wifi)
             self.ui.autoRebootChk.setChecked(auto_reboot)
             self.ui.showRiskyChk.setChecked(risky_tweaks)
+            self.ui.ignorePBFrameLimitChk.setChecked(ignore_frame_limit)
             self.ui.showAllSpoofableChk.setChecked(show_all_spoofable)
             self.ui.skipSetupChk.setChecked(skip_setup)
             self.ui.supervisionChk.setChecked(supervised)
@@ -298,9 +301,16 @@ class MainWindow(QtWidgets.QMainWindow):
             else:
                 self.ui.skipSetupOnLbl.hide()
 
+            # hide/show the frame limit
+            if risky_tweaks:
+                self.ui.ignorePBFrameLimitChk.show()
+            else:
+                self.ui.ignorePBFrameLimitChk.hide()
+
             self.device_manager.apply_over_wifi = apply_over_wifi
             self.device_manager.auto_reboot = auto_reboot
             self.device_manager.allow_risky_tweaks = risky_tweaks
+            video_handler.set_ignore_frame_limit(ignore_frame_limit)
             self.device_manager.show_all_spoofable_models = show_all_spoofable
             self.device_manager.skip_setup = skip_setup
             self.device_manager.supervised = supervised

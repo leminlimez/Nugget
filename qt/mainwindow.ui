@@ -5732,6 +5732,13 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="ignorePBFrameLimitChk">
+                   <property name="text">
+                    <string>Ignore Posterboard Frame Limit</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="Line" name="line_24">
                    <property name="toolTip">
                     <string/>

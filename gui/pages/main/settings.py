@@ -2,6 +2,7 @@ from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
 from tweaks.tweaks import tweaks
+from controllers.video_handler import set_ignore_frame_limit
 
 class SettingsPage(Page):
     def __init__(self, window, ui: Ui_Nugget):
@@ -35,9 +36,15 @@ class SettingsPage(Page):
         if checked:
             self.ui.advancedPageBtn.show()
             self.ui.resetPRBExtBtn.show()
+            self.ui.ignorePBFrameLimitChk.show()
         else:
             self.ui.advancedPageBtn.hide()
             self.ui.resetPRBExtBtn.hide()
+            self.ui.ignorePBFrameLimitChk.hide()
+    def on_ignorePBFrameLimitChk_toggled(self, checked: bool):
+        set_ignore_frame_limit(checked)
+        # save the setting
+        self.window.settings.setValue("ignore_pb_frame_limit", checked)
     def on_showAllSpoofableChk_toggled(self, checked: bool):
         self.window.device_manager.show_all_spoofable_models = checked
         # save the setting
