@@ -20,8 +20,9 @@ from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, B
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.posterboard_tweak import PosterboardTweak
 from tweaks.basic_plist_locations import FileLocationsList, RiskyFileLocationsList
+
 from Sparserestore.restore import restore_files, FileToRestore
-import glob
+from Sparserestore.mbdb import _FileMode
 
 def show_error_msg(txt: str, title: str = "Error!", icon = QMessageBox.Critical, detailed_txt: str = None):
     detailsBox = QMessageBox()
@@ -448,7 +449,8 @@ class DeviceManager:
                 contents=certsDB,
                 restore_path="trustd/private/TrustStore.sqlite3",
                 domain="ProtectedDomain",
-                owner=501, group=501
+                owner=501, group=501,
+                mode=_FileMode.S_IRUSR | _FileMode.S_IWUSR  | _FileMode.S_IRGRP | _FileMode.S_IWGRP | _FileMode.S_IROTH | _FileMode.S_IWOTH
             ))
 
             # restore to the device

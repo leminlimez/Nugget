@@ -1,16 +1,21 @@
 from . import backup, perform_restore
+from .mbdb import _FileMode
 from pymobiledevice3.lockdown import LockdownClient
 from pymobiledevice3.services.installation_proxy import InstallationProxyService
 import os
 
 class FileToRestore:
-    def __init__(self, contents: str, restore_path: str, contents_path: str = None, domain: str = "", owner: int = 501, group: int = 501):
+    def __init__(self,
+                 contents: str, restore_path: str, contents_path: str = None, domain: str = "",
+                 owner: int = 501, group: int = 501, mode: _FileMode = None
+                ):
         self.contents = contents
         self.contents_path = contents_path
         self.restore_path = restore_path
         self.domain = domain
         self.owner = owner
         self.group = group
+        self.mode = mode
 
 def concat_exploit_file(file: FileToRestore, files_list: list[FileToRestore], last_domain: str) -> str:
     base_path = "/var/backup"
@@ -58,6 +63,9 @@ def concat_regular_file(file: FileToRestore, files_list: list[FileToRestore], la
         new_last_domain = file.domain
     # append each part of the path if it is not already there
     full_path = ""
+    mode = file.mode
+    if mode == None:
+        mode = backup.DEFAULT
     for path_item in paths:
         if full_path != "":
             full_path += "/"
@@ -67,7 +75,8 @@ def concat_regular_file(file: FileToRestore, files_list: list[FileToRestore], la
                 full_path,
                 file.domain,
                 owner=file.owner,
-                group=file.group
+                group=file.group,
+                mode=mode
             ))
             last_path = full_path
     # finally, append the file
@@ -77,7 +86,8 @@ def concat_regular_file(file: FileToRestore, files_list: list[FileToRestore], la
         owner=file.owner,
         group=file.group,
         contents=file.contents,
-        src_path=file.contents_path
+        src_path=file.contents_path,
+        mode=mode
     ))
     return new_last_domain, full_path
 
