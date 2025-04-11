@@ -17,7 +17,7 @@ from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThrea
 from tweaks.tweaks import tweaks
 
 App_Version = "5.2"
-App_Build = 3
+App_Build = 4
 
 class Page(Enum):
     Home = 0
@@ -38,7 +38,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.device_manager = device_manager
         self.ui = Ui_Nugget()
         self.ui.setupUi(self)
-        self.thread_in_progress = False
+        self.apply_in_progress = False
+        self.refresh_in_progress = False
         self.threadpool = QtCore.QThreadPool()
         self.loadSettings()
 
@@ -108,17 +109,18 @@ class MainWindow(QtWidgets.QMainWindow):
     ## DEVICE BAR FUNCTIONS
     @QtCore.Slot()
     def refresh_devices(self):
-        if not self.thread_in_progress:
-            self.thread_in_progress = True
-            self.toggle_thread_btns(disabled=True)
-            self.worker_thread = RefreshDevicesThread(manager=self.device_manager, settings=self.settings)
-            self.worker_thread.alert.connect(self.alert_message)
-            self.worker_thread.finished.connect(self.refresh_devices_finished)
-            self.worker_thread.finished.connect(self.worker_thread.deleteLater)
-            self.worker_thread.start()
+        if not self.refresh_in_progress:
+            self.refresh_in_progress = True
+            self.ui.refreshBtn.setDisabled(True)
+            self.refresh_worker_thread = RefreshDevicesThread(manager=self.device_manager, settings=self.settings)
+            self.refresh_worker_thread.alert.connect(self.alert_message)
+            self.refresh_worker_thread.finished.connect(self.refresh_devices_finished)
+            self.refresh_worker_thread.finished.connect(self.refresh_worker_thread.deleteLater)
+            self.refresh_worker_thread.start()
 
     def refresh_devices_finished(self):
-        self.finish_thread()
+        self.refresh_in_progress = False
+        self.toggle_thread_btns(disabled=False)
         # clear the picker
         self.ui.devicePicker.clear()
         self.ui.restoreProgressBar.hide()
@@ -422,8 +424,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.apply_changes()
 
     def apply_changes(self, resetting: bool = False):
-        if not self.thread_in_progress:
-            self.thread_in_progress = True
+        if not self.apply_in_progress:
+            self.apply_in_progress = True
             self.toggle_thread_btns(disabled=True)
             self.worker_thread = ApplyThread(manager=self.device_manager, resetting=resetting)
             self.worker_thread.progress.connect(self.ui.statusLbl.setText)
@@ -441,11 +443,13 @@ class MainWindow(QtWidgets.QMainWindow):
             detailsBox.setDetailedText(alert.detailed_txt)
         detailsBox.exec()
 
-    def finish_thread(self):
-        self.thread_in_progress = False
+    def finish_apply_thread(self):
+        self.apply_in_progress = False
         self.toggle_thread_btns(disabled=False)
     def toggle_thread_btns(self, disabled: bool):
-        self.ui.applyTweaksBtn.setDisabled(disabled)
-        self.ui.resetGestaltBtn.setDisabled(disabled)
-        self.ui.removeTweaksBtn.setDisabled(disabled)
-        self.ui.refreshBtn.setDisabled(disabled)
+        if disabled or not self.apply_in_progress:
+            self.ui.applyTweaksBtn.setDisabled(disabled)
+            self.ui.resetGestaltBtn.setDisabled(disabled)
+            self.ui.removeTweaksBtn.setDisabled(disabled)
+        if disabled or not self.refresh_in_progress:
+            self.ui.refreshBtn.setDisabled(disabled)
