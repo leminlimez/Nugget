@@ -9,8 +9,11 @@ def recursive_set(plist: dict, key: str, value: any):
             new_plist[k] = recursive_set(v, key, value)
     return new_plist
 
-def set_plist_value(file: str, key: str, value: any):
+def set_plist_value(file: str, key: str, value: any, recursive: bool = True):
     with open(file, 'rb') as in_fp:
         plist = plistlib.load(in_fp)
-    new_plist = recursive_set(plist, key, value)
-    return plistlib.dumps(new_plist)
+    if recursive:
+        plist = recursive_set(plist, key, value)
+    else:
+        plist[key] = value
+    return plistlib.dumps(plist)
