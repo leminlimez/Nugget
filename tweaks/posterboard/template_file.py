@@ -5,7 +5,7 @@ import zipfile
 from json import load
 
 from .tendie_file import TendieFile
-from .template_options import OptionType, TemplateOption, ReplaceOption, RemoveOption
+from .template_options import OptionType, TemplateOption, ReplaceOption, RemoveOption, SetOption
 
 class TemplateFile(TendieFile):
     options: list[TemplateOption]
@@ -33,6 +33,8 @@ class TemplateFile(TendieFile):
                         self.options.append(ReplaceOption(data=option))
                     elif opt_type == OptionType.remove:
                         self.options.append(RemoveOption(data=option))
+                    elif opt_type == OptionType.set:
+                        self.options.append(SetOption(data=option))
                     else:
                         raise Exception("Invalid option type in template")
             else:

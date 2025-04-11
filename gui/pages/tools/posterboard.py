@@ -7,6 +7,7 @@ from gui.dialogs import PBHelpDialog
 
 from tweaks.tweaks import tweaks
 from tweaks.posterboard.template_options import OptionType as TemplateOptionTypePB
+from tweaks.posterboard.template_options import SetterType
 
 class PosterboardPage(Page):
     def __init__(self, window, ui: Ui_Nugget):
@@ -117,6 +118,11 @@ class PosterboardPage(Page):
             self.pb_mainLayout.addWidget(widget)
             tendie.loaded = True
 
+    def get_chevron_icon(self, is_up: bool):
+        if is_up:
+            return QtGui.QIcon(":/icon/chevron.up.svg")
+        return QtGui.QIcon(":/icon/chevron.down.svg")
+
     def load_pb_templates(self):
         if len(tweaks["PosterBoard"].templates) == 0:
             return
@@ -155,22 +161,35 @@ class PosterboardPage(Page):
                 continue
             widget = QtWidgets.QWidget()
             widgets[template] = widget
+            options_widget = QtWidgets.QWidget(widget)
 
             # create the icon/label + delete button
             left_widget = QtWidgets.QWidget(widget)
             titleBtn = self.create_title_widget(tendie=template, widget=widget)
+            chevron = QtWidgets.QToolButton(widget)
+            chevron.setIcon(self.get_chevron_icon(is_up=True)) # for opening/closing the options
+            chevron.setStyleSheet("QToolButton {\n    background-color: transparent;\n	icon-size: 20px;\n}")
+            chevron.clicked.connect(lambda _, get_chev=self.get_chevron_icon: (
+                options_widget.setVisible(not options_widget.isVisible()),
+                chevron.setIcon(get_chev(options_widget.isVisible()))
+            ))
+            spacer = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
             delBtn = QtWidgets.QToolButton(widget)
             delBtn.setIcon(QtGui.QIcon(":/icon/trash.svg"))
-            delBtn.clicked.connect(lambda _, file=template: (widgets[file].deleteLater(), tweaks["PosterBoard"].templates.remove(file)))
-            # align to left layout
-            left_layout = QtWidgets.QVBoxLayout(widget)
+            delBtn.clicked.connect(lambda _, file=template: (
+                widgets[file].deleteLater(),
+                tweaks["PosterBoard"].templates.remove(file)
+            ))
+            # align to top layout
+            left_layout = QtWidgets.QHBoxLayout(widget)
             left_layout.setContentsMargins(0, 0, 4, 0)
             left_layout.addWidget(titleBtn)
+            left_layout.addItem(spacer)
+            left_layout.addWidget(chevron)
             left_layout.addWidget(delBtn)
             left_widget.setLayout(left_layout)
 
             # create options
-            options_widget = QtWidgets.QWidget(widget)
             # options_widget.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
             opt_layout = QtWidgets.QVBoxLayout()
             opt_layout.setContentsMargins(3, 0, 0, 0)
@@ -199,20 +218,68 @@ class PosterboardPage(Page):
                     repl_layout.addWidget(repl_btn)
                     repl_widget.setLayout(repl_layout)
                     opt_layout.addWidget(repl_widget)
-                elif option.type == TemplateOptionTypePB.remove:
-                    # remove object
+                elif option.type == TemplateOptionTypePB.remove or (option.type == TemplateOptionTypePB.set and option.setter_type == SetterType.toggle):
+                    # remove object/setter toggle
                     remove_chk = QtWidgets.QCheckBox(options_widget)
                     remove_chk.setText(option.label)
-                    remove_chk.setChecked(option.default_value)
+                    remove_chk.setChecked(option.value)
                     remove_chk.toggled.connect(option.set_option)
+                    opt_layout.addWidget(remove_chk)
+                elif option.type == TemplateOptionTypePB.set and option.setter_type == SetterType.textbox:
+                    # textbox input
+                    bx_widget = QtWidgets.QWidget(options_widget)
+                    bx_layout = QtWidgets.QVBoxLayout(options_widget)
+                    bx_layout.setContentsMargins(0, 2, 0, 2)
+                    bx_lbl = QtWidgets.QLabel(bx_widget)
+                    bx_lbl.setText(option.label)
+                    bx_layout.addWidget(bx_lbl)
+                    textbox = QtWidgets.QLineEdit(bx_widget)
+                    textbox.setPlaceholderText("Value")
+                    textbox.setText(option.value)
+                    textbox.textEdited.connect(option.update_value)
+                    bx_layout.addWidget(textbox)
+                    bx_widget.setLayout(bx_layout)
+                    opt_layout.addWidget(bx_widget)
+                elif option.type == TemplateOptionTypePB.set and option.setter_type == SetterType.slider:
+                    # slider input
+                    slid_widget = QtWidgets.QWidget(options_widget)
+                    slid_layout = QtWidgets.QVBoxLayout(options_widget)
+                    slid_layout.setContentsMargins(0, 2, 0, 2)
+                    slid_lbl = QtWidgets.QLabel(slid_widget)
+                    slid_lbl.setText(f"{option.label}: {option.get_value()}")
+                    slid_layout.addWidget(slid_lbl)
+                    option.label_object = slid_lbl
+                    # widget for min and max values with slider
+                    val_widget = QtWidgets.QWidget(slid_widget)
+                    val_layout = QtWidgets.QHBoxLayout(slid_widget)
+                    min_lbl = QtWidgets.QLabel(val_widget)
+                    min_lbl.setText(str(option.get_min()))
+                    val_layout.addWidget(min_lbl)
+                    slider = QtWidgets.QSlider(val_widget)
+                    slider.setMinimum(option.min_value)
+                    slider.setMaximum(option.max_value)
+                    slider.setSingleStep(option.step)
+                    slider.setValue(option.value)
+                    slider.setOrientation(QtCore.Qt.Orientation.Horizontal)
+                    slider.valueChanged.connect(option.update_value)
+                    val_layout.addWidget(slider)
+                    max_lbl = QtWidgets.QLabel(val_widget)
+                    max_lbl.setText(str(option.get_max()))
+                    val_layout.addWidget(max_lbl)
+                    # add to layout and widget
+                    val_widget.setLayout(val_layout)
+                    slid_layout.addWidget(val_widget)
+                    slid_widget.setLayout(slid_layout)
+                    opt_layout.addWidget(slid_widget)
+
             options_widget.setLayout(opt_layout)
 
             # main layout
-            layout = QtWidgets.QHBoxLayout(widget)
+            layout = QtWidgets.QVBoxLayout(widget)
             layout.setContentsMargins(4, 2, 4, 2)
             layout.addWidget(left_widget)
             line = QtWidgets.QFrame()
-            line.setFrameShape(QtWidgets.QFrame.Shape.VLine)
+            line.setFrameShape(QtWidgets.QFrame.Shape.HLine)
             line.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
             line.setStyleSheet("QFrame {\n	color: #414141;\n}")
             layout.addWidget(line)
