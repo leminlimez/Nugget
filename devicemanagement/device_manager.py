@@ -21,8 +21,8 @@ from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.posterboard.posterboard_tweak import PosterboardTweak
 from tweaks.basic_plist_locations import FileLocationsList, RiskyFileLocationsList
 
-from Sparserestore.restore import restore_files, FileToRestore
-from Sparserestore.mbdb import _FileMode
+from restore.restore import restore_files, FileToRestore
+from restore.mbdb import _FileMode
 
 def show_error_msg(txt: str, title: str = "Error!", icon = QMessageBox.Critical, detailed_txt: str = None):
     detailsBox = QMessageBox()

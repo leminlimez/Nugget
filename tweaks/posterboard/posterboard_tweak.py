@@ -7,7 +7,7 @@ from PySide6 import QtWidgets
 from ..tweak_classes import Tweak
 from .tendie_file import TendieFile
 from .template_file import TemplateFile
-from Sparserestore.restore import FileToRestore
+from restore.restore import FileToRestore
 from controllers.plist_handler import set_plist_value
 from controllers.files_handler import get_bundle_files
 from controllers import video_handler

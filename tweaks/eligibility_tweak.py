@@ -1,6 +1,6 @@
 from .tweak_classes import Tweak
 from controllers.files_handler import get_bundle_files
-from Sparserestore.restore import FileToRestore
+from restore.restore import FileToRestore
 from devicemanagement.constants import Version
 
 import plistlib
