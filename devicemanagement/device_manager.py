@@ -289,6 +289,13 @@ class DeviceManager:
         ))
     
     ## APPLYING OR REMOVING TWEAKS AND RESTORING
+    def progress_callback(self, progress: int):
+        if self.update_label == None:
+            return
+        prog = ""
+        if progress != None:
+            prog = f" ({progress:6.1f}%)"
+        self.update_label(f"Restoring to device...{prog}{self.do_not_unplug}")
     def apply_changes(self, resetting: bool = False, update_label=lambda x: None, show_alert=lambda x: None):
         try:
             # set the tweaks and apply
@@ -449,30 +456,31 @@ class DeviceManager:
             ))
 
             # restore to the device
-            do_not_unplug = ""
+            self.update_label = update_label
+            self.do_not_unplug = ""
             if self.data_singleton.current_device.connected_via_usb:
-                do_not_unplug = "\nDo NOT Unplug"
-            update_label(f"Restoring to device...{do_not_unplug}")
-            restore_files(files=files_to_restore, reboot=self.auto_reboot, lockdown_client=self.data_singleton.current_device.ld)
+                self.do_not_unplug = "\nDo NOT Unplug"
+            update_label(f"Preparing to restore...{self.do_not_unplug}")
+            restore_files(
+                files=files_to_restore, reboot=self.auto_reboot,
+                lockdown_client=self.data_singleton.current_device.ld,
+                progress_callback=self.progress_callback
+            )
+            msg = "Your device will now restart.\n\nRemember to turn Find My back on!"
+            if not self.auto_reboot:
+                msg = "Please restart your device to see changes."
+            final_alert = ApplyAlertMessage(txt="All done! " + msg, title="Success!", icon=QMessageBox.Information)
+            update_label("Success!")
+        except Exception as e:
+            final_alert = show_apply_error(e, update_label)
+        finally:
             if tmp_pb_dir != None:
                 try:
                     tmp_pb_dir.cleanup()
                 except Exception as e:
                     # ignore clean up errors
                     print(str(e))
-            msg = "Your device will now restart.\n\nRemember to turn Find My back on!"
-            if not self.auto_reboot:
-                msg = "Please restart your device to see changes."
-            show_alert(ApplyAlertMessage(txt="All done! " + msg, title="Success!", icon=QMessageBox.Information))
-            update_label("Success!")
-        except Exception as e:
-            if tmp_pb_dir != None:
-                try:
-                    tmp_pb_dir.cleanup()
-                except Exception as e2:
-                    # ignore clean up errors
-                    print(str(e2))
-            show_alert(show_apply_error(e, update_label))
+            show_alert(final_alert)
 
     ## RESETTING MOBILE GESTALT
     def reset_mobilegestalt(self, settings: QSettings, update_label=lambda x: None):

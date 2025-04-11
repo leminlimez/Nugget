@@ -16,7 +16,7 @@ def reboot_device(reboot: bool = False, lockdown_client: LockdownClient = None):
             diagnostics_service.restart()
         print("Remember to turn Find My back on!")
 
-def perform_restore(backup: backup.Backup, reboot: bool = False, lockdown_client: LockdownClient = None):
+def perform_restore(backup: backup.Backup, reboot: bool = False, lockdown_client: LockdownClient = None, progress_callback = lambda x: None):
     try:
         with TemporaryDirectory() as backup_dir:
             backup.write_to_directory(Path(backup_dir))
@@ -24,7 +24,7 @@ def perform_restore(backup: backup.Backup, reboot: bool = False, lockdown_client
             if lockdown_client == None:
                 lockdown_client = create_using_usbmux()
             with Mobilebackup2Service(lockdown_client) as mb:
-                mb.restore(backup_dir, system=True, reboot=False, copy=False, source=".")
+                mb.restore(backup_dir, system=True, reboot=False, copy=False, source=".", progress_callback=progress_callback, skip_apps=True)
             # reboot the device
             reboot_device(reboot, lockdown_client)
     except PyMobileDevice3Exception as e:

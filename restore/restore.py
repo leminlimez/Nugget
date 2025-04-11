@@ -92,7 +92,7 @@ def concat_regular_file(file: FileToRestore, files_list: list[FileToRestore], la
     return new_last_domain, full_path
 
 # files is a list of FileToRestore objects
-def restore_files(files: list[FileToRestore], reboot: bool = False, lockdown_client: LockdownClient = None):
+def restore_files(files: list[FileToRestore], reboot: bool = False, lockdown_client: LockdownClient = None, progress_callback = lambda x: None):
     # create the files to be backed up
     files_list = [
     ]
@@ -132,7 +132,7 @@ def restore_files(files: list[FileToRestore], reboot: bool = False, lockdown_cli
     # create the backup
     back = backup.Backup(files=files_list, apps=apps_list)
 
-    perform_restore(backup=back, reboot=reboot, lockdown_client=lockdown_client)
+    perform_restore(backup=back, reboot=reboot, lockdown_client=lockdown_client, progress_callback=progress_callback)
 
 
 # DEPRECIATED
