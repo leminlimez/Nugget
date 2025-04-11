@@ -54,7 +54,7 @@ def create_caml(video_path: str, output_file: str, auto_reverses: bool, update_l
     if auto_reverses:
         reverse = 1
     if not ignore_pb_frame_limit and frame_count > FRAME_LIMIT:
-        raise Exception(f"Videos must be under {FRAME_LIMIT} fps to loop. Either reduce the frame rate or make it shorter.")
+        raise Exception(f"Videos must be under {FRAME_LIMIT} frames to loop. Either reduce the frame rate or make it shorter.")
     try:
         # creating a folder named data
         if not os.path.exists(assets_path): 
