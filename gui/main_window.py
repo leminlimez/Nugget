@@ -43,6 +43,19 @@ class MainWindow(QtWidgets.QMainWindow):
         self.threadpool = QtCore.QThreadPool()
         self.loadSettings()
 
+        # hide every page
+        self.ui.posterboardPageBtn.hide()
+        self.ui.gestaltPageBtn.hide()
+        self.ui.euEnablerPageBtn.hide()
+        self.ui.featureFlagsPageBtn.hide()
+        self.ui.springboardOptionsPageBtn.hide()
+        self.ui.internalOptionsPageBtn.hide()
+        self.ui.daemonsPageBtn.hide()
+        self.ui.advancedPageBtn.hide()
+        self.ui.applyPageBtn.hide()
+        self.ui.sidebarDiv1.hide()
+        self.ui.sidebarDiv2.hide()
+
         # pre-load the pages
         self.pages = {
             Page.Home: Pages.Home(window=self, ui=self.ui),
