@@ -212,7 +212,7 @@ class PosterboardPage(Page):
                     btn_lbl = option.button_label
                     if btn_lbl == None:
                         btn_lbl = f"Import {option.allowed_files}"
-                    repl_btn.setText(f"  {btn_lbl}")
+                    repl_btn.setText(btn_lbl)
                     repl_btn.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
                     repl_btn.clicked.connect(lambda _, opt=option: (self.on_importReplaceBtn_clicked(opt)))
                     repl_layout.addWidget(repl_btn)
