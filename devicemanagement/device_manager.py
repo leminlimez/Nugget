@@ -294,7 +294,7 @@ class DeviceManager:
             return
         prog = ""
         if progress != None:
-            prog = f" ({progress:6.1f}%)"
+            prog = f" ({progress:6.1f}% )"
         self.update_label(f"Restoring to device...{prog}{self.do_not_unplug}")
     def apply_changes(self, resetting: bool = False, update_label=lambda x: None, show_alert=lambda x: None):
         try:
