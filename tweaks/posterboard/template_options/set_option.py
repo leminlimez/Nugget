@@ -4,6 +4,8 @@ import os
 from dataclasses import dataclass
 from typing import Optional
 from enum import Enum
+from PySide6.QtGui import QColor
+from PySide6.QtWidgets import QColorDialog
 
 from controllers.xml_handler import set_xml_value
 
@@ -11,6 +13,7 @@ class SetterType(Enum):
     textbox = "textbox"
     slider = "slider"
     toggle = "toggle"
+    color_picker = "color_picker"
 
 @dataclass
 class SetOption(TemplateOption):
@@ -47,6 +50,13 @@ class SetOption(TemplateOption):
             # split into values
             spl = rm.split(' ')
             parsed_spl = list(map(self.convert_str, spl))
+            # convert to color
+            if self.setter_type == SetterType.color_picker:
+                return QColor(
+                    r=self.convert_color(parsed_spl[0]),
+                    g=self.convert_color(parsed_spl[1]),
+                    b=self.convert_color(parsed_spl[2])
+                )
             return parsed_spl
         return value
 
@@ -115,10 +125,16 @@ class SetOption(TemplateOption):
         else:
             self.is_float = self.setter_type == SetterType.slider
             return self.convert_float(float(value))
+    def convert_color(self, value: float):
+        return round(min(1, value) * 255)
     def convert_back(self, value):
-        if not isinstance(value, list):
+        back_list = value
+        if isinstance(value, QColor):
+            # convert color back to string
+            back_list = [float(value.red)/255, float(value.green)/255, float(value.blue)/255]
+        elif not isinstance(value, list):
             return value
-        back_str = ' '.join(value)
+        back_str = ' '.join(back_list)
         if self.value_tag != None:
             back_str = self.value_tag + "(" + back_str + ")"
         return back_str
@@ -150,6 +166,11 @@ class SetOption(TemplateOption):
                 self.label_objects[index].setText(f"{self.label}: {val}")
             else:
                 self.label_objects.setText(f"{self.label}: {self.get_value()}")
+    def update_color(self, picker):
+        color = QColorDialog.getColor()
+        if color.isValid():
+            self.value = color
+            picker.setStyleSheet("background-color: {}".format(color.name()))
 
     def apply(self, container_path: str):
         apply_val = self.get_value()

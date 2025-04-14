@@ -293,6 +293,21 @@ class PosterboardPage(Page):
                         slid_layout.addWidget(val_widget)
                         slid_widget.setLayout(slid_layout)
                         opt_layout.addWidget(slid_widget)
+                elif option.type == TemplateOptionTypePB.set and option.setter_type == SetterType.color_picker:
+                    # color picker input
+                    col_widget = QtWidgets.QWidget(options_widget)
+                    col_layout = QtWidgets.QHBoxLayout(options_widget)
+                    col_layout.setContentsMargins(0, 2, 0, 2)
+                    col_lbl = QtWidgets.QLabel(col_widget)
+                    col_lbl.setText(option.label)
+                    col_layout.addWidget(col_lbl)
+                    col_picker = QtWidgets.QToolButton(col_widget)
+                    col_picker.setText("")
+                    col_picker.setStyleSheet("background-color: {}".format(option.value.name()))
+                    col_picker.clicked.connect(lambda p=col_picker: option.update_color(p))
+                    col_layout.addWidget(col_picker)
+                    col_widget.setLayout(col_layout)
+                    opt_layout.addWidget(col_widget)
 
             options_widget.setLayout(opt_layout)
 
