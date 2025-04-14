@@ -2,6 +2,22 @@ import xml.etree.ElementTree as tree
 
 tree.register_namespace('', "http://www.apple.com/CoreAnimation/1.0")
 
+def parse_equation(eq: str, val: str):
+    eqns = eq.split(',')
+    value = [val]
+    if ' ' in val:
+        # convert to array
+        value = val.split(' ')
+    # map the value to floats
+    value = list(map(lambda x: float(x), value))
+    keys = ['x', 'y', 'z', 'a']
+    results = []
+    mapped = dict(zip(keys, value))
+    for eqn in eqns:
+        results.append(eval(eqn, {}, mapped))
+    # map back to string
+    return ' '.join(results)
+
 def set_xml_value(file: str, id: str, key: str, val: any, use_ca_id: bool = False):
     xml = tree.parse(file)
     root = xml.getroot()
@@ -20,7 +36,11 @@ def set_xml_value(file: str, id: str, key: str, val: any, use_ca_id: bool = Fals
     else:
         idKey = "nuggetId"
     for to_change in root.findall(f".//*[@{idKey}='{id}']"):
-        to_change.set(key, value)
+        eqn = to_change.get("nuggetOffset")
+        offsetVal = value
+        if eqn != None:
+            offsetVal = parse_equation(eqn, value)
+        to_change.set(key, offsetVal)
     if use_ca_id:
         # also look for target id
         for to_change in root.findall(f".//*[@targetId='{id}']"):

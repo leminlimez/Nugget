@@ -70,13 +70,13 @@ Properties:
   
 __Additional Details:__
 
-You can add the tag `nuggetOffset` to properties in the caml file and Nugget will offset the user's choice by that value when applying. This tag is formatted like a math equation, with `x` representing the input chosen by the user. Example for position:
+You can add the tag `nuggetOffset` to properties in the caml file and Nugget will offset the user's choice by that value when applying. This tag is formatted like a math equation, with `x` representing the input chosen by the user or `x`, `y`, `z`, and `a` representing multiple values. Example for position:
 ```xml
-<CALayer nuggetId="1" nuggetOffset="2 * x + (10 15)" id="#1" allowsEdgeAntialiasing="1" allowsGroupOpacity="1" bounds="0 -28 520 563" contentsFormat="RGBA8" cornerCurve="circular" hidden="0" name="Thing" position="195 365" transform="" zPosition="442">
+<CALayer nuggetId="1" nuggetOffset="(2 * x + 10), (3 * y + 15)" id="#1" allowsEdgeAntialiasing="1" allowsGroupOpacity="1" bounds="0 -28 520 563" contentsFormat="RGBA8" cornerCurve="circular" hidden="0" name="Thing" position="195 365" transform="" zPosition="442">
   <sublayers/>
 </CALayer>
 ```
-This will first multiply each of the position components by 2 and then add 10 to the x position and 15 to the y position.
+Each component is separated by a comma. The `nuggetId` property is required in order to use equations.
 </details>
 <details>
 <summary>Remove Files/Values</summary>
