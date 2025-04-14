@@ -27,6 +27,8 @@ class SetOption(TemplateOption):
 
     # toggle options
     inverted: bool = False # if set to true, the bool value will be inverted
+    toggle_off_value: Optional[any] = None # the value to set when the toggle is off (for non-boolean values)
+    toggle_on_value: Optional[any] = None # the value to set when the toggle is on (for non-boolean values)
 
     value: any = 0 # whether or not to delete the file
 
@@ -56,6 +58,10 @@ class SetOption(TemplateOption):
         # toggle options
         if 'inverted' in data:
             self.inverted = data['inverted']
+        if 'toggle_off_value' in data:
+            self.toggle_off_value = data['toggle_off_value']
+        if 'toggle_on_value' in data:
+            self.toggle_on_value = data['toggle_on_value']
 
         if 'default_value' in data:
             self.value = data['default_value']
@@ -100,9 +106,14 @@ class SetOption(TemplateOption):
 
     def apply(self, container_path: str):
         apply_val = self.get_value()
-        if self.setter_type == SetterType.toggle and self.inverted:
-            # invert toggle
-            apply_val = not apply_val
+        if self.setter_type == SetterType.toggle:
+            if self.inverted:
+                # invert toggle
+                apply_val = not apply_val
+            if apply_val and self.toggle_on_value != None:
+                apply_val = self.toggle_on_value
+            elif not apply_val and self.toggle_off_value != None:
+                apply_val = self.toggle_off_value
         for file in self.files:
             path = os.path.join(container_path, file)
             set_xml_value(file=path, id=self.identifier, key=self.key, val=apply_val, use_ca_id=self.use_ca_id)

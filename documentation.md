@@ -56,13 +56,27 @@ Properties:
 - `identifier` - identifier in xml file (corresponds to nuggetId value)
 - `use_ca_id` *(Optional)* - whether or not to use the CoreAnimation id instead of nuggetId
 - `key` - the key/tag of the value to change in the property
+- `default_value` *(Optional)* - the default value of the input
 - `setter_type` - the type of input the user sees for setting the value
-  - __Valid types:__ "textbox", "slider", "toggle"
+  - __Valid types:__ "textbox", "slider", "toggle", "color_picker"
+
 - `min_value` *(Required for slider, optional for others)* - minimum value allowed for input
 - `max_value` *(Required for slider, optional for others)* - maximum value allowed for input
 - `step` *(Optional, only for slider)* - the interval between each slider value
+
 - `inverted` *(Optional, only for toggle)* - if set to true, values will apply to the file inverted
-- `default_value` *(Optional)* - the default value of the input
+- `toggle_off_value` *(Optional, only for toggle)* - the value to set when the toggle is off (for non-boolean values)
+- `toggle_on_value` *(Optional, only for toggle)* - the value to set when the toggle is on
+  
+__Additional Details:__
+
+You can add the tag `nuggetOffset` to properties in the caml file and Nugget will offset the user's choice by that value when applying. This tag is formatted like a math equation, with `x` representing the input chosen by the user. Example for position:
+```xml
+<CALayer nuggetId="1" nuggetOffset="2 * x + (10 15)" id="#1" allowsEdgeAntialiasing="1" allowsGroupOpacity="1" bounds="0 -28 520 563" contentsFormat="RGBA8" cornerCurve="circular" hidden="0" name="Thing" position="195 365" transform="" zPosition="442">
+  <sublayers/>
+</CALayer>
+```
+This will first multiply each of the position components by 2 and then add 10 to the x position and 15 to the y position.
 </details>
 <details>
 <summary>Remove Files/Values</summary>
