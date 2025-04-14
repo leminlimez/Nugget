@@ -31,10 +31,28 @@ class SetOption(TemplateOption):
     toggle_on_value: Optional[any] = None # the value to set when the toggle is on (for non-boolean values)
 
     value: any = 0 # whether or not to delete the file
+    value_tag: Optional[str] = None # the value tag in the caml (ie "scale(0 0 0)")
+
+    def split_value(self, value):
+        if value == None:
+            return None
+        if isinstance(value, str) and ' ' in value:
+            # first get the value tag
+            rm = value
+            if '(' in value and ')' in value:
+                rm = value.split('(')
+                self.value_tag = rm[0]
+                rm = rm[1]
+                rm.removesuffix(')')
+            # split into values
+            spl = rm.split(' ')
+            parsed_spl = list(map(self.convert_str, spl))
+            return parsed_spl
+        return value
 
     def __init__(self, data: dict):
         super().__init__(data=data)
-        self.label_object = None # for updating the qt label
+        self.label_objects = None # for updating the qt label
         self.identifier = data['identifier']
         self.key = data['key']
         self.setter_type = SetterType[data['setter_type']]
@@ -73,36 +91,65 @@ class SetOption(TemplateOption):
             elif self.max_value != None:
                 self.value = self.max_value
 
-        # convert float to int for qt slider
-        if self.setter_type == SetterType.slider and (isinstance(self.min_value, float)
-                                                      or isinstance(self.max_value, float)
-                                                      or isinstance(self.value, float)
-                                                      or isinstance(self.step, float)):
-            self.is_float = True
-            self.min_value = int(self.min_value * 1000)
-            self.max_value = int(self.max_value * 1000)
-            self.step = int(self.step * 1000)
-            self.value = int(self.value * 1000)
+        # convert values
+        self.min_value = self.split_value(self.min_value)
+        self.max_value = self.split_value(self.max_value)
+        self.step = self.split_value(self.step)
+        self.value = self.split_value(self.value)
 
+    # Converter functions
+    def convert_float(self, value: float):
+        if not self.is_float:
+            return value
+        return int(value * 1000)
+    def convert_int(self, value: int):
+        if not self.is_float:
+            return value
+        return float(value) / 1000.0
+    def convert_str(self, value: str):
+        # convert string to either float or int
+        if self.is_float:
+            return self.convert_float(float(value))
+        if isinstance(value, int) or (isinstance(value, str) and value.isdigit() and not '.' in value):
+            return int(value)
+        else:
+            self.is_float = self.setter_type == SetterType.slider
+            return self.convert_float(float(value))
+    def convert_back(self, value):
+        if not isinstance(value, list):
+            return value
+        back_str = ' '.join(value)
+        if self.value_tag != None:
+            back_str = self.value_tag + "(" + back_str + ")"
+        return back_str
+
+    def get_parsed_value(self, value):
+        if self.is_float:
+            if isinstance(value, list):
+                # convert list
+                return list(map(self.convert_int, value))
+            return self.convert_int(value)
+        return value
     def get_value(self):
-        if self.is_float:
-            return float(self.value) / 1000.0
-        else:
-            return self.value
+        return self.get_parsed_value(self.value)
     def get_min(self):
-        if self.is_float:
-            return float(self.min_value) / 1000.0
-        else:
-            return self.min_value
+        return self.get_parsed_value(self.min_value)
     def get_max(self):
-        if self.is_float:
-            return float(self.max_value) / 1000.0
+        return self.get_parsed_value(self.max_value)
+    
+    def update_value(self, nv: int, index: int=None):
+        if isinstance(self.value, list):
+            self.value[index] = nv
         else:
-            return self.max_value
-    def update_value(self, nv: int):
-        self.value = nv
-        if self.label_object != None:
-            self.label_object.setText(f"{self.label}: {self.get_value()}")
+            self.value = nv
+        if self.label_objects != None:
+            if index != None:
+                val = self.get_value()
+                if isinstance(self.value, list):
+                    val = val[index]
+                self.label_objects[index].setText(f"{self.label}: {val}")
+            else:
+                self.label_objects.setText(f"{self.label}: {self.get_value()}")
 
     def apply(self, container_path: str):
         apply_val = self.get_value()
@@ -116,4 +163,4 @@ class SetOption(TemplateOption):
                 apply_val = self.toggle_off_value
         for file in self.files:
             path = os.path.join(container_path, file)
-            set_xml_value(file=path, id=self.identifier, key=self.key, val=apply_val, use_ca_id=self.use_ca_id)
+            set_xml_value(file=path, id=self.identifier, key=self.key, val=self.convert_back(apply_val), use_ca_id=self.use_ca_id)

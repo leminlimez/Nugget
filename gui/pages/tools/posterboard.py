@@ -241,36 +241,58 @@ class PosterboardPage(Page):
                     bx_widget.setLayout(bx_layout)
                     opt_layout.addWidget(bx_widget)
                 elif option.type == TemplateOptionTypePB.set and option.setter_type == SetterType.slider:
-                    # slider input
-                    slid_widget = QtWidgets.QWidget(options_widget)
-                    slid_layout = QtWidgets.QVBoxLayout(options_widget)
-                    slid_layout.setContentsMargins(0, 2, 0, 2)
-                    slid_lbl = QtWidgets.QLabel(slid_widget)
-                    slid_lbl.setText(f"{option.label}: {option.get_value()}")
-                    slid_layout.addWidget(slid_lbl)
-                    option.label_object = slid_lbl
-                    # widget for min and max values with slider
-                    val_widget = QtWidgets.QWidget(slid_widget)
-                    val_layout = QtWidgets.QHBoxLayout(slid_widget)
-                    min_lbl = QtWidgets.QLabel(val_widget)
-                    min_lbl.setText(str(option.get_min()))
-                    val_layout.addWidget(min_lbl)
-                    slider = QtWidgets.QSlider(val_widget)
-                    slider.setMinimum(option.min_value)
-                    slider.setMaximum(option.max_value)
-                    slider.setSingleStep(option.step)
-                    slider.setValue(option.value)
-                    slider.setOrientation(QtCore.Qt.Orientation.Horizontal)
-                    slider.valueChanged.connect(option.update_value)
-                    val_layout.addWidget(slider)
-                    max_lbl = QtWidgets.QLabel(val_widget)
-                    max_lbl.setText(str(option.get_max()))
-                    val_layout.addWidget(max_lbl)
-                    # add to layout and widget
-                    val_widget.setLayout(val_layout)
-                    slid_layout.addWidget(val_widget)
-                    slid_widget.setLayout(slid_layout)
-                    opt_layout.addWidget(slid_widget)
+                    vals = option.get_value()
+                    option.label_objects = []
+                    list_len = 1
+                    if isinstance(vals, list):
+                        list_len = len(vals)
+                    else:
+                        vals = [vals]
+                    for i in range(list_len):
+                        # slider input
+                        slid_widget = QtWidgets.QWidget(options_widget)
+                        slid_layout = QtWidgets.QVBoxLayout(options_widget)
+                        slid_layout.setContentsMargins(0, 2, 0, 2)
+                        slid_lbl = QtWidgets.QLabel(slid_widget)
+                        slid_lbl.setText(f"{option.label}: {vals[i]}")
+                        slid_layout.addWidget(slid_lbl)
+                        option.label_objects.append(slid_lbl)
+                        # widget for min and max values with slider
+                        val_widget = QtWidgets.QWidget(slid_widget)
+                        val_layout = QtWidgets.QHBoxLayout(slid_widget)
+                        min_lbl = QtWidgets.QLabel(val_widget)
+
+                        min_val_fixed = option.get_min()
+                        min_val = option.min_value
+                        max_val_fixed = option.get_max()
+                        max_val = option.max_value
+                        step = option.step
+                        val = option.value
+                        if isinstance(min_val, list):
+                            min_val_fixed = min_val_fixed[i]
+                            min_val = min_val[i]
+                            max_val_fixed = max_val_fixed[i]
+                            max_val = max_val[i]
+                            step = step[i]
+                            val = val[i]
+                        min_lbl.setText(str(min_val_fixed))
+                        val_layout.addWidget(min_lbl)
+                        slider = QtWidgets.QSlider(val_widget)
+                        slider.setMinimum(min_val)
+                        slider.setMaximum(max_val)
+                        slider.setSingleStep(step)
+                        slider.setValue(val)
+                        slider.setOrientation(QtCore.Qt.Orientation.Horizontal)
+                        slider.valueChanged.connect(lambda v, idx=i: option.update_value(v, idx))
+                        val_layout.addWidget(slider)
+                        max_lbl = QtWidgets.QLabel(val_widget)
+                        max_lbl.setText(str(max_val_fixed))
+                        val_layout.addWidget(max_lbl)
+                        # add to layout and widget
+                        val_widget.setLayout(val_layout)
+                        slid_layout.addWidget(val_widget)
+                        slid_widget.setLayout(slid_layout)
+                        opt_layout.addWidget(slid_widget)
 
             options_widget.setLayout(opt_layout)
 
