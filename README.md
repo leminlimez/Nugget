@@ -3,22 +3,20 @@
 # Nugget
 Unlock your device's full potential!
 
-Sparserestore works on all versions iOS 17.0-18.1.1. There is partial support for iOS 18.2 developer beta 3 and newer not using any exploits.
-
-> [!NOTE]
-> **Mobilegestalt and AI Enabler tweaks are not supported on iOS 18.2+.** It will never be supported, do not make issues asking for when it is supported.
+Customize your device with animated wallpapers, disable pesky daemons, and more!
 
 Make sure you have installed the [requirements](#requirements) if you are on Windows or Linux.
 
-This uses the sparserestore exploit to write to files outside of the intended restore location, like mobilegestalt. Read the [Getting the File](#getting-the-file) section to learn how to get your mobilegestalt file.
-
 > [!NOTE]
-> I am not responsible if your device bootloops. Please back up your data before using!
+> Please back up your data before using! Nugget may cause unforseen problems, so it is better to be same than sorry.
 
 ## Features
 <details>
 <summary>iOS 17.0+</summary>
 
+- PosterBoard: Animated wallpapers and descriptors.
+  - Community wallpapers can be found [here][WallpapersWebsite]
+  - See documentation on the structure of tendies files in [documentation.md](documentation.md)
 - Springboard Options (from [Cowabunga Lite][CowabungaLite])
   - Set Lock Screen Footnote
   - Disable Lock After Respring
@@ -51,9 +49,6 @@ This uses the sparserestore exploit to write to files outside of the intended re
   - PassBook
   - Spotlight
   - Voice Control
-- PosterBoard: Animated wallpapers and descriptors.
-  - Community wallpapers can be found [here][WallpapersWebsite]
-  - See documentation on the structure of tendies files in [documentation.md](documentation.md)
 - Risky (Hidden) Options:
   - Disable thermalmonitord
   - OTA Killer
@@ -166,6 +161,14 @@ pyside6-rcc qt/resources.qrc -o resources_rc.py
 ```
 
 The application itself can be compiled by running `compile.py`.
+
+## Sparserestore Info
+This uses the sparserestore exploit to write to files outside of the intended restore location, like mobilegestalt. Read the [Getting the File](#getting-the-file) section to learn how to get your mobilegestalt file.
+
+Sparserestore works on all versions iOS 17.0-18.1.1. There is partial support for iOS 18.2 developer beta 3 and newer not using any exploits.
+
+> [!NOTE]
+> **Mobilegestalt and AI Enabler tweaks are not supported on iOS 18.2+.** It will never be supported, do not make issues asking for when it is supported.
 
 ## Read More
 If you would like to read more about the inner workings of the exploit and iOS restore system, I made a write up which you can read [here][ReadMoreGist].
