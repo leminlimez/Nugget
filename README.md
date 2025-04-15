@@ -8,7 +8,7 @@ Customize your device with animated wallpapers, disable pesky daemons, and more!
 Make sure you have installed the [requirements](#requirements) if you are on Windows or Linux.
 
 > [!NOTE]
-> Please back up your data before using! Nugget may cause unforseen problems, so it is better to be same than sorry.
+> Please back up your data before using! Nugget may cause unforseen problems, so it is better to be same than sorry. We are not responsible for any damange done to your device.
 
 ## Features
 <details>
