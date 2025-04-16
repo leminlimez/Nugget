@@ -24,8 +24,7 @@ class PosterboardTweak(Tweak):
         self.reverse_video = False
         self.use_foreground = False
         self.bundle_id = "com.apple.PosterBoard"
-        self.resetting = False
-        self.resetType = 0 # 0 for descriptor, 1 for prb, 2 for suggested photos
+        self.resetModes = []
         self.structure_version = 61
 
     def verify_tendie(self, new_tendie: TendieFile, is_template: bool = False) -> bool:
@@ -208,18 +207,23 @@ class PosterboardTweak(Tweak):
             self.structure_version = 59
         else:
             self.structure_version = 61
-        if self.resetting:
+        if len(self.resetModes) > 0:
             # null out the folder
             file_paths = []
-            if self.resetType == 0:
-                # resetting descriptors
-                file_paths.append(f"/{self.structure_version}/Extensions/com.apple.WallpaperKit.CollectionsPoster/descriptors")
-                file_paths.append(f"/{self.structure_version}/Extensions/com.apple.MercuryPoster/descriptors")
-            elif self.resetType == 2:
-                # resetting suggested photos
-                file_paths.append(f"/{self.structure_version}/Extensions/com.apple.PhotosUIPrivate.PhotosPosterProvider/descriptors")
-            else:
-                file_paths.append("")
+            for mode in self.resetModes:
+                if mode == "Collections":
+                    # resetting collections
+                    file_paths.append(f"/{self.structure_version}/Extensions/com.apple.WallpaperKit.CollectionsPoster/descriptors")
+                    file_paths.append(f"/{self.structure_version}/Extensions/com.apple.MercuryPoster/descriptors")
+                elif mode == "Suggested Photos":
+                    # resetting suggested photos
+                    file_paths.append(f"/{self.structure_version}/Extensions/com.apple.PhotosUIPrivate.PhotosPosterProvider/descriptors")
+                elif mode == "Gallery Cache":
+                    # resetting gallery cache
+                    file_paths.append(f"/{self.structure_version}/GalleryCache")
+                else:
+                    # resetting prb extensions
+                    file_paths.append("")
             for file_path in file_paths:
                 files_to_restore.append(FileToRestore(
                     contents=b"",

@@ -35,12 +35,19 @@ class SettingsPage(Page):
         # toggle the button visibility
         if checked:
             self.ui.advancedPageBtn.show()
-            self.ui.resetPRBExtBtn.show()
             self.ui.ignorePBFrameLimitChk.show()
+            try:
+                self.ui.resetPBDrp.removeItem(4)
+            except:
+                pass
+            self.ui.resetPBDrp.addItem("PB Extensions")
         else:
             self.ui.advancedPageBtn.hide()
-            self.ui.resetPRBExtBtn.hide()
             self.ui.ignorePBFrameLimitChk.hide()
+            try:
+                self.ui.resetPBDrp.removeItem(4)
+            except:
+                pass
     def on_ignorePBFrameLimitChk_toggled(self, checked: bool):
         set_ignore_frame_limit(checked)
         # save the setting

@@ -2256,8 +2256,8 @@ class Ui_Nugget(object):
         sizePolicy5.setVerticalStretch(0)
         sizePolicy5.setHeightForWidth(self.pbPagePicker.sizePolicy().hasHeightForWidth())
         self.pbPagePicker.setSizePolicy(sizePolicy5)
-        self.pbPagePicker.setMinimumSize(QSize(0, 20))
-        self.pbPagePicker.setMaximumSize(QSize(16777215, 25))
+        self.pbPagePicker.setMinimumSize(QSize(0, 30))
+        self.pbPagePicker.setMaximumSize(QSize(16777215, 35))
         self.pbPagePicker.setStyleSheet(u"QToolButton {\n"
 "	min-height: 25px;\n"
 "	border-radius: 5px;\n"
@@ -2265,10 +2265,6 @@ class Ui_Nugget(object):
         self.horizontalLayout_14 = QHBoxLayout(self.pbPagePicker)
         self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
         self.horizontalLayout_14.setContentsMargins(-1, 0, -1, 0)
-        self.horizontalSpacer_20 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_14.addItem(self.horizontalSpacer_20)
-
         self.tendiesPageBtn = QToolButton(self.pbPagePicker)
         self.tendiesPageBtn.setObjectName(u"tendiesPageBtn")
         sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Expanding)
@@ -2311,6 +2307,11 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_14.addItem(self.horizontalSpacer_21)
 
+        self.label = QLabel(self.pbPagePicker)
+        self.label.setObjectName(u"label")
+
+        self.horizontalLayout_14.addWidget(self.label)
+
 
         self.verticalLayout_143.addWidget(self.pbPagePicker)
 
@@ -2324,11 +2325,6 @@ class Ui_Nugget(object):
 
         self.verticalLayout_143.addWidget(self.line_123)
 
-        self.pbActionLbl = QLabel(self.posterboardPage)
-        self.pbActionLbl.setObjectName(u"pbActionLbl")
-
-        self.verticalLayout_143.addWidget(self.pbActionLbl)
-
         self.pbPages = QStackedWidget(self.posterboardPage)
         self.pbPages.setObjectName(u"pbPages")
         self.pbPages.setEnabled(False)
@@ -2339,7 +2335,7 @@ class Ui_Nugget(object):
         self.verticalLayout_38.setContentsMargins(-1, 0, -1, 0)
         self.horizontalLayout_12 = QHBoxLayout()
         self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
-        self.horizontalLayout_12.setContentsMargins(-1, -1, -1, 0)
+        self.horizontalLayout_12.setContentsMargins(-1, -1, -1, 3)
         self.horizontalSpacer_18 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_12.addItem(self.horizontalSpacer_18)
@@ -2379,36 +2375,6 @@ class Ui_Nugget(object):
 
         self.verticalLayout_38.addWidget(self.pbFilesList)
 
-        self.horizontalLayout_32 = QHBoxLayout()
-        self.horizontalLayout_32.setObjectName(u"horizontalLayout_32")
-        self.horizontalLayout_32.setContentsMargins(-1, -1, -1, 10)
-        self.horizontalSpacer_22 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_32.addItem(self.horizontalSpacer_22)
-
-        self.deleteAllDescriptorsBtn = QToolButton(self.pbTendiesPage)
-        self.deleteAllDescriptorsBtn.setObjectName(u"deleteAllDescriptorsBtn")
-        icon26 = QIcon()
-        icon26.addFile(u":/icon/arrow.clockwise.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.deleteAllDescriptorsBtn.setIcon(icon26)
-        self.deleteAllDescriptorsBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
-
-        self.horizontalLayout_32.addWidget(self.deleteAllDescriptorsBtn)
-
-        self.resetPRBExtBtn = QToolButton(self.pbTendiesPage)
-        self.resetPRBExtBtn.setObjectName(u"resetPRBExtBtn")
-        self.resetPRBExtBtn.setIcon(icon26)
-        self.resetPRBExtBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
-
-        self.horizontalLayout_32.addWidget(self.resetPRBExtBtn)
-
-        self.horizontalSpacer_23 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_32.addItem(self.horizontalSpacer_23)
-
-
-        self.verticalLayout_38.addLayout(self.horizontalLayout_32)
-
         self.pbPages.addWidget(self.pbTendiesPage)
         self.pbTemplatesPage = QWidget()
         self.pbTemplatesPage.setObjectName(u"pbTemplatesPage")
@@ -2417,7 +2383,7 @@ class Ui_Nugget(object):
         self.verticalLayout_381.setContentsMargins(-1, 0, -1, 0)
         self.horizontalLayout_121 = QHBoxLayout()
         self.horizontalLayout_121.setObjectName(u"horizontalLayout_121")
-        self.horizontalLayout_121.setContentsMargins(-1, -1, -1, 0)
+        self.horizontalLayout_121.setContentsMargins(-1, -1, -1, 3)
         self.horizontalSpacer_181 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_121.addItem(self.horizontalSpacer_181)
@@ -2505,23 +2471,6 @@ class Ui_Nugget(object):
         self.verticalSpacer_22 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_39.addItem(self.verticalSpacer_22)
-
-        self.horizontalLayout_34 = QHBoxLayout()
-        self.horizontalLayout_34.setObjectName(u"horizontalLayout_34")
-        self.horizontalLayout_34.setContentsMargins(-1, 0, -1, -1)
-        self.clearSuggestedBtn = QToolButton(self.pbVideoPage)
-        self.clearSuggestedBtn.setObjectName(u"clearSuggestedBtn")
-        self.clearSuggestedBtn.setIcon(icon26)
-        self.clearSuggestedBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
-
-        self.horizontalLayout_34.addWidget(self.clearSuggestedBtn)
-
-        self.horizontalSpacer_24 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_34.addItem(self.horizontalSpacer_24)
-
-
-        self.verticalLayout_39.addLayout(self.horizontalLayout_34)
 
         self.pbPages.addWidget(self.pbVideoPage)
 
@@ -2807,9 +2756,9 @@ class Ui_Nugget(object):
         self.horizontalLayout_7.setContentsMargins(-1, 10, -1, 0)
         self.chooseGestaltBtn = QToolButton(self.verticalWidget2)
         self.chooseGestaltBtn.setObjectName(u"chooseGestaltBtn")
-        icon27 = QIcon()
-        icon27.addFile(u":/icon/folder.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.chooseGestaltBtn.setIcon(icon27)
+        icon26 = QIcon()
+        icon26.addFile(u":/icon/folder.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.chooseGestaltBtn.setIcon(icon26)
         self.chooseGestaltBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
         self.horizontalLayout_7.addWidget(self.chooseGestaltBtn)
@@ -3345,9 +3294,9 @@ class Ui_Nugget(object):
 "	padding-right: 5px;\n"
 "	border-radius: 0px;\n"
 "}")
-        icon28 = QIcon()
-        icon28.addFile(u":/icon/compass.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.toolButton_16.setIcon(icon28)
+        icon27 = QIcon()
+        icon27.addFile(u":/icon/compass.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.toolButton_16.setIcon(icon27)
 
         self.horizontalLayout_31.addWidget(self.toolButton_16)
 
@@ -3457,7 +3406,7 @@ class Ui_Nugget(object):
 
         self.importThemeFolderBtn = QToolButton(self.horizontalWidget7)
         self.importThemeFolderBtn.setObjectName(u"importThemeFolderBtn")
-        self.importThemeFolderBtn.setIcon(icon27)
+        self.importThemeFolderBtn.setIcon(icon26)
 
         self.horizontalLayout_26.addWidget(self.importThemeFolderBtn)
 
@@ -3881,26 +3830,16 @@ class Ui_Nugget(object):
         self.voiceControlChk.setText(QCoreApplication.translate("Nugget", u"Disable Voice Control", None))
         self.posterboardLbl.setText(QCoreApplication.translate("Nugget", u"Posterboard", None))
         self.modifyPosterboardsChk.setText(QCoreApplication.translate("Nugget", u"Modify", None))
-        self.findPBBtn.setText(QCoreApplication.translate("Nugget", u"  Find Wallpapers", None))
+        self.findPBBtn.setText(QCoreApplication.translate("Nugget", u"   Discover Wallpapers", None))
         self.pbHelpBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
         self.tendiesPageBtn.setText(QCoreApplication.translate("Nugget", u"  Tendies", None))
-        self.templatePageBtn.setText(QCoreApplication.translate("Nugget", u"  Templates", None))
-        self.videoPageBtn.setText(QCoreApplication.translate("Nugget", u"  Live", None))
-        self.pbActionLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
+        self.templatePageBtn.setText(QCoreApplication.translate("Nugget", u"   Templates", None))
+        self.videoPageBtn.setText(QCoreApplication.translate("Nugget", u"   Video", None))
+        self.label.setText(QCoreApplication.translate("Nugget", u"Clear Action:", None))
 #if QT_CONFIG(tooltip)
         self.importTendiesBtn.setToolTip(QCoreApplication.translate("Nugget", u"Select a wallpaper file with the .tendies extension.", None))
 #endif // QT_CONFIG(tooltip)
         self.importTendiesBtn.setText(QCoreApplication.translate("Nugget", u"  Import Files (.tendies)", None))
-#if QT_CONFIG(tooltip)
-        self.deleteAllDescriptorsBtn.setToolTip(QCoreApplication.translate("Nugget", u"Clears all the wallpapers in the Collections section so that you can import more.", None))
-#endif // QT_CONFIG(tooltip)
-        self.deleteAllDescriptorsBtn.setText(QCoreApplication.translate("Nugget", u"  Clear Collections Wallpapers", None))
-#if QT_CONFIG(tooltip)
-        self.resetPRBExtBtn.setToolTip(QCoreApplication.translate("Nugget", u"Wipes the PRB Extension folder.\n"
-"\n"
-"Warning: This will remove all of your wallpapers and will restrict you from adding new ones until you restore again.", None))
-#endif // QT_CONFIG(tooltip)
-        self.resetPRBExtBtn.setText(QCoreApplication.translate("Nugget", u"  Remove All Wallpapers", None))
 #if QT_CONFIG(tooltip)
         self.importTemplateBtn.setToolTip(QCoreApplication.translate("Nugget", u"Select a wallpaper file with the .tendies extension.", None))
 #endif // QT_CONFIG(tooltip)
@@ -3922,7 +3861,6 @@ class Ui_Nugget(object):
         self.chooseVideoBtn.setText(QCoreApplication.translate("Nugget", u"Choose Video", None))
         self.pbVideoThumbLbl.setText(QCoreApplication.translate("Nugget", u"Current Thumbnail: None", None))
         self.pbVideoLbl.setText(QCoreApplication.translate("Nugget", u"Current Video: None", None))
-        self.clearSuggestedBtn.setText(QCoreApplication.translate("Nugget", u"  Clear Suggested Photos", None))
         self.advancedOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Risky Options", None))
         self.label_17.setText(QCoreApplication.translate("Nugget", u"Disclaimer:\n"
 "\n"

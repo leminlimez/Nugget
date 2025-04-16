@@ -181,10 +181,17 @@ class MainWindow(QtWidgets.QMainWindow):
 
             if self.device_manager.allow_risky_tweaks:
                 self.ui.advancedPageBtn.show()
-                self.ui.resetPRBExtBtn.show()
+                try:
+                    self.ui.resetPBDrp.removeItem(4)
+                except:
+                    pass
+                self.ui.resetPBDrp.addItem("PB Extensions")
             else:
                 self.ui.advancedPageBtn.hide()
-                self.ui.resetPRBExtBtn.hide()
+                try:
+                    self.ui.resetPBDrp.removeItem(4)
+                except:
+                    pass
             
             self.ui.sidebarDiv2.show()
             self.ui.applyPageBtn.show()

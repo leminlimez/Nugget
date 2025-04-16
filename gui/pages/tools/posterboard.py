@@ -4,6 +4,7 @@ import webbrowser
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 from gui.dialogs import PBHelpDialog
+from gui.multicombobox import MultiComboBox
 
 from tweaks.tweaks import tweaks
 from tweaks.posterboard.template_options import OptionType as TemplateOptionTypePB
@@ -17,6 +18,20 @@ class PosterboardPage(Page):
         self.pb_mainLayout = None
         self.pb_templateLayout = None
 
+        # set up the dropdown
+        self.ui.resetPBDrp = MultiComboBox(self.ui.pbPagePicker, updateAction=self.on_update_picker)
+        self.ui.resetPBDrp.setMinimumWidth(165)
+        self.ui.resetPBDrp.setMinimumHeight(25)
+        self.ui.resetPBDrp.setMaximumWidth(200)
+        self.ui.resetPBDrp.setMaximumHeight(30)
+        self.ui.resetPBDrp.addItems(["Collections", "Suggested Photos", "Gallery Cache"])
+        self.ui.resetPBDrp.lineEdit().setText("  None")
+        self.ui.resetPBDrp.setStyleSheet("QWidget { background-color: #3b3b3b; border: 2px solid #3b3b3b; border-radius: 5px; }")# QAbstractItemView::indicator:checked { background-color: rgba(0, 0, 255, 0.3); border-radius: 4px; }")
+        self.ui.pbPagePicker.layout().addWidget(self.ui.resetPBDrp)
+
+    def on_update_picker(self, selected_items: list[str]):
+        tweaks["PosterBoard"].resetModes = selected_items
+
     def load_page(self):
         self.ui.modifyPosterboardsChk.toggled.connect(self.on_modifyPosterboardsChk_clicked)
         self.ui.tendiesPageBtn.clicked.connect(self.on_tendiesPageBtn_clicked)
@@ -24,24 +39,19 @@ class PosterboardPage(Page):
         self.ui.videoPageBtn.clicked.connect(self.on_videoPageBtn_clicked)
 
         self.ui.importTendiesBtn.clicked.connect(self.on_importTendiesBtn_clicked)
-        self.ui.resetPRBExtBtn.clicked.connect(self.on_resetPRBExtBtn_clicked)
-        self.ui.deleteAllDescriptorsBtn.clicked.connect(self.on_deleteAllDescriptorsBtn_clicked)
 
         self.ui.importTemplateBtn.clicked.connect(self.on_importTemplatesBtn_clicked)
 
         self.ui.chooseThumbBtn.clicked.connect(self.on_chooseThumbBtn_clicked)
         self.ui.chooseVideoBtn.clicked.connect(self.on_chooseVideoBtn_clicked)
-        self.ui.clearSuggestedBtn.clicked.connect(self.on_clearSuggestedBtn_clicked)
         self.ui.caVideoChk.toggled.connect(self.on_caVideoChk_toggled)
         self.ui.reverseLoopChk.toggled.connect(self.on_reverseLoopChk_toggled)
         self.ui.useForegroundChk.toggled.connect(self.on_useForegroundChk_toggled)
-        self.ui.clearSuggestedBtn.hide()
         self.ui.chooseThumbBtn.hide()
         self.ui.pbVideoThumbLbl.hide()
         
         self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
         self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)
-        self.ui.pbActionLbl.hide()
 
     ## ACTIONS
     def delete_pb_file(self, file, widget):
@@ -188,6 +198,8 @@ class PosterboardPage(Page):
             left_layout.addWidget(chevron)
             left_layout.addWidget(delBtn)
             left_widget.setLayout(left_layout)
+            left_widget.setMinimumHeight(40)
+            left_widget.setMaximumHeight(40)
 
             # create options
             # options_widget.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
@@ -356,8 +368,7 @@ class PosterboardPage(Page):
     # Tendies Page
     def on_importTendiesBtn_clicked(self):
         selected_files, _ = QtWidgets.QFileDialog.getOpenFileNames(self.window, "Select PosterBoard Files", "", "Zip Files (*.tendies)", options=QtWidgets.QFileDialog.ReadOnly)
-        tweaks["PosterBoard"].resetting = False
-        self.ui.pbActionLbl.hide()
+        self.ui.resetPBDrp.deselectAll()
         if selected_files != None and len(selected_files) > 0:
             # user selected files, add them
             for file in selected_files:
@@ -370,30 +381,11 @@ class PosterboardPage(Page):
                     detailsBox.exec()
                     break
             self.load_pb_tendies()
-    def on_deleteAllDescriptorsBtn_clicked(self):
-        if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 0:
-            tweaks["PosterBoard"].resetting = False
-            self.ui.pbActionLbl.hide()
-        else:
-            tweaks["PosterBoard"].resetting = True
-            tweaks["PosterBoard"].resetType = 0
-            self.ui.pbActionLbl.setText("! Set to Clear Collections Wallpapers")
-            self.ui.pbActionLbl.show()
-    def on_resetPRBExtBtn_clicked(self):
-        if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 1:
-            tweaks["PosterBoard"].resetting = False
-            self.ui.pbActionLbl.hide()
-        else:
-            tweaks["PosterBoard"].resetting = True
-            tweaks["PosterBoard"].resetType = 1
-            self.ui.pbActionLbl.setText("! Set to Reset PRB Extension")
-            self.ui.pbActionLbl.show()
 
     # Templates Page
     def on_importTemplatesBtn_clicked(self):
         selected_files, _ = QtWidgets.QFileDialog.getOpenFileNames(self.window, "Select PosterBoard Template Files", "", "Zip Files (*.batter)", options=QtWidgets.QFileDialog.ReadOnly)
-        tweaks["PosterBoard"].resetting = False
-        self.ui.pbActionLbl.hide()
+        self.ui.resetPBDrp.deselectAll()
         if selected_files != None and len(selected_files) > 0:
             # user selected files, add them
             for file in selected_files:
@@ -410,7 +402,7 @@ class PosterboardPage(Page):
     # Video Page
     def on_chooseThumbBtn_clicked(self):
         selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self.window, "Select Image File", "", "Image Files (*.heic)", options=QtWidgets.QFileDialog.ReadOnly)
-        tweaks["PosterBoard"].resetting = False
+        self.ui.resetPBDrp.deselectAll()
         if selected_file != None and selected_file != "":
             tweaks["PosterBoard"].videoThumbnail = selected_file
             self.ui.pbVideoThumbLbl.setText(f"Current Thumbnail: {selected_file}")
@@ -419,22 +411,13 @@ class PosterboardPage(Page):
             self.ui.pbVideoThumbLbl.setText("Current Thumbnail: None")
     def on_chooseVideoBtn_clicked(self):
         selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self.window, "Select Video File", "", "Video Files (*.mov *.mp4 *.mkv)", options=QtWidgets.QFileDialog.ReadOnly)
-        tweaks["PosterBoard"].resetting = False
+        self.ui.resetPBDrp.deselectAll()
         if selected_file != None and selected_file != "":
             tweaks["PosterBoard"].videoFile = selected_file
             self.ui.pbVideoLbl.setText(f"Current Video: {selected_file}")
         else:
             tweaks["PosterBoard"].videoFile = None
             self.ui.pbVideoLbl.setText("Current Video: None")
-    def on_clearSuggestedBtn_clicked(self):
-        if tweaks["PosterBoard"].resetting and tweaks["PosterBoard"].resetType == 2:
-            tweaks["PosterBoard"].resetting = False
-            self.ui.pbActionLbl.hide()
-        else:
-            tweaks["PosterBoard"].resetting = True
-            tweaks["PosterBoard"].resetType = 2
-            self.ui.pbActionLbl.setText("! Set to Clear Suggested Photos")
-            self.ui.pbActionLbl.show()
     def on_caVideoChk_toggled(self, checked: bool):
         tweaks["PosterBoard"].loop_video = checked
         # hide thumbnail button and label

@@ -4230,7 +4230,7 @@ To work properly, also disable the daemon using the toggle above.</string>
                  <item>
                   <widget class="QToolButton" name="findPBBtn">
                    <property name="text">
-                    <string>  Find Wallpapers</string>
+                    <string>   Discover Wallpapers</string>
                    </property>
                    <property name="icon">
                     <iconset resource="../resources.qrc">
@@ -4284,13 +4284,13 @@ To work properly, also disable the daemon using the toggle above.</string>
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
-                  <height>20</height>
+                  <height>30</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
-                  <height>25</height>
+                  <height>35</height>
                  </size>
                 </property>
                 <property name="styleSheet">
@@ -4306,19 +4306,6 @@ To work properly, also disable the daemon using the toggle above.</string>
                  <property name="bottomMargin">
                   <number>0</number>
                  </property>
-                 <item>
-                  <spacer name="horizontalSpacer_20">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>40</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
                  <item>
                   <widget class="QToolButton" name="tendiesPageBtn">
                    <property name="sizePolicy">
@@ -4354,7 +4341,7 @@ To work properly, also disable the daemon using the toggle above.</string>
                  <item>
                   <widget class="QToolButton" name="templatePageBtn">
                    <property name="text">
-                    <string>  Templates</string>
+                    <string>   Templates</string>
                    </property>
                    <property name="icon">
                     <iconset resource="../resources.qrc">
@@ -4377,7 +4364,7 @@ To work properly, also disable the daemon using the toggle above.</string>
                     </size>
                    </property>
                    <property name="text">
-                    <string>  Live</string>
+                    <string>   Video</string>
                    </property>
                    <property name="icon">
                     <iconset resource="../resources.qrc">
@@ -4404,6 +4391,13 @@ To work properly, also disable the daemon using the toggle above.</string>
                    </property>
                   </spacer>
                  </item>
+                 <item>
+                  <widget class="QLabel" name="label">
+                   <property name="text">
+                    <string>Clear Action:</string>
+                   </property>
+                  </widget>
+                 </item>
                 </layout>
                </widget>
               </item>
@@ -4423,13 +4417,6 @@ To work properly, also disable the daemon using the toggle above.</string>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="pbActionLbl">
-                <property name="text">
-                 <string>None</string>
-                </property>
-               </widget>
-              </item>
-              <item>
                <widget class="QStackedWidget" name="pbPages">
                 <property name="enabled">
                  <bool>false</bool>
@@ -4445,7 +4432,7 @@ To work properly, also disable the daemon using the toggle above.</string>
                   <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_12">
                     <property name="bottomMargin">
-                     <number>0</number>
+                     <number>3</number>
                     </property>
                     <item>
                      <spacer name="horizontalSpacer_18">
@@ -4519,75 +4506,6 @@ To work properly, also disable the daemon using the toggle above.</string>
                     </property>
                    </widget>
                   </item>
-                  <item>
-                   <layout class="QHBoxLayout" name="horizontalLayout_32">
-                    <property name="bottomMargin">
-                     <number>10</number>
-                    </property>
-                    <item>
-                     <spacer name="horizontalSpacer_22">
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>40</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item>
-                     <widget class="QToolButton" name="deleteAllDescriptorsBtn">
-                      <property name="toolTip">
-                       <string>Clears all the wallpapers in the Collections section so that you can import more.</string>
-                      </property>
-                      <property name="text">
-                       <string>  Clear Collections Wallpapers</string>
-                      </property>
-                      <property name="icon">
-                       <iconset resource="../resources.qrc">
-                        <normaloff>:/icon/arrow.clockwise.svg</normaloff>:/icon/arrow.clockwise.svg</iconset>
-                      </property>
-                      <property name="toolButtonStyle">
-                       <enum>Qt::ToolButtonTextBesideIcon</enum>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QToolButton" name="resetPRBExtBtn">
-                      <property name="toolTip">
-                       <string>Wipes the PRB Extension folder.
-
-Warning: This will remove all of your wallpapers and will restrict you from adding new ones until you restore again.</string>
-                      </property>
-                      <property name="text">
-                       <string>  Remove All Wallpapers</string>
-                      </property>
-                      <property name="icon">
-                       <iconset resource="../resources.qrc">
-                        <normaloff>:/icon/arrow.clockwise.svg</normaloff>:/icon/arrow.clockwise.svg</iconset>
-                      </property>
-                      <property name="toolButtonStyle">
-                       <enum>Qt::ToolButtonTextBesideIcon</enum>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <spacer name="horizontalSpacer_23">
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>40</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                   </layout>
-                  </item>
                  </layout>
                 </widget>
                 <widget class="QWidget" name="pbTemplatesPage">
@@ -4601,7 +4519,7 @@ Warning: This will remove all of your wallpapers and will restrict you from addi
                   <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_12">
                     <property name="bottomMargin">
-                     <number>0</number>
+                     <number>3</number>
                     </property>
                     <item>
                      <spacer name="horizontalSpacer_18">
@@ -4770,40 +4688,6 @@ Will show up in Collections</string>
                      </size>
                     </property>
                    </spacer>
-                  </item>
-                  <item>
-                   <layout class="QHBoxLayout" name="horizontalLayout_34">
-                    <property name="topMargin">
-                     <number>0</number>
-                    </property>
-                    <item>
-                     <widget class="QToolButton" name="clearSuggestedBtn">
-                      <property name="text">
-                       <string>  Clear Suggested Photos</string>
-                      </property>
-                      <property name="icon">
-                       <iconset resource="../resources.qrc">
-                        <normaloff>:/icon/arrow.clockwise.svg</normaloff>:/icon/arrow.clockwise.svg</iconset>
-                      </property>
-                      <property name="toolButtonStyle">
-                       <enum>Qt::ToolButtonTextBesideIcon</enum>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <spacer name="horizontalSpacer_24">
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>40</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                   </layout>
                   </item>
                  </layout>
                 </widget>

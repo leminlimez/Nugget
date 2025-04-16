@@ -7,7 +7,7 @@ from PySide6.QtCore import QSettings, QThread
 
 from pymobiledevice3 import usbmux
 from pymobiledevice3.lockdown import create_using_usbmux
-from pymobiledevice3.exceptions import MuxException, PasswordRequiredError
+from pymobiledevice3.exceptions import MuxException, PasswordRequiredError, ConnectionTerminatedError
 
 from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
@@ -33,7 +33,7 @@ def show_error_msg(txt: str, title: str = "Error!", icon = QMessageBox.Critical,
         detailsBox.setDetailedText(detailed_txt)
     detailsBox.exec()
 
-def show_apply_error(e: Exception, update_label=lambda x: None):
+def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list[FileToRestore] = None):
     print(traceback.format_exc())
     update_label("Failed to restore")
     if "Find My" in str(e):
@@ -47,6 +47,18 @@ def show_apply_error(e: Exception, update_label=lambda x: None):
     elif "PasswordRequiredError" in str(e):
         return ApplyAlertMessage("Device is password protected! You must trust the computer on your device.",
                        detailed_txt="Unlock your device. On the popup, click \"Trust\", enter your password, then try again.")
+    elif isinstance(e, ConnectionTerminatedError):
+        files_str: str = ""
+        if files_list != None:
+            files_str = "FILES LIST:"
+            print("\nFile List:\n")
+            for file in files_list:
+                file_info = f"\n    Domain: {file.domain}\n    Path: {file.restore_path}"
+                files_str += file_info
+                print(file_info)
+            files_list += "\n\n"
+        return ApplyAlertMessage("Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info.",
+                                 detailed_txt=files_str + "TRACEBACK:\n\n" + traceback.format_exc())
     else:
         return ApplyAlertMessage(type(e).__name__ + ": " + repr(e), detailed_txt=str(traceback.format_exc()))
 
@@ -314,7 +326,7 @@ class DeviceManager:
             files_data: dict = {}
             uses_domains: bool = False
             # create the restore file list
-            files_to_restore: dict[FileToRestore] = [
+            files_to_restore: list[FileToRestore] = [
             ]
             tmp_pb_dir = None # temporary directory for unzipping pb files
 
@@ -472,7 +484,7 @@ class DeviceManager:
             final_alert = ApplyAlertMessage(txt="All done! " + msg, title="Success!", icon=QMessageBox.Information)
             update_label("Success!")
         except Exception as e:
-            final_alert = show_apply_error(e, update_label)
+            final_alert = show_apply_error(e, update_label, files_list=files_to_restore)
         finally:
             if tmp_pb_dir != None:
                 try:
