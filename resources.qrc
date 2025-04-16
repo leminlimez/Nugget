@@ -41,5 +41,6 @@
         <file>icon/arrow.clockwise.svg</file>
         <file>icon/chevron.down.svg</file>
         <file>icon/chevron.up.svg</file>
+        <file>gui/transparent.png</file>
     </qresource>
 </RCC>
