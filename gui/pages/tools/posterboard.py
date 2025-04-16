@@ -304,7 +304,7 @@ class PosterboardPage(Page):
                     col_picker = QtWidgets.QToolButton(col_widget)
                     col_picker.setText("")
                     option.label_objects = [col_picker]
-                    col_picker.setStyleSheet("background-color: {}".format(option.value.name()))
+                    col_picker.setStyleSheet(option.get_stylesheet(color=option.value))
                     col_picker.clicked.connect(option.update_color)
                     col_layout.addWidget(col_picker)
                     col_widget.setLayout(col_layout)

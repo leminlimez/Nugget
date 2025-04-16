@@ -7,7 +7,7 @@ from enum import Enum
 from PySide6.QtGui import QColor
 from PySide6.QtWidgets import QColorDialog
 
-from controllers.xml_handler import set_xml_value
+from controllers.xml_handler import set_xml_value, set_xml_values
 
 class SetterType(Enum):
     textbox = "textbox"
@@ -33,6 +33,9 @@ class SetOption(TemplateOption):
     toggle_off_value: Optional[any] = None # the value to set when the toggle is off (for non-boolean values)
     toggle_on_value: Optional[any] = None # the value to set when the toggle is on (for non-boolean values)
 
+    # color picker options
+    sets_opacity: bool = False # whether or not the color_picker sets the opacity value
+
     value: any = 0 # whether or not to delete the file
     value_tag: Optional[str] = None # the value tag in the caml (ie "scale(0 0 0)")
 
@@ -52,11 +55,16 @@ class SetOption(TemplateOption):
             parsed_spl = list(map(self.convert_str, spl))
             # convert to color
             if self.setter_type == SetterType.color_picker:
+                # get optional alpha
+                alpha: int = 255
+                if len(parsed_spl) >= 4:
+                    self.sets_opacity = True
+                    alpha = self.convert_color(parsed_spl[3])
                 return QColor(
                     self.convert_color(parsed_spl[0]),
                     self.convert_color(parsed_spl[1]),
                     self.convert_color(parsed_spl[2]),
-                    255
+                    alpha
                 )
             return parsed_spl
         return value
@@ -92,6 +100,10 @@ class SetOption(TemplateOption):
         if 'toggle_on_value' in data:
             self.toggle_on_value = data['toggle_on_value']
 
+        # color picker options
+        if 'sets_opacity' in data:
+            self.sets_opacity = data['sets_opacity']
+
         if 'default_value' in data:
             self.value = data['default_value']
         else:
@@ -107,6 +119,9 @@ class SetOption(TemplateOption):
         self.max_value = self.split_value(self.max_value)
         self.step = self.split_value(self.step)
         self.value = self.split_value(self.value)
+
+    def get_stylesheet(self, color: QColor) -> str:
+        return f"background-color: rgba({color.red()}, {color.green()}, {color.blue()}, {color.alphaF()}); border: 2px solid #3b3b3b;"
 
     # Converter functions
     def convert_float(self, value: float):
@@ -132,7 +147,7 @@ class SetOption(TemplateOption):
         back_list = value
         if isinstance(value, QColor):
             # convert color back to string
-            back_list = [str(float(value.red())/255), str(float(value.green())/255), str(float(value.blue())/255)]
+            back_list = [str(value.redF()), str(value.greenF()), str(value.blueF())]
         elif not isinstance(value, list):
             return value
         elif isinstance(value, list):
@@ -172,10 +187,10 @@ class SetOption(TemplateOption):
             else:
                 self.label_objects.setText(f"{self.label}: {self.get_value()}")
     def update_color(self):
-        color = QColorDialog.getColor()
+        color = QColorDialog.getColor(initial=self.value, options=QColorDialog.ColorDialogOption.ShowAlphaChannel)
         if color.isValid():
             self.value = color
-            self.label_objects[0].setStyleSheet("background-color: {}".format(color.name()))
+            self.label_objects[0].setStyleSheet(self.get_stylesheet(color=color))
 
     def apply(self, container_path: str):
         apply_val = self.get_value()
@@ -189,4 +204,8 @@ class SetOption(TemplateOption):
                 apply_val = self.toggle_off_value
         for file in self.files:
             path = os.path.join(container_path, file)
-            set_xml_value(file=path, id=self.identifier, key=self.key, val=self.convert_back(apply_val), use_ca_id=self.use_ca_id)
+            # set opacity if it has that
+            if self.sets_opacity and isinstance(self.value, QColor):
+                set_xml_values(file=path, id=self.identifier, keys=[self.key, "opacity"], values=[self.convert_back(apply_val), str(self.value.alphaF())], use_ca_id=self.use_ca_id)
+            else:
+                set_xml_value(file=path, id=self.identifier, key=self.key, val=self.convert_back(apply_val), use_ca_id=self.use_ca_id)

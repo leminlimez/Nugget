@@ -19,16 +19,19 @@ def parse_equation(eq: str, val: str):
     return ' '.join(results)
 
 def set_xml_value(file: str, id: str, key: str, val: any, use_ca_id: bool = False):
+    set_xml_values(file=file, id=id, keys=[key], values=[val], use_ca_id=use_ca_id)
+
+def set_xml_values(file: str, id: str, keys: list[str], values: list[any], use_ca_id: bool = False):
     xml = tree.parse(file)
     root = xml.getroot()
 
     # convert bool to integer
-    value = val
-    if isinstance(val, bool):
-        value = int(val)
-    # convert value to string
-    if not isinstance(val, str):
-        value = str(value)
+    for i in range(len(values)):
+        if isinstance(values[i], bool):
+            values[i] = int(values[i])
+        # convert value to string
+        if not isinstance(values[i], str):
+            values[i] = str(values[i])
 
     # set all values with the nugget id passed by param
     if use_ca_id:
@@ -37,14 +40,17 @@ def set_xml_value(file: str, id: str, key: str, val: any, use_ca_id: bool = Fals
         idKey = "nuggetId"
     for to_change in root.findall(f".//*[@{idKey}='{id}']"):
         eqn = to_change.get("nuggetOffset")
-        offsetVal = value
-        if eqn != None:
-            offsetVal = parse_equation(eqn, value)
-        to_change.set(key, offsetVal)
+        # TODO: Allow offsets for more than just the first value
+        for i in range(len(keys)):
+            offsetVal = values[i]
+            if i == 0 and eqn != None:
+                offsetVal = parse_equation(eqn, offsetVal)
+            to_change.set(keys[i], offsetVal)
     if use_ca_id:
         # also look for target id
         for to_change in root.findall(f".//*[@targetId='{id}']"):
-            to_change.set(key, value)
+            for i in range(len(keys)):
+                to_change.set(keys[i], values[i])
 
     # write back to file
     xml.write(file, encoding="UTF-8", xml_declaration=True)
