@@ -53,9 +53,10 @@ class SetOption(TemplateOption):
             # convert to color
             if self.setter_type == SetterType.color_picker:
                 return QColor(
-                    r=self.convert_color(parsed_spl[0]),
-                    g=self.convert_color(parsed_spl[1]),
-                    b=self.convert_color(parsed_spl[2])
+                    self.convert_color(parsed_spl[0]),
+                    self.convert_color(parsed_spl[1]),
+                    self.convert_color(parsed_spl[2]),
+                    255
                 )
             return parsed_spl
         return value
@@ -131,9 +132,13 @@ class SetOption(TemplateOption):
         back_list = value
         if isinstance(value, QColor):
             # convert color back to string
-            back_list = [float(value.red)/255, float(value.green)/255, float(value.blue)/255]
+            back_list = [str(float(value.red())/255), str(float(value.green())/255), str(float(value.blue())/255)]
         elif not isinstance(value, list):
             return value
+        elif isinstance(value, list):
+            # convert values to strings
+            for i in range(len(back_list)):
+                back_list[i] = str(back_list[i])
         back_str = ' '.join(back_list)
         if self.value_tag != None:
             back_str = self.value_tag + "(" + back_str + ")"
@@ -166,11 +171,11 @@ class SetOption(TemplateOption):
                 self.label_objects[index].setText(f"{self.label}: {val}")
             else:
                 self.label_objects.setText(f"{self.label}: {self.get_value()}")
-    def update_color(self, picker):
+    def update_color(self):
         color = QColorDialog.getColor()
         if color.isValid():
             self.value = color
-            picker.setStyleSheet("background-color: {}".format(color.name()))
+            self.label_objects[0].setStyleSheet("background-color: {}".format(color.name()))
 
     def apply(self, container_path: str):
         apply_val = self.get_value()

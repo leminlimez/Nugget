@@ -14,7 +14,7 @@ def parse_equation(eq: str, val: str):
     results = []
     mapped = dict(zip(keys, value))
     for eqn in eqns:
-        results.append(eval(eqn, {}, mapped))
+        results.append(str(eval(eqn, {}, mapped)))
     # map back to string
     return ' '.join(results)
 
