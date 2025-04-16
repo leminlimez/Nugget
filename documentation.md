@@ -60,13 +60,21 @@ Properties:
 - `setter_type` - the type of input the user sees for setting the value
   - __Valid types:__ "textbox", "slider", "toggle", "color_picker"
 
-- `min_value` *(Required for slider, optional for others)* - minimum value allowed for input
-- `max_value` *(Required for slider, optional for others)* - maximum value allowed for input
-- `step` *(Optional, only for slider)* - the interval between each slider value
+- Slider Options:
+  - `min_value` - minimum value allowed for input
+    - *(Required for slider, optional for others)* 
+  - `max_value` - maximum value allowed for input
+    - *(Required for slider, optional for others)*
+  - `step` *(Optional)* - the interval between each slider value
 
-- `inverted` *(Optional, only for toggle)* - if set to true, values will apply to the file inverted
-- `toggle_off_value` *(Optional, only for toggle)* - the value to set when the toggle is off (for non-boolean values)
-- `toggle_on_value` *(Optional, only for toggle)* - the value to set when the toggle is on
+- Toggle Options:
+  - `inverted` *(Optional)* - if set to true, values will apply to the file inverted
+  - `toggle_off_value` *(Optional)* - the value to set when the toggle is off (for non-boolean values)
+  - `toggle_on_value` *(Optional)* - the value to set when the toggle is on
+
+- Color Picker Options:
+  - `sets_opacity` *(Optional)* - whether or not opacity is included
+    - this will be automatically inferred if you include 4 values in `default_value`
   
 __Additional Details:__
 
@@ -93,8 +101,9 @@ Properties:
 The `label` property will apply to the checkbox itself.
 </details>
 <details>
-<summary>Files Picker</summary>
+<summary>Picker</summary>
 
+**Note:** This will be implemented in a future version/beta.
 ```json
 "type": "picker"
 ```
