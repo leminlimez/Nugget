@@ -13,7 +13,24 @@ There are 2 formats for these:
 # Batter Files (PosterBoard templates)
 Batter files are similar to tendies files in that they store the file structure to be restored to PosterBoard. They use the same container/descriptor/descriptors folder format as tendies files. In addition, they also contain a `config.json` file that tells Nugget what the user can customize.
 
-## Format
+## Header
+Batter files include a header that includes basic information about the batter file.
+
+__Required info:__
+- `title` - the title of the operation
+- `author` - your name
+- `domain` - the domain for where it should be restored to (for PosterBoard, put `AppDomain-com.apple.PosterBoard`)
+- `format_version` - the minimum version of the config format
+  - the current version for the latest Nugget update is `"format_version": "1"`
+- `options` - a list of user-configurable options (see [Option Format](#option-format) for more info)
+  - if you do not want to have any user-configurable options, just use `"options": []`
+
+__Optional info:__
+- `description` - some text info to show under the title
+- `banner_text` - some text of a banner
+- `banner_stylesheet` - the [Qt style sheet](https://doc.qt.io/qt-6/stylesheet-examples.html) of the banner
+
+## Option Format
 Every option requires 3 properties:
 - `type` - the type of option it is (see the specific option types for the required string)
 - `label` - what text will be displayed in Nugget
@@ -118,80 +135,87 @@ When the user selects an option from the picker, all other options will be delet
 ## Example Config
 An example format of `config.json` looks like this:
 ```json
-[
-  {
-    "type": "replace",
-    "label": "Background Image",
-    "button_label": "Select Image",
-    "allowed_files": "Image Files (*.png)",
-    "required": true,
-    "files": ["descriptors/UUID/version/1/bg/assets/image.png", "descriptors/UUID/version/1/fg/assets/image2.png"]
-  },
-  
-  {
-    "type": "remove",
-    "label": "File Thing Visible",
-    "files": ["descriptors/UUID2/version/1/bg/assets/file1.png"]
-  },
-  {
-    "type": "remove",
-    "label": "Include collection item",
-    "files": ["descriptors/UUID3"],
-    "inverted": true,
-    "default_value": true
-  },
+{
+  "title": "My Batter",
+  "description": "I love Nugget",
+  "author": "lemin",
+  "format_version": "1",
+  "domain": "AppDomain-com.apple.PosterBoard",
+  "options": [
+    {
+      "type": "replace",
+      "label": "Background Image",
+      "button_label": "Select Image",
+      "allowed_files": "Image Files (*.png)",
+      "required": true,
+      "files": ["descriptors/UUID/version/1/bg/assets/image.png", "descriptors/UUID/version/1/fg/assets/image2.png"]
+    },
+    
+    {
+      "type": "remove",
+      "label": "File Thing Visible",
+      "files": ["descriptors/UUID2/version/1/bg/assets/file1.png"]
+    },
+    {
+      "type": "remove",
+      "label": "Include collection item",
+      "files": ["descriptors/UUID3"],
+      "inverted": true,
+      "default_value": true
+    },
 
-  {
-    "type": "picker",
-    "label": "Choose Things",
-    "rename": true,
-    "names": ["background.ca", "foreground.ca"],
-    "options": [
-      {
-        "label": "Option 1",
-        "files": ["descriptors/UUID/bg1.ca", "descriptors/UUID/fg1.ca"]
-      },
-      {
-        "label": "Option 2",
-        "files": ["descriptors/UUID/bg2.ca", "descriptors/UUID/fg2.ca"]
-      },
-      {
-        "label": "Option 3",
-        "files": ["descriptors/UUID/bg3.ca", "descriptors/UUID/fg3.ca"]
-      }
-    ]
-  },
+    {
+      "type": "picker",
+      "label": "Choose Things",
+      "rename": true,
+      "names": ["background.ca", "foreground.ca"],
+      "options": [
+        {
+          "label": "Option 1",
+          "files": ["descriptors/UUID/bg1.ca", "descriptors/UUID/fg1.ca"]
+        },
+        {
+          "label": "Option 2",
+          "files": ["descriptors/UUID/bg2.ca", "descriptors/UUID/fg2.ca"]
+        },
+        {
+          "label": "Option 3",
+          "files": ["descriptors/UUID/bg3.ca", "descriptors/UUID/fg3.ca"]
+        }
+      ]
+    },
 
-  {
-    "type": "remove",
-    "label": "Show Object",
-    "files": ["descriptors/UUID/version/1/fg.ca/main.caml"],
-    "inverted": true,
-    "default_value": true,
-    "identifier": "1"
-  },
+    {
+      "type": "remove",
+      "label": "Show Object",
+      "files": ["descriptors/UUID/version/1/fg.ca/main.caml"],
+      "inverted": true,
+      "default_value": true,
+      "identifier": "1"
+    },
 
-  {
-    "type": "set",
-    "label": "Animation Duration",
-    "files": ["descriptors/UUID/version/1/fg.ca/main.caml"],
-    "setter_type": "slider",
-    "min_value": 0.5,
-    "max_value": 3.0,
-    "step": 0.1,
-    "default_value": 1.0,
-    "key": "duration",
-    "identifier": "2"
-  },
-  {
-    "type": "set",
-    "label": "Flip Geometry",
-    "files": ["descriptors/UUID/version/1/fg.ca/main.caml"],
-    "setter_type": "toggle",
-    "inverted": false,
-    "default_value": false,
-    "key": "geometryFlipped",
-    "identifier": "3"
-  }
-]
+    {
+      "type": "set",
+      "label": "Animation Duration",
+      "files": ["descriptors/UUID/version/1/fg.ca/main.caml"],
+      "setter_type": "slider",
+      "min_value": 0.5,
+      "max_value": 3.0,
+      "step": 0.1,
+      "default_value": 1.0,
+      "key": "duration",
+      "identifier": "2"
+    },
+    {
+      "type": "set",
+      "label": "Flip Geometry",
+      "files": ["descriptors/UUID/version/1/fg.ca/main.caml"],
+      "setter_type": "toggle",
+      "inverted": false,
+      "default_value": false,
+      "key": "geometryFlipped",
+      "identifier": "3"
+    }
+  ]
+}
 ```

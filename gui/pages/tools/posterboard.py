@@ -204,6 +204,21 @@ class PosterboardPage(Page):
             # options_widget.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
             opt_layout = QtWidgets.QVBoxLayout()
             opt_layout.setContentsMargins(3, 0, 0, 0)
+
+            # make banner
+            if template.banner_text != None:
+                banner = QtWidgets.QLabel(options_widget)
+                banner.setText(template.banner_text)
+                banner.setAlignment(QtCore.Qt.AlignCenter)
+                if template.banner_stylesheet != None:
+                    banner.setStyleSheet(template.banner_stylesheet)
+                opt_layout.addWidget(banner)
+            # make description
+            if template.description != None:
+                descr = QtWidgets.QLabel(options_widget)
+                descr.setText(template.description)
+                opt_layout.addWidget(descr)
+
             for option in template.options:
                 # provide the window
                 if option.type == TemplateOptionTypePB.replace and option.window == None:

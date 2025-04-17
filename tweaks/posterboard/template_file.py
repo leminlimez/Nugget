@@ -3,13 +3,22 @@ import uuid
 import zipfile
 
 from json import load
+from typing import Optional
 
 from .tendie_file import TendieFile
 from .template_options import OptionType, TemplateOption, ReplaceOption, RemoveOption, SetOption
 
+CURRENT_FORMAT = 1
+
 class TemplateFile(TendieFile):
     options: list[TemplateOption]
     json_path: str
+
+    # TODO: Move these to custom operations
+    banner_text: Optional[str] = None # text to go as a banner
+    banner_stylesheet: Optional[str] = None # style sheet of the banner
+    description: Optional[str] = None # description to go under the file
+    format_version: int = CURRENT_FORMAT # format version of config
 
     def __init__(self, path: str):
         super().__init__(path=path)
@@ -26,8 +35,21 @@ class TemplateFile(TendieFile):
                 file = archive.open(self.json_path)
                 data = load(file)
                 # load the options
+                if not 'options' in data:
+                    raise Exception("No options were found in the config. Make sure that it is in the correct format.")
+                self.format_version = int(data['format_version'])
+                if self.format_version > CURRENT_FORMAT:
+                    raise Exception("This config requires a newer version of Nugget.")
+                self.name = f"{data['title']} - by {data['author']}"
+                if 'description' in data:
+                    self.description = data['description']
+                if 'banner_text' in data:
+                    self.banner_text = data['banner_text']
+                    if 'banner_stylesheet' in data:
+                        self.banner_stylesheet = data['banner_stylesheet']
+
                 # TODO: Add error handling
-                for option in data:
+                for option in data['options']:
                     opt_type = OptionType[option['type']]
                     if opt_type == OptionType.replace:
                         self.options.append(ReplaceOption(data=option))
