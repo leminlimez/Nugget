@@ -8,7 +8,6 @@ from gui.multicombobox import MultiComboBox
 
 from tweaks.tweaks import tweaks
 from tweaks.posterboard.template_options import OptionType as TemplateOptionTypePB
-from tweaks.posterboard.template_options import SetterType
 
 class PosterboardPage(Page):
     def __init__(self, window, ui: Ui_Nugget):
@@ -206,131 +205,10 @@ class PosterboardPage(Page):
             opt_layout = QtWidgets.QVBoxLayout()
             opt_layout.setContentsMargins(3, 0, 0, 0)
             for option in template.options:
-                if option.type == TemplateOptionTypePB.replace:
-                    # replacable object
-                    repl_widget = QtWidgets.QWidget(options_widget)
-                    repl_layout = QtWidgets.QHBoxLayout(options_widget)
-                    repl_layout.setContentsMargins(0, 2, 0, 2)
-                    repl_lbl = QtWidgets.QLabel(repl_widget)
-                    req_label = ""
-                    if option.required:
-                        req_label = "* "
-                    repl_lbl.setText(f"{req_label}{option.label}")
-                    repl_layout.addWidget(repl_lbl)
-                    # button for importing files
-                    repl_btn = QtWidgets.QToolButton(options_widget)
-                    repl_btn.setIcon(QtGui.QIcon(":/icon/import.svg"))
-                    repl_btn.setIconSize(QtCore.QSize(20, 20))
-                    btn_lbl = option.button_label
-                    if btn_lbl == None:
-                        btn_lbl = f"Import {option.allowed_files}"
-                    repl_btn.setText(btn_lbl)
-                    repl_btn.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
-                    repl_btn.clicked.connect(lambda _, opt=option: (self.on_importReplaceBtn_clicked(opt)))
-                    repl_layout.addWidget(repl_btn)
-                    repl_widget.setLayout(repl_layout)
-                    opt_layout.addWidget(repl_widget)
-                elif option.type == TemplateOptionTypePB.remove or (option.type == TemplateOptionTypePB.set and option.setter_type == SetterType.toggle):
-                    # remove object/setter toggle
-                    remove_chk = QtWidgets.QCheckBox(options_widget)
-                    remove_chk.setText(option.label)
-                    remove_chk.setChecked(option.value)
-                    remove_chk.toggled.connect(option.set_option)
-                    opt_layout.addWidget(remove_chk)
-                elif option.type == TemplateOptionTypePB.set and option.setter_type == SetterType.textbox:
-                    # textbox input
-                    bx_widget = QtWidgets.QWidget(options_widget)
-                    bx_layout = QtWidgets.QVBoxLayout(options_widget)
-                    bx_layout.setContentsMargins(0, 2, 0, 2)
-                    bx_lbl = QtWidgets.QLabel(bx_widget)
-                    bx_lbl.setText(option.label)
-                    bx_layout.addWidget(bx_lbl)
-                    textbox = QtWidgets.QLineEdit(bx_widget)
-                    textbox.setPlaceholderText("Value")
-                    textbox.setText(option.value)
-                    textbox.textEdited.connect(option.update_value)
-                    bx_layout.addWidget(textbox)
-                    bx_widget.setLayout(bx_layout)
-                    opt_layout.addWidget(bx_widget)
-                elif option.type == TemplateOptionTypePB.set and option.setter_type == SetterType.slider:
-                    vals = option.get_value()
-                    option.label_objects = []
-                    list_len = 1
-                    if isinstance(vals, list):
-                        list_len = len(vals)
-                    else:
-                        vals = [vals]
-                    for i in range(list_len):
-                        # slider input
-                        slid_widget = QtWidgets.QWidget(options_widget)
-                        slid_layout = QtWidgets.QVBoxLayout(options_widget)
-                        slid_layout.setContentsMargins(0, 2, 0, 2)
-                        slid_lbl = QtWidgets.QLabel(slid_widget)
-                        slid_lbl.setText(f"{option.label}: {vals[i]}")
-                        slid_layout.addWidget(slid_lbl)
-                        option.label_objects.append(slid_lbl)
-                        # widget for min and max values with slider
-                        val_widget = QtWidgets.QWidget(slid_widget)
-                        val_layout = QtWidgets.QHBoxLayout(slid_widget)
-                        min_lbl = QtWidgets.QLabel(val_widget)
-
-                        min_val_fixed = option.get_min()
-                        min_val = option.min_value
-                        max_val_fixed = option.get_max()
-                        max_val = option.max_value
-                        step = option.step
-                        val = option.value
-                        if isinstance(min_val, list):
-                            min_val_fixed = min_val_fixed[i]
-                            min_val = min_val[i]
-                            max_val_fixed = max_val_fixed[i]
-                            max_val = max_val[i]
-                            step = step[i]
-                            val = val[i]
-                        min_lbl.setText(str(min_val_fixed))
-                        val_layout.addWidget(min_lbl)
-                        slider = QtWidgets.QSlider(val_widget)
-                        slider.setMinimum(min_val)
-                        slider.setMaximum(max_val)
-                        slider.setSingleStep(step)
-                        slider.setValue(val)
-                        slider.setOrientation(QtCore.Qt.Orientation.Horizontal)
-                        slider.valueChanged.connect(lambda v, idx=i: option.update_value(v, idx))
-                        val_layout.addWidget(slider)
-                        max_lbl = QtWidgets.QLabel(val_widget)
-                        max_lbl.setText(str(max_val_fixed))
-                        val_layout.addWidget(max_lbl)
-                        # add to layout and widget
-                        val_widget.setLayout(val_layout)
-                        slid_layout.addWidget(val_widget)
-                        slid_widget.setLayout(slid_layout)
-                        opt_layout.addWidget(slid_widget)
-                elif option.type == TemplateOptionTypePB.set and option.setter_type == SetterType.color_picker:
-                    # color picker input
-                    col_widget = QtWidgets.QWidget(options_widget)
-                    col_layout = QtWidgets.QHBoxLayout(options_widget)
-                    col_layout.setContentsMargins(0, 2, 0, 2)
-                    col_lbl = QtWidgets.QLabel(col_widget)
-                    col_lbl.setText(option.label)
-                    col_layout.addWidget(col_lbl)
-                    col_picker_bg = QtWidgets.QWidget(col_widget)
-                    col_picker_bg_layout = QtWidgets.QStackedLayout(col_widget)
-                    col_picker_bg_layout.setStackingMode(QtWidgets.QStackedLayout.StackAll)
-                    col_picker_img = QtWidgets.QToolButton(col_picker_bg)
-                    col_picker_img.setText("")
-                    col_picker_img.setStyleSheet("background-image: url(:/gui/transparent.png); border-radius: 10px;")
-                    col_picker = QtWidgets.QToolButton(col_picker_bg)
-                    col_picker.setText("")
-                    option.label_objects = [col_picker]
-                    col_picker.setStyleSheet(option.get_stylesheet(color=option.value))
-                    col_picker.clicked.connect(option.update_color)
-                    col_picker_bg_layout.addWidget(col_picker_img)
-                    col_picker_bg_layout.addWidget(col_picker)
-                    col_picker_bg.setLayout(col_picker_bg_layout)
-                    col_picker_bg.setSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-                    col_layout.addWidget(col_picker_bg)
-                    col_widget.setLayout(col_layout)
-                    opt_layout.addWidget(col_widget)
+                # provide the window
+                if option.type == TemplateOptionTypePB.replace and option.window == None:
+                    option.window = self.window#.set_window(self.window)
+                option.create_interface(options_widget=options_widget, options_layout=opt_layout)
 
             options_widget.setLayout(opt_layout)
 
@@ -369,11 +247,6 @@ class PosterboardPage(Page):
         self.ui.templatePageBtn.setChecked(False)
         self.ui.videoPageBtn.setChecked(True)
         self.ui.pbPages.setCurrentIndex(2)
-
-    def on_importReplaceBtn_clicked(self, option):
-        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self.window, "Select Template File", "", option.allowed_files, options=QtWidgets.QFileDialog.ReadOnly)
-        if selected_file != None and selected_file != "":
-            option.value = selected_file
     
     # Tendies Page
     def on_importTendiesBtn_clicked(self):

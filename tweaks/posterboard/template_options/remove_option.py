@@ -4,6 +4,7 @@ import os
 from dataclasses import dataclass
 from shutil import rmtree
 from typing import Optional
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QCheckBox
 
 from controllers.xml_handler import delete_xml_value
 
@@ -24,6 +25,14 @@ class RemoveOption(TemplateOption):
             self.identifier = data['identifier']
         if 'use_ca_id' in data:
             self.use_ca_id = data['use_ca_id']
+
+    def create_interface(self, options_widget: QWidget, options_layout: QVBoxLayout):
+        # remove object/setter toggle
+        remove_chk = QCheckBox(options_widget)
+        remove_chk.setText(self.label)
+        remove_chk.setChecked(self.value)
+        remove_chk.toggled.connect(self.set_option)
+        options_layout.addWidget(remove_chk)
 
     def set_option(self, checked: bool):
         self.value = checked
