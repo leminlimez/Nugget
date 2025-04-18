@@ -187,6 +187,7 @@ class PosterboardPage(Page):
             delBtn.setIcon(QtGui.QIcon(":/icon/trash.svg"))
             delBtn.clicked.connect(lambda _, file=template: (
                 widgets[file].deleteLater(),
+                file.clean_files(),
                 tweaks["PosterBoard"].templates.remove(file)
             ))
             # align to top layout

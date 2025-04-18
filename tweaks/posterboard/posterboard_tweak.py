@@ -1,5 +1,6 @@
 import os
 import uuid
+import traceback
 from random import randint
 from shutil import copytree
 from PySide6 import QtWidgets
@@ -50,6 +51,7 @@ class PosterboardTweak(Tweak):
         try:
             new_template = TemplateFile(path=file)
         except Exception as e:
+            print(traceback.format_exc())
             detailsBox = QtWidgets.QMessageBox()
             detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
             detailsBox.setWindowTitle("Error")

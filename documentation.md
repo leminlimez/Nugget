@@ -29,6 +29,7 @@ __Optional info:__
 - `description` - some text info to show under the title
 - `banner_text` - some text of a banner
 - `banner_stylesheet` - the [Qt style sheet](https://doc.qt.io/qt-6/stylesheet-examples.html) of the banner
+- `resources` - a list of embedded resources to include (ie banner images, etc)
 
 ## Option Format
 Every option requires 3 properties:
