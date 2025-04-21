@@ -75,6 +75,8 @@ Properties:
 - `use_ca_id` *(Optional)* - whether or not to use the CoreAnimation id instead of nuggetId
 - `key` - the key/tag of the value to change in the property
 - `default_value` *(Optional)* - the default value of the input
+- `value_type` *(Optional)* - the type of value
+  - __Valid types:__ "integer", "float", "string"
 - `setter_type` - the type of input the user sees for setting the value
   - __Valid types:__ "textbox", "slider", "toggle", "color_picker"
 

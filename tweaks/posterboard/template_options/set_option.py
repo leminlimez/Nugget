@@ -26,7 +26,7 @@ class SetOption(TemplateOption):
     min_value: Optional[int] = None # minimum value allowed for input
     max_value: Optional[int] = None # maximum value allowed for input
     step: int = 1 # the interval between each slider value
-    is_float: bool = False # whether or not the values are a float (for qt slider)
+    value_type = int # whether or not the values are a float (for qt slider)
 
     # toggle options
     inverted: bool = False # if set to true, the bool value will be inverted
@@ -77,6 +77,9 @@ class SetOption(TemplateOption):
         self.setter_type = SetterType[data['setter_type']]
         if 'use_ca_id' in data:
             self.use_ca_id = data['use_ca_id']
+
+        if 'value_type' in data:
+            self.value_type = data['value_type']
 
         # slider options
         if self.setter_type == SetterType.slider:
@@ -229,21 +232,22 @@ class SetOption(TemplateOption):
 
     # Converter functions
     def convert_float(self, value: float):
-        if not self.is_float:
+        if self.value_type != "float":
             return value
         return int(value * 1000)
     def convert_int(self, value: int):
-        if not self.is_float:
+        if self.value_type != "float":
             return value
         return float(value) / 1000.0
     def convert_str(self, value: str):
         # convert string to either float or int
-        if self.is_float:
+        if self.value_type == "float":
             return self.convert_float(float(value))
         if isinstance(value, int) or (isinstance(value, str) and value.isdigit() and not '.' in value):
             return int(value)
         else:
-            self.is_float = self.setter_type == SetterType.slider
+            if self.setter_type == SetterType.slider:
+                self.value_type == "float"
             return self.convert_float(float(value))
     def convert_color(self, value: float):
         return round(min(1, value) * 255)
@@ -264,7 +268,7 @@ class SetOption(TemplateOption):
         return back_str
 
     def get_parsed_value(self, value):
-        if self.is_float:
+        if self.value_type == "float":
             if isinstance(value, list):
                 # convert list
                 return list(map(self.convert_int, value))
