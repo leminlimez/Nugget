@@ -19,10 +19,13 @@ class TemplateFile(TendieFile):
     tmp_dir: str = None
 
     # TODO: Move these to custom operations
+    description: Optional[str] = None # description to go under the file
+    resources: list[str] = [] # list of file paths for embedded resources
+    previews: dict[str, str] = {} # list of resources to use as previews
+    preview_layout: str = "horizontal" # the direction to lay out the preview images
+
     banner_text: Optional[str] = None # text to go as a banner
     banner_stylesheet: Optional[str] = None # style sheet of the banner
-    resources: list[str] = [] # list of file paths for embedded resources
-    description: Optional[str] = None # description to go under the file
     format_version: int = CURRENT_FORMAT # format version of config
 
     def __init__(self, path: str):
@@ -50,6 +53,12 @@ class TemplateFile(TendieFile):
                 self.name = f"{data['title']} - by {data['author']}"
                 if 'description' in data:
                     self.description = data['description']
+                # load the previews
+                prevs = []
+                if 'previews' in data:
+                    prevs = data['previews']
+                    if 'preview_layout' in data:
+                        self.preview_layout = data['preview_layout']
                 # load the banner
                 if 'banner_text' in data:
                     self.banner_text = data['banner_text']
@@ -74,6 +83,9 @@ class TemplateFile(TendieFile):
                             # update the url in the banner stylesheet
                             if self.banner_stylesheet != None:
                                 self.banner_stylesheet = self.banner_stylesheet.replace(f"url({resource})", f"url({rc_full_path})")
+                            # set the preview images
+                            if resource in prevs:
+                                self.previews[resource] = rc_full_path
 
                 # TODO: Add error handling
                 for option in data['options']:

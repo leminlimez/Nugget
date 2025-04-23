@@ -13,6 +13,7 @@ class ReplaceOption(TemplateOption):
     button_label: str = "Import"
     required: bool = False
     value: Optional[str] = None # path of file selected by user
+    default_preview: Optional[QtGui.QPixmap] = None # the default preview image so that it isn't lost when replacing
 
     def __init__(self, data: dict):
         super().__init__(data=data)
@@ -28,6 +29,21 @@ class ReplaceOption(TemplateOption):
         self.window = None
         self.import_icon = QtGui.QIcon(":/icon/import.svg")
         self.remove_icon = QtGui.QIcon(":/icon/trash.svg")
+
+    def update_preview(self):
+        if self.preview_lbl != None:
+            if self.value == None:
+                # set back to default
+                self.preview_lbl.setPixmap(self.default_preview)
+            else:
+                # set to newly selected image
+                pixmap = QtGui.QPixmap(self.value)
+                self.preview_lbl.setPixmap(pixmap)
+
+    def add_potential_preview_lbls(self, lbls):
+        super().add_potential_preview_lbls(lbls)
+        if self.preview_lbl != None:
+            self.default_preview = self.preview_lbl.pixmap()
 
     def create_interface(self, options_widget: QtWidgets.QWidget, options_layout: QtWidgets.QVBoxLayout):
         # replacable object
@@ -76,6 +92,7 @@ class ReplaceOption(TemplateOption):
             self.file_path_lbl.hide()
             self.repl_btn.setText(self.button_label)
             self.repl_btn.setIcon(self.import_icon)
+        self.update_preview()
 
     def apply(self, container_path: str):
         if self.value == None:

@@ -25,17 +25,27 @@ __Required info:__
 - `options` - a list of user-configurable options (see [Option Format](#option-format) for more info)
   - if you do not want to have any user-configurable options, just use `"options": []`
 
-__Optional info:__
+<details>
+<summary>Optional info:</summary>
+
 - `description` - some text info to show under the title
+- `resources` - a list of embedded resources to include (ie banner/preview images, etc)
+- `previews` - a list of preview image file names
+  - for them to show, their path must be inside of the `resources` list
+- `preview_layout` - how the preview images should be laid out (defaults to "horizontal")
+  - __Valid types:__ "horizontal", "stacked"
 - `banner_text` - some text of a banner
 - `banner_stylesheet` - the [Qt style sheet](https://doc.qt.io/qt-6/stylesheet-examples.html) of the banner
-- `resources` - a list of embedded resources to include (ie banner images, etc)
+</details>
 
 ## Option Format
 Every option requires 3 properties:
 - `type` - the type of option it is (see the specific option types for the required string)
 - `label` - what text will be displayed in Nugget
 - `files` - a list of files relative to the parent of the json file
+- `associated_preview` *(Optional)* - the name of the preview image to associate the option with
+  - for certain options, it may apply effects (ie color) or hide the image (ie remove/picker)
+  - for picker, this tag must be in each option
 
 ### Identifiers
 For Nugget to know what to change inside of .caml files, you can put special identifier tags on the properties that you want to change. To do this, add a `nuggetId` property to the xml tag and set it equal to any valid string (does not have to be a number).

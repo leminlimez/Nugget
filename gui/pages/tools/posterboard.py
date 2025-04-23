@@ -4,7 +4,8 @@ import webbrowser
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 from gui.dialogs import PBHelpDialog
-from gui.multicombobox import MultiComboBox
+from gui.custom_qt_elements.multicombobox import MultiComboBox
+from gui.custom_qt_elements.resizable_image_label import ResizableImageLabel
 
 from tweaks.tweaks import tweaks
 from tweaks.posterboard.template_options import OptionType as TemplateOptionTypePB
@@ -199,6 +200,40 @@ class PosterboardPage(Page):
             left_widget.setMinimumHeight(40)
             left_widget.setMaximumHeight(40)
 
+            # main layout
+            layout = QtWidgets.QVBoxLayout(widget)
+            layout.setContentsMargins(4, 2, 4, 2)
+            layout.addWidget(left_widget)
+            line = QtWidgets.QFrame()
+            line.setFrameShape(QtWidgets.QFrame.Shape.HLine)
+            line.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
+            line.setStyleSheet("QFrame {\n	color: #414141;\n}")
+            layout.addWidget(line)
+
+            # create previews
+            prevs: dict[str, QtWidgets.QLabel] = {}
+            if len(template.previews) > 0:
+                prev_widget = QtWidgets.QWidget(widget)
+                prev_widget.setMinimumHeight(0)
+                prev_widget.setMaximumHeight(250)
+                prev_widget.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+                if template.preview_layout == "stacked":
+                    prev_layout = QtWidgets.QStackedLayout(widget)
+                    prev_layout.setStackingMode(QtWidgets.QStackedLayout.StackAll)
+                else:
+                    prev_layout = QtWidgets.QHBoxLayout(widget)
+                prev_layout.setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter)
+                for prev in template.previews.keys():
+                    new_prev = ResizableImageLabel(prev_widget)
+                    new_prev.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+                    pixmap = QtGui.QPixmap(template.previews[prev])
+                    new_prev.setPixmap(pixmap)
+                    # new_prev.setScaledContents(True)
+                    prev_layout.addWidget(new_prev)
+                    prevs[prev] = new_prev
+                prev_widget.setLayout(prev_layout)
+                layout.addWidget(prev_widget)
+
             # create options
             # options_widget.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
             opt_layout = QtWidgets.QVBoxLayout()
@@ -223,18 +258,13 @@ class PosterboardPage(Page):
                 if option.type == TemplateOptionTypePB.replace and option.window == None:
                     option.window = self.window#.set_window(self.window)
                 option.create_interface(options_widget=options_widget, options_layout=opt_layout)
+                # add the previews and update it
+                option.add_potential_preview_lbls(prevs)
+                option.update_preview()
 
             options_widget.setLayout(opt_layout)
 
-            # main layout
-            layout = QtWidgets.QVBoxLayout(widget)
-            layout.setContentsMargins(4, 2, 4, 2)
-            layout.addWidget(left_widget)
-            line = QtWidgets.QFrame()
-            line.setFrameShape(QtWidgets.QFrame.Shape.HLine)
-            line.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
-            line.setStyleSheet("QFrame {\n	color: #414141;\n}")
-            layout.addWidget(line)
+            # finish the main layout
             layout.addWidget(options_widget)
             # Add the widget to the mainLayout
             widget.setLayout(layout)

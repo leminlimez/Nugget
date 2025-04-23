@@ -1,21 +1,25 @@
 from . import TemplateOption
 
 import os
-from dataclasses import dataclass
+from typing import Optional
 from shutil import rmtree, move
 from PySide6.QtWidgets import QWidget, QLabel, QVBoxLayout, QHBoxLayout, QComboBox
 
 from controllers.xml_handler import delete_xml_value
-from gui.multicombobox import MultiComboBox
+from gui.custom_qt_elements.multicombobox import MultiComboBox
 
 class PickerElement:
     label: str # label to show for the picker
     files: list[str] = [] # list of files to include with the picker
+    associated_preview: Optional[str] = None
+    preview_lbl: Optional[QLabel] = None
 
     def __init__(self, option_data: dict):
         self.label = option_data['label']
         if 'files' in option_data:
             self.files = option_data['files']
+        if 'associated_preview' in option_data:
+            self.associated_preview = option_data['associated_preview']
 
 class PickerOption(TemplateOption):
     options: list[PickerElement] # list of elements inside the picker
@@ -67,8 +71,25 @@ class PickerOption(TemplateOption):
         picker_widget.setLayout(picker_layout)
         options_layout.addWidget(picker_widget)
 
+    def add_potential_preview_lbls(self, lbls: dict[str, QLabel]):
+        for opt in self.options:
+            if opt.associated_preview in lbls:
+                opt.preview_lbl = lbls[opt.associated_preview]
+
+    def update_preview(self):
+        if self.allow_multiple_selection:
+            for opt in self.options:
+                # hide if not in selection or show if it is
+                if opt.preview_lbl != None:
+                    opt.preview_lbl.setVisible(opt.label in self.selection)
+        else:
+            for i in range(len(self.options)):
+                if self.options[i].preview_lbl != None:
+                    self.options[i].preview_lbl.setVisible(self.selection == i)
+
     def onPickerUpdate(self, selection: int|list[str]):
         self.selection = selection
+        self.update_preview()
 
     def apply(self, container_path: str):
         # get the list of files

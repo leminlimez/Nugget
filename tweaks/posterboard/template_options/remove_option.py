@@ -36,6 +36,12 @@ class RemoveOption(TemplateOption):
 
     def set_option(self, checked: bool):
         self.value = checked
+        self.update_preview()
+
+    def update_preview(self):
+        if self.preview_lbl != None:
+            to_hide = (self.inverted and not self.value) or (not self.inverted and self.value)
+            self.preview_lbl.setVisible(not to_hide)
 
     def apply(self, container_path: str):
         if (self.inverted and not self.value) or (not self.inverted and self.value):
