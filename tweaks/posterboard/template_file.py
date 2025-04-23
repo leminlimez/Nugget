@@ -9,6 +9,7 @@ from shutil import rmtree
 
 from .tendie_file import TendieFile
 from .template_options import OptionType, TemplateOption, ReplaceOption, RemoveOption, SetOption, PickerOption
+from exceptions.posterboard_exceptions import PBTemplateException
 
 CURRENT_FORMAT = 1
 
@@ -40,12 +41,12 @@ class TemplateFile(TendieFile):
                 data = load(file)
                 # load the options
                 if not 'options' in data:
-                    raise Exception("No options were found in the config. Make sure that it is in the correct format.")
+                    raise PBTemplateException(path, "No options were found in the config. Make sure that it is in the correct format.")
                 if not 'domain' in data or data['domain'] != "com.apple.PosterBoard":
-                    raise Exception("This config is not for the domain \"com.apple.PosterBoard\". Make sure that it is compatible with your version of Nugget.")
+                    raise PBTemplateException(path, "This config is not for the domain \"com.apple.PosterBoard\". Make sure that it is compatible with your version of Nugget.")
                 self.format_version = int(data['format_version'])
                 if self.format_version > CURRENT_FORMAT:
-                    raise Exception("This config requires a newer version of Nugget.")
+                    raise PBTemplateException(path, "This config requires a newer version of Nugget.")
                 self.name = f"{data['title']} - by {data['author']}"
                 if 'description' in data:
                     self.description = data['description']
@@ -86,9 +87,9 @@ class TemplateFile(TendieFile):
                     elif opt_type == OptionType.picker:
                         self.options.append(PickerOption(data=option))
                     else:
-                        raise Exception("Invalid option type in template")
+                        raise PBTemplateException(path, "Invalid option type in template")
             else:
-                raise Exception("No config.json found in file!")
+                raise PBTemplateException(path, "No config.json found in file!")
     
     def clean_files(self):
         if self.tmp_dir != None:

@@ -3,7 +3,7 @@ import plistlib
 from tempfile import TemporaryDirectory
 
 from PySide6.QtWidgets import QMessageBox
-from PySide6.QtCore import QSettings, QThread
+from PySide6.QtCore import QSettings
 
 from pymobiledevice3 import usbmux
 from pymobiledevice3.lockdown import create_using_usbmux
@@ -15,6 +15,8 @@ from devicemanagement.data_singleton import DataSingleton
 from gui.apply_worker import ApplyAlertMessage
 from controllers.path_handler import fix_windows_path
 from controllers.files_handler import get_bundle_files
+
+from exceptions.nugget_exception import NuggetException
 
 from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
@@ -59,6 +61,8 @@ def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list
             files_list += "\n\n"
         return ApplyAlertMessage("Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info.",
                                  detailed_txt=files_str + "TRACEBACK:\n\n" + traceback.format_exc())
+    elif isinstance(e, NuggetException):
+        return ApplyAlertMessage(str(e))
     else:
         return ApplyAlertMessage(type(e).__name__ + ": " + repr(e), detailed_txt=str(traceback.format_exc()))
 

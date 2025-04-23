@@ -13,6 +13,7 @@ from controllers.plist_handler import set_plist_value
 from controllers.files_handler import get_bundle_files
 from controllers import video_handler
 from controllers.aar.aar import wrap_in_aar
+from exceptions.nugget_exception import NuggetException
 
 class PosterboardTweak(Tweak):
     def __init__(self):
@@ -171,7 +172,7 @@ class PosterboardTweak(Tweak):
                 with open(self.videoThumbnail, "rb") as thumb:
                     thumb_contents = thumb.read()
             else:
-                raise Exception("No thumbnail heic selected!")
+                raise NuggetException("No thumbnail heic selected!")
                 # get the thumbnail from the video
                 thumb_contents = video_handler.get_thumbnail_from_contents(contents=video_contents)
                 del video_contents
