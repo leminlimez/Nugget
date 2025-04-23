@@ -289,6 +289,16 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.aiEnablerContent.hide()
             if device_ver < Version("18.2"):
                 self.pages[Page.Gestalt].setup_spoofedModelDrp_models()
+
+            # hide posterboard .aar video option on ipads
+            is_iphone = self.device_manager.get_current_device_model().startswith("iPhone")
+            if not is_iphone:
+                # force looping
+                tweaks["PosterBoard"].loop_video = True
+            is_looping = tweaks["PosterBoard"].loop_video
+            self.ui.pbVideoThumbLbl.setVisible(is_iphone and not is_looping)
+            self.ui.chooseThumbBtn.setVisible(is_iphone and not is_looping)
+            self.ui.caVideoChk.setVisible(is_iphone)
         else:
             self.device_manager.set_current_device(index=None)
 
