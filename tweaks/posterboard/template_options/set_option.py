@@ -173,11 +173,11 @@ class SetOption(TemplateOption):
                 min_lbl = QtWidgets.QLabel(val_widget)
 
                 min_val_fixed = self.min_value
-                min_val = int(self.min_value / 1000)
-                max_val_fixed = self.min_value
-                max_val = int(self.max_value / 1000)
-                step = int(self.step / 1000)
-                val = int(self.value / 1000)
+                min_val = self.convert_float(self.min_value)
+                max_val_fixed = self.max_value
+                max_val = self.convert_float(self.max_value)
+                step = self.convert_float(self.step)
+                val = self.convert_float(self.value)
                 if isinstance(min_val, list):
                     min_val_fixed = min_val_fixed[i]
                     min_val = min_val[i]
@@ -190,6 +190,7 @@ class SetOption(TemplateOption):
                 slider = QtWidgets.QSlider(val_widget)
                 slider.setMinimum(min_val)
                 slider.setMaximum(max_val)
+                slider.setTickInterval(step)
                 slider.setSingleStep(step)
                 slider.setValue(val)
                 slider.setOrientation(QtCore.Qt.Orientation.Horizontal)
@@ -230,7 +231,42 @@ class SetOption(TemplateOption):
             col_widget.setLayout(col_layout)
             options_layout.addWidget(col_widget)
 
+    # correcting the slider position
+    def correct_slider_pos(self, pos: int, index: int = 0):
+        # check if slider is divisible. If not, set it to a divisible value
+        step = self.convert_float(self.step)
+        if isinstance(step, list):
+            step = step[index]
+        if pos%step != 0:
+            # pos needs updated
+            min_val = self.convert_float(self.min_value)
+            max_val = self.convert_float(self.max_value)
+            if isinstance(min_val, list):
+                min_val = min_val[index]
+                max_val = max_val[index]
+            if pos%step < step/2:
+                # set to left
+                pos = pos - (pos%step)
+            else:
+                # set to right
+                pos = pos + (step - (pos%step))
+            # make sure it is within bounds
+            if pos < min_val:
+                pos = min_val
+            elif pos > max_val:
+                pos = max_val
+        return pos
+
     # Converter functions
+    def convert_float(self, value: float) -> int:
+        if self.value_type != "float":
+            return value
+        if isinstance(value, list):
+            new_list = value
+            for i in range(len(new_list)):
+                new_list[i] = self.convert_float(new_list[i])
+            return new_list
+        return int(value * 1000)
     def convert_str(self, value: str):
         # convert string to either float or int
         if self.value_type == "float":
@@ -275,9 +311,10 @@ class SetOption(TemplateOption):
     
     def update_value(self, nv: int, index: int=None):
         if self.setter_type == SetterType.slider:
-            nv = float(nv) / 1000.0
-            if self.value == "integer":
-                nv = int(nv)
+            # correct it to the step
+            nv = self.correct_slider_pos(nv, index)
+            if self.value_type == "float":
+                nv = float(nv) / 1000.0
         if isinstance(self.value, list):
             self.value[index] = nv
         else:
