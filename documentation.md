@@ -131,8 +131,10 @@ The `label` property will apply to the checkbox itself.
 ```
 Properties:
 - `options` - list of options to show up in the picker. Each option contains a `label` and list of `files`
+- `allow_multiple_selection` *(Optional)* - whether or not to let the user choose multiple options
 - `rename` *(Optional)* - whether or not to rename the files chosen by the user
-- `names` *(Optional, required if rename is true)* - the list of new names to rename the files to. Must be in the same order as the list of files in the options. Only includes the name of the files, does not need the path.
+  - will not work if `allow_multiple_selection` is `true`
+- `names` *(Optional, required if rename is true)* - the list of new names to rename the files to. Must be in the same order as the list of files in the options.
 
 When the user selects an option from the picker, all other options will be deleted upon applying.
 </details>
@@ -173,7 +175,7 @@ An example format of `config.json` looks like this:
       "type": "picker",
       "label": "Choose Things",
       "rename": true,
-      "names": ["background.ca", "foreground.ca"],
+      "names": ["descriptors/UUID/background.ca", "descriptors/UUID/foreground.ca"],
       "options": [
         {
           "label": "Option 1",

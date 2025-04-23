@@ -8,7 +8,7 @@ from tempfile import TemporaryDirectory
 from shutil import rmtree
 
 from .tendie_file import TendieFile
-from .template_options import OptionType, TemplateOption, ReplaceOption, RemoveOption, SetOption
+from .template_options import OptionType, TemplateOption, ReplaceOption, RemoveOption, SetOption, PickerOption
 
 CURRENT_FORMAT = 1
 
@@ -41,6 +41,8 @@ class TemplateFile(TendieFile):
                 # load the options
                 if not 'options' in data:
                     raise Exception("No options were found in the config. Make sure that it is in the correct format.")
+                if not 'domain' in data or data['domain'] != "com.apple.PosterBoard":
+                    raise Exception("This config is not for the domain \"com.apple.PosterBoard\". Make sure that it is compatible with your version of Nugget.")
                 self.format_version = int(data['format_version'])
                 if self.format_version > CURRENT_FORMAT:
                     raise Exception("This config requires a newer version of Nugget.")
@@ -81,6 +83,8 @@ class TemplateFile(TendieFile):
                         self.options.append(RemoveOption(data=option))
                     elif opt_type == OptionType.set:
                         self.options.append(SetOption(data=option))
+                    elif opt_type == OptionType.picker:
+                        self.options.append(PickerOption(data=option))
                     else:
                         raise Exception("Invalid option type in template")
             else:

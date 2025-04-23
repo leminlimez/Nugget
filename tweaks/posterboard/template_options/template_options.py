@@ -7,6 +7,7 @@ class OptionType(Enum):
     replace = "replace"
     remove = "remove"
     set = "set"
+    picker = "picker"
 
 @dataclass
 class TemplateOption:
@@ -17,7 +18,11 @@ class TemplateOption:
     def __init__(self, data: dict):
         self.type = OptionType[data['type']]
         self.label = data['label']
-        self.files = data['files']
+        if self.type == OptionType.picker:
+            # picker should not have files
+            self.files = []
+        else:
+            self.files = data['files']
 
     def create_interface(self, options_widget: QWidget, options_layout: QVBoxLayout):
         raise NotImplementedError
