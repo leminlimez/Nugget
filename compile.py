@@ -2,6 +2,9 @@ from sys import platform
 
 import PyInstaller.__main__
 
+# configuration
+universal: bool = False # issues with cross compiling since cpython only gives a single arch
+
 args = [
     'main_app.py',
     # '--hidden-import=ipsw_parser',
@@ -21,5 +24,15 @@ args = [
 if platform == "darwin":
     # add --windowed arg for macOS
     args.append('--windowed')
+    args.append('--osx-bundle-identifier=com.leemin.Nugget')
+    if universal:
+        args.append('--target-arch=universal2')
+    # codesigning resources
+    try:
+        import compile_config
+        args.append('--osx-entitlements-file=entitlements.plist')
+        args.append(f"--codesign-identity={compile_config.CODESIGN_HASH}")
+    except ImportError:
+        print("No compile_config found, ignoring codesign...")
 
 PyInstaller.__main__.run(args)

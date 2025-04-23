@@ -5,3 +5,4 @@ com.apple.MobileGestalt.plist
 __pycache__
 *.spec
 /dist
+compile_config.py
