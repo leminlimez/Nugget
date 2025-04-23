@@ -26,7 +26,7 @@ class SetOption(TemplateOption):
     min_value: Optional[int] = None # minimum value allowed for input
     max_value: Optional[int] = None # maximum value allowed for input
     step: int = 1 # the interval between each slider value
-    value_type = int # whether or not the values are a float (for qt slider)
+    value_type = int # value types
 
     # toggle options
     inverted: bool = False # if set to true, the bool value will be inverted
@@ -151,7 +151,7 @@ class SetOption(TemplateOption):
             bx_widget.setLayout(bx_layout)
             options_layout.addWidget(bx_widget)
         elif self.setter_type == SetterType.slider:
-            vals = self.get_value()
+            vals = self.value
             self.label_objects = []
             list_len = 1
             if isinstance(vals, list):
@@ -172,12 +172,12 @@ class SetOption(TemplateOption):
                 val_layout = QtWidgets.QHBoxLayout(slid_widget)
                 min_lbl = QtWidgets.QLabel(val_widget)
 
-                min_val_fixed = self.get_min()
-                min_val = self.min_value
-                max_val_fixed = self.get_max()
-                max_val = self.max_value
-                step = self.step
-                val = self.value
+                min_val_fixed = self.min_value
+                min_val = int(self.min_value / 1000)
+                max_val_fixed = self.min_value
+                max_val = int(self.max_value / 1000)
+                step = int(self.step / 1000)
+                val = int(self.value / 1000)
                 if isinstance(min_val, list):
                     min_val_fixed = min_val_fixed[i]
                     min_val = min_val[i]
@@ -231,24 +231,16 @@ class SetOption(TemplateOption):
             options_layout.addWidget(col_widget)
 
     # Converter functions
-    def convert_float(self, value: float):
-        if self.value_type != "float":
-            return value
-        return int(value * 1000)
-    def convert_int(self, value: int):
-        if self.value_type != "float":
-            return value
-        return float(value) / 1000.0
     def convert_str(self, value: str):
         # convert string to either float or int
         if self.value_type == "float":
-            return self.convert_float(float(value))
+            return float(value)
         if isinstance(value, int) or (isinstance(value, str) and value.isdigit() and not '.' in value):
             return int(value)
         else:
             if self.setter_type == SetterType.slider:
                 self.value_type == "float"
-            return self.convert_float(float(value))
+            return float(value)
     def convert_color(self, value: float):
         return round(min(1, value) * 255)
     def convert_back(self, value):
@@ -267,28 +259,32 @@ class SetOption(TemplateOption):
             back_str = self.value_tag + "(" + back_str + ")"
         return back_str
 
-    def get_parsed_value(self, value):
-        if self.value_type == "float":
-            if isinstance(value, list):
-                # convert list
-                return list(map(self.convert_int, value))
-            return self.convert_int(value)
-        return value
-    def get_value(self):
-        return self.get_parsed_value(self.value)
-    def get_min(self):
-        return self.get_parsed_value(self.min_value)
-    def get_max(self):
-        return self.get_parsed_value(self.max_value)
+    # def get_parsed_value(self, value):
+    #     if self.value_type == "float":
+    #         if isinstance(value, list):
+    #             # convert list
+    #             return list(map(self.convert_int, value))
+    #         return self.convert_int(value)
+    #     return value
+    # def get_value(self):
+    #     return self.get_parsed_value(self.value)
+    # def get_min(self):
+    #     return self.get_parsed_value(self.min_value)
+    # def get_max(self):
+    #     return self.get_parsed_value(self.max_value)
     
     def update_value(self, nv: int, index: int=None):
+        if self.setter_type == SetterType.slider:
+            nv = float(nv) / 1000.0
+            if self.value == "integer":
+                nv = int(nv)
         if isinstance(self.value, list):
             self.value[index] = nv
         else:
             self.value = nv
         if self.label_objects != None:
             if index != None:
-                val = self.get_value()
+                val = self.value
                 if isinstance(self.value, list):
                     val = val[index]
                 self.label_objects[index].setText(f"{self.label}: {val}")
@@ -301,7 +297,7 @@ class SetOption(TemplateOption):
             self.label_objects[0].setStyleSheet(self.get_stylesheet(color=color))
 
     def apply(self, container_path: str):
-        apply_val = self.get_value()
+        apply_val = self.value
         if self.setter_type == SetterType.toggle:
             if self.inverted:
                 # invert toggle
