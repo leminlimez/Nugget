@@ -105,7 +105,7 @@ class ReplaceOption(TemplateOption):
         with open(in_path, "rb") as in_file:
             contents = in_file.read()
         for file in self.files:
-            out_path = os.path.join(container_path, file)
+            out_path = os.path.join(container_path, *file.split('/'))
             with open(out_path, "wb") as out_file:
                 out_file.write(contents)
         del contents

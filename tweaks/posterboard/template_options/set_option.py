@@ -344,7 +344,7 @@ class SetOption(TemplateOption):
             elif not apply_val and self.toggle_off_value != None:
                 apply_val = self.toggle_off_value
         for file in self.files:
-            path = os.path.join(container_path, file)
+            path = os.path.join(container_path, *file.split('/'))
             # set opacity if it has that
             if self.sets_opacity and isinstance(self.value, QColor):
                 set_xml_values(file=path, id=self.identifier, keys=[self.key, "opacity"], values=[self.convert_back(apply_val), str(self.value.alphaF())], use_ca_id=self.use_ca_id)

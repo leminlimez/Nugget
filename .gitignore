@@ -6,3 +6,4 @@ __pycache__
 *.spec
 /dist
 compile_config.py
+compile+codesign.sh

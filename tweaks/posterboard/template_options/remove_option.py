@@ -46,7 +46,7 @@ class RemoveOption(TemplateOption):
     def apply(self, container_path: str):
         if (self.inverted and not self.value) or (not self.inverted and self.value):
             for file in self.files:
-                path = os.path.join(container_path, file)
+                path = os.path.join(container_path, *file.split('/'))
                 if self.identifier != None:
                     # delete properties in xml
                     # TODO: make sure it isn't a directory

@@ -1,4 +1,5 @@
 from sys import platform
+import os
 
 import PyInstaller.__main__
 
@@ -34,5 +35,8 @@ if platform == "darwin":
         args.append(f"--codesign-identity={compile_config.CODESIGN_HASH}")
     except ImportError:
         print("No compile_config found, ignoring codesign...")
+elif os.name == 'nt':
+    # add windows version info
+    args.append('--version-file=version.txt')
 
 PyInstaller.__main__.run(args)

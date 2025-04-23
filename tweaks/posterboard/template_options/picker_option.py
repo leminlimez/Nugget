@@ -105,7 +105,7 @@ class PickerOption(TemplateOption):
             if not opt in sel_options:
                 for file in opt.files:
                     # delete files or directories
-                    path = os.path.join(container_path, file)
+                    path = os.path.join(container_path, *file.split('/'))
                     if os.path.isdir(path):
                         rmtree(path=path, ignore_errors=True)
                     else:
