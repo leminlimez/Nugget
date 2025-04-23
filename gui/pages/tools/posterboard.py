@@ -1,5 +1,8 @@
 from PySide6 import QtCore, QtWidgets, QtGui
 import webbrowser
+import subprocess
+import os
+import uuid
 
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
@@ -9,6 +12,7 @@ from gui.custom_qt_elements.resizable_image_label import ResizableImageLabel
 
 from tweaks.tweaks import tweaks
 from tweaks.posterboard.template_options import OptionType as TemplateOptionTypePB
+from devicemanagement.device_manager import show_apply_error
 
 class PosterboardPage(Page):
     def __init__(self, window, ui: Ui_Nugget):
@@ -47,6 +51,7 @@ class PosterboardPage(Page):
         self.ui.caVideoChk.toggled.connect(self.on_caVideoChk_toggled)
         self.ui.reverseLoopChk.toggled.connect(self.on_reverseLoopChk_toggled)
         self.ui.useForegroundChk.toggled.connect(self.on_useForegroundChk_toggled)
+        self.ui.exportPBVideoBtn.clicked.connect(self.on_exportPBVideoBtn_clicked)
         
         self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
         self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)
@@ -342,28 +347,57 @@ class PosterboardPage(Page):
         if selected_file != None and selected_file != "":
             tweaks["PosterBoard"].videoFile = selected_file
             self.ui.pbVideoLbl.setText(f"Current Video: {selected_file}")
+            if tweaks["PosterBoard"].loop_video:
+                self.ui.exportPBVideoBtn.show()
         else:
             tweaks["PosterBoard"].videoFile = None
             self.ui.pbVideoLbl.setText("Current Video: None")
+            self.ui.exportPBVideoBtn.hide()
     def on_caVideoChk_toggled(self, checked: bool):
         tweaks["PosterBoard"].loop_video = checked
         # hide thumbnail button and label
         if checked:
             self.ui.chooseThumbBtn.hide()
             self.ui.pbVideoThumbLbl.hide()
-            self.ui.clearSuggestedBtn.hide()
             self.ui.reverseLoopChk.show()
             self.ui.useForegroundChk.show()
+            if tweaks["PosterBoard"].videoFile != None:
+                self.ui.exportPBVideoBtn.show()
         else:
             self.ui.chooseThumbBtn.show()
             self.ui.pbVideoThumbLbl.show()
-            self.ui.clearSuggestedBtn.show()
             self.ui.reverseLoopChk.hide()
             self.ui.useForegroundChk.hide()
+            self.ui.exportPBVideoBtn.hide()
     def on_reverseLoopChk_toggled(self, checked: bool):
         tweaks["PosterBoard"].reverse_video = checked
     def on_useForegroundChk_toggled(self, checked: bool):
         tweaks["PosterBoard"].use_foreground = checked
+
+    def on_exportPBVideoBtn_clicked(self):
+        # Open the directory selection dialog
+        directory = QtWidgets.QFileDialog.getExistingDirectory(self.window, "Select Directory", "", QtWidgets.QFileDialog.ShowDirsOnly)
+        if directory:
+            # export the video
+            try:
+                # create export folder
+                path = os.path.join(directory, f"Nugget-Export-{uuid.uuid4()}")
+                tweaks["PosterBoard"].create_video_loop_files(output_dir=path)
+                # show it in file explorer
+                if os.name == 'nt':
+                    subprocess.Popen(f'explorer "{os.path.normpath(path)}"')
+                else:
+                    subprocess.call(["open", path])
+            except Exception as e:
+                # show error
+                alert = show_apply_error(e)
+                detailsBox = QtWidgets.QMessageBox()
+                detailsBox.setIcon(alert.icon)
+                detailsBox.setWindowTitle(alert.title)
+                detailsBox.setText(alert.txt)
+                if alert.detailed_txt != None:
+                    detailsBox.setDetailedText(alert.detailed_txt)
+                detailsBox.exec()
 
     def on_findPBBtn_clicked(self):
         webbrowser.open_new_tab("https://cowabun.ga/wallpapers")

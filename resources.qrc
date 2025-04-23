@@ -42,5 +42,6 @@
         <file>icon/chevron.down.svg</file>
         <file>icon/chevron.up.svg</file>
         <file>gui/transparent.png</file>
+        <file>icon/export.svg</file>
     </qresource>
 </RCC>

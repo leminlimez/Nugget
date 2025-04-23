@@ -4660,6 +4660,20 @@ Will show up in Collections</string>
                       </property>
                      </spacer>
                     </item>
+                    <item>
+                     <widget class="QToolButton" name="exportPBVideoBtn">
+                      <property name="text">
+                       <string>   Export Video as Descriptor</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="../resources.qrc">
+                        <normaloff>:/icon/export.svg</normaloff>:/icon/export.svg</iconset>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextBesideIcon</enum>
+                      </property>
+                     </widget>
+                    </item>
                    </layout>
                   </item>
                   <item>

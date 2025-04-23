@@ -17,7 +17,7 @@ from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThrea
 from tweaks.tweaks import tweaks
 
 App_Version = "5.2"
-App_Build = 8
+App_Build = 9
 
 class Page(Enum):
     Home = 0
@@ -299,6 +299,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.pbVideoThumbLbl.setVisible(is_iphone and not is_looping)
             self.ui.chooseThumbBtn.setVisible(is_iphone and not is_looping)
             self.ui.caVideoChk.setVisible(is_iphone)
+            self.ui.exportPBVideoBtn.setVisible(is_looping and tweaks["PosterBoard"].videoFile != None)
         else:
             self.device_manager.set_current_device(index=None)
 
