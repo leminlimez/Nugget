@@ -52,9 +52,9 @@ class PosterboardTweak(Tweak):
     def add_tendie(self, file: str):
         new_tendie = TendieFile(path=file)
         return self.verify_tendie(new_tendie)
-    def add_template(self, file: str):
+    def add_template(self, file: str, version: str = None):
         try:
-            new_template = TemplateFile(path=file)
+            new_template = TemplateFile(path=file, device_version=version)
             if new_template.domain != "com.apple.PosterBoard":
                 raise PBTemplateException(file=file, message="This is not a PosterBoard template. Please import it on the Templates page.")
         except Exception as e:

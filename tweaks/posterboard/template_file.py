@@ -14,6 +14,7 @@ from .template_options import OptionType, TemplateOption, ReplaceOption, RemoveO
 from tweaks.posterboard.template_options import OptionType as TemplateOptionTypePB
 from exceptions.posterboard_exceptions import PBTemplateException
 from gui.custom_qt_elements.resizable_image_label import ResizableImageLabel
+from devicemanagement.constants import Version
 
 CURRENT_FORMAT = 1
 
@@ -22,10 +23,13 @@ class TemplateFile(TendieFile):
     json_path: str
     tmp_dir: str = None
 
-    # TODO: Move these to custom operations
     author: str = "" # author of template
     domain: str = "" # domain to restore to
     description: Optional[str] = None # description to go under the file
+
+    min_version: Optional[str] = None # minimum supported iOS version
+    max_version: Optional[str] = None # maximum supported iOS version
+
     resources: list[str] = [] # list of file paths for embedded resources
     previews: dict[str, str] = {} # list of resources to use as previews
     preview_layout: str = "horizontal" # the direction to lay out the preview images
@@ -34,7 +38,7 @@ class TemplateFile(TendieFile):
     banner_stylesheet: Optional[str] = None # style sheet of the banner
     format_version: int = CURRENT_FORMAT # format version of config
 
-    def __init__(self, path: str):
+    def __init__(self, path: str, device_version: str = None):
         super().__init__(path=path)
         self.options = []
         self.json_path = None
@@ -61,6 +65,18 @@ class TemplateFile(TendieFile):
                 self.author = data['author']
                 if 'description' in data:
                     self.description = data['description']
+
+                if 'min_version' in data:
+                    self.min_version = data['min_version']
+                    # check the device version
+                    # TODO: need to make this check also happen when connected device is updated
+                    if Version(self.min_version) > Version(device_version):
+                        raise PBTemplateException(path, f"This template requires iOS {self.min_version}.\nYour iOS version (iOS {device_version}) is too outdated!")
+                if 'max_version' in data:
+                    self.max_version = data['max_version']
+                    if Version(self.max_version) < Version(device_version):
+                        raise PBTemplateException(path, f"This template requires iOS {self.max_version}.\nYour iOS version (iOS {device_version}) is too new!")
+
                 # load the previews
                 prevs = []
                 if 'previews' in data:
@@ -95,7 +111,6 @@ class TemplateFile(TendieFile):
                             if resource in prevs:
                                 self.previews[resource] = rc_full_path
 
-                # TODO: Add error handling
                 for option in data['options']:
                     opt_type = OptionType[option['type']]
                     if opt_type == OptionType.replace:

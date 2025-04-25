@@ -205,7 +205,7 @@ class PosterboardPage(Page):
         if selected_files != None and len(selected_files) > 0:
             # user selected files, add them
             for file in selected_files:
-                if not tweaks["PosterBoard"].add_template(file):
+                if not tweaks["PosterBoard"].add_template(file, self.window.device_manager.data_singleton.current_device.version):
                     # alert that there are too many
                     detailsBox = QtWidgets.QMessageBox()
                     detailsBox.setIcon(QtWidgets.QMessageBox.Critical)

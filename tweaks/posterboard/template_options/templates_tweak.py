@@ -19,9 +19,9 @@ class TemplatesTweak(Tweak):
         # TODO: figure out which templates use sparse restore
         return len(self.templates) > 0
 
-    def add_template(self, file: str):
+    def add_template(self, file: str, version: str = None):
         try:
-            new_template = TemplateFile(path=file)
+            new_template = TemplateFile(path=file, device_version=version)
             if new_template.domain == "com.apple.PosterBoard":
                 raise PBTemplateException(file=file, message="This is a PosterBoard template. Please import it on the PosterBoard page.")
             self.templates.append(new_template)

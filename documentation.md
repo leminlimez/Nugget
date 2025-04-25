@@ -32,11 +32,18 @@ __Required info:__
 <summary>Optional info:</summary>
 
 - `description` - some text info to show under the title
+
+- `min_version` - minimum iOS version supported by the template
+- `max_version` - maximum iOS version supported by the template
+  - format: `"min_version": "18.0"`
+  - you can do just min, just max, none, or both
+
 - `resources` - a list of embedded resources to include (ie banner/preview images, etc)
 - `previews` - a list of preview image file names
   - for them to show, their path must be inside of the `resources` list
 - `preview_layout` - how the preview images should be laid out (defaults to "horizontal")
   - __Valid types:__ "horizontal", "stacked"
+
 - `banner_text` - some text of a banner
 - `banner_stylesheet` - the [Qt style sheet](https://doc.qt.io/qt-6/stylesheet-examples.html) of the banner
 </details>

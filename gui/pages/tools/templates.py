@@ -24,7 +24,7 @@ class TemplatesPage(Page):
         if selected_files != None and len(selected_files) > 0:
             # user selected files, add them
             for file in selected_files:
-                tweaks["Templates"].add_template(file)
+                tweaks["Templates"].add_template(file, self.window.device_manager.data_singleton.current_device.version)
             self.load_templates_list()
 
     def load_templates_list(self):
