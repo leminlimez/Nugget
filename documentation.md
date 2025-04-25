@@ -11,7 +11,9 @@ There are 2 formats for these:
   - It is recommended to use these if you are restoring descriptors to collections since this will be more future proof. Randomization of IDs is also safer.
 
 # Batter Files (Templates)
-Batter files are similar to tendies files in that they store the file structure to be restored to a given domain. For PosterBoard, they use the same container/descriptor/descriptors folder format as tendies files. In addition, they also contain a `config.json` file that tells Nugget what the user can customize.
+Batter files are similar to tendies files in that they store the file structure to be restored to a given domain. Nugget will restore the files in the structure of the "Container" folder in your batter file.
+
+For PosterBoard, they use the same container/descriptor/descriptors folder format as tendies files. In addition, they also contain a `config.json` file that tells Nugget what the user can customize.
 
 ## Header
 Batter files include a header that includes basic information about the batter file.
@@ -20,6 +22,7 @@ __Required info:__
 - `title` - the title of the operation
 - `author` - your name
 - `domain` - the domain for where it should be restored to (for PosterBoard, put `AppDomain-com.apple.PosterBoard`)
+  - If you want to use sparserestore, make the domain `Sparserestore-<FILEPATH>` (ie `Sparserestore-/var/Managed Preferences`)
 - `format_version` - the minimum version of the config format
   - the current version for the latest Nugget update is `"format_version": "1"`
 - `options` - a list of user-configurable options (see [Option Format](#option-format) for more info)

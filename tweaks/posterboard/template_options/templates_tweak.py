@@ -51,11 +51,17 @@ class TemplatesTweak(Tweak):
                         # update plist ids if needed
                         new_contents = None
                         contents_path = os.path.join(curr_path, folder)
+                        # handle for sparserestore
+                        full_path = f"{restore_path}/{folder}"
+                        restore_domain = domain
+                        if domain.startswith("Sparserestore-"):
+                            full_path = f"{domain.removeprefix("Sparserestore-")}{full_path}"
+                            restore_domain = None
                         files_to_restore.append(FileToRestore(
                             contents=new_contents,
                             contents_path=contents_path,
-                            restore_path=f"{restore_path}/{folder}",
-                            domain=domain
+                            restore_path=full_path,
+                            domain=restore_domain
                         ))
                     except IOError:
                         print(f"Failed to open file: {folder}") # TODO: Add QDebug equivalent
