@@ -354,12 +354,13 @@ class DeviceManager:
                         if tweak.enabled and tweak.file_location.value.startswith("/var/mobile/"):
                             uses_domains = True
                     elif isinstance(tweak, PosterboardTweak):
+                        fc_before = len(files_to_restore)
                         tmp_pb_dir = TemporaryDirectory()
                         tweak.apply_tweak(
                             files_to_restore=files_to_restore, output_dir=fix_windows_path(tmp_pb_dir.name),
                             version=self.get_current_device_version(), update_label=update_label
                         )
-                        if tweak.enabled:
+                        if len(files_to_restore) > fc_before:
                             uses_domains = True
                     else:
                         if gestalt_plist != None:

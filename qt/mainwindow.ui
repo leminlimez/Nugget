@@ -4205,11 +4205,20 @@ To work properly, also disable the daemon using the toggle above.</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QCheckBox" name="modifyPosterboardsChk">
-                      <property name="text">
-                       <string>Modify</string>
+                     <spacer name="verticalSpacer_23">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
                       </property>
-                     </widget>
+                      <property name="sizeType">
+                       <enum>QSizePolicy::Fixed</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>16</height>
+                       </size>
+                      </property>
+                     </spacer>
                     </item>
                    </layout>
                   </widget>

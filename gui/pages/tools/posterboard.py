@@ -37,7 +37,6 @@ class PosterboardPage(Page):
         tweaks["PosterBoard"].resetModes = selected_items
 
     def load_page(self):
-        self.ui.modifyPosterboardsChk.toggled.connect(self.on_modifyPosterboardsChk_clicked)
         self.ui.tendiesPageBtn.clicked.connect(self.on_tendiesPageBtn_clicked)
         self.ui.templatePageBtn.clicked.connect(self.on_templatePageBtn_clicked)
         self.ui.videoPageBtn.clicked.connect(self.on_videoPageBtn_clicked)
@@ -275,10 +274,6 @@ class PosterboardPage(Page):
             widget.setLayout(layout)
             self.pb_templateLayout.addWidget(widget)
             template.loaded = True
-
-    def on_modifyPosterboardsChk_clicked(self, checked: bool):
-        tweaks["PosterBoard"].set_enabled(checked)
-        self.ui.pbPages.setDisabled(not checked)
 
     # PB Pages Selectors
     def on_tendiesPageBtn_clicked(self):

@@ -2214,10 +2214,9 @@ class Ui_Nugget(object):
 
         self.verticalLayout_123.addWidget(self.posterboardLbl)
 
-        self.modifyPosterboardsChk = QCheckBox(self.verticalWidget_43)
-        self.modifyPosterboardsChk.setObjectName(u"modifyPosterboardsChk")
+        self.verticalSpacer_23 = QSpacerItem(20, 16, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
-        self.verticalLayout_123.addWidget(self.modifyPosterboardsChk)
+        self.verticalLayout_123.addItem(self.verticalSpacer_23)
 
 
         self.horizontalLayout_203.addWidget(self.verticalWidget_43)
@@ -3838,7 +3837,6 @@ class Ui_Nugget(object):
         self.spotlightChk.setText(QCoreApplication.translate("Nugget", u"Disable Spotlight", None))
         self.voiceControlChk.setText(QCoreApplication.translate("Nugget", u"Disable Voice Control", None))
         self.posterboardLbl.setText(QCoreApplication.translate("Nugget", u"Posterboard", None))
-        self.modifyPosterboardsChk.setText(QCoreApplication.translate("Nugget", u"Modify", None))
         self.findPBBtn.setText(QCoreApplication.translate("Nugget", u"   Discover Wallpapers", None))
         self.pbHelpBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
         self.tendiesPageBtn.setText(QCoreApplication.translate("Nugget", u"  Tendies", None))

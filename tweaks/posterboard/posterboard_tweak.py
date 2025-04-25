@@ -203,8 +203,6 @@ class PosterboardTweak(Tweak):
 
     def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, version: str, update_label=lambda x: None):
         # unzip the file
-        if not self.enabled:
-            return
         if version.startswith("16"):
             # iOS 16 has a different number for the structure
             self.structure_version = 59
@@ -234,7 +232,7 @@ class PosterboardTweak(Tweak):
                     domain=f"AppDomain-{self.bundle_id}"
                 ))
             return
-        elif (self.tendies == None or len(self.tendies) == 0) and (self.templates == None or len(self.templates) == 0) and (self.videoFile == None):
+        elif len(self.tendies) == 0 and len(self.templates) == 0 and self.videoFile == None:
             return
         update_label("Generating PosterBoard Video...")
         self.create_live_photo_files(output_dir)

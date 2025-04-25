@@ -202,6 +202,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.springboardOptionsPageContent.setDisabled(False)
             self.ui.internalOptionsPageContent.setDisabled(False)
             self.ui.advancedOptionsPageContent.setDisabled(False)
+            self.ui.pbPages.setDisabled(False)
 
             self.ui.resetPairBtn.show()
             self.ui.showRiskyChk.show()
