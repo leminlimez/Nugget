@@ -14,6 +14,7 @@ from controllers.files_handler import get_bundle_files
 from controllers import video_handler
 from controllers.aar.aar import wrap_in_aar
 from exceptions.nugget_exception import NuggetException
+from exceptions.posterboard_exceptions import PBTemplateException
 
 class PosterboardTweak(Tweak):
     def __init__(self):
@@ -28,6 +29,9 @@ class PosterboardTweak(Tweak):
         self.bundle_id = "com.apple.PosterBoard"
         self.resetModes = []
         self.structure_version = 61
+
+    def uses_domains(self):
+        return (len(self.tendies) > 0 or len(self.templates) > 0 or self.videoFile != None or len(self.resetModes) > 0)
 
     def verify_tendie(self, new_tendie: TendieFile, is_template: bool = False) -> bool:
         if new_tendie.descriptor_cnt + self.get_descriptor_count() <= 10:
@@ -51,6 +55,8 @@ class PosterboardTweak(Tweak):
     def add_template(self, file: str):
         try:
             new_template = TemplateFile(path=file)
+            if new_template.domain != "com.apple.PosterBoard":
+                raise PBTemplateException(file=file, message="This is not a PosterBoard template. Please import it on the Templates page.")
         except Exception as e:
             print(traceback.format_exc())
             detailsBox = QtWidgets.QMessageBox()
@@ -75,10 +81,6 @@ class PosterboardTweak(Tweak):
         elif file_name == "Wallpaper.plist":
             return set_plist_value(file=os.path.join(file_path, file_name), key="identifier", value=randomizedID, recursive=False)
         return None
-    
-
-    def clean_path_name(self, path: str):
-        return path# re.sub('[^a-zA-Z0-9\.\/\-_ ]', '', path)
         
 
     def recursive_add(self,
@@ -112,7 +114,7 @@ class PosterboardTweak(Tweak):
                         files_to_restore.append(FileToRestore(
                             contents=new_contents,
                             contents_path=contents_path,
-                            restore_path=self.clean_path_name(f"{restore_path}/{folder_name}"),
+                            restore_path=f"{restore_path}/{folder_name}",
                             domain=f"AppDomain-{self.bundle_id}"
                         ))
                     except IOError:

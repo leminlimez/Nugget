@@ -10,8 +10,8 @@ There are 2 formats for these:
   - Descriptor UUIDs and wallpaper IDs will be randomized, preventing overlapping.
   - It is recommended to use these if you are restoring descriptors to collections since this will be more future proof. Randomization of IDs is also safer.
 
-# Batter Files (PosterBoard templates)
-Batter files are similar to tendies files in that they store the file structure to be restored to PosterBoard. They use the same container/descriptor/descriptors folder format as tendies files. In addition, they also contain a `config.json` file that tells Nugget what the user can customize.
+# Batter Files (Templates)
+Batter files are similar to tendies files in that they store the file structure to be restored to a given domain. For PosterBoard, they use the same container/descriptor/descriptors folder format as tendies files. In addition, they also contain a `config.json` file that tells Nugget what the user can customize.
 
 ## Header
 Batter files include a header that includes basic information about the batter file.

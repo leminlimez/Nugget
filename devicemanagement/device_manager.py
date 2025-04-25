@@ -21,6 +21,7 @@ from exceptions.nugget_exception import NuggetException
 from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.posterboard.posterboard_tweak import PosterboardTweak
+from tweaks.posterboard.template_options.templates_tweak import TemplatesTweak
 from tweaks.basic_plist_locations import FileLocationsList, RiskyFileLocationsList
 
 from restore.restore import restore_files, FileToRestore
@@ -332,7 +333,7 @@ class DeviceManager:
             # create the restore file list
             files_to_restore: list[FileToRestore] = [
             ]
-            tmp_pb_dir = None # temporary directory for unzipping pb files
+            tmp_dirs = [] # temporary directory for unzipping pb and template files
 
             # set the plist keys
             if not resetting:
@@ -353,14 +354,15 @@ class DeviceManager:
                         tweak.apply_tweak(files_data)
                         if tweak.enabled and tweak.file_location.value.startswith("/var/mobile/"):
                             uses_domains = True
-                    elif isinstance(tweak, PosterboardTweak):
+                    elif isinstance(tweak, PosterboardTweak) or isinstance(tweak, TemplatesTweak):
                         fc_before = len(files_to_restore)
-                        tmp_pb_dir = TemporaryDirectory()
+                        tmp_dirs.append(TemporaryDirectory())
                         tweak.apply_tweak(
-                            files_to_restore=files_to_restore, output_dir=fix_windows_path(tmp_pb_dir.name),
+                            files_to_restore=files_to_restore,
+                            output_dir=fix_windows_path(tmp_dirs[len(tmp_dirs)-1].name),
                             version=self.get_current_device_version(), update_label=update_label
                         )
-                        if len(files_to_restore) > fc_before:
+                        if tweak.uses_domains():
                             uses_domains = True
                     else:
                         if gestalt_plist != None:
@@ -491,12 +493,13 @@ class DeviceManager:
         except Exception as e:
             final_alert = show_apply_error(e, update_label, files_list=files_to_restore)
         finally:
-            if tmp_pb_dir != None:
-                try:
-                    tmp_pb_dir.cleanup()
-                except Exception as e:
-                    # ignore clean up errors
-                    print(str(e))
+            if len(tmp_dirs) > 0:
+                for tmp_dir in tmp_dirs:
+                    try:
+                        tmp_dir.cleanup()
+                    except Exception as e:
+                        # ignore clean up errors
+                        print(str(e))
             show_alert(final_alert)
 
     ## RESETTING MOBILE GESTALT

@@ -16,8 +16,8 @@ from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThrea
 
 from tweaks.tweaks import tweaks
 
-App_Version = "5.2"
-App_Build = 9
+App_Version = "6.0"
+App_Build = 1
 
 class Page(Enum):
     Home = 0
@@ -28,9 +28,10 @@ class Page(Enum):
     InternalOptions = 5
     Daemons = 6
     Posterboard = 7
-    RiskyTweaks = 8
-    Apply = 9
-    Settings = 10
+    Templates = 8
+    RiskyTweaks = 9
+    Apply = 10
+    Settings = 11
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager):
@@ -51,6 +52,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.springboardOptionsPageBtn.hide()
         self.ui.internalOptionsPageBtn.hide()
         self.ui.daemonsPageBtn.hide()
+        self.ui.templatePageBtn.hide()
         self.ui.advancedPageBtn.hide()
         self.ui.applyPageBtn.hide()
         self.ui.sidebarDiv1.hide()
@@ -66,6 +68,7 @@ class MainWindow(QtWidgets.QMainWindow):
             Page.Springboard: Pages.Springboard(ui=self.ui),
             Page.InternalOptions: Pages.Internal(ui=self.ui),
             Page.Daemons: Pages.Daemons(ui=self.ui),
+            Page.Templates: Pages.Templates(window=self, ui=self.ui),
             Page.RiskyTweaks: Pages.Risky(ui=self.ui),
             Page.Settings: Pages.Settings(window=self, ui=self.ui)
         }
@@ -93,6 +96,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.internalOptionsPageBtn.clicked.connect(self.on_internalOptionsPageBtn_clicked)
         self.ui.daemonsPageBtn.clicked.connect(self.on_daemonsPageBtn_clicked)
         self.ui.posterboardPageBtn.clicked.connect(self.on_posterboardPageBtn_clicked)
+        self.ui.templatesPageBtn.clicked.connect(self.on_templatesPageBtn_clicked)
         self.ui.advancedPageBtn.clicked.connect(self.on_advancedPageBtn_clicked)
         self.ui.applyPageBtn.clicked.connect(self.on_applyPageBtn_clicked)
         self.ui.settingsPageBtn.clicked.connect(self.on_settingsPageBtn_clicked)
@@ -152,6 +156,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.springboardOptionsPageBtn.hide()
             self.ui.internalOptionsPageBtn.hide()
             self.ui.daemonsPageBtn.hide()
+            self.ui.templatePageBtn.hide()
             self.ui.posterboardPageBtn.hide()
             self.ui.advancedPageBtn.hide()
 
@@ -177,6 +182,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.springboardOptionsPageBtn.show()
             self.ui.internalOptionsPageBtn.show()
             self.ui.daemonsPageBtn.show()
+            self.ui.templatePageBtn.show()
             self.ui.posterboardPageBtn.show()
 
             if self.device_manager.allow_risky_tweaks:
@@ -384,6 +390,10 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_posterboardPageBtn_clicked(self):
         self.pages[Page.Posterboard].load()
         self.ui.pages.setCurrentIndex(Page.Posterboard.value)
+
+    def on_templatesPageBtn_clicked(self):
+        self.pages[Page.Templates].load()
+        self.ui.pages.setCurrentIndex(Page.Templates.value)
 
     def on_advancedPageBtn_clicked(self):
         self.pages[Page.RiskyTweaks].load()
