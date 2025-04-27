@@ -28,6 +28,7 @@ class PickerOption(TemplateOption):
     names: list[str] = [] # list of names to rename to
 
     selection: int|list[str] = [] # chosen user selection
+    default_val: int|list[int] = [] # the default values
 
     def __init__(self, data: dict):
         super().__init__(data=data)
@@ -46,6 +47,11 @@ class PickerOption(TemplateOption):
                 self.rename = data['rename']
                 if self.rename:
                     self.names = data['names'] # only require if rename is true
+        # default value(s)
+        if 'default_value' in data:
+            self.default_val = data['default_value']
+        elif 'default_values' in data:
+            self.default_val = data['default_values']
 
     def create_interface(self, options_widget: QWidget, options_layout: QVBoxLayout):
         # picker option
@@ -59,14 +65,15 @@ class PickerOption(TemplateOption):
             pickerDrp = MultiComboBox(picker_widget, updateAction=self.onPickerUpdate)
             for opt in self.options:
                 pickerDrp.addItem(opt.label)
-            pickerDrp.lineEdit().setText("  None")
+            pickerDrp.selectIndices(self.default_val)
+            pickerDrp.updateText()
             pickerDrp.setStyleSheet("QWidget { background-color: #3b3b3b; border: 2px solid #3b3b3b; border-radius: 5px; }")
         else:
             pickerDrp = QComboBox(picker_widget)
             for opt in self.options:
                 pickerDrp.addItem(opt.label)
             pickerDrp.activated.connect(self.onPickerUpdate)
-            pickerDrp.setCurrentIndex(0)
+            pickerDrp.setCurrentIndex(self.default_val)
         picker_layout.addWidget(pickerDrp)
         picker_widget.setLayout(picker_layout)
         options_layout.addWidget(picker_widget)

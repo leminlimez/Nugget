@@ -145,6 +145,8 @@ Properties:
 - `rename` *(Optional)* - whether or not to rename the files chosen by the user
   - will not work if `allow_multiple_selection` is `true`
 - `names` *(Optional, required if rename is true)* - the list of new names to rename the files to. Must be in the same order as the list of files in the options.
+- `default_value` *(Optional)* - the default value to set for the picker based on the index in the array starting from 0 (ex. `"default_value": 0`)
+  - when `allow_multiple_selection` is set to true, use `"default_values": [0, 1, 2]`
 
 When the user selects an option from the picker, all other options will be deleted upon applying.
 </details>
