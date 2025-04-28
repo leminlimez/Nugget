@@ -42,6 +42,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.refresh_in_progress = False
         self.threadpool = QtCore.QThreadPool()
         self.loadSettings()
+        self.initial_load = True
 
         # hide every page
         self.ui.posterboardPageBtn.hide()
@@ -301,6 +302,15 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.chooseThumbBtn.setVisible(is_iphone and not is_looping)
             self.ui.caVideoChk.setVisible(is_iphone)
             self.ui.exportPBVideoBtn.setVisible(is_looping and tweaks["PosterBoard"].videoFile != None)
+
+            # show the PB if initial load is true
+            if self.initial_load:
+                self.initial_load = False
+                if len(tweaks["PosterBoard"].tendies) > 0 or len(tweaks["PosterBoard"].templates) > 0:
+                    self.pages[Page.Posterboard].load()
+                    self.ui.pages.setCurrentIndex(Page.Posterboard.value)
+                    self.ui.posterboardPageBtn.setChecked(True)
+                    self.ui.homePageBtn.setChecked(False)
         else:
             self.device_manager.set_current_device(index=None)
 

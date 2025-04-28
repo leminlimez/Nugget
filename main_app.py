@@ -3,7 +3,7 @@ from PySide6 import QtGui, QtWidgets
 
 from gui.main_window import MainWindow
 from devicemanagement.device_manager import DeviceManager
-import tweaks
+from tweaks.tweaks import tweaks
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
