@@ -89,9 +89,10 @@ class PosterboardTweak(Tweak):
         ):
         if not os.path.isdir(curr_path):
             return
-        if isAdding and ("ordered-descriptor" in curr_path or "ordered-descriptors" in curr_path):
-            uuid_list = sorted([str(uuid.uuid4().upper() for i in range(len(os.listdir(curr_path))))])
-            r_id_list = sorted([randint(9999, 99999) for i in range(len(os.listdir(curr_path)))])
+        if isAdding and randomizeUUID and ("ordered-descriptor" in curr_path or "ordered-descriptors" in curr_path):
+            # PosterBoard orders wallpapers by wallpaper id in reverse order
+            r_id = randint(9999, 99999)
+            r_id_list = sorted([r_id + i for i in range(len(os.listdir(curr_path)))], reverse=True)
         counter = 0
         for folder in sorted(os.listdir(curr_path)):
             if folder.startswith('.') or folder == "__MACOSX":
@@ -102,7 +103,7 @@ class PosterboardTweak(Tweak):
                 curr_randomized_id = randomizedID
                 if randomizeUUID:
                     if "ordered-descriptor" in curr_path or "ordered-descriptors" in curr_path:
-                        folder_name = uuid_list[counter]
+                        folder_name = str(uuid.uuid4()).upper()
                         curr_randomized_id = r_id_list[counter]
                         counter += 1
                     else:
