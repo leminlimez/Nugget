@@ -30,7 +30,7 @@ if platform == "darwin":
         args.append('--target-arch=universal2')
     # codesigning resources
     try:
-        import compile_config
+        import secrets.compile_config as compile_config
         args.append('--osx-entitlements-file=entitlements.plist')
         args.append(f"--codesign-identity={compile_config.CODESIGN_HASH}")
     except ImportError:

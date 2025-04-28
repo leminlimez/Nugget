@@ -91,6 +91,11 @@ class PosterboardTweak(Tweak):
         ):
         if not os.path.isdir(curr_path):
             return
+        if isAdding and randomizeUUID and ("ordered-descriptor" in curr_path or "ordered-descriptors" in curr_path):
+            # PosterBoard orders wallpapers by wallpaper id in reverse order
+            r_id = randint(9999, 99999)
+            r_id_list = sorted([r_id + i for i in range(len(os.listdir(curr_path)))], reverse=True)
+        counter = 0
         for folder in sorted(os.listdir(curr_path)):
             if folder.startswith('.') or folder == "__MACOSX":
                 continue
@@ -99,8 +104,13 @@ class PosterboardTweak(Tweak):
                 folder_name = folder
                 curr_randomized_id = randomizedID
                 if randomizeUUID:
-                    folder_name = str(uuid.uuid4()).upper()
-                    curr_randomized_id = randint(9999, 99999)
+                    if "ordered-descriptor" in curr_path or "ordered-descriptors" in curr_path:
+                        folder_name = str(uuid.uuid4()).upper()
+                        curr_randomized_id = r_id_list[counter]
+                        counter += 1
+                    else:
+                        folder_name = str(uuid.uuid4()).upper()
+                        curr_randomized_id = randint(9999, 99999)
                 # if file then add it, otherwise recursively call again
                 if os.path.isfile(os.path.join(curr_path, folder)):
                     try:
@@ -127,7 +137,7 @@ class PosterboardTweak(Tweak):
                 if name == "container":
                     self.recursive_add(files_to_restore, os.path.join(curr_path, folder), restore_path="/", isAdding=True)
                     return
-                elif name == "descriptor" or name == "descriptors":
+                elif name == "descriptor" or name == "descriptors" or name == "ordered-descriptor" or name == "ordered-descriptors":
                     self.recursive_add(
                         files_to_restore,
                         os.path.join(curr_path, folder),

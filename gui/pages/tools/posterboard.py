@@ -53,6 +53,12 @@ class PosterboardPage(Page):
         self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
         self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)
 
+        # load the pages if needed
+        if len(tweaks["PosterBoard"].tendies) > 0:
+            self.load_pb_tendies()
+        if len(tweaks["PosterBoard"].templates) > 0:
+            self.load_pb_templates()
+
     ## ACTIONS
     def delete_pb_file(self, file, widget):
         if file in tweaks["PosterBoard"].tendies:
