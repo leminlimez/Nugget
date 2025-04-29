@@ -31,8 +31,9 @@ class Page(Enum):
     Posterboard = 8
     Templates = 9
     RiskyTweaks = 10
-    Apply = 11
-    Settings = 12
+    MiscOptions = 11
+    Apply = 12
+    Settings = 13
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager):
@@ -51,11 +52,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.gestaltPageBtn.hide()
         self.ui.euEnablerPageBtn.hide()
         self.ui.featureFlagsPageBtn.hide()
+        self.ui.statusBarPageBtn.hide()
         self.ui.springboardOptionsPageBtn.hide()
         self.ui.internalOptionsPageBtn.hide()
         self.ui.daemonsPageBtn.hide()
-        self.ui.templatePageBtn.hide()
+        self.ui.templatesPageBtn.hide()
         self.ui.advancedPageBtn.hide()
+        self.ui.miscOptionsBtn.hide()
         self.ui.applyPageBtn.hide()
         self.ui.sidebarDiv1.hide()
         self.ui.sidebarDiv2.hide()
@@ -102,6 +105,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.posterboardPageBtn.clicked.connect(self.on_posterboardPageBtn_clicked)
         self.ui.templatesPageBtn.clicked.connect(self.on_templatesPageBtn_clicked)
         self.ui.advancedPageBtn.clicked.connect(self.on_advancedPageBtn_clicked)
+        self.ui.miscOptionsBtn.clicked.connect(self.on_miscOptionsBtn_clicked)
         self.ui.applyPageBtn.clicked.connect(self.on_applyPageBtn_clicked)
         self.ui.settingsPageBtn.clicked.connect(self.on_settingsPageBtn_clicked)
 
@@ -164,6 +168,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.templatesPageBtn.hide()
             self.ui.posterboardPageBtn.hide()
             self.ui.advancedPageBtn.hide()
+            self.ui.miscOptionsBtn.hide()
 
             self.ui.sidebarDiv2.hide()
             self.ui.applyPageBtn.hide()
@@ -190,6 +195,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.daemonsPageBtn.show()
             self.ui.templatesPageBtn.show()
             self.ui.posterboardPageBtn.show()
+            self.ui.miscOptionsBtn.show()
 
             if self.device_manager.allow_risky_tweaks:
                 self.ui.advancedPageBtn.show()
@@ -417,6 +423,9 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_advancedPageBtn_clicked(self):
         self.pages[Page.RiskyTweaks].load()
         self.ui.pages.setCurrentIndex(Page.RiskyTweaks.value)
+
+    def on_miscOptionsBtn_clicked(self):
+        self.ui.pages.setCurrentIndex(Page.MiscOptions.value)
 
     def on_applyPageBtn_clicked(self):
         self.ui.pages.setCurrentIndex(Page.Apply.value)
