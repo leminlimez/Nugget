@@ -1,6 +1,7 @@
 import os
 import uuid
 import zipfile
+import fnmatch
 
 from json import load
 from typing import Optional
@@ -45,8 +46,10 @@ class TemplateFile(TendieFile):
                 # load the options
                 if not 'options' in data:
                     raise PBTemplateException(path, "No options were found in the config. Make sure that it is in the correct format.")
-                if not 'domain' in data or data['domain'] != "com.apple.PosterBoard":
-                    raise PBTemplateException(path, "This config is not for the domain \"com.apple.PosterBoard\". Make sure that it is compatible with your version of Nugget.")
+                if not 'domain' in data or (data['domain'] != "AppDomain-com.apple.PosterBoard" and data['domain'] != "com.apple.PosterBoard"):
+                    # made an oopsie here, only AppDomain-com.apple.PosterBoard should be allowed
+                    # I will allow com.apple.PosterBoard to not break support
+                    raise PBTemplateException(path, "This config is not for the domain \"AppDomain-com.apple.PosterBoard\". Make sure that it is compatible with your version of Nugget.")
                 self.format_version = int(data['format_version'])
                 if self.format_version > CURRENT_FORMAT:
                     raise PBTemplateException(path, "This config requires a newer version of Nugget.")
@@ -70,22 +73,25 @@ class TemplateFile(TendieFile):
                     # open the resources and put them in temp files
                     rcs_path = self.json_path.removesuffix("config.json")
                     for resource in self.resources:
-                        rc_path = rcs_path + resource
-                        rc_data = archive.read(rc_path)
-                        if rc_data != None:
-                            # write it to a temp file
-                            if self.tmp_dir == None:
-                                self.tmp_dir = TemporaryDirectory()
-                            rc_full_path = os.path.join(self.tmp_dir.name, resource)
-                            os.makedirs(os.path.dirname(rc_full_path), exist_ok=True)
-                            with open(rc_full_path, "wb") as rc_fp:
-                                rc_fp.write(rc_data)
-                            # update the url in the banner stylesheet
-                            if self.banner_stylesheet != None:
-                                self.banner_stylesheet = self.banner_stylesheet.replace(f"url({resource})", f"url({rc_full_path})")
-                            # set the preview images
-                            if resource in prevs:
-                                self.previews[resource] = rc_full_path
+                        # handle wildcards
+                        rc_pattern = rcs_path + resource
+                        for rc_path in fnmatch.filter(archive.namelist(), rc_pattern):
+                            rc_data = archive.read(rc_path)
+                            if rc_data != None:
+                                # write it to a temp file
+                                if self.tmp_dir == None:
+                                    self.tmp_dir = TemporaryDirectory()
+                                rc_full_path = os.path.join(self.tmp_dir.name, rc_path)
+                                os.makedirs(os.path.dirname(rc_full_path), exist_ok=True)
+                                with open(rc_full_path, "wb") as rc_fp:
+                                    rc_fp.write(rc_data)
+                                # update the url in the banner stylesheet
+                                clean_path = rc_path.replace(rcs_path, "")
+                                if self.banner_stylesheet != None:
+                                    self.banner_stylesheet = self.banner_stylesheet.replace(f"url({clean_path})", f"url({rc_full_path})")
+                                # set the preview images
+                                if clean_path in prevs:
+                                    self.previews[clean_path] = rc_full_path
 
                 # TODO: Add error handling
                 for option in data['options']:
