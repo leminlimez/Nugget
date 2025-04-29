@@ -1,6 +1,7 @@
 import os
 import uuid
 import zipfile
+import fnmatch
 
 from json import load
 from typing import Optional
@@ -58,6 +59,9 @@ class TemplateFile(TendieFile):
                 if not 'domain' in data:
                     raise PBTemplateException(path, "This config does not have a valid domain!.")
                 self.domain = data['domain']
+                # add backwards compatibility for my mistake in the v5.2 betas
+                if self.domain == "com.apple.PosterBoard":
+                    self.domain = "AppDomain-com.apple.PosterBoard"
                 self.format_version = int(data['format_version'])
                 if self.format_version > CURRENT_FORMAT:
                     raise PBTemplateException(path, "This config requires a newer version of Nugget.")
@@ -94,22 +98,25 @@ class TemplateFile(TendieFile):
                     # open the resources and put them in temp files
                     rcs_path = self.json_path.removesuffix("config.json")
                     for resource in self.resources:
-                        rc_path = rcs_path + resource
-                        rc_data = archive.read(rc_path)
-                        if rc_data != None:
-                            # write it to a temp file
-                            if self.tmp_dir == None:
-                                self.tmp_dir = TemporaryDirectory()
-                            rc_full_path = os.path.join(self.tmp_dir.name, resource)
-                            os.makedirs(os.path.dirname(rc_full_path), exist_ok=True)
-                            with open(rc_full_path, "wb") as rc_fp:
-                                rc_fp.write(rc_data)
-                            # update the url in the banner stylesheet
-                            if self.banner_stylesheet != None:
-                                self.banner_stylesheet = self.banner_stylesheet.replace(f"url({resource})", f"url({rc_full_path})")
-                            # set the preview images
-                            if resource in prevs:
-                                self.previews[resource] = rc_full_path
+                        # handle wildcards
+                        rc_pattern = rcs_path + resource
+                        for rc_path in fnmatch.filter(archive.namelist(), rc_pattern):
+                            rc_data = archive.read(rc_path)
+                            if rc_data != None:
+                                # write it to a temp file
+                                if self.tmp_dir == None:
+                                    self.tmp_dir = TemporaryDirectory()
+                                rc_full_path = os.path.join(self.tmp_dir.name, rc_path)
+                                os.makedirs(os.path.dirname(rc_full_path), exist_ok=True)
+                                with open(rc_full_path, "wb") as rc_fp:
+                                    rc_fp.write(rc_data)
+                                # update the url in the banner stylesheet
+                                clean_path = rc_path.replace(rcs_path, "")
+                                if self.banner_stylesheet != None:
+                                    self.banner_stylesheet = self.banner_stylesheet.replace(f"url({clean_path})", f"url({rc_full_path})")
+                                # set the preview images
+                                if clean_path in prevs:
+                                    self.previews[clean_path] = rc_full_path
 
                 for option in data['options']:
                     opt_type = OptionType[option['type']]

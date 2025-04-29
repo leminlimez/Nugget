@@ -1,6 +1,7 @@
 from . import TemplateOption
 
 import os
+import glob
 from dataclasses import dataclass
 from typing import Optional
 from enum import Enum
@@ -343,10 +344,12 @@ class SetOption(TemplateOption):
                 apply_val = self.toggle_on_value
             elif not apply_val and self.toggle_off_value != None:
                 apply_val = self.toggle_off_value
+        # wildcard support
         for file in self.files:
             path = os.path.join(container_path, *file.split('/'))
-            # set opacity if it has that
-            if self.sets_opacity and isinstance(self.value, QColor):
-                set_xml_values(file=path, id=self.identifier, keys=[self.key, "opacity"], values=[self.convert_back(apply_val), str(self.value.alphaF())], use_ca_id=self.use_ca_id)
-            else:
-                set_xml_value(file=path, id=self.identifier, key=self.key, val=self.convert_back(apply_val), use_ca_id=self.use_ca_id)
+            for full_path in glob.glob(path, recursive=True):
+                # set opacity if it has that
+                if self.sets_opacity and isinstance(self.value, QColor):
+                    set_xml_values(file=full_path, id=self.identifier, keys=[self.key, "opacity"], values=[self.convert_back(apply_val), str(self.value.alphaF())], use_ca_id=self.use_ca_id)
+                else:
+                    set_xml_value(file=full_path, id=self.identifier, key=self.key, val=self.convert_back(apply_val), use_ca_id=self.use_ca_id)

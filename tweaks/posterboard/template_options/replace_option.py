@@ -3,6 +3,7 @@ from . import TemplateOption
 from exceptions.nugget_exception import NuggetException
 
 import os
+import glob
 from dataclasses import dataclass
 from typing import Optional
 from PySide6 import QtWidgets, QtGui, QtCore
@@ -106,6 +107,8 @@ class ReplaceOption(TemplateOption):
             contents = in_file.read()
         for file in self.files:
             out_path = os.path.join(container_path, *file.split('/'))
-            with open(out_path, "wb") as out_file:
-                out_file.write(contents)
+            # wildcard support
+            for full_path in glob.glob(out_path, recursive=True):
+                with open(full_path, "wb") as out_file:
+                    out_file.write(contents)
         del contents

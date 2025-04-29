@@ -1,6 +1,7 @@
 from . import TemplateOption
 
 import os
+import glob
 from dataclasses import dataclass
 from shutil import rmtree
 from typing import Optional
@@ -47,13 +48,15 @@ class RemoveOption(TemplateOption):
         if (self.inverted and not self.value) or (not self.inverted and self.value):
             for file in self.files:
                 path = os.path.join(container_path, *file.split('/'))
-                if self.identifier != None:
-                    # delete properties in xml
-                    # TODO: make sure it isn't a directory
-                    delete_xml_value(file=path, id=self.identifier, use_ca_id=self.use_ca_id)
-                else:
-                    # delete files or directories
-                    if os.path.isdir(path):
-                        rmtree(path=path, ignore_errors=True)
+                # wildcard support
+                for full_path in glob.glob(path, recursive=True):
+                    if self.identifier != None:
+                        # delete properties in xml
+                        # TODO: make sure it isn't a directory
+                        delete_xml_value(file=full_path, id=self.identifier, use_ca_id=self.use_ca_id)
                     else:
-                        os.remove(path=path)
+                        # delete files or directories
+                        if os.path.isdir(full_path):
+                            rmtree(path=full_path, ignore_errors=True)
+                        else:
+                            os.remove(path=full_path)
