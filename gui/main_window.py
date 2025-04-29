@@ -161,7 +161,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.springboardOptionsPageBtn.hide()
             self.ui.internalOptionsPageBtn.hide()
             self.ui.daemonsPageBtn.hide()
-            self.ui.templatePageBtn.hide()
+            self.ui.templatesPageBtn.hide()
             self.ui.posterboardPageBtn.hide()
             self.ui.advancedPageBtn.hide()
 
@@ -188,7 +188,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.springboardOptionsPageBtn.show()
             self.ui.internalOptionsPageBtn.show()
             self.ui.daemonsPageBtn.show()
-            self.ui.templatePageBtn.show()
+            self.ui.templatesPageBtn.show()
             self.ui.posterboardPageBtn.show()
 
             if self.device_manager.allow_risky_tweaks:
