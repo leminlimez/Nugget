@@ -18,7 +18,7 @@ from controllers.files_handler import get_bundle_files
 
 from exceptions.nugget_exception import NuggetException
 
-from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
+from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak, StatusBarTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.posterboard.posterboard_tweak import PosterboardTweak
 from tweaks.posterboard.template_options.templates_tweak import TemplatesTweak
@@ -355,7 +355,6 @@ class DeviceManager:
                         if tweak.enabled and tweak.file_location.value.startswith("/var/mobile/"):
                             uses_domains = True
                     elif isinstance(tweak, PosterboardTweak) or isinstance(tweak, TemplatesTweak):
-                        fc_before = len(files_to_restore)
                         tmp_dirs.append(TemporaryDirectory())
                         tweak.apply_tweak(
                             files_to_restore=files_to_restore,
@@ -363,6 +362,10 @@ class DeviceManager:
                             version=self.get_current_device_version(), update_label=update_label
                         )
                         if tweak.uses_domains():
+                            uses_domains = True
+                    elif isinstance(tweak, StatusBarTweak):
+                        tweak.apply_tweak(files_to_restore=files_to_restore)
+                        if tweak.enabled:
                             uses_domains = True
                     else:
                         if gestalt_plist != None:

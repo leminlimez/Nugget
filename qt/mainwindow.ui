@@ -585,6 +585,35 @@ QSlider::tick:horizontal {
            </widget>
           </item>
           <item>
+           <widget class="QToolButton" name="statusBarPageBtn">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>    Status Bar</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources.qrc">
+              <normaloff>:/icon/wifi.svg</normaloff>:/icon/wifi.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextBesideIcon</enum>
+            </property>
+            <property name="cls" stdset="0">
+             <string>sidebarBtn</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QToolButton" name="springboardOptionsPageBtn">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -3199,6 +3228,1103 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <spacer name="verticalSpacer_7">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="statusBarPage">
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QWidget" name="statusBarPageHeader" native="true">
+                <layout class="QHBoxLayout" name="horizontalLayout_5">
+                 <property name="spacing">
+                  <number>10</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QToolButton" name="toolButton_8">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QToolButton {
+    icon-size: 24px;
+    background-color: transparent;
+    padding-left: 0px;
+    padding-right: 5px;
+    border-radius: 0px;
+}</string>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="../resources.qrc">
+                     <normaloff>:/icon/wifi.svg</normaloff>:/icon/wifi.svg</iconset>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="verticalWidget_2" native="true">
+                   <layout class="QVBoxLayout" name="verticalLayout_5">
+                    <property name="spacing">
+                     <number>6</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="statusBarLbl">
+                      <property name="font">
+                       <font>
+                        <pointsize>-1</pointsize>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Status Bar</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="statusBarEnabledChk">
+                      <property name="text">
+                       <string>Modify</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_4">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="Line" name="line_8">
+                <property name="styleSheet">
+                 <string notr="true">QFrame {
+    color: #414141;
+}</string>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QScrollArea" name="scrollArea">
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="lineWidth">
+                 <number>0</number>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAlwaysOff</enum>
+                </property>
+                <widget class="QWidget" name="scrollAreaWidgetContents">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>650</width>
+                   <height>1200</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>650</width>
+                   <height>1200</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>650</width>
+                   <height>1200</height>
+                  </size>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_9">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QWidget" name="statusBarPageContent" native="true">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_8">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <widget class="QLabel" name="label_9">
+                       <property name="text">
+                        <string>Primary Cellular</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QWidget" name="horizontalWidget" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_7">
+                        <property name="spacing">
+                         <number>20</number>
+                        </property>
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QRadioButton" name="pDefaultRdo">
+                          <property name="text">
+                           <string>Default</string>
+                          </property>
+                          <property name="checked">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QRadioButton" name="pShowRdo">
+                          <property name="text">
+                           <string>Force Show</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QRadioButton" name="pHideRdo">
+                          <property name="text">
+                           <string>Force Hide</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <spacer name="horizontalSpacer">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>40</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="pCarrierChk">
+                       <property name="text">
+                        <string>Change Carrier Text</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="pCarrierTxt">
+                       <property name="placeholderText">
+                        <string>Carrier Text</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="pBadgeChk">
+                       <property name="text">
+                        <string>Change Service Badge Text</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="pBadgeTxt">
+                       <property name="placeholderText">
+                        <string>Service Badge Text</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="pTypeChk">
+                       <property name="text">
+                        <string>Change Data Network Type</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QComboBox" name="pTypeDrp">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>150</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QComboBox {
+    background-color: #3b3b3b;
+    border: none;
+    color: #e8e8e8;
+    font-size: 14px;
+    padding-left: 8px;
+    border-radius: 8px;
+}
+
+QComboBox::drop-down {
+    image: url(:/icon/caret-down-fill.svg);
+    icon-size: 16px;
+    subcontrol-position: right center;
+    margin-right: 8px;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #3b3b3b;
+    outline: none;
+    margin-top: 1px;
+}
+
+QComboBox QAbstractItemView::item {
+    background-color: #3b3b3b;
+    color: #e8e8e8;
+    padding-left: 8px;
+}
+
+QComboBox QAbstractItemView::item:hover {
+    background-color: #535353;
+    color: #ffffff;
+}</string>
+                       </property>
+                       <property name="currentIndex">
+                        <number>0</number>
+                       </property>
+                       <property name="maxVisibleItems">
+                        <number>15</number>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>GPRS</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>EDGE</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>3G</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>4G</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>LTE</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Wi-Fi</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Personal Hotspot</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>1x</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>5Gᴇ</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>LTE-A</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>LTE+</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>5G</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>5G+</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>5GUW</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>5GUC</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="pStrengthChk">
+                       <property name="text">
+                        <string>Change Signal Strength</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QWidget" name="horizontalWidget" native="true">
+                       <layout class="QHBoxLayout" name="horizontalLayout_9">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="pStrengthLbl">
+                          <property name="minimumSize">
+                           <size>
+                            <width>50</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>50</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>0 Bars</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QSlider" name="pStrengthSld">
+                          <property name="maximum">
+                           <number>4</number>
+                          </property>
+                          <property name="singleStep">
+                           <number>0</number>
+                          </property>
+                          <property name="pageStep">
+                           <number>0</number>
+                          </property>
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="Line" name="line_9">
+                       <property name="styleSheet">
+                        <string notr="true">QFrame {
+    color: #414141;
+}</string>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Plain</enum>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_10">
+                       <property name="text">
+                        <string>Secondary Cellular</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QWidget" name="horizontalWidget" native="true">
+                       <layout class="QHBoxLayout" name="horizontalLayout_8">
+                        <property name="spacing">
+                         <number>20</number>
+                        </property>
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QRadioButton" name="sDefaultRdo">
+                          <property name="text">
+                           <string>Default</string>
+                          </property>
+                          <property name="checked">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QRadioButton" name="sShowRdo">
+                          <property name="text">
+                           <string>Force Show</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QRadioButton" name="sHideRdo">
+                          <property name="text">
+                           <string>Force Hide</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <spacer name="horizontalSpacer_5">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>40</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="sCarrierChk">
+                       <property name="text">
+                        <string>Change Carrier Text</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="sCarrierTxt">
+                       <property name="placeholderText">
+                        <string>Carrier Text</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="sBadgeChk">
+                       <property name="text">
+                        <string>Change Service Badge Text</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="sBadgeTxt">
+                       <property name="placeholderText">
+                        <string>Service Badge Text</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="sTypeChk">
+                       <property name="text">
+                        <string>Change Data Network Type</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QComboBox" name="sTypeDrp">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>150</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QComboBox {
+    background-color: #3b3b3b;
+    border: none;
+    color: #e8e8e8;
+    font-size: 14px;
+    padding-left: 8px;
+    border-radius: 8px;
+}
+
+QComboBox::drop-down {
+    image: url(:/icon/caret-down-fill.svg);
+    icon-size: 16px;
+    subcontrol-position: right center;
+    margin-right: 8px;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #3b3b3b;
+    outline: none;
+    margin-top: 1px;
+}
+
+QComboBox QAbstractItemView::item {
+    background-color: #3b3b3b;
+    color: #e8e8e8;
+    padding-left: 8px;
+}
+
+QComboBox QAbstractItemView::item:hover {
+    background-color: #535353;
+    color: #ffffff;
+}</string>
+                       </property>
+                       <property name="maxVisibleItems">
+                        <number>15</number>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>GPRS</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>EDGE</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>3G</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>4G</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>LTE</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Wi-Fi</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Personal Hotspot</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>1x</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>5Gᴇ</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>LTE-A</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>LTE+</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>5G</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>5G+</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>5GUW</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>5GUC</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="sStrengthChk">
+                       <property name="text">
+                        <string>Change Signal Strength</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QWidget" name="horizontalWidget" native="true">
+                       <layout class="QHBoxLayout" name="horizontalLayout_10">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="sStrengthLbl">
+                          <property name="minimumSize">
+                           <size>
+                            <width>50</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>0 Bars</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QSlider" name="sStrengthSld">
+                          <property name="maximum">
+                           <number>4</number>
+                          </property>
+                          <property name="singleStep">
+                           <number>0</number>
+                          </property>
+                          <property name="pageStep">
+                           <number>0</number>
+                          </property>
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="Line" name="line_7">
+                       <property name="styleSheet">
+                        <string notr="true">QFrame {
+    color: #414141;
+}</string>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Plain</enum>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="timeChk">
+                       <property name="text">
+                        <string>Change Status Bar Time Text*</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="timeTxt">
+                       <property name="placeholderText">
+                        <string>Status Bar Time Text</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="breadcrumbChk">
+                       <property name="text">
+                        <string>Change Breadcrumb Text</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="breadcrumbTxt">
+                       <property name="placeholderText">
+                        <string>Breadcrumb Text</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="batteryDetailChk">
+                       <property name="text">
+                        <string>Change Battery Detail Text</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="batteryDetailTxt">
+                       <property name="placeholderText">
+                        <string>Battery Detail Text</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="batteryCapacityChk">
+                       <property name="text">
+                        <string>Change Battery Icon Capacity</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QWidget" name="horizontalWidget" native="true">
+                       <layout class="QHBoxLayout" name="horizontalLayout_11">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="batteryCapacityLbl">
+                          <property name="minimumSize">
+                           <size>
+                            <width>50</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>0%</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QSlider" name="batteryCapacitySld">
+                          <property name="maximum">
+                           <number>100</number>
+                          </property>
+                          <property name="singleStep">
+                           <number>0</number>
+                          </property>
+                          <property name="pageStep">
+                           <number>0</number>
+                          </property>
+                          <property name="tracking">
+                           <bool>true</bool>
+                          </property>
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                          <property name="invertedAppearance">
+                           <bool>false</bool>
+                          </property>
+                          <property name="invertedControls">
+                           <bool>false</bool>
+                          </property>
+                          <property name="tickInterval">
+                           <number>5</number>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="wifiStrengthChk">
+                       <property name="text">
+                        <string>Change Wi-Fi Signal Strength</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QWidget" name="horizontalWidget" native="true">
+                       <layout class="QHBoxLayout" name="horizontalLayout_12">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="wifiStrengthLbl">
+                          <property name="minimumSize">
+                           <size>
+                            <width>50</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>0 Bars</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QSlider" name="wifiStrengthSld">
+                          <property name="maximum">
+                           <number>3</number>
+                          </property>
+                          <property name="singleStep">
+                           <number>0</number>
+                          </property>
+                          <property name="pageStep">
+                           <number>0</number>
+                          </property>
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="numericWifiChk">
+                       <property name="text">
+                        <string>Show Numeric Wi-Fi Strength</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="numericCellChk">
+                       <property name="text">
+                        <string>Show Numeric Cellular Strength</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_5">
+                       <property name="text">
+                        <string>*When set to blank on notched devices, this will display the carrier name.</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="Line" name="line_10">
+                       <property name="styleSheet">
+                        <string notr="true">QFrame {
+    color: #414141;
+}</string>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Plain</enum>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="hideDNDChk">
+                       <property name="text">
+                        <string>Hide Do Not Disturb</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="hideAirplaneChk">
+                       <property name="text">
+                        <string>Hide Airplane Mode</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="hideWifiChk">
+                       <property name="text">
+                        <string>Hide Wi-Fi^</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="hideBatteryChk">
+                       <property name="text">
+                        <string>Hide Battery</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="hideBluetoothChk">
+                       <property name="text">
+                        <string>Hide Bluetooth</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="hideAlarmChk">
+                       <property name="text">
+                        <string>Hide Alarm</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="hideLocationChk">
+                       <property name="text">
+                        <string>Hide Location</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="hideRotationChk">
+                       <property name="text">
+                        <string>Hide Rotation Lock</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="hideAirPlayChk">
+                       <property name="text">
+                        <string>Hide AirPlay</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="hideCarPlayChk">
+                       <property name="text">
+                        <string>Hide CarPlay</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="hideVPNChk">
+                       <property name="text">
+                        <string>Hide VPN</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_12">
+                       <property name="text">
+                        <string>^Will also hide cellular data indicator.</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="verticalSpacer_3">
                        <property name="orientation">
                         <enum>Qt::Vertical</enum>
                        </property>

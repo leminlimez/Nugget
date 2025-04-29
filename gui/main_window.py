@@ -24,14 +24,15 @@ class Page(Enum):
     Gestalt = 1
     FeatureFlags = 2
     EUEnabler = 3
-    Springboard = 4
-    InternalOptions = 5
-    Daemons = 6
-    Posterboard = 7
-    Templates = 8
-    RiskyTweaks = 9
-    Apply = 10
-    Settings = 11
+    StatusBar = 4
+    Springboard = 5
+    InternalOptions = 6
+    Daemons = 7
+    Posterboard = 8
+    Templates = 9
+    RiskyTweaks = 10
+    Apply = 11
+    Settings = 12
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager):
@@ -66,6 +67,7 @@ class MainWindow(QtWidgets.QMainWindow):
             Page.Gestalt: Pages.MobileGestalt(window=self, ui=self.ui),
             Page.EUEnabler: Pages.Eligibility(window=self, ui=self.ui),
             Page.FeatureFlags: Pages.FeatureFlags(ui=self.ui),
+            Page.StatusBar: Pages.StatusBar(ui=self.ui),
             Page.Springboard: Pages.Springboard(ui=self.ui),
             Page.InternalOptions: Pages.Internal(ui=self.ui),
             Page.Daemons: Pages.Daemons(ui=self.ui),
@@ -93,6 +95,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.gestaltPageBtn.clicked.connect(self.on_gestaltPageBtn_clicked)
         self.ui.featureFlagsPageBtn.clicked.connect(self.on_featureFlagsPageBtn_clicked)
         self.ui.euEnablerPageBtn.clicked.connect(self.on_euEnablerPageBtn_clicked)
+        self.ui.statusBarPageBtn.clicked.connect(self.on_statusBarPageBtn_clicked)
         self.ui.springboardOptionsPageBtn.clicked.connect(self.on_springboardOptionsPageBtn_clicked)
         self.ui.internalOptionsPageBtn.clicked.connect(self.on_internalOptionsPageBtn_clicked)
         self.ui.daemonsPageBtn.clicked.connect(self.on_daemonsPageBtn_clicked)
@@ -384,6 +387,10 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_euEnablerPageBtn_clicked(self):
         self.pages[Page.EUEnabler].load()
         self.ui.pages.setCurrentIndex(Page.EUEnabler.value)
+
+    def on_statusBarPageBtn_clicked(self):
+        self.pages[Page.StatusBar].load()
+        self.ui.pages.setCurrentIndex(Page.StatusBar.value)
 
     def on_springboardOptionsPageBtn_clicked(self):
         self.pages[Page.Springboard].load()
