@@ -157,6 +157,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.gestaltPageBtn.hide()
             self.ui.featureFlagsPageBtn.hide()
             self.ui.euEnablerPageBtn.hide()
+            self.ui.statusBarPageBtn.hide()
             self.ui.springboardOptionsPageBtn.hide()
             self.ui.internalOptionsPageBtn.hide()
             self.ui.daemonsPageBtn.hide()
@@ -183,6 +184,7 @@ class MainWindow(QtWidgets.QMainWindow):
             
             # show all pages
             self.ui.sidebarDiv1.show()
+            self.ui.statusBarPageBtn.show()
             self.ui.springboardOptionsPageBtn.show()
             self.ui.internalOptionsPageBtn.show()
             self.ui.daemonsPageBtn.show()

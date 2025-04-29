@@ -6,6 +6,7 @@ from devicemanagement.device_manager import DeviceManager
 from tweaks.tweaks import tweaks
 
 if __name__ == "__main__":
+    print("Starting Nugget...")
     app = QtWidgets.QApplication([])
     dm = DeviceManager()
 
