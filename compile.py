@@ -38,5 +38,7 @@ if platform == "darwin":
 elif os.name == 'nt':
     # add windows version info
     args.append('--version-file=version.txt')
+    # add the status bar executable
+    args.append('--add-binary=.\\status_setter_windows.exe;.')
 
 PyInstaller.__main__.run(args)

@@ -1,3 +1,5 @@
+print("Starting Nugget...")
+
 import sys
 from PySide6 import QtGui, QtWidgets
 
@@ -6,7 +8,6 @@ from devicemanagement.device_manager import DeviceManager
 from tweaks.tweaks import tweaks
 
 if __name__ == "__main__":
-    print("Starting Nugget...")
     app = QtWidgets.QApplication([])
     dm = DeviceManager()
 
@@ -27,4 +28,5 @@ if __name__ == "__main__":
             # add batter file
             tweaks["PosterBoard"].add_template(arg)
     
+    print("Nugget launched.")
     sys.exit(app.exec())
