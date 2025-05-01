@@ -4,6 +4,14 @@ import ffmpeg
 from tempfile import mkdtemp, NamedTemporaryFile
 from shutil import rmtree
 
+from exceptions.posterboard_exceptions import VideoLengthException
+
+ignore_pb_frame_limit = False
+
+def set_ignore_frame_limit(value: bool):
+    global ignore_pb_frame_limit
+    ignore_pb_frame_limit = value
+
 def convert_to_mov(input_file: str, output_file: str = None):
     # if there is no output file specified, create a temp file then return contents
     if output_file == None:
@@ -47,8 +55,8 @@ def create_caml(video_path: str, output_file: str, auto_reverses: bool, update_l
     reverse = 0
     if auto_reverses:
         reverse = 1
-    if frame_count > FRAME_LIMIT:
-        raise Exception(f"Videos must be under {FRAME_LIMIT} fps to loop. Either reduce the frame rate or make it shorter.")
+    if not ignore_pb_frame_limit and frame_count > FRAME_LIMIT:
+        raise VideoLengthException(FRAME_LIMIT)
     try:
         # creating a folder named data
         if not os.path.exists(assets_path): 

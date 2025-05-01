@@ -3,11 +3,11 @@ import plistlib
 from tempfile import TemporaryDirectory
 
 from PySide6.QtWidgets import QMessageBox
-from PySide6.QtCore import QSettings, QThread
+from PySide6.QtCore import QSettings
 
 from pymobiledevice3 import usbmux
 from pymobiledevice3.lockdown import create_using_usbmux
-from pymobiledevice3.exceptions import MuxException, PasswordRequiredError
+from pymobiledevice3.exceptions import MuxException, PasswordRequiredError, ConnectionTerminatedError
 
 from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
@@ -16,13 +16,15 @@ from gui.apply_worker import ApplyAlertMessage
 from controllers.path_handler import fix_windows_path
 from controllers.files_handler import get_bundle_files
 
+from exceptions.nugget_exception import NuggetException
+
 from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
-from tweaks.posterboard_tweak import PosterboardTweak
+from tweaks.posterboard.posterboard_tweak import PosterboardTweak
 from tweaks.basic_plist_locations import FileLocationsList, RiskyFileLocationsList
 
-from Sparserestore.restore import restore_files, FileToRestore
-from Sparserestore.mbdb import _FileMode
+from restore.restore import restore_files, FileToRestore
+from restore.mbdb import _FileMode
 
 def show_error_msg(txt: str, title: str = "Error!", icon = QMessageBox.Critical, detailed_txt: str = None):
     detailsBox = QMessageBox()
@@ -33,7 +35,7 @@ def show_error_msg(txt: str, title: str = "Error!", icon = QMessageBox.Critical,
         detailsBox.setDetailedText(detailed_txt)
     detailsBox.exec()
 
-def show_apply_error(e: Exception, update_label=lambda x: None):
+def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list[FileToRestore] = None):
     print(traceback.format_exc())
     update_label("Failed to restore")
     if "Find My" in str(e):
@@ -47,6 +49,20 @@ def show_apply_error(e: Exception, update_label=lambda x: None):
     elif "PasswordRequiredError" in str(e):
         return ApplyAlertMessage("Device is password protected! You must trust the computer on your device.",
                        detailed_txt="Unlock your device. On the popup, click \"Trust\", enter your password, then try again.")
+    elif isinstance(e, ConnectionTerminatedError):
+        files_str: str = ""
+        if files_list != None:
+            files_str = "FILES LIST:"
+            print("\nFile List:\n")
+            for file in files_list:
+                file_info = f"\n    Domain: {file.domain}\n    Path: {file.restore_path}"
+                files_str += file_info
+                print(file_info)
+            files_list += "\n\n"
+        return ApplyAlertMessage("Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info.",
+                                 detailed_txt=files_str + "TRACEBACK:\n\n" + traceback.format_exc())
+    elif isinstance(e, NuggetException):
+        return ApplyAlertMessage(str(e))
     else:
         return ApplyAlertMessage(type(e).__name__ + ": " + repr(e), detailed_txt=str(traceback.format_exc()))
 
@@ -67,20 +83,15 @@ class DeviceManager:
         self.supervised = False
         self.organization_name = ""
     
-    def get_devices(self, settings: QSettings):
+    def get_devices(self, settings: QSettings, show_alert=lambda x: None):
         self.devices.clear()
         # handle errors when failing to get connected devices
         try:
             connected_devices = usbmux.list_devices()
         except:
-            show_error_msg(
-                """
-                Failed to get device list. Click \"Show Details\" for the traceback.
-
-                If you are on Windows, make sure you have the \"Apple Devices\" app from the Microsoft Store or iTunes from Apple's website.
-                If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.
-                """, detailed_txt=str(traceback.format_exc())
-            )
+            show_alert(ApplyAlertMessage(
+                txt="Failed to get device list. Click \"Show Details\" for the traceback.\n\nIf you are on Windows, make sure you have the \"Apple Devices\" app from the Microsoft Store or iTunes from Apple's website.\nIf you are on Linux, make sure you have usbmuxd and libimobiledevice installed.", detailed_txt=str(traceback.format_exc())
+            ))
             self.set_current_device(index=None)
             return
         # Connect via usbmuxd
@@ -112,7 +123,7 @@ class DeviceManager:
                         else:
                             cpu = cpu_type
                     except:
-                        show_error_msg(txt="Click \"Show Details\" for the traceback.", detailed_txt=str(traceback.format_exc()))
+                        show_alert(ApplyAlertMessage(txt="Click \"Show Details\" for the traceback.", detailed_txt=str(traceback.format_exc())))
                     dev = Device(
                             uuid=device.serial,
                             usb=device.is_usb,
@@ -128,15 +139,15 @@ class DeviceManager:
                     tweaks["RdarFix"].get_rdar_mode(model)
                     self.devices.append(dev)
                 except PasswordRequiredError as e:
-                    show_error_msg(txt="Device is password protected! You must trust the computer on your device.\n\nUnlock your device. On the popup, click \"Trust\", enter your password, then try again.")
+                    show_alert(ApplyAlertMessage(txt="Device is password protected! You must trust the computer on your device.\n\nUnlock your device. On the popup, click \"Trust\", enter your password, then try again."))
                 except MuxException as e:
                     # there is probably a cable issue
                     print(f"MUX ERROR with lockdown device with UUID {device.serial}")
-                    show_error_msg("MuxException: " + repr(e) + "\n\nIf you keep receiving this error, try using a different cable or port.",
-                                   detailed_txt=str(traceback.format_exc()))
+                    show_alert(ApplyAlertMessage(txt="MuxException: " + repr(e) + "\n\nIf you keep receiving this error, try using a different cable or port.",
+                                   detailed_txt=str(traceback.format_exc())))
                 except Exception as e:
                     print(f"ERROR with lockdown device with UUID {device.serial}")
-                    show_error_msg(type(e).__name__ + ": " + repr(e), detailed_txt=str(traceback.format_exc()))
+                    show_alert(ApplyAlertMessage(txt=f"{type(e).__name__}: {repr(e)}", detailed_txt=str(traceback.format_exc())))
         
         if len(self.devices) > 0:
             self.set_current_device(index=0)
@@ -294,6 +305,13 @@ class DeviceManager:
         ))
     
     ## APPLYING OR REMOVING TWEAKS AND RESTORING
+    def progress_callback(self, progress: int):
+        if self.update_label == None:
+            return
+        prog = ""
+        if progress != None:
+            prog = f" ({progress:6.1f}% )"
+        self.update_label(f"Restoring to device...{prog}{self.do_not_unplug}")
     def apply_changes(self, resetting: bool = False, update_label=lambda x: None, show_alert=lambda x: None):
         try:
             # set the tweaks and apply
@@ -312,7 +330,7 @@ class DeviceManager:
             files_data: dict = {}
             uses_domains: bool = False
             # create the restore file list
-            files_to_restore: dict[FileToRestore] = [
+            files_to_restore: list[FileToRestore] = [
             ]
             tmp_pb_dir = None # temporary directory for unzipping pb files
 
@@ -336,12 +354,13 @@ class DeviceManager:
                         if tweak.enabled and tweak.file_location.value.startswith("/var/mobile/"):
                             uses_domains = True
                     elif isinstance(tweak, PosterboardTweak):
+                        fc_before = len(files_to_restore)
                         tmp_pb_dir = TemporaryDirectory()
                         tweak.apply_tweak(
                             files_to_restore=files_to_restore, output_dir=fix_windows_path(tmp_pb_dir.name),
                             version=self.get_current_device_version(), update_label=update_label
                         )
-                        if tweak.enabled:
+                        if len(files_to_restore) > fc_before:
                             uses_domains = True
                     else:
                         if gestalt_plist != None:
@@ -454,30 +473,31 @@ class DeviceManager:
             ))
 
             # restore to the device
-            do_not_unplug = ""
+            self.update_label = update_label
+            self.do_not_unplug = ""
             if self.data_singleton.current_device.connected_via_usb:
-                do_not_unplug = "\nDo NOT Unplug"
-            update_label(f"Restoring to device...{do_not_unplug}")
-            restore_files(files=files_to_restore, reboot=self.auto_reboot, lockdown_client=self.data_singleton.current_device.ld)
+                self.do_not_unplug = "\nDo NOT Unplug"
+            update_label(f"Preparing to restore...{self.do_not_unplug}")
+            restore_files(
+                files=files_to_restore, reboot=self.auto_reboot,
+                lockdown_client=self.data_singleton.current_device.ld,
+                progress_callback=self.progress_callback
+            )
+            msg = "Your device will now restart.\n\nRemember to turn Find My back on!"
+            if not self.auto_reboot:
+                msg = "Please restart your device to see changes."
+            final_alert = ApplyAlertMessage(txt="All done! " + msg, title="Success!", icon=QMessageBox.Information)
+            update_label("Success!")
+        except Exception as e:
+            final_alert = show_apply_error(e, update_label, files_list=files_to_restore)
+        finally:
             if tmp_pb_dir != None:
                 try:
                     tmp_pb_dir.cleanup()
                 except Exception as e:
                     # ignore clean up errors
                     print(str(e))
-            msg = "Your device will now restart.\n\nRemember to turn Find My back on!"
-            if not self.auto_reboot:
-                msg = "Please restart your device to see changes."
-            show_alert(ApplyAlertMessage(txt="All done! " + msg, title="Success!", icon=QMessageBox.Information))
-            update_label("Success!")
-        except Exception as e:
-            if tmp_pb_dir != None:
-                try:
-                    tmp_pb_dir.cleanup()
-                except Exception as e2:
-                    # ignore clean up errors
-                    print(str(e2))
-            show_alert(show_apply_error(e, update_label))
+            show_alert(final_alert)
 
     ## RESETTING MOBILE GESTALT
     def reset_mobilegestalt(self, settings: QSettings, update_label=lambda x: None):

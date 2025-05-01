@@ -5,3 +5,5 @@ com.apple.MobileGestalt.plist
 __pycache__
 *.spec
 /dist
+/secrets
+.compile+codesign.sh
