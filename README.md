@@ -211,7 +211,7 @@ For clarity, up to iOS 18.2 developer beta 2 (public beta 1) is fully supported 
 
 [JJTechGitHub]: https://github.com/JJTech0130
 [TrollStoreGitHub]: https://github.com/JJTech0130/TrollRestore
-[PosterRestoreDiscord]: https://discord.gg/gWtzTVhMvh
+[PosterRestoreDiscord]: http://discord.gg/posterrestore
 [dootskyreX]: https://x.com/dootskyre
 [MiddoX]: https://x.com/MWRevamped
 [dularkGitHub]: https://github.com/dularkian
