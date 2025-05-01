@@ -16,7 +16,9 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
 
 - PosterBoard: Animated wallpapers and descriptors.
   - Community wallpapers can be found [here][WallpapersWebsite]
-  - See documentation on the structure of tendies files in [documentation.md](documentation.md)
+  - Converting videos to wallpapers
+  - Customizing community-made wallpapers via batter files
+  - See documentation on the structure of tendies and batter files in [documentation.md](documentation.md)
 - Springboard Options (from [Cowabunga Lite][CowabungaLite])
   - Set Lock Screen Footnote
   - Disable Lock After Respring
