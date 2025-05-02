@@ -17,7 +17,7 @@ from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThrea
 from tweaks.tweaks import tweaks
 
 App_Version = "6.0"
-App_Build = 1
+App_Build = 2
 
 class Page(Enum):
     Home = 0
@@ -252,7 +252,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.dynamicIslandDrp.removeItem(5)
             except:
                 pass
-            self.pages[Page.Gestalt].set_rdar_fix_label()
+            if "RdarFix" in tweaks:
+                self.pages[Page.Gestalt].set_rdar_fix_label()
             device_ver = Version(self.device_manager.data_singleton.current_device.version)
             patched: bool = self.device_manager.get_current_device_patched()
             # toggle option visibility for the minimum versions
@@ -494,6 +495,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.apply_changes()
 
     def apply_changes(self, resetting: bool = False):
+        # TODO: Fix resetting for new tweak backend
+        if resetting:
+            self.alert_message(ApplyAlertMessage("Lemin needs to update this to support the new tweaks backend 💀\n\nAlso he needs to add status bar"))
+            return
         if not self.apply_in_progress:
             self.apply_in_progress = True
             self.toggle_thread_btns(disabled=True)

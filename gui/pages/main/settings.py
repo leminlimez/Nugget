@@ -1,6 +1,7 @@
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
+from tweaks.tweak_loader import load_rdar_fix
 from tweaks.tweaks import tweaks
 from controllers.video_handler import set_ignore_frame_limit
 
@@ -64,6 +65,8 @@ class SettingsPage(Page):
         self.window.settings.setValue("auto_reboot", checked)
 
     def on_revertRdarChk_toggled(self, checked: bool):
+        if not 'RdarFix' in tweaks:
+            load_rdar_fix(self.window.device_manager.data_singleton.current_device)
         tweaks["RdarFix"].set_enabled(checked)
 
     def on_skipSetupChk_toggled(self, checked: bool):

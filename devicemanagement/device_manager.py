@@ -137,7 +137,8 @@ class DeviceManager:
                             locale=ld.locale,
                             ld=ld
                         )
-                    tweaks["RdarFix"].get_rdar_mode(model)
+                    if "RdarFix" in tweaks:
+                        tweaks["RdarFix"].get_rdar_mode(model)
                     self.devices.append(dev)
                 except PasswordRequiredError as e:
                     show_alert(ApplyAlertMessage(txt="Device is password protected! You must trust the computer on your device.\n\nUnlock your device. On the popup, click \"Trust\", enter your password, then try again."))
@@ -162,9 +163,10 @@ class DeviceManager:
             self.data_singleton.device_available = False
             self.data_singleton.gestalt_path = None
             self.current_device_index = 0
-            tweaks["SpoofModel"].value[0] = "Placeholder"
-            tweaks["SpoofHardware"].value[0] = "Placeholder"
-            tweaks["SpoofCPU"].value[0] = "Placeholder"
+            if "SpoofModel" in tweaks:
+                tweaks["SpoofModel"].value[0] = "Placeholder"
+                tweaks["SpoofHardware"].value[0] = "Placeholder"
+                tweaks["SpoofCPU"].value[0] = "Placeholder"
         else:
             self.data_singleton.current_device = self.devices[index]
             if Version(self.devices[index].version) < Version("17.0"):
@@ -172,9 +174,10 @@ class DeviceManager:
                 self.data_singleton.gestalt_path = None
             else:
                 self.data_singleton.device_available = True
-                tweaks["SpoofModel"].value[0] = self.data_singleton.current_device.model
-                tweaks["SpoofHardware"].value[0] = self.data_singleton.current_device.hardware
-                tweaks["SpoofCPU"].value[0] = self.data_singleton.current_device.cpu
+                if "SpoofModel" in tweaks:
+                    tweaks["SpoofModel"].value[0] = self.data_singleton.current_device.model
+                    tweaks["SpoofHardware"].value[0] = self.data_singleton.current_device.hardware
+                    tweaks["SpoofCPU"].value[0] = self.data_singleton.current_device.cpu
             self.current_device_index = index
         
     def get_current_device_name(self) -> str:

@@ -1,6 +1,7 @@
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
+from tweaks.tweak_loader import load_springboard
 from tweaks.tweaks import tweaks
 
 class SpringboardPage(Page):
@@ -16,6 +17,8 @@ class SpringboardPage(Page):
         self.ui.disableCrumbChk.toggled.connect(self.on_disableCrumbChk_clicked)
         self.ui.enableSupervisionTextChk.toggled.connect(self.on_enableSupervisionTextChk_clicked)
         self.ui.enableAirPlayChk.toggled.connect(self.on_enableAirPlayChk_clicked)
+        
+        load_springboard()
 
     ## ACTIONS
     def on_footnoteTxt_textEdited(self, text: str):

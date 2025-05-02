@@ -1,6 +1,7 @@
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
+from tweaks.tweak_loader import load_eligibility
 from tweaks.tweaks import tweaks
 
 class EligibilityPage(Page):
@@ -24,6 +25,8 @@ class EligibilityPage(Page):
         self.ui.spoofCPUChk.toggled.connect(self.on_spoofCPUChk_toggled)
         
         self.ui.aiEnablerContent.hide()
+
+        load_eligibility(self.window.device_manager.data_singleton.current_device)
 
     ## ACTIONS
     def on_euEnablerEnabledChk_toggled(self, checked: bool):

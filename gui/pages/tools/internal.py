@@ -1,6 +1,7 @@
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
+from tweaks.tweak_loader import load_internal
 from tweaks.tweaks import tweaks
 
 class InternalPage(Page):
@@ -22,6 +23,8 @@ class InternalPage(Page):
         self.ui.enableWakeVibrateChk.toggled.connect(self.on_enableWakeVibrateChk_clicked)
         self.ui.pasteSoundChk.toggled.connect(self.on_pasteSoundChk_clicked)
         self.ui.notifyPastesChk.toggled.connect(self.on_notifyPastesChk_clicked)
+
+        load_internal()
 
     ## ACTIONS
     def on_buildVersionChk_clicked(self, checked: bool):

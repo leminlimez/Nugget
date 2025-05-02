@@ -1,6 +1,7 @@
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
+from tweaks.tweak_loader import load_risky
 from tweaks.tweaks import tweaks
 
 class RiskyPage(Page):
@@ -16,6 +17,8 @@ class RiskyPage(Page):
         self.ui.resChangerContent.hide()
         self.ui.resHeightWarningLbl.hide()
         self.ui.resWidthWarningLbl.hide()
+
+        load_risky()
 
     ## ACTIONS
     def on_disableOTAChk_clicked(self, checked: bool):
