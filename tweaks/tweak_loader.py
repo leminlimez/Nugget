@@ -1,7 +1,7 @@
 from .tweaks import tweaks
 from .tweak_classes import MobileGestaltTweak, MobileGestaltMultiTweak, MobileGestaltPickerTweak, RdarFixTweak, FeatureFlagTweak, BasicPlistTweak, FileLocation, AdvancedPlistTweak, NullifyFileTweak
 from .eligibility_tweak import EligibilityTweak, AITweak
-from devicemanagement.constants import Device
+from devicemanagement.constants import Device, Version
 
 def get_mobilegestalt_tweaks() -> dict:
     return {
@@ -28,18 +28,24 @@ def get_mobilegestalt_tweaks() -> dict:
     }
 
 def load_rdar_fix(dev: Device):
+    if "RdarFix" in tweaks:
+        return
     tweaks.update({"RdarFix": RdarFixTweak()})
     if dev != None:
         # load settings
         tweaks["RdarFix"].get_rdar_mode(dev.model)
 
 def load_mobilegestalt(dev: Device):
+    load_rdar_fix(dev)
+    if "DynamicIsland" in tweaks:
+        return
     additional_tweaks = get_mobilegestalt_tweaks()
     # add to tweaks
     tweaks.update(additional_tweaks)
-    load_rdar_fix(dev)
 
 def load_eligibility(dev: Device):
+    if "AIGestalt" in tweaks:
+        return
     additional_tweaks = {
         "EUEnabler": EligibilityTweak(),
         "AIEligibility": AITweak(),
@@ -166,13 +172,16 @@ def load_eligibility(dev: Device):
         ])
     }
     # load settings
-    additional_tweaks["SpoofModel"].value[0] = dev.model
-    additional_tweaks["SpoofHardware"].value[0] = dev.hardware
-    additional_tweaks["SpoofCPU"].value[0] = dev.cpu
+    if dev != None:
+        additional_tweaks["SpoofModel"].value[0] = dev.model
+        additional_tweaks["SpoofHardware"].value[0] = dev.hardware
+        additional_tweaks["SpoofCPU"].value[0] = dev.cpu
     # add to tweaks
     tweaks.update(additional_tweaks)
 
 def load_featureflags():
+    if "ClockAnim" in tweaks:
+        return
     additional_tweaks = {
         "ClockAnim": FeatureFlagTweak(flag_category='SpringBoard',
                      flag_names=['SwiftUITimeAnimation']),
@@ -184,6 +193,8 @@ def load_featureflags():
     tweaks.update(additional_tweaks)
 
 def load_springboard():
+    if "LockScreenFootnote" in tweaks:
+        return
     additional_tweaks = {
         "LockScreenFootnote": BasicPlistTweak(
             FileLocation.footnote,
@@ -217,6 +228,8 @@ def load_springboard():
     tweaks.update(additional_tweaks)
 
 def load_internal():
+    if "RTL" in tweaks:
+        return
     additional_tweaks = {
         "SBBuildNumber": BasicPlistTweak(
             FileLocation.globalPreferences,
@@ -274,6 +287,8 @@ def load_internal():
     tweaks.update(additional_tweaks)
 
 def load_risky():
+    if "CustomResolution" in tweaks:
+        return
     additional_tweaks = {
         "DisableOTAFile": AdvancedPlistTweak(
             FileLocation.ota,
@@ -296,6 +311,8 @@ def load_risky():
     tweaks.update(additional_tweaks)
 
 def load_daemons():
+    if "Daemons" in tweaks:
+        return
     additional_tweaks = {
         "Daemons": AdvancedPlistTweak(
             FileLocation.disabledDaemons,
@@ -312,3 +329,17 @@ def load_daemons():
         "ClearScreenTimeAgentPlist": NullifyFileTweak(FileLocation.screentime),
     }
     tweaks.update(additional_tweaks)
+
+def load_all_tweaks(version: str):
+    parsed_ver = Version(version)
+    if parsed_ver <= Version("18.2"):
+        # load mobilegestalt + eligibility tweaks
+        load_mobilegestalt()
+        load_eligibility()
+    if parsed_ver < Version("18.1"):
+        # load feature flags
+        load_featureflags()
+    load_springboard()
+    load_internal()
+    load_daemons()
+    load_risky()

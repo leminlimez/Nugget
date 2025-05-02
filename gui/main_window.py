@@ -495,10 +495,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.apply_changes()
 
     def apply_changes(self, resetting: bool = False):
-        # TODO: Fix resetting for new tweak backend
-        if resetting:
-            self.alert_message(ApplyAlertMessage("Lemin needs to update this to support the new tweaks backend 💀\n\nAlso he needs to add status bar"))
-            return
         if not self.apply_in_progress:
             self.apply_in_progress = True
             self.toggle_thread_btns(disabled=True)

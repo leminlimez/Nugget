@@ -390,11 +390,12 @@ class DeviceManager:
             
             # Generate backup
             update_label("Generating backup...")
-            self.concat_file(
-                contents=plistlib.dumps(flag_plist),
-                path="/var/preferences/FeatureFlags/Global.plist",
-                files_to_restore=files_to_restore
-            )
+            if resetting or len(flag_plist) > 0:
+                self.concat_file(
+                    contents=plistlib.dumps(flag_plist),
+                    path="/var/preferences/FeatureFlags/Global.plist",
+                    files_to_restore=files_to_restore
+                )
             self.add_skip_setup(files_to_restore, uses_domains)
             if gestalt_data != None:
                 self.concat_file(
@@ -452,6 +453,14 @@ class DeviceManager:
                             path=location.value,
                             files_to_restore=files_to_restore
                         )
+                if not self.data_singleton.current_device.has_exploit():
+                    # reset status bar if using domains
+                    files_to_restore.append(FileToRestore(
+                        contents=b"",
+                        restore_path="/Library/SpringBoard/statusBarOverrides",
+                        domain="HomeDomain"
+                    ))
+                    uses_domains=True
 
             # Restore Mobileconfig Profiles
             # Read multiple configuration files from a directory
@@ -469,16 +478,17 @@ class DeviceManager:
             #     ))
 
             # Restore SSL Configuration Profiles
-            with open(get_bundle_files('files/SSLconf/TrustStore.sqlite3'), 'rb') as f:
-                certsDB = f.read()
+            if uses_domains:
+                with open(get_bundle_files('files/SSLconf/TrustStore.sqlite3'), 'rb') as f:
+                    certsDB = f.read()
 
-            files_to_restore.append(FileToRestore(
-                contents=certsDB,
-                restore_path="trustd/private/TrustStore.sqlite3",
-                domain="ProtectedDomain",
-                owner=501, group=501,
-                mode=_FileMode.S_IRUSR | _FileMode.S_IWUSR  | _FileMode.S_IRGRP | _FileMode.S_IWGRP | _FileMode.S_IROTH | _FileMode.S_IWOTH
-            ))
+                files_to_restore.append(FileToRestore(
+                    contents=certsDB,
+                    restore_path="trustd/private/TrustStore.sqlite3",
+                    domain="ProtectedDomain",
+                    owner=501, group=501,
+                    mode=_FileMode.S_IRUSR | _FileMode.S_IWUSR  | _FileMode.S_IRGRP | _FileMode.S_IWGRP | _FileMode.S_IROTH | _FileMode.S_IWOTH
+                ))
 
             # restore to the device
             self.update_label = update_label
