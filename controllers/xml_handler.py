@@ -29,6 +29,9 @@ def set_xml_values(file: str, id: str, keys: list[str], values: list[any], use_c
     for i in range(len(values)):
         if isinstance(values[i], bool):
             values[i] = int(values[i])
+        # convert value to string
+        if not isinstance(values[i], str):
+            values[i] = str(values[i])
 
     # set all values with the nugget id passed by param
     if use_ca_id:
@@ -41,14 +44,14 @@ def set_xml_values(file: str, id: str, keys: list[str], values: list[any], use_c
         for i in range(len(keys)):
             offsetVal = values[i]
             if i == 0 and eqn != None:
-                offsetVal = str(parse_equation(eqn, offsetVal))
+                offsetVal = parse_equation(eqn, offsetVal)
             to_change.set(keys[i], offsetVal)
     if use_ca_id:
         # also look for target id
         for to_change in root.findall(f".//*[@targetId='{id}']"):
             for i in range(len(keys)):
                 # find the value type
-                set_val = str(values[i])
+                set_val = values[i]
                 to_change.set(keys[i], set_val)
 
     # write back to file
