@@ -41,21 +41,14 @@ def set_xml_values(file: str, id: str, keys: list[str], values: list[any], use_c
         for i in range(len(keys)):
             offsetVal = values[i]
             if i == 0 and eqn != None:
-                offsetVal = parse_equation(eqn, offsetVal)
-            # find the value type
-            check_val = to_change.get(keys[i])
-            if check_val != None and isinstance(check_val, str) and not isinstance(offsetVal, str):
-                offsetVal = str(offsetVal)
+                offsetVal = str(parse_equation(eqn, offsetVal))
             to_change.set(keys[i], offsetVal)
     if use_ca_id:
         # also look for target id
         for to_change in root.findall(f".//*[@targetId='{id}']"):
             for i in range(len(keys)):
                 # find the value type
-                set_val = values[i]
-                check_val = to_change.get(keys[i])
-                if check_val != None and isinstance(check_val, str) and not isinstance(set_val, str):
-                    set_val = str(set_val)
+                set_val = str(values[i])
                 to_change.set(keys[i], set_val)
 
     # write back to file
