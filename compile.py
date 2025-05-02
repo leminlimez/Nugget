@@ -38,5 +38,9 @@ if platform == "darwin":
 elif os.name == 'nt':
     # add windows version info
     args.append('--version-file=version.txt')
+    if os.path.exists("ffmpeg/bin"):
+        args.append('--add-data="ffmpeg/bin:ffmpeg/bin')
+    else:
+        print("ffmpeg not found!")
 
 PyInstaller.__main__.run(args)

@@ -157,9 +157,9 @@ class PosterboardTweak(Tweak):
     def create_live_photo_files(self, output_dir: str):
         if self.videoFile != None and not self.loop_video:
             source_dir = get_bundle_files("files/posterboard/1F20C883-EA98-4CCE-9923-0C9A01359721")
-            video_output_dir = os.path.join(output_dir, "video-descriptor/1F20C883-EA98-4CCE-9923-0C9A01359721")
+            video_output_dir = os.path.join(output_dir, "video-descriptor", "1F20C883-EA98-4CCE-9923-0C9A01359721")
             copytree(source_dir, video_output_dir, dirs_exist_ok=True)
-            contents_path = os.path.join(video_output_dir, "versions/0/contents/0EFB6A0F-7052-4D24-8859-AB22BADF2E93")
+            contents_path = os.path.join(video_output_dir, "versions", "0", "contents", "0EFB6A0F-7052-4D24-8859-AB22BADF2E93")
 
             # convert the video first
             video_contents = None
@@ -171,9 +171,9 @@ class PosterboardTweak(Tweak):
                 # convert to mov
                 video_contents = video_handler.convert_to_mov(input_file=self.videoFile)
             # now replace video
-            with open(os.path.join(contents_path, "output.layerStack/portrait-layer_settling-video.MOV"), "wb") as overriding:
+            with open(os.path.join(contents_path, "output.layerStack", "portrait-layer_settling-video.MOV"), "wb") as overriding:
                 overriding.write(video_contents)
-            aar_path = os.path.join(contents_path, "input.segmentation/segmentation.data.aar")
+            aar_path = os.path.join(contents_path, "input.segmentation", "segmentation.data.aar")
             wrap_in_aar(get_bundle_files("files/posterboard/contents.plist"), video_contents, aar_path)
 
             # replace the heic files
@@ -188,7 +188,7 @@ class PosterboardTweak(Tweak):
                 del video_contents
             to_override = ["input.segmentation/asset.resource/Adjusted.HEIC", "input.segmentation/asset.resource/proxy.heic", "output.layerStack/portrait-layer_background.HEIC"]
             for file in to_override:
-                with open(os.path.join(contents_path, file), "wb") as overriding:
+                with open(os.path.join(contents_path, *(file.split("/"))), "wb") as overriding:
                     overriding.write(thumb_contents)
             del thumb_contents
 
