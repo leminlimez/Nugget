@@ -5,6 +5,7 @@ from tempfile import mkdtemp, NamedTemporaryFile
 from shutil import rmtree
 
 from exceptions.posterboard_exceptions import VideoLengthException
+from controllers.files_handler import get_bundle_files
 
 ignore_pb_frame_limit = False
 
@@ -24,6 +25,9 @@ def convert_to_mov(input_file: str, output_file: str = None):
         return contents
     inp = ffmpeg.input(input_file)
     out = ffmpeg.output(inp, output_file, f='mov', vcodec='copy', acodec='copy')
+    ffmpeg_bin = get_bundle_files("ffmpeg/bin")
+    if os.name == 'nt' and os.path.exists(ffmpeg_bin):
+        os.environ['PATH'] += os.pathsep + ffmpeg_bin
     ffmpeg.run(out)
 
 def get_thumbnail_from_mov(input_file: str, output_file: str = None):

@@ -4,6 +4,7 @@ com.apple.MobileGestalt.plist
 .DS_Store
 __pycache__
 *.spec
+/ffmpeg
 /dist
 /secrets
 .compile+codesign.sh
