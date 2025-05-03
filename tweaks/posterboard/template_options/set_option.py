@@ -134,7 +134,7 @@ class SetOption(TemplateOption):
             remove_chk = QtWidgets.QCheckBox(options_widget)
             remove_chk.setText(self.label)
             remove_chk.setChecked(self.value)
-            remove_chk.toggled.connect(self.set_option)
+            remove_chk.toggled.connect(self.update_bool)
             options_layout.addWidget(remove_chk)
         elif self.setter_type == SetterType.textbox:
             # textbox input
@@ -333,6 +333,8 @@ class SetOption(TemplateOption):
         if color.isValid():
             self.value = color
             self.label_objects[0].setStyleSheet(self.get_stylesheet(color=color))
+    def update_bool(self, nv: bool):
+        self.value = nv
 
     def apply(self, container_path: str):
         apply_val = self.value

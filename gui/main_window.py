@@ -16,8 +16,8 @@ from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThrea
 
 from tweaks.tweaks import tweaks
 
-App_Version = "5.2.1"
-App_Build = 0
+App_Version = "5.2.2"
+App_Build = 1
 
 class Page(Enum):
     Home = 0
