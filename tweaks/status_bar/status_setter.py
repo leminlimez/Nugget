@@ -68,7 +68,7 @@ class Setter:
     def bool_array_to_str(self, arr: list[bool]) -> str:
         final_str = ""
         for a in arr:
-            if a:
+            if a == 1:
                 final_str += "1"
             else:
                 final_str += "0"
@@ -78,45 +78,69 @@ class Setter:
             return ffi.buffer(self.current_overrides)
         # need to run the C++ cli tool because of differing bitfield standards
         tmpdir = tempfile.mkdtemp()
-        tmp = os.path.join(tmpdir, "status_bar_overrides")
-        #os.fsync(tmp) # sync so external program can see it
+        tmpin = os.path.join(tmpdir, "sbin")
+        tmpout = os.path.join(tmpdir, "status_bar_overrides")
+        #os.fsync(tmpin) # sync so external program can see it
         overrides = self.current_overrides
         try:
+            # generate the input file
+            with open(tmpin, "w", encoding="utf-8") as in_file:
+                for item in ([
+                    self.bool_array_to_str(overrides.overrideItemIsEnabled),
+                    self.bool_array_to_str(overrides.values.itemIsEnabled),
+                    ffi.string(overrides.values.timeString).decode(),
+                    ffi.string(overrides.values.shortTimeString).decode(),
+                    ffi.string(overrides.values.dateString).decode(),
+                    ffi.string(overrides.values.serviceString).decode(),
+                    ffi.string(overrides.values.secondaryServiceString).decode(),
+                    ffi.string(overrides.values.serviceCrossfadeString).decode(),
+                    ffi.string(overrides.values.secondaryServiceCrossfadeString).decode(),
+                    ffi.string(overrides.values.batteryDetailString).decode(),
+                    ffi.string(overrides.values.primaryServiceBadgeString).decode(),
+                    ffi.string(overrides.values.secondaryServiceBadgeString).decode(),
+                    ffi.string(overrides.values.breadcrumbTitle).decode(),
+                    int(overrides.overrideTimeString),
+                    int(overrides.overrideDateString),
+                    int(overrides.overrideServiceString),
+                    int(overrides.overrideSecondaryServiceString),
+                    int(overrides.overrideBatteryDetailString),
+                    int(overrides.overridePrimaryServiceBadgeString),
+                    int(overrides.overrideSecondaryServiceBadgeString),
+                    int(overrides.overrideBreadcrumb),
+                    int(overrides.overrideDisplayRawWifiSignal),
+                    int(overrides.overrideDisplayRawGSMSignal),
+                    int(overrides.values.displayRawWifiSignal),
+                    int(overrides.values.displayRawGSMSignal),
+                    int(overrides.overrideDataNetworkType),
+                    int(overrides.values.dataNetworkType),
+                    int(overrides.overrideSecondaryDataNetworkType),
+                    int(overrides.values.secondaryDataNetworkType),
+                    int(overrides.overrideGSMSignalStrengthBars),
+                    int(overrides.values.GSMSignalStrengthBars),
+                    int(overrides.overrideSecondaryGSMSignalStrengthBars),
+                    int(overrides.values.secondaryGSMSignalStrengthBars),
+                    int(overrides.overrideBatteryCapacity),
+                    int(overrides.values.batteryCapacity),
+                    int(overrides.overrideWifiSignalStrengthBars),
+                    int(overrides.values.wifiSignalStrengthBars)
+                ]):
+                    in_file.write(f"{item}\n")
             result = subprocess.run([
-                "status_setter_windows.exe", tmp,
-                "--overrideItemIsEnabled", self.bool_array_to_str(overrides.overrideItemIsEnabled),
-                "--itemIsEnabled", self.bool_array_to_str(overrides.values.itemIsEnabled),
-                "--timeString", ffi.string(overrides.values.timeString).decode(),
-                "--shortTimeString", ffi.string(overrides.values.shortTimeString).decode(),
-                "--dateString", ffi.string(overrides.values.dateString).decode(),
-                "--serviceString", ffi.string(overrides.values.serviceString).decode(),
-                "--secondaryServiceString", ffi.string(overrides.values.secondaryServiceString).decode(),
-                "--serviceCrossfadeString", ffi.string(overrides.values.serviceCrossfadeString).decode(),
-                "--secondaryServiceCrossfadeString", ffi.string(overrides.values.secondaryServiceCrossfadeString).decode(),
-                "--batteryDetailString", ffi.string(overrides.values.batteryDetailString).decode(),
-                "--primaryServiceBadgeString", ffi.string(overrides.values.primaryServiceBadgeString).decode(),
-                "--secondaryServiceBadgeString", ffi.string(overrides.values.secondaryServiceBadgeString).decode(),
-                "--breadcrumbTitle", ffi.string(overrides.values.breadcrumbTitle),
-                "--overrideTimeString", str(overrides.overrideTimeString),
-                "--overrideDateString", str(overrides.overrideDateString),
-                "--overrideServiceString", str(overrides.overrideServiceString),
-                "--overrideSecondaryServiceString", str(overrides.overrideSecondaryServiceString),
-                "--overrideBatteryDetailString", str(overrides.overrideBatteryDetailString),
-                "--overridePrimaryServiceBadgeString", str(overrides.overridePrimaryServiceBadgeString),
-                "--overrideSecondaryServiceBadgeString", str(overrides.overrideSecondaryServiceBadgeString),
-                "--overrideBreadcrumb", str(overrides.overrideBreadcrumb),
-                "--overrideDisplayRawWifiSignal", str(overrides.overrideDisplayRawWifiSignal),
-                "--overrideDisplayRawGSMSignal", str(overrides.overrideDisplayRawGSMSignal),
-                "--displayRawWifiSignal", str(overrides.values.displayRawWifiSignal),
-                "--displayRawGSMSignal", str(overrides.values.displayRawGSMSignal)
+                "status_setter_windows.exe", tmpin, tmpout
             ], encoding="utf-8", check=True)
+            print(f"returned {result}")
         except subprocess.CalledProcessError as e:
             raise NuggetException(f"Failed to run status bar process:\n\n{e}")
-        with open(tmp, "rb") as in_file:
+        with open(tmpin, "r", encoding='utf-8') as fi:
+            conts = fi.read()
+        with open("C:\\Users\\lemin\\Documents\\sb_out.txt", "w", encoding='utf-8') as fo:
+            fo.write(conts)
+        with open(tmpout, "rb") as in_file:
             contents = in_file.read()
         try:
             # clean up temporary files
-            os.remove(tmp)
+            os.remove(tmpin)
+            os.remove(tmpout)
             os.rmdir(tmpdir)
         except:
             pass

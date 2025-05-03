@@ -4,6 +4,8 @@
 #include <string>
 
 // this is because Windows is stupid and MSVC needs arguments that none of the python libraries allow
+// compile command:
+// g++ status_setter.cpp -o ../status_setter_windows.exe -mno-ms-bitfields -malign-double
 
 struct StatusBarRawData
 {
@@ -123,95 +125,143 @@ void strToBoolArray(std::string s, size_t len, bool *arr) {
 int main(int argc, char *argv[]) {
     /*
      * Usage
-     * ./status_setter <out_file> [--arg value]
+     * ./status_setter <in_file> <out_file>
      */
 
+    /*
+     * File Structure:
+     1. [overrideItemIsEnabled]
+     2. [itemIsEnabled]
+     3. [timeString]
+     4. [shortTimeString]
+    */
+
     StatusBarOverrideData overrides = {};
-    for (int i = 2; i < argc; i+=2) {
-        // set arg in struct
-        std::string k(argv[i]);
-        std::string v(argv[i+1]);
-        if (k == "--overrideItemIsEnabled") {
-            strToBoolArray(v, 45, overrides.overrideItemIsEnabled);
+    std::ifstream infile(argv[1]);
+    int n = 0;
+    // read through the file line by line
+    for (std::string line; getline(infile, line); ) {
+        if (n == 0) {
+            strToBoolArray(line, 45, overrides.overrideItemIsEnabled);
         }
         // Values
-        else if (k == "--itemIsEnabled") {
-            strToBoolArray(v, 45, overrides.values.itemIsEnabled);
+        else if (n == 1) {
+            strToBoolArray(line, 45, overrides.values.itemIsEnabled);
         }
-        else if (k == "--timeString") {
-            strncpy(overrides.values.timeString, argv[i+1], 64);
+        else if (n == 2) {
+            strncpy(overrides.values.timeString, line.c_str(), 64);
         }
-        else if (k == "--shortTimeString") {
-            strncpy(overrides.values.shortTimeString, argv[i+1], 64);
+        else if (n == 3) {
+            strncpy(overrides.values.shortTimeString, line.c_str(), 64);
         }
-        else if (k == "--dateString") {
-            strncpy(overrides.values.dateString, argv[i+1], 256);
+        else if (n == 4) {
+            strncpy(overrides.values.dateString, line.c_str(), 256);
         }
-        else if (k == "--serviceString") {
-            strncpy(overrides.values.serviceString, argv[i+1], 100);
+        else if (n == 5) {
+            strncpy(overrides.values.serviceString, line.c_str(), 100);
         }
-        else if (k == "--secondaryServiceString") {
-            strncpy(overrides.values.secondaryServiceString, argv[i+1], 100);
+        else if (n == 6) {
+            strncpy(overrides.values.secondaryServiceString, line.c_str(), 100);
         }
-        else if (k == "--serviceCrossfadeString") {
-            strncpy(overrides.values.serviceCrossfadeString, argv[i+1], 100);
+        else if (n == 7) {
+            strncpy(overrides.values.serviceCrossfadeString, line.c_str(), 100);
         }
-        else if (k == "--secondaryServiceCrossfadeString") {
-            strncpy(overrides.values.secondaryServiceCrossfadeString, argv[i+1], 100);
+        else if (n == 8) {
+            strncpy(overrides.values.secondaryServiceCrossfadeString, line.c_str(), 100);
         }
-        else if (k == "--batteryDetailString") {
-            strncpy(overrides.values.batteryDetailString, argv[i+1], 150);
+        else if (n == 9) {
+            strncpy(overrides.values.batteryDetailString, line.c_str(), 150);
         }
-        else if (k == "--primaryServiceBadgeString") {
-            strncpy(overrides.values.primaryServiceBadgeString, argv[i+1], 100);
+        else if (n == 10) {
+            strncpy(overrides.values.primaryServiceBadgeString, line.c_str(), 100);
         }
-        else if (k == "--secondaryServiceBadgeString") {
-            strncpy(overrides.values.secondaryServiceBadgeString, argv[i+1], 100);
+        else if (n == 11) {
+            strncpy(overrides.values.secondaryServiceBadgeString, line.c_str(), 100);
         }
-        else if (k == "--breadcrumbTitle") {
-            strncpy(overrides.values.breadcrumbTitle, argv[i+1], 256);
+        else if (n == 12) {
+            strncpy(overrides.values.breadcrumbTitle, line.c_str(), 256);
         }
         // Override Data
-        else if (k == "--overrideTimeString") {
-            overrides.overrideTimeString = v.c_str()[0] == '1' ? 1 : 0;
+        else if (n == 13) {
+            overrides.overrideTimeString = line.c_str()[0] == '1' ? 1 : 0;
         }
-        else if (k == "--overrideDateString") {
-            overrides.overrideDateString = v.c_str()[0] == '1' ? 1 : 0;
+        else if (n == 14) {
+            overrides.overrideDateString = line.c_str()[0] == '1' ? 1 : 0;
         }
-        else if (k == "--overrideServiceString") {
-            overrides.overrideServiceString = v.c_str()[0] == '1' ? 1 : 0;
+        else if (n == 15) {
+            overrides.overrideServiceString = line.c_str()[0] == '1' ? 1 : 0;
         }
-        else if (k == "--overrideSecondaryServiceString") {
-            overrides.overrideSecondaryServiceString = v.c_str()[0] == '1' ? 1 : 0;
+        else if (n == 16) {
+            overrides.overrideSecondaryServiceString = line.c_str()[0] == '1' ? 1 : 0;
         }
-        else if (k == "--overrideBatteryDetailString") {
-            overrides.overrideBatteryDetailString = v.c_str()[0] == '1' ? 1 : 0;
+        else if (n == 17) {
+            overrides.overrideBatteryDetailString = line.c_str()[0] == '1' ? 1 : 0;
         }
-        else if (k == "--overridePrimaryServiceBadgeString") {
-            overrides.overridePrimaryServiceBadgeString = v.c_str()[0] == '1' ? 1 : 0;
+        else if (n == 18) {
+            overrides.overridePrimaryServiceBadgeString = line.c_str()[0] == '1' ? 1 : 0;
         }
-        else if (k == "--overrideSecondaryServiceBadgeString") {
-            overrides.overrideSecondaryServiceBadgeString = v.c_str()[0] == '1' ? 1 : 0;
+        else if (n == 19) {
+            overrides.overrideSecondaryServiceBadgeString = line.c_str()[0] == '1' ? 1 : 0;
         }
-        else if (k == "--overrideBreadcrumb") {
-            overrides.overrideBreadcrumb = v.c_str()[0] == '1' ? 1 : 0;
+        else if (n == 20) {
+            overrides.overrideBreadcrumb = line.c_str()[0] == '1' ? 1 : 0;
         }
-        else if (k == "--overrideDisplayRawWifiSignal") {
-            overrides.overrideDisplayRawWiFiSignal = v.c_str()[0] == '1' ? 1 : 0;
+        else if (n == 21) {
+            overrides.overrideDisplayRawWiFiSignal = line.c_str()[0] == '1' ? 1 : 0;
         }
-        else if (k == "--overrideDisplayRawGSMSignal") {
-            overrides.overrideDisplayRawGSMSignal = v.c_str()[0] == '1' ? 1 : 0;
+        else if (n == 22) {
+            overrides.overrideDisplayRawGSMSignal = line.c_str()[0] == '1' ? 1 : 0;
         }
-        else if (k == "--displayRawWifiSignal") {
-            overrides.values.displayRawWiFiSignal = v.c_str()[0] == '1' ? 1 : 0;
+        else if (n == 23) {
+            overrides.values.displayRawWiFiSignal = line.c_str()[0] == '1' ? 1 : 0;
         }
-        else if (k == "--displayRawGSMSignal") {
-            overrides.values.displayRawGSMSignal = v.c_str()[0] == '1' ? 1 : 0;
+        else if (n == 24) {
+            overrides.values.displayRawGSMSignal = line.c_str()[0] == '1' ? 1 : 0;
         }
+        // Data Network Types
+        else if (n == 25) {
+            overrides.overrideDataNetworkType = line.c_str()[0] == '1' ? 1 : 0;
+        }
+        else if (n == 26) {
+            overrides.values.dataNetworkType = std::stoi(line);
+        }
+        else if (n == 27) {
+            overrides.overrideSecondaryDataNetworkType = line.c_str()[0] == '1' ? 1 : 0;
+        }
+        else if (n == 28) {
+            overrides.values.secondaryDataNetworkType = std::stoi(line);
+        }
+        // Slider bars
+        else if (n == 29) {
+            overrides.overrideGSMSignalStrengthBars = line.c_str()[0] == '1' ? 1 : 0;
+        }
+        else if (n == 30) {
+            overrides.values.GSMSignalStrengthBars = std::stoi(line);
+        }
+        else if (n == 31) {
+            overrides.overrideSecondaryGSMSignalStrengthBars = line.c_str()[0] == '1' ? 1 : 0;
+        }
+        else if (n == 32) {
+            overrides.values.secondaryGSMSignalStrengthBars = std::stoi(line);
+        }
+        else if (n == 33) {
+            overrides.overrideBatteryCapacity = line.c_str()[0] == '1' ? 1 : 0;
+        }
+        else if (n == 34) {
+            overrides.values.batteryCapacity = std::stoi(line);
+        }
+        else if (n == 35) {
+            overrides.overrideWiFiSignalStrengthBars = std::stoi(line);
+        }
+        else if (n == 36) {
+            overrides.values.WiFiSignalStrengthBars = std::stoi(line);
+        }
+        n++;
     }
+    infile.close();
 
     // Write to the file
-    std::string location(argv[1]);
+    std::string location(argv[2]);
     std::ofstream outfile(location.c_str(), std::ofstream::binary);
     if (!outfile) {
         perror("openfile");
