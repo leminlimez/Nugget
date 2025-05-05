@@ -22,9 +22,11 @@ args = [
     '--onedir',
     '--noconfirm',
     '--name=Nugget',
-    '--icon=nugget.ico',
-    '--optimize=2'
+    '--icon=nugget.ico'
 ]
+
+if target_arch == None:
+    args.append('--optimize=2')
 
 if platform == "darwin":
     # add --windowed arg for macOS
