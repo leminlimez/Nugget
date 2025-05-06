@@ -62,6 +62,8 @@ class StatusBarPage(Page):
         self.ui.hideAirPlayChk.clicked.connect(self.on_hideAirPlayChk_clicked)
         self.ui.hideCarPlayChk.clicked.connect(self.on_hideCarPlayChk_clicked)
         self.ui.hideVPNChk.clicked.connect(self.on_hideVPNChk_clicked)
+        
+        self.ui.sillyModeChk.clicked.connect(self.on_sillyModeChk_clicked)
 
         self.load_status_bar()
 
@@ -232,6 +234,9 @@ class StatusBarPage(Page):
     def on_hideVPNChk_clicked(self, checked: bool):
         self.status_manager.hide_vpn(checked)
 
+    def on_sillyModeChk_clicked(self, checked: bool):
+        self.status_manager.toggle_silly_mode(checked)
+
         
     ## LOADING STATUS BAR
     def load_status_bar(self):
@@ -307,3 +312,4 @@ class StatusBarPage(Page):
         self.ui.hideAirPlayChk.setChecked(self.status_manager.is_airplay_hidden())
         self.ui.hideCarPlayChk.setChecked(self.status_manager.is_carplay_hidden())
         self.ui.hideVPNChk.setChecked(self.status_manager.is_vpn_hidden())
+        self.ui.sillyModeChk.setChecked(self.status_manager.is_silly_mode_enabled())

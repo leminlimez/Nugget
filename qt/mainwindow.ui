@@ -3294,7 +3294,7 @@ QComboBox QAbstractItemView::item:hover {
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>0</y>
+                   <y>-759</y>
                    <width>650</width>
                    <height>1200</height>
                   </rect>
@@ -4230,6 +4230,16 @@ QComboBox QAbstractItemView::item:hover {
                       <widget class="QLabel" name="label_12">
                        <property name="text">
                         <string>^Will also hide cellular data indicator.</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="sillyModeChk">
+                       <property name="toolTip">
+                        <string>Force enables everything</string>
+                       </property>
+                       <property name="text">
+                        <string>Silly Mode</string>
                        </property>
                       </widget>
                      </item>

@@ -42,7 +42,7 @@ class Setter:
         MicrophoneUseStatusBarItem = 28
         VPNStatusBarItem = 29
         # 30
-        # 31
+        PhonePickupItem = 31
         # 32
         # 33
         # 34
@@ -56,9 +56,11 @@ class Setter:
         # 42
         # 43
         Extra1StatusBarItem = 44
+        # 45
     
     def __init__(self):
         self.current_overrides = ffi.new("StatusBarOverrideData *")
+        self.silly_mode = False
 
     def apply_changes(self, new_overrides):
         self.current_overrides = new_overrides
@@ -74,6 +76,13 @@ class Setter:
                 final_str += "0"
         return final_str
     def get_data(self) -> bytes:
+        if self.silly_mode:
+            for i in range(46):
+                if self.current_overrides.overrideItemIsEnabled[i] == 1:
+                    # don't change setting
+                    continue
+                self.current_overrides.overrideItemIsEnabled[i] = 1
+                self.current_overrides.values.itemIsEnabled[i] = 1
         if os.name != 'nt':
             return ffi.buffer(self.current_overrides)
         # need to run the C++ cli tool because of differing bitfield standards

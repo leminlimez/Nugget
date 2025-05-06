@@ -491,3 +491,8 @@ class StatusBarTweak(Tweak):
         else:
             overrides.overrideItemIsEnabled[self.setter.StatusBarItem.VPNStatusBarItem.value] = 0
         self.setter.apply_changes(overrides)
+
+    def is_silly_mode_enabled(self) -> bool:
+        return self.setter.silly_mode
+    def toggle_silly_mode(self, value: bool) -> None:
+        self.setter.silly_mode = value

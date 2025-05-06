@@ -8,4 +8,5 @@ __pycache__
 /dist
 /secrets
 .compile+codesign.sh
+.create_build.sh
 /.vscode

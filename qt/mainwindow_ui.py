@@ -1738,7 +1738,7 @@ class Ui_Nugget(object):
         self.scrollArea1.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.scrollAreaWidgetContents1 = QWidget()
         self.scrollAreaWidgetContents1.setObjectName(u"scrollAreaWidgetContents1")
-        self.scrollAreaWidgetContents1.setGeometry(QRect(0, 0, 650, 1200))
+        self.scrollAreaWidgetContents1.setGeometry(QRect(0, -759, 650, 1200))
         self.scrollAreaWidgetContents1.setMinimumSize(QSize(650, 1200))
         self.scrollAreaWidgetContents1.setMaximumSize(QSize(650, 1200))
         self.verticalLayout_91 = QVBoxLayout(self.scrollAreaWidgetContents1)
@@ -2231,6 +2231,11 @@ class Ui_Nugget(object):
         self.label_121.setObjectName(u"label_121")
 
         self.verticalLayout_81.addWidget(self.label_121)
+
+        self.sillyModeChk = QCheckBox(self.statusBarPageContent)
+        self.sillyModeChk.setObjectName(u"sillyModeChk")
+
+        self.verticalLayout_81.addWidget(self.sillyModeChk)
 
         self.verticalSpacer_31 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -4654,6 +4659,10 @@ class Ui_Nugget(object):
         self.hideCarPlayChk.setText(QCoreApplication.translate("Nugget", u"Hide CarPlay", None))
         self.hideVPNChk.setText(QCoreApplication.translate("Nugget", u"Hide VPN", None))
         self.label_121.setText(QCoreApplication.translate("Nugget", u"^Will also hide cellular data indicator.", None))
+#if QT_CONFIG(tooltip)
+        self.sillyModeChk.setToolTip(QCoreApplication.translate("Nugget", u"Force enables everything", None))
+#endif // QT_CONFIG(tooltip)
+        self.sillyModeChk.setText(QCoreApplication.translate("Nugget", u"Silly Mode", None))
         self.springboardOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Springboard Options", None))
         self.label_13.setText(QCoreApplication.translate("Nugget", u"Lock Screen Footnote Text", None))
         self.footnoteTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Footnote Text", None))

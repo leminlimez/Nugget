@@ -9,8 +9,7 @@
 
 struct StatusBarRawData
 {
-    bool itemIsEnabled[45];
-    char padding;
+    bool itemIsEnabled[46];
     char timeString[64];
     char shortTimeString[64];
     char dateString[256];
@@ -65,13 +64,13 @@ struct StatusBarRawData
     char primaryServiceBadgeString[100];
     char secondaryServiceBadgeString[100];
     char quietModeImage[256];
+    char quietModeName[256];
     unsigned int extra1 : 1;
 };
 
 struct StatusBarOverrideData
 {
-    bool overrideItemIsEnabled[45];
-    char padding;
+    bool overrideItemIsEnabled[46];
     unsigned int overrideTimeString : 1;
     unsigned int overrideDateString : 1;
     unsigned int overrideGSMSignalStrengthRaw : 1;
@@ -107,6 +106,7 @@ struct StatusBarOverrideData
     unsigned int overridePrimaryServiceBadgeString : 1;
     unsigned int overrideSecondaryServiceBadgeString : 1;
     unsigned int overrideQuietModeImage : 1;
+    unsigned int overrideQuietModeName : 1;
     unsigned int overrideExtra1 : 1;
     StatusBarRawData values;
 };
@@ -142,11 +142,11 @@ int main(int argc, char *argv[]) {
     // read through the file line by line
     for (std::string line; getline(infile, line); ) {
         if (n == 0) {
-            strToBoolArray(line, 45, overrides.overrideItemIsEnabled);
+            strToBoolArray(line, 46, overrides.overrideItemIsEnabled);
         }
         // Values
         else if (n == 1) {
-            strToBoolArray(line, 45, overrides.values.itemIsEnabled);
+            strToBoolArray(line, 46, overrides.values.itemIsEnabled);
         }
         else if (n == 2) {
             strncpy(overrides.values.timeString, line.c_str(), 64);
@@ -268,9 +268,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    char padding[256] = {'\0'};
     outfile.write(reinterpret_cast<char *>(&overrides), sizeof(StatusBarOverrideData));
-    outfile.write(padding, sizeof(padding));
 
     return 0;
 }

@@ -8,8 +8,7 @@ def compile_setter():
     ffi.cdef("""
         typedef struct
         {
-            bool itemIsEnabled[45];
-            char padding;
+            bool itemIsEnabled[46];
             char timeString[64];
             char shortTimeString[64];
             char dateString[256];
@@ -65,12 +64,12 @@ def compile_setter():
             char secondaryServiceBadgeString[100];
             char quietModeImage[256];
             char quietModeName[256];
+            unsigned int extra1 : 1;
         } StatusBarRawData;
 
         typedef struct
         {
-            bool overrideItemIsEnabled[45];
-            char padding;
+            bool overrideItemIsEnabled[46];
             unsigned int overrideTimeString : 1;
             unsigned int overrideDateString : 1;
             unsigned int overrideGSMSignalStrengthRaw : 1;
@@ -107,6 +106,7 @@ def compile_setter():
             unsigned int overrideSecondaryServiceBadgeString : 1;
             unsigned int overrideQuietModeImage : 1;
             unsigned int overrideQuietModeName : 1;
+            unsigned int overrideExtra1 : 1;
             StatusBarRawData values;
         } StatusBarOverrideData;
     """)
