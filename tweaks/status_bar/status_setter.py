@@ -48,10 +48,10 @@ class StatusBarItem(Enum):
     # 35
     # 36
     # 37
-    LiquidDetectionStatusBarItem = 38
-    VoiceControlStatusBarItem = 39
-    # 40
-    # 41
+    # 38
+    # 39
+    LiquidDetectionStatusBarItem = 40
+    VoiceControlStatusBarItem = 41
     # 42
     # 43
     Extra1StatusBarItem = 44
