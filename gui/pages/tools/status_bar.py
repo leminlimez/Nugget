@@ -2,6 +2,7 @@ from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
 from tweaks.tweaks import tweaks
+from tweaks.status_bar.status_setter import StatusBarItem
 
 class StatusBarPage(Page):
     def __init__(self, ui: Ui_Nugget):
@@ -50,18 +51,65 @@ class StatusBarPage(Page):
         # RAW SIGNAL STRENGTH INPUTS
         self.ui.numericWifiChk.clicked.connect(self.on_numericWifiChk_clicked)
         self.ui.numericCellChk.clicked.connect(self.on_numericCellChk_clicked)
-        # HIDE OPTION INPUTS
-        self.ui.hideDNDChk.clicked.connect(self.on_hideDNDChk_clicked)
-        self.ui.hideAirplaneChk.clicked.connect(self.on_hideAirplaneChk_clicked)
-        self.ui.hideWifiChk.clicked.connect(self.on_hideWifiChk_clicked)
-        self.ui.hideBatteryChk.clicked.connect(self.on_hideBatteryChk_clicked)
-        self.ui.hideBluetoothChk.clicked.connect(self.on_hideBatteryChk_clicked)
-        self.ui.hideAlarmChk.clicked.connect(self.on_hideAlarmChk_clicked)
-        self.ui.hideLocationChk.clicked.connect(self.on_hideLocationChk_clicked)
-        self.ui.hideRotationChk.clicked.connect(self.on_hideRotationChk_clicked)
-        self.ui.hideAirPlayChk.clicked.connect(self.on_hideAirPlayChk_clicked)
-        self.ui.hideCarPlayChk.clicked.connect(self.on_hideCarPlayChk_clicked)
-        self.ui.hideVPNChk.clicked.connect(self.on_hideVPNChk_clicked)
+
+
+        # RADIO BUTTON INPUTS
+        self.ui.dndDefaultRdo.clicked.connect(lambda _: self.on_defaultRdo_clicked(StatusBarItem.QuietModeStatusBarItem))
+        self.ui.dndShowRdo.clicked.connect(lambda _: self.on_showRdo_clicked(StatusBarItem.QuietModeStatusBarItem))
+        self.ui.dndHideRdo.clicked.connect(lambda _: self.on_hideRdo_clicked(StatusBarItem.QuietModeStatusBarItem))
+
+        self.ui.airplaneDefaultRdo.clicked.connect(lambda _: self.on_defaultRdo_clicked(StatusBarItem.AirplaneModeStatusBarItem))
+        self.ui.airplaneShowRdo.clicked.connect(lambda _: self.on_showRdo_clicked(StatusBarItem.AirplaneModeStatusBarItem))
+        self.ui.airplaneHideRdo.clicked.connect(lambda _: self.on_hideRdo_clicked(StatusBarItem.AirplaneModeStatusBarItem))
+
+        self.ui.wifiDefaultRdo.clicked.connect(lambda _: self.on_defaultRdo_clicked(StatusBarItem.CellularDataNetworkStatusBarItem))
+        self.ui.wifiShowRdo.clicked.connect(lambda _: self.on_showRdo_clicked(StatusBarItem.CellularDataNetworkStatusBarItem))
+        self.ui.wifiHideRdo.clicked.connect(lambda _: self.on_hideRdo_clicked(StatusBarItem.CellularDataNetworkStatusBarItem))
+
+        self.ui.batteryDefaultRdo.clicked.connect(lambda _: self.on_defaultRdo_clicked(StatusBarItem.MainBatteryStatusBarItem))
+        self.ui.batteryShowRdo.clicked.connect(lambda _: self.on_showRdo_clicked(StatusBarItem.MainBatteryStatusBarItem))
+        self.ui.batteryHideRdo.clicked.connect(lambda _: self.on_hideRdo_clicked(StatusBarItem.MainBatteryStatusBarItem))
+
+        self.ui.bluetoothDefaultRdo.clicked.connect(lambda _: self.on_defaultRdo_clicked(StatusBarItem.BluetoothStatusBarItem))
+        self.ui.bluetoothShowRdo.clicked.connect(lambda _: self.on_showRdo_clicked(StatusBarItem.BluetoothStatusBarItem))
+        self.ui.bluetoothHideRdo.clicked.connect(lambda _: self.on_hideRdo_clicked(StatusBarItem.BluetoothStatusBarItem))
+
+        self.ui.alarmDefaultRdo.clicked.connect(lambda _: self.on_defaultRdo_clicked(StatusBarItem.AlarmStatusBarItem))
+        self.ui.alarmShowRdo.clicked.connect(lambda _: self.on_showRdo_clicked(StatusBarItem.AlarmStatusBarItem))
+        self.ui.alarmHideRdo.clicked.connect(lambda _: self.on_hideRdo_clicked(StatusBarItem.AlarmStatusBarItem))
+
+        self.ui.locationDefaultRdo.clicked.connect(lambda _: self.on_defaultRdo_clicked(StatusBarItem.LocationStatusBarItem))
+        self.ui.locationShowRdo.clicked.connect(lambda _: self.on_showRdo_clicked(StatusBarItem.LocationStatusBarItem))
+        self.ui.locationHideRdo.clicked.connect(lambda _: self.on_hideRdo_clicked(StatusBarItem.LocationStatusBarItem))
+
+        self.ui.rotationDefaultRdo.clicked.connect(lambda _: self.on_defaultRdo_clicked(StatusBarItem.RotationLockStatusBarItem))
+        self.ui.rotationShowRdo.clicked.connect(lambda _: self.on_showRdo_clicked(StatusBarItem.RotationLockStatusBarItem))
+        self.ui.rotationHideRdo.clicked.connect(lambda _: self.on_hideRdo_clicked(StatusBarItem.RotationLockStatusBarItem))
+
+        self.ui.airplayDefaultRdo.clicked.connect(lambda _: self.on_defaultRdo_clicked(StatusBarItem.AirPlayStatusBarItem))
+        self.ui.airplayShowRdo.clicked.connect(lambda _: self.on_showRdo_clicked(StatusBarItem.AirPlayStatusBarItem))
+        self.ui.airplayHideRdo.clicked.connect(lambda _: self.on_hideRdo_clicked(StatusBarItem.AirPlayStatusBarItem))
+
+        self.ui.carplayDefaultRdo.clicked.connect(lambda _: self.on_defaultRdo_clicked(StatusBarItem.CarPlayStatusBarItem))
+        self.ui.carplayShowRdo.clicked.connect(lambda _: self.on_showRdo_clicked(StatusBarItem.CarPlayStatusBarItem))
+        self.ui.carplayHideRdo.clicked.connect(lambda _: self.on_hideRdo_clicked(StatusBarItem.CarPlayStatusBarItem))
+
+        self.ui.vpnDefaultRdo.clicked.connect(lambda _: self.on_defaultRdo_clicked(StatusBarItem.VPNStatusBarItem))
+        self.ui.vpnShowRdo.clicked.connect(lambda _: self.on_showRdo_clicked(StatusBarItem.VPNStatusBarItem))
+        self.ui.vpnHideRdo.clicked.connect(lambda _: self.on_hideRdo_clicked(StatusBarItem.VPNStatusBarItem))
+
+        self.ui.studentDefaultRdo.clicked.connect(lambda _: self.on_defaultRdo_clicked(StatusBarItem.StudentStatusBarItem))
+        self.ui.studentShowRdo.clicked.connect(lambda _: self.on_showRdo_clicked(StatusBarItem.StudentStatusBarItem))
+        self.ui.studentHideRdo.clicked.connect(lambda _: self.on_hideRdo_clicked(StatusBarItem.StudentStatusBarItem))
+
+        # TODO: Fix this and VC not showing
+        self.ui.waterDefaultRdo.clicked.connect(lambda _: self.on_defaultRdo_clicked(StatusBarItem.LiquidDetectionStatusBarItem))
+        self.ui.waterShowRdo.clicked.connect(lambda _: self.on_showRdo_clicked(StatusBarItem.LiquidDetectionStatusBarItem))
+        self.ui.waterHideRdo.clicked.connect(lambda _: self.on_hideRdo_clicked(StatusBarItem.LiquidDetectionStatusBarItem))
+
+        self.ui.vcDefaultRdo.clicked.connect(lambda _: self.on_defaultRdo_clicked(StatusBarItem.VoiceControlStatusBarItem))
+        self.ui.vcShowRdo.clicked.connect(lambda _: self.on_showRdo_clicked(StatusBarItem.VoiceControlStatusBarItem))
+        self.ui.vcHideRdo.clicked.connect(lambda _: self.on_hideRdo_clicked(StatusBarItem.VoiceControlStatusBarItem))
         
         self.ui.sillyModeChk.clicked.connect(self.on_sillyModeChk_clicked)
 
@@ -211,28 +259,12 @@ class StatusBarPage(Page):
         self.status_manager.show_raw_gsm_signal(checked)
 
     # Hiding Option Inputs
-    def on_hideDNDChk_clicked(self, checked: bool):
-        self.status_manager.hide_dnd(checked)
-    def on_hideAirplaneChk_clicked(self, checked: bool):
-        self.status_manager.hide_airplane(checked)
-    def on_hideWifiChk_clicked(self, checked: bool):
-        self.status_manager.hide_wifi(checked)
-    def on_hideBatteryChk_clicked(self, checked: bool):
-        self.status_manager.hide_battery(checked)
-    def on_hideBluetoothChk_clicked(self, checked: bool):
-        self.status_manager.hide_bluetooth(checked)
-    def on_hideAlarmChk_clicked(self, checked: bool):
-        self.status_manager.hide_alarm(checked)
-    def on_hideLocationChk_clicked(self, checked: bool):
-        self.status_manager.hide_location(checked)
-    def on_hideRotationChk_clicked(self, checked: bool):
-        self.status_manager.hide_rotation(checked)
-    def on_hideAirPlayChk_clicked(self, checked: bool):
-        self.status_manager.hide_airplay(checked)
-    def on_hideCarPlayChk_clicked(self, checked: bool):
-        self.status_manager.hide_carplay(checked)
-    def on_hideVPNChk_clicked(self, checked: bool):
-        self.status_manager.hide_vpn(checked)
+    def on_defaultRdo_clicked(self, item: StatusBarItem):
+        self.status_manager.unset_item_override(item)
+    def on_showRdo_clicked(self, item: StatusBarItem):
+        self.status_manager.set_item_override(item, True)
+    def on_hideRdo_clicked(self, item: StatusBarItem):
+        self.status_manager.set_item_override(item, False)
 
     def on_sillyModeChk_clicked(self, checked: bool):
         self.status_manager.toggle_silly_mode(checked)
@@ -301,15 +333,4 @@ class StatusBarPage(Page):
         self.ui.numericCellChk.setChecked(self.status_manager.is_raw_gsm_signal_shown())
 
         # Load hiding option inputs
-        self.ui.hideDNDChk.setChecked(self.status_manager.is_dnd_hidden())
-        self.ui.hideAirplaneChk.setChecked(self.status_manager.is_airplane_hidden())
-        self.ui.hideWifiChk.setChecked(self.status_manager.is_wifi_hidden())
-        self.ui.hideBatteryChk.setChecked(self.status_manager.is_battery_hidden())
-        self.ui.hideBluetoothChk.setChecked(self.status_manager.is_bluetooth_hidden())
-        self.ui.hideAlarmChk.setChecked(self.status_manager.is_alarm_hidden())
-        self.ui.hideLocationChk.setChecked(self.status_manager.is_location_hidden())
-        self.ui.hideRotationChk.setChecked(self.status_manager.is_rotation_hidden())
-        self.ui.hideAirPlayChk.setChecked(self.status_manager.is_airplay_hidden())
-        self.ui.hideCarPlayChk.setChecked(self.status_manager.is_carplay_hidden())
-        self.ui.hideVPNChk.setChecked(self.status_manager.is_vpn_hidden())
         self.ui.sillyModeChk.setChecked(self.status_manager.is_silly_mode_enabled())

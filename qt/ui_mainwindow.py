@@ -1738,9 +1738,9 @@ class Ui_Nugget(object):
         self.scrollArea1.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.scrollAreaWidgetContents1 = QWidget()
         self.scrollAreaWidgetContents1.setObjectName(u"scrollAreaWidgetContents1")
-        self.scrollAreaWidgetContents1.setGeometry(QRect(0, -759, 650, 1200))
-        self.scrollAreaWidgetContents1.setMinimumSize(QSize(650, 1200))
-        self.scrollAreaWidgetContents1.setMaximumSize(QSize(650, 1200))
+        self.scrollAreaWidgetContents1.setGeometry(QRect(0, 0, 650, 2000))
+        self.scrollAreaWidgetContents1.setMinimumSize(QSize(650, 2000))
+        self.scrollAreaWidgetContents1.setMaximumSize(QSize(650, 2000))
         self.verticalLayout_91 = QVBoxLayout(self.scrollAreaWidgetContents1)
         self.verticalLayout_91.setObjectName(u"verticalLayout_91")
         self.verticalLayout_91.setContentsMargins(0, 0, 0, 0)
@@ -2172,65 +2172,486 @@ class Ui_Nugget(object):
 
         self.verticalLayout_81.addWidget(self.line_101)
 
-        self.hideDNDChk = QCheckBox(self.statusBarPageContent)
-        self.hideDNDChk.setObjectName(u"hideDNDChk")
+        self.label_18 = QLabel(self.statusBarPageContent)
+        self.label_18.setObjectName(u"label_18")
 
-        self.verticalLayout_81.addWidget(self.hideDNDChk)
+        self.verticalLayout_81.addWidget(self.label_18)
 
-        self.hideAirplaneChk = QCheckBox(self.statusBarPageContent)
-        self.hideAirplaneChk.setObjectName(u"hideAirplaneChk")
+        self.dndRdo = QWidget(self.statusBarPageContent)
+        self.dndRdo.setObjectName(u"dndRdo")
+        self.horizontalLayout_32 = QHBoxLayout(self.dndRdo)
+        self.horizontalLayout_32.setSpacing(20)
+        self.horizontalLayout_32.setObjectName(u"horizontalLayout_32")
+        self.horizontalLayout_32.setContentsMargins(0, 0, 0, 0)
+        self.dndDefaultRdo = QRadioButton(self.dndRdo)
+        self.dndDefaultRdo.setObjectName(u"dndDefaultRdo")
+        self.dndDefaultRdo.setChecked(True)
 
-        self.verticalLayout_81.addWidget(self.hideAirplaneChk)
+        self.horizontalLayout_32.addWidget(self.dndDefaultRdo)
 
-        self.hideWifiChk = QCheckBox(self.statusBarPageContent)
-        self.hideWifiChk.setObjectName(u"hideWifiChk")
+        self.dndShowRdo = QRadioButton(self.dndRdo)
+        self.dndShowRdo.setObjectName(u"dndShowRdo")
 
-        self.verticalLayout_81.addWidget(self.hideWifiChk)
+        self.horizontalLayout_32.addWidget(self.dndShowRdo)
 
-        self.hideBatteryChk = QCheckBox(self.statusBarPageContent)
-        self.hideBatteryChk.setObjectName(u"hideBatteryChk")
+        self.dndHideRdo = QRadioButton(self.dndRdo)
+        self.dndHideRdo.setObjectName(u"dndHideRdo")
 
-        self.verticalLayout_81.addWidget(self.hideBatteryChk)
+        self.horizontalLayout_32.addWidget(self.dndHideRdo)
 
-        self.hideBluetoothChk = QCheckBox(self.statusBarPageContent)
-        self.hideBluetoothChk.setObjectName(u"hideBluetoothChk")
+        self.horizontalSpacer_20 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.verticalLayout_81.addWidget(self.hideBluetoothChk)
+        self.horizontalLayout_32.addItem(self.horizontalSpacer_20)
 
-        self.hideAlarmChk = QCheckBox(self.statusBarPageContent)
-        self.hideAlarmChk.setObjectName(u"hideAlarmChk")
 
-        self.verticalLayout_81.addWidget(self.hideAlarmChk)
+        self.verticalLayout_81.addWidget(self.dndRdo)
 
-        self.hideLocationChk = QCheckBox(self.statusBarPageContent)
-        self.hideLocationChk.setObjectName(u"hideLocationChk")
+        self.label_181 = QLabel(self.statusBarPageContent)
+        self.label_181.setObjectName(u"label_181")
 
-        self.verticalLayout_81.addWidget(self.hideLocationChk)
+        self.verticalLayout_81.addWidget(self.label_181)
 
-        self.hideRotationChk = QCheckBox(self.statusBarPageContent)
-        self.hideRotationChk.setObjectName(u"hideRotationChk")
+        self.airplaneRdo = QWidget(self.statusBarPageContent)
+        self.airplaneRdo.setObjectName(u"airplaneRdo")
+        self.horizontalLayout_321 = QHBoxLayout(self.airplaneRdo)
+        self.horizontalLayout_321.setSpacing(20)
+        self.horizontalLayout_321.setObjectName(u"horizontalLayout_321")
+        self.horizontalLayout_321.setContentsMargins(0, 0, 0, 0)
+        self.airplaneDefaultRdo = QRadioButton(self.airplaneRdo)
+        self.airplaneDefaultRdo.setObjectName(u"airplaneDefaultRdo")
+        self.airplaneDefaultRdo.setChecked(True)
 
-        self.verticalLayout_81.addWidget(self.hideRotationChk)
+        self.horizontalLayout_321.addWidget(self.airplaneDefaultRdo)
 
-        self.hideAirPlayChk = QCheckBox(self.statusBarPageContent)
-        self.hideAirPlayChk.setObjectName(u"hideAirPlayChk")
+        self.airplaneShowRdo = QRadioButton(self.airplaneRdo)
+        self.airplaneShowRdo.setObjectName(u"airplaneShowRdo")
 
-        self.verticalLayout_81.addWidget(self.hideAirPlayChk)
+        self.horizontalLayout_321.addWidget(self.airplaneShowRdo)
 
-        self.hideCarPlayChk = QCheckBox(self.statusBarPageContent)
-        self.hideCarPlayChk.setObjectName(u"hideCarPlayChk")
+        self.airplaneHideRdo = QRadioButton(self.airplaneRdo)
+        self.airplaneHideRdo.setObjectName(u"airplaneHideRdo")
 
-        self.verticalLayout_81.addWidget(self.hideCarPlayChk)
+        self.horizontalLayout_321.addWidget(self.airplaneHideRdo)
 
-        self.hideVPNChk = QCheckBox(self.statusBarPageContent)
-        self.hideVPNChk.setObjectName(u"hideVPNChk")
+        self.horizontalSpacer_201 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.verticalLayout_81.addWidget(self.hideVPNChk)
+        self.horizontalLayout_321.addItem(self.horizontalSpacer_201)
+
+
+        self.verticalLayout_81.addWidget(self.airplaneRdo)
+
+        self.label_182 = QLabel(self.statusBarPageContent)
+        self.label_182.setObjectName(u"label_182")
+
+        self.verticalLayout_81.addWidget(self.label_182)
+
+        self.wifiRdo = QWidget(self.statusBarPageContent)
+        self.wifiRdo.setObjectName(u"wifiRdo")
+        self.horizontalLayout_322 = QHBoxLayout(self.wifiRdo)
+        self.horizontalLayout_322.setSpacing(20)
+        self.horizontalLayout_322.setObjectName(u"horizontalLayout_322")
+        self.horizontalLayout_322.setContentsMargins(0, 0, 0, 0)
+        self.wifiDefaultRdo = QRadioButton(self.wifiRdo)
+        self.wifiDefaultRdo.setObjectName(u"wifiDefaultRdo")
+        self.wifiDefaultRdo.setChecked(True)
+
+        self.horizontalLayout_322.addWidget(self.wifiDefaultRdo)
+
+        self.wifiShowRdo = QRadioButton(self.wifiRdo)
+        self.wifiShowRdo.setObjectName(u"wifiShowRdo")
+
+        self.horizontalLayout_322.addWidget(self.wifiShowRdo)
+
+        self.wifiHideRdo = QRadioButton(self.wifiRdo)
+        self.wifiHideRdo.setObjectName(u"wifiHideRdo")
+
+        self.horizontalLayout_322.addWidget(self.wifiHideRdo)
+
+        self.horizontalSpacer_202 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_322.addItem(self.horizontalSpacer_202)
+
+
+        self.verticalLayout_81.addWidget(self.wifiRdo)
 
         self.label_121 = QLabel(self.statusBarPageContent)
         self.label_121.setObjectName(u"label_121")
 
         self.verticalLayout_81.addWidget(self.label_121)
+
+        self.label_183 = QLabel(self.statusBarPageContent)
+        self.label_183.setObjectName(u"label_183")
+
+        self.verticalLayout_81.addWidget(self.label_183)
+
+        self.batteryRdo = QWidget(self.statusBarPageContent)
+        self.batteryRdo.setObjectName(u"batteryRdo")
+        self.horizontalLayout_323 = QHBoxLayout(self.batteryRdo)
+        self.horizontalLayout_323.setSpacing(20)
+        self.horizontalLayout_323.setObjectName(u"horizontalLayout_323")
+        self.horizontalLayout_323.setContentsMargins(0, 0, 0, 0)
+        self.batteryDefaultRdo = QRadioButton(self.batteryRdo)
+        self.batteryDefaultRdo.setObjectName(u"batteryDefaultRdo")
+        self.batteryDefaultRdo.setChecked(True)
+
+        self.horizontalLayout_323.addWidget(self.batteryDefaultRdo)
+
+        self.batteryShowRdo = QRadioButton(self.batteryRdo)
+        self.batteryShowRdo.setObjectName(u"batteryShowRdo")
+
+        self.horizontalLayout_323.addWidget(self.batteryShowRdo)
+
+        self.batteryHideRdo = QRadioButton(self.batteryRdo)
+        self.batteryHideRdo.setObjectName(u"batteryHideRdo")
+
+        self.horizontalLayout_323.addWidget(self.batteryHideRdo)
+
+        self.horizontalSpacer_203 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_323.addItem(self.horizontalSpacer_203)
+
+
+        self.verticalLayout_81.addWidget(self.batteryRdo)
+
+        self.label_184 = QLabel(self.statusBarPageContent)
+        self.label_184.setObjectName(u"label_184")
+
+        self.verticalLayout_81.addWidget(self.label_184)
+
+        self.bluetoothRdo = QWidget(self.statusBarPageContent)
+        self.bluetoothRdo.setObjectName(u"bluetoothRdo")
+        self.horizontalLayout_324 = QHBoxLayout(self.bluetoothRdo)
+        self.horizontalLayout_324.setSpacing(20)
+        self.horizontalLayout_324.setObjectName(u"horizontalLayout_324")
+        self.horizontalLayout_324.setContentsMargins(0, 0, 0, 0)
+        self.bluetoothDefaultRdo = QRadioButton(self.bluetoothRdo)
+        self.bluetoothDefaultRdo.setObjectName(u"bluetoothDefaultRdo")
+        self.bluetoothDefaultRdo.setChecked(True)
+
+        self.horizontalLayout_324.addWidget(self.bluetoothDefaultRdo)
+
+        self.bluetoothShowRdo = QRadioButton(self.bluetoothRdo)
+        self.bluetoothShowRdo.setObjectName(u"bluetoothShowRdo")
+
+        self.horizontalLayout_324.addWidget(self.bluetoothShowRdo)
+
+        self.bluetoothHideRdo = QRadioButton(self.bluetoothRdo)
+        self.bluetoothHideRdo.setObjectName(u"bluetoothHideRdo")
+
+        self.horizontalLayout_324.addWidget(self.bluetoothHideRdo)
+
+        self.horizontalSpacer_204 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_324.addItem(self.horizontalSpacer_204)
+
+
+        self.verticalLayout_81.addWidget(self.bluetoothRdo)
+
+        self.label_185 = QLabel(self.statusBarPageContent)
+        self.label_185.setObjectName(u"label_185")
+
+        self.verticalLayout_81.addWidget(self.label_185)
+
+        self.alarmRdo = QWidget(self.statusBarPageContent)
+        self.alarmRdo.setObjectName(u"alarmRdo")
+        self.horizontalLayout_325 = QHBoxLayout(self.alarmRdo)
+        self.horizontalLayout_325.setSpacing(20)
+        self.horizontalLayout_325.setObjectName(u"horizontalLayout_325")
+        self.horizontalLayout_325.setContentsMargins(0, 0, 0, 0)
+        self.alarmDefaultRdo = QRadioButton(self.alarmRdo)
+        self.alarmDefaultRdo.setObjectName(u"alarmDefaultRdo")
+        self.alarmDefaultRdo.setChecked(True)
+
+        self.horizontalLayout_325.addWidget(self.alarmDefaultRdo)
+
+        self.alarmShowRdo = QRadioButton(self.alarmRdo)
+        self.alarmShowRdo.setObjectName(u"alarmShowRdo")
+
+        self.horizontalLayout_325.addWidget(self.alarmShowRdo)
+
+        self.alarmHideRdo = QRadioButton(self.alarmRdo)
+        self.alarmHideRdo.setObjectName(u"alarmHideRdo")
+
+        self.horizontalLayout_325.addWidget(self.alarmHideRdo)
+
+        self.horizontalSpacer_205 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_325.addItem(self.horizontalSpacer_205)
+
+
+        self.verticalLayout_81.addWidget(self.alarmRdo)
+
+        self.label_186 = QLabel(self.statusBarPageContent)
+        self.label_186.setObjectName(u"label_186")
+
+        self.verticalLayout_81.addWidget(self.label_186)
+
+        self.locationRdo = QWidget(self.statusBarPageContent)
+        self.locationRdo.setObjectName(u"locationRdo")
+        self.horizontalLayout_326 = QHBoxLayout(self.locationRdo)
+        self.horizontalLayout_326.setSpacing(20)
+        self.horizontalLayout_326.setObjectName(u"horizontalLayout_326")
+        self.horizontalLayout_326.setContentsMargins(0, 0, 0, 0)
+        self.locationDefaultRdo = QRadioButton(self.locationRdo)
+        self.locationDefaultRdo.setObjectName(u"locationDefaultRdo")
+        self.locationDefaultRdo.setChecked(True)
+
+        self.horizontalLayout_326.addWidget(self.locationDefaultRdo)
+
+        self.locationShowRdo = QRadioButton(self.locationRdo)
+        self.locationShowRdo.setObjectName(u"locationShowRdo")
+
+        self.horizontalLayout_326.addWidget(self.locationShowRdo)
+
+        self.locationHideRdo = QRadioButton(self.locationRdo)
+        self.locationHideRdo.setObjectName(u"locationHideRdo")
+
+        self.horizontalLayout_326.addWidget(self.locationHideRdo)
+
+        self.horizontalSpacer_206 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_326.addItem(self.horizontalSpacer_206)
+
+
+        self.verticalLayout_81.addWidget(self.locationRdo)
+
+        self.label_187 = QLabel(self.statusBarPageContent)
+        self.label_187.setObjectName(u"label_187")
+
+        self.verticalLayout_81.addWidget(self.label_187)
+
+        self.rotationRdo = QWidget(self.statusBarPageContent)
+        self.rotationRdo.setObjectName(u"rotationRdo")
+        self.horizontalLayout_327 = QHBoxLayout(self.rotationRdo)
+        self.horizontalLayout_327.setSpacing(20)
+        self.horizontalLayout_327.setObjectName(u"horizontalLayout_327")
+        self.horizontalLayout_327.setContentsMargins(0, 0, 0, 0)
+        self.rotationDefaultRdo = QRadioButton(self.rotationRdo)
+        self.rotationDefaultRdo.setObjectName(u"rotationDefaultRdo")
+        self.rotationDefaultRdo.setChecked(True)
+
+        self.horizontalLayout_327.addWidget(self.rotationDefaultRdo)
+
+        self.rotationShowRdo = QRadioButton(self.rotationRdo)
+        self.rotationShowRdo.setObjectName(u"rotationShowRdo")
+
+        self.horizontalLayout_327.addWidget(self.rotationShowRdo)
+
+        self.rotationHideRdo = QRadioButton(self.rotationRdo)
+        self.rotationHideRdo.setObjectName(u"rotationHideRdo")
+
+        self.horizontalLayout_327.addWidget(self.rotationHideRdo)
+
+        self.horizontalSpacer_207 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_327.addItem(self.horizontalSpacer_207)
+
+
+        self.verticalLayout_81.addWidget(self.rotationRdo)
+
+        self.label_188 = QLabel(self.statusBarPageContent)
+        self.label_188.setObjectName(u"label_188")
+
+        self.verticalLayout_81.addWidget(self.label_188)
+
+        self.airplayRdo = QWidget(self.statusBarPageContent)
+        self.airplayRdo.setObjectName(u"airplayRdo")
+        self.horizontalLayout_328 = QHBoxLayout(self.airplayRdo)
+        self.horizontalLayout_328.setSpacing(20)
+        self.horizontalLayout_328.setObjectName(u"horizontalLayout_328")
+        self.horizontalLayout_328.setContentsMargins(0, 0, 0, 0)
+        self.airplayDefaultRdo = QRadioButton(self.airplayRdo)
+        self.airplayDefaultRdo.setObjectName(u"airplayDefaultRdo")
+        self.airplayDefaultRdo.setChecked(True)
+
+        self.horizontalLayout_328.addWidget(self.airplayDefaultRdo)
+
+        self.airplayShowRdo = QRadioButton(self.airplayRdo)
+        self.airplayShowRdo.setObjectName(u"airplayShowRdo")
+
+        self.horizontalLayout_328.addWidget(self.airplayShowRdo)
+
+        self.airplayHideRdo = QRadioButton(self.airplayRdo)
+        self.airplayHideRdo.setObjectName(u"airplayHideRdo")
+
+        self.horizontalLayout_328.addWidget(self.airplayHideRdo)
+
+        self.horizontalSpacer_208 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_328.addItem(self.horizontalSpacer_208)
+
+
+        self.verticalLayout_81.addWidget(self.airplayRdo)
+
+        self.label_189 = QLabel(self.statusBarPageContent)
+        self.label_189.setObjectName(u"label_189")
+
+        self.verticalLayout_81.addWidget(self.label_189)
+
+        self.carplayRdo = QWidget(self.statusBarPageContent)
+        self.carplayRdo.setObjectName(u"carplayRdo")
+        self.horizontalLayout_329 = QHBoxLayout(self.carplayRdo)
+        self.horizontalLayout_329.setSpacing(20)
+        self.horizontalLayout_329.setObjectName(u"horizontalLayout_329")
+        self.horizontalLayout_329.setContentsMargins(0, 0, 0, 0)
+        self.carplayDefaultRdo = QRadioButton(self.carplayRdo)
+        self.carplayDefaultRdo.setObjectName(u"carplayDefaultRdo")
+        self.carplayDefaultRdo.setChecked(True)
+
+        self.horizontalLayout_329.addWidget(self.carplayDefaultRdo)
+
+        self.carplayShowRdo = QRadioButton(self.carplayRdo)
+        self.carplayShowRdo.setObjectName(u"carplayShowRdo")
+
+        self.horizontalLayout_329.addWidget(self.carplayShowRdo)
+
+        self.carplayHideRdo = QRadioButton(self.carplayRdo)
+        self.carplayHideRdo.setObjectName(u"carplayHideRdo")
+
+        self.horizontalLayout_329.addWidget(self.carplayHideRdo)
+
+        self.horizontalSpacer_209 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_329.addItem(self.horizontalSpacer_209)
+
+
+        self.verticalLayout_81.addWidget(self.carplayRdo)
+
+        self.label_1810 = QLabel(self.statusBarPageContent)
+        self.label_1810.setObjectName(u"label_1810")
+
+        self.verticalLayout_81.addWidget(self.label_1810)
+
+        self.vpnRdo = QWidget(self.statusBarPageContent)
+        self.vpnRdo.setObjectName(u"vpnRdo")
+        self.horizontalLayout_3210 = QHBoxLayout(self.vpnRdo)
+        self.horizontalLayout_3210.setSpacing(20)
+        self.horizontalLayout_3210.setObjectName(u"horizontalLayout_3210")
+        self.horizontalLayout_3210.setContentsMargins(0, 0, 0, 0)
+        self.vpnDefaultRdo = QRadioButton(self.vpnRdo)
+        self.vpnDefaultRdo.setObjectName(u"vpnDefaultRdo")
+        self.vpnDefaultRdo.setChecked(True)
+
+        self.horizontalLayout_3210.addWidget(self.vpnDefaultRdo)
+
+        self.vpnShowRdo = QRadioButton(self.vpnRdo)
+        self.vpnShowRdo.setObjectName(u"vpnShowRdo")
+
+        self.horizontalLayout_3210.addWidget(self.vpnShowRdo)
+
+        self.vpnHideRdo = QRadioButton(self.vpnRdo)
+        self.vpnHideRdo.setObjectName(u"vpnHideRdo")
+
+        self.horizontalLayout_3210.addWidget(self.vpnHideRdo)
+
+        self.horizontalSpacer_2010 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_3210.addItem(self.horizontalSpacer_2010)
+
+
+        self.verticalLayout_81.addWidget(self.vpnRdo)
+
+        self.label_19 = QLabel(self.statusBarPageContent)
+        self.label_19.setObjectName(u"label_19")
+
+        self.verticalLayout_81.addWidget(self.label_19)
+
+        self.studentRdo = QWidget(self.statusBarPageContent)
+        self.studentRdo.setObjectName(u"studentRdo")
+        self.horizontalLayout_34 = QHBoxLayout(self.studentRdo)
+        self.horizontalLayout_34.setSpacing(20)
+        self.horizontalLayout_34.setObjectName(u"horizontalLayout_34")
+        self.horizontalLayout_34.setContentsMargins(0, 0, 0, 0)
+        self.studentDefaultRdo = QRadioButton(self.studentRdo)
+        self.studentDefaultRdo.setObjectName(u"studentDefaultRdo")
+        self.studentDefaultRdo.setChecked(True)
+
+        self.horizontalLayout_34.addWidget(self.studentDefaultRdo)
+
+        self.studentShowRdo = QRadioButton(self.studentRdo)
+        self.studentShowRdo.setObjectName(u"studentShowRdo")
+
+        self.horizontalLayout_34.addWidget(self.studentShowRdo)
+
+        self.studentHideRdo = QRadioButton(self.studentRdo)
+        self.studentHideRdo.setObjectName(u"studentHideRdo")
+
+        self.horizontalLayout_34.addWidget(self.studentHideRdo)
+
+        self.horizontalSpacer_22 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_34.addItem(self.horizontalSpacer_22)
+
+
+        self.verticalLayout_81.addWidget(self.studentRdo)
+
+        self.label_20 = QLabel(self.statusBarPageContent)
+        self.label_20.setObjectName(u"label_20")
+
+        self.verticalLayout_81.addWidget(self.label_20)
+
+        self.waterRdo = QWidget(self.statusBarPageContent)
+        self.waterRdo.setObjectName(u"waterRdo")
+        self.horizontalLayout_35 = QHBoxLayout(self.waterRdo)
+        self.horizontalLayout_35.setSpacing(20)
+        self.horizontalLayout_35.setObjectName(u"horizontalLayout_35")
+        self.horizontalLayout_35.setContentsMargins(0, 0, 0, 0)
+        self.waterDefaultRdo = QRadioButton(self.waterRdo)
+        self.waterDefaultRdo.setObjectName(u"waterDefaultRdo")
+        self.waterDefaultRdo.setChecked(True)
+
+        self.horizontalLayout_35.addWidget(self.waterDefaultRdo)
+
+        self.waterShowRdo = QRadioButton(self.waterRdo)
+        self.waterShowRdo.setObjectName(u"waterShowRdo")
+
+        self.horizontalLayout_35.addWidget(self.waterShowRdo)
+
+        self.waterHideRdo = QRadioButton(self.waterRdo)
+        self.waterHideRdo.setObjectName(u"waterHideRdo")
+
+        self.horizontalLayout_35.addWidget(self.waterHideRdo)
+
+        self.horizontalSpacer_23 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_35.addItem(self.horizontalSpacer_23)
+
+
+        self.verticalLayout_81.addWidget(self.waterRdo)
+
+        self.label_21 = QLabel(self.statusBarPageContent)
+        self.label_21.setObjectName(u"label_21")
+
+        self.verticalLayout_81.addWidget(self.label_21)
+
+        self.vcRdo = QWidget(self.statusBarPageContent)
+        self.vcRdo.setObjectName(u"vcRdo")
+        self.horizontalLayout_36 = QHBoxLayout(self.vcRdo)
+        self.horizontalLayout_36.setSpacing(20)
+        self.horizontalLayout_36.setObjectName(u"horizontalLayout_36")
+        self.horizontalLayout_36.setContentsMargins(0, 0, 0, 0)
+        self.vcDefaultRdo = QRadioButton(self.vcRdo)
+        self.vcDefaultRdo.setObjectName(u"vcDefaultRdo")
+        self.vcDefaultRdo.setChecked(True)
+
+        self.horizontalLayout_36.addWidget(self.vcDefaultRdo)
+
+        self.vcShowRdo = QRadioButton(self.vcRdo)
+        self.vcShowRdo.setObjectName(u"vcShowRdo")
+
+        self.horizontalLayout_36.addWidget(self.vcShowRdo)
+
+        self.vcHideRdo = QRadioButton(self.vcRdo)
+        self.vcHideRdo.setObjectName(u"vcHideRdo")
+
+        self.horizontalLayout_36.addWidget(self.vcHideRdo)
+
+        self.horizontalSpacer_24 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_36.addItem(self.horizontalSpacer_24)
+
+
+        self.verticalLayout_81.addWidget(self.vcRdo)
 
         self.sillyModeChk = QCheckBox(self.statusBarPageContent)
         self.sillyModeChk.setObjectName(u"sillyModeChk")
@@ -4647,18 +5068,63 @@ class Ui_Nugget(object):
         self.numericWifiChk.setText(QCoreApplication.translate("Nugget", u"Show Numeric Wi-Fi Strength", None))
         self.numericCellChk.setText(QCoreApplication.translate("Nugget", u"Show Numeric Cellular Strength", None))
         self.label_51.setText(QCoreApplication.translate("Nugget", u"*When set to blank on notched devices, this will display the carrier name.", None))
-        self.hideDNDChk.setText(QCoreApplication.translate("Nugget", u"Hide Do Not Disturb", None))
-        self.hideAirplaneChk.setText(QCoreApplication.translate("Nugget", u"Hide Airplane Mode", None))
-        self.hideWifiChk.setText(QCoreApplication.translate("Nugget", u"Hide Wi-Fi^", None))
-        self.hideBatteryChk.setText(QCoreApplication.translate("Nugget", u"Hide Battery", None))
-        self.hideBluetoothChk.setText(QCoreApplication.translate("Nugget", u"Hide Bluetooth", None))
-        self.hideAlarmChk.setText(QCoreApplication.translate("Nugget", u"Hide Alarm", None))
-        self.hideLocationChk.setText(QCoreApplication.translate("Nugget", u"Hide Location", None))
-        self.hideRotationChk.setText(QCoreApplication.translate("Nugget", u"Hide Rotation Lock", None))
-        self.hideAirPlayChk.setText(QCoreApplication.translate("Nugget", u"Hide AirPlay", None))
-        self.hideCarPlayChk.setText(QCoreApplication.translate("Nugget", u"Hide CarPlay", None))
-        self.hideVPNChk.setText(QCoreApplication.translate("Nugget", u"Hide VPN", None))
+        self.label_18.setText(QCoreApplication.translate("Nugget", u"Focus Mode Icon", None))
+        self.dndDefaultRdo.setText(QCoreApplication.translate("Nugget", u"Default", None))
+        self.dndShowRdo.setText(QCoreApplication.translate("Nugget", u"Always Show", None))
+        self.dndHideRdo.setText(QCoreApplication.translate("Nugget", u"Always Hide", None))
+        self.label_181.setText(QCoreApplication.translate("Nugget", u"Airplane Mode", None))
+        self.airplaneDefaultRdo.setText(QCoreApplication.translate("Nugget", u"Default", None))
+        self.airplaneShowRdo.setText(QCoreApplication.translate("Nugget", u"Always Show", None))
+        self.airplaneHideRdo.setText(QCoreApplication.translate("Nugget", u"Always Hide", None))
+        self.label_182.setText(QCoreApplication.translate("Nugget", u"Wi-Fi Icon", None))
+        self.wifiDefaultRdo.setText(QCoreApplication.translate("Nugget", u"Default", None))
+        self.wifiShowRdo.setText(QCoreApplication.translate("Nugget", u"Always Show", None))
+        self.wifiHideRdo.setText(QCoreApplication.translate("Nugget", u"Always Hide", None))
         self.label_121.setText(QCoreApplication.translate("Nugget", u"^Will also hide cellular data indicator.", None))
+        self.label_183.setText(QCoreApplication.translate("Nugget", u"Battery Icon", None))
+        self.batteryDefaultRdo.setText(QCoreApplication.translate("Nugget", u"Default", None))
+        self.batteryShowRdo.setText(QCoreApplication.translate("Nugget", u"Always Show", None))
+        self.batteryHideRdo.setText(QCoreApplication.translate("Nugget", u"Always Hide", None))
+        self.label_184.setText(QCoreApplication.translate("Nugget", u"Bluetooth Icon", None))
+        self.bluetoothDefaultRdo.setText(QCoreApplication.translate("Nugget", u"Default", None))
+        self.bluetoothShowRdo.setText(QCoreApplication.translate("Nugget", u"Always Show", None))
+        self.bluetoothHideRdo.setText(QCoreApplication.translate("Nugget", u"Always Hide", None))
+        self.label_185.setText(QCoreApplication.translate("Nugget", u"Alarm Icon", None))
+        self.alarmDefaultRdo.setText(QCoreApplication.translate("Nugget", u"Default", None))
+        self.alarmShowRdo.setText(QCoreApplication.translate("Nugget", u"Always Show", None))
+        self.alarmHideRdo.setText(QCoreApplication.translate("Nugget", u"Always Hide", None))
+        self.label_186.setText(QCoreApplication.translate("Nugget", u"Location Icon", None))
+        self.locationDefaultRdo.setText(QCoreApplication.translate("Nugget", u"Default", None))
+        self.locationShowRdo.setText(QCoreApplication.translate("Nugget", u"Always Show", None))
+        self.locationHideRdo.setText(QCoreApplication.translate("Nugget", u"Always Hide", None))
+        self.label_187.setText(QCoreApplication.translate("Nugget", u"Rotation Lock Icon", None))
+        self.rotationDefaultRdo.setText(QCoreApplication.translate("Nugget", u"Default", None))
+        self.rotationShowRdo.setText(QCoreApplication.translate("Nugget", u"Always Show", None))
+        self.rotationHideRdo.setText(QCoreApplication.translate("Nugget", u"Always Hide", None))
+        self.label_188.setText(QCoreApplication.translate("Nugget", u"AirPlay Icon", None))
+        self.airplayDefaultRdo.setText(QCoreApplication.translate("Nugget", u"Default", None))
+        self.airplayShowRdo.setText(QCoreApplication.translate("Nugget", u"Always Show", None))
+        self.airplayHideRdo.setText(QCoreApplication.translate("Nugget", u"Always Hide", None))
+        self.label_189.setText(QCoreApplication.translate("Nugget", u"CarPlay Icon", None))
+        self.carplayDefaultRdo.setText(QCoreApplication.translate("Nugget", u"Default", None))
+        self.carplayShowRdo.setText(QCoreApplication.translate("Nugget", u"Always Show", None))
+        self.carplayHideRdo.setText(QCoreApplication.translate("Nugget", u"Always Hide", None))
+        self.label_1810.setText(QCoreApplication.translate("Nugget", u"VPN Icon", None))
+        self.vpnDefaultRdo.setText(QCoreApplication.translate("Nugget", u"Default", None))
+        self.vpnShowRdo.setText(QCoreApplication.translate("Nugget", u"Always Show", None))
+        self.vpnHideRdo.setText(QCoreApplication.translate("Nugget", u"Always Hide", None))
+        self.label_19.setText(QCoreApplication.translate("Nugget", u"Classroom Icon", None))
+        self.studentDefaultRdo.setText(QCoreApplication.translate("Nugget", u"Default", None))
+        self.studentShowRdo.setText(QCoreApplication.translate("Nugget", u"Always Show", None))
+        self.studentHideRdo.setText(QCoreApplication.translate("Nugget", u"Always Hide", None))
+        self.label_20.setText(QCoreApplication.translate("Nugget", u"Liquid Detection Warning Icon", None))
+        self.waterDefaultRdo.setText(QCoreApplication.translate("Nugget", u"Default", None))
+        self.waterShowRdo.setText(QCoreApplication.translate("Nugget", u"Always Show", None))
+        self.waterHideRdo.setText(QCoreApplication.translate("Nugget", u"Always Hide", None))
+        self.label_21.setText(QCoreApplication.translate("Nugget", u"Voice Control Icon", None))
+        self.vcDefaultRdo.setText(QCoreApplication.translate("Nugget", u"Default", None))
+        self.vcShowRdo.setText(QCoreApplication.translate("Nugget", u"Always Show", None))
+        self.vcHideRdo.setText(QCoreApplication.translate("Nugget", u"Always Hide", None))
 #if QT_CONFIG(tooltip)
         self.sillyModeChk.setToolTip(QCoreApplication.translate("Nugget", u"Force enables everything", None))
 #endif // QT_CONFIG(tooltip)
