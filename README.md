@@ -8,7 +8,7 @@ Customize your device with animated wallpapers, disable pesky daemons, and more!
 Make sure you have installed the [requirements](#requirements) if you are on Windows or Linux.
 
 > [!NOTE]
-> Please back up your data before using! Nugget may cause unforseen problems, so it is better to be same than sorry. We are not responsible for any damange done to your device.
+> Please back up your data before using this Project! Nugget may cause unforeseen problems, so it is better to be safe than sorry. We are not responsible for any damage done to your device.
 
 ## Features
 <details>
@@ -57,7 +57,7 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
   - Custom Resolution
 </details>
 <details>
-<summary>iOS 17.0 - 18.1.1</summary>
+<summary>iOS 17.0 - iOS 18.1.1</summary>
 
 - Enable Dynamic Island on any device
 - Enable iPhone X gestures on iPhone SEs
@@ -89,7 +89,7 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
 - Enable AOD & AOD Vibrancy on any device
 </details>
 <details>
-<summary>iOS 18.1 - 18.1.1</summary>
+<summary>iOS 18.1 - iOS 18.1.1</summary>
 
 - AI Enabler
 - Device Spoofing
@@ -99,7 +99,7 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
 <details>
 <summary>Windows</summary>
   
-  - Either [Apple Devices (from Microsoft Store)][AppleDevices] App or [iTunes (from Apple website)][iTunes]
+  - Either the [Apple Devices (from Microsoft Store)][AppleDevices] App or [iTunes (from Apple website)][iTunes]
 </details>
 
 <details>
@@ -137,9 +137,9 @@ pip3 install -r requirements.txt # only needed once
 python3 main_app.py
 ```
 > [!NOTE]
-> It may be either `python`/`pip` or `python3`/`pip3` depending on your path.
+> Depending on your system configuration, use either `python/pip` or `python3/pip3`.
 
-The CLI version can be ran with:
+The CLI version can be run with:
 ```py 
 python3 cli_app.py
 ```
