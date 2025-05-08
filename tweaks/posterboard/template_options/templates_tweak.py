@@ -17,13 +17,14 @@ class TemplatesTweak(Tweak):
 
     def uses_domains(self):
         # TODO: figure out which templates use sparse restore
-        return len(self.templates) > 0
+        for template in self.templates:
+            if not template.domain.startswith("Sparserestore-"):
+                return True
+        return False
 
     def add_template(self, file: str, version: str = None):
         try:
             new_template = TemplateFile(path=file, device_version=version)
-            if new_template.domain == "com.apple.PosterBoard":
-                raise PBTemplateException(file=file, message="This is a PosterBoard template. Please import it on the PosterBoard page.")
             self.templates.append(new_template)
         except Exception as e:
             print(traceback.format_exc())
@@ -74,14 +75,16 @@ class TemplatesTweak(Tweak):
                 else:
                     self.recursive_add(domain, files_to_restore, os.path.join(curr_path, folder), isAdding=False)
 
-    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, version: str, update_label=lambda x: None):
+    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, templates: list, version: str, update_label=lambda x: None):
         if len(self.templates) == 0:
             return
         update_label("Extracting templates...")
         # extract templates
         for template in self.templates:
-            temp_dir = os.path.join(output_dir, str(uuid.uuid4()))
-            os.makedirs(temp_dir)
-            template.extract(output_dir=temp_dir)
-            self.recursive_add(domain=template.domain, files_to_restore=files_to_restore, curr_path=temp_dir)
+            # ignore PosterBoard templates since that is handled in PosterBoard tweaks
+            if template.domain != 'com.apple.PosterBoard' and template.domain != 'AppDomain-com.apple.PosterBoard':
+                temp_dir = os.path.join(output_dir, str(uuid.uuid4()))
+                os.makedirs(temp_dir)
+                template.extract(output_dir=temp_dir)
+                self.recursive_add(domain=template.domain, files_to_restore=files_to_restore, curr_path=temp_dir)
         update_label("Adding other tweaks...")

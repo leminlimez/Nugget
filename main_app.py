@@ -26,7 +26,7 @@ if __name__ == "__main__":
             tweaks["PosterBoard"].add_tendie(arg)
         elif arg.endswith('.batter'):
             # add batter file
-            tweaks["PosterBoard"].add_template(arg)
+            tweaks["Templates"].add_template(arg)
     
     print("Nugget launched.")
     sys.exit(app.exec())

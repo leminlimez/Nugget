@@ -56,8 +56,8 @@ class PosterboardPage(Page):
         # load the pages if needed
         if len(tweaks["PosterBoard"].tendies) > 0:
             self.load_pb_tendies()
-        if len(tweaks["PosterBoard"].templates) > 0:
-            self.load_pb_templates()
+        # if len(tweaks["PosterBoard"].templates) > 0:
+        #     self.load_pb_templates()
 
     ## ACTIONS
     def delete_pb_file(self, file, widget):

@@ -49,6 +49,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # hide every page
         self.ui.posterboardPageBtn.hide()
+        self.ui.templatePageBtn.hide()
         self.ui.gestaltPageBtn.hide()
         self.ui.euEnablerPageBtn.hide()
         self.ui.featureFlagsPageBtn.hide()
@@ -324,10 +325,15 @@ class MainWindow(QtWidgets.QMainWindow):
             # show the PB if initial load is true
             if self.initial_load:
                 self.initial_load = False
-                if len(tweaks["PosterBoard"].tendies) > 0 or len(tweaks["PosterBoard"].templates) > 0:
+                if len(tweaks["PosterBoard"].tendies) > 0:
                     self.pages[Page.Posterboard].load()
                     self.ui.pages.setCurrentIndex(Page.Posterboard.value)
                     self.ui.posterboardPageBtn.setChecked(True)
+                    self.ui.homePageBtn.setChecked(False)
+                elif len(tweaks["Templates"].templates) > 0:
+                    self.pages[Page.Templates].load()
+                    self.ui.pages.setCurrentIndex(Page.Templates.value)
+                    self.ui.templatePageBtn.setChecked(True)
                     self.ui.homePageBtn.setChecked(False)
         else:
             self.device_manager.set_current_device(index=None)

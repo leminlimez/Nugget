@@ -20,7 +20,7 @@ class PosterboardTweak(Tweak):
     def __init__(self):
         super().__init__(key=None)
         self.tendies: list[TendieFile] = []
-        self.templates: list[TemplateFile] = []
+        # self.templates: list[TemplateFile] = []
         self.videoThumbnail = None
         self.videoFile = None
         self.loop_video = True
@@ -31,11 +31,12 @@ class PosterboardTweak(Tweak):
         self.structure_version = 61
 
     def uses_domains(self):
-        return (len(self.tendies) > 0 or len(self.templates) > 0 or self.videoFile != None or len(self.resetModes) > 0)
+        return (len(self.tendies) > 0 or self.videoFile != None or len(self.resetModes) > 0)
 
     def verify_tendie(self, new_tendie: TendieFile, is_template: bool = False) -> bool:
         if new_tendie.descriptor_cnt + self.get_descriptor_count() <= 10:
             if is_template:
+                raise Exception("Wrong type of file")
                 self.templates.append(new_tendie)
             else:
                 self.tendies.append(new_tendie)
@@ -213,7 +214,7 @@ class PosterboardTweak(Tweak):
             
             
 
-    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, version: str, update_label=lambda x: None):
+    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, templates: list[TemplateFile], version: str, update_label=lambda x: None):
         # unzip the file
         if version.startswith("16"):
             # iOS 16 has a different number for the structure
@@ -244,7 +245,7 @@ class PosterboardTweak(Tweak):
                     domain=f"AppDomain-{self.bundle_id}"
                 ))
             return
-        elif len(self.tendies) == 0 and len(self.templates) == 0 and self.videoFile == None:
+        elif len(self.tendies) == 0 and len(templates) == 0 and self.videoFile == None:
             return
         update_label("Generating PosterBoard Video...")
         self.create_live_photo_files(output_dir)
@@ -254,9 +255,10 @@ class PosterboardTweak(Tweak):
             update_label(f"Extracting tendie {tendie.name}...")
             tendie.extract(output_dir=output_dir)
         # extract templates
-        for template in self.templates:
-            update_label(f"Configuring template {template.name}...")
-            template.extract(output_dir=output_dir)
+        for template in templates:
+            if template.domain == 'com.apple.PosterBoard' or template.domain == 'AppDomain-com.apple.PosterBoard':
+                update_label(f"Configuring template {template.name}...")
+                template.extract(output_dir=output_dir)
         # add the files
         update_label("Adding tendies...")
         self.recursive_add(files_to_restore, curr_path=output_dir)
