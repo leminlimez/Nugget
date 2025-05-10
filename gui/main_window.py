@@ -17,7 +17,7 @@ from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThrea
 from tweaks.tweaks import tweaks
 
 App_Version = "6.0"
-App_Build = 2
+App_Build = 3
 
 class Page(Enum):
     Home = 0
@@ -306,7 +306,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.euEnablerPageBtn.hide()
             
             # hide the ai content if not on
-            if device_ver >= Version("18.1") and not tweaks["AIGestalt"].enabled:
+            if device_ver >= Version("18.1") and (not 'AIGestalt' in tweaks or not tweaks["AIGestalt"].enabled):
                 self.ui.aiEnablerContent.hide()
             if device_ver < Version("18.2"):
                 self.pages[Page.Gestalt].setup_spoofedModelDrp_models()

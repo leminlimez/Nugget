@@ -140,10 +140,6 @@ class Setter:
             print(f"returned {result}")
         except subprocess.CalledProcessError as e:
             raise NuggetException(f"Failed to run status bar process:\n\n{e}")
-        with open(tmpin, "r", encoding='utf-8') as fi:
-            conts = fi.read()
-        with open("C:\\Users\\lemin\\Documents\\sb_out.txt", "w", encoding='utf-8') as fo:
-            fo.write(conts)
         with open(tmpout, "rb") as in_file:
             contents = in_file.read()
         try:
