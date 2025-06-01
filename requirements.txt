@@ -4,3 +4,4 @@ PyInstaller
 ffmpeg
 ffmpeg-python
 opencv-python
+pyperclip

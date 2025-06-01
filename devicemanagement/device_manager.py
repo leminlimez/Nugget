@@ -8,6 +8,7 @@ from PySide6.QtCore import QSettings
 from pymobiledevice3 import usbmux
 from pymobiledevice3.lockdown import create_using_usbmux
 from pymobiledevice3.exceptions import MuxException, PasswordRequiredError, ConnectionTerminatedError
+from pymobiledevice3.services.installation_proxy import InstallationProxyService
 
 from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
@@ -217,6 +218,11 @@ class DeviceManager:
             return True
         else:
             return self.data_singleton.current_device.is_exploit_fully_patched()
+        
+    def get_app_hash(self, bundle_id: str) -> str:
+        apps = InstallationProxyService(lockdown=self.data_singleton.current_device.ld).get_apps(application_type="Any", calculate_sizes=False)
+        app_info = apps[bundle_id]
+        return app_info["Container"].removeprefix("/private/var/mobile/Containers/Data/Application/")
         
 
     def reset_device_pairing(self):

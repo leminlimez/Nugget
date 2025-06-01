@@ -16,8 +16,8 @@ from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThrea
 
 from tweaks.tweaks import tweaks
 
-App_Version = "5.2.2"
-App_Build = 0
+App_Version = "5.2.3"
+App_Build = 1
 
 class Page(Enum):
     Home = 0
@@ -160,6 +160,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.applyPageBtn.hide()
 
             self.ui.resetPairBtn.hide()
+            self.ui.pocketPosterHelperBtn.hide()
             self.ui.showRiskyChk.hide()
         else:
             self.ui.devicePicker.setEnabled(True)
@@ -206,6 +207,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.pbPages.setDisabled(False)
 
             self.ui.resetPairBtn.show()
+            self.ui.pocketPosterHelperBtn.show()
             self.ui.showRiskyChk.show()
         
         # update the selected device
