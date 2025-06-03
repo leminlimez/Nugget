@@ -93,11 +93,16 @@ class SettingsPage(Page):
         # get app hash for posterboard
         pb_hash = self.window.device_manager.get_app_hash("com.apple.PosterBoard")
         print(pb_hash)
-        copytxt = "Copy it and paste"
         try:
-            import pyperclip
-            pyperclip.copy(pb_hash)
-            copytxt = "It has been copied. Paste"
+            self.window.device_manager.send_app_hash_afc(pb_hash)
+            QMessageBox.information(None, "PosterBoard App Hash", "Your hash has been transferred to the Pocket Poster app.\n\nOpen up its settings and tap \"Detect\".")
         except:
-            print("pyperclip not found, not copying to clipboard")
-        QMessageBox.information(None, "PosterBoard App Hash", f"Your hash is:\n{pb_hash}\n\n{copytxt} it into the Nugget app where it says \"App Hash\".")
+            # fall back to copy and paste
+            copytxt = "Copy it and paste"
+            try:
+                import pyperclip
+                pyperclip.copy(pb_hash)
+                copytxt = "It has been copied. Paste"
+            except:
+                print("pyperclip not found, not copying to clipboard")
+            QMessageBox.information(None, "PosterBoard App Hash", f"Your hash is:\n{pb_hash}\n\n{copytxt} it into the Nugget app where it says \"App Hash\".")
