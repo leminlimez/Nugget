@@ -25,7 +25,7 @@ class FileLocation(Enum):
 
 # support for older versions of python that cannot enumerate over enums
 FileLocationsList: list[FileLocation] = [
-    FileLocation.resolution,
+    FileLocation.resolution, FileLocation.disabledDaemons,
     FileLocation.springboard, FileLocation.footnote,
     FileLocation.globalPreferences, FileLocation.appStore, FileLocation.backboardd, FileLocation.coreMotion, FileLocation.pasteboard, FileLocation.notes
 ]
