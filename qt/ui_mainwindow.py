@@ -1747,25 +1747,25 @@ class Ui_Nugget(object):
         self._2 = QVBoxLayout(self.springboardOptionsPageContent)
         self._2.setObjectName(u"_2")
         self._2.setContentsMargins(0, 0, 0, 0)
-        self.label_13 = QLabel(self.springboardOptionsPageContent)
-        self.label_13.setObjectName(u"label_13")
+        self.footnoteLbl = QLabel(self.springboardOptionsPageContent)
+        self.footnoteLbl.setObjectName(u"footnoteLbl")
 
-        self._2.addWidget(self.label_13)
+        self._2.addWidget(self.footnoteLbl)
 
         self.footnoteTxt = QLineEdit(self.springboardOptionsPageContent)
         self.footnoteTxt.setObjectName(u"footnoteTxt")
 
         self._2.addWidget(self.footnoteTxt)
 
-        self.line_6 = QFrame(self.springboardOptionsPageContent)
-        self.line_6.setObjectName(u"line_6")
-        self.line_6.setStyleSheet(u"QFrame {\n"
+        self.footnoteLine = QFrame(self.springboardOptionsPageContent)
+        self.footnoteLine.setObjectName(u"footnoteLine")
+        self.footnoteLine.setStyleSheet(u"QFrame {\n"
 "	color: #414141;\n"
 "}")
-        self.line_6.setFrameShadow(QFrame.Plain)
-        self.line_6.setFrameShape(QFrame.Shape.HLine)
+        self.footnoteLine.setFrameShadow(QFrame.Plain)
+        self.footnoteLine.setFrameShape(QFrame.Shape.HLine)
 
-        self._2.addWidget(self.line_6)
+        self._2.addWidget(self.footnoteLine)
 
         self.disableLockRespringChk = QCheckBox(self.springboardOptionsPageContent)
         self.disableLockRespringChk.setObjectName(u"disableLockRespringChk")
@@ -3762,7 +3762,7 @@ class Ui_Nugget(object):
 #endif // QT_CONFIG(tooltip)
         self.spoofCPUChk.setText(QCoreApplication.translate("Nugget", u"Spoof CPU Model", None))
         self.springboardOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Springboard Options", None))
-        self.label_13.setText(QCoreApplication.translate("Nugget", u"Lock Screen Footnote Text", None))
+        self.footnoteLbl.setText(QCoreApplication.translate("Nugget", u"Lock Screen Footnote Text", None))
         self.footnoteTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Footnote Text", None))
         self.disableLockRespringChk.setText(QCoreApplication.translate("Nugget", u"Disable Lock After Respring", None))
         self.disableDimmingChk.setText(QCoreApplication.translate("Nugget", u"Disable Screen Dimming While Charging", None))
