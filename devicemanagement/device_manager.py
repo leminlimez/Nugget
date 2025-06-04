@@ -239,6 +239,9 @@ class DeviceManager:
                 if app["CFBundleExecutable"] == "Pocket Poster":
                     bundle_id = app["CFBundleIdentifier"]
                     break
+                elif app["CFBundleExecutable"] == "LiveContainer":
+                    # fallback for live container
+                    bundle_id = app["CFBundleIdentifier"]
             afc = HouseArrestService(lockdown=self.data_singleton.current_device.ld, bundle_id=bundle_id, documents_only=True)
             afc.push(tmpf, "/Documents/NuggetAppHash")
         
