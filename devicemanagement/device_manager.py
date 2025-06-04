@@ -1,6 +1,7 @@
 import traceback
 import plistlib
 from tempfile import TemporaryDirectory
+import os.path
 
 from PySide6.QtWidgets import QMessageBox
 from PySide6.QtCore import QSettings
@@ -8,6 +9,8 @@ from PySide6.QtCore import QSettings
 from pymobiledevice3 import usbmux
 from pymobiledevice3.lockdown import create_using_usbmux
 from pymobiledevice3.exceptions import MuxException, PasswordRequiredError, ConnectionTerminatedError
+from pymobiledevice3.services.installation_proxy import InstallationProxyService
+from pymobiledevice3.services.house_arrest import HouseArrestService
 
 from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
@@ -221,6 +224,27 @@ class DeviceManager:
             return True
         else:
             return self.data_singleton.current_device.is_exploit_fully_patched()
+        
+    def get_app_hash(self, bundle_id: str) -> str:
+        apps = InstallationProxyService(lockdown=self.data_singleton.current_device.ld).get_apps(application_type="Any", calculate_sizes=False)
+        app_info = apps[bundle_id]
+        return app_info["Container"].removeprefix("/private/var/mobile/Containers/Data/Application/")
+    
+    def send_app_hash_afc(self, hash: str) -> str:
+        # create a temporary file to send it as
+        with TemporaryDirectory() as tmpdir:
+            tmpf = os.path.join(tmpdir, "NuggetAppHash")
+            with open(tmpf, "w", encoding='UTF-8') as in_file:
+                in_file.write(hash)
+            # get the bundle id of Pocket Poster
+            bundle_id = "com.leemin.Pocket-Poster"
+            apps = InstallationProxyService(lockdown=self.data_singleton.current_device.ld).get_apps(application_type="User", calculate_sizes=False)
+            for app in apps.values():
+                if app["CFBundleExecutable"] == "Pocket Poster":
+                    bundle_id = app["CFBundleIdentifier"]
+                    break
+            afc = HouseArrestService(lockdown=self.data_singleton.current_device.ld, bundle_id=bundle_id, documents_only=True)
+            afc.push(tmpf, "/Documents/NuggetAppHash")
         
 
     def reset_device_pairing(self):

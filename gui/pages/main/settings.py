@@ -1,6 +1,8 @@
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
+from PySide6.QtWidgets import QMessageBox
+
 from tweaks.tweak_loader import load_rdar_fix
 from tweaks.tweaks import tweaks
 from controllers.video_handler import set_ignore_frame_limit
@@ -23,6 +25,7 @@ class SettingsPage(Page):
         self.ui.supervisionChk.toggled.connect(self.on_supervisionChk_toggled)
         self.ui.supervisionOrganization.textEdited.connect(self.on_supervisionOrgTxt_textEdited)
         self.ui.resetPairBtn.clicked.connect(self.on_resetPairBtn_clicked)
+        self.ui.pocketPosterHelperBtn.clicked.connect(self.on_pocketPosterHelperBtn_clicked)
 
     ## ACTIONS
     def on_allowWifiApplyingChk_toggled(self, checked: bool):
@@ -89,3 +92,20 @@ class SettingsPage(Page):
     # Device Options
     def on_resetPairBtn_clicked(self):
         self.window.device_manager.reset_device_pairing()
+    def on_pocketPosterHelperBtn_clicked(self):
+        # get app hash for posterboard
+        pb_hash = self.window.device_manager.get_app_hash("com.apple.PosterBoard")
+        print(pb_hash)
+        try:
+            self.window.device_manager.send_app_hash_afc(pb_hash)
+            QMessageBox.information(None, "PosterBoard App Hash", "Your hash has been transferred to the Pocket Poster app.\n\nOpen up its settings and tap \"Detect\".")
+        except:
+            # fall back to copy and paste
+            copytxt = "Copy it and paste"
+            try:
+                import pyperclip
+                pyperclip.copy(pb_hash)
+                copytxt = "It has been copied. Paste"
+            except:
+                print("pyperclip not found, not copying to clipboard")
+            QMessageBox.information(None, "PosterBoard App Hash", f"Your hash is:\n{pb_hash}\n\n{copytxt} it into the Nugget app where it says \"App Hash\".")

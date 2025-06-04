@@ -10,7 +10,10 @@ class SpringboardPage(Page):
         self.ui = ui
 
     def load_page(self):
-        self.ui.footnoteTxt.textEdited.connect(self.on_footnoteTxt_textEdited)
+        # self.ui.footnoteTxt.textEdited.connect(self.on_footnoteTxt_textEdited)
+        self.ui.footnoteLbl.hide()
+        self.ui.footnoteTxt.hide()
+        self.ui.footnoteLine.hide()
         self.ui.disableLockRespringChk.toggled.connect(self.on_disableLockRespringChk_clicked)
         self.ui.disableDimmingChk.toggled.connect(self.on_disableDimmingChk_clicked)
         self.ui.disableBatteryAlertsChk.toggled.connect(self.on_disableBatteryAlertsChk_clicked)
