@@ -57,7 +57,7 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
   - Custom Resolution
 </details>
 <details>
-<summary>iOS 17.0 - iOS 18.1.1</summary>
+<summary>iOS 17.0 - 18.1.1</summary>
 
 - Enable Dynamic Island on any device
 - Enable iPhone X gestures on iPhone SEs
@@ -76,20 +76,20 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
 - EU Enabler (iOS 17.6-)
 </details>
 <details>
-<summary>iOS 18.0 - iOS 18.0.1</summary>
+<summary>iOS 18.0 - 18.0.1</summary>
 
 - Feature Flags (iOS 18.1b4-):
   - Enabling lock screen clock animation, lock screen page duplication button, and more!
   - Disabling the new iOS 18 Photos UI (iOS 18.0 betas only, unknown which patched it)
 </details>
 <details>
-<summary>iOS 18.0 - iOS 18.1.1</summary>
+<summary>iOS 18.0 - 18.1.1</summary>
 
 - Enable iPhone 16 camera button page in the Settings app
 - Enable AOD & AOD Vibrancy on any device
 </details>
 <details>
-<summary>iOS 18.1 - iOS 18.1.1</summary>
+<summary>iOS 18.1 - 18.1.1</summary>
 
 - AI Enabler
 - Device Spoofing
