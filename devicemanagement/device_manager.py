@@ -289,7 +289,7 @@ class DeviceManager:
 
     def get_domain_for_path(self, path: str, owner: int = 501, uses_domains: bool = False) -> str:
         # returns Domain: str?, Path: str
-        if self.get_current_device_supported() and not path.startswith("/var/mobile/") and not owner == 0 and not uses_domains:
+        if self.get_current_device_supported() and not path.startswith("/var/mobile/") and not owner == 0:# and not uses_domains:
             # don't do anything on sparserestore versions
             return path, ""
         fully_patched = self.get_current_device_patched()

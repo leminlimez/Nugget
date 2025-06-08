@@ -18,7 +18,7 @@ class FileToRestore:
         self.mode = mode
 
 def concat_exploit_file(file: FileToRestore, files_list: list[FileToRestore], last_domain: str) -> str:
-    base_path = "/var/backup"
+    base_path = ""#"/var/backup"
     # set it to work in the separate volumes (prevents a bootloop)
     if file.restore_path.startswith("/var/mobile/"):
         # required on iOS 17.0+ since /var/mobile is on a separate partition
@@ -105,7 +105,7 @@ def restore_files(files: list[FileToRestore], reboot: bool = False, lockdown_cli
     last_path = ""
     exploit_only = True
     for file in sorted_files:
-        if file.domain == "":
+        if file.domain == "" or file.domain == "z":
             last_domain = concat_exploit_file(file, files_list, last_domain)
         else:
             last_domain, last_path = concat_regular_file(file, files_list, last_domain, last_path)
@@ -131,6 +131,9 @@ def restore_files(files: list[FileToRestore], reboot: bool = False, lockdown_cli
 
     # create the backup
     back = backup.Backup(files=files_list, apps=apps_list)
+
+    for fi in files_list:
+        print(f"{fi.domain}, {fi.path}")
 
     perform_restore(backup=back, reboot=reboot, lockdown_client=lockdown_client, progress_callback=progress_callback)
 
