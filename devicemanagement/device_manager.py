@@ -49,7 +49,7 @@ def get_files_list_str(files_list: list[FileToRestore] = None) -> str:
             files_str += file_info
             print(file_info)
         files_list += "\n\n"
-    return files_list
+    return files_str
 
 def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list[FileToRestore] = None):
     print(traceback.format_exc())
