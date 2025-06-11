@@ -64,10 +64,15 @@ class TemplatesTweak(Tweak):
                         if domain.startswith("Sparserestore-"):
                             full_path = f"{domain.removeprefix("Sparserestore-")}{full_path}"
                             restore_domain = None
+                        full_path = self.parse_path_string(full_path, old_bundle, domain)
+                        if contents_path.endswith(".plist"):
+                            with open(contents_path, "rb") as in_file:
+                                new_contents = in_file.read()
+                                contents_path = None
                         files_to_restore.append(FileToRestore(
                             contents=new_contents,
                             contents_path=contents_path,
-                            restore_path=self.parse_path_string(full_path, old_bundle, domain),
+                            restore_path=full_path,
                             domain=restore_domain
                         ))
                     except IOError:
