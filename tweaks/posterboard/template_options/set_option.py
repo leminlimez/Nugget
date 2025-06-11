@@ -9,7 +9,7 @@ from PySide6.QtGui import QColor
 from PySide6 import QtWidgets, QtCore
 
 from controllers.xml_handler import set_xml_value, set_xml_values
-from controllers.plist_handler import set_plist_value
+from controllers.plist_handler import write_plist_value
 from exceptions.posterboard_exceptions import PBTemplateException
 
 class SetterType(Enum):
@@ -361,7 +361,7 @@ class SetOption(TemplateOption):
                         set_xml_value(file=full_path, id=self.identifier, key=self.key, val=self.convert_back(apply_val), use_ca_id=self.use_ca_id)
                 elif full_path.endswith(".plist"):
                     # Plist editing
-                    set_plist_value(full_path, self.key, apply_val)
+                    write_plist_value(full_path, self.key, apply_val)
                 else:
                     # plain text editing
                     with open(full_path, "r") as in_file:

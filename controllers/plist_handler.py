@@ -17,3 +17,7 @@ def set_plist_value(file: str, key: str, value: any, recursive: bool = True):
     else:
         plist[key] = value
     return plistlib.dumps(plist)
+
+def write_plist_value(file: str, key: str, value: any, recursive: bool = True):
+    with open(file, "wb") as out_fp:
+        out_fp.write(set_plist_value(file, key, value, recursive))
