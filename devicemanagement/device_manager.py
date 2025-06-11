@@ -39,6 +39,18 @@ def show_error_msg(txt: str, title: str = "Error!", icon = QMessageBox.Critical,
         detailsBox.setDetailedText(detailed_txt)
     detailsBox.exec()
 
+def get_files_list_str(files_list: list[FileToRestore] = None) -> str:
+    files_str: str = ""
+    if files_list != None:
+        files_str = "FILES LIST:"
+        print("\nFile List:\n")
+        for file in files_list:
+            file_info = f"\n    Domain: {file.domain}\n    Path: {file.restore_path}"
+            files_str += file_info
+            print(file_info)
+        files_list += "\n\n"
+    return files_list
+
 def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list[FileToRestore] = None):
     print(traceback.format_exc())
     update_label("Failed to restore")
@@ -54,21 +66,14 @@ def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list
         return ApplyAlertMessage("Device is password protected! You must trust the computer on your device.",
                        detailed_txt="Unlock your device. On the popup, click \"Trust\", enter your password, then try again.")
     elif isinstance(e, ConnectionTerminatedError):
-        files_str: str = ""
-        if files_list != None:
-            files_str = "FILES LIST:"
-            print("\nFile List:\n")
-            for file in files_list:
-                file_info = f"\n    Domain: {file.domain}\n    Path: {file.restore_path}"
-                files_str += file_info
-                print(file_info)
-            files_list += "\n\n"
+        files_str: str = get_files_list_str(files_list)
         return ApplyAlertMessage("Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info.",
                                  detailed_txt=files_str + "TRACEBACK:\n\n" + traceback.format_exc())
     elif isinstance(e, NuggetException):
         return ApplyAlertMessage(str(e))
     else:
-        return ApplyAlertMessage(type(e).__name__ + ": " + repr(e), detailed_txt=str(traceback.format_exc()))
+        files_str: str = get_files_list_str(files_list)
+        return ApplyAlertMessage(type(e).__name__ + ": " + repr(e), detailed_txt=files_str + "TRACEBACK:\n\n" + traceback.format_exc())
 
 class DeviceManager:
     ## Class Functions
