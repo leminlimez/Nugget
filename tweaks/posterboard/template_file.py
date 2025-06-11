@@ -244,7 +244,7 @@ class TemplateFile(TendieFile):
         prevs: dict[str, QtWidgets.QLabel] = {}
         if len(self.previews) > 0:
             prev_widget = QtWidgets.QWidget(options_widget)
-            prev_widget.setMinimumHeight(0)
+            prev_widget.setMinimumHeight(250)
             prev_widget.setMaximumHeight(250)
             prev_widget.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
             if self.preview_layout == "stacked":
