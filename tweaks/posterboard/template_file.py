@@ -17,7 +17,7 @@ from exceptions.posterboard_exceptions import PBTemplateException
 from gui.custom_qt_elements.resizable_image_label import ResizableImageLabel
 from devicemanagement.constants import Version
 
-CURRENT_FORMAT = 1
+CURRENT_FORMAT = 2
 
 class TemplateFile(TendieFile):
     options: list[TemplateOption]

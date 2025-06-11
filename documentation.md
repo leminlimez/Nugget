@@ -24,7 +24,7 @@ __Required info:__
 - `domain` - the domain for where it should be restored to (for PosterBoard, put `AppDomain-com.apple.PosterBoard`)
   - If you want to use sparserestore, make the domain `Sparserestore-<FILEPATH>` (ie `Sparserestore-/var/Managed Preferences`)
 - `format_version` - the minimum version of the config format
-  - the current version for the latest Nugget update is `"format_version": "1"`
+  - the current version for the latest Nugget update is `"format_version": "2"`
 - `options` - a list of user-configurable options (see [Option Format](#option-format) for more info)
   - if you do not want to have any user-configurable options, just use `"options": []`
 
@@ -180,7 +180,7 @@ An example format of `config.json` looks like this:
   "title": "My Batter",
   "description": "I love Nugget",
   "author": "lemin",
-  "format_version": "1",
+  "format_version": "2",
   "domain": "AppDomain-com.apple.PosterBoard",
   "options": [
     {
