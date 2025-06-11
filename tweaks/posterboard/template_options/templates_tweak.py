@@ -33,6 +33,9 @@ class TemplatesTweak(Tweak):
             detailsBox.setWindowTitle("Error")
             detailsBox.setText(f"Failed to load template {file}\n\n{str(e)}")
             detailsBox.exec()
+
+    def parse_path_string(self, path: str) -> str:
+        return path.replace("/hiddendot", "/.")
         
     def recursive_add(self, domain: str,
                       files_to_restore: list[FileToRestore],
@@ -61,7 +64,7 @@ class TemplatesTweak(Tweak):
                         files_to_restore.append(FileToRestore(
                             contents=new_contents,
                             contents_path=contents_path,
-                            restore_path=full_path,
+                            restore_path=self.parse_path_string(full_path),
                             domain=restore_domain
                         ))
                     except IOError:
