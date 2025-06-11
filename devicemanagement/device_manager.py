@@ -68,12 +68,12 @@ def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list
     elif isinstance(e, ConnectionTerminatedError):
         files_str: str = get_files_list_str(files_list)
         return ApplyAlertMessage("Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info.",
-                                 detailed_txt=files_str + "TRACEBACK:\n\n" + traceback.format_exc())
+                                 detailed_txt=files_str + "TRACEBACK:\n\n" + str(traceback.format_exc()))
     elif isinstance(e, NuggetException):
         return ApplyAlertMessage(str(e))
     else:
         files_str: str = get_files_list_str(files_list)
-        return ApplyAlertMessage(type(e).__name__ + ": " + repr(e), detailed_txt=files_str + "TRACEBACK:\n\n" + traceback.format_exc())
+        return ApplyAlertMessage(type(e).__name__ + ": " + repr(e), detailed_txt=files_str + "TRACEBACK:\n\n" + str(traceback.format_exc()))
 
 class DeviceManager:
     ## Class Functions
@@ -88,6 +88,7 @@ class DeviceManager:
         self.auto_reboot = True
         self.allow_risky_tweaks = False
         self.show_all_spoofable_models = False
+        self.restore_truststore = False
         self.skip_setup = True
         self.supervised = False
         self.organization_name = ""
@@ -511,7 +512,7 @@ class DeviceManager:
             #     ))
 
             # Restore SSL Configuration Profiles
-            if uses_domains:
+            if uses_domains and self.restore_truststore:
                 with open(get_bundle_files('files/SSLconf/TrustStore.sqlite3'), 'rb') as f:
                     certsDB = f.read()
 

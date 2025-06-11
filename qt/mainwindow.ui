@@ -8157,6 +8157,19 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="trustStoreChk">
+                   <property name="toolTip">
+                    <string>Restores the SSL config that does something idk</string>
+                   </property>
+                   <property name="text">
+                    <string>Restore TrustStore (SSL Configuration Profiles)</string>
+                   </property>
+                   <property name="checked">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="skipSetupChk">
                    <property name="text">
                     <string>Skip Setup * (non-exploit files only)</string>

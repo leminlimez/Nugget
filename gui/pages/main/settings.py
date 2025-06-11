@@ -21,6 +21,7 @@ class SettingsPage(Page):
 
         self.ui.revertRdarChk.toggled.connect(self.on_revertRdarChk_toggled)
 
+        self.ui.trustStoreChk.toggled.connect(self.on_trustStoreChk_toggled)
         self.ui.skipSetupChk.toggled.connect(self.on_skipSetupChk_toggled)
         self.ui.supervisionChk.toggled.connect(self.on_supervisionChk_toggled)
         self.ui.supervisionOrganization.textEdited.connect(self.on_supervisionOrgTxt_textEdited)
@@ -71,6 +72,11 @@ class SettingsPage(Page):
         if not 'RdarFix' in tweaks:
             load_rdar_fix(self.window.device_manager.data_singleton.current_device)
         tweaks["RdarFix"].set_enabled(checked)
+
+    def on_trustStoreChk_toggled(self, checked: bool):
+        self.window.device_manager.restore_truststore = checked
+        # save the setting
+        self.window.settings.setValue("restore_truststore", checked)
 
     def on_skipSetupChk_toggled(self, checked: bool):
         self.window.device_manager.skip_setup = checked

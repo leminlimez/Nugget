@@ -4216,6 +4216,12 @@ class Ui_Nugget(object):
 
         self._21.addWidget(self.revertRdarLine)
 
+        self.trustStoreChk = QCheckBox(self.settingsPageContent)
+        self.trustStoreChk.setObjectName(u"trustStoreChk")
+        self.trustStoreChk.setChecked(False)
+
+        self._21.addWidget(self.trustStoreChk)
+
         self.skipSetupChk = QCheckBox(self.settingsPageContent)
         self.skipSetupChk.setObjectName(u"skipSetupChk")
         self.skipSetupChk.setChecked(True)
@@ -4264,16 +4270,16 @@ class Ui_Nugget(object):
 
         self._21.addLayout(self.deviceSettingsBtns)
 
-        self.horizontalLayout_32 = QHBoxLayout()
-        self.horizontalLayout_32.setObjectName(u"horizontalLayout_32")
-        self.horizontalLayout_32.setContentsMargins(-1, -1, -1, 0)
+        self.horizontalLayout_3211 = QHBoxLayout()
+        self.horizontalLayout_3211.setObjectName(u"horizontalLayout_3211")
+        self.horizontalLayout_3211.setContentsMargins(-1, -1, -1, 0)
         self.pocketPosterHelperBtn = QToolButton(self.settingsPageContent)
         self.pocketPosterHelperBtn.setObjectName(u"pocketPosterHelperBtn")
 
-        self.horizontalLayout_32.addWidget(self.pocketPosterHelperBtn)
+        self.horizontalLayout_3211.addWidget(self.pocketPosterHelperBtn)
 
 
-        self._21.addLayout(self.horizontalLayout_32)
+        self._21.addLayout(self.horizontalLayout_3211)
 
         self.verticalSpacer_51 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -5333,6 +5339,10 @@ class Ui_Nugget(object):
         self.revertRdarChk.setToolTip(QCoreApplication.translate("Nugget", u"If you used the rdar/status bar fix in a previous iOS version, this will revert that.", None))
 #endif // QT_CONFIG(tooltip)
         self.revertRdarChk.setText(QCoreApplication.translate("Nugget", u"Revert rdar Fix (reset resolution)", None))
+#if QT_CONFIG(tooltip)
+        self.trustStoreChk.setToolTip(QCoreApplication.translate("Nugget", u"Restores the SSL config that does something idk", None))
+#endif // QT_CONFIG(tooltip)
+        self.trustStoreChk.setText(QCoreApplication.translate("Nugget", u"Restore TrustStore (SSL Configuration Profiles)", None))
         self.skipSetupChk.setText(QCoreApplication.translate("Nugget", u"Skip Setup * (non-exploit files only)", None))
         self.supervisionChk.setText(QCoreApplication.translate("Nugget", u"Enable Supervision * (requires Skip Setup)", None))
         self.supervisionOrganization.setPlaceholderText(QCoreApplication.translate("Nugget", u"Enter Organization Name", None))

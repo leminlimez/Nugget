@@ -352,6 +352,7 @@ class MainWindow(QtWidgets.QMainWindow):
             risky_tweaks = self.settings.value("show_risky_tweaks", False, type=bool)
             ignore_frame_limit = self.settings.value("ignore_pb_frame_limit", False, type=bool)
             show_all_spoofable = self.settings.value("show_all_spoofable_models", False, type=bool)
+            restore_truststore = self.settings.value("restore_truststore", False, type=bool)
             skip_setup = self.settings.value("skip_setup", True, type=bool)
             supervised = self.settings.value("supervised", False, type=bool)
             organization_name = self.settings.value("organization_name", "", type=str)
@@ -361,6 +362,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.showRiskyChk.setChecked(risky_tweaks)
             self.ui.ignorePBFrameLimitChk.setChecked(ignore_frame_limit)
             self.ui.showAllSpoofableChk.setChecked(show_all_spoofable)
+            self.ui.trustStoreChk.setChecked(restore_truststore)
             self.ui.skipSetupChk.setChecked(skip_setup)
             self.ui.supervisionChk.setChecked(supervised)
             self.ui.supervisionOrganization.setText(organization_name)
@@ -382,6 +384,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.device_manager.allow_risky_tweaks = risky_tweaks
             video_handler.set_ignore_frame_limit(ignore_frame_limit)
             self.device_manager.show_all_spoofable_models = show_all_spoofable
+            self.device_manager.restore_truststore = restore_truststore
             self.device_manager.skip_setup = skip_setup
             self.device_manager.supervised = supervised
             self.device_manager.organization_name = organization_name
