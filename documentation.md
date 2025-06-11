@@ -169,6 +169,8 @@ Properties:
 - None
 
 For `AppDomain` templates, this allows the user to input a custom app bundle id for the template to restore to. The default value is the bundle id that you put in the `domain` field after the `AppDomain-`.
+
+**Note:** This will also change files that start with the same name.
 </details>
 
 ## Example Config

@@ -34,10 +34,13 @@ class TemplatesTweak(Tweak):
             detailsBox.setText(f"Failed to load template {file}\n\n{str(e)}")
             detailsBox.exec()
 
-    def parse_path_string(self, path: str) -> str:
-        return path.replace("/hiddendot", "/.")
+    def parse_path_string(self, path: str, old_domain: str, new_domain: str) -> str:
+        result_path = path.replace("/hiddendot", "/.")
+        if old_domain.startswith("AppDomain-"):
+            result_path = result_path.replace(new_domain.removeprefix("AppDomain-"), "")
+        return result_path
         
-    def recursive_add(self, domain: str,
+    def recursive_add(self, old_bundle: str, domain: str,
                       files_to_restore: list[FileToRestore],
                       curr_path: str, restore_path: str = "",
                       isAdding: bool = False
@@ -64,19 +67,19 @@ class TemplatesTweak(Tweak):
                         files_to_restore.append(FileToRestore(
                             contents=new_contents,
                             contents_path=contents_path,
-                            restore_path=self.parse_path_string(full_path),
+                            restore_path=self.parse_path_string(full_path, old_bundle, domain),
                             domain=restore_domain
                         ))
                     except IOError:
                         print(f"Failed to open file: {folder}") # TODO: Add QDebug equivalent
                 else:
-                    self.recursive_add(domain, files_to_restore, os.path.join(curr_path, folder), f"{restore_path}/{folder}", isAdding)
+                    self.recursive_add(old_bundle, domain, files_to_restore, os.path.join(curr_path, folder), f"{restore_path}/{folder}", isAdding)
             else:
                 # look for container folder
                 if folder.lower() == "container":
-                    self.recursive_add(domain, files_to_restore, os.path.join(curr_path, folder), restore_path="/", isAdding=True)
+                    self.recursive_add(old_bundle, domain, files_to_restore, os.path.join(curr_path, folder), restore_path="/", isAdding=True)
                 else:
-                    self.recursive_add(domain, files_to_restore, os.path.join(curr_path, folder), isAdding=False)
+                    self.recursive_add(old_bundle, domain, files_to_restore, os.path.join(curr_path, folder), isAdding=False)
 
     def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, templates: list, version: str, update_label=lambda x: None):
         if len(self.templates) == 0:
@@ -92,5 +95,5 @@ class TemplatesTweak(Tweak):
                 domain = template.domain
                 if template.change_bundle_id:
                     domain = f"AppDomain-{template.bundle_id}"
-                self.recursive_add(domain=domain, files_to_restore=files_to_restore, curr_path=temp_dir)
+                self.recursive_add(old_bundle=template.domain, domain=domain, files_to_restore=files_to_restore, curr_path=temp_dir)
         update_label("Adding other tweaks...")
