@@ -145,7 +145,6 @@ The `label` property will apply to the checkbox itself.
 <details>
 <summary>Picker</summary>
 
-**Note:** This will be implemented in a future version/beta.
 ```json
 "type": "picker"
 ```
@@ -159,6 +158,17 @@ Properties:
   - when `allow_multiple_selection` is set to true, use `"default_values": [0, 1, 2]`
 
 When the user selects an option from the picker, all other options will be deleted upon applying.
+</details>
+<details>
+<summary>Bundle Id</summary>
+
+```json
+"type": "bundle_id"
+```
+Properties:
+- None
+
+For `AppDomain` templates, this allows the user to input a custom app bundle id for the template to restore to. The default value is the bundle id that you put in the `domain` field after the `AppDomain-`.
 </details>
 
 ## Example Config

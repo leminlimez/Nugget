@@ -89,5 +89,8 @@ class TemplatesTweak(Tweak):
                 temp_dir = os.path.join(output_dir, str(uuid.uuid4()))
                 os.makedirs(temp_dir)
                 template.extract(output_dir=temp_dir)
-                self.recursive_add(domain=template.domain, files_to_restore=files_to_restore, curr_path=temp_dir)
+                domain = template.domain
+                if template.change_bundle_id:
+                    domain = f"AppDomain-{template.bundle_id}"
+                self.recursive_add(domain=domain, files_to_restore=files_to_restore, curr_path=temp_dir)
         update_label("Adding other tweaks...")

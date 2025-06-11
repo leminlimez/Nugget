@@ -28,6 +28,9 @@ class TemplateFile(TendieFile):
     domain: str = "" # domain to restore to
     description: Optional[str] = None # description to go under the file
 
+    change_bundle_id: bool = False # whether or not the user can change the bundle id
+    bundle_id: str = None # bundle id of the app if changable
+
     min_version: Optional[str] = None # minimum supported iOS version
     max_version: Optional[str] = None # maximum supported iOS version
 
@@ -128,6 +131,9 @@ class TemplateFile(TendieFile):
                         self.options.append(SetOption(data=option))
                     elif opt_type == OptionType.picker:
                         self.options.append(PickerOption(data=option))
+                    elif opt_type == OptionType.bundle_id:
+                        self.change_bundle_id = True
+                        self.bundle_id = self.domain.removeprefix("AppDomain-") # set default value to the bundle id in the domain
                     else:
                         raise PBTemplateException(path, "Invalid option type in template")
             else:
@@ -155,6 +161,9 @@ class TemplateFile(TendieFile):
         if is_up:
             return QtGui.QIcon(":/icon/chevron.up.svg")
         return QtGui.QIcon(":/icon/chevron.down.svg")
+    
+    def update_bundle_id(self, new_id: str):
+        self.bundle_id = new_id
 
     def create_ui(self, window, tweak, widgets: dict, templateLayout: QtWidgets.QVBoxLayout):
         if self.loaded:
@@ -268,6 +277,23 @@ class TemplateFile(TendieFile):
             descr = QtWidgets.QLabel(options_widget)
             descr.setText(self.description)
             opt_layout.addWidget(descr)
+
+        # bundle id changing
+        if self.change_bundle_id:
+            # textbox input
+            bx_widget = QtWidgets.QWidget(options_widget)
+            bx_layout = QtWidgets.QVBoxLayout(options_widget)
+            bx_layout.setContentsMargins(0, 2, 0, 2)
+            bx_lbl = QtWidgets.QLabel(bx_widget)
+            bx_lbl.setText("App bundle id:")
+            bx_layout.addWidget(bx_lbl)
+            textbox = QtWidgets.QLineEdit(bx_widget)
+            textbox.setPlaceholderText(f"Bundle id (default: {self.domain.removeprefix("AppDomain-")})")
+            textbox.setText(self.bundle_id)
+            textbox.textEdited.connect(self.update_bundle_id)
+            bx_layout.addWidget(textbox)
+            bx_widget.setLayout(bx_layout)
+            opt_layout.addWidget(bx_widget)
 
         for option in self.options:
             # provide the window
