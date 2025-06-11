@@ -35,9 +35,9 @@ class TemplatesTweak(Tweak):
             detailsBox.exec()
 
     def parse_path_string(self, path: str, old_domain: str, new_domain: str) -> str:
-        result_path = path.replace("/hiddendot", "/.")
+        result_path = path.replace("/hiddendot", "/.").replace("//", "/")
         if old_domain.startswith("AppDomain-"):
-            result_path = result_path.replace(new_domain.removeprefix("AppDomain-"), "")
+            result_path = result_path.replace(old_domain.removeprefix("AppDomain-"), new_domain.removeprefix("AppDomain-"))
         return result_path
         
     def recursive_add(self, old_bundle: str, domain: str,

@@ -125,7 +125,7 @@ class PosterboardTweak(Tweak):
                         files_to_restore.append(FileToRestore(
                             contents=new_contents,
                             contents_path=contents_path,
-                            restore_path=f"{restore_path}/{folder_name}",
+                            restore_path=f"{restore_path}/{folder_name}".replace("//", "/"),
                             domain=f"AppDomain-{self.bundle_id}"
                         ))
                     except IOError:
