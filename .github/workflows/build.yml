@@ -64,6 +64,40 @@ jobs:
           name: Nugget_macOS_arm
           path: dist/Nugget_macOS_arm.zip
 
+  create-universal-binary:
+    needs: [build-macos-intel, build-macos-arm]
+    runs-on: macos-latest
+    steps:
+      - name: Download builds
+        uses: actions/download-artifact@v4
+        with:
+          pattern: Nugget_macOS_*
+          merge-multiple: true
+          
+      - name: Extract builds
+        run: |
+          unzip Nugget_macOS_intel.zip
+          mv Nugget.app Nugget_intel.app
+          unzip Nugget_macOS_arm.zip
+          mv Nugget.app Nugget_arm.app
+          
+      - name: Create universal binary
+        run: |
+          mkdir -p universal/Nugget.app/Contents/MacOS
+          lipo -create \
+            Nugget_intel.app/Contents/MacOS/Nugget \
+            Nugget_arm.app/Contents/MacOS/Nugget \
+            -output universal/Nugget.app/Contents/MacOS/Nugget
+          cp -R Nugget_intel.app/Contents/{Info.plist,Resources} universal/Nugget.app/Contents/
+          cd universal
+          zip -r ../Nugget_macOS_universal.zip Nugget.app
+          
+      - name: Upload universal ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: Nugget_macOS_universal
+          path: Nugget_macOS_universal.zip
+
   build-windows:
     runs-on: windows-latest
     steps:
