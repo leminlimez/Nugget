@@ -243,6 +243,9 @@ class DeviceManager:
                 if app["CFBundleExecutable"] == "Pocket Poster":
                     bundle_id = app["CFBundleIdentifier"]
                     break
+                elif app["CFBundleExecutable"] == "LiveContainer":
+                    # fallback for live container
+                    bundle_id = app["CFBundleIdentifier"]
             afc = HouseArrestService(lockdown=self.data_singleton.current_device.ld, bundle_id=bundle_id, documents_only=True)
             afc.push(tmpf, "/Documents/NuggetAppHash")
         
@@ -290,7 +293,7 @@ class DeviceManager:
 
     def get_domain_for_path(self, path: str, owner: int = 501, uses_domains: bool = False) -> str:
         # returns Domain: str?, Path: str
-        if self.get_current_device_supported() and not path.startswith("/var/mobile/") and not owner == 0 and not uses_domains:
+        if self.get_current_device_supported() and not path.startswith("/var/mobile/") and not owner == 0:# and not uses_domains:
             # don't do anything on sparserestore versions
             return path, ""
         fully_patched = self.get_current_device_patched()

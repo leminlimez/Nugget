@@ -8,7 +8,7 @@ Customize your device with animated wallpapers, disable pesky daemons, and more!
 Make sure you have installed the [requirements](#requirements) if you are on Windows or Linux.
 
 > [!NOTE]
-> Please back up your data before using! Nugget may cause unforseen problems, so it is better to be same than sorry. We are not responsible for any damange done to your device.
+> Please back up your data before using this Project! Nugget may cause unforeseen problems, so it is better to be safe than sorry. We are not responsible for any damage done to your device.
 
 ## Features
 <details>
@@ -76,14 +76,14 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
 - EU Enabler (iOS 17.6-)
 </details>
 <details>
-<summary>iOS 18.0 - iOS 18.0.1</summary>
+<summary>iOS 18.0 - 18.0.1</summary>
 
 - Feature Flags (iOS 18.1b4-):
   - Enabling lock screen clock animation, lock screen page duplication button, and more!
   - Disabling the new iOS 18 Photos UI (iOS 18.0 betas only, unknown which patched it)
 </details>
 <details>
-<summary>iOS 18.0 - iOS 18.1.1</summary>
+<summary>iOS 18.0 - 18.1.1</summary>
 
 - Enable iPhone 16 camera button page in the Settings app
 - Enable AOD & AOD Vibrancy on any device
@@ -99,7 +99,7 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
 <details>
 <summary>Windows</summary>
   
-  - Either [Apple Devices (from Microsoft Store)][AppleDevices] App or [iTunes (from Apple website)][iTunes]
+  - Either the [Apple Devices (from Microsoft Store)][AppleDevices] App or [iTunes (from Apple website)][iTunes]
 </details>
 
 <details>
@@ -137,9 +137,9 @@ pip3 install -r requirements.txt # only needed once
 python3 main_app.py
 ```
 > [!NOTE]
-> It may be either `python`/`pip` or `python3`/`pip3` depending on your path.
+> Depending on your system configuration, use either `python/pip` or `python3/pip3`.
 
-The CLI version can be ran with:
+The CLI version can be run with:
 ```py 
 python3 cli_app.py
 ```
