@@ -56,8 +56,9 @@ class TemplatesTweak(Tweak):
                 if os.path.isfile(os.path.join(curr_path, folder)):
                     try:
                         # update plist ids if needed
-                        new_contents = None
                         contents_path = os.path.join(curr_path, folder)
+                        with open(contents_path, "rb") as in_file:
+                            contents = in_file.read()
                         # handle for sparserestore
                         full_path = f"{restore_path}/{folder}"
                         restore_domain = domain
@@ -65,13 +66,8 @@ class TemplatesTweak(Tweak):
                             full_path = f"{domain.removeprefix("Sparserestore-")}{full_path}"
                             restore_domain = None
                         full_path = self.parse_path_string(full_path, old_bundle, domain)
-                        if contents_path.endswith(".plist"):
-                            with open(contents_path, "rb") as in_file:
-                                new_contents = in_file.read()
-                                contents_path = None
                         files_to_restore.append(FileToRestore(
-                            contents=new_contents,
-                            contents_path=contents_path,
+                            contents=contents,
                             restore_path=full_path,
                             domain=restore_domain
                         ))
