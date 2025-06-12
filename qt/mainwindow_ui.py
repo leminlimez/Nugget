@@ -4191,6 +4191,11 @@ class Ui_Nugget(object):
 
         self._21.addWidget(self.ignorePBFrameLimitChk)
 
+        self.disableTendiesLimitChk = QCheckBox(self.settingsPageContent)
+        self.disableTendiesLimitChk.setObjectName(u"disableTendiesLimitChk")
+
+        self._21.addWidget(self.disableTendiesLimitChk)
+
         self.line_24 = QFrame(self.settingsPageContent)
         self.line_24.setObjectName(u"line_24")
         self.line_24.setStyleSheet(u"QFrame {\n"
@@ -5332,6 +5337,12 @@ class Ui_Nugget(object):
 #endif // QT_CONFIG(whatsthis)
         self.showAllSpoofableChk.setText(QCoreApplication.translate("Nugget", u"Show All Spoofable Models", None))
         self.ignorePBFrameLimitChk.setText(QCoreApplication.translate("Nugget", u"Ignore Posterboard Frame Limit", None))
+#if QT_CONFIG(tooltip)
+        self.disableTendiesLimitChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables the tendies file limit of 2. There is still the descriptor limit.\n"
+"\n"
+"DO NOT unplug your device during restores.", None))
+#endif // QT_CONFIG(tooltip)
+        self.disableTendiesLimitChk.setText(QCoreApplication.translate("Nugget", u"Disable Tendies Limit", None))
 #if QT_CONFIG(tooltip)
         self.line_24.setToolTip("")
 #endif // QT_CONFIG(tooltip)

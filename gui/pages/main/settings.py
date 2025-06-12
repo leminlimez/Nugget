@@ -19,6 +19,9 @@ class SettingsPage(Page):
         self.ui.showRiskyChk.toggled.connect(self.on_showRiskyChk_toggled)
         self.ui.showAllSpoofableChk.toggled.connect(self.on_showAllSpoofableChk_toggled)
 
+        self.ui.ignorePBFrameLimitChk.toggled.connect(self.on_ignorePBFrameLimitChk_toggled)
+        self.ui.disableTendiesLimitChk.toggled.connect(self.on_disableTendiesLimitChk_toggled)
+
         self.ui.revertRdarChk.toggled.connect(self.on_revertRdarChk_toggled)
 
         self.ui.trustStoreChk.toggled.connect(self.on_trustStoreChk_toggled)
@@ -41,6 +44,7 @@ class SettingsPage(Page):
         if checked:
             self.ui.advancedPageBtn.show()
             self.ui.ignorePBFrameLimitChk.show()
+            self.ui.disableTendiesLimitChk.show()
             try:
                 self.ui.resetPBDrp.removeItem(4)
             except:
@@ -49,6 +53,7 @@ class SettingsPage(Page):
         else:
             self.ui.advancedPageBtn.hide()
             self.ui.ignorePBFrameLimitChk.hide()
+            self.ui.disableTendiesLimitChk.hide()
             try:
                 self.ui.resetPBDrp.removeItem(4)
             except:
@@ -57,6 +62,10 @@ class SettingsPage(Page):
         set_ignore_frame_limit(checked)
         # save the setting
         self.window.settings.setValue("ignore_pb_frame_limit", checked)
+    def on_disableTendiesLimitChk_toggled(self, checked: bool):
+        self.window.device_manager.disable_tendies_limit = checked
+        # save the setting
+        self.window.settings.setValue("disable_tendies_limit", checked)
     def on_showAllSpoofableChk_toggled(self, checked: bool):
         self.window.device_manager.show_all_spoofable_models = checked
         # save the setting

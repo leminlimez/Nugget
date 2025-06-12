@@ -88,6 +88,7 @@ class DeviceManager:
         self.auto_reboot = True
         self.allow_risky_tweaks = False
         self.show_all_spoofable_models = False
+        self.disable_tendies_limit = False
         self.restore_truststore = False
         self.skip_setup = True
         self.supervised = False
@@ -528,7 +529,7 @@ class DeviceManager:
             self.update_label = update_label
             self.do_not_unplug = ""
             if self.data_singleton.current_device.connected_via_usb:
-                self.do_not_unplug = "\nDo NOT Unplug"
+                self.do_not_unplug = "\nDO NOT UNPLUG"
             update_label(f"Preparing to restore...{self.do_not_unplug}")
             restore_files(
                 files=files_to_restore, reboot=self.auto_reboot,

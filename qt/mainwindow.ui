@@ -8114,6 +8114,18 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="disableTendiesLimitChk">
+                   <property name="toolTip">
+                    <string>Disables the tendies file limit of 2. There is still the descriptor limit.
+
+DO NOT unplug your device during restores.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable Tendies Limit</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="Line" name="line_24">
                    <property name="toolTip">
                     <string/>
