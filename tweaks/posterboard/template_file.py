@@ -164,6 +164,7 @@ class TemplateFile(TendieFile):
     
     def update_bundle_id(self, new_id: str):
         self.bundle_id = new_id
+        self.domain_lbl.setText(f" (AppDomain-{self.bundle_id})")
 
     def create_ui(self, window, tweak, widgets: dict, templateLayout: QtWidgets.QVBoxLayout):
         if self.loaded:
@@ -196,8 +197,8 @@ class TemplateFile(TendieFile):
         title_layout.addWidget(auth_lbl)
         title_widget.setLayout(title_layout)
         # domain label
-        dom_lbl = QtWidgets.QLabel(left_widget)
-        dom_lbl.setText(f" ({self.domain})")
+        self.domain_lbl = QtWidgets.QLabel(left_widget)
+        self.domain_lbl.setText(f" ({self.domain})")
         chevron = QtWidgets.QToolButton(left_widget)
         chevron.setIcon(self.get_chevron_icon(is_up=True)) # for opening/closing the options
         chevron.setStyleSheet("QToolButton {\n    background-color: transparent;\n	icon-size: 20px;\n}")
@@ -217,7 +218,7 @@ class TemplateFile(TendieFile):
         left_layout = QtWidgets.QHBoxLayout()
         left_layout.setContentsMargins(0, 0, 4, 0)
         left_layout.addWidget(title_widget)
-        left_layout.addWidget(dom_lbl)
+        left_layout.addWidget(self.domain_lbl)
         left_layout.addItem(spacer)
         left_layout.addWidget(chevron)
         left_layout.addWidget(delBtn)
