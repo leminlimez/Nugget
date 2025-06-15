@@ -1,6 +1,7 @@
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
+from tweaks.tweak_loader import load_featureflags
 from tweaks.tweaks import tweaks
 
 class FeatureFlagsPage(Page):
@@ -13,6 +14,8 @@ class FeatureFlagsPage(Page):
         self.ui.lockscreenChk.toggled.connect(self.on_lockscreenChk_clicked)
         self.ui.photosChk.toggled.connect(self.on_photosChk_clicked)
         self.ui.aiChk.toggled.connect(self.on_aiChk_clicked)
+        
+        load_featureflags()
 
     ## ACTIONS
     def on_clockAnimChk_toggled(self, checked: bool):

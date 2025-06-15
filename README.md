@@ -19,6 +19,20 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
   - Converting videos to wallpapers
   - Customizing community-made wallpapers via batter files
   - See documentation on the structure of tendies and batter files in [documentation.md](documentation.md)
+- Templates: Custom Operations and file editing
+  - See documentation on the structure of batter files in [documentation.md](documentation.md)
+- Status Bar
+  - Change carrier name
+  - Change secondary carrier name
+  - Enable/Disable the primary or secondary carriers
+  - Change the number of WiFi/Cellular bars
+  - Change the battery capacity
+  - Change battery display detail
+  - Change time text
+  - Change date text (iPad only)
+  - Change breadcrumb text
+  - Show numeric WiFi/Cellular strength
+  - Hide or show many icons in the status bar
 - Springboard Options (from [Cowabunga Lite][CowabungaLite])
   - Set Lock Screen Footnote
   - Disable Lock After Respring

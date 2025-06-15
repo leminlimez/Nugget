@@ -10,8 +10,10 @@ There are 2 formats for these:
   - Descriptor UUIDs and wallpaper IDs will be randomized, preventing overlapping.
   - It is recommended to use these if you are restoring descriptors to collections since this will be more future proof. Randomization of IDs is also safer.
 
-# Batter Files (PosterBoard templates)
-Batter files are similar to tendies files in that they store the file structure to be restored to PosterBoard. They use the same container/descriptor/descriptors folder format as tendies files. In addition, they also contain a `config.json` file that tells Nugget what the user can customize.
+# Batter Files (Templates)
+Batter files are similar to tendies files in that they store the file structure to be restored to a given domain. Nugget will restore the files in the structure of the "Container" folder in your batter file.
+
+For PosterBoard, they use the same container/descriptor/descriptors folder format as tendies files. In addition, they also contain a `config.json` file that tells Nugget what the user can customize.
 
 ## Header
 Batter files include a header that includes basic information about the batter file.
@@ -20,8 +22,9 @@ __Required info:__
 - `title` - the title of the operation
 - `author` - your name
 - `domain` - the domain for where it should be restored to (for PosterBoard, put `AppDomain-com.apple.PosterBoard`)
+  - If you want to use sparserestore, make the domain `Sparserestore-<FILEPATH>` (ie `Sparserestore-/var/Managed Preferences`)
 - `format_version` - the minimum version of the config format
-  - the current version for the latest Nugget update is `"format_version": "1"`
+  - the current version for the latest Nugget update is `"format_version": "2"`
 - `options` - a list of user-configurable options (see [Option Format](#option-format) for more info)
   - if you do not want to have any user-configurable options, just use `"options": []`
 
@@ -29,11 +32,18 @@ __Required info:__
 <summary>Optional info:</summary>
 
 - `description` - some text info to show under the title
+
+- `min_version` - minimum iOS version supported by the template
+- `max_version` - maximum iOS version supported by the template
+  - format: `"min_version": "18.0"`
+  - you can do just min, just max, none, or both
+
 - `resources` - a list of embedded resources to include (ie banner/preview images, etc)
 - `previews` - a list of preview image file names
   - for them to show, their path must be inside of the `resources` list
 - `preview_layout` - how the preview images should be laid out (defaults to "horizontal")
   - __Valid types:__ "horizontal", "stacked"
+
 - `banner_text` - some text of a banner
 - `banner_stylesheet` - the [Qt style sheet](https://doc.qt.io/qt-6/stylesheet-examples.html) of the banner
 </details>
@@ -135,7 +145,6 @@ The `label` property will apply to the checkbox itself.
 <details>
 <summary>Picker</summary>
 
-**Note:** This will be implemented in a future version/beta.
 ```json
 "type": "picker"
 ```
@@ -150,6 +159,19 @@ Properties:
 
 When the user selects an option from the picker, all other options will be deleted upon applying.
 </details>
+<details>
+<summary>Bundle Id</summary>
+
+```json
+"type": "bundle_id"
+```
+Properties:
+- None
+
+For `AppDomain` templates, this allows the user to input a custom app bundle id for the template to restore to. The default value is the bundle id that you put in the `domain` field after the `AppDomain-`.
+
+**Note:** This will also change files that start with the same name.
+</details>
 
 ## Example Config
 An example format of `config.json` looks like this:
@@ -158,7 +180,7 @@ An example format of `config.json` looks like this:
   "title": "My Batter",
   "description": "I love Nugget",
   "author": "lemin",
-  "format_version": "1",
+  "format_version": "2",
   "domain": "AppDomain-com.apple.PosterBoard",
   "options": [
     {

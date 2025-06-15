@@ -3,6 +3,7 @@ from PySide6 import QtCore, QtWidgets, QtGui
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
+from tweaks.tweak_loader import load_mobilegestalt
 from tweaks.tweaks import tweaks
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 
@@ -38,6 +39,10 @@ class GestaltPage(Page):
         self.ui.aodVibrancyChk.clicked.connect(self.on_aodVibrancyChk_clicked)
 
         self.ui.addGestaltKeyBtn.clicked.connect(self.on_addGestaltKeyBtn_clicked)
+
+        # load tweaks
+        load_mobilegestalt(self.window.device_manager.data_singleton.current_device)
+        self.set_rdar_fix_label()
 
     def setup_spoofedModelDrp_models(self):
         # hide all the models first

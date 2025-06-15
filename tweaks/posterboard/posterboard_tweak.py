@@ -14,12 +14,13 @@ from controllers.files_handler import get_bundle_files
 from controllers import video_handler
 from controllers.aar.aar import wrap_in_aar
 from exceptions.nugget_exception import NuggetException
+from exceptions.posterboard_exceptions import PBTemplateException
 
 class PosterboardTweak(Tweak):
     def __init__(self):
         super().__init__(key=None)
         self.tendies: list[TendieFile] = []
-        self.templates: list[TemplateFile] = []
+        # self.templates: list[TemplateFile] = []
         self.videoThumbnail = None
         self.videoFile = None
         self.loop_video = True
@@ -29,9 +30,13 @@ class PosterboardTweak(Tweak):
         self.resetModes = []
         self.structure_version = 61
 
+    def uses_domains(self):
+        return (len(self.tendies) > 0 or self.videoFile != None or len(self.resetModes) > 0)
+
     def verify_tendie(self, new_tendie: TendieFile, is_template: bool = False) -> bool:
         if new_tendie.descriptor_cnt + self.get_descriptor_count() <= 10:
             if is_template:
+                raise Exception("Wrong type of file")
                 self.templates.append(new_tendie)
             else:
                 self.tendies.append(new_tendie)
@@ -48,9 +53,11 @@ class PosterboardTweak(Tweak):
     def add_tendie(self, file: str):
         new_tendie = TendieFile(path=file)
         return self.verify_tendie(new_tendie)
-    def add_template(self, file: str):
+    def add_template(self, file: str, version: str = None):
         try:
-            new_template = TemplateFile(path=file)
+            new_template = TemplateFile(path=file, device_version=version)
+            if new_template.domain != "com.apple.PosterBoard":
+                raise PBTemplateException(file=file, message="This is not a PosterBoard template. Please import it on the Templates page.")
         except Exception as e:
             print(traceback.format_exc())
             detailsBox = QtWidgets.QMessageBox()
@@ -75,10 +82,6 @@ class PosterboardTweak(Tweak):
         elif file_name == "Wallpaper.plist":
             return set_plist_value(file=os.path.join(file_path, file_name), key="identifier", value=randomizedID, recursive=False)
         return None
-    
-
-    def clean_path_name(self, path: str):
-        return path# re.sub('[^a-zA-Z0-9\.\/\-_ ]', '', path)
         
 
     def recursive_add(self,
@@ -122,7 +125,7 @@ class PosterboardTweak(Tweak):
                         files_to_restore.append(FileToRestore(
                             contents=new_contents,
                             contents_path=contents_path,
-                            restore_path=self.clean_path_name(f"{restore_path}/{folder_name}"),
+                            restore_path=f"{restore_path}/{folder_name}".replace("//", "/"),
                             domain=f"AppDomain-{self.bundle_id}"
                         ))
                     except IOError:
@@ -211,7 +214,7 @@ class PosterboardTweak(Tweak):
             
             
 
-    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, version: str, update_label=lambda x: None):
+    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, templates: list[TemplateFile], version: str, update_label=lambda x: None):
         # unzip the file
         if version.startswith("16"):
             # iOS 16 has a different number for the structure
@@ -242,7 +245,7 @@ class PosterboardTweak(Tweak):
                     domain=f"AppDomain-{self.bundle_id}"
                 ))
             return
-        elif len(self.tendies) == 0 and len(self.templates) == 0 and self.videoFile == None:
+        elif len(self.tendies) == 0 and len(templates) == 0 and self.videoFile == None:
             return
         update_label("Generating PosterBoard Video...")
         self.create_live_photo_files(output_dir)
@@ -252,9 +255,10 @@ class PosterboardTweak(Tweak):
             update_label(f"Extracting tendie {tendie.name}...")
             tendie.extract(output_dir=output_dir)
         # extract templates
-        for template in self.templates:
-            update_label(f"Configuring template {template.name}...")
-            template.extract(output_dir=output_dir)
+        for template in templates:
+            if template.domain == 'com.apple.PosterBoard' or template.domain == 'AppDomain-com.apple.PosterBoard':
+                update_label(f"Configuring template {template.name}...")
+                template.extract(output_dir=output_dir)
         # add the files
         update_label("Adding tendies...")
         self.recursive_add(files_to_restore, curr_path=output_dir)

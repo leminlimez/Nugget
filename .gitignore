@@ -9,3 +9,4 @@ __pycache__
 /secrets
 .compile+codesign.sh
 .create_build.sh
+/.vscode

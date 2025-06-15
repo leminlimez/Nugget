@@ -60,6 +60,7 @@ def concat_regular_file(file: FileToRestore, files_list: list[FileToRestore], la
             owner=file.owner,
             group=file.group
         ))
+        last_path = ""
         new_last_domain = file.domain
     # append each part of the path if it is not already there
     full_path = ""

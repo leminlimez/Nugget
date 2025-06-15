@@ -44,6 +44,8 @@ if platform == "darwin":
 elif os.name == 'nt':
     # add windows version info
     args.append('--version-file=version.txt')
+    # add the status bar executable
+    args.append('--add-binary=.\\status_setter_windows.exe;.')
     if os.path.exists("ffmpeg/bin"):
         args.append('--add-data=ffmpeg/bin:ffmpeg/bin')
     else:

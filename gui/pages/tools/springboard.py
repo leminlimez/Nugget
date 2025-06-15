@@ -1,6 +1,7 @@
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
+from tweaks.tweak_loader import load_springboard
 from tweaks.tweaks import tweaks
 
 class SpringboardPage(Page):
@@ -9,16 +10,15 @@ class SpringboardPage(Page):
         self.ui = ui
 
     def load_page(self):
-        # self.ui.footnoteTxt.textEdited.connect(self.on_footnoteTxt_textEdited)
-        self.ui.footnoteLbl.hide()
-        self.ui.footnoteTxt.hide()
-        self.ui.footnoteLine.hide()
+        self.ui.footnoteTxt.textEdited.connect(self.on_footnoteTxt_textEdited)
         self.ui.disableLockRespringChk.toggled.connect(self.on_disableLockRespringChk_clicked)
         self.ui.disableDimmingChk.toggled.connect(self.on_disableDimmingChk_clicked)
         self.ui.disableBatteryAlertsChk.toggled.connect(self.on_disableBatteryAlertsChk_clicked)
         self.ui.disableCrumbChk.toggled.connect(self.on_disableCrumbChk_clicked)
         self.ui.enableSupervisionTextChk.toggled.connect(self.on_enableSupervisionTextChk_clicked)
         self.ui.enableAirPlayChk.toggled.connect(self.on_enableAirPlayChk_clicked)
+        
+        load_springboard()
 
     ## ACTIONS
     def on_footnoteTxt_textEdited(self, text: str):

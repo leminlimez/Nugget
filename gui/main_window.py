@@ -16,7 +16,7 @@ from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThrea
 
 from tweaks.tweaks import tweaks
 
-App_Version = "5.2.3"
+App_Version = "6.0"
 App_Build = 0
 
 class Page(Enum):
@@ -24,13 +24,16 @@ class Page(Enum):
     Gestalt = 1
     FeatureFlags = 2
     EUEnabler = 3
-    Springboard = 4
-    InternalOptions = 5
-    Daemons = 6
-    Posterboard = 7
-    RiskyTweaks = 8
-    Apply = 9
-    Settings = 10
+    StatusBar = 4
+    Springboard = 5
+    InternalOptions = 6
+    Daemons = 7
+    Posterboard = 8
+    Templates = 9
+    RiskyTweaks = 10
+    MiscOptions = 11
+    Apply = 12
+    Settings = 13
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager):
@@ -46,13 +49,17 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # hide every page
         self.ui.posterboardPageBtn.hide()
+        self.ui.templatePageBtn.hide()
         self.ui.gestaltPageBtn.hide()
         self.ui.euEnablerPageBtn.hide()
         self.ui.featureFlagsPageBtn.hide()
+        self.ui.statusBarPageBtn.hide()
         self.ui.springboardOptionsPageBtn.hide()
         self.ui.internalOptionsPageBtn.hide()
         self.ui.daemonsPageBtn.hide()
+        self.ui.templatesPageBtn.hide()
         self.ui.advancedPageBtn.hide()
+        self.ui.miscOptionsBtn.hide()
         self.ui.applyPageBtn.hide()
         self.ui.sidebarDiv1.hide()
         self.ui.sidebarDiv2.hide()
@@ -64,9 +71,11 @@ class MainWindow(QtWidgets.QMainWindow):
             Page.Gestalt: Pages.MobileGestalt(window=self, ui=self.ui),
             Page.EUEnabler: Pages.Eligibility(window=self, ui=self.ui),
             Page.FeatureFlags: Pages.FeatureFlags(ui=self.ui),
+            Page.StatusBar: Pages.StatusBar(ui=self.ui),
             Page.Springboard: Pages.Springboard(ui=self.ui),
             Page.InternalOptions: Pages.Internal(ui=self.ui),
             Page.Daemons: Pages.Daemons(ui=self.ui),
+            Page.Templates: Pages.Templates(window=self, ui=self.ui),
             Page.RiskyTweaks: Pages.Risky(ui=self.ui),
             Page.Settings: Pages.Settings(window=self, ui=self.ui)
         }
@@ -90,11 +99,14 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.gestaltPageBtn.clicked.connect(self.on_gestaltPageBtn_clicked)
         self.ui.featureFlagsPageBtn.clicked.connect(self.on_featureFlagsPageBtn_clicked)
         self.ui.euEnablerPageBtn.clicked.connect(self.on_euEnablerPageBtn_clicked)
+        self.ui.statusBarPageBtn.clicked.connect(self.on_statusBarPageBtn_clicked)
         self.ui.springboardOptionsPageBtn.clicked.connect(self.on_springboardOptionsPageBtn_clicked)
         self.ui.internalOptionsPageBtn.clicked.connect(self.on_internalOptionsPageBtn_clicked)
         self.ui.daemonsPageBtn.clicked.connect(self.on_daemonsPageBtn_clicked)
         self.ui.posterboardPageBtn.clicked.connect(self.on_posterboardPageBtn_clicked)
+        self.ui.templatesPageBtn.clicked.connect(self.on_templatesPageBtn_clicked)
         self.ui.advancedPageBtn.clicked.connect(self.on_advancedPageBtn_clicked)
+        self.ui.miscOptionsBtn.clicked.connect(self.on_miscOptionsBtn_clicked)
         self.ui.applyPageBtn.clicked.connect(self.on_applyPageBtn_clicked)
         self.ui.settingsPageBtn.clicked.connect(self.on_settingsPageBtn_clicked)
 
@@ -150,11 +162,14 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.gestaltPageBtn.hide()
             self.ui.featureFlagsPageBtn.hide()
             self.ui.euEnablerPageBtn.hide()
+            self.ui.statusBarPageBtn.hide()
             self.ui.springboardOptionsPageBtn.hide()
             self.ui.internalOptionsPageBtn.hide()
             self.ui.daemonsPageBtn.hide()
+            self.ui.templatesPageBtn.hide()
             self.ui.posterboardPageBtn.hide()
             self.ui.advancedPageBtn.hide()
+            self.ui.miscOptionsBtn.hide()
 
             self.ui.sidebarDiv2.hide()
             self.ui.applyPageBtn.hide()
@@ -176,10 +191,13 @@ class MainWindow(QtWidgets.QMainWindow):
             
             # show all pages
             self.ui.sidebarDiv1.show()
+            self.ui.statusBarPageBtn.show()
             self.ui.springboardOptionsPageBtn.show()
             self.ui.internalOptionsPageBtn.show()
             self.ui.daemonsPageBtn.show()
+            self.ui.templatesPageBtn.show()
             self.ui.posterboardPageBtn.show()
+            self.ui.miscOptionsBtn.show()
 
             if self.device_manager.allow_risky_tweaks:
                 self.ui.advancedPageBtn.show()
@@ -237,7 +255,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.dynamicIslandDrp.removeItem(5)
             except:
                 pass
-            self.pages[Page.Gestalt].set_rdar_fix_label()
+            if "RdarFix" in tweaks:
+                self.pages[Page.Gestalt].set_rdar_fix_label()
             device_ver = Version(self.device_manager.data_singleton.current_device.version)
             patched: bool = self.device_manager.get_current_device_patched()
             # toggle option visibility for the minimum versions
@@ -289,7 +308,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.euEnablerPageBtn.hide()
             
             # hide the ai content if not on
-            if device_ver >= Version("18.1") and not tweaks["AIGestalt"].enabled:
+            if device_ver >= Version("18.1") and (not 'AIGestalt' in tweaks or not tweaks["AIGestalt"].enabled):
                 self.ui.aiEnablerContent.hide()
             if device_ver < Version("18.2"):
                 self.pages[Page.Gestalt].setup_spoofedModelDrp_models()
@@ -308,10 +327,15 @@ class MainWindow(QtWidgets.QMainWindow):
             # show the PB if initial load is true
             if self.initial_load:
                 self.initial_load = False
-                if len(tweaks["PosterBoard"].tendies) > 0 or len(tweaks["PosterBoard"].templates) > 0:
+                if len(tweaks["PosterBoard"].tendies) > 0:
                     self.pages[Page.Posterboard].load()
                     self.ui.pages.setCurrentIndex(Page.Posterboard.value)
                     self.ui.posterboardPageBtn.setChecked(True)
+                    self.ui.homePageBtn.setChecked(False)
+                elif len(tweaks["Templates"].templates) > 0:
+                    self.pages[Page.Templates].load()
+                    self.ui.pages.setCurrentIndex(Page.Templates.value)
+                    self.ui.templatePageBtn.setChecked(True)
                     self.ui.homePageBtn.setChecked(False)
         else:
             self.device_manager.set_current_device(index=None)
@@ -327,7 +351,9 @@ class MainWindow(QtWidgets.QMainWindow):
             auto_reboot = self.settings.value("auto_reboot", True, type=bool)
             risky_tweaks = self.settings.value("show_risky_tweaks", False, type=bool)
             ignore_frame_limit = self.settings.value("ignore_pb_frame_limit", False, type=bool)
+            disable_tendies_limit = self.settings.value("disable_tendies_limit", False, type=bool)
             show_all_spoofable = self.settings.value("show_all_spoofable_models", False, type=bool)
+            restore_truststore = self.settings.value("restore_truststore", False, type=bool)
             skip_setup = self.settings.value("skip_setup", True, type=bool)
             supervised = self.settings.value("supervised", False, type=bool)
             organization_name = self.settings.value("organization_name", "", type=str)
@@ -336,7 +362,9 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.autoRebootChk.setChecked(auto_reboot)
             self.ui.showRiskyChk.setChecked(risky_tweaks)
             self.ui.ignorePBFrameLimitChk.setChecked(ignore_frame_limit)
+            self.ui.disableTendiesLimitChk.setChecked(disable_tendies_limit)
             self.ui.showAllSpoofableChk.setChecked(show_all_spoofable)
+            self.ui.trustStoreChk.setChecked(restore_truststore)
             self.ui.skipSetupChk.setChecked(skip_setup)
             self.ui.supervisionChk.setChecked(supervised)
             self.ui.supervisionOrganization.setText(organization_name)
@@ -350,14 +378,18 @@ class MainWindow(QtWidgets.QMainWindow):
             # hide/show the frame limit
             if risky_tweaks:
                 self.ui.ignorePBFrameLimitChk.show()
+                self.ui.disableTendiesLimitChk.show()
             else:
                 self.ui.ignorePBFrameLimitChk.hide()
+                self.ui.disableTendiesLimitChk.hide()
 
             self.device_manager.apply_over_wifi = apply_over_wifi
             self.device_manager.auto_reboot = auto_reboot
             self.device_manager.allow_risky_tweaks = risky_tweaks
             video_handler.set_ignore_frame_limit(ignore_frame_limit)
             self.device_manager.show_all_spoofable_models = show_all_spoofable
+            self.device_manager.disable_tendies_limit = disable_tendies_limit
+            self.device_manager.restore_truststore = restore_truststore
             self.device_manager.skip_setup = skip_setup
             self.device_manager.supervised = supervised
             self.device_manager.organization_name = organization_name
@@ -381,6 +413,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.pages[Page.EUEnabler].load()
         self.ui.pages.setCurrentIndex(Page.EUEnabler.value)
 
+    def on_statusBarPageBtn_clicked(self):
+        self.pages[Page.StatusBar].load()
+        self.ui.pages.setCurrentIndex(Page.StatusBar.value)
+
     def on_springboardOptionsPageBtn_clicked(self):
         self.pages[Page.Springboard].load()
         self.ui.pages.setCurrentIndex(Page.Springboard.value)
@@ -397,9 +433,16 @@ class MainWindow(QtWidgets.QMainWindow):
         self.pages[Page.Posterboard].load()
         self.ui.pages.setCurrentIndex(Page.Posterboard.value)
 
+    def on_templatesPageBtn_clicked(self):
+        self.pages[Page.Templates].load()
+        self.ui.pages.setCurrentIndex(Page.Templates.value)
+
     def on_advancedPageBtn_clicked(self):
         self.pages[Page.RiskyTweaks].load()
         self.ui.pages.setCurrentIndex(Page.RiskyTweaks.value)
+
+    def on_miscOptionsBtn_clicked(self):
+        self.ui.pages.setCurrentIndex(Page.MiscOptions.value)
 
     def on_applyPageBtn_clicked(self):
         self.ui.pages.setCurrentIndex(Page.Apply.value)

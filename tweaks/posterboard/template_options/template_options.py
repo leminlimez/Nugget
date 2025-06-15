@@ -9,6 +9,7 @@ class OptionType(Enum):
     remove = "remove"
     set = "set"
     picker = "picker"
+    bundle_id = "bundle_id"
 
 @dataclass
 class TemplateOption:

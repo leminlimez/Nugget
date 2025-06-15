@@ -21,9 +21,10 @@ from controllers.files_handler import get_bundle_files
 
 from exceptions.nugget_exception import NuggetException
 
-from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
+from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak, StatusBarTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.posterboard.posterboard_tweak import PosterboardTweak
+from tweaks.posterboard.template_options.templates_tweak import TemplatesTweak
 from tweaks.basic_plist_locations import FileLocationsList, RiskyFileLocationsList
 
 from restore.restore import restore_files, FileToRestore
@@ -37,6 +38,18 @@ def show_error_msg(txt: str, title: str = "Error!", icon = QMessageBox.Critical,
     if detailed_txt != None:
         detailsBox.setDetailedText(detailed_txt)
     detailsBox.exec()
+
+def get_files_list_str(files_list: list[FileToRestore] = None) -> str:
+    files_str: str = ""
+    if files_list != None:
+        files_str = "FILES LIST:"
+        print("\nFile List:\n")
+        for file in files_list:
+            file_info = f"\n    Domain: {file.domain}\n    Path: {file.restore_path}"
+            files_str += file_info
+            print(file_info)
+        files_list += "\n\n"
+    return files_str
 
 def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list[FileToRestore] = None):
     print(traceback.format_exc())
@@ -53,21 +66,14 @@ def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list
         return ApplyAlertMessage("Device is password protected! You must trust the computer on your device.",
                        detailed_txt="Unlock your device. On the popup, click \"Trust\", enter your password, then try again.")
     elif isinstance(e, ConnectionTerminatedError):
-        files_str: str = ""
-        if files_list != None:
-            files_str = "FILES LIST:"
-            print("\nFile List:\n")
-            for file in files_list:
-                file_info = f"\n    Domain: {file.domain}\n    Path: {file.restore_path}"
-                files_str += file_info
-                print(file_info)
-            files_list += "\n\n"
+        files_str: str = get_files_list_str(files_list)
         return ApplyAlertMessage("Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info.",
-                                 detailed_txt=files_str + "TRACEBACK:\n\n" + traceback.format_exc())
+                                 detailed_txt=files_str + "TRACEBACK:\n\n" + str(traceback.format_exc()))
     elif isinstance(e, NuggetException):
         return ApplyAlertMessage(str(e))
     else:
-        return ApplyAlertMessage(type(e).__name__ + ": " + repr(e), detailed_txt=str(traceback.format_exc()))
+        files_str: str = get_files_list_str(files_list)
+        return ApplyAlertMessage(type(e).__name__ + ": " + repr(e), detailed_txt=files_str + "TRACEBACK:\n\n" + str(traceback.format_exc()))
 
 class DeviceManager:
     ## Class Functions
@@ -82,6 +88,8 @@ class DeviceManager:
         self.auto_reboot = True
         self.allow_risky_tweaks = False
         self.show_all_spoofable_models = False
+        self.disable_tendies_limit = False
+        self.restore_truststore = False
         self.skip_setup = True
         self.supervised = False
         self.organization_name = ""
@@ -139,7 +147,8 @@ class DeviceManager:
                             locale=ld.locale,
                             ld=ld
                         )
-                    tweaks["RdarFix"].get_rdar_mode(model)
+                    if "RdarFix" in tweaks:
+                        tweaks["RdarFix"].get_rdar_mode(model)
                     self.devices.append(dev)
                 except PasswordRequiredError as e:
                     show_alert(ApplyAlertMessage(txt="Device is password protected! You must trust the computer on your device.\n\nUnlock your device. On the popup, click \"Trust\", enter your password, then try again."))
@@ -164,9 +173,10 @@ class DeviceManager:
             self.data_singleton.device_available = False
             self.data_singleton.gestalt_path = None
             self.current_device_index = 0
-            tweaks["SpoofModel"].value[0] = "Placeholder"
-            tweaks["SpoofHardware"].value[0] = "Placeholder"
-            tweaks["SpoofCPU"].value[0] = "Placeholder"
+            if "SpoofModel" in tweaks:
+                tweaks["SpoofModel"].value[0] = "Placeholder"
+                tweaks["SpoofHardware"].value[0] = "Placeholder"
+                tweaks["SpoofCPU"].value[0] = "Placeholder"
         else:
             self.data_singleton.current_device = self.devices[index]
             if Version(self.devices[index].version) < Version("17.0"):
@@ -174,9 +184,10 @@ class DeviceManager:
                 self.data_singleton.gestalt_path = None
             else:
                 self.data_singleton.device_available = True
-                tweaks["SpoofModel"].value[0] = self.data_singleton.current_device.model
-                tweaks["SpoofHardware"].value[0] = self.data_singleton.current_device.hardware
-                tweaks["SpoofCPU"].value[0] = self.data_singleton.current_device.cpu
+                if "SpoofModel" in tweaks:
+                    tweaks["SpoofModel"].value[0] = self.data_singleton.current_device.model
+                    tweaks["SpoofHardware"].value[0] = self.data_singleton.current_device.hardware
+                    tweaks["SpoofCPU"].value[0] = self.data_singleton.current_device.cpu
             self.current_device_index = index
         
     def get_current_device_name(self) -> str:
@@ -260,7 +271,88 @@ class DeviceManager:
         if self.skip_setup and (not self.get_current_device_supported() or restoring_domains):
             # add the 2 skip setup files
             cloud_config_plist: dict = {
-                "SkipSetup": ["WiFi", "Location", "Restore", "SIMSetup", "Android", "AppleID", "IntendedUser", "TOS", "Siri", "ScreenTime", "Diagnostics", "SoftwareUpdate", "Passcode", "Biometric", "Payment", "Zoom", "DisplayTone", "MessagingActivationUsingPhoneNumber", "HomeButtonSensitivity", "CloudStorage", "ScreenSaver", "TapToSetup", "Keyboard", "PreferredLanguage", "SpokenLanguage", "WatchMigration", "OnBoarding", "TVProviderSignIn", "TVHomeScreenSync", "Privacy", "TVRoom", "iMessageAndFaceTime", "AppStore", "Safety", "Multitasking", "ActionButton", "TermsOfAddress", "AccessibilityAppearance", "Welcome", "Appearance", "RestoreCompleted", "UpdateCompleted"],
+                "SkipSetup": [
+                    'Location',
+                    'Restore',
+                    'SIMSetup',
+                    'Android',
+                    'AppleID',
+                    'IntendedUser',
+                    'TOS',
+                    'Siri',
+                    'ScreenTime',
+                    'Diagnostics',
+                    'SoftwareUpdate',
+                    'Passcode',
+                    'Biometric',
+                    'Payment',
+                    'Zoom',
+                    'DisplayTone',
+                    'MessagingActivationUsingPhoneNumber',
+                    'HomeButtonSensitivity',
+                    'CloudStorage',
+                    'ScreenSaver',
+                    'TapToSetup',
+                    'Keyboard',
+                    'PreferredLanguage',
+                    'SpokenLanguage',
+                    'WatchMigration',
+                    'OnBoarding',
+                    'TVProviderSignIn',
+                    'TVHomeScreenSync',
+                    'Privacy',
+                    'TVRoom',
+                    'iMessageAndFaceTime',
+                    'AppStore',
+                    'Safety',
+                    'Multitasking',
+                    'ActionButton',
+                    'TermsOfAddress',
+                    'AccessibilityAppearance',
+                    'Welcome',
+                    'Appearance',
+                    'RestoreCompleted',
+                    'UpdateCompleted',
+                    'WiFi',
+                    'Display',
+                    'Tone',
+                    'LanguageAndLocale',
+                    'TouchID',
+                    'TrueToneDisplay',
+                    'FileVault',
+                    'iCloudStorage',
+                    'iCloudDiagnostics',
+                    'Registration',
+                    'DeviceToDeviceMigration',
+                    'UnlockWithWatch',
+                    'Accessibility',
+                    'All',
+                    'ExpressLanguage',
+                    'Language',
+                    'N/A',
+                    'Region',
+                    'Avatar',
+                    'DeviceProtection',
+                    'Key',
+                    'LockdownMode',
+                    'Wallpaper',
+                    'PrivacySubtitle',
+                    'SecuritySubtitle',
+                    'DataSubtitle',
+                    'AppleIDSubtitle',
+                    'AppearanceSubtitle',
+                    'PreferredLang',
+                    'OnboardingSubtitle',
+                    'AppleTVSubtitle',
+                    'Intelligence',
+                    'WebContentFiltering',
+                    'CameraButton',
+                    'AdditionalPrivacySettings',
+                    'EnableLockdownMode',
+                    'OSShowcase',
+                    'SafetyAndHandling',
+                    'Tips',
+                ],
                 "AllowPairing": True,
                 "ConfigurationWasApplied": True,
                 "CloudConfigurationUIComplete": True,
@@ -359,7 +451,7 @@ class DeviceManager:
             # create the restore file list
             files_to_restore: list[FileToRestore] = [
             ]
-            tmp_pb_dir = None # temporary directory for unzipping pb files
+            tmp_dirs = [] # temporary directory for unzipping pb and template files
 
             # set the plist keys
             if not resetting:
@@ -380,14 +472,19 @@ class DeviceManager:
                         tweak.apply_tweak(files_data)
                         if tweak.enabled and tweak.file_location.value.startswith("/var/mobile/"):
                             uses_domains = True
-                    elif isinstance(tweak, PosterboardTweak):
-                        fc_before = len(files_to_restore)
-                        tmp_pb_dir = TemporaryDirectory()
+                    elif isinstance(tweak, PosterboardTweak) or isinstance(tweak, TemplatesTweak):
+                        tmp_dirs.append(TemporaryDirectory())
                         tweak.apply_tweak(
-                            files_to_restore=files_to_restore, output_dir=fix_windows_path(tmp_pb_dir.name),
+                            files_to_restore=files_to_restore,
+                            output_dir=fix_windows_path(tmp_dirs[len(tmp_dirs)-1].name),
+                            templates=tweaks["Templates"].templates,
                             version=self.get_current_device_version(), update_label=update_label
                         )
-                        if len(files_to_restore) > fc_before:
+                        if tweak.uses_domains():
+                            uses_domains = True
+                    elif isinstance(tweak, StatusBarTweak):
+                        tweak.apply_tweak(files_to_restore=files_to_restore)
+                        if tweak.enabled:
                             uses_domains = True
                     else:
                         if gestalt_plist != None:
@@ -409,11 +506,12 @@ class DeviceManager:
             
             # Generate backup
             update_label("Generating backup...")
-            self.concat_file(
-                contents=plistlib.dumps(flag_plist),
-                path="/var/preferences/FeatureFlags/Global.plist",
-                files_to_restore=files_to_restore
-            )
+            if resetting or len(flag_plist) > 0:
+                self.concat_file(
+                    contents=plistlib.dumps(flag_plist),
+                    path="/var/preferences/FeatureFlags/Global.plist",
+                    files_to_restore=files_to_restore
+                )
             self.add_skip_setup(files_to_restore, uses_domains)
             if gestalt_data != None:
                 self.concat_file(
@@ -471,6 +569,14 @@ class DeviceManager:
                             path=location.value,
                             files_to_restore=files_to_restore
                         )
+                if not self.data_singleton.current_device.has_exploit():
+                    # reset status bar if using domains
+                    files_to_restore.append(FileToRestore(
+                        contents=b"",
+                        restore_path="/Library/SpringBoard/statusBarOverrides",
+                        domain="HomeDomain"
+                    ))
+                    uses_domains=True
 
             # Restore Mobileconfig Profiles
             # Read multiple configuration files from a directory
@@ -488,22 +594,23 @@ class DeviceManager:
             #     ))
 
             # Restore SSL Configuration Profiles
-            with open(get_bundle_files('files/SSLconf/TrustStore.sqlite3'), 'rb') as f:
-                certsDB = f.read()
+            if uses_domains and self.restore_truststore:
+                with open(get_bundle_files('files/SSLconf/TrustStore.sqlite3'), 'rb') as f:
+                    certsDB = f.read()
 
-            files_to_restore.append(FileToRestore(
-                contents=certsDB,
-                restore_path="trustd/private/TrustStore.sqlite3",
-                domain="ProtectedDomain",
-                owner=501, group=501,
-                mode=_FileMode.S_IRUSR | _FileMode.S_IWUSR  | _FileMode.S_IRGRP | _FileMode.S_IWGRP | _FileMode.S_IROTH | _FileMode.S_IWOTH
-            ))
+                files_to_restore.append(FileToRestore(
+                    contents=certsDB,
+                    restore_path="trustd/private/TrustStore.sqlite3",
+                    domain="ProtectedDomain",
+                    owner=501, group=501,
+                    mode=_FileMode.S_IRUSR | _FileMode.S_IWUSR  | _FileMode.S_IRGRP | _FileMode.S_IWGRP | _FileMode.S_IROTH | _FileMode.S_IWOTH
+                ))
 
             # restore to the device
             self.update_label = update_label
             self.do_not_unplug = ""
             if self.data_singleton.current_device.connected_via_usb:
-                self.do_not_unplug = "\nDo NOT Unplug"
+                self.do_not_unplug = "\nDO NOT UNPLUG"
             update_label(f"Preparing to restore...{self.do_not_unplug}")
             restore_files(
                 files=files_to_restore, reboot=self.auto_reboot,
@@ -518,12 +625,13 @@ class DeviceManager:
         except Exception as e:
             final_alert = show_apply_error(e, update_label, files_list=files_to_restore)
         finally:
-            if tmp_pb_dir != None:
-                try:
-                    tmp_pb_dir.cleanup()
-                except Exception as e:
-                    # ignore clean up errors
-                    print(str(e))
+            if len(tmp_dirs) > 0:
+                for tmp_dir in tmp_dirs:
+                    try:
+                        tmp_dir.cleanup()
+                    except Exception as e:
+                        # ignore clean up errors
+                        print(str(e))
             show_alert(final_alert)
 
     ## RESETTING MOBILE GESTALT

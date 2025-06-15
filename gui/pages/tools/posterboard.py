@@ -8,10 +8,8 @@ from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 from gui.dialogs import PBHelpDialog
 from gui.custom_qt_elements.multicombobox import MultiComboBox
-from gui.custom_qt_elements.resizable_image_label import ResizableImageLabel
 
 from tweaks.tweaks import tweaks
-from tweaks.posterboard.template_options import OptionType as TemplateOptionTypePB
 from devicemanagement.device_manager import show_apply_error
 
 class PosterboardPage(Page):
@@ -58,8 +56,8 @@ class PosterboardPage(Page):
         # load the pages if needed
         if len(tweaks["PosterBoard"].tendies) > 0:
             self.load_pb_tendies()
-        if len(tweaks["PosterBoard"].templates) > 0:
-            self.load_pb_templates()
+        # if len(tweaks["PosterBoard"].templates) > 0:
+        #     self.load_pb_templates()
 
     ## ACTIONS
     def delete_pb_file(self, file, widget):
@@ -136,11 +134,6 @@ class PosterboardPage(Page):
             self.pb_mainLayout.addWidget(widget)
             tendie.loaded = True
 
-    def get_chevron_icon(self, is_up: bool):
-        if is_up:
-            return QtGui.QIcon(":/icon/chevron.up.svg")
-        return QtGui.QIcon(":/icon/chevron.down.svg")
-
     def load_pb_templates(self):
         if len(tweaks["PosterBoard"].templates) == 0:
             return
@@ -175,111 +168,7 @@ class PosterboardPage(Page):
         widgets = {}
         # Iterate through the templates
         for template in tweaks["PosterBoard"].templates:
-            if template.loaded:
-                continue
-            widget = QtWidgets.QWidget()
-            widgets[template] = widget
-            options_widget = QtWidgets.QWidget(widget)
-
-            # create the icon/label + delete button
-            left_widget = QtWidgets.QWidget(widget)
-            titleBtn = self.create_title_widget(tendie=template, widget=widget)
-            chevron = QtWidgets.QToolButton(widget)
-            chevron.setIcon(self.get_chevron_icon(is_up=True)) # for opening/closing the options
-            chevron.setStyleSheet("QToolButton {\n    background-color: transparent;\n	icon-size: 20px;\n}")
-            chevron.clicked.connect(lambda _, get_chev=self.get_chevron_icon: (
-                options_widget.setVisible(not options_widget.isVisible()),
-                chevron.setIcon(get_chev(options_widget.isVisible()))
-            ))
-            spacer = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-            delBtn = QtWidgets.QToolButton(widget)
-            delBtn.setIcon(QtGui.QIcon(":/icon/trash.svg"))
-            delBtn.clicked.connect(lambda _, file=template: (
-                widgets[file].deleteLater(),
-                file.clean_files(),
-                tweaks["PosterBoard"].templates.remove(file)
-            ))
-            # align to top layout
-            left_layout = QtWidgets.QHBoxLayout(widget)
-            left_layout.setContentsMargins(0, 0, 4, 0)
-            left_layout.addWidget(titleBtn)
-            left_layout.addItem(spacer)
-            left_layout.addWidget(chevron)
-            left_layout.addWidget(delBtn)
-            left_widget.setLayout(left_layout)
-            left_widget.setMinimumHeight(40)
-            left_widget.setMaximumHeight(40)
-
-            # main layout
-            layout = QtWidgets.QVBoxLayout(widget)
-            layout.setContentsMargins(4, 2, 4, 2)
-            layout.addWidget(left_widget)
-            line = QtWidgets.QFrame()
-            line.setFrameShape(QtWidgets.QFrame.Shape.HLine)
-            line.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
-            line.setStyleSheet("QFrame {\n	color: #414141;\n}")
-            layout.addWidget(line)
-
-            # create previews
-            prevs: dict[str, QtWidgets.QLabel] = {}
-            if len(template.previews) > 0:
-                prev_widget = QtWidgets.QWidget(widget)
-                prev_widget.setMinimumHeight(0)
-                prev_widget.setMaximumHeight(250)
-                prev_widget.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-                if template.preview_layout == "stacked":
-                    prev_layout = QtWidgets.QStackedLayout(widget)
-                    prev_layout.setStackingMode(QtWidgets.QStackedLayout.StackAll)
-                else:
-                    prev_layout = QtWidgets.QHBoxLayout(widget)
-                prev_layout.setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter)
-                for prev in template.previews.keys():
-                    new_prev = ResizableImageLabel(prev_widget)
-                    new_prev.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-                    pixmap = QtGui.QPixmap(template.previews[prev])
-                    new_prev.setPixmap(pixmap)
-                    # new_prev.setScaledContents(True)
-                    prev_layout.addWidget(new_prev)
-                    prevs[prev] = new_prev
-                prev_widget.setLayout(prev_layout)
-                layout.addWidget(prev_widget)
-
-            # create options
-            # options_widget.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
-            opt_layout = QtWidgets.QVBoxLayout()
-            opt_layout.setContentsMargins(3, 0, 0, 0)
-
-            # make banner
-            if template.banner_text != None:
-                banner = QtWidgets.QLabel(options_widget)
-                banner.setText(template.banner_text)
-                banner.setAlignment(QtCore.Qt.AlignCenter)
-                if template.banner_stylesheet != None:
-                    banner.setStyleSheet(template.banner_stylesheet)
-                opt_layout.addWidget(banner)
-            # make description
-            if template.description != None:
-                descr = QtWidgets.QLabel(options_widget)
-                descr.setText(template.description)
-                opt_layout.addWidget(descr)
-
-            for option in template.options:
-                # provide the window
-                if option.type == TemplateOptionTypePB.replace and option.window == None:
-                    option.window = self.window#.set_window(self.window)
-                option.create_interface(options_widget=options_widget, options_layout=opt_layout)
-                # add the previews and update it
-                option.add_potential_preview_lbls(prevs)
-                option.update_preview()
-
-            options_widget.setLayout(opt_layout)
-
-            # finish the main layout
-            layout.addWidget(options_widget)
-            # Add the widget to the mainLayout
-            widget.setLayout(layout)
-            self.pb_templateLayout.addWidget(widget)
-            template.loaded = True
+            template.create_ui(self.window, tweaks["PosterBoard"], widgets, self.pb_templateLayout)
 
     # PB Pages Selectors
     def on_tendiesPageBtn_clicked(self):
@@ -305,6 +194,14 @@ class PosterboardPage(Page):
         if selected_files != None and len(selected_files) > 0:
             # user selected files, add them
             for file in selected_files:
+                if not self.window.device_manager.disable_tendies_limit and len(tweaks["PosterBoard"].tendies) >= 3:
+                    # alert that there are too many tendies
+                    detailsBox = QtWidgets.QMessageBox()
+                    detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
+                    detailsBox.setWindowTitle("Error!")
+                    detailsBox.setText("You selected too many tendies files! The limit is 3.\n\nThis is for your safety. Please apply the rest separately.")
+                    detailsBox.exec()
+                    break
                 if not tweaks["PosterBoard"].add_tendie(file):
                     # alert that there are too many
                     detailsBox = QtWidgets.QMessageBox()
@@ -317,12 +214,12 @@ class PosterboardPage(Page):
 
     # Templates Page
     def on_importTemplatesBtn_clicked(self):
-        selected_files, _ = QtWidgets.QFileDialog.getOpenFileNames(self.window, "Select PosterBoard Template Files", "", "Zip Files (*.batter)", options=QtWidgets.QFileDialog.ReadOnly)
+        selected_files, _ = QtWidgets.QFileDialog.getOpenFileNames(self.window, "Select Nugget Template Files", "", "Zip Files (*.batter)", options=QtWidgets.QFileDialog.ReadOnly)
         self.ui.resetPBDrp.deselectAll()
         if selected_files != None and len(selected_files) > 0:
             # user selected files, add them
             for file in selected_files:
-                if not tweaks["PosterBoard"].add_template(file):
+                if not tweaks["PosterBoard"].add_template(file, self.window.device_manager.data_singleton.current_device.version):
                     # alert that there are too many
                     detailsBox = QtWidgets.QMessageBox()
                     detailsBox.setIcon(QtWidgets.QMessageBox.Critical)

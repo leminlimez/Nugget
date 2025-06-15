@@ -1,6 +1,7 @@
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
+from tweaks.tweak_loader import load_daemons
 from tweaks.tweaks import tweaks
 from tweaks.daemons_tweak import Daemon
 
@@ -32,6 +33,8 @@ class DaemonsPage(Page):
         self.ui.passbookChk.toggled.connect(self.on_passbookChk_clicked)
         self.ui.spotlightChk.toggled.connect(self.on_spotlightChk_clicked)
         self.ui.voiceControlChk.toggled.connect(self.on_voiceControlChk_clicked)
+
+        load_daemons()
 
     ## ACTIONS
     def on_modifyDaemonsChk_clicked(self, checked: bool):

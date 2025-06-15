@@ -3,6 +3,7 @@ from qt.ui_mainwindow import Ui_Nugget
 
 from PySide6.QtWidgets import QMessageBox
 
+from tweaks.tweak_loader import load_rdar_fix
 from tweaks.tweaks import tweaks
 from controllers.video_handler import set_ignore_frame_limit
 
@@ -18,8 +19,12 @@ class SettingsPage(Page):
         self.ui.showRiskyChk.toggled.connect(self.on_showRiskyChk_toggled)
         self.ui.showAllSpoofableChk.toggled.connect(self.on_showAllSpoofableChk_toggled)
 
+        self.ui.ignorePBFrameLimitChk.toggled.connect(self.on_ignorePBFrameLimitChk_toggled)
+        self.ui.disableTendiesLimitChk.toggled.connect(self.on_disableTendiesLimitChk_toggled)
+
         self.ui.revertRdarChk.toggled.connect(self.on_revertRdarChk_toggled)
 
+        self.ui.trustStoreChk.toggled.connect(self.on_trustStoreChk_toggled)
         self.ui.skipSetupChk.toggled.connect(self.on_skipSetupChk_toggled)
         self.ui.supervisionChk.toggled.connect(self.on_supervisionChk_toggled)
         self.ui.supervisionOrganization.textEdited.connect(self.on_supervisionOrgTxt_textEdited)
@@ -39,6 +44,7 @@ class SettingsPage(Page):
         if checked:
             self.ui.advancedPageBtn.show()
             self.ui.ignorePBFrameLimitChk.show()
+            self.ui.disableTendiesLimitChk.show()
             try:
                 self.ui.resetPBDrp.removeItem(4)
             except:
@@ -47,6 +53,7 @@ class SettingsPage(Page):
         else:
             self.ui.advancedPageBtn.hide()
             self.ui.ignorePBFrameLimitChk.hide()
+            self.ui.disableTendiesLimitChk.hide()
             try:
                 self.ui.resetPBDrp.removeItem(4)
             except:
@@ -55,6 +62,10 @@ class SettingsPage(Page):
         set_ignore_frame_limit(checked)
         # save the setting
         self.window.settings.setValue("ignore_pb_frame_limit", checked)
+    def on_disableTendiesLimitChk_toggled(self, checked: bool):
+        self.window.device_manager.disable_tendies_limit = checked
+        # save the setting
+        self.window.settings.setValue("disable_tendies_limit", checked)
     def on_showAllSpoofableChk_toggled(self, checked: bool):
         self.window.device_manager.show_all_spoofable_models = checked
         # save the setting
@@ -67,7 +78,14 @@ class SettingsPage(Page):
         self.window.settings.setValue("auto_reboot", checked)
 
     def on_revertRdarChk_toggled(self, checked: bool):
+        if not 'RdarFix' in tweaks:
+            load_rdar_fix(self.window.device_manager.data_singleton.current_device)
         tweaks["RdarFix"].set_enabled(checked)
+
+    def on_trustStoreChk_toggled(self, checked: bool):
+        self.window.device_manager.restore_truststore = checked
+        # save the setting
+        self.window.settings.setValue("restore_truststore", checked)
 
     def on_skipSetupChk_toggled(self, checked: bool):
         self.window.device_manager.skip_setup = checked

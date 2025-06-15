@@ -9,6 +9,8 @@ from PySide6.QtGui import QColor
 from PySide6 import QtWidgets, QtCore
 
 from controllers.xml_handler import set_xml_value, set_xml_values
+from controllers.plist_handler import write_plist_value
+from exceptions.posterboard_exceptions import PBTemplateException
 
 class SetterType(Enum):
     textbox = "textbox"
@@ -350,8 +352,21 @@ class SetOption(TemplateOption):
         for file in self.files:
             path = os.path.join(container_path, *file.split('/'))
             for full_path in glob.glob(path, recursive=True):
-                # set opacity if it has that
-                if self.sets_opacity and isinstance(self.value, QColor):
-                    set_xml_values(file=full_path, id=self.identifier, keys=[self.key, "opacity"], values=[self.convert_back(apply_val), str(self.value.alphaF())], use_ca_id=self.use_ca_id)
+                # handle for file types
+                if full_path.endswith(".caml") or full_path.endswith(".xml"):
+                    # set opacity if it has that
+                    if self.sets_opacity and isinstance(self.value, QColor):
+                        set_xml_values(file=full_path, id=self.identifier, keys=[self.key, "opacity"], values=[self.convert_back(apply_val), str(self.value.alphaF())], use_ca_id=self.use_ca_id)
+                    else:
+                        set_xml_value(file=full_path, id=self.identifier, key=self.key, val=self.convert_back(apply_val), use_ca_id=self.use_ca_id)
+                elif full_path.endswith(".plist"):
+                    # Plist editing
+                    write_plist_value(full_path, self.key, apply_val)
                 else:
-                    set_xml_value(file=full_path, id=self.identifier, key=self.key, val=self.convert_back(apply_val), use_ca_id=self.use_ca_id)
+                    # plain text editing
+                    with open(full_path, "r") as in_file:
+                        contents = in_file.read()
+                    # replace occurrances and overwrite
+                    contents = contents.replace(self.key, str(apply_val))
+                    with open(full_path, "w") as out_file:
+                        out_file.write(contents)

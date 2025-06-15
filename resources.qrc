@@ -43,5 +43,6 @@
         <file>icon/chevron.up.svg</file>
         <file>gui/transparent.png</file>
         <file>icon/export.svg</file>
+        <file>icon/ellipsis.svg</file>
     </qresource>
 </RCC>
