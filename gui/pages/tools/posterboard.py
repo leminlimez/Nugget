@@ -194,12 +194,12 @@ class PosterboardPage(Page):
         if selected_files != None and len(selected_files) > 0:
             # user selected files, add them
             for file in selected_files:
-                if not self.window.device_manager.disable_tendies_limit and len(tweaks["PosterBoard"].tendies) >= 2:
+                if not self.window.device_manager.disable_tendies_limit and len(tweaks["PosterBoard"].tendies) >= 3:
                     # alert that there are too many tendies
                     detailsBox = QtWidgets.QMessageBox()
                     detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
                     detailsBox.setWindowTitle("Error!")
-                    detailsBox.setText("You selected too many tendies files! The limit is 2.\n\nThis is for your safety. Please apply the rest separately.")
+                    detailsBox.setText("You selected too many tendies files! The limit is 3.\n\nThis is for your safety. Please apply the rest separately.")
                     detailsBox.exec()
                     break
                 if not tweaks["PosterBoard"].add_tendie(file):
