@@ -241,6 +241,23 @@ class StatusBarTweak(Tweak):
         overrides.overrideTimeString = 0
         self.setter.apply_changes(overrides)
 
+    # DATE STRING
+    def is_date_overridden(self) -> bool:
+        overrides = self.setter.get_overrides()
+        return overrides.overrideDateString == 1
+    def get_date_override(self) -> str:
+        overrides = self.setter.get_overrides()
+        return ffi.string(overrides.values.dateString).decode()
+    def set_date(self, text: str) -> None:
+        overrides = self.setter.get_overrides()
+        overrides.overrideDateString = 1
+        overrides.values.dateString = text[:256].encode()
+        self.setter.apply_changes(overrides)
+    def unset_date(self) -> None:
+        overrides = self.setter.get_overrides()
+        overrides.overrideDateString = 0
+        self.setter.apply_changes(overrides)
+
     # BREADCRUMB STRING
     def is_crumb_overridden(self) -> bool:
         overrides = self.setter.get_overrides()

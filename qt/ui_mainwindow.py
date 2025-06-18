@@ -2100,6 +2100,16 @@ class Ui_Nugget(object):
 
         self.verticalLayout_81.addWidget(self.timeTxt)
 
+        self.dateChk = QCheckBox(self.statusBarPageContent)
+        self.dateChk.setObjectName(u"dateChk")
+
+        self.verticalLayout_81.addWidget(self.dateChk)
+
+        self.dateTxt = QLineEdit(self.statusBarPageContent)
+        self.dateTxt.setObjectName(u"dateTxt")
+
+        self.verticalLayout_81.addWidget(self.dateTxt)
+
         self.breadcrumbChk = QCheckBox(self.statusBarPageContent)
         self.breadcrumbChk.setObjectName(u"breadcrumbChk")
 
@@ -4615,6 +4625,8 @@ class Ui_Nugget(object):
         self.sStrengthLbl.setText(QCoreApplication.translate("Nugget", u"0 Bars", None))
         self.timeChk.setText(QCoreApplication.translate("Nugget", u"Change Status Bar Time Text*", None))
         self.timeTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Status Bar Time Text", None))
+        self.dateChk.setText(QCoreApplication.translate("Nugget", u"Change Status Bar Date Text", None))
+        self.dateTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Status Bar Date Text", None))
         self.breadcrumbChk.setText(QCoreApplication.translate("Nugget", u"Change Breadcrumb Text", None))
         self.breadcrumbTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Breadcrumb Text", None))
         self.batteryDetailChk.setText(QCoreApplication.translate("Nugget", u"Change Battery Detail Text", None))

@@ -3986,6 +3986,20 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
+                      <widget class="QCheckBox" name="dateChk">
+                       <property name="text">
+                        <string>Change Status Bar Date Text</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="dateTxt">
+                       <property name="placeholderText">
+                        <string>Status Bar Date Text</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
                       <widget class="QCheckBox" name="breadcrumbChk">
                        <property name="text">
                         <string>Change Breadcrumb Text</string>

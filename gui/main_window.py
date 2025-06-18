@@ -323,6 +323,9 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.chooseThumbBtn.setVisible(is_iphone and not is_looping)
             self.ui.caVideoChk.setVisible(is_iphone)
             self.ui.exportPBVideoBtn.setVisible(is_looping and tweaks["PosterBoard"].videoFile != None)
+            # show status bar date on ipads
+            self.ui.dateChk.setVisible(not is_iphone)
+            self.ui.dateTxt.setVisible(not is_iphone)
 
             # show the PB if initial load is true
             if self.initial_load:
