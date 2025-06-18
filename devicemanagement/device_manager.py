@@ -4,7 +4,7 @@ from tempfile import TemporaryDirectory
 import os.path
 
 from PySide6.QtWidgets import QMessageBox
-from PySide6.QtCore import QSettings
+from PySide6.QtCore import QSettings, QCoreApplication
 
 from pymobiledevice3 import usbmux
 from pymobiledevice3.lockdown import create_using_usbmux
@@ -55,19 +55,19 @@ def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list
     print(traceback.format_exc())
     update_label("Failed to restore")
     if "Find My" in str(e):
-        return ApplyAlertMessage("Find My must be disabled in order to use this tool.",
-                       detailed_txt="Disable Find My from Settings (Settings -> [Your Name] -> Find My) and then try again.")
+        return ApplyAlertMessage(QCoreApplication.tr("Find My must be disabled in order to use this tool."),
+                       detailed_txt=QCoreApplication.tr("Disable Find My from Settings (Settings -> [Your Name] -> Find My) and then try again."))
     elif "Encrypted Backup MDM" in str(e):
-        return ApplyAlertMessage("Nugget cannot be used on this device. Click Show Details for more info.",
-                       detailed_txt="Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!")
+        return ApplyAlertMessage(QCoreApplication.tr("Nugget cannot be used on this device. Click Show Details for more info."),
+                       detailed_txt=QCoreApplication.tr("Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!"))
     elif "SessionInactive" in str(e):
-        return ApplyAlertMessage("The session was terminated. Refresh the device list and try again.")
+        return ApplyAlertMessage(QCoreApplication.tr("The session was terminated. Refresh the device list and try again."))
     elif "PasswordRequiredError" in str(e):
-        return ApplyAlertMessage("Device is password protected! You must trust the computer on your device.",
-                       detailed_txt="Unlock your device. On the popup, click \"Trust\", enter your password, then try again.")
+        return ApplyAlertMessage(QCoreApplication.tr("Device is password protected! You must trust the computer on your device."),
+                       detailed_txt=QCoreApplication.tr("Unlock your device. On the popup, click \"Trust\", enter your password, then try again."))
     elif isinstance(e, ConnectionTerminatedError):
         files_str: str = get_files_list_str(files_list)
-        return ApplyAlertMessage("Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info.",
+        return ApplyAlertMessage(QCoreApplication.tr("Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info."),
                                  detailed_txt=files_str + "TRACEBACK:\n\n" + str(traceback.format_exc()))
     elif isinstance(e, NuggetException):
         return ApplyAlertMessage(str(e))
@@ -100,8 +100,11 @@ class DeviceManager:
         try:
             connected_devices = usbmux.list_devices()
         except:
+            sysmsg = QCoreApplication.tr("If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.")
+            if os.name == 'nt':
+                sysmsg = QCoreApplication.tr("Make sure you have the \"Apple Devices\" app from the Microsoft Store or iTunes from Apple's website.")
             show_alert(ApplyAlertMessage(
-                txt="Failed to get device list. Click \"Show Details\" for the traceback.\n\nIf you are on Windows, make sure you have the \"Apple Devices\" app from the Microsoft Store or iTunes from Apple's website.\nIf you are on Linux, make sure you have usbmuxd and libimobiledevice installed.", detailed_txt=str(traceback.format_exc())
+                txt=QCoreApplication.tr("Failed to get device list. Click \"Show Details\" for the traceback.") + f"\n\n{sysmsg}", detailed_txt=str(traceback.format_exc())
             ))
             self.set_current_device(index=None)
             return
@@ -134,7 +137,7 @@ class DeviceManager:
                         else:
                             cpu = cpu_type
                     except:
-                        show_alert(ApplyAlertMessage(txt="Click \"Show Details\" for the traceback.", detailed_txt=str(traceback.format_exc())))
+                        show_alert(ApplyAlertMessage(txt=QCoreApplication.tr("Click \"Show Details\" for the traceback."), detailed_txt=str(traceback.format_exc())))
                     dev = Device(
                             uuid=device.serial,
                             usb=device.is_usb,
@@ -151,11 +154,11 @@ class DeviceManager:
                         tweaks["RdarFix"].get_rdar_mode(model)
                     self.devices.append(dev)
                 except PasswordRequiredError as e:
-                    show_alert(ApplyAlertMessage(txt="Device is password protected! You must trust the computer on your device.\n\nUnlock your device. On the popup, click \"Trust\", enter your password, then try again."))
+                    show_alert(ApplyAlertMessage(txt=QCoreApplication.tr("Device is password protected! You must trust the computer on your device.\n\nUnlock your device. On the popup, click \"Trust\", enter your password, then try again.")))
                 except MuxException as e:
                     # there is probably a cable issue
                     print(f"MUX ERROR with lockdown device with UUID {device.serial}")
-                    show_alert(ApplyAlertMessage(txt="MuxException: " + repr(e) + "\n\nIf you keep receiving this error, try using a different cable or port.",
+                    show_alert(ApplyAlertMessage(txt="MuxException: " + repr(e) + "\n\n" + QCoreApplication.tr("If you keep receiving this error, try using a different cable or port."),
                                    detailed_txt=str(traceback.format_exc())))
                 except Exception as e:
                     print(f"ERROR with lockdown device with UUID {device.serial}")
@@ -264,7 +267,7 @@ class DeviceManager:
         self.data_singleton.current_device.ld.unpair()
         # next, pair it again
         self.data_singleton.current_device.ld.pair()
-        QMessageBox.information(None, "Pairing Reset", "Your device's pairing was successfully reset. Refresh the device list before applying.")
+        QMessageBox.information(None, QCoreApplication.tr("Pairing Reset"), QCoreApplication.tr("Your device's pairing was successfully reset. Refresh the device list before applying."))
         
 
     def add_skip_setup(self, files_to_restore: list[FileToRestore], restoring_domains: bool):
@@ -491,7 +494,7 @@ class DeviceManager:
                             gestalt_plist = tweak.apply_tweak(gestalt_plist)
                         elif tweak.enabled:
                             # no mobilegestalt file provided but applying mga tweaks, give warning
-                            show_alert(ApplyAlertMessage(txt="No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks."))
+                            show_alert(ApplyAlertMessage(txt=QCoreApplication.tr("No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.")))
                             update_label("Failed.")
                             return
                 # set the custom gestalt keys
@@ -610,18 +613,18 @@ class DeviceManager:
             self.update_label = update_label
             self.do_not_unplug = ""
             if self.data_singleton.current_device.connected_via_usb:
-                self.do_not_unplug = "\nDO NOT UNPLUG"
-            update_label(f"Preparing to restore...{self.do_not_unplug}")
+                self.do_not_unplug = f"\n{QCoreApplication.tr("DO NOT UNPLUG")}"
+            update_label(f"{QCoreApplication.tr("Preparing to restore...")}{self.do_not_unplug}")
             restore_files(
                 files=files_to_restore, reboot=self.auto_reboot,
                 lockdown_client=self.data_singleton.current_device.ld,
                 progress_callback=self.progress_callback
             )
-            msg = "Your device will now restart.\n\nRemember to turn Find My back on!"
+            msg = QCoreApplication.tr("Your device will now restart.\n\nRemember to turn Find My back on!")
             if not self.auto_reboot:
-                msg = "Please restart your device to see changes."
-            final_alert = ApplyAlertMessage(txt="All done! " + msg, title="Success!", icon=QMessageBox.Information)
-            update_label("Success!")
+                msg = QCoreApplication.tr("Please restart your device to see changes.")
+            final_alert = ApplyAlertMessage(txt=QCoreApplication.tr("All done! ") + msg, title=QCoreApplication.tr("Success!"), icon=QMessageBox.Information)
+            update_label(QCoreApplication.tr("Success!"))
         except Exception as e:
             final_alert = show_apply_error(e, update_label, files_list=files_to_restore)
         finally:
@@ -651,10 +654,10 @@ class DeviceManager:
                     restore_path=file_path,
                     domain=domain
                 )], reboot=self.auto_reboot, lockdown_client=self.data_singleton.current_device.ld)
-            msg = "Your device will now restart."
+            msg = QCoreApplication.tr("Your device will now restart.\n\nRemember to turn Find My back on!")
             if not self.auto_reboot:
-                msg = "Please restart your device to see changes."
-            QMessageBox.information(None, "Success!", "All done! " + msg)
-            update_label("Success!")
+                msg = QCoreApplication.tr("Please restart your device to see changes.")
+            QMessageBox.information(None, QCoreApplication.tr("Success!"), QCoreApplication.tr("All done! ") + msg)
+            update_label(QCoreApplication.tr("Success!"))
         except Exception as e:
             show_error_msg(str(e))
