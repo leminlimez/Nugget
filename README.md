@@ -206,6 +206,7 @@ For clarity, up to iOS 18.2 developer beta 2 (public beta 1) is fully supported 
 </a>
 
 ## Credits
+- Translations crowdsourced using [POEditor][POEditorJoin]. Thank you everyone who assisted in the translation effort!
 - [JJTech][JJTechGitHub] for Sparserestore/[TrollRestore][TrollStoreGitHub]
 - [PosterRestore][PosterRestoreDiscord] for their help with PosterBoard
   - Special thanks to [dootskyre][dootskyreX], [Middo][MiddoX], [dulark][dularkGitHub], forcequitOS, and pingubow for their work on this. It would not have been possible without them!
@@ -229,6 +230,7 @@ For clarity, up to iOS 18.2 developer beta 2 (public beta 1) is fully supported 
 [MobilegestaltShortcut]: https://www.icloud.com/shortcuts/d6f0a136ddda4714a80750512911c53b
 [ReadMoreGist]: https://gist.github.com/leminlimez/c602c067349140fe979410ef69d39c28
 
+[POEditorJoin]: https://poeditor.com/join/project/UTqpVSE2UD
 [JJTechGitHub]: https://github.com/JJTech0130
 [TrollStoreGitHub]: https://github.com/JJTech0130/TrollRestore
 [PosterRestoreDiscord]: https://discord.gg/gWtzTVhMvh
