@@ -64,6 +64,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.sidebarDiv1.hide()
         self.ui.sidebarDiv2.hide()
 
+        self.ui.languageWidget.hide() # TODO: add later
+
         # pre-load the pages
         self.pages = {
             Page.Home: Pages.Home(window=self, ui=self.ui),

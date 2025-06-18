@@ -4213,6 +4213,36 @@ class Ui_Nugget(object):
         self._21 = QVBoxLayout(self.settingsPageContent)
         self._21.setObjectName(u"_21")
         self._21.setContentsMargins(0, 0, 0, 0)
+        self.languageWidget = QWidget(self.settingsPageContent)
+        self.languageWidget.setObjectName(u"languageWidget")
+        self.languageWidget.setMinimumSize(QSize(0, 25))
+        self.horizontalLayout_3 = QHBoxLayout(self.languageWidget)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.langLbl = QLabel(self.languageWidget)
+        self.langLbl.setObjectName(u"langLbl")
+        self.langLbl.setMinimumSize(QSize(0, 0))
+
+        self.horizontalLayout_3.addWidget(self.langLbl)
+
+        self.label_4 = QLabel(self.languageWidget)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setText(u"")
+
+        self.horizontalLayout_3.addWidget(self.label_4)
+
+        self.langDrp = QComboBox(self.languageWidget)
+        self.langDrp.setObjectName(u"langDrp")
+
+        self.horizontalLayout_3.addWidget(self.langDrp)
+
+        self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_9)
+
+
+        self._21.addWidget(self.languageWidget)
+
         self.allowWifiApplyingChk = QCheckBox(self.settingsPageContent)
         self.allowWifiApplyingChk.setObjectName(u"allowWifiApplyingChk")
         self.allowWifiApplyingChk.setChecked(False)
@@ -4865,6 +4895,7 @@ class Ui_Nugget(object):
         self.removeTweaksBtn.setText(QCoreApplication.translate("Nugget", u"Remove All Tweaks", None))
         self.resetGestaltBtn.setText(QCoreApplication.translate("Nugget", u"Reset Mobile Gestalt", None))
         self.springboardOptionsLbl1.setText(QCoreApplication.translate("Nugget", u"Nugget Settings", None))
+        self.langLbl.setText(QCoreApplication.translate("Nugget", u"App Language", None))
         self.allowWifiApplyingChk.setText(QCoreApplication.translate("Nugget", u"Allow Applying Over WiFi", None))
         self.autoRebootChk.setText(QCoreApplication.translate("Nugget", u"Auto Reboot After Applying", None))
         self.showRiskyChk.setText(QCoreApplication.translate("Nugget", u"Show Risky Tweak Options", None))

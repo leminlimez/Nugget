@@ -1574,94 +1574,99 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8103"/>
+        <location filename="../qt/mainwindow.ui" line="8130"/>
+        <source>App Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qt/mainwindow.ui" line="8163"/>
         <source>Allow Applying Over WiFi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8113"/>
+        <location filename="../qt/mainwindow.ui" line="8173"/>
         <source>Auto Reboot After Applying</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8123"/>
+        <location filename="../qt/mainwindow.ui" line="8183"/>
         <source>Show Risky Tweak Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8130"/>
+        <location filename="../qt/mainwindow.ui" line="8190"/>
         <source>Show models for other device types in the AI device spoofing tab.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8139"/>
+        <location filename="../qt/mainwindow.ui" line="8199"/>
         <source>Show All Spoofable Models</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8146"/>
+        <location filename="../qt/mainwindow.ui" line="8206"/>
         <source>Ignore Posterboard Frame Limit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8153"/>
+        <location filename="../qt/mainwindow.ui" line="8213"/>
         <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8158"/>
+        <location filename="../qt/mainwindow.ui" line="8218"/>
         <source>Disable Tendies Limit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8183"/>
+        <location filename="../qt/mainwindow.ui" line="8243"/>
         <source>If you used the rdar/status bar fix in a previous iOS version, this will revert that.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8186"/>
+        <location filename="../qt/mainwindow.ui" line="8246"/>
         <source>Revert rdar Fix (reset resolution)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8208"/>
+        <location filename="../qt/mainwindow.ui" line="8268"/>
         <source>Restores the SSL config that does something idk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8211"/>
+        <location filename="../qt/mainwindow.ui" line="8271"/>
         <source>Restore TrustStore (SSL Configuration Profiles)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8221"/>
+        <location filename="../qt/mainwindow.ui" line="8281"/>
         <source>Skip Setup * (non-exploit files only)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8234"/>
+        <location filename="../qt/mainwindow.ui" line="8294"/>
         <source>Enable Supervision * (requires Skip Setup)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8244"/>
+        <location filename="../qt/mainwindow.ui" line="8304"/>
         <source>Enter Organization Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8267"/>
+        <location filename="../qt/mainwindow.ui" line="8327"/>
         <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8294"/>
+        <location filename="../qt/mainwindow.ui" line="8354"/>
         <source>Reset Device Pairing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8308"/>
+        <location filename="../qt/mainwindow.ui" line="8368"/>
         <source>Pocket Poster Helper</source>
         <translation type="unfinished"></translation>
     </message>
