@@ -1809,63 +1809,87 @@ Remember to turn Find My back on!</source>
         <source>Success!</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>UpdateAppDialog</name>
     <message>
-        <location filename="../gui/dialogs.py" line="84"/>
-        <source>Update Available</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../gui/dialogs.py" line="92"/>
-        <source>Nugget v{0} is available. </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../gui/dialogs.py" line="94"/>
-        <source>Would you like to go to the download on GitHub?</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>self.window</name>
-    <message>
-        <location filename="../gui/pages/main/home.py" line="49"/>
+        <location filename="../gui/pages/main/home.py" line="50"/>
         <source>Please connect a device.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="116"/>
-        <location filename="../gui/pages/main/settings.py" line="126"/>
+        <location filename="../gui/pages/main/home.py" line="66"/>
+        <source>Supported!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/main/home.py" line="68"/>
+        <source>Not Supported.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/main/home.py" line="71"/>
+        <source>Partially Supported.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/main/settings.py" line="117"/>
+        <location filename="../gui/pages/main/settings.py" line="127"/>
         <source>PosterBoard App Hash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="116"/>
+        <location filename="../gui/pages/main/settings.py" line="117"/>
         <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap &quot;Detect&quot;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="120"/>
+        <location filename="../gui/pages/main/settings.py" line="121"/>
         <source>Copy it and paste it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="124"/>
+        <location filename="../gui/pages/main/settings.py" line="125"/>
         <source>It has been copied. Paste it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="126"/>
+        <location filename="../gui/pages/main/settings.py" line="127"/>
         <source>Your hash is:
 {0}
 
 {1} into the Nugget app where it says &quot;App Hash&quot;.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../tweaks/posterboard/posterboard_tweak.py" line="40"/>
+        <source>Wrong type of file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/posterboard/posterboard_tweak.py" line="48"/>
+        <source>Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/posterboard/posterboard_tweak.py" line="49"/>
+        <source>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/posterboard/posterboard_tweak.py" line="66"/>
+        <location filename="../tweaks/posterboard/template_options/templates_tweak.py" line="34"/>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/posterboard/posterboard_tweak.py" line="67"/>
+        <location filename="../tweaks/posterboard/template_options/templates_tweak.py" line="35"/>
+        <source>Failed to load template</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QtCore.QCoreApplication</name>
     <message>
         <location filename="../gui/pages/tools/posterboard.py" line="201"/>
         <location filename="../gui/pages/tools/posterboard.py" line="209"/>
@@ -1896,6 +1920,73 @@ This is for your safety. Please apply the rest separately.</source>
         <location filename="../gui/pages/tools/posterboard.py" line="247"/>
         <location filename="../gui/pages/tools/posterboard.py" line="252"/>
         <source>Current Video: {0}</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/posterboard/template_file.py" line="61"/>
+        <source>No options were found in the config. Make sure that it is in the correct format.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/posterboard/template_file.py" line="63"/>
+        <source>This config does not have a valid domain!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/posterboard/template_file.py" line="70"/>
+        <source>This config requires a newer version of Nugget.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/posterboard/template_file.py" line="81"/>
+        <source>This template requires iOS {0}.
+Your iOS version (iOS {1}) is too outdated!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/posterboard/template_file.py" line="85"/>
+        <source>This template requires iOS {0}.
+Your iOS version (iOS {1}) is too new!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/posterboard/template_file.py" line="138"/>
+        <source>Invalid option type in template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/posterboard/template_file.py" line="140"/>
+        <source>No config.json found in file!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/posterboard/template_file.py" line="292"/>
+        <source>Bundle id (default: {0})</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/posterboard/template_options/replace_option.py" line="103"/>
+        <source>Error applying template:
+
+No selected file for required option</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UpdateAppDialog</name>
+    <message>
+        <location filename="../gui/dialogs.py" line="84"/>
+        <source>Update Available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/dialogs.py" line="92"/>
+        <source>Nugget v{0} is available. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/dialogs.py" line="94"/>
+        <source>Would you like to go to the download on GitHub?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

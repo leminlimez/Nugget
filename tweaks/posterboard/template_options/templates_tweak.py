@@ -3,6 +3,7 @@ import traceback
 import uuid
 
 from PySide6 import QtWidgets
+from PySide6.QtCore import QCoreApplication
 
 from ...tweak_classes import Tweak
 from ..template_file import TemplateFile
@@ -30,8 +31,8 @@ class TemplatesTweak(Tweak):
             print(traceback.format_exc())
             detailsBox = QtWidgets.QMessageBox()
             detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
-            detailsBox.setWindowTitle("Error")
-            detailsBox.setText(f"Failed to load template {file}\n\n{str(e)}")
+            detailsBox.setWindowTitle(QCoreApplication.tr("Error"))
+            detailsBox.setText(QCoreApplication.tr("Failed to load template") + f" {file}\n\n{str(e)}")
             detailsBox.exec()
 
     def parse_path_string(self, path: str, old_domain: str, new_domain: str) -> str:

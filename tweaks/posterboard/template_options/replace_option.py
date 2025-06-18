@@ -100,7 +100,7 @@ class ReplaceOption(TemplateOption):
             if not self.required:
                 return
             elif self.required and self.value == None:
-                raise NuggetException(f"Error applying template:\n\nNo selected file for required option {self.label}")
+                raise NuggetException(QtCore.QCoreApplication.tr("Error applying template:\n\nNo selected file for required option") + f" {self.label}")
         contents=None
         in_path = os.path.join(container_path, self.value)
         with open(in_path, "rb") as in_file:

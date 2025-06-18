@@ -19,7 +19,7 @@ if __name__ == "__main__":
         app.installTranslator(translator)
     translator = QTranslator(app)
     path = ':/translations'
-    if translator.load(QLocale.system(), 'example', '_', path):
+    if translator.load(QLocale.system(), 'translations/Nugget', '_', path):
         app.installTranslator(translator)
 
     # set icon

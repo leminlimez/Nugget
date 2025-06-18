@@ -1,4 +1,5 @@
 import webbrowser
+from PySide6.QtCore import QCoreApplication
 
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
@@ -46,7 +47,7 @@ class HomePage(Page):
         if ver != "":
             self.show_version_text(version=ver, build=build)
         else:
-            self.ui.phoneVersionLbl.setText(self.window.tr("Please connect a device."))
+            self.ui.phoneVersionLbl.setText(QCoreApplication.tr("Please connect a device."))
 
     def toggle_version_label(self):
         if self.show_uuid:
@@ -62,12 +63,12 @@ class HomePage(Page):
                 self.ui.phoneVersionLbl.setText(f"<a style=\"text-decoration:none; color: white\" href=\"#\">{uuid}</a>")
 
     def show_version_text(self, version: str, build: str):
-        support_str: str = "<span style=\"color: #32d74b;\">Supported!</span></a>"
+        support_str: str = "<span style=\"color: #32d74b;\">" + QCoreApplication.tr("Supported!") + "</span></a>"
         if Version(version) < Version("17.0"):
-            support_str = "<span style=\"color: #ff0000;\">Not Supported.</span></a>"
+            support_str = "<span style=\"color: #ff0000;\">" + QCoreApplication.tr("Not Supported.") + "</span></a>"
         elif self.window.device_manager.get_current_device_patched():
             # sparserestore fully patched
-            support_str = "<span style=\"color: #ffff00;\">Partially Supported.</span></a>"
+            support_str = "<span style=\"color: #ffff00;\">"+ QCoreApplication.tr("Partially Supported.") + "</span></a>"
         self.ui.phoneVersionLbl.setText(f"<a style=\"text-decoration:none; color: white;\" href=\"#\">iOS {version} ({build}) {support_str}")
 
     ## HOME PAGE LINKS

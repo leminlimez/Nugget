@@ -2,6 +2,7 @@ from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
 from PySide6.QtWidgets import QMessageBox
+from PySide6.QtCore import QCoreApplication
 
 from tweaks.tweak_loader import load_rdar_fix
 from tweaks.tweaks import tweaks
@@ -113,14 +114,14 @@ class SettingsPage(Page):
         print(pb_hash)
         try:
             self.window.device_manager.send_app_hash_afc(pb_hash)
-            QMessageBox.information(None, self.window.tr("PosterBoard App Hash"), self.window.tr("Your hash has been transferred to the Pocket Poster app.\n\nOpen up its settings and tap \"Detect\"."))
+            QMessageBox.information(None, QCoreApplication.tr("PosterBoard App Hash"), QCoreApplication.tr("Your hash has been transferred to the Pocket Poster app.\n\nOpen up its settings and tap \"Detect\"."))
         except:
             # fall back to copy and paste
-            copytxt = self.window.tr("Copy it and paste it")
+            copytxt = QCoreApplication.tr("Copy it and paste it")
             try:
                 import pyperclip
                 pyperclip.copy(pb_hash)
-                copytxt = self.window.tr("It has been copied. Paste it")
+                copytxt = QCoreApplication.tr("It has been copied. Paste it")
             except:
                 print("pyperclip not found, not copying to clipboard")
-            QMessageBox.information(None, self.window.tr("PosterBoard App Hash"), self.window.tr("Your hash is:\n{0}\n\n{1} into the Nugget app where it says \"App Hash\".").format(pb_hash, copytxt))
+            QMessageBox.information(None, QCoreApplication.tr("PosterBoard App Hash"), QCoreApplication.tr("Your hash is:\n{0}\n\n{1} into the Nugget app where it says \"App Hash\".").format(pb_hash, copytxt))

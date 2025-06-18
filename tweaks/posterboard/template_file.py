@@ -58,16 +58,16 @@ class TemplateFile(TendieFile):
                 data = load(file)
                 # load the options
                 if not 'options' in data:
-                    raise PBTemplateException(path, "No options were found in the config. Make sure that it is in the correct format.")
+                    raise PBTemplateException(path, QtCore.QCoreApplication.tr("No options were found in the config. Make sure that it is in the correct format."))
                 if not 'domain' in data:
-                    raise PBTemplateException(path, "This config does not have a valid domain!.")
+                    raise PBTemplateException(path, QtCore.QCoreApplication.tr("This config does not have a valid domain!"))
                 self.domain = data['domain']
                 # add backwards compatibility for my mistake in the v5.2 betas
                 if self.domain == "com.apple.PosterBoard":
                     self.domain = "AppDomain-com.apple.PosterBoard"
                 self.format_version = int(data['format_version'])
                 if self.format_version > CURRENT_FORMAT:
-                    raise PBTemplateException(path, "This config requires a newer version of Nugget.")
+                    raise PBTemplateException(path, QtCore.QCoreApplication.tr("This config requires a newer version of Nugget."))
                 self.name = data['title']
                 self.author = data['author']
                 if 'description' in data:
@@ -78,11 +78,11 @@ class TemplateFile(TendieFile):
                     # check the device version
                     # TODO: need to make this check also happen when connected device is updated
                     if Version(self.min_version) > Version(device_version):
-                        raise PBTemplateException(path, f"This template requires iOS {self.min_version}.\nYour iOS version (iOS {device_version}) is too outdated!")
+                        raise PBTemplateException(path, QtCore.QCoreApplication.tr("This template requires iOS {0}.\nYour iOS version (iOS {1}) is too outdated!").format(self.min_version, device_version))
                 if 'max_version' in data:
                     self.max_version = data['max_version']
                     if Version(self.max_version) < Version(device_version):
-                        raise PBTemplateException(path, f"This template requires iOS {self.max_version}.\nYour iOS version (iOS {device_version}) is too new!")
+                        raise PBTemplateException(path, QtCore.QCoreApplication.tr("This template requires iOS {0}.\nYour iOS version (iOS {1}) is too new!").format(self.max_version, device_version))
 
                 # load the previews
                 prevs = []
@@ -135,9 +135,9 @@ class TemplateFile(TendieFile):
                         self.change_bundle_id = True
                         self.bundle_id = self.domain.removeprefix("AppDomain-") # set default value to the bundle id in the domain
                     else:
-                        raise PBTemplateException(path, "Invalid option type in template")
+                        raise PBTemplateException(path, QtCore.QCoreApplication.tr("Invalid option type in template"))
             else:
-                raise PBTemplateException(path, "No config.json found in file!")
+                raise PBTemplateException(path, QtCore.QCoreApplication.tr("No config.json found in file!"))
     
     def clean_files(self):
         if self.tmp_dir != None:
@@ -289,7 +289,7 @@ class TemplateFile(TendieFile):
             bx_lbl.setText("App bundle id:")
             bx_layout.addWidget(bx_lbl)
             textbox = QtWidgets.QLineEdit(bx_widget)
-            textbox.setPlaceholderText(f"Bundle id (default: {self.domain.removeprefix("AppDomain-")})")
+            textbox.setPlaceholderText(QtCore.QCoreApplication.tr("Bundle id (default: {0})").format(self.domain.removeprefix("AppDomain-")))
             textbox.setText(self.bundle_id)
             textbox.textEdited.connect(self.update_bundle_id)
             bx_layout.addWidget(textbox)
