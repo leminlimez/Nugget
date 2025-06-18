@@ -113,14 +113,14 @@ class SettingsPage(Page):
         print(pb_hash)
         try:
             self.window.device_manager.send_app_hash_afc(pb_hash)
-            QMessageBox.information(None, "PosterBoard App Hash", "Your hash has been transferred to the Pocket Poster app.\n\nOpen up its settings and tap \"Detect\".")
+            QMessageBox.information(None, self.window.tr("PosterBoard App Hash"), self.window.tr("Your hash has been transferred to the Pocket Poster app.\n\nOpen up its settings and tap \"Detect\"."))
         except:
             # fall back to copy and paste
-            copytxt = "Copy it and paste"
+            copytxt = self.window.tr("Copy it and paste it")
             try:
                 import pyperclip
                 pyperclip.copy(pb_hash)
-                copytxt = "It has been copied. Paste"
+                copytxt = self.window.tr("It has been copied. Paste it")
             except:
                 print("pyperclip not found, not copying to clipboard")
-            QMessageBox.information(None, "PosterBoard App Hash", f"Your hash is:\n{pb_hash}\n\n{copytxt} it into the Nugget app where it says \"App Hash\".")
+            QMessageBox.information(None, self.window.tr("PosterBoard App Hash"), self.window.tr("Your hash is:\n{0}\n\n{1} into the Nugget app where it says \"App Hash\".").format(pb_hash, copytxt))

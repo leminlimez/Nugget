@@ -176,6 +176,12 @@ To compile the resources file for Python, run the following command:
 pyside6-rcc resources.qrc -o resources_rc.py
 ```
 
+To create and compile languages, you can use the following commands:
+```py
+pyside6-lupdate main_app.py gui/pages/main/*.py gui/pages/tools/posterboard.py gui/dialogs.py qt/mainwindow.ui -ts languages/Nugget_{language code}.ts # generate/update the language file
+pyside6-lrelease languages/Nugget_{language code}.ts -qm languages/Nugget_{language code}.qm # compile to binary
+```
+
 The application itself can be compiled by running `compile.py`.
 
 ## Sparserestore Info

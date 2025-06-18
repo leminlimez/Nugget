@@ -198,16 +198,16 @@ class PosterboardPage(Page):
                     # alert that there are too many tendies
                     detailsBox = QtWidgets.QMessageBox()
                     detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
-                    detailsBox.setWindowTitle("Error!")
-                    detailsBox.setText("You selected too many tendies files! The limit is 3.\n\nThis is for your safety. Please apply the rest separately.")
+                    detailsBox.setWindowTitle(self.window.tr("Error!"))
+                    detailsBox.setText(self.window.tr("You selected too many tendies files! The limit is 3.\n\nThis is for your safety. Please apply the rest separately."))
                     detailsBox.exec()
                     break
                 if not tweaks["PosterBoard"].add_tendie(file):
                     # alert that there are too many
                     detailsBox = QtWidgets.QMessageBox()
                     detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
-                    detailsBox.setWindowTitle("Error!")
-                    detailsBox.setText("You selected too many descriptors! The limit is 10.")
+                    detailsBox.setWindowTitle(self.window.tr("Error!"))
+                    detailsBox.setText(self.window.tr("You selected too many descriptors! The limit is 10."))
                     detailsBox.exec()
                     break
             self.load_pb_tendies()
@@ -223,8 +223,8 @@ class PosterboardPage(Page):
                     # alert that there are too many
                     detailsBox = QtWidgets.QMessageBox()
                     detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
-                    detailsBox.setWindowTitle("Error!")
-                    detailsBox.setText("You selected too many descriptors! The limit is 10.")
+                    detailsBox.setWindowTitle(self.window.tr("Error!"))
+                    detailsBox.setText(self.window.tr("You selected too many descriptors! The limit is 10."))
                     detailsBox.exec()
                     break
             self.load_pb_templates()
@@ -235,21 +235,21 @@ class PosterboardPage(Page):
         self.ui.resetPBDrp.deselectAll()
         if selected_file != None and selected_file != "":
             tweaks["PosterBoard"].videoThumbnail = selected_file
-            self.ui.pbVideoThumbLbl.setText(f"Current Thumbnail: {selected_file}")
+            self.ui.pbVideoThumbLbl.setText(self.window.tr("Current Thumbnail: {0}").format(selected_file))
         else:
             tweaks["PosterBoard"].videoThumbnail = None
-            self.ui.pbVideoThumbLbl.setText("Current Thumbnail: None")
+            self.ui.pbVideoThumbLbl.setText(self.window.tr("Current Thumbnail: {0}").format("None"))
     def on_chooseVideoBtn_clicked(self):
         selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self.window, "Select Video File", "", "Video Files (*.mov *.mp4 *.mkv)", options=QtWidgets.QFileDialog.ReadOnly)
         self.ui.resetPBDrp.deselectAll()
         if selected_file != None and selected_file != "":
             tweaks["PosterBoard"].videoFile = selected_file
-            self.ui.pbVideoLbl.setText(f"Current Video: {selected_file}")
+            self.ui.pbVideoLbl.setText(self.window.tr("Current Video: {0}").format(selected_file))
             if tweaks["PosterBoard"].loop_video:
                 self.ui.exportPBVideoBtn.show()
         else:
             tweaks["PosterBoard"].videoFile = None
-            self.ui.pbVideoLbl.setText("Current Video: None")
+            self.ui.pbVideoLbl.setText(self.window.tr("Current Video: {0}").format("None"))
             self.ui.exportPBVideoBtn.hide()
     def on_caVideoChk_toggled(self, checked: bool):
         tweaks["PosterBoard"].loop_video = checked

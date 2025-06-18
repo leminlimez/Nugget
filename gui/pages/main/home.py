@@ -46,7 +46,7 @@ class HomePage(Page):
         if ver != "":
             self.show_version_text(version=ver, build=build)
         else:
-            self.ui.phoneVersionLbl.setText("Please connect a device.")
+            self.ui.phoneVersionLbl.setText(self.window.tr("Please connect a device."))
 
     def toggle_version_label(self):
         if self.show_uuid:

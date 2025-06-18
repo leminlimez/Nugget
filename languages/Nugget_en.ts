@@ -2,6 +2,15 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en_US">
 <context>
+    <name>GestaltDialog</name>
+    <message>
+        <location filename="../gui/dialogs.py" line="25"/>
+        <source>The gestalt file looks like it was made for a different device.
+Are you sure you want to use this one?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Nugget</name>
     <message>
         <location filename="../qt/mainwindow.ui" line="32"/>
@@ -1782,6 +1791,111 @@ DO NOT unplug your device during restores.</source>
     <message>
         <location filename="../qt/mainwindow.ui" line="9247"/>
         <source>Toggle All &quot;Add to Device&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PBHelpDialog</name>
+    <message>
+        <location filename="../gui/dialogs.py" line="44"/>
+        <source>PosterBoard Info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/dialogs.py" line="47"/>
+        <source>Descriptors will be under the Collections section when adding a new wallpaper.
+
+If the wallpapers don&apos;t appear in the menu, you either have to wait a bit for them to load,
+or you&apos;ve reached the maximum amount of wallpapers (15) and have to wipe them.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UpdateAppDialog</name>
+    <message>
+        <location filename="../gui/dialogs.py" line="84"/>
+        <source>Update Available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/dialogs.py" line="92"/>
+        <source>Nugget v{0} is available. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/dialogs.py" line="94"/>
+        <source>Would you like to go to the download on GitHub?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>self.window</name>
+    <message>
+        <location filename="../gui/pages/main/home.py" line="49"/>
+        <source>Please connect a device.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/main/settings.py" line="116"/>
+        <location filename="../gui/pages/main/settings.py" line="126"/>
+        <source>PosterBoard App Hash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/main/settings.py" line="116"/>
+        <source>Your hash has been transferred to the Pocket Poster app.
+
+Open up its settings and tap &quot;Detect&quot;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/main/settings.py" line="120"/>
+        <source>Copy it and paste it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/main/settings.py" line="124"/>
+        <source>It has been copied. Paste it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/main/settings.py" line="126"/>
+        <source>Your hash is:
+{0}
+
+{1} into the Nugget app where it says &quot;App Hash&quot;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/tools/posterboard.py" line="201"/>
+        <location filename="../gui/pages/tools/posterboard.py" line="209"/>
+        <location filename="../gui/pages/tools/posterboard.py" line="226"/>
+        <source>Error!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/tools/posterboard.py" line="202"/>
+        <source>You selected too many tendies files! The limit is 3.
+
+This is for your safety. Please apply the rest separately.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/tools/posterboard.py" line="210"/>
+        <location filename="../gui/pages/tools/posterboard.py" line="227"/>
+        <source>You selected too many descriptors! The limit is 10.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/tools/posterboard.py" line="238"/>
+        <location filename="../gui/pages/tools/posterboard.py" line="241"/>
+        <source>Current Thumbnail: {0}</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/tools/posterboard.py" line="247"/>
+        <location filename="../gui/pages/tools/posterboard.py" line="252"/>
+        <source>Current Video: {0}</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
