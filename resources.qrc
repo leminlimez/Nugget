@@ -45,7 +45,16 @@
         <file>icon/export.svg</file>
         <file>icon/ellipsis.svg</file>
     </qresource>
-    <qresource prefix="translations">
+    <qresource prefix="/translations">
         <file>translations/Nugget_en.qm</file>
+        <file>translations/Nugget_es.qm</file>
+        <file>translations/Nugget_fr.qm</file>
+        <file>translations/Nugget_pl.qm</file>
+        <file>translations/Nugget_ru.qm</file>
+        <file>translations/Nugget_de.qm</file>
+        <file>translations/Nugget_hu.qm</file>
+        <file>translations/Nugget_zh_TW.qm</file>
+        <file>translations/Nugget_ko.qm</file>
+        <file>translations/Nugget_th.qm</file>
     </qresource>
 </RCC>
