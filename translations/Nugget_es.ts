@@ -23,62 +23,62 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="415"/>
       <source>    Home</source>
-      <translation>Inicio</translation>
+      <translation>    Inicio</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="465"/>
       <source>    Posterboard</source>
-      <translation>Posterboard</translation>
+      <translation>    Posterboard</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="494"/>
       <source>     Mobile Gestalt</source>
-      <translation>Mobile Gestalt</translation>
+      <translation>    Mobile Gestalt</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="538"/>
       <source>    Feature Flags</source>
-      <translation>Funciones activables</translation>
+      <translation>    Funciones activables</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="567"/>
       <source>    Eligibility</source>
-      <translation>Elegibilidad</translation>
+      <translation>    Elegibilidad</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="596"/>
       <source>    Status Bar</source>
-      <translation>Barra de estado</translation>
+      <translation>    Barra de estado</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="628"/>
       <source>    Templates</source>
-      <translation>Plantillas</translation>
+      <translation>    Plantillas</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="657"/>
       <source>    Miscellaneous</source>
-      <translation>Misceláneas</translation>
+      <translation>    Misceláneas</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="701"/>
       <source>    Apply</source>
-      <translation>Aplicar</translation>
+      <translation>    Aplicar</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="730"/>
       <source>    Settings</source>
-      <translation>Ajustes</translation>
+      <translation>    Ajustes</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1060"/>
       <source>  Join the Discord</source>
-      <translation>Unete a nuestro Discord</translation>
+      <translation>  Unete a nuestro Discord</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1074"/>
       <source> Star on Github</source>
-      <translation>Calificanos en Github</translation>
+      <translation> Calificanos en Github</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1178"/>
@@ -104,8 +104,8 @@ Are you sure you want to use this one?</source>
       <location filename="../qt/mainwindow.ui" line="1407"/>
       <source>PosterRestore Team
 Posterboard</source>
-      <translation>Equipo de PosterRestore
-Posterboard</translation>
+      <translation>Equipo de
+PosterRestore</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1428"/>
@@ -119,7 +119,7 @@ Posterboard</translation>
       <source>disfordottie
 Feature Flags</source>
       <translation>disfordottie
-Funciones activables </translation>
+Funciones activables</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1495"/>
@@ -1660,7 +1660,8 @@ NO desconectes tu dispositivo durante las restauraciones.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="8327"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
-      <translation>* Nota: Omitir configuración puede causar problemas con perfiles de configuración. Deshabilítalo si necesitas eso.</translation>
+      <translation>* Nota: Omitir configuración puede causar problemas con perfiles de configuración.
+Deshabilítalo si necesitas eso.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8354"/>
