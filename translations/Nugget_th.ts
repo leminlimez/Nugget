@@ -1179,87 +1179,87 @@ Please be careful!</source>
       <location filename="../qt/mainwindow.ui" line="5837"/>
       <source>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
 it enabled.</source>
-      <translation>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
-it enabled.</translation>
+      <translation>หมายเหตุ: แม้ใช้เวอร์ชัน Sparserestore เวอร์ชันนี้ก็จะใช้โดเมนปกติ
+การข้ามการตั้งค่า จะถูกใช้ถ้าคุณเปิดใช้งานไว้</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5863"/>
       <source>Stops over-the-air updates to prevent auto-downloads.</source>
-      <translation>Stops over-the-air updates to prevent auto-downloads.</translation>
+      <translation>หยุดการอัปเดตแบบ over-the-air เพื่อป้องกันการดาวน์โหลดอัตโนมัติ</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5866"/>
       <source>Disable OTA</source>
-      <translation>Disable OTA</translation>
+      <translation>ปิด OTA</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5873"/>
       <source>Disables usage tracking for improved privacy.</source>
-      <translation>Disables usage tracking for improved privacy.</translation>
+      <translation>ปิดการติดตามการใช้งานเพื่อเพิ่มความเป็นส่วนตัว</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5876"/>
       <source>Disable UsageTrackingAgent</source>
-      <translation>Disable UsageTrackingAgent</translation>
+      <translation>ปิด UsageTrackingAgent</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5883"/>
       <source>Disables Screen Time monitoring features.</source>
-      <translation>Disables Screen Time monitoring features.</translation>
+      <translation>ปิดการใช้งานฟีเจอร์ตรวจสอบเวลาใช้งานหน้าจอ</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5886"/>
       <source>Disable Screen Time Agent</source>
-      <translation>Disable Screen Time Agent</translation>
+      <translation>ปิด Screen Time Agent</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5893"/>
       <source>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
 
 To work properly, also disable the daemon using the toggle above.</source>
-      <translation>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
+      <translation>ลบไฟล์การตั้งค่าของ Screen Time Agent เพื่อป้องกันการล็อกแอปที่ตั้งค่าผ่าน iCloud
 
-To work properly, also disable the daemon using the toggle above.</translation>
+เพื่อให้ทำงานได้อย่างถูกต้อง โปรดปิดเดมอน ด้วยสวิตช์ด้านบนด้วย</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5898"/>
       <source>Clear ScreenTimeAgent.plist file</source>
-      <translation>Clear ScreenTimeAgent.plist file</translation>
+      <translation>ล้างไฟล์ ScreenTimeAgent.plist</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5905"/>
       <source>Stops logs, dumps, and crash reports collection.</source>
-      <translation>Stops logs, dumps, and crash reports collection.</translation>
+      <translation>หยุดการเก็บบันทึก การดัมพ์ข้อมูล และรายงานการขัดข้อง</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5908"/>
       <source>Disable Logs, Dumps, and Crash Reports</source>
-      <translation>Disable Logs, Dumps, and Crash Reports</translation>
+      <translation>ปิดการเก็บบันทึก ดัมพ์ และรายงานการขัดข้อง</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5915"/>
       <source>Disables pinging to sleeping bluetooth devices for improved battery life.</source>
-      <translation>Disables pinging to sleeping bluetooth devices for improved battery life.</translation>
+      <translation>ปิดการส่งสัญญาณ ping ไปยังอุปกรณ์ Bluetooth ที่อยู่ในโหมดสลีปเพื่อประหยัดแบตเตอรี่</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5918"/>
       <source>Disable ATWAKEUP</source>
-      <translation>Disable ATWAKEUP</translation>
+      <translation>ปิด ATWAKEUP</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5940"/>
       <source>Turns off Game Center background services.</source>
-      <translation>Turns off Game Center background services.</translation>
+      <translation>ปิดการทำงานเบื้องหลังของบริการ Game Center</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5943"/>
       <source>Disable Game Center</source>
-      <translation>Disable Game Center</translation>
+      <translation>ปิด Game Center</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5950"/>
       <source>Disables the Tips service and notifications.</source>
-      <translation>Disables the Tips service and notifications.</translation>
+      <translation>ปิดการทำงานของบริการ Tips และการแจ้งเตือน</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5953"/>
@@ -1439,12 +1439,12 @@ Will show up in Collections</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="6745"/>
       <source>Templates</source>
-      <translation>Templates</translation>
+      <translation>เทมเพลต</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6967"/>
       <source>Risky Options</source>
-      <translation>Risky Options</translation>
+      <translation>ตัวเลือกอันตราย</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7042"/>
@@ -1454,71 +1454,71 @@ The options on this page may be unsafe for your device. Use these options at you
 your device resolution has the potential to brick your device when used improperly.
 
 Nugget is not responsible if you mess up your device, especially with resolution changer.</source>
-      <translation>Disclaimer:
+      <translation>ข้อจำกัดความรับผิดชอบ:
 
-The options on this page may be unsafe for your device. Use these options at your own risk. Changing
-your device resolution has the potential to brick your device when used improperly.
+ตัวเลือกในหน้านี้อาจไม่ปลอดภัยสำหรับอุปกรณ์ของคุณ ใช้งานตัวเลือกเหล่านี้ด้วยความเสี่ยงของตัวเอง
+การเปลี่ยนความละเอียดหน้าจออาจทำให้อุปกรณ์ของคุณเสียหายอย่างรุนแรงถ้าใช้งานผิดวิธี
 
-Nugget is not responsible if you mess up your device, especially with resolution changer.</translation>
+Nugget จะไม่รับผิดชอบใดๆ หากอุปกรณ์ของคุณเกิดปัญหา โดยเฉพาะอย่างยิ่งจากการเปลี่ยนความละเอียด</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7069"/>
       <source>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</source>
-      <translation>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</translation>
+      <translation>ใช้วิธีทางไฟล์ แนะนำให้ปิดเดมอนในแท็บเดมอนแทน</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7072"/>
       <source>Disable OTA Updates (file)</source>
-      <translation>Disable OTA Updates (file)</translation>
+      <translation>ปิดอัพเดท OTA (ไฟล์)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7079"/>
       <source>Disables temperature monitoring daemon to reduce system checks.
 
 Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified" in Settings.</source>
-      <translation>Disables temperature monitoring daemon to reduce system checks.
+      <translation>ปิดเดมอนตรวจวัดอุณหภูมิ เพื่อลดการตรวจสอบขอระบบ
 
-Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified" in Settings.</translation>
+คำเตือน: การปิดเดมอนนี้อาจทำให้แบตเตอรี่แสดงสถานะเป็น "ชิ้นส่วนที่ไม่ทราบ" หรือ "ไม่ได้รับการยืนยัน" ในการตั้งค่า</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7084"/>
       <source>Disable thermalmonitord</source>
-      <translation>Disable thermalmonitord</translation>
+      <translation>ปิด thermalmonitord</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7106"/>
       <source>Set a custom device screen resolution.</source>
-      <translation>Set a custom device screen resolution.</translation>
+      <translation>ตั้งค่าความละเอียดหน้าจออุปกรณ์แบบกำหนดเอง</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7109"/>
       <source>Set a Custom Device Resolution</source>
-      <translation>Set a Custom Device Resolution</translation>
+      <translation>ตั้งค่าความละเอียดอุปกรณ์แบบกำหนดเอง</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7137"/>
       <source>Height:</source>
-      <translation>Height:</translation>
+      <translation>ความสูง:</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7152"/>
       <source>Resolution Height</source>
-      <translation>Resolution Height</translation>
+      <translation>รายละเอียดความสูง:</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7193"/>
       <source>Width:</source>
-      <translation>Width:</translation>
+      <translation>ความกว้าง:</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7210"/>
       <source>Resolution Width</source>
-      <translation>Resolution Width</translation>
+      <translation>รายละเอียดความกว้าง:</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7350"/>
       <source>Miscellaneous Options</source>
-      <translation>Miscellaneous Options</translation>
+      <translation>ตัวเลือกอื่นๆ</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7460"/>
@@ -1528,101 +1528,101 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="7495"/>
       <source>Internal</source>
-      <translation>Internal</translation>
+      <translation>ภายใน</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7556"/>
       <source>Risky</source>
-      <translation>Risky</translation>
+      <translation>เสี่ยงๆ</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7685"/>
       <source>Apply</source>
-      <translation>Apply</translation>
+      <translation>ใช้งาน</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7746"/>
       <source>Current gestalt file location:</source>
-      <translation>Current gestalt file location:</translation>
+      <translation>ตำแหน่งไฟล์ gestalt ปัจจุบัน:</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7774"/>
       <source>  Choose Gestalt File</source>
-      <translation>  Choose Gestalt File</translation>
+      <translation>  เลือกไฟล์เกสตัลท์</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7805"/>
       <source>  Apply Changes</source>
-      <translation>  Apply Changes</translation>
+      <translation>  ใช้ที่เปลี่ยนแปลงเลย</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7822"/>
       <source>Ready!</source>
-      <translation>Ready!</translation>
+      <translation>พร้อมแล้ว!</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7860"/>
       <source>Note: Skip Setup is currently turned on.</source>
-      <translation>Note: Skip Setup is currently turned on.</translation>
+      <translation>หมายเหตุ: ข้ามการตั้งค่าเปิดอยู่</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7911"/>
       <source>Remove All Tweaks</source>
-      <translation>Remove All Tweaks</translation>
+      <translation>ลบทวีปและการเปลี่ยนแปลงทั้งหมด</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7918"/>
       <source>Reset Mobile Gestalt</source>
-      <translation>Reset Mobile Gestalt</translation>
+      <translation>รีเซ็ต Mobile Gestalt</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8022"/>
       <source>Nugget Settings</source>
-      <translation>Nugget Settings</translation>
+      <translation>การตั้งค่า Nugget</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8163"/>
       <source>Allow Applying Over WiFi</source>
-      <translation>Allow Applying Over WiFi</translation>
+      <translation>อนุญาตให้ส่งการตั้งค่าผ่าน WiFi</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8173"/>
       <source>Auto Reboot After Applying</source>
-      <translation>Auto Reboot After Applying</translation>
+      <translation>รีบูตอัตโนมัติหลังใช้การตั้งค่า</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8183"/>
       <source>Show Risky Tweak Options</source>
-      <translation>Show Risky Tweak Options</translation>
+      <translation>แสดงตัวเลือกทวีคที่มีความเสี่ยง</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8190"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
-      <translation>Show models for other device types in the AI device spoofing tab.</translation>
+      <translation>แสดงรุ่นสำหรับอุปกรณ์ประเภทอื่นในแท็บปลอมแปลงอุปกรณ์ AI</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8199"/>
       <source>Show All Spoofable Models</source>
-      <translation>Show All Spoofable Models</translation>
+      <translation>แสดงทุกรุ่นที่สามารถปลอมแปลงได้</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8206"/>
       <source>Ignore Posterboard Frame Limit</source>
-      <translation>Ignore Posterboard Frame Limit</translation>
+      <translation>ไม่สนใจข้อจำกัดเฟรมของโปสเตอร์บอร์ด</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8213"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
-      <translation>Disables the tendies file limit of 2. There is still the descriptor limit.
+      <translation>ปิดการจำกัดจำนวนไฟล์ tendies ที่ 2 แต่ยังมีข้อจำกัดของ descriptors อยู่
 
-DO NOT unplug your device during restores.</translation>
+ห้ามถอดสายระหว่างการกู้คืนอุปกรณ์เด็ดขาด</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8218"/>
       <source>Disable Tendies Limit</source>
-      <translation>Disable Tendies Limit</translation>
+      <translation>ปิดข้อจำกัด Tendies</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8243"/>
@@ -1687,27 +1687,27 @@ DO NOT unplug your device during restores.</translation>
       <location filename="../qt/mainwindow.ui" line="1651"/>
       <source>Nugget GUI - Version %VERSION %BETATAG</source>
       <extracomment>Leave %VERSION %BETATAG the same</extracomment>
-      <translation>Nugget GUI - Version %VERSION %BETATAG</translation>
+      <translation>Nugget GUI - เวอร์ชัน %VERSION %BETATAG</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1558"/>
       <source>Translators</source>
-      <translation>Translators</translation>
+      <translation>นักแปลภาษา</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3991"/>
       <source>Change Status Bar Date Text</source>
-      <translation>Change Status Bar Date Text</translation>
+      <translation>เปลี่ยนข้อความวันที่ในแถบสถานะ</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3998"/>
       <source>Status Bar Date Text</source>
-      <translation>Status Bar Date Text</translation>
+      <translation>ข้อความวันที่ในแถบสถานะ</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8130"/>
       <source>App Language</source>
-      <translation>App Language</translation>
+      <translation>ภาษาแอป</translation>
     </message>
   </context>
   <context>
@@ -1758,7 +1758,7 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
       <location filename="../gui/pages/main/settings.py" line="117"/>
       <location filename="../gui/pages/main/settings.py" line="127"/>
       <source>PosterBoard App Hash</source>
-      <translation>แฮชของแอป PosterBoard</translation>
+      <translation>แฮชแอป PosterBoard</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/settings.py" line="117"/>
@@ -1788,101 +1788,101 @@ Open up its settings and tap "Detect".</source>
       <translation>แฮชของคุณคือ:
 {0}
 
-{1} เข้าไปในแอป Nugget ที่ช่อง “App Hash”</translation>
+{1} เข้าไปในแอป Nugget ที่ช่อง "App Hash" หรือ แฮชแอป</translation>
     </message>
     <message>
       <location filename="../exceptions/posterboard_exceptions.py" line="6"/>
       <source>Videos must be under {0} frames to loop. Either reduce the frame rate or make it shorter.</source>
-      <translation>Videos must be under {0} frames to loop. Either reduce the frame rate or make it shorter.</translation>
+      <translation>วิดีโอต้องมีไม่เกิน {0} เฟรมเพื่อให้สามารถเล่นวนได้ กรุณาลดเฟรมเรตหรือทำให้สั้นลง</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="58"/>
       <source>Find My must be disabled in order to use this tool.</source>
-      <translation>Find My must be disabled in order to use this tool.</translation>
+      <translation>ต้องปิด Find My ถึงจะใช้เครื่องมือนี้ได้</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="59"/>
       <source>Disable Find My from Settings (Settings -&gt; [Your Name] -&gt; Find My) and then try again.</source>
-      <translation>Disable Find My from Settings (Settings -&gt; [Your Name] -&gt; Find My) and then try again.</translation>
+      <translation>ปิด Find My ในการตั้งค่า (การตั้งค่า -&gt; [ชื่อคุณ] -&gt; Find My) แล้วลองอีกรอบ</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="61"/>
       <source>Nugget cannot be used on this device. Click Show Details for more info.</source>
-      <translation>Nugget cannot be used on this device. Click Show Details for more info.</translation>
+      <translation>ไม่สามารถใช้ Nugget บนอุปกรณ์นี้ได้ คลิก แสดงรายละเอียด เพื่อดูข้อมูลเพิ่มเติม</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="62"/>
       <source>Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!</source>
-      <translation>Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!</translation>
+      <translation>อุปกรณ์ของคุณถูกจัดการอยู่ และมีการเปิดใช้งานการเข้ารหัสข้อมูลสำรองของ MDM ต้องปิดสิ่งนี้ก่อนจึงจะสามารถใช้งาน Nugget ได้ กรุณาอย่าใช้ Nugget บนอุปกรณ์โรงเรียนหรือที่ทำงาน!</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="64"/>
       <source>The session was terminated. Refresh the device list and try again.</source>
-      <translation>The session was terminated. Refresh the device list and try again.</translation>
+      <translation>เซสชันถูกยกเลิก กรุณารีเฟรชรายการอุปกรณ์แล้วลองใหม่อีกครั้ง</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="66"/>
       <source>Device is password protected! You must trust the computer on your device.</source>
-      <translation>Device is password protected! You must trust the computer on your device.</translation>
+      <translation>อุปกรณ์มีการตั้งรหัสผ่าน! คุณต้องกด เชื่อถือคอมพิวเตอร์นี้ บนอุปกรณ์ของคุณก่อน</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="67"/>
       <source>Unlock your device. On the popup, click "Trust", enter your password, then try again.</source>
-      <translation>Unlock your device. On the popup, click "Trust", enter your password, then try again.</translation>
+      <translation>ปลดล็อกอุปกรณ์ของคุณ จากนั้นในหน้าต่างป๊อปอัป ให้กด "เชื่อถือ" หรือ Trust แล้วใส่รหัสผ่าน แล้วลองใหม่อีกครั้ง</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="70"/>
       <source>Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info.</source>
-      <translation>Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info.</translation>
+      <translation>อุปกรณ์ส่งไฟล์ไม่สำเร็จ รายการไฟล์อาจเสียหายหรือมีรายการซ้ำ สามารถคลิก แสดงรายละเอียด เพื่อดูข้อมูลเพิ่มเติม</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="104"/>
       <source>If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.</source>
-      <translation>If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.</translation>
+      <translation>หากคุณใช้ Linux ให้ตรวจสอบว่ามีการติดตั้ง usbmuxd และ libimobiledevice แล้ว</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="106"/>
       <source>Make sure you have the "Apple Devices" app from the Microsoft Store or iTunes from Apple's website.</source>
-      <translation>Make sure you have the "Apple Devices" app from the Microsoft Store or iTunes from Apple's website.</translation>
+      <translation>ตรวจสอบว่าคุณมีแอป "Apple Devices" จาก Microsoft Store หรือ iTunes จากเว็บไซต์ของ Apple แล้ว</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="107"/>
       <source>Failed to get device list. Click "Show Details" for the traceback.</source>
-      <translation>Failed to get device list. Click "Show Details" for the traceback.</translation>
+      <translation>ไม่สามารถดึงรายการอุปกรณ์ได้ คลิก "แสดงรายละเอียด" เพื่อดู traceback</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="140"/>
       <source>Click "Show Details" for the traceback.</source>
-      <translation>Click "Show Details" for the traceback.</translation>
+      <translation>คลิก "แสดงรายละเอียด" เพื่อดู traceback</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="157"/>
       <source>Device is password protected! You must trust the computer on your device.
 
 Unlock your device. On the popup, click "Trust", enter your password, then try again.</source>
-      <translation>Device is password protected! You must trust the computer on your device.
+      <translation>อุปกรณ์มีรหัสผ่าน! คุณต้องกดเชื่อถือคอมพิวเตอร์นี้ บนอุปกรณ์ของคุณก่อน
 
-Unlock your device. On the popup, click "Trust", enter your password, then try again.</translation>
+ปลดล็อกอุปกรณ์ของคุณ ในหน้าต่างป๊อปอัป ให้กด "เชื่อถือ" หรือ Trust แล้วใส่รหัสผ่าน ถึงจะลองใหม่อีกครั้งได้</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="161"/>
       <source>If you keep receiving this error, try using a different cable or port.</source>
-      <translation>If you keep receiving this error, try using a different cable or port.</translation>
+      <translation>ถ้าคุณยังเจอข้อผิดพลาดนี้อยู่ ลองเปลี่ยนสายหรือพอร์ตดู</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="270"/>
       <source>Pairing Reset</source>
-      <translation>Pairing Reset</translation>
+      <translation>รีเซ็ตการเชื่อมต่อ</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="270"/>
       <source>Your device's pairing was successfully reset. Refresh the device list before applying.</source>
-      <translation>Your device's pairing was successfully reset. Refresh the device list before applying.</translation>
+      <translation>การจับคู่ของอุปกรณ์คุณถูกรีเซ็ตสำเร็จ กรุณารีเฟรชรายการอุปกรณ์ก่อนใช้งาน</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="497"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
-      <translation>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</translation>
+      <translation>ไม่มีไฟล์ mobilegestalt ถูกเลือก! กรุณาเลือกไฟล์ mobilegestalt เพื่อใช้งาน</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="624"/>
@@ -1890,21 +1890,21 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
-      <translation>Your device will now restart.
+      <translation>อุปกรณ์ของคุณกำลังจะรีสตาร์ท
 
-Remember to turn Find My back on!</translation>
+อย่าลืมเปิด Find My ด้วยนะ!</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="626"/>
       <location filename="../devicemanagement/device_manager.py" line="660"/>
       <source>Please restart your device to see changes.</source>
-      <translation>Please restart your device to see changes.</translation>
+      <translation>กรุณารีสตาร์ทอุปกรณ์คุณเพื่อดูการเปลี่ยนแปลง</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="626"/>
       <location filename="../devicemanagement/device_manager.py" line="660"/>
       <source>All done! </source>
-      <translation>All done! </translation>
+      <translation>เสร็จเรียบร้อย! </translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="626"/>
@@ -1912,49 +1912,49 @@ Remember to turn Find My back on!</translation>
       <location filename="../devicemanagement/device_manager.py" line="660"/>
       <location filename="../devicemanagement/device_manager.py" line="661"/>
       <source>Success!</source>
-      <translation>Success!</translation>
+      <translation>สำเร็จ!</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/home.py" line="66"/>
       <source>Supported!</source>
-      <translation>Supported!</translation>
+      <translation>รับรอง!</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/home.py" line="68"/>
       <source>Not Supported.</source>
-      <translation>Not Supported.</translation>
+      <translation>ไม่รับรอง</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/home.py" line="71"/>
       <source>Partially Supported.</source>
-      <translation>Partially Supported.</translation>
+      <translation>รอบรองบางอย่าง</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="40"/>
       <source>Wrong type of file</source>
-      <translation>Wrong type of file</translation>
+      <translation>ไฟล์ผิดประเภท</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="48"/>
       <source>Warning</source>
-      <translation>Warning</translation>
+      <translation>คำเตือน</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="49"/>
       <source>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</source>
-      <translation>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</translation>
+      <translation>หมายเหตุ: คุณอาจต้องรีเซ็ตวอลเปเปอร์ทั้งหมด (เปิดตัวเลือกเสี่ยงในตั้งค่า) แล้วจึงใช้ไฟล์นี้อีกครั้งถึงจะใช้งานได้</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="66"/>
       <location filename="../tweaks/posterboard/template_options/templates_tweak.py" line="34"/>
       <source>Error</source>
-      <translation>Error</translation>
+      <translation>ข้อผิดพลาด</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="67"/>
       <location filename="../tweaks/posterboard/template_options/templates_tweak.py" line="35"/>
       <source>Failed to load template</source>
-      <translation>Failed to load template</translation>
+      <translation>โหลดเทมเพลตไม่สำเร็จ</translation>
     </message>
   </context>
   <context>
@@ -1964,87 +1964,87 @@ Remember to turn Find My back on!</translation>
       <location filename="../gui/pages/tools/posterboard.py" line="209"/>
       <location filename="../gui/pages/tools/posterboard.py" line="226"/>
       <source>Error!</source>
-      <translation>Error!</translation>
+      <translation>เกิดข้อผิดพลาด!</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="202"/>
       <source>You selected too many tendies files! The limit is 3.
 
 This is for your safety. Please apply the rest separately.</source>
-      <translation>You selected too many tendies files! The limit is 3.
+      <translation>คุณเลือกไฟล์ tendies มากเกินไป! จำกัดไว้ที่ 3 ไฟล์
 
-This is for your safety. Please apply the rest separately.</translation>
+เพื่อความปลอดภัย กรุณาเลือกใช้งานไฟล์ที่เหลือแยกกันเป็นรอบๆ</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="210"/>
       <location filename="../gui/pages/tools/posterboard.py" line="227"/>
       <source>You selected too many descriptors! The limit is 10.</source>
-      <translation>You selected too many descriptors! The limit is 10.</translation>
+      <translation>คุณเลือก descriptors มากเกินไป! จำกัดไว้ที่ 10 อัน</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="238"/>
       <location filename="../gui/pages/tools/posterboard.py" line="241"/>
       <source>Current Thumbnail: {0}</source>
-      <translation>Current Thumbnail: {0}</translation>
+      <translation>ภาพขนาดย่อปัจจุบัน: {0}</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="247"/>
       <location filename="../gui/pages/tools/posterboard.py" line="252"/>
       <source>Current Video: {0}</source>
-      <translation>Current Video: {0}</translation>
+      <translation>วิดีโอปัจจุบัน: {0}</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="61"/>
       <source>No options were found in the config. Make sure that it is in the correct format.</source>
-      <translation>No options were found in the config. Make sure that it is in the correct format.</translation>
+      <translation>ไม่พบตัวเลือกในไฟล์กำหนดค่า โปรดตรวจสอบว่าอยู่ในรูปแบบที่ถูกต้อง</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="63"/>
       <source>This config does not have a valid domain!</source>
-      <translation>This config does not have a valid domain!</translation>
+      <translation>ไฟล์กำหนดค่านี้ไม่มีโดเมนที่ถูกต้อง!</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="70"/>
       <source>This config requires a newer version of Nugget.</source>
-      <translation>This config requires a newer version of Nugget.</translation>
+      <translation>ไฟล์กำหนดค่านี้ต้องใช้เวอร์ชันที่ใหม่กว่าของ Nugget</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="81"/>
       <source>This template requires iOS {0}.
 Your iOS version (iOS {1}) is too outdated!</source>
-      <translation>This template requires iOS {0}.
-Your iOS version (iOS {1}) is too outdated!</translation>
+      <translation>เทมเพลตนี้ต้องการ iOS {0}
+เวอร์ชัน iOS ของคุณ (iOS {1}) เก่าเกินไป!</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="85"/>
       <source>This template requires iOS {0}.
 Your iOS version (iOS {1}) is too new!</source>
-      <translation>This template requires iOS {0}.
-Your iOS version (iOS {1}) is too new!</translation>
+      <translation>เทมเพลตนี้ต้องการ iOS {0}
+เวอร์ชัน iOS ของคุณ (iOS {1}) ใหม่เกินไป!</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="138"/>
       <source>Invalid option type in template</source>
-      <translation>Invalid option type in template</translation>
+      <translation>ประเภทตัวเลือกไม่ถูกต้องในเทมเพลต</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="140"/>
       <source>No config.json found in file!</source>
-      <translation>No config.json found in file!</translation>
+      <translation>ไม่พบ config.json ในไฟล์นี้!</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="292"/>
       <source>Bundle id (default: {0})</source>
-      <translation>Bundle id (default: {0})</translation>
+      <translation>Bundle ID (ค่าเริ่มต้น: {0})</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_options/replace_option.py" line="103"/>
       <source>Error applying template:
 
 No selected file for required option</source>
-      <translation>Error applying template:
+      <translation>เกิดข้อผิดพลาดขณะใช้เทมเพลต:
 
-No selected file for required option</translation>
+ไม่มีไฟล์ที่เลือกสำหรับตัวเลือกที่จำเป็น</translation>
     </message>
   </context>
 </TS>
