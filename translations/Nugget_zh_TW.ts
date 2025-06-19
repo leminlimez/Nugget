@@ -94,7 +94,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="1369"/>
       <source>With Help From</source>
-      <translation>還有來自…的幫助</translation>
+      <translation>還有來自以下開發者的幫助</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1391"/>
@@ -1036,7 +1036,7 @@ Please be careful!</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5106"/>
       <source>Force enables everything</source>
-      <translation>強制啟用所有東西</translation>
+      <translation>強制啟用所有項目</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5109"/>

@@ -7,7 +7,7 @@
       <location filename="../gui/dialogs.py" line="25"/>
       <source>The gestalt file looks like it was made for a different device.
 Are you sure you want to use this one?</source>
-      <translation>Этот файл gestalt выглядит как будто он был сделан для другого устройства. 
+      <translation>Этот файл gestalt выглядит так, как будто он был сделан для другого устройства. 
 Вы уверены что хотите его использовать?</translation>
     </message>
   </context>
@@ -372,7 +372,7 @@ Note: OTA updates will be broken until this is disabled.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="2226"/>
       <source>Custom Gestalt Keys</source>
-      <translation>Пользовательские клавиши Gestalt</translation>
+      <translation>Пользовательские ключи Gestalt</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2236"/>
@@ -383,7 +383,8 @@ Note: OTA updates will be broken until this is disabled.</source>
       <location filename="../qt/mainwindow.ui" line="2255"/>
       <source>Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know
 what you are doing.</source>
-      <translation>Предупреждение: Неправильное использование этой функции может привести к зацикливанию загрузки и потере данных. Используйте только в том случае, если вы знаете, что делаете.</translation>
+      <translation>Предупреждение: Неправильное использование этой функции может привести к невозможности загрузить iOS и потере данных. 
+Используйте только в том случае, если вы знаете, что делаете.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2388"/>
@@ -417,7 +418,7 @@ Enables quickly switching lock screens by holding down and swiping.</source>
       <source>Revert the photos app to the iOS 17 style.
 
 Does not work on iOS 18.0 RC.</source>
-      <translation>Верните приложение «Фото» к стилю iOS 17.
+      <translation>Вернуть приложение «Фото» к стилю iOS 17.
 
 Не работает на iOS 18.0 RC.</translation>
     </message>
@@ -473,7 +474,7 @@ Only works on iOS 18.0 beta 1-2.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="2809"/>
       <source>Region Code (Default: US)</source>
-      <translation>Код региона (по умолчанию: США)</translation>
+      <translation>Код региона (по умолчанию: US)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2850"/>
@@ -663,7 +664,7 @@ Face ID, пока вы не вернетесь к исходной модели.
     <message>
       <location filename="../qt/mainwindow.ui" line="3136"/>
       <source>Spoof Hardware Model</source>
-      <translation>Поддельная аппаратная модель</translation>
+      <translation>Подделать модель аппарата</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3146"/>
@@ -673,7 +674,7 @@ Face ID, пока вы не вернетесь к исходной модели.
     <message>
       <location filename="../qt/mainwindow.ui" line="3149"/>
       <source>Spoof CPU Model</source>
-      <translation>Поддельная модель процессора</translation>
+      <translation>Подделать модель процессора</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3254"/>
@@ -793,7 +794,7 @@ Face ID, пока вы не вернетесь к исходной модели.
       <location filename="../qt/mainwindow.ui" line="3557"/>
       <location filename="../qt/mainwindow.ui" line="3860"/>
       <source>Personal Hotspot</source>
-      <translation>Личный хотспот</translation>
+      <translation>Личная точка доступа</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3865"/>
@@ -888,7 +889,7 @@ Face ID, пока вы не вернетесь к исходной модели.
     <message>
       <location filename="../qt/mainwindow.ui" line="4026"/>
       <source>Battery Detail Text</source>
-      <translation type="unfinished">Текст информации батареи</translation>
+      <translation>Текст информации батареи</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4033"/>
@@ -918,7 +919,7 @@ Face ID, пока вы не вернетесь к исходной модели.
     <message>
       <location filename="../qt/mainwindow.ui" line="4167"/>
       <source>*When set to blank on notched devices, this will display the carrier name.</source>
-      <translation>*Если на устройствах с выемкой этот параметр установлен как пустой, будет отображаться имя оператора.</translation>
+      <translation>*Если на устройствах с камерой «челкой» этот параметр установлен как пустой, будет отображаться имя оператора.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4189"/>

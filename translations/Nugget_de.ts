@@ -7,7 +7,7 @@
       <location filename="../gui/dialogs.py" line="25"/>
       <source>The gestalt file looks like it was made for a different device.
 Are you sure you want to use this one?</source>
-      <translation type="unfinished">Es sieht aus als ob der Gestalt Datei für ein anderes Gerät erstellt wurde. Sicher dieses verwenden?</translation>
+      <translation type="unfinished">Es sieht aus als ob das mobile gestalt file für ein anderes Gerät erstellt wurde. Bist du sicher das du es verwenden willst?</translation>
     </message>
   </context>
   <context>
@@ -28,7 +28,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="465"/>
       <source>    Posterboard</source>
-      <translation>Plakatwand</translation>
+      <translation>Posterboard</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="494"/>
@@ -38,7 +38,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="538"/>
       <source>    Feature Flags</source>
-      <translation>Feature-Flaggen</translation>
+      <translation>Feature-Flags</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="567"/>
@@ -83,7 +83,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="1178"/>
       <source>  LeminLimez</source>
-      <translation>Lemin Limez</translation>
+      <translation>LeminLimez</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1295"/>
@@ -98,7 +98,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="1391"/>
       <source>dootskyre, dulark, forcequitOS, pengubow, Middo, and SerStars</source>
-      <translation>dootskyre, dulark, forcequitOS, pengubow, Middo, und SerStars</translation>
+      <translation>dootskyre, dulark, forcequitOS, pengubow, Middo und SerStars </translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1407"/>
@@ -118,14 +118,13 @@ Posterboard</translation>
       <source>disfordottie
 Feature Flags</source>
       <translation>disfordottie
-Feature-Flaggen</translation>
+Feature-Flags</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1495"/>
       <source>Mikasa
 Quiet Daemon</source>
-      <translation>Mikasa
-Quiet Daemon</translation>
+      <translation>Mikada Quit Daemon</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1538"/>
@@ -158,7 +157,7 @@ Sparserestore</translation>
       <location filename="../qt/mainwindow.ui" line="1802"/>
       <location filename="../qt/mainwindow.ui" line="2843"/>
       <source>! You will need a MobileGestalt file for this feature. Please select it in the Apply page !</source>
-      <translation>! Sie benotigen eine MobileGestalt-Datei für diese Funktion. Wählen Sie es in der Anwenden Seite aus !</translation>
+      <translation>! Du benotigst eine MobileGestalt-Datei für diese Funktion. Wähle es in der Anwenden Seite aus !</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1875"/>
@@ -408,7 +407,7 @@ Ermöglicht schnelles Wechseln von Sperrbildschirmen durch Halten und Wischen.</
     <message>
       <location filename="../qt/mainwindow.ui" line="2477"/>
       <source>Enable Duplicate Lockscreen Button and Lockscreen Quickswitch</source>
-      <translation>Enable Duplicate Lockscreen Button and Lockscreen Quickswitch</translation>
+      <translation>Doppelte Sperrbildschirm-Schaltfläche und Sperrbildschirm-Quickswitch aktivieren</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2502"/>
@@ -441,7 +440,7 @@ Funktioniert nur auf iOS 18.0 beta 1-2.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="2620"/>
       <source>Eligibility Tweaks</source>
-      <translation>Eligibility Tweaks</translation>
+      <translation>Änderungen bei der Förderfähigkeit</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2734"/>
@@ -481,7 +480,7 @@ Funktioniert nur auf iOS 18.0 beta 1-2.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="2872"/>
       <source>Enable Eligibility File</source>
-      <translation>Enable Eligibility File</translation>
+      <translation>Aktivieren der Berechtigungsdatei</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2879"/>
@@ -504,15 +503,11 @@ Entering the menu on your original device model will cause a re-download and may
 restore to fix. Furthermore, if you switch between model groups, like spoofing from the iPhone 16s
 to the iPhone 15 Pro series, a re-download may also occur. 
 Please be careful!</source>
-      <translation>In order to download the AI models, you must spoof your device model. However, this may break 
-Face ID until you revert back. 
+      <translation>Um die AI Modelle herunterzuladen zu können musst du dein Gerätemodell spoofen. Dies könnte FaceID kaputt machen bis du es rückgängig machst.
 
-WARNING: Do not go to the Apple Intelligence menu in the Settings app after unspoofing.
+WARNUNG: Gehe nicht in das Apple Intelligence Einstellungsmenü nach dem entspoofen.
 
-Entering the menu on your original device model will cause a re-download and may require a full
-restore to fix. Furthermore, if you switch between model groups, like spoofing from the iPhone 16s
-to the iPhone 15 Pro series, a re-download may also occur. 
-Please be careful!</translation>
+Wenn du das Menü auf deinem originalen Gerätemodell öffnest musst du vielleicht die Modelle erneut herunterlade oder sogar dein Gerät wiederherstellen damit es wieder funktioniert. Außerdem musst du womöglich die Modell neu herunterladen wenn du zwischen Modellgruppen wechselst wie z.B. vom iPhone 16 zum iPhone 15 Pro. Bitte sei vorsichtig!</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2941"/>
@@ -689,7 +684,7 @@ Please be careful!</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="3368"/>
       <source>Primary Cellular</source>
-      <translation>Primary Cellular</translation>
+      <translation>Primärer Mobilfunk</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3399"/>
@@ -739,13 +734,13 @@ Please be careful!</translation>
       <location filename="../qt/mainwindow.ui" line="3453"/>
       <location filename="../qt/mainwindow.ui" line="3759"/>
       <source>Change Service Badge Text</source>
-      <translation>Change Service Badge Text</translation>
+      <translation>Netzbalken Text ändern</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3460"/>
       <location filename="../qt/mainwindow.ui" line="3766"/>
       <source>Service Badge Text</source>
-      <translation>Service Badge Text</translation>
+      <translation>Netzbalken Text</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3467"/>
@@ -834,13 +829,13 @@ Please be careful!</translation>
       <location filename="../qt/mainwindow.ui" line="3592"/>
       <location filename="../qt/mainwindow.ui" line="3895"/>
       <source>5GUW</source>
-      <translation>5GUW</translation>
+      <translation>5G-UltraWideband</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3597"/>
       <location filename="../qt/mainwindow.ui" line="3900"/>
       <source>5GUC</source>
-      <translation>5GUC</translation>
+      <translation>5G UC</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3605"/>
@@ -858,12 +853,12 @@ Please be careful!</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="3680"/>
       <source>Secondary Cellular</source>
-      <translation>Secondary Cellular</translation>
+      <translation>Sekundärer Mobilfunk</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3977"/>
       <source>Change Status Bar Time Text*</source>
-      <translation>Change Status Bar Time Text*</translation>
+      <translation>Statusleisten Uhrentext ändern*</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3984"/>
@@ -873,7 +868,7 @@ Please be careful!</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="4005"/>
       <source>Change Breadcrumb Text</source>
-      <translation>Change Breadcrumb Text</translation>
+      <translation>Breadcrumb Text ändern</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4012"/>
@@ -913,12 +908,12 @@ Please be careful!</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="4160"/>
       <source>Show Numeric Cellular Strength</source>
-      <translation>Show Numeric Cellular Strength</translation>
+      <translation>Mobilfunkstärke in Numerisch anzeigen</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4167"/>
       <source>*When set to blank on notched devices, this will display the carrier name.</source>
-      <translation>*When set to blank on notched devices, this will display the carrier name.</translation>
+      <translation>*Wenn diese Option bei Geräten mit Notch leer ist, wird der Name des Netzbetreibers angezeigt.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4189"/>
@@ -974,7 +969,7 @@ Please be careful!</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="4384"/>
       <source>^Will also hide cellular data indicator.</source>
-      <translation>^Will also hide cellular data indicator.</translation>
+      <translation>^versteckt auch die Mobile Daten Anzeige.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4391"/>
@@ -1084,12 +1079,12 @@ Please be careful!</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="5355"/>
       <source>Shows info about the device supervision status and organization at the bottom of the lock screen.</source>
-      <translation>Shows info about the device supervision status and organization at the bottom of the lock screen.</translation>
+      <translation>Informationen über den Geräte-Supervision Status und Organisation auf dem Sperrbildschirm anzeigen.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5358"/>
       <source>Show Supervision Text on Lock Screen</source>
-      <translation>Show Supervision Text on Lock Screen</translation>
+      <translation>Überwachungstext auf dem Sperrbildschirm anzeigen</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5365"/>
@@ -1124,7 +1119,7 @@ Please be careful!</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="5587"/>
       <source>Enable Continuity Debugging</source>
-      <translation>Enable Continuity Debugging</translation>
+      <translation>Kontinuitäts-Debugging einschalten</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5594"/>
@@ -1149,12 +1144,12 @@ Please be careful!</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="5652"/>
       <source>Hide Respring Icon</source>
-      <translation>Hide Respring Icon</translation>
+      <translation>Respring-Symbol ausblenden</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5659"/>
       <source>Vibrate on Raise-to-Wake</source>
-      <translation>Vibrate on Raise-to-Wake</translation>
+      <translation>Vibrieren beim Aufwecken</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5681"/>
@@ -1164,7 +1159,7 @@ Please be careful!</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="5688"/>
       <source>Show Notifications for System Pastes</source>
-      <translation>Show Notifications for System Pastes</translation>
+      <translation>Benachrichtigungen für Systemeinfügungen anzeigen</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5789"/>
@@ -1176,13 +1171,13 @@ Please be careful!</translation>
       <location filename="../qt/mainwindow.ui" line="5837"/>
       <source>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
 it enabled.</source>
-      <translation>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
-it enabled.</translation>
+      <translation>Hinweis: Auch bei Sparserestore-Versionen werden hier reguläre Domänen verwendet. Skip Setup wird angewendet, wenn es
+aktivier ist.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5863"/>
       <source>Stops over-the-air updates to prevent auto-downloads.</source>
-      <translation>Stops over-the-air updates to prevent auto-downloads.</translation>
+      <translation>Stoppt Over-the-Air-Updates, um automatische Downloads zu verhindern.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5866"/>
@@ -1214,9 +1209,9 @@ it enabled.</translation>
       <source>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
 
 To work properly, also disable the daemon using the toggle above.</source>
-      <translation>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
+      <translation>Löscht die Einstellungsdatei des Screen Time Agent, um die über iCloud eingestellte App-Sperre zu verhindern.
 
-To work properly, also disable the daemon using the toggle above.</translation>
+Um richtig zu funktionieren, deaktivieren Sie auch den Daemon mit der obigen Option.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5898"/>
@@ -1236,37 +1231,37 @@ To work properly, also disable the daemon using the toggle above.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="5915"/>
       <source>Disables pinging to sleeping bluetooth devices for improved battery life.</source>
-      <translation>Disables pinging to sleeping bluetooth devices for improved battery life.</translation>
+      <translation>Deaktiviert das Pingen an schlafende Bluetooth-Geräte, um die Akkulaufzeit zu verbessern.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5918"/>
       <source>Disable ATWAKEUP</source>
-      <translation>Disable ATWAKEUP</translation>
+      <translation>ATWAKEUP deaktivieren</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5940"/>
       <source>Turns off Game Center background services.</source>
-      <translation>Turns off Game Center background services.</translation>
+      <translation>Schaltet die Game Center-Hintergrunddienste aus.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5943"/>
       <source>Disable Game Center</source>
-      <translation>Disable Game Center</translation>
+      <translation>Game Center deaktivieren</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5950"/>
       <source>Disables the Tips service and notifications.</source>
-      <translation>Disables the Tips service and notifications.</translation>
+      <translation>Deaktiviert den Tipps-Dienst und die Benachrichtigungen.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5953"/>
       <source>Disable Tips Services</source>
-      <translation>Disable Tips Services</translation>
+      <translation>Tipps-Dienste deaktivieren</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5960"/>
       <source>Disables the Virtual Private Network service.</source>
-      <translation>Disables the Virtual Private Network service.</translation>
+      <translation>Deaktiviert den Virtual Private Network-Dienst.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5963"/>
@@ -1276,17 +1271,17 @@ To work properly, also disable the daemon using the toggle above.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="5970"/>
       <source>Disables the service that deals with errors with WiFi networks with Chinese characters in the name.</source>
-      <translation>Disables the service that deals with errors with WiFi networks with Chinese characters in the name.</translation>
+      <translation>Deaktiviert den Dienst, der Fehler bei WiFi-Netzwerken mit chinesischen Schriftzeichen im Namen behebt.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5973"/>
       <source>Disable Chinese WLAN Service</source>
-      <translation>Disable Chinese WLAN Service</translation>
+      <translation>Chinesischen WLAN-Dienst deaktivieren</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5980"/>
       <source>Disables HealthKit services used by the health app.</source>
-      <translation>Disables HealthKit services used by the health app.</translation>
+      <translation>Deaktiviert HealthKit-Dienste, die von der Gesundheits-App verwendet werden.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5983"/>
@@ -1301,7 +1296,7 @@ To work properly, also disable the daemon using the toggle above.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="6012"/>
       <source>Disable Assistive Touch</source>
-      <translation>Disable Assistive Touch</translation>
+      <translation>Assistive Touch deaktivieren</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6019"/>
@@ -1311,22 +1306,22 @@ To work properly, also disable the daemon using the toggle above.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="6026"/>
       <source>Disable Internet Tethering (Hotspot)</source>
-      <translation>Disable Internet Tethering (Hotspot)</translation>
+      <translation>Internet-Tethering (Hotspot) deaktivieren</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6033"/>
       <source>Disable Passbook</source>
-      <translation>Disable Passbook</translation>
+      <translation>Passbook deaktivieren</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6040"/>
       <source>Disable Spotlight</source>
-      <translation>Disable Spotlight</translation>
+      <translation>Spotlight deaktivieren</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6047"/>
       <source>Disable Voice Control</source>
-      <translation>Disable Voice Control</translation>
+      <translation>Sprachsteuerung deaktivieren</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6148"/>
@@ -1356,82 +1351,82 @@ To work properly, also disable the daemon using the toggle above.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="6351"/>
       <source>Clear Action:</source>
-      <translation>Clear Action:</translation>
+      <translation>Aktion löschen:</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6407"/>
       <location filename="../qt/mainwindow.ui" line="6494"/>
       <location filename="../qt/mainwindow.ui" line="6828"/>
       <source>Select a wallpaper file with the .tendies extension.</source>
-      <translation>Select a wallpaper file with the .tendies extension.</translation>
+      <translation>Wählen Sie eine Hintergrundbilddatei mit der Erweiterung .tendies.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6413"/>
       <source>  Import Files (.tendies)</source>
-      <translation>  Import Files (.tendies)</translation>
+      <translation>  Dateien importieren (.tendies)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6500"/>
       <location filename="../qt/mainwindow.ui" line="6834"/>
       <source>  Import Templates (.batter)</source>
-      <translation>  Import Templates (.batter)</translation>
+      <translation>  Vorlagen importieren (.batter)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6557"/>
       <source>Uses the CoreAnimation file to play the video (300 fps limit)
 Will show up in Collections</source>
-      <translation>Uses the CoreAnimation file to play the video (300 fps limit)
-Will show up in Collections</translation>
+      <translation>Verwendet die CoreAnimation-Datei zum Abspielen des Videos (300 fps Grenze)
+Wird in Sammlungen angezeigt</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6561"/>
       <source>Loop (use CoreAnimation method)</source>
-      <translation>Loop (use CoreAnimation method)</translation>
+      <translation>Schleife (CoreAnimation-Methode verwenden)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6571"/>
       <source>Reverse on Loop</source>
-      <translation>Reverse on Loop</translation>
+      <translation>Rückwärtsfahren in der Schleife</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6578"/>
       <source>Make Foreground (hides clock)</source>
-      <translation>Make Foreground (hides clock)</translation>
+      <translation>In den Vordergrund stellen (blendet die Uhr aus)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6587"/>
       <source>Choose a photo for the wallpaper to freeze on when finished (.heic files only)</source>
-      <translation>Choose a photo for the wallpaper to freeze on when finished (.heic files only)</translation>
+      <translation>Wählen Sie ein Foto aus, auf dem der Bildschirmhintergrund nach der Fertigstellung eingefroren werden soll (.heic-Dateien)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6590"/>
       <source>Choose Freeze Frame (.HEIC)</source>
-      <translation>Choose Freeze Frame (.HEIC)</translation>
+      <translation>Wählen Sie Freeze Frame (.HEIC)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6597"/>
       <source>Choose a video file for the wallpaper (.mov or .mp4)</source>
-      <translation>Choose a video file for the wallpaper (.mov or .mp4)</translation>
+      <translation>Wählen Sie eine Videodatei für das Hintergrundbild (.mov oder .mp4)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6600"/>
       <source>Choose Video</source>
-      <translation>Choose Video</translation>
+      <translation>Video auswählen</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6620"/>
       <source>   Export Video as Descriptor</source>
-      <translation>   Export Video as Descriptor</translation>
+      <translation>   Video als Deskriptor exportieren</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6636"/>
       <source>Current Thumbnail: None</source>
-      <translation>Current Thumbnail: None</translation>
+      <translation>Aktuelles Vorschaubild: Keine</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6643"/>
       <source>Current Video: None</source>
-      <translation>Current Video: None</translation>
+      <translation>Aktuelles Video: Keine</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6745"/>
@@ -1461,71 +1456,71 @@ Nugget ist nicht verantwortlich, falls sie ihr Gerät vermasseln, besonders mit 
     <message>
       <location filename="../qt/mainwindow.ui" line="7069"/>
       <source>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</source>
-      <translation>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</translation>
+      <translation>Verwendet die Dateimethode. Es wird empfohlen, den Daemon stattdessen auf der Registerkarte Daemons zu deaktivieren.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7072"/>
       <source>Disable OTA Updates (file)</source>
-      <translation>Disable OTA Updates (file)</translation>
+      <translation>OTA-Updates deaktivieren (Datei)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7079"/>
       <source>Disables temperature monitoring daemon to reduce system checks.
 
 Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified" in Settings.</source>
-      <translation>Disables temperature monitoring daemon to reduce system checks.
+      <translation>Deaktiviert den Temperaturüberwachungs-Daemon, um Systemprüfungen zu reduzieren.
 
-Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified" in Settings.</translation>
+Warnung: Die Deaktivierung führt dazu, dass die Batterie in den Einstellungen als "Unbekanntes Teil" oder "Unverifiziert" angezeigt wird.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7084"/>
       <source>Disable thermalmonitord</source>
-      <translation>Disable thermalmonitord</translation>
+      <translation>Thermomonitord deaktivieren</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7106"/>
       <source>Set a custom device screen resolution.</source>
-      <translation>Set a custom device screen resolution.</translation>
+      <translation>Legen Sie eine benutzerdefinierte Bildschirmauflösung für Ihr Gerät fest.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7109"/>
       <source>Set a Custom Device Resolution</source>
-      <translation>Set a Custom Device Resolution</translation>
+      <translation>Festlegen einer benutzerdefinierten Geräteauflösung</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7137"/>
       <source>Height:</source>
-      <translation>Height:</translation>
+      <translation>Höhe:</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7152"/>
       <source>Resolution Height</source>
-      <translation>Resolution Height</translation>
+      <translation>Auflösung Höhe</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7193"/>
       <source>Width:</source>
-      <translation>Width:</translation>
+      <translation>Breite:</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7210"/>
       <source>Resolution Width</source>
-      <translation>Resolution Width</translation>
+      <translation>Auflösung Breite</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7350"/>
       <source>Miscellaneous Options</source>
-      <translation>Miscellaneous Options</translation>
+      <translation>Verschiedene Optionen</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7460"/>
       <source>Springboard</source>
-      <translation>Springboard</translation>
+      <translation>Sprungbrett</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7495"/>
       <source>Internal</source>
-      <translation>Internal</translation>
+      <translation>Intern</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7556"/>
@@ -1540,12 +1535,12 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="7746"/>
       <source>Current gestalt file location:</source>
-      <translation>Current gestalt file location:</translation>
+      <translation>Speicherort der aktuellen Gestalt-Datei:</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7774"/>
       <source>  Choose Gestalt File</source>
-      <translation>  Choose Gestalt File</translation>
+      <translation>  Wählen Sie Gestalt-Datei</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7805"/>
@@ -1560,17 +1555,17 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="7860"/>
       <source>Note: Skip Setup is currently turned on.</source>
-      <translation>Note: Skip Setup is currently turned on.</translation>
+      <translation>Hinweis: Die Option Einrichtung überspringen ist derzeit aktiviert.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7911"/>
       <source>Remove All Tweaks</source>
-      <translation>Remove All Tweaks</translation>
+      <translation>Alle Tweaks entfernen</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7918"/>
       <source>Reset Mobile Gestalt</source>
-      <translation>Reset Mobile Gestalt</translation>
+      <translation>Mobile Gestalt zurücksetzen</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8022"/>
@@ -1580,7 +1575,7 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="8163"/>
       <source>Allow Applying Over WiFi</source>
-      <translation>Allow Applying Over WiFi</translation>
+      <translation>Anwenden über WiFi zulassen</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8173"/>
@@ -1590,81 +1585,81 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="8183"/>
       <source>Show Risky Tweak Options</source>
-      <translation>Show Risky Tweak Options</translation>
+      <translation>Riskante Tweak-Optionen anzeigen</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8190"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
-      <translation>Show models for other device types in the AI device spoofing tab.</translation>
+      <translation>Modelle für andere Gerätetypen auf der Registerkarte AI-Geräte-Spoofing anzeigen.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8199"/>
       <source>Show All Spoofable Models</source>
-      <translation>Show All Spoofable Models</translation>
+      <translation>Alle fälschbaren Modelle anzeigen</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8206"/>
       <source>Ignore Posterboard Frame Limit</source>
-      <translation>Ignore Posterboard Frame Limit</translation>
+      <translation>Ignorieren der Posterboard-Rahmengrenze</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8213"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
-      <translation>Disables the tendies file limit of 2. There is still the descriptor limit.
+      <translation>Deaktiviert das Tendies-Dateilimit von 2. Das Deskriptor-Limit bleibt bestehen.
 
-DO NOT unplug your device during restores.</translation>
+Trennen Sie Ihr Gerät während der Wiederherstellung NICHT vom Stromnetz.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8218"/>
       <source>Disable Tendies Limit</source>
-      <translation>Disable Tendies Limit</translation>
+      <translation>Tendies Limit deaktivieren</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8243"/>
       <source>If you used the rdar/status bar fix in a previous iOS version, this will revert that.</source>
-      <translation>If you used the rdar/status bar fix in a previous iOS version, this will revert that.</translation>
+      <translation>Wenn Sie den rdar/Statusleisten-Fix in einer früheren iOS-Version verwendet haben, wird dies rückgängig gemacht.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8246"/>
       <source>Revert rdar Fix (reset resolution)</source>
-      <translation>Revert rdar Fix (reset resolution)</translation>
+      <translation>Revert rdar Fix (Auflösung zurücksetzen)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8268"/>
       <source>Restores the SSL config that does something idk</source>
-      <translation>Restores the SSL config that does something idk</translation>
+      <translation>Stellt die SSL-Konfiguration wieder her, die irgendetwas tut, das ich nicht kenne.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8271"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
-      <translation>Restore TrustStore (SSL Configuration Profiles)</translation>
+      <translation>TrustStore wiederherstellen (SSL-Konfigurationsprofile)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8281"/>
       <source>Skip Setup * (non-exploit files only)</source>
-      <translation>Skip Setup * (non-exploit files only)</translation>
+      <translation>Setup überspringen * (nur Nicht-Exploit-Dateien)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8294"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
-      <translation>Enable Supervision * (requires Skip Setup)</translation>
+      <translation>Überwachung einschalten * (erfordert Skip Setup)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8304"/>
       <source>Enter Organization Name</source>
-      <translation>Enter Organization Name</translation>
+      <translation>Name der Organisation eingeben</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8327"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
-      <translation>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</translation>
+      <translation>* Hinweis: Skip Setup kann zu Problemen mit Konfigurationsprofilen führen. Deaktivieren Sie diese Funktion, wenn Sie sie benötigen.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8354"/>
       <source>Reset Device Pairing</source>
-      <translation>Reset Device Pairing</translation>
+      <translation>Gerätekopplung zurücksetzen</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8368"/>
@@ -1694,12 +1689,12 @@ DO NOT unplug your device during restores.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="3991"/>
       <source>Change Status Bar Date Text</source>
-      <translation>Change Status Bar Date Text</translation>
+      <translation>Datumstext in der Statusleiste ändern</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3998"/>
       <source>Status Bar Date Text</source>
-      <translation>Status Bar Date Text</translation>
+      <translation>Statusleiste Datum Text</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8130"/>
@@ -1712,7 +1707,7 @@ DO NOT unplug your device during restores.</translation>
     <message>
       <location filename="../gui/dialogs.py" line="44"/>
       <source>PosterBoard Info</source>
-      <translation>PosterBoard Info</translation>
+      <translation>PosterBoard Infos</translation>
     </message>
     <message>
       <location filename="../gui/dialogs.py" line="47"/>
@@ -1720,10 +1715,10 @@ DO NOT unplug your device during restores.</translation>
 
 If the wallpapers don't appear in the menu, you either have to wait a bit for them to load,
 or you've reached the maximum amount of wallpapers (15) and have to wipe them.</source>
-      <translation>Descriptors will be under the Collections section when adding a new wallpaper.
+      <translation>Die Deskriptoren werden beim Hinzufügen eines neuen Hintergrundbildes unter dem Abschnitt Sammlungen angezeigt.
 
-If the wallpapers don't appear in the menu, you either have to wait a bit for them to load,
-or you've reached the maximum amount of wallpapers (15) and have to wipe them.</translation>
+Wenn die Hintergrundbilder nicht im Menü erscheinen, müssen Sie entweder ein wenig warten, bis sie geladen sind,
+oder Sie haben die maximale Anzahl von Hintergrundbildern (15) erreicht und müssen sie löschen.</translation>
     </message>
   </context>
   <context>
@@ -1736,12 +1731,12 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
     <message>
       <location filename="../gui/dialogs.py" line="92"/>
       <source>Nugget v{0} is available. </source>
-      <translation>Nugget v{0} is available. </translation>
+      <translation>Nugget v{0} ist verfügbar. </translation>
     </message>
     <message>
       <location filename="../gui/dialogs.py" line="94"/>
       <source>Would you like to go to the download on GitHub?</source>
-      <translation>Would you like to go to the download on GitHub?</translation>
+      <translation>Möchten Sie zum Download auf GitHub gehen?</translation>
     </message>
   </context>
   <context>
@@ -1762,14 +1757,14 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
-      <translation>Your hash has been transferred to the Pocket Poster app.
+      <translation>Ihre Raute wurde in die Pocket Poster App übertragen.
 
-Open up its settings and tap "Detect".</translation>
+Öffnen Sie deren Einstellungen und tippen Sie auf "Erkennen".</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/settings.py" line="121"/>
       <source>Copy it and paste it</source>
-      <translation>Copy it and paste it</translation>
+      <translation>Kopieren und einfügen</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/settings.py" line="125"/>
@@ -1782,15 +1777,15 @@ Open up its settings and tap "Detect".</translation>
 {0}
 
 {1} into the Nugget app where it says "App Hash".</source>
-      <translation>Your hash is:
+      <translation>Ihr Hashwert ist:
 {0}
 
-{1} into the Nugget app where it says "App Hash".</translation>
+{1} in der Nugget-App, wo "App-Hash" steht.</translation>
     </message>
     <message>
       <location filename="../exceptions/posterboard_exceptions.py" line="6"/>
       <source>Videos must be under {0} frames to loop. Either reduce the frame rate or make it shorter.</source>
-      <translation>Videos must be under {0} frames to loop. Either reduce the frame rate or make it shorter.</translation>
+      <translation>Videos müssen weniger als {0} Frames haben, um eine Schleife zu bilden. Verringern Sie entweder die Bildrate oder machen Sie sie kürzer.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="58"/>
@@ -1800,17 +1795,17 @@ Open up its settings and tap "Detect".</translation>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="59"/>
       <source>Disable Find My from Settings (Settings -&gt; [Your Name] -&gt; Find My) and then try again.</source>
-      <translation>Disable Find My from Settings (Settings -&gt; [Your Name] -&gt; Find My) and then try again.</translation>
+      <translation>Deaktivieren Sie die Funktion "Eigene Dateien suchen" in den Einstellungen (Einstellungen -&gt; [Ihr Name] -&gt; Eigene Dateien suchen) und versuchen Sie es dann erneut.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="61"/>
       <source>Nugget cannot be used on this device. Click Show Details for more info.</source>
-      <translation>Nugget cannot be used on this device. Click Show Details for more info.</translation>
+      <translation>Nugget kann auf diesem Gerät nicht verwendet werden. Klicken Sie auf Details anzeigen, um weitere Informationen zu erhalten.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="62"/>
       <source>Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!</source>
-      <translation>Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!</translation>
+      <translation>Ihr Gerät wird verwaltet und die MDM-Backup-Verschlüsselung ist aktiviert. Diese muss ausgeschaltet werden, damit Nugget funktionieren kann. Bitte verwenden Sie Nugget nicht auf Ihrem Schul-/Arbeitsgerät!</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="64"/>
@@ -1830,7 +1825,7 @@ Open up its settings and tap "Detect".</translation>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="70"/>
       <source>Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info.</source>
-      <translation>Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info.</translation>
+      <translation>Das Gerät konnte keine Dateien senden. Die Dateiliste ist möglicherweise beschädigt oder enthält Duplikate. Klicken Sie auf Details anzeigen, um weitere Informationen zu erhalten.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="104"/>
@@ -1857,29 +1852,29 @@ Open up its settings and tap "Detect".</translation>
       <source>Device is password protected! You must trust the computer on your device.
 
 Unlock your device. On the popup, click "Trust", enter your password, then try again.</source>
-      <translation>Device is password protected! You must trust the computer on your device.
+      <translation>Das Gerät ist passwortgeschützt! Sie müssen dem Computer auf Ihrem Gerät vertrauen.
 
-Unlock your device. On the popup, click "Trust", enter your password, then try again.</translation>
+Entsperren Sie Ihr Gerät. Klicken Sie im Popup auf "Vertrauen", geben Sie Ihr Passwort ein und versuchen Sie es erneut.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="161"/>
       <source>If you keep receiving this error, try using a different cable or port.</source>
-      <translation>If you keep receiving this error, try using a different cable or port.</translation>
+      <translation>Wenn Sie diesen Fehler weiterhin erhalten, versuchen Sie, ein anderes Kabel oder einen anderen Anschluss zu verwenden.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="270"/>
       <source>Pairing Reset</source>
-      <translation>Pairing Reset</translation>
+      <translation>Paarung zurücksetzen</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="270"/>
       <source>Your device's pairing was successfully reset. Refresh the device list before applying.</source>
-      <translation>Your device's pairing was successfully reset. Refresh the device list before applying.</translation>
+      <translation>Die Kopplung Ihres Geräts wurde erfolgreich zurückgesetzt. Aktualisieren Sie die Geräteliste vor der Anwendung.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="497"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
-      <translation>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</translation>
+      <translation>Keine mobilegestalt-Datei vorhanden! Bitte wählen Sie Ihre Datei aus, um mobilegestalt Tweaks anzuwenden.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="624"/>
@@ -1939,7 +1934,7 @@ Denken Sie daran, Find My wieder einzuschalten!</translation>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="49"/>
       <source>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</source>
-      <translation>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</translation>
+      <translation>HINWEIS: Möglicherweise müssen Sie alle Hintergrundbilder zurücksetzen (aktivieren Sie Riskante Optionen in den Einstellungen) und dann erneut anwenden, damit diese Datei funktioniert.</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="66"/>
@@ -1968,37 +1963,37 @@ Denken Sie daran, Find My wieder einzuschalten!</translation>
       <source>You selected too many tendies files! The limit is 3.
 
 This is for your safety. Please apply the rest separately.</source>
-      <translation>You selected too many tendies files! The limit is 3.
+      <translation>Sie haben zu viele Tendies-Dateien ausgewählt! Das Limit ist 3.
 
-This is for your safety. Please apply the rest separately.</translation>
+Dies ist zu Ihrer Sicherheit. Bitte wenden Sie den Rest separat an.</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="210"/>
       <location filename="../gui/pages/tools/posterboard.py" line="227"/>
       <source>You selected too many descriptors! The limit is 10.</source>
-      <translation>You selected too many descriptors! The limit is 10.</translation>
+      <translation>Sie haben zu viele Deskriptoren ausgewählt! Die Grenze liegt bei 10.</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="238"/>
       <location filename="../gui/pages/tools/posterboard.py" line="241"/>
       <source>Current Thumbnail: {0}</source>
-      <translation>Current Thumbnail: {0}</translation>
+      <translation>Aktuelles Vorschaubild: {0}</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="247"/>
       <location filename="../gui/pages/tools/posterboard.py" line="252"/>
       <source>Current Video: {0}</source>
-      <translation>Current Video: {0}</translation>
+      <translation>Aktuelles Video: {0}</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="61"/>
       <source>No options were found in the config. Make sure that it is in the correct format.</source>
-      <translation>No options were found in the config. Make sure that it is in the correct format.</translation>
+      <translation>Es wurden keine Optionen in der Konfiguration gefunden. Stellen Sie sicher, dass sie das richtige Format hat.</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="63"/>
       <source>This config does not have a valid domain!</source>
-      <translation>This config does not have a valid domain!</translation>
+      <translation>Diese Konfiguration hat keine gültige Domain!</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="70"/>
@@ -2009,20 +2004,20 @@ This is for your safety. Please apply the rest separately.</translation>
       <location filename="../tweaks/posterboard/template_file.py" line="81"/>
       <source>This template requires iOS {0}.
 Your iOS version (iOS {1}) is too outdated!</source>
-      <translation>This template requires iOS {0}.
-Your iOS version (iOS {1}) is too outdated!</translation>
+      <translation>Diese Vorlage erfordert iOS {0}.
+Ihre iOS-Version (iOS {1}) ist zu veraltet!</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="85"/>
       <source>This template requires iOS {0}.
 Your iOS version (iOS {1}) is too new!</source>
-      <translation>This template requires iOS {0}.
-Your iOS version (iOS {1}) is too new!</translation>
+      <translation>Diese Vorlage erfordert iOS {0}.
+Ihre iOS-Version (iOS {1}) ist zu neu!</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="138"/>
       <source>Invalid option type in template</source>
-      <translation>Invalid option type in template</translation>
+      <translation>Ungültiger Optionstyp in der Vorlage</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="140"/>
@@ -2032,16 +2027,16 @@ Your iOS version (iOS {1}) is too new!</translation>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="292"/>
       <source>Bundle id (default: {0})</source>
-      <translation>Bundle id (default: {0})</translation>
+      <translation>Bündel-ID (Standard: {0})</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_options/replace_option.py" line="103"/>
       <source>Error applying template:
 
 No selected file for required option</source>
-      <translation>Error applying template:
+      <translation>Fehler beim Anwenden der Vorlage:
 
-No selected file for required option</translation>
+Keine ausgewählte Datei für die erforderliche Option</translation>
     </message>
   </context>
 </TS>

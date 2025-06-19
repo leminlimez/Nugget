@@ -19,12 +19,12 @@ Are you sure you want to use this one?</source>
       <location filename="../qt/mainwindow.ui" line="1938"/>
       <location filename="../qt/mainwindow.ui" line="7756"/>
       <source>None</source>
-      <translation>None</translation>
+      <translation>없음</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="415"/>
       <source>    Home</source>
-      <translation>    Home</translation>
+      <translation>    홈</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="465"/>
@@ -39,27 +39,27 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="538"/>
       <source>    Feature Flags</source>
-      <translation>    Feature Flags</translation>
+      <translation>    기능 플래그</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="567"/>
       <source>    Eligibility</source>
-      <translation>    Eligibility</translation>
+      <translation>    자격</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="596"/>
       <source>    Status Bar</source>
-      <translation>    Status Bar</translation>
+      <translation>    상태 표시줄</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="628"/>
       <source>    Templates</source>
-      <translation>    Templates</translation>
+      <translation>    템플릿</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="657"/>
       <source>    Miscellaneous</source>
-      <translation>    Miscellaneous</translation>
+      <translation>    기타</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="701"/>
@@ -79,7 +79,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="1074"/>
       <source> Star on Github</source>
-      <translation> 깃허브</translation>
+      <translation> 깃허브에 별표 달기</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1178"/>
@@ -294,7 +294,7 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
     <message>
       <location filename="../qt/mainwindow.ui" line="2091"/>
       <source>Disable Region Restrictions (ie. Shutter Sound)</source>
-      <translation>지역 제한 비활성화(예: 셔터음)</translation>
+      <translation>지역 제한 비활성화 (예: 셔터음)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2098"/>
@@ -661,7 +661,7 @@ iPhone 16에서 iPhone 15 Pro 시리즈로 스푸핑 시에도 재다운로드�
     <message>
       <location filename="../qt/mainwindow.ui" line="3133"/>
       <source>Spoofs the device hardware model (ie D83AP)</source>
-      <translation>디바이스 하드웨어 모델 스푸핑(예: D83AP)</translation>
+      <translation>디바이스 하드웨어 모델 스푸핑 (예: D83AP)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3136"/>
@@ -671,7 +671,7 @@ iPhone 16에서 iPhone 15 Pro 시리즈로 스푸핑 시에도 재다운로드�
     <message>
       <location filename="../qt/mainwindow.ui" line="3146"/>
       <source>Spoofs the device CPU model (ie t8130)</source>
-      <translation>디바이스 CPU 모델 스푸핑(예: t8130)</translation>
+      <translation>디바이스 CPU 모델 스푸핑 (예: t8130)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3149"/>
@@ -1173,163 +1173,163 @@ iPhone 16에서 iPhone 15 Pro 시리즈로 스푸핑 시에도 재다운로드�
       <location filename="../qt/mainwindow.ui" line="5789"/>
       <location filename="../qt/mainwindow.ui" line="7527"/>
       <source>Daemons</source>
-      <translation>대몬</translation>
+      <translation>데몬</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5837"/>
       <source>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
 it enabled.</source>
       <translation>참고: Sparserestore 버전에서도 일반 도메인을 사용합니다. 설정 건너뛰기를 사용 설정한 경우
-를 활성화한 경우 적용됩니다.</translation>
+이 기능이 적용됩니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5863"/>
       <source>Stops over-the-air updates to prevent auto-downloads.</source>
-      <translation>Stops over-the-air updates to prevent auto-downloads.</translation>
+      <translation>시스템 업데이트를 중지하여 자동 다운로드가 발생하지 않도록 합니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5866"/>
       <source>Disable OTA</source>
-      <translation>Disable OTA</translation>
+      <translation>OTA 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5873"/>
       <source>Disables usage tracking for improved privacy.</source>
-      <translation>Disables usage tracking for improved privacy.</translation>
+      <translation>개인정보 보호를 강화하기 위해 사용량 추적을 비활성화합니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5876"/>
       <source>Disable UsageTrackingAgent</source>
-      <translation>Disable UsageTrackingAgent</translation>
+      <translation>사용량 추적 에이전트 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5883"/>
       <source>Disables Screen Time monitoring features.</source>
-      <translation>Disables Screen Time monitoring features.</translation>
+      <translation>스크린 타임 모니터링 기능을 비활성화합니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5886"/>
       <source>Disable Screen Time Agent</source>
-      <translation>Disable Screen Time Agent</translation>
+      <translation>스크린 타임 에이전트 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5893"/>
       <source>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
 
 To work properly, also disable the daemon using the toggle above.</source>
-      <translation>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
+      <translation>iCloud를 통해 설정된 앱 잠금을 방지하기 위해 스크린 타임 에이전트 설정 파일을 삭제합니다.
 
-To work properly, also disable the daemon using the toggle above.</translation>
+정상적으로 작동하려면 위의 토글을 사용하여 데몬을 비활성화해야 합니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5898"/>
       <source>Clear ScreenTimeAgent.plist file</source>
-      <translation>Clear ScreenTimeAgent.plist file</translation>
+      <translation>ScreenTimeAgent.plist 파일 지우기</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5905"/>
       <source>Stops logs, dumps, and crash reports collection.</source>
-      <translation>Stops logs, dumps, and crash reports collection.</translation>
+      <translation>로그, 덤프 및 충돌 보고서 수집을 중지합니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5908"/>
       <source>Disable Logs, Dumps, and Crash Reports</source>
-      <translation>Disable Logs, Dumps, and Crash Reports</translation>
+      <translation>로그, 덤프 및 충돌 보고서 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5915"/>
       <source>Disables pinging to sleeping bluetooth devices for improved battery life.</source>
-      <translation>Disables pinging to sleeping bluetooth devices for improved battery life.</translation>
+      <translation>절전 상태의 블루투스 장치에 대한 핑을 비활성화하여 배터리 수명을 개선합니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5918"/>
       <source>Disable ATWAKEUP</source>
-      <translation>Disable ATWAKEUP</translation>
+      <translation>ATWAKEUP 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5940"/>
       <source>Turns off Game Center background services.</source>
-      <translation>Turns off Game Center background services.</translation>
+      <translation>Game Center 백그라운드 서비스를 끕니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5943"/>
       <source>Disable Game Center</source>
-      <translation>Disable Game Center</translation>
+      <translation>Game Center 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5950"/>
       <source>Disables the Tips service and notifications.</source>
-      <translation>Disables the Tips service and notifications.</translation>
+      <translation>팁 서비스 및 알림을 비활성화합니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5953"/>
       <source>Disable Tips Services</source>
-      <translation>Disable Tips Services</translation>
+      <translation>팁 서비스 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5960"/>
       <source>Disables the Virtual Private Network service.</source>
-      <translation>Disables the Virtual Private Network service.</translation>
+      <translation>가상 사설망 서비스를 비활성화합니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5963"/>
       <source>Disable VPN Service</source>
-      <translation>Disable VPN Service</translation>
+      <translation>VPN 서비스 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5970"/>
       <source>Disables the service that deals with errors with WiFi networks with Chinese characters in the name.</source>
-      <translation>Disables the service that deals with errors with WiFi networks with Chinese characters in the name.</translation>
+      <translation>이름에 한자가 포함된 WiFi 네트워크 오류를 처리하는 서비스를 비활성화합니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5973"/>
       <source>Disable Chinese WLAN Service</source>
-      <translation>Disable Chinese WLAN Service</translation>
+      <translation>Chinese WLAN 서비스 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5980"/>
       <source>Disables HealthKit services used by the health app.</source>
-      <translation>Disables HealthKit services used by the health app.</translation>
+      <translation>건강 앱에서 사용하는 HealthKit 서비스를 비활성화합니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5983"/>
       <source>Disable HealthKit</source>
-      <translation>Disable HealthKit</translation>
+      <translation>HealthKit 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6005"/>
       <source>Disable AirPrint</source>
-      <translation>Disable AirPrint</translation>
+      <translation>AirPrint 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6012"/>
       <source>Disable Assistive Touch</source>
-      <translation>Disable Assistive Touch</translation>
+      <translation>Assistive Touch 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6019"/>
       <source>Disable iCloud</source>
-      <translation>Disable iCloud</translation>
+      <translation>iCloud 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6026"/>
       <source>Disable Internet Tethering (Hotspot)</source>
-      <translation>Disable Internet Tethering (Hotspot)</translation>
+      <translation>인터넷 테더링(핫스팟) 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6033"/>
       <source>Disable Passbook</source>
-      <translation>Disable Passbook</translation>
+      <translation>Passbook 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6040"/>
       <source>Disable Spotlight</source>
-      <translation>Disable Spotlight</translation>
+      <translation>Spotlight 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6047"/>
       <source>Disable Voice Control</source>
-      <translation>Disable Voice Control</translation>
+      <translation>음성 명령 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6148"/>
@@ -1339,7 +1339,7 @@ To work properly, also disable the daemon using the toggle above.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="6187"/>
       <source>   Discover Wallpapers</source>
-      <translation>   Discover Wallpapers</translation>
+      <translation>   배경 화면 알아보기</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6278"/>
@@ -1349,102 +1349,102 @@ To work properly, also disable the daemon using the toggle above.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="6298"/>
       <source>   Templates</source>
-      <translation>   Templates</translation>
+      <translation>   템플릿</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6321"/>
       <source>   Video</source>
-      <translation>   Video</translation>
+      <translation>   비디오</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6351"/>
       <source>Clear Action:</source>
-      <translation>Clear Action:</translation>
+      <translation>명확한 조치:</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6407"/>
       <location filename="../qt/mainwindow.ui" line="6494"/>
       <location filename="../qt/mainwindow.ui" line="6828"/>
       <source>Select a wallpaper file with the .tendies extension.</source>
-      <translation>Select a wallpaper file with the .tendies extension.</translation>
+      <translation>확장자가 .tendies인 배경화면 파일을 선택하세요.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6413"/>
       <source>  Import Files (.tendies)</source>
-      <translation>  Import Files (.tendies)</translation>
+      <translation>  파일 가져오기 (.tendies)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6500"/>
       <location filename="../qt/mainwindow.ui" line="6834"/>
       <source>  Import Templates (.batter)</source>
-      <translation>  Import Templates (.batter)</translation>
+      <translation>  템플릿 가져오기 (.batter)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6557"/>
       <source>Uses the CoreAnimation file to play the video (300 fps limit)
 Will show up in Collections</source>
-      <translation>Uses the CoreAnimation file to play the video (300 fps limit)
-Will show up in Collections</translation>
+      <translation>CoreAnimation 파일을 사용하여 동영상을 재생합니다 (300fps 제한)
+컬렉션에 표시됩니다</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6561"/>
       <source>Loop (use CoreAnimation method)</source>
-      <translation>Loop (use CoreAnimation method)</translation>
+      <translation>루프 (CoreAnimation 메소드 사용)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6571"/>
       <source>Reverse on Loop</source>
-      <translation>Reverse on Loop</translation>
+      <translation>역순 루프</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6578"/>
       <source>Make Foreground (hides clock)</source>
-      <translation>Make Foreground (hides clock)</translation>
+      <translation>전경 표시 (시계 숨김)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6587"/>
       <source>Choose a photo for the wallpaper to freeze on when finished (.heic files only)</source>
-      <translation>Choose a photo for the wallpaper to freeze on when finished (.heic files only)</translation>
+      <translation>완료되면 배경화면으로 고정할 사진을 선택합니다 (.heic 파일만 지원)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6590"/>
       <source>Choose Freeze Frame (.HEIC)</source>
-      <translation>Choose Freeze Frame (.HEIC)</translation>
+      <translation>고정 프레임 선택 (.HEIC)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6597"/>
       <source>Choose a video file for the wallpaper (.mov or .mp4)</source>
-      <translation>Choose a video file for the wallpaper (.mov or .mp4)</translation>
+      <translation>배경화면으로 사용할 영상 파일을 선택해주세요 (.mov 또는 .mp4)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6600"/>
       <source>Choose Video</source>
-      <translation>Choose Video</translation>
+      <translation>영상 선택</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6620"/>
       <source>   Export Video as Descriptor</source>
-      <translation>   Export Video as Descriptor</translation>
+      <translation>   Descriptor로 비디오 내보내기</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6636"/>
       <source>Current Thumbnail: None</source>
-      <translation>Current Thumbnail: None</translation>
+      <translation>현재 썸네일: 없음</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6643"/>
       <source>Current Video: None</source>
-      <translation>Current Video: None</translation>
+      <translation>현재 비디오: 없음</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6745"/>
       <source>Templates</source>
-      <translation>Templates</translation>
+      <translation>템플릿</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6967"/>
       <source>Risky Options</source>
-      <translation>Risky Options</translation>
+      <translation>위험한 옵션</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7042"/>
@@ -1454,76 +1454,76 @@ The options on this page may be unsafe for your device. Use these options at you
 your device resolution has the potential to brick your device when used improperly.
 
 Nugget is not responsible if you mess up your device, especially with resolution changer.</source>
-      <translation>Disclaimer:
+      <translation>면책 사항:
 
-The options on this page may be unsafe for your device. Use these options at your own risk. Changing
-your device resolution has the potential to brick your device when used improperly.
+이 페이지의 옵션은 기기에 위험을 초래할 수 있습니다. 이 옵션을 사용할 경우 모든 책임은 사용자에게 있습니다.
+기기 해상도를 부적절하게 사용하면 기기가 고장날 수 있습니다.
 
-Nugget is not responsible if you mess up your device, especially with resolution changer.</translation>
+특히 해상도 변경을 사용하여 기기를 망가뜨린 경우 Nugget은 책임 지지 않습니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7069"/>
       <source>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</source>
-      <translation>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</translation>
+      <translation>파일 방식을 사용합니다. 대신 데몬 탭에서 데몬을 비활성화하는 것이 좋습니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7072"/>
       <source>Disable OTA Updates (file)</source>
-      <translation>Disable OTA Updates (file)</translation>
+      <translation>OTA 업데이트 비활성화 (file)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7079"/>
       <source>Disables temperature monitoring daemon to reduce system checks.
 
 Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified" in Settings.</source>
-      <translation>Disables temperature monitoring daemon to reduce system checks.
+      <translation>온도 모니터링 데몬을 비활성화하여 시스템 검사를 줄입니다.
 
-Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified" in Settings.</translation>
+경고: 비활성화하면 설정에서 배터리에 "알 수 없는 부품" 또는 "확인되지 않음"이 표시될 수 있습니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7084"/>
       <source>Disable thermalmonitord</source>
-      <translation>Disable thermalmonitord</translation>
+      <translation>온도 모니터링 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7106"/>
       <source>Set a custom device screen resolution.</source>
-      <translation>Set a custom device screen resolution.</translation>
+      <translation>사용자 정의 기기 화면 해상도를 설정합니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7109"/>
       <source>Set a Custom Device Resolution</source>
-      <translation>Set a Custom Device Resolution</translation>
+      <translation>사용자 정의 기기 해상도 설정</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7137"/>
       <source>Height:</source>
-      <translation>Height:</translation>
+      <translation>세로:</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7152"/>
       <source>Resolution Height</source>
-      <translation>Resolution Height</translation>
+      <translation>해상도 높이</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7193"/>
       <source>Width:</source>
-      <translation>Width:</translation>
+      <translation>가로:</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7210"/>
       <source>Resolution Width</source>
-      <translation>Resolution Width</translation>
+      <translation>해상도 너비</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7350"/>
       <source>Miscellaneous Options</source>
-      <translation>Miscellaneous Options</translation>
+      <translation>기타 옵션</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7460"/>
       <source>Springboard</source>
-      <translation>Springboard</translation>
+      <translation>스프링보드</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7495"/>
@@ -1538,141 +1538,141 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="7685"/>
       <source>Apply</source>
-      <translation>Apply</translation>
+      <translation>적용</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7746"/>
       <source>Current gestalt file location:</source>
-      <translation>Current gestalt file location:</translation>
+      <translation>현재 Gestalt 파일 위치:</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7774"/>
       <source>  Choose Gestalt File</source>
-      <translation>  Choose Gestalt File</translation>
+      <translation>  Gestalt 파일 선택</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7805"/>
       <source>  Apply Changes</source>
-      <translation>  Apply Changes</translation>
+      <translation>  변경사항 적용하기</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7822"/>
       <source>Ready!</source>
-      <translation>Ready!</translation>
+      <translation>준비!</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7860"/>
       <source>Note: Skip Setup is currently turned on.</source>
-      <translation>Note: Skip Setup is currently turned on.</translation>
+      <translation>참고: 현재 설정 건너뛰기가 켜져 있습니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7911"/>
       <source>Remove All Tweaks</source>
-      <translation>Remove All Tweaks</translation>
+      <translation>모든 트윅 지우기</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7918"/>
       <source>Reset Mobile Gestalt</source>
-      <translation>Reset Mobile Gestalt</translation>
+      <translation>Mobile Gestalt 재설정</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8022"/>
       <source>Nugget Settings</source>
-      <translation>Nugget Settings</translation>
+      <translation>Nugget 설정</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8163"/>
       <source>Allow Applying Over WiFi</source>
-      <translation>Allow Applying Over WiFi</translation>
+      <translation>WiFi를 통해 변경사항 적용하기</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8173"/>
       <source>Auto Reboot After Applying</source>
-      <translation>Auto Reboot After Applying</translation>
+      <translation>적용 후 자동 재시동</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8183"/>
       <source>Show Risky Tweak Options</source>
-      <translation>Show Risky Tweak Options</translation>
+      <translation>Risky 트윅 옵션 표시</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8190"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
-      <translation>Show models for other device types in the AI device spoofing tab.</translation>
+      <translation>AI 디바이스 스푸핑 탭에서 다른 디바이스 유형의 모델을 표시합니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8199"/>
       <source>Show All Spoofable Models</source>
-      <translation>Show All Spoofable Models</translation>
+      <translation>스푸핑 가능한 모델 모두 보기</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8206"/>
       <source>Ignore Posterboard Frame Limit</source>
-      <translation>Ignore Posterboard Frame Limit</translation>
+      <translation>Posterboard 프레임 제한 무시</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8213"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
-      <translation>Disables the tendies file limit of 2. There is still the descriptor limit.
+      <translation>tendies 파일 제한 2개를 비활성화합니다. Descriptor 제한은 여전히 존재합니다.
 
-DO NOT unplug your device during restores.</translation>
+복원 중에는 기기를 분리하지 마세요.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8218"/>
       <source>Disable Tendies Limit</source>
-      <translation>Disable Tendies Limit</translation>
+      <translation>Tendies 제한 비활성화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8243"/>
       <source>If you used the rdar/status bar fix in a previous iOS version, this will revert that.</source>
-      <translation>If you used the rdar/status bar fix in a previous iOS version, this will revert that.</translation>
+      <translation>이전 iOS 버전에서 rdar/상태 표시줄 수정 기능을 사용했다면 이 기능을 사용하면 해당 기능이 되돌아갑니다.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8246"/>
       <source>Revert rdar Fix (reset resolution)</source>
-      <translation>Revert rdar Fix (reset resolution)</translation>
+      <translation>Rdar 수정 되돌리기 (해상도 재설정)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8268"/>
       <source>Restores the SSL config that does something idk</source>
-      <translation>Restores the SSL config that does something idk</translation>
+      <translation>SSL 구성 설정을 복원합니다 이 설정이 무엇을 하는지 모르겠습니다</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8271"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
-      <translation>Restore TrustStore (SSL Configuration Profiles)</translation>
+      <translation>TrustStore 복원 (SSL 구성 프로필)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8281"/>
       <source>Skip Setup * (non-exploit files only)</source>
-      <translation>Skip Setup * (non-exploit files only)</translation>
+      <translation>설정 건너뛰기 * (익스플로잇이 아닌 파일만 해당)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8294"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
-      <translation>Enable Supervision * (requires Skip Setup)</translation>
+      <translation>감독 활성화 * (설정 건너뛰기 필요)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8304"/>
       <source>Enter Organization Name</source>
-      <translation>Enter Organization Name</translation>
+      <translation>조직 이름 입력</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8327"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
-      <translation>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</translation>
+      <translation>* 참고: 설정 건너뛰기를 사용하면 구성 프로필에 문제가 발생할 수 있습니다. 필요한 경우 이 기능을 해제하세요.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8354"/>
       <source>Reset Device Pairing</source>
-      <translation>Reset Device Pairing</translation>
+      <translation>기기 페어링 초기화</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8368"/>
       <source>Pocket Poster Helper</source>
-      <translation>Pocket Poster Helper</translation>
+      <translation>Pocket Poster 도우미</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="973"/>
@@ -1692,22 +1692,22 @@ DO NOT unplug your device during restores.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="1558"/>
       <source>Translators</source>
-      <translation>Translators</translation>
+      <translation>번역</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3991"/>
       <source>Change Status Bar Date Text</source>
-      <translation>Change Status Bar Date Text</translation>
+      <translation>상태 표시줄 날짜 텍스트 변경</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3998"/>
       <source>Status Bar Date Text</source>
-      <translation>Status Bar Date Text</translation>
+      <translation>상태 표시줄 날짜 텍스트</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8130"/>
       <source>App Language</source>
-      <translation>App Language</translation>
+      <translation>앱 언어</translation>
     </message>
   </context>
   <context>
@@ -1715,7 +1715,7 @@ DO NOT unplug your device during restores.</translation>
     <message>
       <location filename="../gui/dialogs.py" line="44"/>
       <source>PosterBoard Info</source>
-      <translation>PosterBoard Info</translation>
+      <translation>PosterBoard 정보</translation>
     </message>
     <message>
       <location filename="../gui/dialogs.py" line="47"/>
@@ -1723,10 +1723,10 @@ DO NOT unplug your device during restores.</translation>
 
 If the wallpapers don't appear in the menu, you either have to wait a bit for them to load,
 or you've reached the maximum amount of wallpapers (15) and have to wipe them.</source>
-      <translation>Descriptors will be under the Collections section when adding a new wallpaper.
+      <translation>새 배경화면을 추가할 때 Descriptor는 컬렉션 섹션 아래에 표시됩니다.
 
-If the wallpapers don't appear in the menu, you either have to wait a bit for them to load,
-or you've reached the maximum amount of wallpapers (15) and have to wipe them.</translation>
+배경화면이 메뉴에 표시되지 않는 경우, 로딩이 완료될 때까지 잠시 기다려야 하거나,
+배경화면 최대 수량 (15개)에 도달하여 삭제해야 합니다.</translation>
     </message>
   </context>
   <context>
@@ -1734,17 +1734,17 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
     <message>
       <location filename="../gui/dialogs.py" line="84"/>
       <source>Update Available</source>
-      <translation>Update Available</translation>
+      <translation>업데이트 가능</translation>
     </message>
     <message>
       <location filename="../gui/dialogs.py" line="92"/>
       <source>Nugget v{0} is available. </source>
-      <translation>Nugget v{0} is available. </translation>
+      <translation>Nugget v{0} 을 사용할 수 있음. </translation>
     </message>
     <message>
       <location filename="../gui/dialogs.py" line="94"/>
       <source>Would you like to go to the download on GitHub?</source>
-      <translation>Would you like to go to the download on GitHub?</translation>
+      <translation>Github에서 다운로드 페이지로 이동하시겠습니까?</translation>
     </message>
   </context>
   <context>
@@ -1752,32 +1752,32 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
     <message>
       <location filename="../gui/pages/main/home.py" line="50"/>
       <source>Please connect a device.</source>
-      <translation>Please connect a device.</translation>
+      <translation>기기를 연결해 주세요.</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/settings.py" line="117"/>
       <location filename="../gui/pages/main/settings.py" line="127"/>
       <source>PosterBoard App Hash</source>
-      <translation>PosterBoard App Hash</translation>
+      <translation>PosterBoard 앱 해시</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/settings.py" line="117"/>
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
-      <translation>Your hash has been transferred to the Pocket Poster app.
+      <translation>해시가 Pocket Poster 앱으로 전송되었습니다.
 
-Open up its settings and tap "Detect".</translation>
+설정을 열고 "감지"를 탭합니다.</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/settings.py" line="121"/>
       <source>Copy it and paste it</source>
-      <translation>Copy it and paste it</translation>
+      <translation>복시한 다음 붙여넣으세요</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/settings.py" line="125"/>
       <source>It has been copied. Paste it</source>
-      <translation>It has been copied. Paste it</translation>
+      <translation>복사되었습니다. 붙여넣으세요</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/settings.py" line="127"/>
@@ -1785,104 +1785,104 @@ Open up its settings and tap "Detect".</translation>
 {0}
 
 {1} into the Nugget app where it says "App Hash".</source>
-      <translation>Your hash is:
+      <translation>당신의 해시:
 {0}
 
-{1} into the Nugget app where it says "App Hash".</translation>
+{1}를 입력하면 "앱 해시"라고 표시됩니다.</translation>
     </message>
     <message>
       <location filename="../exceptions/posterboard_exceptions.py" line="6"/>
       <source>Videos must be under {0} frames to loop. Either reduce the frame rate or make it shorter.</source>
-      <translation>Videos must be under {0} frames to loop. Either reduce the frame rate or make it shorter.</translation>
+      <translation>반복하려면 동영상이 {0} 프레임 미만이어야 합니다. 프레임 속도를 줄이거나 더 짧게 만드세요.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="58"/>
       <source>Find My must be disabled in order to use this tool.</source>
-      <translation>Find My must be disabled in order to use this tool.</translation>
+      <translation>이 툴을 사용하려면 나의 찾기가 비활성화되어 있어야 합니다.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="59"/>
       <source>Disable Find My from Settings (Settings -&gt; [Your Name] -&gt; Find My) and then try again.</source>
-      <translation>Disable Find My from Settings (Settings -&gt; [Your Name] -&gt; Find My) and then try again.</translation>
+      <translation>설정에서 나의 찾기를 비활성화한 다음 다시 시도해주세요. (설정 -&gt; [이름] -&gt; 나의 찾기)</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="61"/>
       <source>Nugget cannot be used on this device. Click Show Details for more info.</source>
-      <translation>Nugget cannot be used on this device. Click Show Details for more info.</translation>
+      <translation>이 기기는 Nugget에서 사용할 수 없습니다. 자세히 보기를 눌러 자세한 내용을 확인하세요.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="62"/>
       <source>Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!</source>
-      <translation>Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!</translation>
+      <translation>귀하의 기기는 감독되고 있으며 MDM 백업 암호화가 켜져 있습니다. Nugget이 작동하려면 이 기능을 해제해야 합니다. 회사 또는 학교 기기에서 Nugget을 사용하지 마십시오!</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="64"/>
       <source>The session was terminated. Refresh the device list and try again.</source>
-      <translation>The session was terminated. Refresh the device list and try again.</translation>
+      <translation>세션이 끝났습니다. 기기 목록을 새로고침하고 다시 시도해주세요.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="66"/>
       <source>Device is password protected! You must trust the computer on your device.</source>
-      <translation>Device is password protected! You must trust the computer on your device.</translation>
+      <translation>기기가 비밀번호로 보호되고 있습니다! 기기에서 이 컴퓨터를 신뢰해주세요.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="67"/>
       <source>Unlock your device. On the popup, click "Trust", enter your password, then try again.</source>
-      <translation>Unlock your device. On the popup, click "Trust", enter your password, then try again.</translation>
+      <translation>디바이스 잠금을 해제하세요. 팝업 창에서 "신뢰"를 클릭한 후 비밀번호를 입력하고 다시 시도하세요.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="70"/>
       <source>Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info.</source>
-      <translation>Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info.</translation>
+      <translation>기기에서 파일 전송에 실패했습니다. 파일 목록이 손상되었거나 중복 항목이 있을 수 있습니다. 자세한 내용을 보려면 자세히 보기를 클릭하세요.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="104"/>
       <source>If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.</source>
-      <translation>If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.</translation>
+      <translation>리눅스를 사용하고 있다면, usbmuxd와 libmobiledevice가 설치되어 있는지 확인해 주세요.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="106"/>
       <source>Make sure you have the "Apple Devices" app from the Microsoft Store or iTunes from Apple's website.</source>
-      <translation>Make sure you have the "Apple Devices" app from the Microsoft Store or iTunes from Apple's website.</translation>
+      <translation>Microsoft 스토어에서 "Apple Devices" 앱을 받았거나, 공식 Apple 웹사이트에서 iTunes를 설치했는지 확인해 주세요.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="107"/>
       <source>Failed to get device list. Click "Show Details" for the traceback.</source>
-      <translation>Failed to get device list. Click "Show Details" for the traceback.</translation>
+      <translation>기기 목록을 불러올 수 없음. "Show Details"를 클릭하여 역추적하기.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="140"/>
       <source>Click "Show Details" for the traceback.</source>
-      <translation>Click "Show Details" for the traceback.</translation>
+      <translation>"자세히 보기"를 클릭하여 역추적하기.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="157"/>
       <source>Device is password protected! You must trust the computer on your device.
 
 Unlock your device. On the popup, click "Trust", enter your password, then try again.</source>
-      <translation>Device is password protected! You must trust the computer on your device.
+      <translation>기기가 비밀번호로 보호되고 있습니다! 기기에서 이 컴퓨터를 신뢰해주세요.
 
-Unlock your device. On the popup, click "Trust", enter your password, then try again.</translation>
+디바이스 잠금을 해제하세요. 팝업 창에서 "신뢰"를 클릭한 후 비밀번호를 입력하고 다시 시도하세요.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="161"/>
       <source>If you keep receiving this error, try using a different cable or port.</source>
-      <translation>If you keep receiving this error, try using a different cable or port.</translation>
+      <translation>이 오류가 계속 발생한다면, 다른 케이블이나 포트를 사용해 보세요.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="270"/>
       <source>Pairing Reset</source>
-      <translation>Pairing Reset</translation>
+      <translation>페어링 초기화</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="270"/>
       <source>Your device's pairing was successfully reset. Refresh the device list before applying.</source>
-      <translation>Your device's pairing was successfully reset. Refresh the device list before applying.</translation>
+      <translation>기기의 페어링이 성공적으로 초기화 되었습니다. 적용하기 전 기기 목록을 새로고침 해주세요.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="497"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
-      <translation>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</translation>
+      <translation>mobilegestalt 파일이 제공되지 않았습니다! mobilegestalt 트윅들을 적용하려면 파일을 선택해 주세요.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="624"/>
@@ -1890,21 +1890,21 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
-      <translation>Your device will now restart.
+      <translation>기기가 다시 시작됩니다.
 
-Remember to turn Find My back on!</translation>
+나의 찾기를 활성화하는 걸 잊지 마세요!</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="626"/>
       <location filename="../devicemanagement/device_manager.py" line="660"/>
       <source>Please restart your device to see changes.</source>
-      <translation>Please restart your device to see changes.</translation>
+      <translation>변경사항을 적용하기 위해 기기를 다시 시작해주세요.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="626"/>
       <location filename="../devicemanagement/device_manager.py" line="660"/>
       <source>All done! </source>
-      <translation>All done! </translation>
+      <translation>완료! </translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="626"/>
@@ -1912,49 +1912,49 @@ Remember to turn Find My back on!</translation>
       <location filename="../devicemanagement/device_manager.py" line="660"/>
       <location filename="../devicemanagement/device_manager.py" line="661"/>
       <source>Success!</source>
-      <translation>Success!</translation>
+      <translation>성공!</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/home.py" line="66"/>
       <source>Supported!</source>
-      <translation>Supported!</translation>
+      <translation>지원됨!</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/home.py" line="68"/>
       <source>Not Supported.</source>
-      <translation>Not Supported.</translation>
+      <translation>지원되지 않음.</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/home.py" line="71"/>
       <source>Partially Supported.</source>
-      <translation>Partially Supported.</translation>
+      <translation>부분적으로 지원됨.</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="40"/>
       <source>Wrong type of file</source>
-      <translation>Wrong type of file</translation>
+      <translation>잘못된 형식의 파일</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="48"/>
       <source>Warning</source>
-      <translation>Warning</translation>
+      <translation>경고</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="49"/>
       <source>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</source>
-      <translation>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</translation>
+      <translation>참고: 이 파일이 제대로 작동하려면 모든 배경화면을 초기화한 후 (설정에서 위험한 옵션 활성화 필요) 다시 적용해야 할 수 있습니다.</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="66"/>
       <location filename="../tweaks/posterboard/template_options/templates_tweak.py" line="34"/>
       <source>Error</source>
-      <translation>Error</translation>
+      <translation>오류</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="67"/>
       <location filename="../tweaks/posterboard/template_options/templates_tweak.py" line="35"/>
       <source>Failed to load template</source>
-      <translation>Failed to load template</translation>
+      <translation>템플릿 불러오기 실패</translation>
     </message>
   </context>
   <context>
@@ -1964,87 +1964,87 @@ Remember to turn Find My back on!</translation>
       <location filename="../gui/pages/tools/posterboard.py" line="209"/>
       <location filename="../gui/pages/tools/posterboard.py" line="226"/>
       <source>Error!</source>
-      <translation>Error!</translation>
+      <translation>오류!</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="202"/>
       <source>You selected too many tendies files! The limit is 3.
 
 This is for your safety. Please apply the rest separately.</source>
-      <translation>You selected too many tendies files! The limit is 3.
+      <translation>너무 많은 tendies 파일을 선택하셨습니다! 최대 3개입니다.
 
-This is for your safety. Please apply the rest separately.</translation>
+이것은 안전을 위해입니다. 나머지는 각각 따로 적용해 주시기 바랍니다.</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="210"/>
       <location filename="../gui/pages/tools/posterboard.py" line="227"/>
       <source>You selected too many descriptors! The limit is 10.</source>
-      <translation>You selected too many descriptors! The limit is 10.</translation>
+      <translation>너무 많은 Descriptor를 선택했습니다! 최대 10개입니다.</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="238"/>
       <location filename="../gui/pages/tools/posterboard.py" line="241"/>
       <source>Current Thumbnail: {0}</source>
-      <translation>Current Thumbnail: {0}</translation>
+      <translation>현재 썸네일: {0}</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="247"/>
       <location filename="../gui/pages/tools/posterboard.py" line="252"/>
       <source>Current Video: {0}</source>
-      <translation>Current Video: {0}</translation>
+      <translation>현재 영상: {0}</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="61"/>
       <source>No options were found in the config. Make sure that it is in the correct format.</source>
-      <translation>No options were found in the config. Make sure that it is in the correct format.</translation>
+      <translation>설정 파일에서 옵션을 찾을 수 없습니다. 올바른 형식인지 확인해 주세요.</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="63"/>
       <source>This config does not have a valid domain!</source>
-      <translation>This config does not have a valid domain!</translation>
+      <translation>이 구성에 유효한 도메인이 없습니다!</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="70"/>
       <source>This config requires a newer version of Nugget.</source>
-      <translation>This config requires a newer version of Nugget.</translation>
+      <translation>이 설정 파일은 상위 버전의 Nugget이 필요합니다.</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="81"/>
       <source>This template requires iOS {0}.
 Your iOS version (iOS {1}) is too outdated!</source>
-      <translation>This template requires iOS {0}.
-Your iOS version (iOS {1}) is too outdated!</translation>
+      <translation>이 템플릿에는 iOS {0}이 필요합니다.
+기기의 iOS 버전 (iOS {1})이 너무 오래되었습니다!</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="85"/>
       <source>This template requires iOS {0}.
 Your iOS version (iOS {1}) is too new!</source>
-      <translation>This template requires iOS {0}.
-Your iOS version (iOS {1}) is too new!</translation>
+      <translation>이 템플릿에는 iOS {0}이 필요합니다.
+기기의 iOS 버전 (iOS {1})이 너무 최신 버전입니다!</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="138"/>
       <source>Invalid option type in template</source>
-      <translation>Invalid option type in template</translation>
+      <translation>템플릿에 잘못 된 유형이 포함되어 있습니다</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="140"/>
       <source>No config.json found in file!</source>
-      <translation>No config.json found in file!</translation>
+      <translation>파일에서 config.json이 발견되지 않았습니다!</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="292"/>
       <source>Bundle id (default: {0})</source>
-      <translation>Bundle id (default: {0})</translation>
+      <translation>번들 아이디 (default: {0})</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_options/replace_option.py" line="103"/>
       <source>Error applying template:
 
 No selected file for required option</source>
-      <translation>Error applying template:
+      <translation>템플릿 적용 중 오류 발생:
 
-No selected file for required option</translation>
+필수 옵션에 대한 파일이 선택되지 않았습니다</translation>
     </message>
   </context>
 </TS>
