@@ -235,17 +235,21 @@ class DeviceManager:
         else:
             return self.data_singleton.current_device.is_exploit_fully_patched()
         
-    def get_app_hash(self, bundle_id: str) -> str:
+    def get_app_hashes(self, bundle_ids: list[str]) -> dict:
         apps = InstallationProxyService(lockdown=self.data_singleton.current_device.ld).get_apps(application_type="Any", calculate_sizes=False)
-        app_info = apps[bundle_id]
-        return app_info["Container"].removeprefix("/private/var/mobile/Containers/Data/Application/")
+        results = {}
+        for bundle_id in bundle_ids:
+            app_info = apps[bundle_id]
+            results[bundle_id] = app_info["Container"].removeprefix("/private/var/mobile/Containers/Data/Application/")
+        return results
     
-    def send_app_hash_afc(self, hash: str) -> str:
+    def send_app_hashes_afc(self, hashes: dict, bundle_id_order: list[str]) -> str:
         # create a temporary file to send it as
         with TemporaryDirectory() as tmpdir:
             tmpf = os.path.join(tmpdir, "NuggetAppHash")
             with open(tmpf, "w", encoding='UTF-8') as in_file:
-                in_file.write(hash)
+                for bundle_id in bundle_id_order:
+                    in_file.write(hashes[bundle_id] + "\n")
             # get the bundle id of Pocket Poster
             bundle_id = "com.leemin.Pocket-Poster"
             apps = InstallationProxyService(lockdown=self.data_singleton.current_device.ld).get_apps(application_type="User", calculate_sizes=False)

@@ -110,18 +110,21 @@ class SettingsPage(Page):
         self.window.device_manager.reset_device_pairing()
     def on_pocketPosterHelperBtn_clicked(self):
         # get app hash for posterboard
-        pb_hash = self.window.device_manager.get_app_hash("com.apple.PosterBoard")
-        print(pb_hash)
+        bundle_ids = ["com.apple.PosterBoard"]
+        if self.window.device_manager.get_current_device_model().startswith("iPhone"):
+            bundle_ids.append("com.apple.CarPlayWallpaper")
+        hashes = self.window.device_manager.get_app_hashes(bundle_ids)
+        print(hashes)
         try:
-            self.window.device_manager.send_app_hash_afc(pb_hash)
+            self.window.device_manager.send_app_hashes_afc(hashes, bundle_ids)
             QMessageBox.information(None, QCoreApplication.tr("PosterBoard App Hash"), QCoreApplication.tr("Your hash has been transferred to the Pocket Poster app.\n\nOpen up its settings and tap \"Detect\"."))
         except:
             # fall back to copy and paste
             copytxt = QCoreApplication.tr("Copy it and paste it")
             try:
                 import pyperclip
-                pyperclip.copy(pb_hash)
+                pyperclip.copy(hashes["com.apple.PosterBoard"])
                 copytxt = QCoreApplication.tr("It has been copied. Paste it")
             except:
                 print("pyperclip not found, not copying to clipboard")
-            QMessageBox.information(None, QCoreApplication.tr("PosterBoard App Hash"), QCoreApplication.tr("Your hash is:\n{0}\n\n{1} into the Nugget app where it says \"App Hash\".").format(pb_hash, copytxt))
+            QMessageBox.information(None, QCoreApplication.tr("PosterBoard App Hash"), QCoreApplication.tr("Your hash is:\n{0}\n\n{1} into the Nugget app where it says \"App Hash\".").format(hashes["com.apple.PosterBoard"], copytxt))
