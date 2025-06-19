@@ -1046,7 +1046,7 @@ Please be careful!</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5214"/>
       <source>Springboard Options</source>
-      <translation>主畫面系統選項</translation>
+      <translation>Springboard選項</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5295"/>
@@ -1424,7 +1424,7 @@ Will show up in Collections</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="6620"/>
       <source>   Export Video as Descriptor</source>
-      <translation>   匯出影片作為描述符</translation>
+      <translation>   匯出影片作為Descriptor</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6636"/>
@@ -1614,7 +1614,7 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
-      <translation>停用Tendies檔案只能放2個的限制。Discriptor還是有限制。
+      <translation>停用Tendies檔案只能放2個的限制。Descriptor還是有限制。
 
 「不要」在裝置設定時拔掉你的線。</translation>
     </message>
@@ -1917,44 +1917,44 @@ Remember to turn Find My back on!</source>
     <message>
       <location filename="../gui/pages/main/home.py" line="66"/>
       <source>Supported!</source>
-      <translation>Supported!</translation>
+      <translation>支援！</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/home.py" line="68"/>
       <source>Not Supported.</source>
-      <translation>Not Supported.</translation>
+      <translation>不支援。</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/home.py" line="71"/>
       <source>Partially Supported.</source>
-      <translation>Partially Supported.</translation>
+      <translation>部分支援。</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="40"/>
       <source>Wrong type of file</source>
-      <translation>Wrong type of file</translation>
+      <translation>錯誤的檔案類型</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="48"/>
       <source>Warning</source>
-      <translation>Warning</translation>
+      <translation>警告</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="49"/>
       <source>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</source>
-      <translation>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</translation>
+      <translation>注意：你可能需要重設所有的桌布(在設定的有風險的選項啟用)然後重新應用這個檔案才有效。</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="66"/>
       <location filename="../tweaks/posterboard/template_options/templates_tweak.py" line="34"/>
       <source>Error</source>
-      <translation>Error</translation>
+      <translation>錯誤</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="67"/>
       <location filename="../tweaks/posterboard/template_options/templates_tweak.py" line="35"/>
       <source>Failed to load template</source>
-      <translation>Failed to load template</translation>
+      <translation>載入範本失敗</translation>
     </message>
   </context>
   <context>
@@ -1996,55 +1996,55 @@ This is for your safety. Please apply the rest separately.</source>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="61"/>
       <source>No options were found in the config. Make sure that it is in the correct format.</source>
-      <translation>No options were found in the config. Make sure that it is in the correct format.</translation>
+      <translation>在設定檔中未找到任何可用選項。請確認檔案格式是否正確。</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="63"/>
       <source>This config does not have a valid domain!</source>
-      <translation>This config does not have a valid domain!</translation>
+      <translation>設定檔沒有一個有效的網域！</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="70"/>
       <source>This config requires a newer version of Nugget.</source>
-      <translation>This config requires a newer version of Nugget.</translation>
+      <translation>這個設定檔需要一個更新的Nugget版本。</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="81"/>
       <source>This template requires iOS {0}.
 Your iOS version (iOS {1}) is too outdated!</source>
-      <translation>This template requires iOS {0}.
-Your iOS version (iOS {1}) is too outdated!</translation>
+      <translation>這個範本需要iOS {0}才能用。
+你的iOS版本 (iOS {1}) 太過時了！</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="85"/>
       <source>This template requires iOS {0}.
 Your iOS version (iOS {1}) is too new!</source>
-      <translation>This template requires iOS {0}.
-Your iOS version (iOS {1}) is too new!</translation>
+      <translation>這個範本需要iOS {0}才能用。
+你的iOS版本 (iOS {1}) 太新了！</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="138"/>
       <source>Invalid option type in template</source>
-      <translation>Invalid option type in template</translation>
+      <translation>範本中包含無效的選項類型</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="140"/>
       <source>No config.json found in file!</source>
-      <translation>No config.json found in file!</translation>
+      <translation>檔案裡沒有找到config.json！</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="292"/>
       <source>Bundle id (default: {0})</source>
-      <translation>Bundle id (default: {0})</translation>
+      <translation>套件識別碼（預設：{0}）</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_options/replace_option.py" line="103"/>
       <source>Error applying template:
 
 No selected file for required option</source>
-      <translation>Error applying template:
+      <translation>套用模板時發生錯誤：
 
-No selected file for required option</translation>
+未為必要選項選擇檔案</translation>
     </message>
   </context>
 </TS>
