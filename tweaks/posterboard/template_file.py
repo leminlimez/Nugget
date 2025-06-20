@@ -289,7 +289,7 @@ class TemplateFile(TendieFile):
             bx_lbl.setText("App bundle id:")
             bx_layout.addWidget(bx_lbl)
             textbox = QtWidgets.QLineEdit(bx_widget)
-            textbox.setPlaceholderText(f"Bundle id (default: {self.domain.removeprefix("AppDomain-")})")
+            textbox.setPlaceholderText(f"Bundle id (default: {self.domain.removeprefix('AppDomain-')})")
             textbox.setText(self.bundle_id)
             textbox.textEdited.connect(self.update_bundle_id)
             bx_layout.addWidget(textbox)
