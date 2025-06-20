@@ -64,7 +64,7 @@ class TemplatesTweak(Tweak):
                         full_path = f"{restore_path}/{folder}"
                         restore_domain = domain
                         if domain.startswith("Sparserestore-"):
-                            full_path = f"{domain.removeprefix("Sparserestore-")}{full_path}"
+                            full_path = f"{domain.removeprefix('Sparserestore-')}{full_path}"
                             restore_domain = None
                         full_path = self.parse_path_string(full_path, old_bundle, domain)
                         files_to_restore.append(FileToRestore(
