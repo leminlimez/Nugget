@@ -185,18 +185,18 @@ class Ui_Nugget(object):
         self.horizontalLayout_15.setSpacing(0)
         self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
         self.horizontalLayout_15.setContentsMargins(0, 0, 0, 0)
-        self.toolButton_6 = QToolButton(self.horizontalWidget_3)
-        self.toolButton_6.setObjectName(u"toolButton_6")
-        self.toolButton_6.setEnabled(False)
-        self.toolButton_6.setStyleSheet(u"QToolButton {\n"
+        self.phoneIconBtn = QToolButton(self.horizontalWidget_3)
+        self.phoneIconBtn.setObjectName(u"phoneIconBtn")
+        self.phoneIconBtn.setEnabled(False)
+        self.phoneIconBtn.setStyleSheet(u"QToolButton {\n"
 "	border-top-right-radius: 0px;\n"
 "	border-bottom-right-radius: 0px;\n"
 "}")
         icon = QIcon()
         icon.addFile(u":/icon/phone.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.toolButton_6.setIcon(icon)
+        self.phoneIconBtn.setIcon(icon)
 
-        self.horizontalLayout_15.addWidget(self.toolButton_6)
+        self.horizontalLayout_15.addWidget(self.phoneIconBtn)
 
         self.devicePicker = QComboBox(self.horizontalWidget_3)
         self.devicePicker.setObjectName(u"devicePicker")
@@ -4221,7 +4221,7 @@ class Ui_Nugget(object):
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.langIcn = QToolButton(self.languageWidget)
         self.langIcn.setObjectName(u"langIcn")
-        self.langIcn.setMinimumSize(QSize(0, 20))
+        self.langIcn.setMinimumSize(QSize(0, 35))
         self.langIcn.setStyleSheet(u"QToolButton {\n"
 "	icon-size: 24px;\n"
 "	background-color: transparent;\n"

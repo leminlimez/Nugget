@@ -27,6 +27,7 @@ if __name__ == "__main__":
     app.setWindowIcon(icon)
 
     widget = MainWindow(device_manager=dm, translator=translator)
+    translator.fix_ui_for_rtl(widget.ui)
     widget.resize(800, 600)
     widget.show()
 
