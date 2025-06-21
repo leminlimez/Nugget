@@ -4219,11 +4219,33 @@ class Ui_Nugget(object):
         self.horizontalLayout_3 = QHBoxLayout(self.languageWidget)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.langIcn = QToolButton(self.languageWidget)
+        self.langIcn.setObjectName(u"langIcn")
+        self.langIcn.setMinimumSize(QSize(0, 20))
+        self.langIcn.setStyleSheet(u"QToolButton {\n"
+"	icon-size: 24px;\n"
+"	background-color: transparent;\n"
+"	padding-left: 0px;\n"
+"	padding-right: 5px;\n"
+"	border-radius: 0px;\n"
+"}")
+        self.langIcn.setText(u"")
+        icon30 = QIcon()
+        icon30.addFile(u":/icon/translate.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.langIcn.setIcon(icon30)
+        self.langIcn.setIconSize(QSize(20, 20))
+
+        self.horizontalLayout_3.addWidget(self.langIcn)
+
         self.langLbl = QLabel(self.languageWidget)
         self.langLbl.setObjectName(u"langLbl")
         self.langLbl.setMinimumSize(QSize(0, 0))
 
         self.horizontalLayout_3.addWidget(self.langLbl)
+
+        self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_9)
 
         self.label_4 = QLabel(self.languageWidget)
         self.label_4.setObjectName(u"label_4")
@@ -4233,12 +4255,9 @@ class Ui_Nugget(object):
 
         self.langDrp = QComboBox(self.languageWidget)
         self.langDrp.setObjectName(u"langDrp")
+        self.langDrp.setMinimumSize(QSize(200, 0))
 
         self.horizontalLayout_3.addWidget(self.langDrp)
-
-        self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_3.addItem(self.horizontalSpacer_9)
 
 
         self._21.addWidget(self.languageWidget)

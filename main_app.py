@@ -2,8 +2,9 @@ print("Starting Nugget...")
 
 import sys
 from PySide6 import QtGui, QtWidgets
-from PySide6.QtCore import QTranslator, QLibraryInfo, QLocale
+from PySide6.QtCore import QLocale, QSettings
 
+from controllers.translator import Translator
 from gui.main_window import MainWindow
 from devicemanagement.device_manager import DeviceManager
 from tweaks.tweaks import tweaks
@@ -11,22 +12,20 @@ from tweaks.tweaks import tweaks
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
     dm = DeviceManager()
+
+    # load the language settings
+    settings = QSettings()
+    translator = Translator(app, settings)
+    translator.set_default_locale(translator.get_saved_locale_code())
     
     # load translations
-    path = QLibraryInfo.location(QLibraryInfo.TranslationsPath)
-    translator = QTranslator(app)
-    if translator.load(QLocale.system(), 'qtbase', '_', path):
-        app.installTranslator(translator)
-    translator = QTranslator(app)
-    path = ':/translations'
-    if translator.load(QLocale.system(), 'translations/Nugget', '_', path):
-        app.installTranslator(translator)
+    translator.load_translations()
 
     # set icon
     icon = QtGui.QIcon("nugget.ico")
     app.setWindowIcon(icon)
 
-    widget = MainWindow(device_manager=dm)
+    widget = MainWindow(device_manager=dm, translator=translator)
     widget.resize(800, 600)
     widget.show()
 

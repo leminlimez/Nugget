@@ -6,6 +6,7 @@ from qt.ui_mainwindow import Ui_Nugget
 import gui.pages as Pages
 
 from controllers.web_request_handler import is_update_available
+from controllers.translator import Translator
 import controllers.video_handler as video_handler
 
 from devicemanagement.constants import Version
@@ -36,9 +37,11 @@ class Page(Enum):
     Settings = 13
 
 class MainWindow(QtWidgets.QMainWindow):
-    def __init__(self, device_manager: DeviceManager):
+    def __init__(self, device_manager: DeviceManager, translator: Translator):
         super(MainWindow, self).__init__()
         self.device_manager = device_manager
+        self.translator = translator
+        self.settings = self.translator.settings
         self.ui = Ui_Nugget()
         self.ui.setupUi(self)
         self.apply_in_progress = False
@@ -63,8 +66,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.applyPageBtn.hide()
         self.ui.sidebarDiv1.hide()
         self.ui.sidebarDiv2.hide()
-
-        self.ui.languageWidget.hide() # TODO: add later
 
         # pre-load the pages
         self.pages = {
@@ -349,7 +350,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.updateInterfaceForNewDevice()
 
     def loadSettings(self):
-        self.settings = QtCore.QSettings()
         try:
             # load the settings
             apply_over_wifi = self.settings.value("apply_over_wifi", False, type=bool)

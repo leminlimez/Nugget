@@ -2,17 +2,37 @@ from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
 from PySide6.QtWidgets import QMessageBox
-from PySide6.QtCore import QCoreApplication
+from PySide6.QtCore import QCoreApplication, QLocale
 
 from tweaks.tweak_loader import load_rdar_fix
 from tweaks.tweaks import tweaks
 from controllers.video_handler import set_ignore_frame_limit
+
+available_languages = {
+    "English": "en",
+    "Español": "es",
+    "Français": "fr",
+    "Deutsch": "de",
+    "Русский язык": "ru",
+    "日本語": "jp",
+    "臺灣話": "zh_TW",
+    "Tiếng Việt": "vi",
+    "ภาษาไทย": "th",
+    "한국어": "ko",
+    "Polski": "pl",
+    "Türkçe": "tr",
+    "Magyar": "hu",
+    "Čeština": "cs",
+    "العربية": "ar",
+    "العربية (Saudi Arabia)": "ar_SA"
+}
 
 class SettingsPage(Page):
     def __init__(self, window, ui: Ui_Nugget):
         super().__init__()
         self.window = window
         self.ui = ui
+        self.lang_indexes = []
 
     def load_page(self):
         self.ui.allowWifiApplyingChk.toggled.connect(self.on_allowWifiApplyingChk_toggled)
@@ -32,7 +52,23 @@ class SettingsPage(Page):
         self.ui.resetPairBtn.clicked.connect(self.on_resetPairBtn_clicked)
         self.ui.pocketPosterHelperBtn.clicked.connect(self.on_pocketPosterHelperBtn_clicked)
 
+        self.load_available_languages()
+        self.ui.langDrp.activated.connect(self.on_langDrp_activated)
+
+    # Load available languages
+    def load_available_languages(self):
+        for language in available_languages.keys():
+            self.lang_indexes.append(available_languages[language])
+            self.ui.langDrp.addItem(language)
+        # load the saved option
+        self.ui.langDrp.setCurrentIndex(self.lang_indexes.index(self.window.translator.get_saved_locale_code()))
+
     ## ACTIONS
+    def on_langDrp_activated(self, index: int):
+        new_lang = self.lang_indexes[index]
+        if new_lang != self.window.translator.get_saved_locale_code():
+            self.window.translator.set_new_language(new_lang, restart=True)
+
     def on_allowWifiApplyingChk_toggled(self, checked: bool):
         self.window.device_manager.apply_over_wifi = checked
         # save the setting

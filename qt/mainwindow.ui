@@ -8119,6 +8119,38 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                      <number>0</number>
                     </property>
                     <item>
+                     <widget class="QToolButton" name="langIcn">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QToolButton {
+	icon-size: 24px;
+	background-color: transparent;
+	padding-left: 0px;
+	padding-right: 5px;
+	border-radius: 0px;
+}</string>
+                      </property>
+                      <property name="text">
+                       <string notr="true"/>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="../resources.qrc">
+                        <normaloff>:/icon/translate.svg</normaloff>:/icon/translate.svg</iconset>
+                      </property>
+                      <property name="iconSize">
+                       <size>
+                        <width>20</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
                      <widget class="QLabel" name="langLbl">
                       <property name="minimumSize">
                        <size>
@@ -8132,16 +8164,6 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLabel" name="label_4">
-                      <property name="text">
-                       <string notr="true"/>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QComboBox" name="langDrp"/>
-                    </item>
-                    <item>
                      <spacer name="horizontalSpacer_9">
                       <property name="orientation">
                        <enum>Qt::Horizontal</enum>
@@ -8153,6 +8175,23 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                        </size>
                       </property>
                      </spacer>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_4">
+                      <property name="text">
+                       <string notr="true"/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="langDrp">
+                      <property name="minimumSize">
+                       <size>
+                        <width>200</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                     </widget>
                     </item>
                    </layout>
                   </widget>
