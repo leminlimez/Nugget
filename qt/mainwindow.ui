@@ -1804,7 +1804,7 @@ QToolButton:pressed {
                </widget>
               </item>
               <item>
-               <widget class="QScrollArea" name="scrollArea">
+               <widget class="QScrollArea" name="mgaScrollArea">
                 <property name="frameShape">
                  <enum>QFrame::NoFrame</enum>
                 </property>
@@ -3297,7 +3297,7 @@ QComboBox QAbstractItemView::item:hover {
                </widget>
               </item>
               <item>
-               <widget class="QScrollArea" name="scrollArea">
+               <widget class="QScrollArea" name="sbScrollArea">
                 <property name="frameShape">
                  <enum>QFrame::NoFrame</enum>
                 </property>
@@ -6081,7 +6081,7 @@ To work properly, also disable the daemon using the toggle above.</string>
                <number>0</number>
               </property>
               <item>
-               <widget class="QWidget" name="horizontalWidget_5" native="true">
+               <widget class="QWidget" name="horizontalWidget_7" native="true">
                 <layout class="QHBoxLayout" name="horizontalLayout_20">
                  <property name="spacing">
                   <number>10</number>
@@ -8134,7 +8134,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     <item>
                      <widget class="QLabel" name="label_4">
                       <property name="text">
-                       <string notr="true">   </string>
+                       <string notr="true"/>
                       </property>
                      </widget>
                     </item>

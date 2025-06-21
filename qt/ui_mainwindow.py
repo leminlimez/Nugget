@@ -1015,12 +1015,12 @@ class Ui_Nugget(object):
 
         self.verticalLayout_4.addWidget(self.mgaWarningLbl)
 
-        self.scrollArea = QScrollArea(self.gestaltPage)
-        self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setFrameShape(QFrame.NoFrame)
-        self.scrollArea.setFrameShadow(QFrame.Plain)
-        self.scrollArea.setLineWidth(0)
-        self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.mgaScrollArea = QScrollArea(self.gestaltPage)
+        self.mgaScrollArea.setObjectName(u"mgaScrollArea")
+        self.mgaScrollArea.setFrameShape(QFrame.NoFrame)
+        self.mgaScrollArea.setFrameShadow(QFrame.Plain)
+        self.mgaScrollArea.setLineWidth(0)
+        self.mgaScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
         self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 650, 1200))
@@ -1285,9 +1285,9 @@ class Ui_Nugget(object):
 
         self.verticalLayout_9.addWidget(self.gestaltPageContent)
 
-        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.mgaScrollArea.setWidget(self.scrollAreaWidgetContents)
 
-        self.verticalLayout_4.addWidget(self.scrollArea)
+        self.verticalLayout_4.addWidget(self.mgaScrollArea)
 
         self.pages.addWidget(self.gestaltPage)
         self.featureFlagsPage = QWidget()
@@ -1763,12 +1763,12 @@ class Ui_Nugget(object):
 
         self.verticalLayout_41.addWidget(self.line_81)
 
-        self.scrollArea1 = QScrollArea(self.statusBarPage)
-        self.scrollArea1.setObjectName(u"scrollArea1")
-        self.scrollArea1.setFrameShape(QFrame.NoFrame)
-        self.scrollArea1.setFrameShadow(QFrame.Plain)
-        self.scrollArea1.setLineWidth(0)
-        self.scrollArea1.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.sbScrollArea = QScrollArea(self.statusBarPage)
+        self.sbScrollArea.setObjectName(u"sbScrollArea")
+        self.sbScrollArea.setFrameShape(QFrame.NoFrame)
+        self.sbScrollArea.setFrameShadow(QFrame.Plain)
+        self.sbScrollArea.setLineWidth(0)
+        self.sbScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.scrollAreaWidgetContents1 = QWidget()
         self.scrollAreaWidgetContents1.setObjectName(u"scrollAreaWidgetContents1")
         self.scrollAreaWidgetContents1.setGeometry(QRect(0, 0, 650, 2000))
@@ -2708,9 +2708,9 @@ class Ui_Nugget(object):
 
         self.verticalLayout_91.addWidget(self.statusBarPageContent)
 
-        self.scrollArea1.setWidget(self.scrollAreaWidgetContents1)
+        self.sbScrollArea.setWidget(self.scrollAreaWidgetContents1)
 
-        self.verticalLayout_41.addWidget(self.scrollArea1)
+        self.verticalLayout_41.addWidget(self.sbScrollArea)
 
         self.pages.addWidget(self.statusBarPage)
         self.springboardOptionsPage = QWidget()
@@ -3222,13 +3222,13 @@ class Ui_Nugget(object):
         self.verticalLayout_143 = QVBoxLayout(self.posterboardPage)
         self.verticalLayout_143.setObjectName(u"verticalLayout_143")
         self.verticalLayout_143.setContentsMargins(0, 0, 0, 0)
-        self.horizontalWidget_53 = QWidget(self.posterboardPage)
-        self.horizontalWidget_53.setObjectName(u"horizontalWidget_53")
-        self.horizontalLayout_203 = QHBoxLayout(self.horizontalWidget_53)
+        self.horizontalWidget_7 = QWidget(self.posterboardPage)
+        self.horizontalWidget_7.setObjectName(u"horizontalWidget_7")
+        self.horizontalLayout_203 = QHBoxLayout(self.horizontalWidget_7)
         self.horizontalLayout_203.setSpacing(10)
         self.horizontalLayout_203.setObjectName(u"horizontalLayout_203")
         self.horizontalLayout_203.setContentsMargins(0, 9, 0, 0)
-        self.toolButton_103 = QToolButton(self.horizontalWidget_53)
+        self.toolButton_103 = QToolButton(self.horizontalWidget_7)
         self.toolButton_103.setObjectName(u"toolButton_103")
         self.toolButton_103.setEnabled(True)
         self.toolButton_103.setStyleSheet(u"QToolButton {\n"
@@ -3242,7 +3242,7 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_203.addWidget(self.toolButton_103)
 
-        self.verticalWidget_43 = QWidget(self.horizontalWidget_53)
+        self.verticalWidget_43 = QWidget(self.horizontalWidget_7)
         self.verticalWidget_43.setObjectName(u"verticalWidget_43")
         self.verticalLayout_123 = QVBoxLayout(self.verticalWidget_43)
         self.verticalLayout_123.setSpacing(6)
@@ -3265,7 +3265,7 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_203.addItem(self.horizontalSpacer_73)
 
-        self.findPBBtn = QToolButton(self.horizontalWidget_53)
+        self.findPBBtn = QToolButton(self.horizontalWidget_7)
         self.findPBBtn.setObjectName(u"findPBBtn")
         icon23 = QIcon()
         icon23.addFile(u":/icon/globe.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
@@ -3274,7 +3274,7 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_203.addWidget(self.findPBBtn)
 
-        self.pbHelpBtn = QToolButton(self.horizontalWidget_53)
+        self.pbHelpBtn = QToolButton(self.horizontalWidget_7)
         self.pbHelpBtn.setObjectName(u"pbHelpBtn")
         self.pbHelpBtn.setMinimumSize(QSize(35, 35))
         self.pbHelpBtn.setMaximumSize(QSize(35, 35))
@@ -3286,7 +3286,7 @@ class Ui_Nugget(object):
         self.horizontalLayout_203.addWidget(self.pbHelpBtn)
 
 
-        self.verticalLayout_143.addWidget(self.horizontalWidget_53)
+        self.verticalLayout_143.addWidget(self.horizontalWidget_7)
 
         self.pbPagePicker = QWidget(self.posterboardPage)
         self.pbPagePicker.setObjectName(u"pbPagePicker")
@@ -3528,13 +3528,13 @@ class Ui_Nugget(object):
         self.verticalLayout_144 = QVBoxLayout(self.templatesPage)
         self.verticalLayout_144.setObjectName(u"verticalLayout_144")
         self.verticalLayout_144.setContentsMargins(0, 0, 0, 0)
-        self.horizontalWidget_54 = QWidget(self.templatesPage)
-        self.horizontalWidget_54.setObjectName(u"horizontalWidget_54")
-        self.horizontalLayout_204 = QHBoxLayout(self.horizontalWidget_54)
+        self.horizontalWidget_53 = QWidget(self.templatesPage)
+        self.horizontalWidget_53.setObjectName(u"horizontalWidget_53")
+        self.horizontalLayout_204 = QHBoxLayout(self.horizontalWidget_53)
         self.horizontalLayout_204.setSpacing(10)
         self.horizontalLayout_204.setObjectName(u"horizontalLayout_204")
         self.horizontalLayout_204.setContentsMargins(0, 9, 0, 0)
-        self.toolButton_104 = QToolButton(self.horizontalWidget_54)
+        self.toolButton_104 = QToolButton(self.horizontalWidget_53)
         self.toolButton_104.setObjectName(u"toolButton_104")
         self.toolButton_104.setEnabled(True)
         self.toolButton_104.setStyleSheet(u"QToolButton {\n"
@@ -3548,7 +3548,7 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_204.addWidget(self.toolButton_104)
 
-        self.verticalWidget_44 = QWidget(self.horizontalWidget_54)
+        self.verticalWidget_44 = QWidget(self.horizontalWidget_53)
         self.verticalWidget_44.setObjectName(u"verticalWidget_44")
         self.verticalLayout_124 = QVBoxLayout(self.verticalWidget_44)
         self.verticalLayout_124.setSpacing(6)
@@ -3572,7 +3572,7 @@ class Ui_Nugget(object):
         self.horizontalLayout_204.addItem(self.horizontalSpacer_74)
 
 
-        self.verticalLayout_144.addWidget(self.horizontalWidget_54)
+        self.verticalLayout_144.addWidget(self.horizontalWidget_53)
 
         self.line_124 = QFrame(self.templatesPage)
         self.line_124.setObjectName(u"line_124")
@@ -3633,13 +3633,13 @@ class Ui_Nugget(object):
         self.verticalLayout_145 = QVBoxLayout(self.advancedOptionsPage)
         self.verticalLayout_145.setObjectName(u"verticalLayout_145")
         self.verticalLayout_145.setContentsMargins(0, 0, 0, 0)
-        self.horizontalWidget_55 = QWidget(self.advancedOptionsPage)
-        self.horizontalWidget_55.setObjectName(u"horizontalWidget_55")
-        self.horizontalLayout_205 = QHBoxLayout(self.horizontalWidget_55)
+        self.horizontalWidget_54 = QWidget(self.advancedOptionsPage)
+        self.horizontalWidget_54.setObjectName(u"horizontalWidget_54")
+        self.horizontalLayout_205 = QHBoxLayout(self.horizontalWidget_54)
         self.horizontalLayout_205.setSpacing(10)
         self.horizontalLayout_205.setObjectName(u"horizontalLayout_205")
         self.horizontalLayout_205.setContentsMargins(0, 9, 0, 9)
-        self.toolButton_105 = QToolButton(self.horizontalWidget_55)
+        self.toolButton_105 = QToolButton(self.horizontalWidget_54)
         self.toolButton_105.setObjectName(u"toolButton_105")
         self.toolButton_105.setEnabled(False)
         self.toolButton_105.setStyleSheet(u"QToolButton {\n"
@@ -3653,7 +3653,7 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_205.addWidget(self.toolButton_105)
 
-        self.verticalWidget_45 = QWidget(self.horizontalWidget_55)
+        self.verticalWidget_45 = QWidget(self.horizontalWidget_54)
         self.verticalWidget_45.setObjectName(u"verticalWidget_45")
         self.verticalLayout_125 = QVBoxLayout(self.verticalWidget_45)
         self.verticalLayout_125.setSpacing(6)
@@ -3677,7 +3677,7 @@ class Ui_Nugget(object):
         self.horizontalLayout_205.addItem(self.horizontalSpacer_75)
 
 
-        self.verticalLayout_145.addWidget(self.horizontalWidget_55)
+        self.verticalLayout_145.addWidget(self.horizontalWidget_54)
 
         self.line_125 = QFrame(self.advancedOptionsPage)
         self.line_125.setObjectName(u"line_125")

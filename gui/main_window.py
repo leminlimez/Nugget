@@ -17,7 +17,7 @@ from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThrea
 from tweaks.tweaks import tweaks
 
 App_Version = "6.1"
-App_Build = 1
+App_Build = 2
 
 class Page(Enum):
     Home = 0
@@ -408,6 +408,7 @@ class MainWindow(QtWidgets.QMainWindow):
     
     def on_gestaltPageBtn_clicked(self):
         self.pages[Page.Gestalt].load()
+        self.ui.mgaScrollArea.verticalScrollBar().setValue(0) # reset scroll to top
         self.ui.pages.setCurrentIndex(Page.Gestalt.value)
 
     def on_featureFlagsPageBtn_clicked(self):
@@ -420,6 +421,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_statusBarPageBtn_clicked(self):
         self.pages[Page.StatusBar].load()
+        self.ui.sbScrollArea.verticalScrollBar().setValue(0) # reset scroll to top
         self.ui.pages.setCurrentIndex(Page.StatusBar.value)
 
     def on_springboardOptionsPageBtn_clicked(self):
