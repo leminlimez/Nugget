@@ -12,7 +12,7 @@ class Translator:
     def get_saved_locale_code(self) -> str:
         return self.settings.value("locale_code", QLocale.system().languageToCode(QLocale.system().language()), type=str)
     def set_default_locale(self, code: str):
-        QLocale.setDefault(QLocale.codeToLanguage(code))
+        QLocale.setDefault(QLocale(code))
     def set_new_language(self, code: str, restart: bool = False):
         self.settings.setValue("locale_code", code)
         self.set_default_locale(code)
