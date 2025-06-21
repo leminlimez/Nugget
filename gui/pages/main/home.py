@@ -33,6 +33,7 @@ class HomePage(Page):
         self.ui.libiBtn.clicked.connect(self.on_libiBtn_clicked)
         self.ui.jjtechBtn.clicked.connect(self.on_jjtechBtn_clicked)
         self.ui.qtBtn.clicked.connect(self.on_qtBtn_clicked)
+        self.ui.translatorsBtn.clicked.connect(self.on_translatorsBtn_clicked)
 
         self.ui.discordBtn.clicked.connect(self.on_discordBtn_clicked)
 
@@ -97,6 +98,8 @@ class HomePage(Page):
         webbrowser.open_new_tab("https://github.com/JJTech0130/TrollRestore")
     def on_qtBtn_clicked(self):
         webbrowser.open_new_tab("https://www.qt.io/product/development-tools")
+    def on_translatorsBtn_clicked(self):
+        webbrowser.open_new_tab("https://poeditor.com/join/project/UTqpVSE2UD")
 
     def on_discordBtn_clicked(self):
         webbrowser.open_new_tab("https://discord.gg/MN8JgqSAqT")
