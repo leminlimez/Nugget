@@ -7,7 +7,7 @@
       <location filename="../gui/dialogs.py" line="25"/>
       <source>The gestalt file looks like it was made for a different device.
 Are you sure you want to use this one?</source>
-      <translation type="unfinished">Es sieht aus als ob das mobile gestalt file für ein anderes Gerät erstellt wurde. Bist du sicher das du es verwenden willst?</translation>
+      <translation>Es sieht aus als ob das mobile gestalt file für ein anderes Gerät erstellt wurde. Bist du sicher das du es verwenden willst?</translation>
     </message>
   </context>
   <context>
@@ -124,7 +124,8 @@ Feature-Flags</translation>
       <location filename="../qt/mainwindow.ui" line="1495"/>
       <source>Mikasa
 Quiet Daemon</source>
-      <translation>Mikada Quit Daemon</translation>
+      <translation>Mikasa
+Quiet Daemon</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1538"/>
@@ -207,7 +208,7 @@ Sparserestore</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="1986"/>
       <source>Changes the model name in the 'About' page in the Settings app.</source>
-      <translation>Ändert den Modellnamen auf der 'About' Seite in der Einstellungen-App</translation>
+      <translation>Ändert den Modellnamen auf der 'Info' Seite in der Einstellungen-App</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1989"/>
@@ -380,7 +381,7 @@ Hinweis: OTA-Updates sind nicht möglich, solange diese Funktion aktiviert ist.<
       <location filename="../qt/mainwindow.ui" line="2255"/>
       <source>Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know
 what you are doing.</source>
-      <translation type="unfinished">Warnung: Die falsche Verwendung dieser Funktion kann zu Bootloops und Datenverlust führen. Verwenden Sie diese Funktion nur, wenn Sie wissen, was sie machen.</translation>
+      <translation type="unfinished">Warnung: Die falsche Verwendung dieser Funktion kann zu Bootloops und Datenverlust führen. Verwenden Sie diese Funktion nur, wenn Sie wissen, was Sie machen.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2388"/>
@@ -679,7 +680,7 @@ Wenn du das Menü auf deinem originalen Gerätemodell öffnest musst du vielleic
       <location filename="../qt/mainwindow.ui" line="3261"/>
       <location filename="../qt/mainwindow.ui" line="5796"/>
       <source>Modify</source>
-      <translation>Ändern</translation>
+      <translation>Modifizieren</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3368"/>
@@ -1024,7 +1025,7 @@ Wenn du das Menü auf deinem originalen Gerätemodell öffnest musst du vielleic
     <message>
       <location filename="../qt/mainwindow.ui" line="5041"/>
       <source>Voice Control Icon</source>
-      <translation>Sprachsteuerung Symbol</translation>
+      <translation>Sprachsteuerungssymbol</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5106"/>
@@ -1079,7 +1080,7 @@ Wenn du das Menü auf deinem originalen Gerätemodell öffnest musst du vielleic
     <message>
       <location filename="../qt/mainwindow.ui" line="5355"/>
       <source>Shows info about the device supervision status and organization at the bottom of the lock screen.</source>
-      <translation>Informationen über den Geräte-Supervision Status und Organisation auf dem Sperrbildschirm anzeigen.</translation>
+      <translation>Zeigt Informationen über den Geräte-Supervision Status und Organisation auf dem Sperrbildschirm an.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5358"/>
@@ -1114,7 +1115,7 @@ Wenn du das Menü auf deinem originalen Gerätemodell öffnest musst du vielleic
     <message>
       <location filename="../qt/mainwindow.ui" line="5580"/>
       <source>Enable iMessage Debugging</source>
-      <translation>Aktiviere iMessage Debugging</translation>
+      <translation>Aktiviere iMessage-Debugging</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5587"/>
@@ -1134,7 +1135,7 @@ Wenn du das Menü auf deinem originalen Gerätemodell öffnest musst du vielleic
     <message>
       <location filename="../qt/mainwindow.ui" line="5623"/>
       <source>Enable Notes Debug Mode</source>
-      <translation>Aktiviere Notizen Debugging-Modus</translation>
+      <translation>Aktiviere Notizen Debug-Modus</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5645"/>
@@ -1172,7 +1173,7 @@ Wenn du das Menü auf deinem originalen Gerätemodell öffnest musst du vielleic
       <source>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
 it enabled.</source>
       <translation>Hinweis: Auch bei Sparserestore-Versionen werden hier reguläre Domänen verwendet. Skip Setup wird angewendet, wenn es
-aktivier ist.</translation>
+aktiviert ist.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5863"/>
@@ -1182,7 +1183,7 @@ aktivier ist.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="5866"/>
       <source>Disable OTA</source>
-      <translation>Deaktiviere Updates</translation>
+      <translation type="unfinished">Deaktiviere Updates</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5873"/>
@@ -1197,7 +1198,7 @@ aktivier ist.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="5883"/>
       <source>Disables Screen Time monitoring features.</source>
-      <translation>Deaktiviert die Funktionen zur Überwachung der Bildschirmzeit.</translation>
+      <translation>Deaktiviert Bildschirmzeit Überwachungsoptionen.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5886"/>
@@ -1209,9 +1210,9 @@ aktivier ist.</translation>
       <source>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
 
 To work properly, also disable the daemon using the toggle above.</source>
-      <translation>Löscht die Einstellungsdatei des Screen Time Agent, um die über iCloud eingestellte App-Sperre zu verhindern.
+      <translation>Löscht die Einstellungsdatei des Bildschirmzeit-Agenten, um die über iCloud eingestellte App-Sperre zu verhindern.
 
-Um richtig zu funktionieren, deaktivieren Sie auch den Daemon mit der obigen Option.</translation>
+Um richtig funktionieren zu können, deaktivieren Sie auch den Daemon mit der obigen Option.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5898"/>
@@ -1301,7 +1302,7 @@ Um richtig zu funktionieren, deaktivieren Sie auch den Daemon mit der obigen Opt
     <message>
       <location filename="../qt/mainwindow.ui" line="6019"/>
       <source>Disable iCloud</source>
-      <translation>iCloud ausschalten</translation>
+      <translation>iCloud deaktivieren</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6026"/>
@@ -1375,7 +1376,7 @@ Um richtig zu funktionieren, deaktivieren Sie auch den Daemon mit der obigen Opt
       <location filename="../qt/mainwindow.ui" line="6557"/>
       <source>Uses the CoreAnimation file to play the video (300 fps limit)
 Will show up in Collections</source>
-      <translation>Verwendet die CoreAnimation-Datei zum Abspielen des Videos (300 fps Grenze)
+      <translation>Verwendet die CoreAnimation-Datei zum Abspielen des Videos (300 FPS Limit)
 Wird in Sammlungen angezeigt</translation>
     </message>
     <message>
@@ -1396,7 +1397,7 @@ Wird in Sammlungen angezeigt</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="6587"/>
       <source>Choose a photo for the wallpaper to freeze on when finished (.heic files only)</source>
-      <translation>Wählen Sie ein Foto aus, auf dem der Bildschirmhintergrund nach der Fertigstellung eingefroren werden soll (.heic-Dateien)</translation>
+      <translation>Wählen Sie ein Foto aus, auf dem der Bildschirmhintergrund nach der Fertigstellung eingefroren werden soll (ausschließlich .heic-Dateien)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6590"/>
@@ -1406,7 +1407,7 @@ Wird in Sammlungen angezeigt</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="6597"/>
       <source>Choose a video file for the wallpaper (.mov or .mp4)</source>
-      <translation>Wählen Sie eine Videodatei für das Hintergrundbild (.mov oder .mp4)</translation>
+      <translation>Wählen Sie eine Videodatei für das Hintergrundbild aus (.mov oder .mp4)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6600"/>
@@ -1446,17 +1447,16 @@ The options on this page may be unsafe for your device. Use these options at you
 your device resolution has the potential to brick your device when used improperly.
 
 Nugget is not responsible if you mess up your device, especially with resolution changer.</source>
-      <translation>Haftungsausschluss:
+      <translation>Disclaimer:
 
-Die Optionen auf dieser Seite könnten unsicher für ihr Gerät sein. Nutzen sie diese Optionen auf ihr eigenes Risiko. Änderung 
-der Geräteauflösung kann potentiell das Gerät unbrauchbar machen, wenn man es unsachgemäß durchführt.
+Die Optionen auf dieser Seite könnten unsicher für Ihr Gerät sein. Nutzen Sie diese Optionen auf eigene Gefahr. Eine Änderung der Geräteauflösung kann das Gerät potenziell unbrauchbar machen, wenn es unsachgemäß durchgeführt wird.
 
-Nugget ist nicht verantwortlich, falls sie ihr Gerät vermasseln, besonders mit dem Auflösungsänderer.</translation>
+Nugget ist für keine Schäden am Gerät verantwortlich, besonders bei Benutzung des Auflösungsänderers.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7069"/>
       <source>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</source>
-      <translation>Verwendet die Dateimethode. Es wird empfohlen, den Daemon stattdessen auf der Registerkarte Daemons zu deaktivieren.</translation>
+      <translation>Verwendet die Dateimethode. Es wird empfohlen, den Daemon stattdessen im Daemons-Tab zu deaktivieren.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7072"/>
@@ -1475,7 +1475,7 @@ Warnung: Die Deaktivierung führt dazu, dass die Batterie in den Einstellungen a
     <message>
       <location filename="../qt/mainwindow.ui" line="7084"/>
       <source>Disable thermalmonitord</source>
-      <translation>Thermomonitord deaktivieren</translation>
+      <translation>thermalmonitord deaktivieren</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7106"/>
@@ -1624,7 +1624,7 @@ Trennen Sie Ihr Gerät während der Wiederherstellung NICHT vom Stromnetz.</tran
     <message>
       <location filename="../qt/mainwindow.ui" line="8246"/>
       <source>Revert rdar Fix (reset resolution)</source>
-      <translation>Revert rdar Fix (Auflösung zurücksetzen)</translation>
+      <translation>Setzt rdar Fix zurück (Auflösung zurücksetzen)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8268"/>
@@ -1744,7 +1744,7 @@ oder Sie haben die maximale Anzahl von Hintergrundbildern (15) erreicht und müs
     <message>
       <location filename="../gui/pages/main/home.py" line="50"/>
       <source>Please connect a device.</source>
-      <translation>Bitte verbinden sie ein Gerät.</translation>
+      <translation>Bitte verbinden Sie ein Gerät.</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/settings.py" line="117"/>
@@ -1757,7 +1757,7 @@ oder Sie haben die maximale Anzahl von Hintergrundbildern (15) erreicht und müs
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
-      <translation>Ihre Raute wurde in die Pocket Poster App übertragen.
+      <translation>Ihr Hash wurde in die Pocket Poster App übertragen.
 
 Öffnen Sie deren Einstellungen und tippen Sie auf "Erkennen".</translation>
     </message>
@@ -1769,7 +1769,7 @@ Open up its settings and tap "Detect".</source>
     <message>
       <location filename="../gui/pages/main/settings.py" line="125"/>
       <source>It has been copied. Paste it</source>
-      <translation>Es wurde kopiert. Fügen sie es ein</translation>
+      <translation>Es wurde kopiert. Fügen Sie es ein</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/settings.py" line="127"/>
@@ -1914,12 +1914,12 @@ Denken Sie daran, Find My wieder einzuschalten!</translation>
     <message>
       <location filename="../gui/pages/main/home.py" line="68"/>
       <source>Not Supported.</source>
-      <translation>Nicht unterstützt</translation>
+      <translation>Nicht unterstützt.</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/home.py" line="71"/>
       <source>Partially Supported.</source>
-      <translation>Teilweise unterstützt</translation>
+      <translation>Teilweise unterstützt.</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="40"/>
@@ -1971,7 +1971,7 @@ Dies ist zu Ihrer Sicherheit. Bitte wenden Sie den Rest separat an.</translation
       <location filename="../gui/pages/tools/posterboard.py" line="210"/>
       <location filename="../gui/pages/tools/posterboard.py" line="227"/>
       <source>You selected too many descriptors! The limit is 10.</source>
-      <translation>Sie haben zu viele Deskriptoren ausgewählt! Die Grenze liegt bei 10.</translation>
+      <translation>Sie haben zu viele Deskriptoren ausgewählt! Das Limit ist 10.</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="238"/>
@@ -2022,7 +2022,7 @@ Ihre iOS-Version (iOS {1}) ist zu neu!</translation>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="140"/>
       <source>No config.json found in file!</source>
-      <translation>Kein config.json gefunden in der Datei!</translation>
+      <translation>Keine config.json in der Datei gefunden!</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="292"/>

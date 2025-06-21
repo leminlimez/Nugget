@@ -64,7 +64,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="701"/>
       <source>    Apply</source>
-      <translation>    應用</translation>
+      <translation>    套用</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="730"/>
@@ -160,7 +160,7 @@ Sparserestore</translation>
       <location filename="../qt/mainwindow.ui" line="1802"/>
       <location filename="../qt/mainwindow.ui" line="2843"/>
       <source>! You will need a MobileGestalt file for this feature. Please select it in the Apply page !</source>
-      <translation>！你會需要一個MobileGestalt檔案才能用這個功能。請在應用頁面選擇一個！</translation>
+      <translation>！你會需要一個MobileGestalt檔案才能用這個功能。請在套用頁面選擇一個！</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1875"/>
@@ -1537,7 +1537,7 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="7685"/>
       <source>Apply</source>
-      <translation>應用</translation>
+      <translation>套用</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7746"/>
@@ -1552,7 +1552,7 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="7805"/>
       <source>  Apply Changes</source>
-      <translation>  應用改動</translation>
+      <translation>  套用改動</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7822"/>
@@ -1582,12 +1582,12 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="8163"/>
       <source>Allow Applying Over WiFi</source>
-      <translation>允許透過Wi-Fi應用改動</translation>
+      <translation>允許透過Wi-Fi套用改動</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8173"/>
       <source>Auto Reboot After Applying</source>
-      <translation>應用後自動重新開機</translation>
+      <translation>套用後自動重新開機</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8183"/>
@@ -1691,7 +1691,7 @@ DO NOT unplug your device during restores.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="1558"/>
       <source>Translators</source>
-      <translation>翻譯器</translation>
+      <translation>翻譯者們</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3991"/>
@@ -1877,12 +1877,12 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
     <message>
       <location filename="../devicemanagement/device_manager.py" line="270"/>
       <source>Your device's pairing was successfully reset. Refresh the device list before applying.</source>
-      <translation>你的裝置配對成功重設了。請在應用變更之前刷新裝置列表。</translation>
+      <translation>你的裝置配對成功重設了。請在套用變更之前刷新裝置列表。</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="497"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
-      <translation>沒有提供mobilegestalt檔案！請選擇你的檔案才能應用mobilegestalt的調整項目。</translation>
+      <translation>沒有提供mobilegestalt檔案！請選擇你的檔案才能套用mobilegestalt的調整項目。</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="624"/>
@@ -1942,7 +1942,7 @@ Remember to turn Find My back on!</source>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="49"/>
       <source>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</source>
-      <translation>注意：你可能需要重設所有的桌布(在設定的有風險的選項啟用)然後重新應用這個檔案才有效。</translation>
+      <translation>注意：你可能需要重設所有的桌布(在設定的有風險的選項啟用)然後重新套用這個檔案才有效。</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="66"/>
@@ -1973,7 +1973,7 @@ Remember to turn Find My back on!</source>
 This is for your safety. Please apply the rest separately.</source>
       <translation>你選擇太多Tendies檔了！限制是3個。
 
-這是為了您的安全。請分開應用剩下的檔案。</translation>
+這是為了您的安全。請分開套用剩下的檔案。</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="210"/>
