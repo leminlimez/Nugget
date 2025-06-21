@@ -1574,99 +1574,99 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8130"/>
+        <location filename="../qt/mainwindow.ui" line="8162"/>
         <source>App Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8163"/>
+        <location filename="../qt/mainwindow.ui" line="8202"/>
         <source>Allow Applying Over WiFi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8173"/>
+        <location filename="../qt/mainwindow.ui" line="8212"/>
         <source>Auto Reboot After Applying</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8183"/>
+        <location filename="../qt/mainwindow.ui" line="8222"/>
         <source>Show Risky Tweak Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8190"/>
+        <location filename="../qt/mainwindow.ui" line="8229"/>
         <source>Show models for other device types in the AI device spoofing tab.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8199"/>
+        <location filename="../qt/mainwindow.ui" line="8238"/>
         <source>Show All Spoofable Models</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8206"/>
+        <location filename="../qt/mainwindow.ui" line="8245"/>
         <source>Ignore Posterboard Frame Limit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8213"/>
+        <location filename="../qt/mainwindow.ui" line="8252"/>
         <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8218"/>
+        <location filename="../qt/mainwindow.ui" line="8257"/>
         <source>Disable Tendies Limit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8243"/>
+        <location filename="../qt/mainwindow.ui" line="8282"/>
         <source>If you used the rdar/status bar fix in a previous iOS version, this will revert that.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8246"/>
+        <location filename="../qt/mainwindow.ui" line="8285"/>
         <source>Revert rdar Fix (reset resolution)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8268"/>
+        <location filename="../qt/mainwindow.ui" line="8307"/>
         <source>Restores the SSL config that does something idk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8271"/>
+        <location filename="../qt/mainwindow.ui" line="8310"/>
         <source>Restore TrustStore (SSL Configuration Profiles)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8281"/>
+        <location filename="../qt/mainwindow.ui" line="8320"/>
         <source>Skip Setup * (non-exploit files only)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8294"/>
+        <location filename="../qt/mainwindow.ui" line="8333"/>
         <source>Enable Supervision * (requires Skip Setup)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8304"/>
+        <location filename="../qt/mainwindow.ui" line="8343"/>
         <source>Enter Organization Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8327"/>
+        <location filename="../qt/mainwindow.ui" line="8366"/>
         <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8354"/>
+        <location filename="../qt/mainwindow.ui" line="8393"/>
         <source>Reset Device Pairing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8368"/>
+        <location filename="../qt/mainwindow.ui" line="8407"/>
         <source>Pocket Poster Helper</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1767,93 +1767,108 @@ Unlock your device. On the popup, click &quot;Trust&quot;, enter your password, 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="270"/>
+        <location filename="../devicemanagement/device_manager.py" line="199"/>
+        <source>No Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../devicemanagement/device_manager.py" line="274"/>
         <source>Pairing Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="270"/>
+        <location filename="../devicemanagement/device_manager.py" line="274"/>
         <source>Your device&apos;s pairing was successfully reset. Refresh the device list before applying.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="497"/>
+        <location filename="../devicemanagement/device_manager.py" line="440"/>
+        <source>Restoring to device...{0}{1}</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../devicemanagement/device_manager.py" line="445"/>
+        <source>Applying changes to files...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../devicemanagement/device_manager.py" line="501"/>
         <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="624"/>
-        <location filename="../devicemanagement/device_manager.py" line="658"/>
+        <location filename="../devicemanagement/device_manager.py" line="628"/>
+        <location filename="../devicemanagement/device_manager.py" line="662"/>
         <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="626"/>
-        <location filename="../devicemanagement/device_manager.py" line="660"/>
+        <location filename="../devicemanagement/device_manager.py" line="630"/>
+        <location filename="../devicemanagement/device_manager.py" line="664"/>
         <source>Please restart your device to see changes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="626"/>
-        <location filename="../devicemanagement/device_manager.py" line="660"/>
+        <location filename="../devicemanagement/device_manager.py" line="630"/>
+        <location filename="../devicemanagement/device_manager.py" line="664"/>
         <source>All done! </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="626"/>
-        <location filename="../devicemanagement/device_manager.py" line="627"/>
-        <location filename="../devicemanagement/device_manager.py" line="660"/>
-        <location filename="../devicemanagement/device_manager.py" line="661"/>
+        <location filename="../devicemanagement/device_manager.py" line="630"/>
+        <location filename="../devicemanagement/device_manager.py" line="631"/>
+        <location filename="../devicemanagement/device_manager.py" line="664"/>
+        <location filename="../devicemanagement/device_manager.py" line="665"/>
         <source>Success!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/home.py" line="50"/>
+        <location filename="../gui/pages/main/home.py" line="51"/>
         <source>Please connect a device.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/home.py" line="66"/>
+        <location filename="../gui/pages/main/home.py" line="67"/>
         <source>Supported!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/home.py" line="68"/>
+        <location filename="../gui/pages/main/home.py" line="69"/>
         <source>Not Supported.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/home.py" line="71"/>
+        <location filename="../gui/pages/main/home.py" line="72"/>
         <source>Partially Supported.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="117"/>
-        <location filename="../gui/pages/main/settings.py" line="127"/>
+        <location filename="../gui/pages/main/settings.py" line="156"/>
+        <location filename="../gui/pages/main/settings.py" line="166"/>
         <source>PosterBoard App Hash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="117"/>
+        <location filename="../gui/pages/main/settings.py" line="156"/>
         <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap &quot;Detect&quot;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="121"/>
+        <location filename="../gui/pages/main/settings.py" line="160"/>
         <source>Copy it and paste it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="125"/>
+        <location filename="../gui/pages/main/settings.py" line="164"/>
         <source>It has been copied. Paste it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="127"/>
+        <location filename="../gui/pages/main/settings.py" line="166"/>
         <source>Your hash is:
 {0}
 
@@ -1887,38 +1902,108 @@ Open up its settings and tap &quot;Detect&quot;.</source>
         <source>Failed to load template</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../tweaks/posterboard/posterboard_tweak.py" line="251"/>
+        <source>Generating PosterBoard Video...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/posterboard/posterboard_tweak.py" line="256"/>
+        <source>Extracting tendie {0}...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/posterboard/posterboard_tweak.py" line="261"/>
+        <source>Configuring template {0}...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/posterboard/posterboard_tweak.py" line="264"/>
+        <source>Adding tendies...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/posterboard/posterboard_tweak.py" line="266"/>
+        <source>Adding other tweaks...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/tweak_classes.py" line="115"/>
+        <source>Revert RDAR fix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/tweak_classes.py" line="116"/>
+        <source>RDAR Fix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/tweak_classes.py" line="119"/>
+        <source>Revert Status Bar Fix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tweaks/tweak_classes.py" line="120"/>
+        <source>Dynamic Island Status Bar Fix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../controllers/video_handler.py" line="103"/>
+        <source>Creating {0}...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QtCore.QCoreApplication</name>
     <message>
-        <location filename="../gui/pages/tools/posterboard.py" line="201"/>
-        <location filename="../gui/pages/tools/posterboard.py" line="209"/>
-        <location filename="../gui/pages/tools/posterboard.py" line="226"/>
+        <location filename="../gui/pages/tools/posterboard.py" line="31"/>
+        <source>Collections</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/tools/posterboard.py" line="32"/>
+        <source>Suggested Photos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/tools/posterboard.py" line="34"/>
+        <source>Gallery Cache</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/tools/posterboard.py" line="35"/>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/tools/posterboard.py" line="206"/>
+        <location filename="../gui/pages/tools/posterboard.py" line="214"/>
+        <location filename="../gui/pages/tools/posterboard.py" line="231"/>
         <source>Error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/tools/posterboard.py" line="202"/>
+        <location filename="../gui/pages/tools/posterboard.py" line="207"/>
         <source>You selected too many tendies files! The limit is 3.
 
 This is for your safety. Please apply the rest separately.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/tools/posterboard.py" line="210"/>
-        <location filename="../gui/pages/tools/posterboard.py" line="227"/>
+        <location filename="../gui/pages/tools/posterboard.py" line="215"/>
+        <location filename="../gui/pages/tools/posterboard.py" line="232"/>
         <source>You selected too many descriptors! The limit is 10.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/tools/posterboard.py" line="238"/>
-        <location filename="../gui/pages/tools/posterboard.py" line="241"/>
+        <location filename="../gui/pages/tools/posterboard.py" line="243"/>
+        <location filename="../gui/pages/tools/posterboard.py" line="246"/>
         <source>Current Thumbnail: {0}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/tools/posterboard.py" line="247"/>
         <location filename="../gui/pages/tools/posterboard.py" line="252"/>
+        <location filename="../gui/pages/tools/posterboard.py" line="257"/>
         <source>Current Video: {0}</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1969,6 +2054,11 @@ Your iOS version (iOS {1}) is too new!</source>
         <source>Error applying template:
 
 No selected file for required option</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/tools/gestalt.py" line="72"/>
+        <source>modifies resolution</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -68,7 +68,8 @@ class GestaltPage(Page):
             self.ui.rdarFixChk.hide()
         else:
             self.ui.rdarFixChk.show()
-            self.ui.rdarFixChk.setText(f"{rdar_title} (modifies resolution)")
+            res_title = QtCore.QCoreApplication.tr("modifies resolution")
+            self.ui.rdarFixChk.setText(f"{rdar_title} ({res_title})")
     
     def on_dynamicIslandDrp_activated(self, index: int):
         if index == 0:

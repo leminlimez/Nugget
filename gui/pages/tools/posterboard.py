@@ -1,8 +1,9 @@
-from PySide6 import QtCore, QtWidgets, QtGui
 import webbrowser
 import subprocess
 import os
 import uuid
+
+from PySide6 import QtCore, QtWidgets, QtGui
 
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
@@ -26,8 +27,12 @@ class PosterboardPage(Page):
         self.ui.resetPBDrp.setMinimumHeight(25)
         self.ui.resetPBDrp.setMaximumWidth(200)
         self.ui.resetPBDrp.setMaximumHeight(30)
-        self.ui.resetPBDrp.addItems(["Collections", "Suggested Photos", "Gallery Cache"])
-        self.ui.resetPBDrp.lineEdit().setText("  None")
+        self.ui.resetPBDrp.addItems([
+            QtCore.QCoreApplication.tr("Collections"),
+            QtCore.QCoreApplication.tr("Suggested Photos"),
+            QtCore.QCoreApplication.tr("Gallery Cache")
+        ])
+        self.ui.resetPBDrp.lineEdit().setText("  " + QtCore.QCoreApplication.tr("None"))
         self.ui.resetPBDrp.setStyleSheet("QWidget { background-color: #3b3b3b; border: 2px solid #3b3b3b; border-radius: 5px; }")# QAbstractItemView::indicator:checked { background-color: rgba(0, 0, 255, 0.3); border-radius: 4px; }")
         self.ui.pbPagePicker.layout().addWidget(self.ui.resetPBDrp)
 

@@ -208,7 +208,7 @@ class MainWindow(QtWidgets.QMainWindow):
                     self.ui.resetPBDrp.removeItem(4)
                 except:
                     pass
-                self.ui.resetPBDrp.addItem("PB Extensions")
+                self.ui.resetPBDrp.addItem(QtCore.QCoreApplication.tr("PB Extensions"))
             else:
                 self.ui.advancedPageBtn.hide()
                 try:

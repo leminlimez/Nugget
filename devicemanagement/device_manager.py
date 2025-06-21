@@ -195,7 +195,7 @@ class DeviceManager:
         
     def get_current_device_name(self) -> str:
         if self.data_singleton.current_device == None:
-            return "No Device"
+            return QCoreApplication.tr("No Device")
         else:
             return self.data_singleton.current_device.name
         
@@ -437,12 +437,12 @@ class DeviceManager:
         prog = ""
         if progress != None:
             prog = f" ({progress:6.1f}% )"
-        self.update_label(f"Restoring to device...{prog}{self.do_not_unplug}")
+        self.update_label(QCoreApplication.tr("Restoring to device...{0}{1}").format(prog, self.do_not_unplug))
     def apply_changes(self, resetting: bool = False, update_label=lambda x: None, show_alert=lambda x: None):
         try:
             # set the tweaks and apply
             # first open the file in read mode
-            update_label("Applying changes to files...")
+            update_label(QCoreApplication.tr("Applying changes to files..."))
             gestalt_plist = None
             if self.data_singleton.gestalt_path != None:
                 with open(self.data_singleton.gestalt_path, 'rb') as in_fp:

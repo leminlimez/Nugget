@@ -1,4 +1,6 @@
 from enum import Enum
+from PySide6.QtCore import QCoreApplication
+
 from devicemanagement.constants import Version
 from .basic_plist_locations import FileLocation
 
@@ -109,12 +111,12 @@ class RdarFixTweak(BasicPlistTweak):
     def get_rdar_title(self) -> str:
         if self.mode == 1 or self.mode == 3:
             if self.di_type == -1:
-                return "Revert RDAR fix"
-            return "Fix RDAR"
+                return QCoreApplication.tr("Revert RDAR fix")
+            return QCoreApplication.tr("RDAR Fix")
         elif self.mode == 2:
             if self.di_type == -1:
-                return "Revert Status Bar Fix"
-            return "Dynamic Island Status Bar Fix"
+                return QCoreApplication.tr("Revert Status Bar Fix")
+            return QCoreApplication.tr("Dynamic Island Status Bar Fix")
         return "hide"
     
     def set_di_type(self, type: int):
