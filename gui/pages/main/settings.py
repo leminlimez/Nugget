@@ -61,7 +61,11 @@ class SettingsPage(Page):
             self.lang_indexes.append(available_languages[language])
             self.ui.langDrp.addItem(language)
         # load the saved option
-        self.ui.langDrp.setCurrentIndex(self.lang_indexes.index(self.window.translator.get_saved_locale_code()))
+        try:
+            idx = self.lang_indexes.index(self.window.translator.get_saved_locale_code())
+        except:
+            idx = 0
+        self.ui.langDrp.setCurrentIndex(idx)
 
     ## ACTIONS
     def on_langDrp_activated(self, index: int):
