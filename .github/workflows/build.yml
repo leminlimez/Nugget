@@ -4,66 +4,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-macos-intel:
-    runs-on: macos-13
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: |
-          python3 -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Build MacOS (Intel)
-        run: python3 compile.py
-
-      - name: Zip Nugget.app (Intel)
-        run: |
-          cd dist
-          zip -r -y "Nugget_macOS_intel.zip" Nugget.app
-
-      - name: Upload ZIP (Intel)
-        uses: actions/upload-artifact@v4
-        with:
-          name: Nugget_macOS_intel
-          path: dist/Nugget_macOS_intel.zip
-
-  build-macos-arm:
-    runs-on: macos-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: |
-          python3 -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Build MacOS (ARM)
-        run: python3 compile.py
-
-      - name: Zip Nugget.app (ARM)
-        run: |
-          cd dist
-          zip -r -y "Nugget_macOS_arm.zip" Nugget.app
-
-      - name: Upload ZIP (ARM)
-        uses: actions/upload-artifact@v4
-        with:
-          name: Nugget_macOS_arm
-          path: dist/Nugget_macOS_arm.zip
-
   build-windows:
     runs-on: windows-latest
     steps:
