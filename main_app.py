@@ -1,6 +1,7 @@
 print("Starting Nugget...")
 
 import sys
+import os
 from PySide6 import QtGui, QtWidgets
 from PySide6.QtCore import QLocale, QSettings
 
@@ -14,7 +15,7 @@ if __name__ == "__main__":
     dm = DeviceManager()
 
     # load the language settings
-    settings = QSettings()
+    settings = QSettings("Nugget", "settings")
     translator = Translator(app, settings)
     translator.set_default_locale(translator.get_saved_locale_code())
     
