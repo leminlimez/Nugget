@@ -382,7 +382,8 @@ Note: les Mises à jour OTA ne sera pas interrompue tant qu'elle n'aura pas ét�
       <location filename="../qt/mainwindow.ui" line="2255"/>
       <source>Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know
 what you are doing.</source>
-      <translation>Attention : Une mauvaise utilisation de cette fonctionnalité peut entraîner des boucles de démarrage et des pertes de données. Ne l'utilisez que si vous savez ce que vous faites.</translation>
+      <translation>Attention : Une mauvaise utilisation de cette fonctionnalité peut entraîner des redémarrages répétitifs et des pertes de données. Ne l'utilisez que si vous savez
+ce que vous faites.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2388"/>
@@ -1576,37 +1577,37 @@ Avertissement : Si vous désactivez cette fonction, la batterie affichera "Pièc
       <translation>Réglage Nugget</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8163"/>
+      <location filename="../qt/mainwindow.ui" line="8202"/>
       <source>Allow Applying Over WiFi</source>
       <translation>Autorisée l'application par wifi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8173"/>
+      <location filename="../qt/mainwindow.ui" line="8212"/>
       <source>Auto Reboot After Applying</source>
       <translation>Redémarrage automatique après l'application</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8183"/>
+      <location filename="../qt/mainwindow.ui" line="8222"/>
       <source>Show Risky Tweak Options</source>
       <translation>Afficher les options de réglage risquées</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8190"/>
+      <location filename="../qt/mainwindow.ui" line="8229"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
       <translation>Afficher les modèles pour d’autres types d’appareils dans l’onglet Usurpation d’appareil IA.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8199"/>
+      <location filename="../qt/mainwindow.ui" line="8238"/>
       <source>Show All Spoofable Models</source>
       <translation>Afficher tous les modèles pouvant faire l'objet d'une usurpation d'identité</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8206"/>
+      <location filename="../qt/mainwindow.ui" line="8245"/>
       <source>Ignore Posterboard Frame Limit</source>
       <translation>Ignorer la limite de cadre du panneau d'affichage</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8213"/>
+      <location filename="../qt/mainwindow.ui" line="8252"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
@@ -1615,57 +1616,57 @@ DO NOT unplug your device during restores.</source>
 Ne débranchez pas votre appareil pendant les restaurations.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8218"/>
+      <location filename="../qt/mainwindow.ui" line="8257"/>
       <source>Disable Tendies Limit</source>
       <translation>Désactiver les limites Tendies</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8243"/>
+      <location filename="../qt/mainwindow.ui" line="8282"/>
       <source>If you used the rdar/status bar fix in a previous iOS version, this will revert that.</source>
       <translation>Si vous avez utilisé le correctif rdar/barre d'état dans une version iOS précédente, cela annulera cela.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8246"/>
+      <location filename="../qt/mainwindow.ui" line="8285"/>
       <source>Revert rdar Fix (reset resolution)</source>
       <translation>Revert rdar Fix (réinitialisation de la résolution)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8268"/>
+      <location filename="../qt/mainwindow.ui" line="8307"/>
       <source>Restores the SSL config that does something idk</source>
       <translation>Rétablit la configuration SSL qui fait quelque chose, j'sais pas.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8271"/>
+      <location filename="../qt/mainwindow.ui" line="8310"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
       <translation>Restaurer le TrustStore (Profils de configuration SSL)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8281"/>
+      <location filename="../qt/mainwindow.ui" line="8320"/>
       <source>Skip Setup * (non-exploit files only)</source>
       <translation>Sauter l'installation * (fichiers non exploités uniquement)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8294"/>
+      <location filename="../qt/mainwindow.ui" line="8333"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
       <translation>Activer la supervision * (nécessite la Sauter l'installation)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8304"/>
+      <location filename="../qt/mainwindow.ui" line="8343"/>
       <source>Enter Organization Name</source>
       <translation>Saisir le nom de l'organisation</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8327"/>
+      <location filename="../qt/mainwindow.ui" line="8366"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
       <translation>* Note : Skip Setup peut causer des problèmes avec les profils de configuration. Désactivez-la si vous en avez besoin.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8354"/>
+      <location filename="../qt/mainwindow.ui" line="8393"/>
       <source>Reset Device Pairing</source>
       <translation>Réinitialiser l'appairage des appareils</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8368"/>
+      <location filename="../qt/mainwindow.ui" line="8407"/>
       <source>Pocket Poster Helper</source>
       <translation>L'assistant de Pocket Poster</translation>
     </message>
@@ -1700,7 +1701,7 @@ Ne débranchez pas votre appareil pendant les restaurations.</translation>
       <translation>Barre d'état Texte de la date</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8130"/>
+      <location filename="../qt/mainwindow.ui" line="8162"/>
       <source>App Language</source>
       <translation>Langue de l'application</translation>
     </message>
@@ -1745,18 +1746,18 @@ ou vous avez atteint le nombre maximum de fonds d'écran (15) et vous devez les 
   <context>
     <name>QCoreApplication</name>
     <message>
-      <location filename="../gui/pages/main/home.py" line="50"/>
+      <location filename="../gui/pages/main/home.py" line="51"/>
       <source>Please connect a device.</source>
       <translation>S'il vous plait, connectez un appareil.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="117"/>
-      <location filename="../gui/pages/main/settings.py" line="127"/>
+      <location filename="../gui/pages/main/settings.py" line="160"/>
+      <location filename="../gui/pages/main/settings.py" line="170"/>
       <source>PosterBoard App Hash</source>
       <translation>App Hash de PosterBoard</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="117"/>
+      <location filename="../gui/pages/main/settings.py" line="160"/>
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
@@ -1765,17 +1766,17 @@ Open up its settings and tap "Detect".</source>
 Ouvrez ses paramètres et appuyez sur "Détecter".</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="121"/>
+      <location filename="../gui/pages/main/settings.py" line="164"/>
       <source>Copy it and paste it</source>
       <translation>Copier et coller</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="125"/>
+      <location filename="../gui/pages/main/settings.py" line="168"/>
       <source>It has been copied. Paste it</source>
       <translation>Il a été copié. Le coller</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="127"/>
+      <location filename="../gui/pages/main/settings.py" line="170"/>
       <source>Your hash is:
 {0}
 
@@ -1865,23 +1866,23 @@ Déverrouillez votre appareil. Dans la fenêtre contextuelle, cliquez sur « Fa
       <translation>Si vous continuez à recevoir cette erreur, essayez d’utiliser un autre câble ou un autre port.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="270"/>
+      <location filename="../devicemanagement/device_manager.py" line="274"/>
       <source>Pairing Reset</source>
       <translation>Réinitialisation de l'appairage</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="270"/>
+      <location filename="../devicemanagement/device_manager.py" line="274"/>
       <source>Your device's pairing was successfully reset. Refresh the device list before applying.</source>
       <translation>L'appairage de votre appareil a été réinitialisé avec succès. Actualisez la liste des appareils avant d'appliquer.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="497"/>
+      <location filename="../devicemanagement/device_manager.py" line="501"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
       <translation>Aucun fichier MobileGestalt fourni ! Veuillez sélectionner votre fichier pour appliquer les modifications MobileGestalt.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="624"/>
-      <location filename="../devicemanagement/device_manager.py" line="658"/>
+      <location filename="../devicemanagement/device_manager.py" line="628"/>
+      <location filename="../devicemanagement/device_manager.py" line="662"/>
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
@@ -1890,37 +1891,37 @@ Remember to turn Find My back on!</source>
 N'oubliez pas d'activer la fonction Localiser !</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="626"/>
-      <location filename="../devicemanagement/device_manager.py" line="660"/>
+      <location filename="../devicemanagement/device_manager.py" line="630"/>
+      <location filename="../devicemanagement/device_manager.py" line="664"/>
       <source>Please restart your device to see changes.</source>
       <translation>Veuillez redémarrer votre appareil pour voir les changements.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="626"/>
-      <location filename="../devicemanagement/device_manager.py" line="660"/>
+      <location filename="../devicemanagement/device_manager.py" line="630"/>
+      <location filename="../devicemanagement/device_manager.py" line="664"/>
       <source>All done! </source>
       <translation>Terminée!</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="626"/>
-      <location filename="../devicemanagement/device_manager.py" line="627"/>
-      <location filename="../devicemanagement/device_manager.py" line="660"/>
-      <location filename="../devicemanagement/device_manager.py" line="661"/>
+      <location filename="../devicemanagement/device_manager.py" line="630"/>
+      <location filename="../devicemanagement/device_manager.py" line="631"/>
+      <location filename="../devicemanagement/device_manager.py" line="664"/>
+      <location filename="../devicemanagement/device_manager.py" line="665"/>
       <source>Success!</source>
       <translation>Succès!</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/home.py" line="66"/>
+      <location filename="../gui/pages/main/home.py" line="67"/>
       <source>Supported!</source>
       <translation>Soutenu!</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/home.py" line="68"/>
+      <location filename="../gui/pages/main/home.py" line="69"/>
       <source>Not Supported.</source>
       <translation>Non pris en charge.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/home.py" line="71"/>
+      <location filename="../gui/pages/main/home.py" line="72"/>
       <source>Partially Supported.</source>
       <translation>Partiellement pris en charge.</translation>
     </message>
@@ -1951,18 +1952,83 @@ N'oubliez pas d'activer la fonction Localiser !</translation>
       <source>Failed to load template</source>
       <translation>Échec du chargement du modèle</translation>
     </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="199"/>
+      <source>No Device</source>
+      <translation>Aucun appareil connecté</translation>
+    </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="440"/>
+      <source>Restoring to device...{0}{1}</source>
+      <translation>Restauration de l'appareil...{0}{1}</translation>
+    </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="445"/>
+      <source>Applying changes to files...</source>
+      <translation>Application des modifications aux fichiers...</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="251"/>
+      <source>Generating PosterBoard Video...</source>
+      <translation>Génération d'une vidéo PosterBoard...</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="256"/>
+      <source>Extracting tendie {0}...</source>
+      <translation>Extraction du tendie {0}...</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="261"/>
+      <source>Configuring template {0}...</source>
+      <translation>Configuration du modèle {0}...</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="264"/>
+      <source>Adding tendies...</source>
+      <translation>Ajouter des tendies...</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="266"/>
+      <source>Adding other tweaks...</source>
+      <translation>Ajouter d'autres ajustements...</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/tweak_classes.py" line="115"/>
+      <source>Revert RDAR fix</source>
+      <translation>Rétablir la correction de RDAR</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/tweak_classes.py" line="116"/>
+      <source>RDAR Fix</source>
+      <translation>Correction de RDAR</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/tweak_classes.py" line="119"/>
+      <source>Revert Status Bar Fix</source>
+      <translation>Rétablir la correction de la barre d'état</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/tweak_classes.py" line="120"/>
+      <source>Dynamic Island Status Bar Fix</source>
+      <translation>Correction de la barre d'état de l'île dynamique</translation>
+    </message>
+    <message>
+      <location filename="../controllers/video_handler.py" line="103"/>
+      <source>Creating {0}...</source>
+      <translation>Création de {0}...</translation>
+    </message>
   </context>
   <context>
     <name>QtCore.QCoreApplication</name>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="201"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="209"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="226"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="206"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="214"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="231"/>
       <source>Error!</source>
       <translation>Erreur!</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="202"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="207"/>
       <source>You selected too many tendies files! The limit is 3.
 
 This is for your safety. Please apply the rest separately.</source>
@@ -1971,20 +2037,20 @@ This is for your safety. Please apply the rest separately.</source>
 Ceci est pour votre sécurité. Veuillez appliquer les autres fichiers séparément.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="210"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="227"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="215"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="232"/>
       <source>You selected too many descriptors! The limit is 10.</source>
       <translation>Vous avez sélectionné trop de descripteurs ! La limite est de 10.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="238"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="241"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="243"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="246"/>
       <source>Current Thumbnail: {0}</source>
       <translation>Miniature actuelle : {0}</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="247"/>
       <location filename="../gui/pages/tools/posterboard.py" line="252"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="257"/>
       <source>Current Video: {0}</source>
       <translation>Vidéo actuelle : {0}</translation>
     </message>
@@ -2040,6 +2106,50 @@ No selected file for required option</source>
       <translation>Erreur lors de l'application du modèle :
 
 Aucun fichier sélectionné pour l'option requise</translation>
+    </message>
+    <message>
+      <location filename="../gui/pages/tools/gestalt.py" line="72"/>
+      <source>modifies resolution</source>
+      <translation>modifie la résolution</translation>
+    </message>
+  </context>
+  <context>
+    <name>PosterboardPage</name>
+    <message>
+      <location filename="../gui/pages/tools/posterboard.py" line="31"/>
+      <source>Collections</source>
+      <translation>Colléctions</translation>
+    </message>
+    <message>
+      <location filename="../gui/pages/tools/posterboard.py" line="32"/>
+      <source>Suggested Photos</source>
+      <translation>Photos suggérées</translation>
+    </message>
+    <message>
+      <location filename="../gui/pages/tools/posterboard.py" line="33"/>
+      <source>Gallery Cache</source>
+      <translation>Cache de la Galerie</translation>
+    </message>
+    <message>
+      <location filename="../gui/pages/tools/posterboard.py" line="27"/>
+      <source>None</source>
+      <translation>Rien</translation>
+    </message>
+  </context>
+  <context>
+    <name>MainWindow</name>
+    <message>
+      <location filename="../gui/main_window.py" line="156"/>
+      <source>Warning: You are on iOS 26 beta.
+
+This has been known to cause problems and potentially lead to bootloops.
+
+Use at your own risk!</source>
+      <translation>Avertissement : Vous êtes sur iOS 26 beta.
+
+Ceci est connu pour causer des problèmes et potentiellement conduire à des redémarrages répétitifs.
+
+Utilisez-le à vos risques et périls!</translation>
     </message>
   </context>
 </TS>

@@ -1063,7 +1063,7 @@ Việc vào menu trên mẫu thiết bị gốc sẽ làm cho quá trình tải 
     <message>
       <location filename="../qt/mainwindow.ui" line="5331"/>
       <source>Disable Screen Dimming While Charging</source>
-      <translation>Bật Không tắt Màn hình trong khi Sạc</translation>
+      <translation>Bật chức năng Không tắt Màn hình trong khi Sạc</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5338"/>
@@ -1576,37 +1576,37 @@ Cảnh báo: Tắt sẽ khiến pin hiển thị "Bộ phận không xác địn
       <translation>Cài đặt Nugget</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8163"/>
+      <location filename="../qt/mainwindow.ui" line="8202"/>
       <source>Allow Applying Over WiFi</source>
       <translation>Áp dụng thông qua Wi-Fi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8173"/>
+      <location filename="../qt/mainwindow.ui" line="8212"/>
       <source>Auto Reboot After Applying</source>
       <translation>Tự động Khởi động lại sau khi Áp dụng</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8183"/>
+      <location filename="../qt/mainwindow.ui" line="8222"/>
       <source>Show Risky Tweak Options</source>
       <translation>Hiện những Tinh chỉnh Rủi ro</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8190"/>
+      <location filename="../qt/mainwindow.ui" line="8229"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
       <translation>Hiện thêm những model cho những kiểu thiết bi khác trong mục làm giả thiết bị AI.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8199"/>
+      <location filename="../qt/mainwindow.ui" line="8238"/>
       <source>Show All Spoofable Models</source>
       <translation>Hiện Tất cả Model có thể làm giả</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8206"/>
+      <location filename="../qt/mainwindow.ui" line="8245"/>
       <source>Ignore Posterboard Frame Limit</source>
       <translation>Bỏ qua Giới hạn khung hình Posterboard</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8213"/>
+      <location filename="../qt/mainwindow.ui" line="8252"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
@@ -1615,57 +1615,57 @@ DO NOT unplug your device during restores.</source>
 KHÔNG ĐƯỢC rút dây cáp của thiết bị trong quá trình khôi phục.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8218"/>
+      <location filename="../qt/mainwindow.ui" line="8257"/>
       <source>Disable Tendies Limit</source>
       <translation>Tắt Giới hạn Tendies</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8243"/>
+      <location filename="../qt/mainwindow.ui" line="8282"/>
       <source>If you used the rdar/status bar fix in a previous iOS version, this will revert that.</source>
       <translation>Nếu bạn đang dùng sửa rdar/thanh trạng thái đỏ ở phiên bản iOS thấp, thứ này sẽ khôi phục lại như ban đầu.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8246"/>
+      <location filename="../qt/mainwindow.ui" line="8285"/>
       <source>Revert rdar Fix (reset resolution)</source>
       <translation>Khôi phục thay đổi Sửa rdar (Đặt lại tỉ lệ màn hình)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8268"/>
+      <location filename="../qt/mainwindow.ui" line="8307"/>
       <source>Restores the SSL config that does something idk</source>
       <translation>Khôi phục cấu hình SSL để làm cái gì ấy nhỉ chả biết nữa hi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8271"/>
+      <location filename="../qt/mainwindow.ui" line="8310"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
       <translation>Khôi phục TrustStore (Hồ sơ Cấu hình SSL)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8281"/>
+      <location filename="../qt/mainwindow.ui" line="8320"/>
       <source>Skip Setup * (non-exploit files only)</source>
       <translation>Bỏ qua Thiết lập *(chỉ những tệp không phải khai thác)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8294"/>
+      <location filename="../qt/mainwindow.ui" line="8333"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
       <translation>Bật Supervision * (yêu cầu Bỏ qua Thiết lập)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8304"/>
+      <location filename="../qt/mainwindow.ui" line="8343"/>
       <source>Enter Organization Name</source>
       <translation>Nhập tên Công ty/Tổ chức</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8327"/>
+      <location filename="../qt/mainwindow.ui" line="8366"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
       <translation>*Lưu ý: Bỏ qua Thiết lập có thể gây ra lỗi với hồ sơ cấu hình. Tắt nó đi nếu bạn vẫn cần dùng nó.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8354"/>
+      <location filename="../qt/mainwindow.ui" line="8393"/>
       <source>Reset Device Pairing</source>
       <translation>Đặt lại Ghép đôi Thiết bị</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8368"/>
+      <location filename="../qt/mainwindow.ui" line="8407"/>
       <source>Pocket Poster Helper</source>
       <translation>Trợ giúp Pocket Poster</translation>
     </message>
@@ -1700,7 +1700,7 @@ KHÔNG ĐƯỢC rút dây cáp của thiết bị trong quá trình khôi phục
       <translation>Ngày tháng trên Thanh trạng thái</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8130"/>
+      <location filename="../qt/mainwindow.ui" line="8162"/>
       <source>App Language</source>
       <translation>Ngôn ngữ Ứng dụng</translation>
     </message>
@@ -1745,18 +1745,18 @@ hoặc bạn đã đạt đến số lượng hình nền tối đa (15) và ph�
   <context>
     <name>QCoreApplication</name>
     <message>
-      <location filename="../gui/pages/main/home.py" line="50"/>
+      <location filename="../gui/pages/main/home.py" line="51"/>
       <source>Please connect a device.</source>
       <translation>Vui lòng kết nối thiết bị.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="117"/>
-      <location filename="../gui/pages/main/settings.py" line="127"/>
+      <location filename="../gui/pages/main/settings.py" line="160"/>
+      <location filename="../gui/pages/main/settings.py" line="170"/>
       <source>PosterBoard App Hash</source>
       <translation>Mã định danh Posterboard</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="117"/>
+      <location filename="../gui/pages/main/settings.py" line="160"/>
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
@@ -1765,17 +1765,17 @@ Open up its settings and tap "Detect".</source>
 Mở cài đặt trong ứng dụng đó và ấn "Phát hiện".</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="121"/>
+      <location filename="../gui/pages/main/settings.py" line="164"/>
       <source>Copy it and paste it</source>
       <translation>Sao chép và Dán</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="125"/>
+      <location filename="../gui/pages/main/settings.py" line="168"/>
       <source>It has been copied. Paste it</source>
       <translation>Đã Sao chép. Dán đi</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="127"/>
+      <location filename="../gui/pages/main/settings.py" line="170"/>
       <source>Your hash is:
 {0}
 
@@ -1865,23 +1865,23 @@ Mở khóa thiết bị. Trên cửa sổ pop-up, ấn "Tin cậy", nhập mật
       <translation>Nếu bạn tiếp tục bị lỗi này, thử một cái cáp sạc khác hoặc thay đổi cổng kết nối trên máy tính.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="270"/>
+      <location filename="../devicemanagement/device_manager.py" line="274"/>
       <source>Pairing Reset</source>
       <translation>Đặt lại Ghép đôi</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="270"/>
+      <location filename="../devicemanagement/device_manager.py" line="274"/>
       <source>Your device's pairing was successfully reset. Refresh the device list before applying.</source>
       <translation>Đã đặt lại Ghép đôi với thiết bị của bạn thành công. Làm mới lại danh sách thiết bị trước khi áp dụng tinh chỉnh.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="497"/>
+      <location filename="../devicemanagement/device_manager.py" line="501"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
       <translation>Chưa nhập MobileGestalt! Chọn tệp MobileGestalt của bạn để có thể áp dụng các tinh chỉnh MobileGestalt.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="624"/>
-      <location filename="../devicemanagement/device_manager.py" line="658"/>
+      <location filename="../devicemanagement/device_manager.py" line="628"/>
+      <location filename="../devicemanagement/device_manager.py" line="662"/>
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
@@ -1890,37 +1890,37 @@ Remember to turn Find My back on!</source>
 Nhớ bật Tìm iPhone lên nhé!</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="626"/>
-      <location filename="../devicemanagement/device_manager.py" line="660"/>
+      <location filename="../devicemanagement/device_manager.py" line="630"/>
+      <location filename="../devicemanagement/device_manager.py" line="664"/>
       <source>Please restart your device to see changes.</source>
       <translation>Hãy khởi động lại thiết bị để xem thay đổi.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="626"/>
-      <location filename="../devicemanagement/device_manager.py" line="660"/>
+      <location filename="../devicemanagement/device_manager.py" line="630"/>
+      <location filename="../devicemanagement/device_manager.py" line="664"/>
       <source>All done! </source>
       <translation>Đã xong! </translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="626"/>
-      <location filename="../devicemanagement/device_manager.py" line="627"/>
-      <location filename="../devicemanagement/device_manager.py" line="660"/>
-      <location filename="../devicemanagement/device_manager.py" line="661"/>
+      <location filename="../devicemanagement/device_manager.py" line="630"/>
+      <location filename="../devicemanagement/device_manager.py" line="631"/>
+      <location filename="../devicemanagement/device_manager.py" line="664"/>
+      <location filename="../devicemanagement/device_manager.py" line="665"/>
       <source>Success!</source>
       <translation>Hoàn thành!</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/home.py" line="66"/>
+      <location filename="../gui/pages/main/home.py" line="67"/>
       <source>Supported!</source>
       <translation>Có Hỗ trợ!</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/home.py" line="68"/>
+      <location filename="../gui/pages/main/home.py" line="69"/>
       <source>Not Supported.</source>
       <translation>Không Hỗ trợ.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/home.py" line="71"/>
+      <location filename="../gui/pages/main/home.py" line="72"/>
       <source>Partially Supported.</source>
       <translation>Hỗ trợ Một phần.</translation>
     </message>
@@ -1951,18 +1951,83 @@ Nhớ bật Tìm iPhone lên nhé!</translation>
       <source>Failed to load template</source>
       <translation>Không tải được Mẫu</translation>
     </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="199"/>
+      <source>No Device</source>
+      <translation>Không phát hiện thiết bị nào</translation>
+    </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="440"/>
+      <source>Restoring to device...{0}{1}</source>
+      <translation>Đang khôi phục lại thiết bị...{0}{1}</translation>
+    </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="445"/>
+      <source>Applying changes to files...</source>
+      <translation>Áp dụng các thay đổi trên tệp...</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="251"/>
+      <source>Generating PosterBoard Video...</source>
+      <translation>Đang khởi tạo Video PosterBoard...</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="256"/>
+      <source>Extracting tendie {0}...</source>
+      <translation>Đang giải nén tendie {0}...</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="261"/>
+      <source>Configuring template {0}...</source>
+      <translation>Đang thiết lập mẫu {0}...</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="264"/>
+      <source>Adding tendies...</source>
+      <translation>Đang thêm tendies...</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="266"/>
+      <source>Adding other tweaks...</source>
+      <translation>Đang thêm các tinh chỉnh khác...</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/tweak_classes.py" line="115"/>
+      <source>Revert RDAR fix</source>
+      <translation>Trở lại nguyên trạng như trước khi áp dụng Sửa lỗi RDAR</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/tweak_classes.py" line="116"/>
+      <source>RDAR Fix</source>
+      <translation>Sửa lỗi RDAR</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/tweak_classes.py" line="119"/>
+      <source>Revert Status Bar Fix</source>
+      <translation>Trở lại nguyên trạng như trước khi áp dụng Sửa lỗi Thanh trạng thái</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/tweak_classes.py" line="120"/>
+      <source>Dynamic Island Status Bar Fix</source>
+      <translation>Sửa lỗi Thanh trạng thái khi bật Dynamic Island</translation>
+    </message>
+    <message>
+      <location filename="../controllers/video_handler.py" line="103"/>
+      <source>Creating {0}...</source>
+      <translation>Đang tạo {0}...</translation>
+    </message>
   </context>
   <context>
     <name>QtCore.QCoreApplication</name>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="201"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="209"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="226"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="206"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="214"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="231"/>
       <source>Error!</source>
       <translation>Lỗi!</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="202"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="207"/>
       <source>You selected too many tendies files! The limit is 3.
 
 This is for your safety. Please apply the rest separately.</source>
@@ -1971,20 +2036,20 @@ This is for your safety. Please apply the rest separately.</source>
 Đây là vì sự an toàn của bạn. Vui lòng áp dụng phần còn lại riêng 3 cái mỗi lần.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="210"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="227"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="215"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="232"/>
       <source>You selected too many descriptors! The limit is 10.</source>
       <translation>Bạn đã chọn quá nhiều phần mô tả! Giới hạn là 10 cái thôi.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="238"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="241"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="243"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="246"/>
       <source>Current Thumbnail: {0}</source>
       <translation>Hình thu nhỏ Hiện có: {0}</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="247"/>
       <location filename="../gui/pages/tools/posterboard.py" line="252"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="257"/>
       <source>Current Video: {0}</source>
       <translation>Video Hiện tại: {0}</translation>
     </message>
@@ -2040,6 +2105,50 @@ No selected file for required option</source>
       <translation>Lỗi khi áp dụng mẫu:
 
 Không có tệp nào được chọn cho tùy chọn bắt buộc</translation>
+    </message>
+    <message>
+      <location filename="../gui/pages/tools/gestalt.py" line="72"/>
+      <source>modifies resolution</source>
+      <translation>Thay đổi độ phân giải</translation>
+    </message>
+  </context>
+  <context>
+    <name>PosterboardPage</name>
+    <message>
+      <location filename="../gui/pages/tools/posterboard.py" line="31"/>
+      <source>Collections</source>
+      <translation>Bộ sưu tập</translation>
+    </message>
+    <message>
+      <location filename="../gui/pages/tools/posterboard.py" line="32"/>
+      <source>Suggested Photos</source>
+      <translation>Ảnh được gợi ý</translation>
+    </message>
+    <message>
+      <location filename="../gui/pages/tools/posterboard.py" line="33"/>
+      <source>Gallery Cache</source>
+      <translation>Cache hình nền</translation>
+    </message>
+    <message>
+      <location filename="../gui/pages/tools/posterboard.py" line="27"/>
+      <source>None</source>
+      <translation>Không có</translation>
+    </message>
+  </context>
+  <context>
+    <name>MainWindow</name>
+    <message>
+      <location filename="../gui/main_window.py" line="156"/>
+      <source>Warning: You are on iOS 26 beta.
+
+This has been known to cause problems and potentially lead to bootloops.
+
+Use at your own risk!</source>
+      <translation>Cảnh báo: Bạn đang ở iOS 26 beta.
+
+Phiên bản iOS này có khả năng sẽ mắc phải một số vấn đề và rủi ro bị vòng lặp khởi động lại - bootloops.
+
+Khuyên không nghe, hậu quả tự chịu!</translation>
     </message>
   </context>
 </TS>

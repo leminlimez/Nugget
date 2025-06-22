@@ -243,7 +243,7 @@ class PosterboardPage(Page, QtCore.QObject):
             self.ui.pbVideoThumbLbl.setText(QtCore.QCoreApplication.tr("Current Thumbnail: {0}").format(selected_file))
         else:
             tweaks["PosterBoard"].videoThumbnail = None
-            self.ui.pbVideoThumbLbl.setText(QtCore.QCoreApplication.tr("Current Thumbnail: {0}").format("None"))
+            self.ui.pbVideoThumbLbl.setText(QtCore.QCoreApplication.tr("Current Thumbnail: {0}").format(self.tr("None")))
     def on_chooseVideoBtn_clicked(self):
         selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self.window, "Select Video File", "", "Video Files (*.mov *.mp4 *.mkv)", options=QtWidgets.QFileDialog.ReadOnly)
         self.ui.resetPBDrp.deselectAll()
@@ -254,7 +254,7 @@ class PosterboardPage(Page, QtCore.QObject):
                 self.ui.exportPBVideoBtn.show()
         else:
             tweaks["PosterBoard"].videoFile = None
-            self.ui.pbVideoLbl.setText(QtCore.QCoreApplication.tr("Current Video: {0}").format("None"))
+            self.ui.pbVideoLbl.setText(QtCore.QCoreApplication.tr("Current Video: {0}").format(self.tr("None")))
             self.ui.exportPBVideoBtn.hide()
     def on_caVideoChk_toggled(self, checked: bool):
         tweaks["PosterBoard"].loop_video = checked

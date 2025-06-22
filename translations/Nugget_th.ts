@@ -1581,37 +1581,37 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
       <translation>การตั้งค่า Nugget</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8163"/>
+      <location filename="../qt/mainwindow.ui" line="8202"/>
       <source>Allow Applying Over WiFi</source>
       <translation>อนุญาตให้ส่งการตั้งค่าผ่าน WiFi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8173"/>
+      <location filename="../qt/mainwindow.ui" line="8212"/>
       <source>Auto Reboot After Applying</source>
       <translation>รีบูตอัตโนมัติหลังใช้การตั้งค่า</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8183"/>
+      <location filename="../qt/mainwindow.ui" line="8222"/>
       <source>Show Risky Tweak Options</source>
       <translation>แสดงตัวเลือกทวีคที่มีความเสี่ยง</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8190"/>
+      <location filename="../qt/mainwindow.ui" line="8229"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
       <translation>แสดงรุ่นสำหรับอุปกรณ์ประเภทอื่นในแท็บปลอมแปลงอุปกรณ์ AI</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8199"/>
+      <location filename="../qt/mainwindow.ui" line="8238"/>
       <source>Show All Spoofable Models</source>
       <translation>แสดงทุกรุ่นที่สามารถปลอมแปลงได้</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8206"/>
+      <location filename="../qt/mainwindow.ui" line="8245"/>
       <source>Ignore Posterboard Frame Limit</source>
       <translation>ไม่สนใจข้อจำกัดเฟรมของโปสเตอร์บอร์ด</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8213"/>
+      <location filename="../qt/mainwindow.ui" line="8252"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
@@ -1620,57 +1620,57 @@ DO NOT unplug your device during restores.</source>
 ห้ามถอดสายระหว่างการกู้คืนอุปกรณ์เด็ดขาด</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8218"/>
+      <location filename="../qt/mainwindow.ui" line="8257"/>
       <source>Disable Tendies Limit</source>
       <translation>ปิดข้อจำกัด Tendies</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8243"/>
+      <location filename="../qt/mainwindow.ui" line="8282"/>
       <source>If you used the rdar/status bar fix in a previous iOS version, this will revert that.</source>
       <translation>ถ้าเคยใช้ตัวแก้ไข rdar/แถบสถานะใน iOS เวอร์ชันก่อนหน้านี้ ตัวเลือกนี้จะย้อนการเปลี่ยนนั้น</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8246"/>
+      <location filename="../qt/mainwindow.ui" line="8285"/>
       <source>Revert rdar Fix (reset resolution)</source>
       <translation>ย้อนการแก้ไข rdar (รีเซ็ตความละเอียดจอ)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8268"/>
+      <location filename="../qt/mainwindow.ui" line="8307"/>
       <source>Restores the SSL config that does something idk</source>
       <translation>คืนค่าการตั้งค่า SSL ที่ทำอะไรสักอย่าง ก็ไม่แน่ใจเหมือนกัน</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8271"/>
+      <location filename="../qt/mainwindow.ui" line="8310"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
       <translation>คืนค่า TrustStore (โปรไฟล์การตั้งค่า SSL)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8281"/>
+      <location filename="../qt/mainwindow.ui" line="8320"/>
       <source>Skip Setup * (non-exploit files only)</source>
       <translation>ข้ามการตั้งค่า * (เฉพาะไฟล์ที่ไม่ใช่ Exploit)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8294"/>
+      <location filename="../qt/mainwindow.ui" line="8333"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
       <translation>เปิดใช้งานการควบคุมอุปกรณ์ * (ต้องเปิดใช้งานข้ามการตั้งค่า)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8304"/>
+      <location filename="../qt/mainwindow.ui" line="8343"/>
       <source>Enter Organization Name</source>
       <translation>ใส่ชื่อองค์กร</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8327"/>
+      <location filename="../qt/mainwindow.ui" line="8366"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
       <translation>* หมายเหตุ: การข้ามการตั้งค่าอาจทำให้เกิดปัญหากับโปรไฟล์การตั้งค่า หากต้องการใช้โปรไฟล์ ให้ปิดฟีเจอร์นี้</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8354"/>
+      <location filename="../qt/mainwindow.ui" line="8393"/>
       <source>Reset Device Pairing</source>
       <translation>รีเซ็ตการจับคู่อุปกรณ์</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8368"/>
+      <location filename="../qt/mainwindow.ui" line="8407"/>
       <source>Pocket Poster Helper</source>
       <translation>ตัวช่วย Pocket Poster</translation>
     </message>
@@ -1705,7 +1705,7 @@ DO NOT unplug your device during restores.</source>
       <translation>ข้อความวันที่ในแถบสถานะ</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8130"/>
+      <location filename="../qt/mainwindow.ui" line="8162"/>
       <source>App Language</source>
       <translation>ภาษาแอป</translation>
     </message>
@@ -1750,18 +1750,18 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
   <context>
     <name>QCoreApplication</name>
     <message>
-      <location filename="../gui/pages/main/home.py" line="50"/>
+      <location filename="../gui/pages/main/home.py" line="51"/>
       <source>Please connect a device.</source>
       <translation>กรุณาเชื่อมต่อกับอุปกรณ์</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="117"/>
-      <location filename="../gui/pages/main/settings.py" line="127"/>
+      <location filename="../gui/pages/main/settings.py" line="160"/>
+      <location filename="../gui/pages/main/settings.py" line="170"/>
       <source>PosterBoard App Hash</source>
       <translation>แฮชแอป PosterBoard</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="117"/>
+      <location filename="../gui/pages/main/settings.py" line="160"/>
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
@@ -1770,17 +1770,17 @@ Open up its settings and tap "Detect".</source>
 เปิดการตั้งค่าแอปแล้วกด "Detect"</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="121"/>
+      <location filename="../gui/pages/main/settings.py" line="164"/>
       <source>Copy it and paste it</source>
       <translation>คัดลอกแล้ววาง</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="125"/>
+      <location filename="../gui/pages/main/settings.py" line="168"/>
       <source>It has been copied. Paste it</source>
       <translation>คัดลอกแล้ว วางได้เลย</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="127"/>
+      <location filename="../gui/pages/main/settings.py" line="170"/>
       <source>Your hash is:
 {0}
 
@@ -1870,23 +1870,23 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
       <translation>ถ้าคุณยังเจอข้อผิดพลาดนี้อยู่ ลองเปลี่ยนสายหรือพอร์ตดู</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="270"/>
+      <location filename="../devicemanagement/device_manager.py" line="274"/>
       <source>Pairing Reset</source>
       <translation>รีเซ็ตการเชื่อมต่อ</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="270"/>
+      <location filename="../devicemanagement/device_manager.py" line="274"/>
       <source>Your device's pairing was successfully reset. Refresh the device list before applying.</source>
       <translation>การจับคู่ของอุปกรณ์คุณถูกรีเซ็ตสำเร็จ กรุณารีเฟรชรายการอุปกรณ์ก่อนใช้งาน</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="497"/>
+      <location filename="../devicemanagement/device_manager.py" line="501"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
       <translation>ไม่มีไฟล์ mobilegestalt ถูกเลือก! กรุณาเลือกไฟล์ mobilegestalt เพื่อใช้งาน</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="624"/>
-      <location filename="../devicemanagement/device_manager.py" line="658"/>
+      <location filename="../devicemanagement/device_manager.py" line="628"/>
+      <location filename="../devicemanagement/device_manager.py" line="662"/>
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
@@ -1895,37 +1895,37 @@ Remember to turn Find My back on!</source>
 อย่าลืมเปิด Find My ด้วยนะ!</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="626"/>
-      <location filename="../devicemanagement/device_manager.py" line="660"/>
+      <location filename="../devicemanagement/device_manager.py" line="630"/>
+      <location filename="../devicemanagement/device_manager.py" line="664"/>
       <source>Please restart your device to see changes.</source>
       <translation>กรุณารีสตาร์ทอุปกรณ์คุณเพื่อดูการเปลี่ยนแปลง</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="626"/>
-      <location filename="../devicemanagement/device_manager.py" line="660"/>
+      <location filename="../devicemanagement/device_manager.py" line="630"/>
+      <location filename="../devicemanagement/device_manager.py" line="664"/>
       <source>All done! </source>
       <translation>เสร็จเรียบร้อย! </translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="626"/>
-      <location filename="../devicemanagement/device_manager.py" line="627"/>
-      <location filename="../devicemanagement/device_manager.py" line="660"/>
-      <location filename="../devicemanagement/device_manager.py" line="661"/>
+      <location filename="../devicemanagement/device_manager.py" line="630"/>
+      <location filename="../devicemanagement/device_manager.py" line="631"/>
+      <location filename="../devicemanagement/device_manager.py" line="664"/>
+      <location filename="../devicemanagement/device_manager.py" line="665"/>
       <source>Success!</source>
       <translation>สำเร็จ!</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/home.py" line="66"/>
+      <location filename="../gui/pages/main/home.py" line="67"/>
       <source>Supported!</source>
       <translation>รับรอง!</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/home.py" line="68"/>
+      <location filename="../gui/pages/main/home.py" line="69"/>
       <source>Not Supported.</source>
       <translation>ไม่รับรอง</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/home.py" line="71"/>
+      <location filename="../gui/pages/main/home.py" line="72"/>
       <source>Partially Supported.</source>
       <translation>รอบรองบางอย่าง</translation>
     </message>
@@ -1956,18 +1956,83 @@ Remember to turn Find My back on!</source>
       <source>Failed to load template</source>
       <translation>โหลดเทมเพลตไม่สำเร็จ</translation>
     </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="199"/>
+      <source>No Device</source>
+      <translation>ไม่มีอุปกรณ์</translation>
+    </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="440"/>
+      <source>Restoring to device...{0}{1}</source>
+      <translation>กำลังคืนค่าไปยังอุปกรณ์...{0}{1}</translation>
+    </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="445"/>
+      <source>Applying changes to files...</source>
+      <translation>กำลังใช้การเปลี่ยนแปลงกับไฟล์...</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="251"/>
+      <source>Generating PosterBoard Video...</source>
+      <translation>กำลังสร้างวิดีโอโปสเตอร์บอร์ด</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="256"/>
+      <source>Extracting tendie {0}...</source>
+      <translation>กำลังแตกไฟล์ tendie {0}...</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="261"/>
+      <source>Configuring template {0}...</source>
+      <translation>กำลังตั้งค่าเทมเพลต {0}...</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="264"/>
+      <source>Adding tendies...</source>
+      <translation>กำลังเพิ่มtendies...</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="266"/>
+      <source>Adding other tweaks...</source>
+      <translation>กำลังเพิ่มการปรับเปลี่ยนอื่นๆ...</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/tweak_classes.py" line="115"/>
+      <source>Revert RDAR fix</source>
+      <translation>ย้อนการแก้ RDAR</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/tweak_classes.py" line="116"/>
+      <source>RDAR Fix</source>
+      <translation>แก้ RDAR</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/tweak_classes.py" line="119"/>
+      <source>Revert Status Bar Fix</source>
+      <translation>ย้อนการแก้แถบสถานะ</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/tweak_classes.py" line="120"/>
+      <source>Dynamic Island Status Bar Fix</source>
+      <translation>แก้แถบสถานะ Dynamic Island</translation>
+    </message>
+    <message>
+      <location filename="../controllers/video_handler.py" line="103"/>
+      <source>Creating {0}...</source>
+      <translation>กำลังสร้าง {0}...</translation>
+    </message>
   </context>
   <context>
     <name>QtCore.QCoreApplication</name>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="201"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="209"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="226"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="206"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="214"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="231"/>
       <source>Error!</source>
       <translation>เกิดข้อผิดพลาด!</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="202"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="207"/>
       <source>You selected too many tendies files! The limit is 3.
 
 This is for your safety. Please apply the rest separately.</source>
@@ -1976,20 +2041,20 @@ This is for your safety. Please apply the rest separately.</source>
 เพื่อความปลอดภัย กรุณาเลือกใช้งานไฟล์ที่เหลือแยกกันเป็นรอบๆ</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="210"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="227"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="215"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="232"/>
       <source>You selected too many descriptors! The limit is 10.</source>
       <translation>คุณเลือก descriptors มากเกินไป! จำกัดไว้ที่ 10 อัน</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="238"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="241"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="243"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="246"/>
       <source>Current Thumbnail: {0}</source>
       <translation>ภาพขนาดย่อปัจจุบัน: {0}</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="247"/>
       <location filename="../gui/pages/tools/posterboard.py" line="252"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="257"/>
       <source>Current Video: {0}</source>
       <translation>วิดีโอปัจจุบัน: {0}</translation>
     </message>
@@ -2045,6 +2110,50 @@ No selected file for required option</source>
       <translation>เกิดข้อผิดพลาดขณะใช้เทมเพลต:
 
 ไม่มีไฟล์ที่เลือกสำหรับตัวเลือกที่จำเป็น</translation>
+    </message>
+    <message>
+      <location filename="../gui/pages/tools/gestalt.py" line="72"/>
+      <source>modifies resolution</source>
+      <translation>ปรับความละเอียด</translation>
+    </message>
+  </context>
+  <context>
+    <name>PosterboardPage</name>
+    <message>
+      <location filename="../gui/pages/tools/posterboard.py" line="31"/>
+      <source>Collections</source>
+      <translation>คอลเลคชั่น</translation>
+    </message>
+    <message>
+      <location filename="../gui/pages/tools/posterboard.py" line="32"/>
+      <source>Suggested Photos</source>
+      <translation>รูปภาพแนะนำ</translation>
+    </message>
+    <message>
+      <location filename="../gui/pages/tools/posterboard.py" line="33"/>
+      <source>Gallery Cache</source>
+      <translation>แคชแกลอรี่</translation>
+    </message>
+    <message>
+      <location filename="../gui/pages/tools/posterboard.py" line="27"/>
+      <source>None</source>
+      <translation>ไม่มี</translation>
+    </message>
+  </context>
+  <context>
+    <name>MainWindow</name>
+    <message>
+      <location filename="../gui/main_window.py" line="156"/>
+      <source>Warning: You are on iOS 26 beta.
+
+This has been known to cause problems and potentially lead to bootloops.
+
+Use at your own risk!</source>
+      <translation>คำเตือน: คุณกำลังใช้ iOS 26 เบต้า
+
+เป็นที่ทราบกันดีว่าอาจทำให้เกิดปัญหาต่างๆกับเครื่องเปิดไม่ติดได้
+
+โปรดใช้ด้วยความเสี่ยงของคุณเอง!</translation>
     </message>
   </context>
 </TS>

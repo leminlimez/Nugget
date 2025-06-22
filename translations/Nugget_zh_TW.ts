@@ -94,7 +94,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="1369"/>
       <source>With Help From</source>
-      <translation>還有來自以下開發者的幫助</translation>
+      <translation>還有這些人的幫助</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1391"/>
@@ -1580,37 +1580,37 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
       <translation>Nugget設定</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8163"/>
+      <location filename="../qt/mainwindow.ui" line="8202"/>
       <source>Allow Applying Over WiFi</source>
       <translation>允許透過Wi-Fi套用改動</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8173"/>
+      <location filename="../qt/mainwindow.ui" line="8212"/>
       <source>Auto Reboot After Applying</source>
       <translation>套用後自動重新開機</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8183"/>
+      <location filename="../qt/mainwindow.ui" line="8222"/>
       <source>Show Risky Tweak Options</source>
       <translation>顯示有風險的調整選項</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8190"/>
+      <location filename="../qt/mainwindow.ui" line="8229"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
       <translation>在AI裝置偽裝頁面顯示其他裝置種類的型號</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8199"/>
+      <location filename="../qt/mainwindow.ui" line="8238"/>
       <source>Show All Spoofable Models</source>
       <translation>顯示所有可偽裝的型號</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8206"/>
+      <location filename="../qt/mainwindow.ui" line="8245"/>
       <source>Ignore Posterboard Frame Limit</source>
       <translation>忽略Posterboard的幀數限制</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8213"/>
+      <location filename="../qt/mainwindow.ui" line="8252"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
@@ -1619,57 +1619,57 @@ DO NOT unplug your device during restores.</source>
 「不要」在裝置設定時拔掉你的線。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8218"/>
+      <location filename="../qt/mainwindow.ui" line="8257"/>
       <source>Disable Tendies Limit</source>
       <translation>停用Tendies限制</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8243"/>
+      <location filename="../qt/mainwindow.ui" line="8282"/>
       <source>If you used the rdar/status bar fix in a previous iOS version, this will revert that.</source>
       <translation>如果你在之前的iOS版本使用了rdar紅條/狀態欄修復功能，這個選項會回復他</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8246"/>
+      <location filename="../qt/mainwindow.ui" line="8285"/>
       <source>Revert rdar Fix (reset resolution)</source>
       <translation>回復rdar修復(重設解析度)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8268"/>
+      <location filename="../qt/mainwindow.ui" line="8307"/>
       <source>Restores the SSL config that does something idk</source>
       <translation>恢復我也不知道會做什麼事的SSL 設定</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8271"/>
+      <location filename="../qt/mainwindow.ui" line="8310"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
       <translation>恢復 TrustStore(SSL 配置設定檔)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8281"/>
+      <location filename="../qt/mainwindow.ui" line="8320"/>
       <source>Skip Setup * (non-exploit files only)</source>
       <translation>跳過設定流程*(僅限非漏洞利用檔案)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8294"/>
+      <location filename="../qt/mainwindow.ui" line="8333"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
       <translation>啟用監管模式*(需先啟用跳過設定流程)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8304"/>
+      <location filename="../qt/mainwindow.ui" line="8343"/>
       <source>Enter Organization Name</source>
       <translation>輸入組織名稱</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8327"/>
+      <location filename="../qt/mainwindow.ui" line="8366"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
       <translation>*提示：跳過設定流程可能會導致設定描述檔出現問題。若你需要使用描述檔，請關閉此功能。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8354"/>
+      <location filename="../qt/mainwindow.ui" line="8393"/>
       <source>Reset Device Pairing</source>
       <translation>重設裝置配對</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8368"/>
+      <location filename="../qt/mainwindow.ui" line="8407"/>
       <source>Pocket Poster Helper</source>
       <translation>Pocket Poster助手</translation>
     </message>
@@ -1704,7 +1704,7 @@ DO NOT unplug your device during restores.</source>
       <translation>狀態欄日期文字</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8130"/>
+      <location filename="../qt/mainwindow.ui" line="8162"/>
       <source>App Language</source>
       <translation>App語言</translation>
     </message>
@@ -1750,18 +1750,18 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
   <context>
     <name>QCoreApplication</name>
     <message>
-      <location filename="../gui/pages/main/home.py" line="50"/>
+      <location filename="../gui/pages/main/home.py" line="51"/>
       <source>Please connect a device.</source>
       <translation>請連接一個裝置。</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="117"/>
-      <location filename="../gui/pages/main/settings.py" line="127"/>
+      <location filename="../gui/pages/main/settings.py" line="160"/>
+      <location filename="../gui/pages/main/settings.py" line="170"/>
       <source>PosterBoard App Hash</source>
       <translation>PosterBoard App 雜湊值</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="117"/>
+      <location filename="../gui/pages/main/settings.py" line="160"/>
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
@@ -1770,17 +1770,17 @@ Open up its settings and tap "Detect".</source>
 開啟該應用程式的設定，然後點選「偵測」。</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="121"/>
+      <location filename="../gui/pages/main/settings.py" line="164"/>
       <source>Copy it and paste it</source>
       <translation>複製他並貼上他</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="125"/>
+      <location filename="../gui/pages/main/settings.py" line="168"/>
       <source>It has been copied. Paste it</source>
       <translation>他已經被複製了。請貼上他</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="127"/>
+      <location filename="../gui/pages/main/settings.py" line="170"/>
       <source>Your hash is:
 {0}
 
@@ -1870,23 +1870,23 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
       <translation>如果你持續收到這個錯誤，嘗試換一條線或是換一個接口。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="270"/>
+      <location filename="../devicemanagement/device_manager.py" line="274"/>
       <source>Pairing Reset</source>
       <translation>重設配對</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="270"/>
+      <location filename="../devicemanagement/device_manager.py" line="274"/>
       <source>Your device's pairing was successfully reset. Refresh the device list before applying.</source>
       <translation>你的裝置配對成功重設了。請在套用變更之前刷新裝置列表。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="497"/>
+      <location filename="../devicemanagement/device_manager.py" line="501"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
       <translation>沒有提供mobilegestalt檔案！請選擇你的檔案才能套用mobilegestalt的調整項目。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="624"/>
-      <location filename="../devicemanagement/device_manager.py" line="658"/>
+      <location filename="../devicemanagement/device_manager.py" line="628"/>
+      <location filename="../devicemanagement/device_manager.py" line="662"/>
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
@@ -1895,37 +1895,37 @@ Remember to turn Find My back on!</source>
 記得把Find My重新打開！</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="626"/>
-      <location filename="../devicemanagement/device_manager.py" line="660"/>
+      <location filename="../devicemanagement/device_manager.py" line="630"/>
+      <location filename="../devicemanagement/device_manager.py" line="664"/>
       <source>Please restart your device to see changes.</source>
       <translation>請重新啟動你的裝置來查看變更。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="626"/>
-      <location filename="../devicemanagement/device_manager.py" line="660"/>
+      <location filename="../devicemanagement/device_manager.py" line="630"/>
+      <location filename="../devicemanagement/device_manager.py" line="664"/>
       <source>All done! </source>
       <translation>全部完成！ </translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="626"/>
-      <location filename="../devicemanagement/device_manager.py" line="627"/>
-      <location filename="../devicemanagement/device_manager.py" line="660"/>
-      <location filename="../devicemanagement/device_manager.py" line="661"/>
+      <location filename="../devicemanagement/device_manager.py" line="630"/>
+      <location filename="../devicemanagement/device_manager.py" line="631"/>
+      <location filename="../devicemanagement/device_manager.py" line="664"/>
+      <location filename="../devicemanagement/device_manager.py" line="665"/>
       <source>Success!</source>
       <translation>成功！</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/home.py" line="66"/>
+      <location filename="../gui/pages/main/home.py" line="67"/>
       <source>Supported!</source>
       <translation>支援！</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/home.py" line="68"/>
+      <location filename="../gui/pages/main/home.py" line="69"/>
       <source>Not Supported.</source>
       <translation>不支援。</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/home.py" line="71"/>
+      <location filename="../gui/pages/main/home.py" line="72"/>
       <source>Partially Supported.</source>
       <translation>部分支援。</translation>
     </message>
@@ -1956,18 +1956,83 @@ Remember to turn Find My back on!</source>
       <source>Failed to load template</source>
       <translation>載入範本失敗</translation>
     </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="199"/>
+      <source>No Device</source>
+      <translation>沒有裝置</translation>
+    </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="440"/>
+      <source>Restoring to device...{0}{1}</source>
+      <translation>正在恢復裝置…{0}{1}</translation>
+    </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="445"/>
+      <source>Applying changes to files...</source>
+      <translation>正在套用變更到檔案上…</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="251"/>
+      <source>Generating PosterBoard Video...</source>
+      <translation>正在生成PosterBoard影片…</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="256"/>
+      <source>Extracting tendie {0}...</source>
+      <translation>正在提取tendie {0}</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="261"/>
+      <source>Configuring template {0}...</source>
+      <translation>正在設定模板 {0}…</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="264"/>
+      <source>Adding tendies...</source>
+      <translation>正在添加tendies檔案…</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="266"/>
+      <source>Adding other tweaks...</source>
+      <translation>正在添加其他調整項目…</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/tweak_classes.py" line="115"/>
+      <source>Revert RDAR fix</source>
+      <translation>回復RDAR紅條錯誤修正</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/tweak_classes.py" line="116"/>
+      <source>RDAR Fix</source>
+      <translation>RDAR紅條錯誤修正</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/tweak_classes.py" line="119"/>
+      <source>Revert Status Bar Fix</source>
+      <translation>回復狀態欄修復</translation>
+    </message>
+    <message>
+      <location filename="../tweaks/tweak_classes.py" line="120"/>
+      <source>Dynamic Island Status Bar Fix</source>
+      <translation>動態島狀態欄修復</translation>
+    </message>
+    <message>
+      <location filename="../controllers/video_handler.py" line="103"/>
+      <source>Creating {0}...</source>
+      <translation>正在創建{0}…</translation>
+    </message>
   </context>
   <context>
     <name>QtCore.QCoreApplication</name>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="201"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="209"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="226"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="206"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="214"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="231"/>
       <source>Error!</source>
       <translation>錯誤！</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="202"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="207"/>
       <source>You selected too many tendies files! The limit is 3.
 
 This is for your safety. Please apply the rest separately.</source>
@@ -1976,20 +2041,20 @@ This is for your safety. Please apply the rest separately.</source>
 這是為了您的安全。請分開套用剩下的檔案。</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="210"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="227"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="215"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="232"/>
       <source>You selected too many descriptors! The limit is 10.</source>
       <translation>你選擇太多descriptors了！限制是10個。</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="238"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="241"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="243"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="246"/>
       <source>Current Thumbnail: {0}</source>
       <translation>目前縮圖：{0}</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="247"/>
       <location filename="../gui/pages/tools/posterboard.py" line="252"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="257"/>
       <source>Current Video: {0}</source>
       <translation>目前影片：{0}</translation>
     </message>
@@ -2045,6 +2110,50 @@ No selected file for required option</source>
       <translation>套用模板時發生錯誤：
 
 未為必要選項選擇檔案</translation>
+    </message>
+    <message>
+      <location filename="../gui/pages/tools/gestalt.py" line="72"/>
+      <source>modifies resolution</source>
+      <translation>修改解析度</translation>
+    </message>
+  </context>
+  <context>
+    <name>PosterboardPage</name>
+    <message>
+      <location filename="../gui/pages/tools/posterboard.py" line="31"/>
+      <source>Collections</source>
+      <translation>收藏</translation>
+    </message>
+    <message>
+      <location filename="../gui/pages/tools/posterboard.py" line="32"/>
+      <source>Suggested Photos</source>
+      <translation>建議的圖片</translation>
+    </message>
+    <message>
+      <location filename="../gui/pages/tools/posterboard.py" line="33"/>
+      <source>Gallery Cache</source>
+      <translation>圖庫快取</translation>
+    </message>
+    <message>
+      <location filename="../gui/pages/tools/posterboard.py" line="27"/>
+      <source>None</source>
+      <translation>無</translation>
+    </message>
+  </context>
+  <context>
+    <name>MainWindow</name>
+    <message>
+      <location filename="../gui/main_window.py" line="156"/>
+      <source>Warning: You are on iOS 26 beta.
+
+This has been known to cause problems and potentially lead to bootloops.
+
+Use at your own risk!</source>
+      <translation>警告：你正在使用iOS 26 beta版本。
+
+此版本已知可能導致問題，甚至可能造成裝置進入重啟循環。
+
+請自行承擔使用風險！</translation>
     </message>
   </context>
 </TS>

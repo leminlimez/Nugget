@@ -13,7 +13,7 @@ Are you sure you want to use this one?</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../gui/main_window.py" line="153"/>
+        <location filename="../gui/main_window.py" line="156"/>
         <source>Warning: You are on iOS 26 beta.
 
 This has been known to cause problems and potentially lead to bootloops.
@@ -1712,12 +1712,12 @@ or you&apos;ve reached the maximum amount of wallpapers (15) and have to wipe th
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/tools/posterboard.py" line="34"/>
+        <location filename="../gui/pages/tools/posterboard.py" line="33"/>
         <source>Gallery Cache</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/tools/posterboard.py" line="35"/>
+        <location filename="../gui/pages/tools/posterboard.py" line="27"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>

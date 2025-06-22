@@ -1339,7 +1339,7 @@ Para que funcione correctamente, también desactiva el proceso en segundo plano 
     <message>
       <location filename="../qt/mainwindow.ui" line="6187"/>
       <source>   Discover Wallpapers</source>
-      <translation>Descubre fondos de pantalla</translation>
+      <translation>   Descubre fondos de pantalla</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6278"/>
@@ -2114,22 +2114,6 @@ No se ha seleccionado ningún archivo para la opción requerida</translation>
       <source>modifies resolution</source>
       <translation>Modifica la resolución</translation>
     </message>
-</context>
-<context>
-  <name>MainWindow</name>
-    <message>
-        <location filename="../gui/main_window.py" line="153"/>
-      <source>Warning: You are on iOS 26 beta.
-
-This has been known to cause problems and potentially lead to bootloops.
-
-Use at your own risk!</source>
-      <translation>Advertencia: Estás en iOS 26 beta.
-
-Se sabe que esto causa problemas y potencialmente conduce a bootloops.
-
-¡Úsalo bajo tu propio riesgo!</translation>
-    </message>
   </context>
   <context>
     <name>PosterboardPage</name>
@@ -2144,14 +2128,30 @@ Se sabe que esto causa problemas y potencialmente conduce a bootloops.
       <translation>Fotos sugeridas</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="34"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="33"/>
       <source>Gallery Cache</source>
       <translation>Cache de la galería</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="35"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="27"/>
       <source>None</source>
       <translation>Nadq</translation>
     </message>
-</context>
+  </context>
+  <context>
+    <name>MainWindow</name>
+    <message>
+      <location filename="../gui/main_window.py" line="156"/>
+      <source>Warning: You are on iOS 26 beta.
+
+This has been known to cause problems and potentially lead to bootloops.
+
+Use at your own risk!</source>
+      <translation>Advertencia: Estás en iOS 26 beta.
+
+Se sabe que esto causa problemas y potencialmente conduce a bootloops.
+
+¡Úsalo bajo tu propio riesgo!</translation>
+    </message>
+  </context>
 </TS>

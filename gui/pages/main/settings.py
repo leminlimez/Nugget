@@ -11,7 +11,9 @@ from controllers.video_handler import set_ignore_frame_limit
 available_languages = {
     "English": "en",
     "Español": "es",
+    "Español (México)": "es_MX",
     "Français": "fr",
+    "Français (Canada)": "fr_CA",
     "Deutsch": "de",
     "Русский язык": "ru",
     "日本語": "ja",
