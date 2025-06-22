@@ -234,6 +234,7 @@ class Ui_Nugget(object):
 "    background-color: #535353;\n"
 "    color: #ffffff;\n"
 "}")
+        self.devicePicker.setPlaceholderText(u"None")
         self.devicePicker.setDuplicatesEnabled(True)
 
         self.horizontalLayout_15.addWidget(self.devicePicker)
@@ -1041,7 +1042,7 @@ class Ui_Nugget(object):
         self.verticalLayout_8.addWidget(self.label_9)
 
         self.dynamicIslandDrp = QComboBox(self.gestaltPageContent)
-        self.dynamicIslandDrp.addItem("")
+        self.dynamicIslandDrp.addItem(u"None")
         self.dynamicIslandDrp.addItem("")
         self.dynamicIslandDrp.addItem("")
         self.dynamicIslandDrp.addItem("")
@@ -1083,12 +1084,15 @@ class Ui_Nugget(object):
 "    background-color: #535353;\n"
 "    color: #ffffff;\n"
 "}")
+        self.dynamicIslandDrp.setCurrentText(u"None")
         self.dynamicIslandDrp.setMaxVisibleItems(15)
+        self.dynamicIslandDrp.setPlaceholderText(u"")
 
         self.verticalLayout_8.addWidget(self.dynamicIslandDrp)
 
         self.rdarFixChk = QCheckBox(self.gestaltPageContent)
         self.rdarFixChk.setObjectName(u"rdarFixChk")
+        self.rdarFixChk.setText(u"Fix RDAR (modifies resolution)")
 
         self.verticalLayout_8.addWidget(self.rdarFixChk)
 
@@ -3506,11 +3510,13 @@ class Ui_Nugget(object):
 
         self.pbVideoThumbLbl = QLabel(self.pbVideoPage)
         self.pbVideoThumbLbl.setObjectName(u"pbVideoThumbLbl")
+        self.pbVideoThumbLbl.setText(u"Current Thumbnail: None")
 
         self.verticalLayout_39.addWidget(self.pbVideoThumbLbl)
 
         self.pbVideoLbl = QLabel(self.pbVideoPage)
         self.pbVideoLbl.setObjectName(u"pbVideoLbl")
+        self.pbVideoLbl.setText(u"Current Video: None")
 
         self.verticalLayout_39.addWidget(self.pbVideoLbl)
 
@@ -4054,6 +4060,7 @@ class Ui_Nugget(object):
 
         self.gestaltLocationLbl = QLabel(self.verticalWidget3)
         self.gestaltLocationLbl.setObjectName(u"gestaltLocationLbl")
+        self.gestaltLocationLbl.setText(u"None")
         self.gestaltLocationLbl.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_241.addWidget(self.gestaltLocationLbl)
@@ -4416,7 +4423,6 @@ class Ui_Nugget(object):
     # setupUi
 
     def retranslateUi(self, Nugget):
-        self.devicePicker.setPlaceholderText(QCoreApplication.translate("Nugget", u"None", None))
         self.homePageBtn.setText(QCoreApplication.translate("Nugget", u"    Home", None))
         self.posterboardPageBtn.setText(QCoreApplication.translate("Nugget", u"    Posterboard", None))
         self.gestaltPageBtn.setText(QCoreApplication.translate("Nugget", u"     Mobile Gestalt", None))
@@ -4460,7 +4466,6 @@ class Ui_Nugget(object):
         self.statusBarLbl.setText(QCoreApplication.translate("Nugget", u"Mobile Gestalt", None))
         self.mgaWarningLbl.setText(QCoreApplication.translate("Nugget", u"! You will need a MobileGestalt file for this feature. Please select it in the Apply page !", None))
         self.label_9.setText(QCoreApplication.translate("Nugget", u"Device Subtype Preset", None))
-        self.dynamicIslandDrp.setItemText(0, QCoreApplication.translate("Nugget", u"None", None))
         self.dynamicIslandDrp.setItemText(1, QCoreApplication.translate("Nugget", u"2436 (iPhone X Gestures for SE phones)", None))
         self.dynamicIslandDrp.setItemText(2, QCoreApplication.translate("Nugget", u"2556 (iPhone 14 Pro Dynamic Island)", None))
         self.dynamicIslandDrp.setItemText(3, QCoreApplication.translate("Nugget", u"2796 (iPhone 14 Pro Max Dynamic Island)", None))
@@ -4468,11 +4473,9 @@ class Ui_Nugget(object):
         self.dynamicIslandDrp.setItemText(5, QCoreApplication.translate("Nugget", u"2622 (iPhone 16 Pro Dynamic Island)", None))
         self.dynamicIslandDrp.setItemText(6, QCoreApplication.translate("Nugget", u"2868 (iPhone 16 Pro Max Dynamic Island)", None))
 
-        self.dynamicIslandDrp.setCurrentText(QCoreApplication.translate("Nugget", u"None", None))
 #if QT_CONFIG(tooltip)
         self.rdarFixChk.setToolTip(QCoreApplication.translate("Nugget", u"Modifies the resolution to improve functionality of the changed device subtype. May cause weird visual bugs.", None))
 #endif // QT_CONFIG(tooltip)
-        self.rdarFixChk.setText(QCoreApplication.translate("Nugget", u"Fix RDAR (modifies resolution)", None))
 #if QT_CONFIG(tooltip)
         self.modelNameChk.setToolTip(QCoreApplication.translate("Nugget", u"Changes the model name in the 'About' page in the Settings app.", None))
 #endif // QT_CONFIG(tooltip)
@@ -4865,8 +4868,6 @@ class Ui_Nugget(object):
 #endif // QT_CONFIG(tooltip)
         self.chooseVideoBtn.setText(QCoreApplication.translate("Nugget", u"Choose Video", None))
         self.exportPBVideoBtn.setText(QCoreApplication.translate("Nugget", u"   Export Video as Descriptor", None))
-        self.pbVideoThumbLbl.setText(QCoreApplication.translate("Nugget", u"Current Thumbnail: None", None))
-        self.pbVideoLbl.setText(QCoreApplication.translate("Nugget", u"Current Video: None", None))
         self.templatesLbl.setText(QCoreApplication.translate("Nugget", u"Templates", None))
 #if QT_CONFIG(tooltip)
         self.importTemplatesBtn.setToolTip(QCoreApplication.translate("Nugget", u"Select a wallpaper file with the .tendies extension.", None))
@@ -4906,7 +4907,6 @@ class Ui_Nugget(object):
         self.statusBarLbl_51.setText(QCoreApplication.translate("Nugget", u"Apply", None))
         self.label_161.setText("")
         self.gestaltLocationTitleLbl.setText(QCoreApplication.translate("Nugget", u"Current gestalt file location:", None))
-        self.gestaltLocationLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
         self.chooseGestaltBtn.setText(QCoreApplication.translate("Nugget", u"  Choose Gestalt File", None))
         self.applyTweaksBtn.setText(QCoreApplication.translate("Nugget", u"  Apply Changes", None))
         self.statusLbl.setText(QCoreApplication.translate("Nugget", u"Ready!", None))

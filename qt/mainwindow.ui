@@ -290,7 +290,7 @@ QSlider::tick:horizontal {
                 <number>-1</number>
                </property>
                <property name="placeholderText">
-                <string>None</string>
+                <string notr="true">None</string>
                </property>
                <property name="duplicatesEnabled">
                 <bool>true</bool>
@@ -1925,7 +1925,7 @@ QComboBox QAbstractItemView::item:hover {
 }</string>
                        </property>
                        <property name="currentText">
-                        <string>None</string>
+                        <string notr="true">None</string>
                        </property>
                        <property name="currentIndex">
                         <number>0</number>
@@ -1933,9 +1933,12 @@ QComboBox QAbstractItemView::item:hover {
                        <property name="maxVisibleItems">
                         <number>15</number>
                        </property>
+                       <property name="placeholderText">
+                        <string notr="true"/>
+                       </property>
                        <item>
                         <property name="text">
-                         <string>None</string>
+                         <string notr="true">None</string>
                         </property>
                        </item>
                        <item>
@@ -1976,7 +1979,7 @@ QComboBox QAbstractItemView::item:hover {
                         <string>Modifies the resolution to improve functionality of the changed device subtype. May cause weird visual bugs.</string>
                        </property>
                        <property name="text">
-                        <string>Fix RDAR (modifies resolution)</string>
+                        <string notr="true">Fix RDAR (modifies resolution)</string>
                        </property>
                       </widget>
                      </item>
@@ -6633,14 +6636,14 @@ Will show up in Collections</string>
                   <item>
                    <widget class="QLabel" name="pbVideoThumbLbl">
                     <property name="text">
-                     <string>Current Thumbnail: None</string>
+                     <string notr="true">Current Thumbnail: None</string>
                     </property>
                    </widget>
                   </item>
                   <item>
                    <widget class="QLabel" name="pbVideoLbl">
                     <property name="text">
-                     <string>Current Video: None</string>
+                     <string notr="true">Current Video: None</string>
                     </property>
                    </widget>
                   </item>
@@ -7753,7 +7756,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                  <item>
                   <widget class="QLabel" name="gestaltLocationLbl">
                    <property name="text">
-                    <string>None</string>
+                    <string notr="true">None</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>

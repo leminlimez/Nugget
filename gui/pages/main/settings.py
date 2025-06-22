@@ -24,9 +24,12 @@ available_languages = {
     "Polski": "pl",
     "Türkçe": "tr",
     "Magyar": "hu",
+    "Nederlands": "nl",
     "Čeština": "cs",
+    "Български": "bg",
     "العربية": "ar",
-    "العربية (Saudi Arabia)": "ar_SA"
+    "العربية (Saudi Arabia)": "ar_SA",
+    "مَصرى (Egypt)": "ar_EG"
 }
 
 class SettingsPage(Page):

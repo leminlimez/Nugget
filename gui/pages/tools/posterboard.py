@@ -23,7 +23,7 @@ class PosterboardPage(Page, QtCore.QObject):
 
         # set up the dropdown
         self.ui.resetPBDrp = MultiComboBox(self.ui.pbPagePicker, updateAction=self.on_update_picker)
-        self.ui.resetPBDrp.noneText = "  " + self.tr("None")
+        self.ui.resetPBDrp.noneText = "  " + self.window.noneText
         self.ui.resetPBDrp.setMinimumWidth(165)
         self.ui.resetPBDrp.setMinimumHeight(25)
         self.ui.resetPBDrp.setMaximumWidth(200)
@@ -34,6 +34,8 @@ class PosterboardPage(Page, QtCore.QObject):
         self.ui.resetPBDrp.lineEdit().setText(self.ui.resetPBDrp.noneText)
         self.ui.resetPBDrp.setStyleSheet("QWidget { background-color: #3b3b3b; border: 2px solid #3b3b3b; border-radius: 5px; }")# QAbstractItemView::indicator:checked { background-color: rgba(0, 0, 255, 0.3); border-radius: 4px; }")
         self.ui.pbPagePicker.layout().addWidget(self.ui.resetPBDrp)
+        self.ui.pbVideoThumbLbl.setText(QtCore.QCoreApplication.tr("Current Thumbnail: {0}").format(self.window.noneText))
+        self.ui.pbVideoLbl.setText(QtCore.QCoreApplication.tr("Current Video: {0}").format(self.window.noneText))
 
     def on_update_picker(self, selected_items: list[str]):
         print(selected_items)
@@ -243,7 +245,7 @@ class PosterboardPage(Page, QtCore.QObject):
             self.ui.pbVideoThumbLbl.setText(QtCore.QCoreApplication.tr("Current Thumbnail: {0}").format(selected_file))
         else:
             tweaks["PosterBoard"].videoThumbnail = None
-            self.ui.pbVideoThumbLbl.setText(QtCore.QCoreApplication.tr("Current Thumbnail: {0}").format(self.tr("None")))
+            self.ui.pbVideoThumbLbl.setText(QtCore.QCoreApplication.tr("Current Thumbnail: {0}").format(self.window.noneText))
     def on_chooseVideoBtn_clicked(self):
         selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self.window, "Select Video File", "", "Video Files (*.mov *.mp4 *.mkv)", options=QtWidgets.QFileDialog.ReadOnly)
         self.ui.resetPBDrp.deselectAll()
@@ -254,7 +256,7 @@ class PosterboardPage(Page, QtCore.QObject):
                 self.ui.exportPBVideoBtn.show()
         else:
             tweaks["PosterBoard"].videoFile = None
-            self.ui.pbVideoLbl.setText(QtCore.QCoreApplication.tr("Current Video: {0}").format(self.tr("None")))
+            self.ui.pbVideoLbl.setText(QtCore.QCoreApplication.tr("Current Video: {0}").format(self.window.noneText))
             self.ui.exportPBVideoBtn.hide()
     def on_caVideoChk_toggled(self, checked: bool):
         tweaks["PosterBoard"].loop_video = checked

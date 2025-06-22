@@ -44,6 +44,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.settings = self.translator.settings
         self.ui = Ui_Nugget()
         self.ui.setupUi(self)
+        self.noneText = self.tr("None")
         self.apply_in_progress = False
         self.refresh_in_progress = False
         self.threadpool = QtCore.QThreadPool()
@@ -165,7 +166,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.restoreProgressBar.hide()
         if len(self.device_manager.devices) == 0:
             self.ui.devicePicker.setEnabled(False)
-            self.ui.devicePicker.addItem('None')
+            self.ui.devicePicker.addItem(self.noneText)
             self.ui.pages.setCurrentIndex(Page.Home.value)
             self.ui.homePageBtn.setChecked(True)
 
@@ -481,7 +482,7 @@ class MainWindow(QtWidgets.QMainWindow):
         selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select Mobile Gestalt File", "", "Plist Files (*.plist)", options=QtWidgets.QFileDialog.ReadOnly)
         if selected_file == "" or selected_file == None:
             self.device_manager.data_singleton.gestalt_path = None
-            self.ui.gestaltLocationLbl.setText("None")
+            self.ui.gestaltLocationLbl.setText(self.noneText)
             # show the warning labels
             self.ui.mgaWarningLbl.show()
             self.ui.mgaWarningLbl2.show()

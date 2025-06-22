@@ -63,5 +63,10 @@
         <file>translations/Nugget_ja.qm</file>
         <file>translations/Nugget_tr.qm</file>
         <file>translations/Nugget_vi.qm</file>
+        <file>translations/Nugget_ar_EG.qm</file>
+        <file>translations/Nugget_bg.qm</file>
+        <file>translations/Nugget_es_MX.qm</file>
+        <file>translations/Nugget_fr_CA.qm</file>
+        <file>translations/Nugget_nl.qm</file>
     </qresource>
 </RCC>
