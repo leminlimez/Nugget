@@ -34,7 +34,7 @@ class Translator:
 
     def fix_ui_for_rtl(self, ui: Ui_Nugget):
         curr_locale = self.get_saved_locale_code()
-        if curr_locale == "ar" or curr_locale == "ar_SA":
+        if curr_locale == "ar" or curr_locale == "ar_SA" or curr_locale == "ar_EG":
             # need to correct for stuff
             # TOP BAR
             ui.phoneIconBtn.setStyleSheet("QToolButton {\n	border-top-left-radius: 0px;\n	border-bottom-left-radius: 0px;\n}")
