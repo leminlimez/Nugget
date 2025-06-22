@@ -13,7 +13,7 @@ from gui.custom_qt_elements.multicombobox import MultiComboBox
 from tweaks.tweaks import tweaks
 from devicemanagement.device_manager import show_apply_error
 
-class PosterboardPage(Page):
+class PosterboardPage(Page, QtCore.QObject):
     def __init__(self, window, ui: Ui_Nugget):
         super().__init__()
         self.window = window
@@ -23,20 +23,20 @@ class PosterboardPage(Page):
 
         # set up the dropdown
         self.ui.resetPBDrp = MultiComboBox(self.ui.pbPagePicker, updateAction=self.on_update_picker)
+        self.ui.resetPBDrp.noneText = "  " + self.tr("None")
         self.ui.resetPBDrp.setMinimumWidth(165)
         self.ui.resetPBDrp.setMinimumHeight(25)
         self.ui.resetPBDrp.setMaximumWidth(200)
         self.ui.resetPBDrp.setMaximumHeight(30)
-        self.ui.resetPBDrp.addItems([
-            QtCore.QCoreApplication.tr("Collections"),
-            QtCore.QCoreApplication.tr("Suggested Photos"),
-            QtCore.QCoreApplication.tr("Gallery Cache")
-        ])
-        self.ui.resetPBDrp.lineEdit().setText("  " + QtCore.QCoreApplication.tr("None"))
+        self.ui.resetPBDrp.addItem(self.tr("Collections"), "Collections")
+        self.ui.resetPBDrp.addItem(self.tr("Suggested Photos"), "Suggested Photos")
+        self.ui.resetPBDrp.addItem(self.tr("Gallery Cache"), "Gallery Cache")
+        self.ui.resetPBDrp.lineEdit().setText(self.ui.resetPBDrp.noneText)
         self.ui.resetPBDrp.setStyleSheet("QWidget { background-color: #3b3b3b; border: 2px solid #3b3b3b; border-radius: 5px; }")# QAbstractItemView::indicator:checked { background-color: rgba(0, 0, 255, 0.3); border-radius: 4px; }")
         self.ui.pbPagePicker.layout().addWidget(self.ui.resetPBDrp)
 
     def on_update_picker(self, selected_items: list[str]):
+        print(selected_items)
         tweaks["PosterBoard"].resetModes = selected_items
 
     def load_page(self):

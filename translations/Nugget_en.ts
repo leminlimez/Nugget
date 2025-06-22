@@ -11,6 +11,18 @@ Are you sure you want to use this one?</source>
     </message>
 </context>
 <context>
+    <name>MainWindow</name>
+    <message>
+        <location filename="../gui/main_window.py" line="153"/>
+        <source>Warning: You are on iOS 26 beta.
+
+This has been known to cause problems and potentially lead to bootloops.
+
+Use at your own risk!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Nugget</name>
     <message>
         <location filename="../qt/mainwindow.ui" line="293"/>
@@ -1688,6 +1700,29 @@ or you&apos;ve reached the maximum amount of wallpapers (15) and have to wipe th
     </message>
 </context>
 <context>
+    <name>PosterboardPage</name>
+    <message>
+        <location filename="../gui/pages/tools/posterboard.py" line="31"/>
+        <source>Collections</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/tools/posterboard.py" line="32"/>
+        <source>Suggested Photos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/tools/posterboard.py" line="34"/>
+        <source>Gallery Cache</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/pages/tools/posterboard.py" line="35"/>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QCoreApplication</name>
     <message>
         <location filename="../exceptions/posterboard_exceptions.py" line="6"/>
@@ -1956,26 +1991,6 @@ Open up its settings and tap &quot;Detect&quot;.</source>
 <context>
     <name>QtCore.QCoreApplication</name>
     <message>
-        <location filename="../gui/pages/tools/posterboard.py" line="31"/>
-        <source>Collections</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../gui/pages/tools/posterboard.py" line="32"/>
-        <source>Suggested Photos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../gui/pages/tools/posterboard.py" line="34"/>
-        <source>Gallery Cache</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../gui/pages/tools/posterboard.py" line="35"/>
-        <source>None</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../gui/pages/tools/posterboard.py" line="206"/>
         <location filename="../gui/pages/tools/posterboard.py" line="214"/>
         <location filename="../gui/pages/tools/posterboard.py" line="231"/>
@@ -2059,15 +2074,6 @@ No selected file for required option</source>
     <message>
         <location filename="../gui/pages/tools/gestalt.py" line="72"/>
         <source>modifies resolution</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../gui/main_window.py" line="153"/>
-        <source>Warning: You are on iOS 26 beta.
-
-This has been known to cause problems and potentially lead to bootloops.
-
-Use at your own risk!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

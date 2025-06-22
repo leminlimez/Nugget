@@ -148,9 +148,12 @@ class MainWindow(QtWidgets.QMainWindow):
             self.refresh_worker_thread.start()
 
     def warn_for_dev_beta(self):
-        if Version(self.device_manager.get_current_device_version()) > Version("26.0") and not self.device_manager.get_current_device_build()[-1].isdigit():
+        ver = self.device_manager.get_current_device_version()
+        if ver == "":
+            return
+        if Version(ver) > Version("26.0") and not self.device_manager.get_current_device_build()[-1].isdigit():
             self.alert_message(ApplyAlertMessage(
-                txt=QtCore.QCoreApplication.tr("Warning: You are on iOS 26 beta.\n\nThis has been known to cause problems and potentially lead to bootloops.\n\nUse at your own risk!"),
+                txt=self.tr("Warning: You are on iOS 26 beta.\n\nThis has been known to cause problems and potentially lead to bootloops.\n\nUse at your own risk!"),
                 title="Warning", icon=QtWidgets.QMessageBox.Warning
             ), log_to_console=False)
 
@@ -215,7 +218,7 @@ class MainWindow(QtWidgets.QMainWindow):
                     self.ui.resetPBDrp.removeItem(4)
                 except:
                     pass
-                self.ui.resetPBDrp.addItem("PB Extensions")
+                self.ui.resetPBDrp.addItem("PB Extensions", "PB Extensions")
             else:
                 self.ui.advancedPageBtn.hide()
                 try:
