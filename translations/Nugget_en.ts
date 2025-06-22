@@ -1845,30 +1845,30 @@ Remember to turn Find My back on!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="156"/>
-        <location filename="../gui/pages/main/settings.py" line="166"/>
+        <location filename="../gui/pages/main/settings.py" line="160"/>
+        <location filename="../gui/pages/main/settings.py" line="170"/>
         <source>PosterBoard App Hash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="156"/>
+        <location filename="../gui/pages/main/settings.py" line="160"/>
         <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap &quot;Detect&quot;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="160"/>
+        <location filename="../gui/pages/main/settings.py" line="164"/>
         <source>Copy it and paste it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="164"/>
+        <location filename="../gui/pages/main/settings.py" line="168"/>
         <source>It has been copied. Paste it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="166"/>
+        <location filename="../gui/pages/main/settings.py" line="170"/>
         <source>Your hash is:
 {0}
 
@@ -2059,6 +2059,15 @@ No selected file for required option</source>
     <message>
         <location filename="../gui/pages/tools/gestalt.py" line="72"/>
         <source>modifies resolution</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/main_window.py" line="153"/>
+        <source>Warning: You are on iOS 26 beta.
+
+This has been known to cause problems and potentially lead to bootloops.
+
+Use at your own risk!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

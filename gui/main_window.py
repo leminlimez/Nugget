@@ -147,6 +147,13 @@ class MainWindow(QtWidgets.QMainWindow):
             self.refresh_worker_thread.finished.connect(self.refresh_worker_thread.deleteLater)
             self.refresh_worker_thread.start()
 
+    def warn_for_dev_beta(self):
+        if Version(self.device_manager.get_current_device_version()) > Version("26.0") and not self.device_manager.get_current_device_build()[-1].isdigit():
+            self.alert_message(ApplyAlertMessage(
+                txt=QtCore.QCoreApplication.tr("Warning: You are on iOS 26 beta.\n\nThis has been known to cause problems and potentially lead to bootloops.\n\nUse at your own risk!"),
+                title="Warning", icon=QtWidgets.QMessageBox.Warning
+            ), log_to_console=False)
+
     def refresh_devices_finished(self):
         self.refresh_in_progress = False
         self.toggle_thread_btns(disabled=False)
@@ -208,7 +215,7 @@ class MainWindow(QtWidgets.QMainWindow):
                     self.ui.resetPBDrp.removeItem(4)
                 except:
                     pass
-                self.ui.resetPBDrp.addItem(QtCore.QCoreApplication.tr("PB Extensions"))
+                self.ui.resetPBDrp.addItem("PB Extensions")
             else:
                 self.ui.advancedPageBtn.hide()
                 try:
@@ -233,7 +240,6 @@ class MainWindow(QtWidgets.QMainWindow):
         
         # update the selected device
         self.ui.devicePicker.setCurrentIndex(0)
-        self.change_selected_device(0)
 
     def change_selected_device(self, index):
         self.ui.showAllSpoofableChk.hide()
@@ -348,6 +354,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # update the interface
         self.updateInterfaceForNewDevice()
+        if index > -1:
+            self.warn_for_dev_beta()
 
     def loadSettings(self):
         try:
@@ -527,8 +535,9 @@ class MainWindow(QtWidgets.QMainWindow):
             self.worker_thread.finished.connect(self.finish_apply_thread)
             self.worker_thread.finished.connect(self.worker_thread.deleteLater)
             self.worker_thread.start()
-    def alert_message(self, alert: ApplyAlertMessage):
-        print(alert.txt)
+    def alert_message(self, alert: ApplyAlertMessage, log_to_console: bool = True):
+        if log_to_console:
+            print(alert.txt)
         detailsBox = QtWidgets.QMessageBox()
         detailsBox.setIcon(alert.icon)
         detailsBox.setWindowTitle(alert.title)
