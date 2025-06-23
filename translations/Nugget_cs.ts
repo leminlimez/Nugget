@@ -152,7 +152,7 @@ Sparserestore</translation>
       <location filename="../qt/mainwindow.ui" line="1802"/>
       <location filename="../qt/mainwindow.ui" line="2846"/>
       <source>! You will need a MobileGestalt file for this feature. Please select it in the Apply page !</source>
-      <translation>! Pro tuhle funkci budete potřebovat MobileGestalt soubor. Prosím vyberte ho v záložce Aplikovat !</translation>
+      <translation>! Tahle funkce potřebuje MobileGestalt soubor. Prosím vyberte ho v záložce Aplikovat !</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1875"/>
@@ -192,7 +192,7 @@ Sparserestore</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="1979"/>
       <source>Modifies the resolution to improve functionality of the changed device subtype. May cause weird visual bugs.</source>
-      <translation>Upraví rozlišení pro zlepšení funkčnosti změněného podtypu zařízení. Může způsobit divné vizuální chyby.</translation>
+      <translation>Upraví rozlišení pro lepší fungování změněného podtypu zařízení. Může způsobit divné vizuální chyby.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1989"/>
@@ -370,7 +370,7 @@ Poznámka: (OTA) Aktualizace systému nebudou fungovat dokud tuto možnost nevyp
       <location filename="../qt/mainwindow.ui" line="2258"/>
       <source>Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know
 what you are doing.</source>
-      <translation>Upozornění: Nesprávné použití této funkce může vést k bootloopu a ztrátě dat. Používejte pouze pokud víte co děláte.</translation>
+      <translation>Upozornění: Nesprávné použití této funkce může vést k nekonečnému restartování (bootloop) a ztrátě dat. Používejte pouze pokud víte co děláte.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2391"/>
@@ -1367,7 +1367,7 @@ Aby to fungovalo jak má, vypnětě také daemona přepínačem výše.</transla
       <source>Uses the CoreAnimation file to play the video (300 fps limit)
 Will show up in Collections</source>
       <translation>Používá k hraní videa soubor CoreAnimation (300 fps limit)
-Objeví se v Kolekcích</translation>
+Objeví se ve Sbírkách</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6564"/>
@@ -1695,7 +1695,7 @@ NEODPOJUJTE zařízení během obnov/aplikací změn.</translation>
 
 If the wallpapers don't appear in the menu, you either have to wait a bit for them to load,
 or you've reached the maximum amount of wallpapers (15) and have to wipe them.</source>
-      <translation>Descriptory budou v sekci Kolekce při přidávání nových tapet.
+      <translation>Descriptory budou v sekci Sbírky při přidávání nových tapet.
 
 Pokud se tapety v menu neobjeví, buď musíte chvíli počkat než se načtou, nebo jste dosáhli limitu tapet (15) a musíte je smazat.</translation>
     </message>
@@ -1930,67 +1930,67 @@ Nezapomeňte zase zaponout Najít Zařízení!</translation>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="199"/>
       <source>No Device</source>
-      <translation>No Device</translation>
+      <translation>Žádné Zařízení</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="440"/>
       <source>Restoring to device...{0}{1}</source>
-      <translation>Restoring to device...{0}{1}</translation>
+      <translation>Obnovuji do zařízení...{0}{1}</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="445"/>
       <source>Applying changes to files...</source>
-      <translation>Applying changes to files...</translation>
+      <translation>Aplikují změny souborů...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="251"/>
       <source>Generating PosterBoard Video...</source>
-      <translation>Generating PosterBoard Video...</translation>
+      <translation>Generují PosterBoard Video...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="256"/>
       <source>Extracting tendie {0}...</source>
-      <translation>Extracting tendie {0}...</translation>
+      <translation>Extrahují tendie {0}...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="261"/>
       <source>Configuring template {0}...</source>
-      <translation>Configuring template {0}...</translation>
+      <translation>Nastavuji šablonu {0}...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="264"/>
       <source>Adding tendies...</source>
-      <translation>Adding tendies...</translation>
+      <translation>Přidávám tendies...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="266"/>
       <source>Adding other tweaks...</source>
-      <translation>Adding other tweaks...</translation>
+      <translation>Přidávám další úpravy...</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="115"/>
       <source>Revert RDAR fix</source>
-      <translation>Revert RDAR fix</translation>
+      <translation>Navrátit Opravu RDAR</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="116"/>
       <source>RDAR Fix</source>
-      <translation>RDAR Fix</translation>
+      <translation>Oprava RDAR</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="119"/>
       <source>Revert Status Bar Fix</source>
-      <translation>Revert Status Bar Fix</translation>
+      <translation>Zvrátit Opravu Stavového Řádku</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="120"/>
       <source>Dynamic Island Status Bar Fix</source>
-      <translation>Dynamic Island Status Bar Fix</translation>
+      <translation>Oprava Stavového Řádku s Dynamic Islandem</translation>
     </message>
     <message>
       <location filename="../controllers/video_handler.py" line="103"/>
       <source>Creating {0}...</source>
-      <translation>Creating {0}...</translation>
+      <translation>Vytvářím {0}...</translation>
     </message>
   </context>
   <context>
@@ -2087,7 +2087,7 @@ Pro potřebnou možnost nebyl vybrán žádný soubor</translation>
     <message>
       <location filename="../gui/pages/tools/gestalt.py" line="73"/>
       <source>modifies resolution</source>
-      <translation>modifies resolution</translation>
+      <translation>upraví rozlišení</translation>
     </message>
   </context>
   <context>
@@ -2095,17 +2095,17 @@ Pro potřebnou možnost nebyl vybrán žádný soubor</translation>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="31"/>
       <source>Collections</source>
-      <translation>Collections</translation>
+      <translation>Sbírky</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="32"/>
       <source>Suggested Photos</source>
-      <translation>Suggested Photos</translation>
+      <translation>Navrhované Fotky</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="33"/>
       <source>Gallery Cache</source>
-      <translation>Gallery Cache</translation>
+      <translation>Cache Galerie</translation>
     </message>
   </context>
   <context>
@@ -2117,11 +2117,11 @@ Pro potřebnou možnost nebyl vybrán žádný soubor</translation>
 This has been known to cause problems and potentially lead to bootloops.
 
 Use at your own risk!</source>
-      <translation>Warning: You are on iOS 26 beta.
+      <translation>Varování: Jste na betě iOS 26
 
-This has been known to cause problems and potentially lead to bootloops.
+Je známo že, na této verzi bývají způsobeny problémy a může vést k nekonečnému restartování (bootloop).
 
-Use at your own risk!</translation>
+Používejte na vlastní nebezpečí!</translation>
     </message>
     <message>
       <location filename="../gui/main_window.py" line="48"/>

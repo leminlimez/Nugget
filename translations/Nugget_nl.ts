@@ -1238,27 +1238,27 @@ Om correct te functioneren, schakel ook de daemon uit met de schakelaar hierbove
     <message>
       <location filename="../qt/mainwindow.ui" line="5946"/>
       <source>Disable Game Center</source>
-      <translation>Disable Game Center</translation>
+      <translation>Zet Game Center uit</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5953"/>
       <source>Disables the Tips service and notifications.</source>
-      <translation>Disables the Tips service and notifications.</translation>
+      <translation>Zet de Tips service en meldingen uit.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5956"/>
       <source>Disable Tips Services</source>
-      <translation>Disable Tips Services</translation>
+      <translation>Zet de Tips services uit</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5963"/>
       <source>Disables the Virtual Private Network service.</source>
-      <translation>Disables the Virtual Private Network service.</translation>
+      <translation>Zet de Virtuele Privé Netwerk service uit.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5966"/>
       <source>Disable VPN Service</source>
-      <translation>Disable VPN Service</translation>
+      <translation>Zet de VPN service uit</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5973"/>
@@ -1278,22 +1278,22 @@ Om correct te functioneren, schakel ook de daemon uit met de schakelaar hierbove
     <message>
       <location filename="../qt/mainwindow.ui" line="5986"/>
       <source>Disable HealthKit</source>
-      <translation>Disable HealthKit</translation>
+      <translation>Zet HealtKit uit</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6008"/>
       <source>Disable AirPrint</source>
-      <translation>Disable AirPrint</translation>
+      <translation>Zet AirPrint uit</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6015"/>
       <source>Disable Assistive Touch</source>
-      <translation>Disable Assistive Touch</translation>
+      <translation>Zet Assistive Touch uit</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6022"/>
       <source>Disable iCloud</source>
-      <translation>Disable iCloud</translation>
+      <translation>Zet iCloud uit</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6029"/>

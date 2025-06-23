@@ -7,7 +7,7 @@
       <location filename="../gui/dialogs.py" line="25"/>
       <source>The gestalt file looks like it was made for a different device.
 Are you sure you want to use this one?</source>
-      <translation>Es sieht aus als ob das mobile gestalt file für ein anderes Gerät erstellt wurde. Bist du sicher das du es verwenden willst?</translation>
+      <translation>Es sieht aus als ob das mobile gestalt file für ein anderes Gerät erstellt wurde. Bist du sicher, dass du es verwenden willst?</translation>
     </message>
   </context>
   <context>
@@ -70,7 +70,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="1074"/>
       <source> Star on Github</source>
-      <translation> Stern auf Github</translation>
+      <translation> Stern auf Github da lassen</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1178"/>

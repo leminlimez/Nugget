@@ -66,7 +66,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="1060"/>
       <source>  Join the Discord</source>
-      <translation>  Discordサーバーに参加</translation>
+      <translation>  Discordに参加</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1074"/>
@@ -214,7 +214,7 @@ Sparserestore</translation>
       <source>Plays a sound when the device shuts down.
 
 After enabling, you can find the option to enable it in 'Accessibility' settings.</source>
-      <translation>デバイスのシャットダウン時にサウンドを再生。
+      <translation>デバイスのシャットダウン時にサウンドを再生します。
 
 有効にすると、アクセシビリティ設定で有効にするオプションがあります。</translation>
     </message>
@@ -266,7 +266,7 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
     <message>
       <location filename="../qt/mainwindow.ui" line="2077"/>
       <source>Enable Medusa (iPad Multitasking)</source>
-      <translation>Medusa（iPadマルチタスク）を有効にする</translation>
+      <translation>Medusa（iPadマルチタスク）を有効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2084"/>
@@ -286,7 +286,7 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
     <message>
       <location filename="../qt/mainwindow.ui" line="2101"/>
       <source>Enable Find My Friends</source>
-      <translation>友達を探すを有効にする</translation>
+      <translation>友達を探すを有効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2108"/>
@@ -303,14 +303,14 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
       <source>Use the Metal HUD in any app. Enable Metal HUD through Springboard Options.
 
 Note: OTA updates will be broken until this is disabled.</source>
-      <translation>どのアプリでもMetal HUDを使えます。Springboard OptionsからMetal HUDを有効にしてください。
+      <translation>任意のアプリでMetal HUDを使用。Springboard オプションからMetal HUDを有効にしてください。
 
 注意：これを無効にするまで、OTAアップデートは中断されます。</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2142"/>
       <source>Set as Apple Internal Install (ie Metal HUD in any app)</source>
-      <translation>Appleの内部インストールに設定する（どのアプリでもMetal HUDにする）</translation>
+      <translation>Appleの内部インストールに設定（任意のアプリでMetal HUD）</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2149"/>
@@ -397,7 +397,7 @@ Enables quickly switching lock screens by holding down and swiping.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="2480"/>
       <source>Enable Duplicate Lockscreen Button and Lockscreen Quickswitch</source>
-      <translation>ロックスクリーン・ボタンとロックスクリーン・クイックスイッチの複製を有効にする</translation>
+      <translation>ロックスクリーンボタンとロックスクリーンクイックスイッチの複製を有効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2505"/>
@@ -789,7 +789,7 @@ Please be careful!</source>
       <location filename="../qt/mainwindow.ui" line="3570"/>
       <location filename="../qt/mainwindow.ui" line="3873"/>
       <source>5Gᴇ</source>
-      <translation>5G_1D07</translation>
+      <translation>5Ge</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3575"/>
@@ -1029,7 +1029,7 @@ Please be careful!</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5217"/>
       <source>Springboard Options</source>
-      <translation>スプリングボード・オプション</translation>
+      <translation>Springboard オプション</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5298"/>
@@ -1044,17 +1044,17 @@ Please be careful!</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5327"/>
       <source>Disable Lock After Respring</source>
-      <translation>再スプリング後のロックを無効にする</translation>
+      <translation>リスプリング後のロックを無効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5334"/>
       <source>Disable Screen Dimming While Charging</source>
-      <translation>充電中の画面消灯を無効にする</translation>
+      <translation>充電中の画面消灯を無効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5341"/>
       <source>Disable Low Battery Alerts</source>
-      <translation>バッテリー残量警告を無効にする</translation>
+      <translation>バッテリー残量警告を無効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5348"/>
@@ -1064,12 +1064,12 @@ Please be careful!</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5351"/>
       <source>Disable Breadcrumbs</source>
-      <translation>パンくずを無効にする</translation>
+      <translation>前のアプリに戻るボタンを無効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5358"/>
       <source>Shows info about the device supervision status and organization at the bottom of the lock screen.</source>
-      <translation>ロック画面の下部に、デバイスの監督状態や組織に関する情報を表示します。</translation>
+      <translation>ロック画面の下部に、デバイスの監視状態や組織に関する情報を表示します。</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5361"/>
@@ -1079,7 +1079,7 @@ Please be careful!</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5368"/>
       <source>Enable AirPlay support for Stage Manager</source>
-      <translation>ステージマネージャーのAirPlayサポートを有効にする</translation>
+      <translation>ステージマネージャーのAirPlayサポートを有効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5469"/>
@@ -1109,22 +1109,22 @@ Please be careful!</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5590"/>
       <source>Enable Continuity Debugging</source>
-      <translation>Continuityデバッグを有効にする</translation>
+      <translation>連系機能のデバッグを有効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5597"/>
       <source>Enable FaceTime Debugging</source>
-      <translation>FaceTimeのデバッグを有効にする</translation>
+      <translation>FaceTimeのデバッグを有効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5619"/>
       <source>Enable App Store Debug Gesture</source>
-      <translation>App Storeのデバッグ・ジェスチャーを有効にする</translation>
+      <translation>App Storeのデバッグジェスチャーを有効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5626"/>
       <source>Enable Notes Debug Mode</source>
-      <translation>ノーツのデバッグモードを有効にする</translation>
+      <translation>メモのデバッグモードを有効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5648"/>
@@ -1134,7 +1134,7 @@ Please be careful!</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5655"/>
       <source>Hide Respring Icon</source>
-      <translation>Respringアイコンを非表示</translation>
+      <translation>リスプリングアイコンを非表示</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5662"/>
@@ -1182,7 +1182,7 @@ it enabled.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5879"/>
       <source>Disable UsageTrackingAgent</source>
-      <translation>UsageTrackingAgentを無効にする</translation>
+      <translation>UsageTrackingAgentを無効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5886"/>
@@ -1226,7 +1226,7 @@ To work properly, also disable the daemon using the toggle above.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5921"/>
       <source>Disable ATWAKEUP</source>
-      <translation>ATWAKEUPを無効にする</translation>
+      <translation>ATWAKEUPを無効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5943"/>
@@ -1246,7 +1246,7 @@ To work properly, also disable the daemon using the toggle above.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5956"/>
       <source>Disable Tips Services</source>
-      <translation>ヒントサービスを無効にする</translation>
+      <translation>ヒントサービスを無効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5963"/>
@@ -1276,17 +1276,17 @@ To work properly, also disable the daemon using the toggle above.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5986"/>
       <source>Disable HealthKit</source>
-      <translation>HealthKitを無効にする</translation>
+      <translation>HealthKitを無効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6008"/>
       <source>Disable AirPrint</source>
-      <translation>AirPrintを無効にする</translation>
+      <translation>AirPrintを無効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6015"/>
       <source>Disable Assistive Touch</source>
-      <translation>Assistive Touchを無効にする</translation>
+      <translation>Assistive Touchを無効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6022"/>
@@ -1301,17 +1301,17 @@ To work properly, also disable the daemon using the toggle above.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="6036"/>
       <source>Disable Passbook</source>
-      <translation>ウォレットを無効にする</translation>
+      <translation>Passbookを無効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6043"/>
       <source>Disable Spotlight</source>
-      <translation>スポットライトを無効にする</translation>
+      <translation>スポットライトを無効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6050"/>
       <source>Disable Voice Control</source>
-      <translation>音声コントロールを無効にする</translation>
+      <translation>音声コントロールを無効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6151"/>
@@ -1440,21 +1440,21 @@ Nuggetは、特に解像度変更でデバイスがトラブルに陥った場�
     <message>
       <location filename="../qt/mainwindow.ui" line="7075"/>
       <source>Disable OTA Updates (file)</source>
-      <translation>OTAアップデートを無効にする（ファイル）</translation>
+      <translation>OTAアップデートを無効（ファイル）</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7082"/>
       <source>Disables temperature monitoring daemon to reduce system checks.
 
 Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified" in Settings.</source>
-      <translation>システムチェックを減らすため、温度監視デーモンを無効にする。
+      <translation>システムチェックを減らすため、温度監視デーモンを無効にします。
 
 警告無効にすると、バッテリーの設定で "不明な部品 "または "未確認 "と表示されます。</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7087"/>
       <source>Disable thermalmonitord</source>
-      <translation>thermalmonitordを無効にする</translation>
+      <translation>thermalmonitordを無効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7109"/>
@@ -1586,14 +1586,14 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
-      <translation>tendiesファイルの制限である2を無効にする。
+      <translation>tendiesファイル制限の2を無効にします。記述子の制限はまだあります。
 
 復元中はデバイスのプラグを抜かないでください。</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8260"/>
       <source>Disable Tendies Limit</source>
-      <translation>Tendiesの制限を無効にする</translation>
+      <translation>Tendiesの制限を無効</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8285"/>
@@ -1769,7 +1769,7 @@ Open up its settings and tap "Detect".</source>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="58"/>
       <source>Find My must be disabled in order to use this tool.</source>
-      <translation>このツールを使用するには、Find Myを無効にする必要があります。</translation>
+      <translation>このツールを使用するには、探すを無効にする必要があります。</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="59"/>
@@ -1863,7 +1863,7 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
 Remember to turn Find My back on!</source>
       <translation>デバイスが再起動されます。
 
-探すをオンにすることを忘れないでください</translation>
+探すをオンにすることを忘れないでください！</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="630"/>
@@ -1930,67 +1930,67 @@ Remember to turn Find My back on!</source>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="199"/>
       <source>No Device</source>
-      <translation>No Device</translation>
+      <translation>デバイスなし</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="440"/>
       <source>Restoring to device...{0}{1}</source>
-      <translation>Restoring to device...{0}{1}</translation>
+      <translation>デバイスへの復元中...{0}{1}</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="445"/>
       <source>Applying changes to files...</source>
-      <translation>Applying changes to files...</translation>
+      <translation>ファイルに変更を適用中...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="251"/>
       <source>Generating PosterBoard Video...</source>
-      <translation>Generating PosterBoard Video...</translation>
+      <translation>PosterBoardビデオの生成中...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="256"/>
       <source>Extracting tendie {0}...</source>
-      <translation>Extracting tendie {0}...</translation>
+      <translation>tendie{0} 抽出中...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="261"/>
       <source>Configuring template {0}...</source>
-      <translation>Configuring template {0}...</translation>
+      <translation>テンプレート{0}の設定中...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="264"/>
       <source>Adding tendies...</source>
-      <translation>Adding tendies...</translation>
+      <translation>tendiesを追加中...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="266"/>
       <source>Adding other tweaks...</source>
-      <translation>Adding other tweaks...</translation>
+      <translation>他の微調整を追加する...</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="115"/>
       <source>Revert RDAR fix</source>
-      <translation>Revert RDAR fix</translation>
+      <translation>RDAR の修正を元に戻す</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="116"/>
       <source>RDAR Fix</source>
-      <translation>RDAR Fix</translation>
+      <translation>RDAR修正</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="119"/>
       <source>Revert Status Bar Fix</source>
-      <translation>Revert Status Bar Fix</translation>
+      <translation>ステータスバーの修正を元に戻す</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="120"/>
       <source>Dynamic Island Status Bar Fix</source>
-      <translation>Dynamic Island Status Bar Fix</translation>
+      <translation>Dynamic Islandステータスバーの修正</translation>
     </message>
     <message>
       <location filename="../controllers/video_handler.py" line="103"/>
       <source>Creating {0}...</source>
-      <translation>Creating {0}...</translation>
+      <translation>{0}の作成...</translation>
     </message>
   </context>
   <context>
@@ -2087,7 +2087,7 @@ No selected file for required option</source>
     <message>
       <location filename="../gui/pages/tools/gestalt.py" line="73"/>
       <source>modifies resolution</source>
-      <translation>modifies resolution</translation>
+      <translation>解像度を変更</translation>
     </message>
   </context>
   <context>
@@ -2095,17 +2095,17 @@ No selected file for required option</source>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="31"/>
       <source>Collections</source>
-      <translation>Collections</translation>
+      <translation>コレクション</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="32"/>
       <source>Suggested Photos</source>
-      <translation>Suggested Photos</translation>
+      <translation>おすすめの写真</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="33"/>
       <source>Gallery Cache</source>
-      <translation>Gallery Cache</translation>
+      <translation>ギャラリーキャッシュ</translation>
     </message>
   </context>
   <context>
@@ -2117,11 +2117,11 @@ No selected file for required option</source>
 This has been known to cause problems and potentially lead to bootloops.
 
 Use at your own risk!</source>
-      <translation>Warning: You are on iOS 26 beta.
+      <translation>警告：iOS 26 ベータ版を使用しています。
 
-This has been known to cause problems and potentially lead to bootloops.
+これは問題を引き起こし、ブートループにつながる可能性があります。
 
-Use at your own risk!</translation>
+自己責任で使用してください！</translation>
     </message>
     <message>
       <location filename="../gui/main_window.py" line="48"/>

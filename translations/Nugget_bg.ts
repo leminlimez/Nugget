@@ -305,7 +305,7 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
 Note: OTA updates will be broken until this is disabled.</source>
       <translation>Използвайте Metal HUD във всяко приложение. Активирайте Metal HUD чрез опциите на Springboard.
 
-Забележка: OTA актуализациите ще бъдат нарушени, докато това не бъде деактивирано.</translation>
+Забележка: OTA актуализациите ще бъдат развалени, докато това не бъде деактивирано.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2142"/>
@@ -339,7 +339,7 @@ Note: OTA updates will be broken until this is disabled.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="2186"/>
       <source>Enable AOD on unsupported devices. May cause burn in, use with caution.</source>
-      <translation>Активиране на AOD на неподдържани устройства. Може да причини изгаряне на екрана, използвайте с повишено внимание.</translation>
+      <translation>Активиране на AOD (Always On Display) на неподдържани устройства. Може да причини изгаряне на екрана, използвайте с повишено внимание.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2189"/>
@@ -359,18 +359,18 @@ Note: OTA updates will be broken until this is disabled.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="2229"/>
       <source>Custom Gestalt Keys</source>
-      <translation>Персонализирани Gestalt Keys</translation>
+      <translation>Персонализирани Gestalt ключове</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2239"/>
       <source>  Add Key</source>
-      <translation> Добавяне на ключ</translation>
+      <translation>  Добавяне на ключ</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2258"/>
       <source>Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know
 what you are doing.</source>
-      <translation>Предупреждение: Неправилното използване на тази функция може да доведе до bootloops и загуба на данни. Използвайте само ако знаете какво правите.</translation>
+      <translation>Предупреждение: Неправилната употреба на тази функция може да доведе до постоянни рестартирания на устройството и загуба на данни. Използвайте само ако знаете какво правите.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2391"/>
@@ -380,7 +380,7 @@ what you are doing.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="2466"/>
       <source>Enables an animation when the lock screen clock changes time or style.</source>
-      <translation>Активира анимация, когато часовникът на заключен екран променя времето или стила си.</translation>
+      <translation>Активира анимация, когато часовникът на заключения екран промени часа или стила.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2469"/>
@@ -418,7 +418,7 @@ Does not work on iOS 18.0 RC.</source>
       <source>Enable the new Siri UI.
 
 Only works on iOS 18.0 beta 1-2.</source>
-      <translation>Активиране на новия Siri UI.
+      <translation>Активиране на новия интерфейс на Siri.
 
 Работи само на iOS 18.0 beta 1-2.</translation>
     </message>
@@ -435,7 +435,7 @@ Only works on iOS 18.0 beta 1-2.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="2737"/>
       <source>Enable EU Enabler</source>
-      <translation>Активиране на EU Enabler</translation>
+      <translation>Активиране на EU Enabler (позволява активирането на функции за ЕС извън територията на ЕС)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2744"/>
@@ -460,7 +460,7 @@ Only works on iOS 18.0 beta 1-2.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="2812"/>
       <source>Region Code (Default: US)</source>
-      <translation>Код на региона (По подразбиране: US)</translation>
+      <translation>Код на региона (по подразбиране: US)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2853"/>
@@ -499,7 +499,7 @@ Face ID, докато не се върнете към предишното съ�
 ПРЕДУПРЕЖДЕНИЕ: Не влизайте в менюто на Apple Intelligence в приложението Settings след премахване на „подмяната“.
 
 Влизането в менюто с оригиналния модел на вашето устройство ще предизвика повторно изтегляне и може да изисква пълно 
-възстановяване за отстраняване на проблема. Освен това, ако превключвате между групи модели, като например „подмяна“ от iPhone 16s 
+възстановяване за отстраняване на проблема. Освен това, ако превключвате между групи модели, като например „подмяна“ от iPhone 16 моделите
 към серията iPhone 15 Pro, може също да възникне повторно изтегляне. 
 Моля, бъдете внимателни!</translation>
     </message>
@@ -862,12 +862,12 @@ Face ID, докато не се върнете към предишното съ�
     <message>
       <location filename="../qt/mainwindow.ui" line="4008"/>
       <source>Change Breadcrumb Text</source>
-      <translation>Промяна на текста за пътека</translation>
+      <translation>Промяна на текста за навигация (Breadcrumb)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4015"/>
       <source>Breadcrumb Text</source>
-      <translation>Текст за пътека</translation>
+      <translation>Текст за навигация (Breadcrumb)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4022"/>
@@ -963,7 +963,7 @@ Face ID, докато не се върнете към предишното съ�
     <message>
       <location filename="../qt/mainwindow.ui" line="4387"/>
       <source>^Will also hide cellular data indicator.</source>
-      <translation>^Също така ще скрие индикатора за клетъчни данни.</translation>
+      <translation>^Също така ще скрие индикатора за мобилни данни.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4394"/>
@@ -1018,7 +1018,7 @@ Face ID, докато не се върнете към предишното съ�
     <message>
       <location filename="../qt/mainwindow.ui" line="5044"/>
       <source>Voice Control Icon</source>
-      <translation>Икона за Гласов контрол</translation>
+      <translation>Икона за Управление с глас</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5109"/>
@@ -1038,12 +1038,12 @@ Face ID, докато не се върнете към предишното съ�
     <message>
       <location filename="../qt/mainwindow.ui" line="5298"/>
       <source>Lock Screen Footnote Text</source>
-      <translation>Текст на бележка под линия на заключен екран</translation>
+      <translation>Текст в долната част на заключения екран</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5305"/>
       <source>Footnote Text</source>
-      <translation>Текст на бележка под линия</translation>
+      <translation>Допълнителен текст</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5327"/>
@@ -1068,7 +1068,7 @@ Face ID, докато не се върнете към предишното съ�
     <message>
       <location filename="../qt/mainwindow.ui" line="5351"/>
       <source>Disable Breadcrumbs</source>
-      <translation>Деактивиране на „Breadcrumbs“</translation>
+      <translation>Деактивиране на текстовете за навигация (Breadcrumbs)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5358"/>
@@ -1103,7 +1103,7 @@ Face ID, докато не се върнете към предишното съ�
     <message>
       <location filename="../qt/mainwindow.ui" line="5576"/>
       <source>Enable Metal HUD Debug</source>
-      <translation>Активиране на Metal HUD Debug</translation>
+      <translation>Активиране на отстраняване на грешки в Metal HUD</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5583"/>

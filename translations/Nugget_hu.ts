@@ -1179,7 +1179,7 @@ it enabled.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5876"/>
       <source>Disables usage tracking for improved privacy.</source>
-      <translation>Használatkövetés letiltása a jobb bisztonság érdekében.</translation>
+      <translation>Használatkövetés letiltása a jobb biztonság érdekében.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5879"/>
@@ -1429,11 +1429,11 @@ The options on this page may be unsafe for your device. Use these options at you
 your device resolution has the potential to brick your device when used improperly.
 
 Nugget is not responsible if you mess up your device, especially with resolution changer.</source>
-      <translation>Jogi nyilatkozat:
+      <translation>Figyelmeztetés:
 
-Az ezen az oldalon található beállítások nem biztos, hogy biztonságosak az eszközödön. Ezeket a beállításokat saját felelősségedre használd. Az eszköz felbontásának megváltoztatása helytelen használat esetén károsíthatja az eszközödet.
+Az ezen az oldalon található beállítások nem biztos, hogy biztonságosak \n az eszközödön. Ezeket a beállításokat saját felelősségedre használd. Az eszköz felbontásának megváltoztatása helytelen használat esetén károsíthatja az eszközödet.
 
-A Nugget nem vállal felelősséget az eszköz meghibásodásáért, különösen a felbontásváltó használata esetén.</translation>
+A Nugget nem vállal felelősséget az eszköz meghibásodásáért, \n különösen a felbontás váltó használata esetén.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7072"/>
@@ -1532,7 +1532,7 @@ Figyelmeztetés; Ezt ha letiltod, akkor az Akkumulátor beállításokban azt fo
     <message>
       <location filename="../qt/mainwindow.ui" line="7825"/>
       <source>Ready!</source>
-      <translation>Készenáll!</translation>
+      <translation>Készen áll!</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7863"/>
@@ -2012,7 +2012,7 @@ Emlékezz arra, hogy kapcsold vissza a Lokátort!</translation>
 This is for your safety. Please apply the rest separately.</source>
       <translation>Túl sok tendies fájlt választottál ki! A limit 3-mat enged.
 
-Ez a bisztonságodért van. Kérlek a többit külön alkalmaz.</translation>
+Ez a biztonságodért van. Kérlek a többit külön alkalmazd.</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="217"/>

@@ -151,7 +151,8 @@ Sparserestore</translation>
       <location filename="../qt/mainwindow.ui" line="1802"/>
       <location filename="../qt/mainwindow.ui" line="2846"/>
       <source>! You will need a MobileGestalt file for this feature. Please select it in the Apply page !</source>
-      <translation>! Necesitarás un archivo MobileGestalt para usar esta función. Por favor escoge uno en la página de Aplicar !</translation>
+      <translation>! Necesitarás un archivo MobileGestalt para usar esta función. Por favor escoge uno en
+la página de Aplicar !</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1875"/>
@@ -323,7 +324,8 @@ Nota: Las actualizaciones OTA dejarán de funcionar hasta que se desactive esta 
     <message>
       <location filename="../qt/mainwindow.ui" line="2154"/>
       <source>Enable Internal Storage (WARNING: risky for some devices, mainly iPads)</source>
-      <translation>Activar almacenamiento interno (ADVERTENCIA: riesgoso para algunos dispositivos, principalmente iPads)</translation>
+      <translation>Activar almacenamiento interno (ADVERTENCIA: riesgoso para algunos dispositivos,
+principalmente iPads)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2176"/>
@@ -370,7 +372,8 @@ Puede causar quemaduras en la pantalla, úsalo con precaución.</translation>
       <location filename="../qt/mainwindow.ui" line="2258"/>
       <source>Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know
 what you are doing.</source>
-      <translation>Advertencia: Usar esta función de manera incorrecta puede que tu telefono se quede atascado en el botoncito de Apple, sin posibilidad de encender nunca (bootloops) y pérdida de datos.
+      <translation>Advertencia: Usar esta función de manera incorrecta puede que tu telefono se quede atascado en
+el botoncito de Apple, sin posibilidad de encender nunca (bootloops) y pérdida de datos.
 Solo úsala si sabes lo que estás haciendo.</translation>
     </message>
     <message>
