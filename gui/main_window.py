@@ -18,7 +18,7 @@ from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThrea
 from tweaks.tweaks import tweaks
 
 App_Version = "6.1"
-App_Build = 3
+App_Build = 0
 
 class Page(Enum):
     Home = 0
@@ -214,7 +214,6 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.miscOptionsBtn.show()
 
             if self.device_manager.allow_risky_tweaks:
-                self.ui.advancedPageBtn.show()
                 try:
                     self.ui.resetPBDrp.removeItem(4)
                 except:
@@ -319,6 +318,12 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.euEnablerPageBtn.show()
             else:
                 self.ui.euEnablerPageBtn.hide()
+
+            # hide risky/advanced page on iOS 26
+            if self.device_manager.allow_risky_tweaks and device_ver < Version("19.0"):
+                self.ui.advancedPageBtn.show()
+            else:
+                self.ui.advancedPageBtn.hide()
             
             # hide the ai content if not on
             if device_ver >= Version("18.1") and (not 'AIGestalt' in tweaks or not tweaks["AIGestalt"].enabled):
