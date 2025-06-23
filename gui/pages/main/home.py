@@ -1,4 +1,5 @@
 import webbrowser
+from PySide6.QtCore import QCoreApplication
 
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
@@ -32,6 +33,7 @@ class HomePage(Page):
         self.ui.libiBtn.clicked.connect(self.on_libiBtn_clicked)
         self.ui.jjtechBtn.clicked.connect(self.on_jjtechBtn_clicked)
         self.ui.qtBtn.clicked.connect(self.on_qtBtn_clicked)
+        self.ui.translatorsBtn.clicked.connect(self.on_translatorsBtn_clicked)
 
         self.ui.discordBtn.clicked.connect(self.on_discordBtn_clicked)
 
@@ -46,7 +48,7 @@ class HomePage(Page):
         if ver != "":
             self.show_version_text(version=ver, build=build)
         else:
-            self.ui.phoneVersionLbl.setText("Please connect a device.")
+            self.ui.phoneVersionLbl.setText(QCoreApplication.tr("Please connect a device."))
 
     def toggle_version_label(self):
         if self.show_uuid:
@@ -62,12 +64,12 @@ class HomePage(Page):
                 self.ui.phoneVersionLbl.setText(f"<a style=\"text-decoration:none; color: white\" href=\"#\">{uuid}</a>")
 
     def show_version_text(self, version: str, build: str):
-        support_str: str = "<span style=\"color: #32d74b;\">Supported!</span></a>"
+        support_str: str = "<span style=\"color: #32d74b;\">" + QCoreApplication.tr("Supported!") + "</span></a>"
         if Version(version) < Version("17.0"):
-            support_str = "<span style=\"color: #ff0000;\">Not Supported.</span></a>"
+            support_str = "<span style=\"color: #ff0000;\">" + QCoreApplication.tr("Not Supported.") + "</span></a>"
         elif self.window.device_manager.get_current_device_patched():
             # sparserestore fully patched
-            support_str = "<span style=\"color: #ffff00;\">Partially Supported.</span></a>"
+            support_str = "<span style=\"color: #ffff00;\">"+ QCoreApplication.tr("Partially Supported.") + "</span></a>"
         self.ui.phoneVersionLbl.setText(f"<a style=\"text-decoration:none; color: white;\" href=\"#\">iOS {version} ({build}) {support_str}")
 
     ## HOME PAGE LINKS
@@ -96,6 +98,8 @@ class HomePage(Page):
         webbrowser.open_new_tab("https://github.com/JJTech0130/TrollRestore")
     def on_qtBtn_clicked(self):
         webbrowser.open_new_tab("https://www.qt.io/product/development-tools")
+    def on_translatorsBtn_clicked(self):
+        webbrowser.open_new_tab("https://poeditor.com/join/project/UTqpVSE2UD")
 
     def on_discordBtn_clicked(self):
         webbrowser.open_new_tab("https://discord.gg/MN8JgqSAqT")

@@ -10,6 +10,7 @@ class MultiComboBox(QComboBox):
         self.lineEdit().setReadOnly(True)
         self.setModel(QStandardItemModel(self))
         self.updateAction = updateAction
+        self.noneText = "None"
 
         # Connect to the dataChanged signal to update the text
         self.model().dataChanged.connect(self.updateText)
@@ -17,6 +18,7 @@ class MultiComboBox(QComboBox):
     def addItem(self, text: str, data=None):
         item = QStandardItem()
         item.setText(text)
+        item.setData(data)
         item.setEnabled(True)
         item.setFlags(Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsUserCheckable)
         item.setData(Qt.CheckState.Unchecked, Qt.ItemDataRole.CheckStateRole)
@@ -37,14 +39,16 @@ class MultiComboBox(QComboBox):
     def updateText(self):
         selected_items = [self.model().item(i).text() for i in range(self.model().rowCount())
                           if self.model().item(i).checkState() == Qt.CheckState.Checked]
+        selected_data  = [self.model().item(i).data() for i in range(self.model().rowCount())
+                          if self.model().item(i).checkState() == Qt.CheckState.Checked]
         if len(selected_items) == 0:
-            self.lineEdit().setText("  None")
+            self.lineEdit().setText(self.noneText)
         elif len(selected_items) == 1:
             self.lineEdit().setText(f"  {selected_items[0]}")
         else:
             self.lineEdit().setText(f"  ({len(selected_items)})")
         if self.updateAction != None:
-            self.updateAction(selected_items)
+            self.updateAction(selected_data)
 
     def showPopup(self):
         super().showPopup()

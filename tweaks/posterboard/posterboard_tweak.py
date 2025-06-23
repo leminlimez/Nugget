@@ -4,6 +4,7 @@ import traceback
 from random import randint
 from shutil import copytree
 from PySide6 import QtWidgets
+from PySide6.QtCore import QCoreApplication
 
 from ..tweak_classes import Tweak
 from .tendie_file import TendieFile
@@ -36,7 +37,7 @@ class PosterboardTweak(Tweak):
     def verify_tendie(self, new_tendie: TendieFile, is_template: bool = False) -> bool:
         if new_tendie.descriptor_cnt + self.get_descriptor_count() <= 10:
             if is_template:
-                raise Exception("Wrong type of file")
+                raise Exception(QCoreApplication.tr("Wrong type of file"))
                 self.templates.append(new_tendie)
             else:
                 self.tendies.append(new_tendie)
@@ -44,8 +45,8 @@ class PosterboardTweak(Tweak):
             if new_tendie.unsafe_container:
                 detailsBox = QtWidgets.QMessageBox()
                 detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
-                detailsBox.setWindowTitle("Warning")
-                detailsBox.setText("NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.")
+                detailsBox.setWindowTitle(QCoreApplication.tr("Warning"))
+                detailsBox.setText(QCoreApplication.tr("NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work."))
                 detailsBox.exec()
             return True
         return False
@@ -62,8 +63,8 @@ class PosterboardTweak(Tweak):
             print(traceback.format_exc())
             detailsBox = QtWidgets.QMessageBox()
             detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
-            detailsBox.setWindowTitle("Error")
-            detailsBox.setText(f"Failed to load template {file}\n\n{str(e)}")
+            detailsBox.setWindowTitle(QCoreApplication.tr("Error"))
+            detailsBox.setText(QCoreApplication.tr("Failed to load template") + f" {file}\n\n{str(e)}")
             detailsBox.exec()
             return True
         return self.verify_tendie(new_template, is_template=True)
@@ -247,19 +248,19 @@ class PosterboardTweak(Tweak):
             return
         elif len(self.tendies) == 0 and len(templates) == 0 and self.videoFile == None:
             return
-        update_label("Generating PosterBoard Video...")
+        update_label(QCoreApplication.tr("Generating PosterBoard Video..."))
         self.create_live_photo_files(output_dir)
         self.create_video_loop_files(output_dir, update_label=update_label)
         # extract tendies
         for tendie in self.tendies:
-            update_label(f"Extracting tendie {tendie.name}...")
+            update_label(QCoreApplication.tr("Extracting tendie {0}...").format(tendie.name))
             tendie.extract(output_dir=output_dir)
         # extract templates
         for template in templates:
             if template.domain == 'com.apple.PosterBoard' or template.domain == 'AppDomain-com.apple.PosterBoard':
-                update_label(f"Configuring template {template.name}...")
+                update_label(QCoreApplication.tr("Configuring template {0}...").format(template.name))
                 template.extract(output_dir=output_dir)
         # add the files
-        update_label("Adding tendies...")
+        update_label(QCoreApplication.tr("Adding tendies..."))
         self.recursive_add(files_to_restore, curr_path=output_dir)
-        update_label("Adding other tweaks...")
+        update_label(QCoreApplication.tr("Adding other tweaks..."))

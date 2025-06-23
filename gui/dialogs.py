@@ -22,7 +22,7 @@ class GestaltDialog(QDialog):
         self.buttonBox.rejected.connect(self.reject)
 
         layout = QVBoxLayout()
-        message = QLabel("The gestalt file looks like it was made for a different device.\nAre you sure you want to use this one?")
+        message = QLabel(self.tr("The gestalt file looks like it was made for a different device.\nAre you sure you want to use this one?"))
         layout.addWidget(message)
         layout.addWidget(self.buttonBox)
         self.setLayout(layout)
@@ -41,10 +41,10 @@ class PBHelpDialog(QDialog):
         )
         self.buttonBox = QDialogButtonBox(QBtn)
         self.buttonBox.accepted.connect(self.accept)
-        self.setWindowTitle("PosterBoard Info")
+        self.setWindowTitle(self.tr("PosterBoard Info"))
 
         layout = QVBoxLayout()
-        message = QLabel("Descriptors will be under the Collections section when adding a new wallpaper.\n\nIf the wallpapers don't appear in the menu, you either have to wait a bit for them to load,\nor you've reached the maximum amount of wallpapers (15) and have to wipe them.")
+        message = QLabel(self.tr("Descriptors will be under the Collections section when adding a new wallpaper.\n\nIf the wallpapers don't appear in the menu, you either have to wait a bit for them to load,\nor you've reached the maximum amount of wallpapers (15) and have to wipe them."))
         layout.addWidget(message)
 
         imgBox = QWidget()
@@ -81,7 +81,7 @@ class UpdateAppDialog(QDialog):
         self.buttonBox.rejected.connect(self.reject)
 
         layout = QVBoxLayout()
-        title = QLabel("Update Available")
+        title = QLabel(self.tr("Update Available"))
         title_font = QFont()
         title_font.setBold(True)
         title.setFont(title_font)
@@ -89,8 +89,8 @@ class UpdateAppDialog(QDialog):
         message_text = ""
         latest_version = get_latest_version()
         if latest_version != None:
-            message_text += f"Nugget v{latest_version} is available. "
-        message_text += "Would you like to go to the download on GitHub?"
+            message_text += self.tr("Nugget v{0} is available. ").format(latest_version)
+        message_text += self.tr("Would you like to go to the download on GitHub?")
         message = QLabel(message_text)
 
         layout.addWidget(title)
