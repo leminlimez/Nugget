@@ -6,6 +6,7 @@ from qt.ui_mainwindow import Ui_Nugget
 import gui.pages as Pages
 
 from controllers.web_request_handler import is_update_available
+from controllers.translator import Translator
 import controllers.video_handler as video_handler
 
 from devicemanagement.constants import Version
@@ -16,7 +17,7 @@ from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThrea
 
 from tweaks.tweaks import tweaks
 
-App_Version = "6.0"
+App_Version = "6.1"
 App_Build = 0
 
 class Page(Enum):
@@ -36,11 +37,14 @@ class Page(Enum):
     Settings = 13
 
 class MainWindow(QtWidgets.QMainWindow):
-    def __init__(self, device_manager: DeviceManager):
+    def __init__(self, device_manager: DeviceManager, translator: Translator):
         super(MainWindow, self).__init__()
         self.device_manager = device_manager
+        self.translator = translator
+        self.settings = self.translator.settings
         self.ui = Ui_Nugget()
         self.ui.setupUi(self)
+        self.noneText = self.tr("None")
         self.apply_in_progress = False
         self.refresh_in_progress = False
         self.threadpool = QtCore.QThreadPool()
@@ -144,6 +148,16 @@ class MainWindow(QtWidgets.QMainWindow):
             self.refresh_worker_thread.finished.connect(self.refresh_worker_thread.deleteLater)
             self.refresh_worker_thread.start()
 
+    def warn_for_dev_beta(self):
+        ver = self.device_manager.get_current_device_version()
+        if ver == "":
+            return
+        if Version(ver) > Version("26.0") and not self.device_manager.get_current_device_build()[-1].isdigit():
+            self.alert_message(ApplyAlertMessage(
+                txt=self.tr("Warning: You are on iOS 26 beta.\n\nThis has been known to cause problems and potentially lead to bootloops.\n\nUse at your own risk!"),
+                title="Warning", icon=QtWidgets.QMessageBox.Warning
+            ), log_to_console=False)
+
     def refresh_devices_finished(self):
         self.refresh_in_progress = False
         self.toggle_thread_btns(disabled=False)
@@ -152,7 +166,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.restoreProgressBar.hide()
         if len(self.device_manager.devices) == 0:
             self.ui.devicePicker.setEnabled(False)
-            self.ui.devicePicker.addItem('None')
+            self.ui.devicePicker.addItem(self.noneText)
             self.ui.pages.setCurrentIndex(Page.Home.value)
             self.ui.homePageBtn.setChecked(True)
 
@@ -200,12 +214,11 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.miscOptionsBtn.show()
 
             if self.device_manager.allow_risky_tweaks:
-                self.ui.advancedPageBtn.show()
                 try:
                     self.ui.resetPBDrp.removeItem(4)
                 except:
                     pass
-                self.ui.resetPBDrp.addItem("PB Extensions")
+                self.ui.resetPBDrp.addItem("PB Extensions", "PB Extensions")
             else:
                 self.ui.advancedPageBtn.hide()
                 try:
@@ -230,7 +243,6 @@ class MainWindow(QtWidgets.QMainWindow):
         
         # update the selected device
         self.ui.devicePicker.setCurrentIndex(0)
-        self.change_selected_device(0)
 
     def change_selected_device(self, index):
         self.ui.showAllSpoofableChk.hide()
@@ -306,6 +318,12 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.euEnablerPageBtn.show()
             else:
                 self.ui.euEnablerPageBtn.hide()
+
+            # hide risky/advanced page on iOS 26
+            if self.device_manager.allow_risky_tweaks and device_ver < Version("19.0"):
+                self.ui.advancedPageBtn.show()
+            else:
+                self.ui.advancedPageBtn.hide()
             
             # hide the ai content if not on
             if device_ver >= Version("18.1") and (not 'AIGestalt' in tweaks or not tweaks["AIGestalt"].enabled):
@@ -323,6 +341,9 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.chooseThumbBtn.setVisible(is_iphone and not is_looping)
             self.ui.caVideoChk.setVisible(is_iphone)
             self.ui.exportPBVideoBtn.setVisible(is_looping and tweaks["PosterBoard"].videoFile != None)
+            # show status bar date on ipads
+            self.ui.dateChk.setVisible(not is_iphone)
+            self.ui.dateTxt.setVisible(not is_iphone)
 
             # show the PB if initial load is true
             if self.initial_load:
@@ -342,9 +363,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # update the interface
         self.updateInterfaceForNewDevice()
+        if index > -1:
+            self.warn_for_dev_beta()
 
     def loadSettings(self):
-        self.settings = QtCore.QSettings()
         try:
             # load the settings
             apply_over_wifi = self.settings.value("apply_over_wifi", False, type=bool)
@@ -403,6 +425,7 @@ class MainWindow(QtWidgets.QMainWindow):
     
     def on_gestaltPageBtn_clicked(self):
         self.pages[Page.Gestalt].load()
+        self.ui.mgaScrollArea.verticalScrollBar().setValue(0) # reset scroll to top
         self.ui.pages.setCurrentIndex(Page.Gestalt.value)
 
     def on_featureFlagsPageBtn_clicked(self):
@@ -415,6 +438,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_statusBarPageBtn_clicked(self):
         self.pages[Page.StatusBar].load()
+        self.ui.sbScrollArea.verticalScrollBar().setValue(0) # reset scroll to top
         self.ui.pages.setCurrentIndex(Page.StatusBar.value)
 
     def on_springboardOptionsPageBtn_clicked(self):
@@ -463,7 +487,7 @@ class MainWindow(QtWidgets.QMainWindow):
         selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select Mobile Gestalt File", "", "Plist Files (*.plist)", options=QtWidgets.QFileDialog.ReadOnly)
         if selected_file == "" or selected_file == None:
             self.device_manager.data_singleton.gestalt_path = None
-            self.ui.gestaltLocationLbl.setText("None")
+            self.ui.gestaltLocationLbl.setText(self.noneText)
             # show the warning labels
             self.ui.mgaWarningLbl.show()
             self.ui.mgaWarningLbl2.show()
@@ -520,8 +544,9 @@ class MainWindow(QtWidgets.QMainWindow):
             self.worker_thread.finished.connect(self.finish_apply_thread)
             self.worker_thread.finished.connect(self.worker_thread.deleteLater)
             self.worker_thread.start()
-    def alert_message(self, alert: ApplyAlertMessage):
-        print(alert.txt)
+    def alert_message(self, alert: ApplyAlertMessage, log_to_console: bool = True):
+        if log_to_console:
+            print(alert.txt)
         detailsBox = QtWidgets.QMessageBox()
         detailsBox.setIcon(alert.icon)
         detailsBox.setWindowTitle(alert.title)

@@ -176,6 +176,12 @@ To compile the resources file for Python, run the following command:
 pyside6-rcc resources.qrc -o resources_rc.py
 ```
 
+To create and compile languages, you can use the following commands:
+```py
+pyside6-lupdate gui/main_window.py gui/pages/main/*.py gui/pages/tools/*.py gui/dialogs.py qt/mainwindow.ui devicemanagement/device_manager.py exceptions/*.py tweaks/*.py tweaks/posterboard/*.py tweaks/posterboard/template_options/*.py controllers/*.py -ts translations/Nugget_{language code}.ts # generate/update the language file
+pyside6-lrelease translations/Nugget_{language code}.ts -qm translations/Nugget_{language code}.qm # compile to binary
+```
+
 The application itself can be compiled by running `compile.py`.
 
 ## Sparserestore Info
@@ -200,6 +206,7 @@ For clarity, up to iOS 18.2 developer beta 2 (public beta 1) is fully supported 
 </a>
 
 ## Credits
+- Translations crowdsourced using [POEditor][POEditorJoin]. Thank you everyone who assisted in the translation effort!
 - [JJTech][JJTechGitHub] for Sparserestore/[TrollRestore][TrollStoreGitHub]
 - [PosterRestore][PosterRestoreDiscord] for their help with PosterBoard
   - Special thanks to [dootskyre][dootskyreX], [Middo][MiddoX], [dulark][dularkGitHub], forcequitOS, and pingubow for their work on this. It would not have been possible without them!
@@ -223,6 +230,7 @@ For clarity, up to iOS 18.2 developer beta 2 (public beta 1) is fully supported 
 [MobilegestaltShortcut]: https://www.icloud.com/shortcuts/d6f0a136ddda4714a80750512911c53b
 [ReadMoreGist]: https://gist.github.com/leminlimez/c602c067349140fe979410ef69d39c28
 
+[POEditorJoin]: https://poeditor.com/join/project/UTqpVSE2UD
 [JJTechGitHub]: https://github.com/JJTech0130
 [TrollStoreGitHub]: https://github.com/JJTech0130/TrollRestore
 [PosterRestoreDiscord]: https://discord.gg/gWtzTVhMvh

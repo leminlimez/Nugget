@@ -7,6 +7,8 @@ from shutil import rmtree
 from exceptions.posterboard_exceptions import VideoLengthException
 from controllers.files_handler import get_bundle_files
 
+from PySide6.QtCore import QCoreApplication
+
 ignore_pb_frame_limit = False
 
 def set_ignore_frame_limit(value: bool):
@@ -98,7 +100,7 @@ def create_caml(video_path: str, output_file: str, auto_reverses: bool, update_l
                 # if video is still left continue creating images 
                 name = 'assets/' + str(currentframe) + '.jpg'
                 if update_label:
-                    update_label('Creating...' + name)
+                    update_label(QCoreApplication.tr('Creating {0}...').format(name))
                 print('Creating...' + name)
         
                 # writing the extracted images

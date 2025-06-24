@@ -39,6 +39,8 @@ class StatusBarPage(Page):
         # MISC TEXT INPUTS
         self.ui.timeChk.clicked.connect(self.on_timeChk_clicked)
         self.ui.timeTxt.textEdited.connect(self.on_timeTxt_textEdited)
+        self.ui.dateChk.clicked.connect(self.on_dateChk_clicked)
+        self.ui.dateTxt.textEdited.connect(self.on_dateTxt_textEdited)
         self.ui.breadcrumbChk.clicked.connect(self.on_breadcrumbChk_clicked)
         self.ui.breadcrumbTxt.textEdited.connect(self.on_breadcrumbTxt_textEdited)
         self.ui.batteryDetailChk.clicked.connect(self.on_batteryDetailChk_clicked)
@@ -212,6 +214,15 @@ class StatusBarPage(Page):
     def on_timeTxt_textEdited(self, text: str):
         if self.ui.timeChk.isChecked():
             self.status_manager.set_time(text)
+
+    def on_dateChk_clicked(self, checked: bool):
+        if checked:
+            self.status_manager.set_date(self.ui.dateTxt.text())
+        else:
+            self.status_manager.unset_date()
+    def on_dateTxt_textEdited(self, text: str):
+        if self.ui.dateChk.isChecked():
+            self.status_manager.set_date(text)
 
     def on_breadcrumbChk_clicked(self, checked: bool):
         if checked:

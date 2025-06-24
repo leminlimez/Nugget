@@ -44,5 +44,29 @@
         <file>gui/transparent.png</file>
         <file>icon/export.svg</file>
         <file>icon/ellipsis.svg</file>
+        <file>icon/translate.svg</file>
+    </qresource>
+    <qresource prefix="/translations">
+        <file>translations/Nugget_en.qm</file>
+        <file>translations/Nugget_es.qm</file>
+        <file>translations/Nugget_fr.qm</file>
+        <file>translations/Nugget_pl.qm</file>
+        <file>translations/Nugget_ru.qm</file>
+        <file>translations/Nugget_de.qm</file>
+        <file>translations/Nugget_hu.qm</file>
+        <file>translations/Nugget_zh_TW.qm</file>
+        <file>translations/Nugget_ko.qm</file>
+        <file>translations/Nugget_th.qm</file>
+        <file>translations/Nugget_ar_SA.qm</file>
+        <file>translations/Nugget_ar.qm</file>
+        <file>translations/Nugget_cs.qm</file>
+        <file>translations/Nugget_ja.qm</file>
+        <file>translations/Nugget_tr.qm</file>
+        <file>translations/Nugget_vi.qm</file>
+        <file>translations/Nugget_ar_EG.qm</file>
+        <file>translations/Nugget_bg.qm</file>
+        <file>translations/Nugget_es_MX.qm</file>
+        <file>translations/Nugget_fr_CA.qm</file>
+        <file>translations/Nugget_nl.qm</file>
     </qresource>
 </RCC>

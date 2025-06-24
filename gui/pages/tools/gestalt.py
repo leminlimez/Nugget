@@ -43,6 +43,7 @@ class GestaltPage(Page):
         # load tweaks
         load_mobilegestalt(self.window.device_manager.data_singleton.current_device)
         self.set_rdar_fix_label()
+        self.ui.dynamicIslandDrp.setItemText(0, self.window.noneText)
 
     def setup_spoofedModelDrp_models(self):
         # hide all the models first
@@ -68,7 +69,8 @@ class GestaltPage(Page):
             self.ui.rdarFixChk.hide()
         else:
             self.ui.rdarFixChk.show()
-            self.ui.rdarFixChk.setText(f"{rdar_title} (modifies resolution)")
+            res_title = QtCore.QCoreApplication.tr("modifies resolution")
+            self.ui.rdarFixChk.setText(f"{rdar_title} ({res_title})")
     
     def on_dynamicIslandDrp_activated(self, index: int):
         if index == 0:

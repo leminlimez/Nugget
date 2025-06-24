@@ -2,16 +2,42 @@ from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
 from PySide6.QtWidgets import QMessageBox
+from PySide6.QtCore import QCoreApplication, QLocale
 
 from tweaks.tweak_loader import load_rdar_fix
 from tweaks.tweaks import tweaks
 from controllers.video_handler import set_ignore_frame_limit
+
+available_languages = {
+    "English": "en",
+    "Español": "es",
+    "Español (México)": "es_MX",
+    "Français": "fr",
+    "Français (Canada)": "fr_CA",
+    "Deutsch": "de",
+    "Русский язык": "ru",
+    "日本語": "ja",
+    "臺灣話": "zh_TW",
+    "Tiếng Việt": "vi",
+    "ภาษาไทย": "th",
+    "한국어": "ko",
+    "Polski": "pl",
+    "Türkçe": "tr",
+    "Magyar": "hu",
+    "Nederlands": "nl",
+    "Čeština": "cs",
+    "Български": "bg",
+    "العربية": "ar",
+    "العربية (Saudi Arabia)": "ar_SA",
+    "مَصرى (Egypt)": "ar_EG"
+}
 
 class SettingsPage(Page):
     def __init__(self, window, ui: Ui_Nugget):
         super().__init__()
         self.window = window
         self.ui = ui
+        self.lang_indexes = []
 
     def load_page(self):
         self.ui.allowWifiApplyingChk.toggled.connect(self.on_allowWifiApplyingChk_toggled)
@@ -31,7 +57,27 @@ class SettingsPage(Page):
         self.ui.resetPairBtn.clicked.connect(self.on_resetPairBtn_clicked)
         self.ui.pocketPosterHelperBtn.clicked.connect(self.on_pocketPosterHelperBtn_clicked)
 
+        self.load_available_languages()
+        self.ui.langDrp.activated.connect(self.on_langDrp_activated)
+
+    # Load available languages
+    def load_available_languages(self):
+        for language in available_languages.keys():
+            self.lang_indexes.append(available_languages[language])
+            self.ui.langDrp.addItem(language)
+        # load the saved option
+        try:
+            idx = self.lang_indexes.index(self.window.translator.get_saved_locale_code())
+        except:
+            idx = 0
+        self.ui.langDrp.setCurrentIndex(idx)
+
     ## ACTIONS
+    def on_langDrp_activated(self, index: int):
+        new_lang = self.lang_indexes[index]
+        if new_lang != self.window.translator.get_saved_locale_code():
+            self.window.translator.set_new_language(new_lang, restart=True)
+
     def on_allowWifiApplyingChk_toggled(self, checked: bool):
         self.window.device_manager.apply_over_wifi = checked
         # save the setting
@@ -109,18 +155,21 @@ class SettingsPage(Page):
         self.window.device_manager.reset_device_pairing()
     def on_pocketPosterHelperBtn_clicked(self):
         # get app hash for posterboard
-        pb_hash = self.window.device_manager.get_app_hash("com.apple.PosterBoard")
-        print(pb_hash)
+        bundle_ids = ["com.apple.PosterBoard"]
+        if self.window.device_manager.get_current_device_model().startswith("iPhone"):
+            bundle_ids.append("com.apple.CarPlayWallpaper")
+        hashes = self.window.device_manager.get_app_hashes(bundle_ids)
+        print(hashes)
         try:
-            self.window.device_manager.send_app_hash_afc(pb_hash)
-            QMessageBox.information(None, "PosterBoard App Hash", "Your hash has been transferred to the Pocket Poster app.\n\nOpen up its settings and tap \"Detect\".")
+            self.window.device_manager.send_app_hashes_afc(hashes, bundle_ids)
+            QMessageBox.information(None, QCoreApplication.tr("PosterBoard App Hash"), QCoreApplication.tr("Your hash has been transferred to the Pocket Poster app.\n\nOpen up its settings and tap \"Detect\"."))
         except:
             # fall back to copy and paste
-            copytxt = "Copy it and paste"
+            copytxt = QCoreApplication.tr("Copy it and paste it")
             try:
                 import pyperclip
-                pyperclip.copy(pb_hash)
-                copytxt = "It has been copied. Paste"
+                pyperclip.copy(hashes["com.apple.PosterBoard"])
+                copytxt = QCoreApplication.tr("It has been copied. Paste it")
             except:
                 print("pyperclip not found, not copying to clipboard")
-            QMessageBox.information(None, "PosterBoard App Hash", f"Your hash is:\n{pb_hash}\n\n{copytxt} it into the Nugget app where it says \"App Hash\".")
+            QMessageBox.information(None, QCoreApplication.tr("PosterBoard App Hash"), QCoreApplication.tr("Your hash is:\n{0}\n\n{1} into the Nugget app where it says \"App Hash\".").format(hashes["com.apple.PosterBoard"], copytxt))

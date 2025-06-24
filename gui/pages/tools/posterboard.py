@@ -1,8 +1,9 @@
-from PySide6 import QtCore, QtWidgets, QtGui
 import webbrowser
 import subprocess
 import os
 import uuid
+
+from PySide6 import QtCore, QtWidgets, QtGui
 
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
@@ -12,7 +13,7 @@ from gui.custom_qt_elements.multicombobox import MultiComboBox
 from tweaks.tweaks import tweaks
 from devicemanagement.device_manager import show_apply_error
 
-class PosterboardPage(Page):
+class PosterboardPage(Page, QtCore.QObject):
     def __init__(self, window, ui: Ui_Nugget):
         super().__init__()
         self.window = window
@@ -22,16 +23,22 @@ class PosterboardPage(Page):
 
         # set up the dropdown
         self.ui.resetPBDrp = MultiComboBox(self.ui.pbPagePicker, updateAction=self.on_update_picker)
+        self.ui.resetPBDrp.noneText = "  " + self.window.noneText
         self.ui.resetPBDrp.setMinimumWidth(165)
         self.ui.resetPBDrp.setMinimumHeight(25)
         self.ui.resetPBDrp.setMaximumWidth(200)
         self.ui.resetPBDrp.setMaximumHeight(30)
-        self.ui.resetPBDrp.addItems(["Collections", "Suggested Photos", "Gallery Cache"])
-        self.ui.resetPBDrp.lineEdit().setText("  None")
+        self.ui.resetPBDrp.addItem(self.tr("Collections"), "Collections")
+        self.ui.resetPBDrp.addItem(self.tr("Suggested Photos"), "Suggested Photos")
+        self.ui.resetPBDrp.addItem(self.tr("Gallery Cache"), "Gallery Cache")
+        self.ui.resetPBDrp.lineEdit().setText(self.ui.resetPBDrp.noneText)
         self.ui.resetPBDrp.setStyleSheet("QWidget { background-color: #3b3b3b; border: 2px solid #3b3b3b; border-radius: 5px; }")# QAbstractItemView::indicator:checked { background-color: rgba(0, 0, 255, 0.3); border-radius: 4px; }")
         self.ui.pbPagePicker.layout().addWidget(self.ui.resetPBDrp)
+        self.ui.pbVideoThumbLbl.setText(QtCore.QCoreApplication.tr("Current Thumbnail: {0}").format(self.window.noneText))
+        self.ui.pbVideoLbl.setText(QtCore.QCoreApplication.tr("Current Video: {0}").format(self.window.noneText))
 
     def on_update_picker(self, selected_items: list[str]):
+        print(selected_items)
         tweaks["PosterBoard"].resetModes = selected_items
 
     def load_page(self):
@@ -198,16 +205,16 @@ class PosterboardPage(Page):
                     # alert that there are too many tendies
                     detailsBox = QtWidgets.QMessageBox()
                     detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
-                    detailsBox.setWindowTitle("Error!")
-                    detailsBox.setText("You selected too many tendies files! The limit is 3.\n\nThis is for your safety. Please apply the rest separately.")
+                    detailsBox.setWindowTitle(QtCore.QCoreApplication.tr("Error!"))
+                    detailsBox.setText(QtCore.QCoreApplication.tr("You selected too many tendies files! The limit is 3.\n\nThis is for your safety. Please apply the rest separately."))
                     detailsBox.exec()
                     break
                 if not tweaks["PosterBoard"].add_tendie(file):
                     # alert that there are too many
                     detailsBox = QtWidgets.QMessageBox()
                     detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
-                    detailsBox.setWindowTitle("Error!")
-                    detailsBox.setText("You selected too many descriptors! The limit is 10.")
+                    detailsBox.setWindowTitle(QtCore.QCoreApplication.tr("Error!"))
+                    detailsBox.setText(QtCore.QCoreApplication.tr("You selected too many descriptors! The limit is 10."))
                     detailsBox.exec()
                     break
             self.load_pb_tendies()
@@ -223,8 +230,8 @@ class PosterboardPage(Page):
                     # alert that there are too many
                     detailsBox = QtWidgets.QMessageBox()
                     detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
-                    detailsBox.setWindowTitle("Error!")
-                    detailsBox.setText("You selected too many descriptors! The limit is 10.")
+                    detailsBox.setWindowTitle(QtCore.QCoreApplication.tr("Error!"))
+                    detailsBox.setText(QtCore.QCoreApplication.tr("You selected too many descriptors! The limit is 10."))
                     detailsBox.exec()
                     break
             self.load_pb_templates()
@@ -235,21 +242,21 @@ class PosterboardPage(Page):
         self.ui.resetPBDrp.deselectAll()
         if selected_file != None and selected_file != "":
             tweaks["PosterBoard"].videoThumbnail = selected_file
-            self.ui.pbVideoThumbLbl.setText(f"Current Thumbnail: {selected_file}")
+            self.ui.pbVideoThumbLbl.setText(QtCore.QCoreApplication.tr("Current Thumbnail: {0}").format(selected_file))
         else:
             tweaks["PosterBoard"].videoThumbnail = None
-            self.ui.pbVideoThumbLbl.setText("Current Thumbnail: None")
+            self.ui.pbVideoThumbLbl.setText(QtCore.QCoreApplication.tr("Current Thumbnail: {0}").format(self.window.noneText))
     def on_chooseVideoBtn_clicked(self):
         selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self.window, "Select Video File", "", "Video Files (*.mov *.mp4 *.mkv)", options=QtWidgets.QFileDialog.ReadOnly)
         self.ui.resetPBDrp.deselectAll()
         if selected_file != None and selected_file != "":
             tweaks["PosterBoard"].videoFile = selected_file
-            self.ui.pbVideoLbl.setText(f"Current Video: {selected_file}")
+            self.ui.pbVideoLbl.setText(QtCore.QCoreApplication.tr("Current Video: {0}").format(selected_file))
             if tweaks["PosterBoard"].loop_video:
                 self.ui.exportPBVideoBtn.show()
         else:
             tweaks["PosterBoard"].videoFile = None
-            self.ui.pbVideoLbl.setText("Current Video: None")
+            self.ui.pbVideoLbl.setText(QtCore.QCoreApplication.tr("Current Video: {0}").format(self.window.noneText))
             self.ui.exportPBVideoBtn.hide()
     def on_caVideoChk_toggled(self, checked: bool):
         tweaks["PosterBoard"].loop_video = checked
