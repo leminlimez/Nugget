@@ -161,7 +161,7 @@ class SettingsPage(Page):
         hashes = self.window.device_manager.get_app_hashes(bundle_ids)
         print(hashes)
         try:
-            self.window.device_manager.send_app_hashes_afc(hashes, bundle_ids)
+            self.window.device_manager.send_app_hashes_afc(hashes)
             QMessageBox.information(None, QCoreApplication.tr("PosterBoard App Hash"), QCoreApplication.tr("Your hash has been transferred to the Pocket Poster app.\n\nOpen up its settings and tap \"Detect\"."))
         except:
             # fall back to copy and paste
