@@ -15,7 +15,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="415"/>
       <source>    Home</source>
-      <translation>    Ana menü</translation>
+      <translation>    Ana sayfa</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="465"/>
@@ -90,7 +90,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="1391"/>
       <source>dootskyre, dulark, forcequitOS, pengubow, Middo, and SerStars</source>
-      <translation>dootskyre, dulark, forcequitOS, pengubow, Middo, ve SerStars</translation>
+      <translation>dootskyre, dulark, forcequitOS, pengubow, Middo ve SerStars</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1407"/>
@@ -151,7 +151,7 @@ Sparserestore</translation>
       <location filename="../qt/mainwindow.ui" line="1802"/>
       <location filename="../qt/mainwindow.ui" line="2846"/>
       <source>! You will need a MobileGestalt file for this feature. Please select it in the Apply page !</source>
-      <translation>Bu işlem için bir MobilGestalt belgesi gerekmektedir. Lütfen Uygula ekranında seçiniz!</translation>
+      <translation>Bu işlem için bir MobilGestalt dosyası gerekmektedir. Lütfen Uygula ekranında seçiniz!</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1875"/>
@@ -161,32 +161,32 @@ Sparserestore</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="1946"/>
       <source>2436 (iPhone X Gestures for SE phones)</source>
-      <translation>2436 (SE cihazlara iPhone X tarzı hareket)</translation>
+      <translation>2436 (iPhone X hareketi, Düğmeli iPhone için)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1951"/>
       <source>2556 (iPhone 14 Pro Dynamic Island)</source>
-      <translation>2556 (iPhone 14 Pro Dinamik Ada)</translation>
+      <translation>2556 (iPhone 14 Pro Dynamic Island)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1956"/>
       <source>2796 (iPhone 14 Pro Max Dynamic Island)</source>
-      <translation>2796 (iPhone 14 Pro Max Dinamik Ada)</translation>
+      <translation>2796 (iPhone 14 Pro Max Dynamic Island)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1961"/>
       <source>2976 (iPhone 15 Pro Max Dynamic Island)</source>
-      <translation>2976 (iPhone 15 Pro Max Dinamik Ada)</translation>
+      <translation>2976 (iPhone 15 Pro Max Dynamic Island)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1966"/>
       <source>2622 (iPhone 16 Pro Dynamic Island)</source>
-      <translation>2622 (iPhone 16 Pro Dinamik Ada)</translation>
+      <translation>2622 (iPhone 16 Pro Dynamic Island)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1971"/>
       <source>2868 (iPhone 16 Pro Max Dynamic Island)</source>
-      <translation>2868 (iPhone 16 Pro Max Dinamik Ada)</translation>
+      <translation>2868 (iPhone 16 Pro Max Dynamic Island)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1979"/>
@@ -265,7 +265,7 @@ Etkinleştirdikten sonra bu seçeneği 'Erişilebilirlik' ayarlarında bulabilir
     <message>
       <location filename="../qt/mainwindow.ui" line="2077"/>
       <source>Enable Medusa (iPad Multitasking)</source>
-      <translation>Medusayı Açmak (iPad Çoklu Görev)</translation>
+      <translation>Medusayı Aç (iPad Çoklu Görev)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2084"/>
@@ -280,12 +280,12 @@ Etkinleştirdikten sonra bu seçeneği 'Erişilebilirlik' ayarlarında bulabilir
     <message>
       <location filename="../qt/mainwindow.ui" line="2094"/>
       <source>Disable Region Restrictions (ie. Shutter Sound)</source>
-      <translation>Bölge zorunluluklarını kapatır. (örneğin deklanşör sesi)</translation>
+      <translation>Bölgesel kısıtlamaları devre dışı bırak. (örneğin deklanşör sesi)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2101"/>
       <source>Enable Find My Friends</source>
-      <translation>Arkadaşlarımı Bul'u açmak</translation>
+      <translation>Arkadaşlarımı Bul'u aç</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2108"/>
@@ -309,7 +309,7 @@ Not: Bu özellik devre dışı bırakılana kadar OTA güncellemeleri çalışma
     <message>
       <location filename="../qt/mainwindow.ui" line="2142"/>
       <source>Set as Apple Internal Install (ie Metal HUD in any app)</source>
-      <translation>Apple İç Yüklemesi Olarak Ayarla (ör. Metal HUD'u her uygulamada kullan)</translation>
+      <translation>Apple Dahili Yüklemesi Olarak Ayarla (ör. Metal HUD'u her uygulamada kullan)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2149"/>
@@ -343,7 +343,7 @@ Not: Bu özellik devre dışı bırakılana kadar OTA güncellemeleri çalışma
     <message>
       <location filename="../qt/mainwindow.ui" line="2189"/>
       <source>Enable Always On Display</source>
-      <translation>Ekranı Sürekli Açık Tutmayı Etkinleştir</translation>
+      <translation>Hep Açık Ekranı Etkinleştir</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2196"/>
@@ -353,7 +353,7 @@ Not: Bu özellik devre dışı bırakılana kadar OTA güncellemeleri çalışma
     <message>
       <location filename="../qt/mainwindow.ui" line="2199"/>
       <source>Enable AOD Vibrancy</source>
-      <translation>Ekran Sürekli Açık Titreşimini Açmak</translation>
+      <translation>Hep Açık Ekran Canlılığını Etkinleştir</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2229"/>
@@ -369,7 +369,7 @@ Not: Bu özellik devre dışı bırakılana kadar OTA güncellemeleri çalışma
       <location filename="../qt/mainwindow.ui" line="2258"/>
       <source>Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know
 what you are doing.</source>
-      <translation>Uyarı: Bu özelliği yanlış kullanmak, başlangıç döngüsü ve veri kaybına yol açabilir. Sadece ne yaptığınızı biliyorsanız kullanın.</translation>
+      <translation>Uyarı: Bu özelliği yanlış kullanmak, önyükleme döngüsü ve veri kaybına yol açabilir. Sadece ne yaptığınızı biliyorsanız kullanın.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2391"/>
@@ -410,7 +410,7 @@ iOS 18.0 RC ile çalışmaz.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="2510"/>
       <source>Enable Old Photo UI</source>
-      <translation>Eski Fotoğraf arayüzünü etkinleştirmek</translation>
+      <translation>Eski Fotoğraf arayüzünü etkinleştir</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2517"/>
@@ -492,9 +492,9 @@ Entering the menu on your original device model will cause a re-download and may
 restore to fix. Furthermore, if you switch between model groups, like spoofing from the iPhone 16s
 to the iPhone 15 Pro series, a re-download may also occur. 
 Please be careful!</source>
-      <translation>AI modellerini indirmek için cihaz modelinizi taklit yapmanız gerekmektedir. Ancak, bunu yapmanız Face ID'nin geri alınana kadar çalışmamasına neden olabilir.
+      <translation>AI modellerini indirmek için cihaz modeli sahteciliği yapmanız gerekmektedir. Ancak, bunu yapmanız Face ID'nin bu işlemi geri alana kadar çalışmamasına neden olabilir.
 
-UYARI: Taklit işlemini geri aldıktan sonra, Ayarlar uygulamasındaki "Apple Intelligence" menüsüne gitmeyin.
+UYARI: Sahtecilik işlemini geri aldıktan sonra, Ayarlar uygulamasındaki "Apple Intelligence" menüsüne gitmeyin.
 
 Orijinal cihaz modelinizle menüye girmek, tekrar indirme işlemini başlatır ve düzeltmek için tam geri yükleme yapmanız gerekebilir. Ayrıca, iPhone 16s'ten iPhone 15 Pro serisine gibi model grupları arasında geçiş yaparsanız, yeniden indirme işlemi de gerçekleşebilir.
 Lütfen dikkatli olun!</translation>
@@ -648,7 +648,7 @@ Lütfen dikkatli olun!</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="3139"/>
       <source>Spoof Hardware Model</source>
-      <translation>Donanım Modelini Taklit etmek</translation>
+      <translation>Donanım Modelini Taklit et</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3149"/>
@@ -658,7 +658,7 @@ Lütfen dikkatli olun!</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="3152"/>
       <source>Spoof CPU Model</source>
-      <translation>CPU Modelini Taklit etmek</translation>
+      <translation>CPU Modelini Taklit et</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3257"/>
@@ -669,7 +669,7 @@ Lütfen dikkatli olun!</translation>
       <location filename="../qt/mainwindow.ui" line="3264"/>
       <location filename="../qt/mainwindow.ui" line="5799"/>
       <source>Modify</source>
-      <translation>Modifiye</translation>
+      <translation>Modifiye et</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3371"/>
@@ -712,13 +712,13 @@ Lütfen dikkatli olun!</translation>
       <location filename="../qt/mainwindow.ui" line="3442"/>
       <location filename="../qt/mainwindow.ui" line="3748"/>
       <source>Change Carrier Text</source>
-      <translation>Sağlayıcı İsmini Değiştir</translation>
+      <translation>Operatör İsmini Değiştir</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3449"/>
       <location filename="../qt/mainwindow.ui" line="3755"/>
       <source>Carrier Text</source>
-      <translation>Sağlayıcı İsmi</translation>
+      <translation>Operatör İsmi</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3456"/>
@@ -903,7 +903,7 @@ Lütfen dikkatli olun!</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="4170"/>
       <source>*When set to blank on notched devices, this will display the carrier name.</source>
-      <translation>*Çentikli telefonlarda boş bırakıldığında, sağlayıcı ismini gösterecektir.</translation>
+      <translation>*Çentikli telefonlarda boş bırakıldığında, operatör ismini gösterecektir.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4192"/>
@@ -1224,7 +1224,7 @@ Doğru çalışması için yukarıdaki geçişi kullanarak daemon'u devre dış�
     <message>
       <location filename="../qt/mainwindow.ui" line="5921"/>
       <source>Disable ATWAKEUP</source>
-      <translation type="unfinished">ATWAKEUP'u Kapat</translation>
+      <translation type="unfinished">ATWAKEUP'u Devre Dışı Bırak</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5943"/>
@@ -1532,7 +1532,7 @@ Uyarı: Bu işlemi devre dışı bırakmak, bataryanın Ayarlar'da "Bilinmeyen P
     <message>
       <location filename="../qt/mainwindow.ui" line="7863"/>
       <source>Note: Skip Setup is currently turned on.</source>
-      <translation>Not: Kurulumu geçme şuan açık.</translation>
+      <translation>Not: Kurulumu atla şu an açık.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7914"/>
@@ -1552,7 +1552,7 @@ Uyarı: Bu işlemi devre dışı bırakmak, bataryanın Ayarlar'da "Bilinmeyen P
     <message>
       <location filename="../qt/mainwindow.ui" line="8205"/>
       <source>Allow Applying Over WiFi</source>
-      <translation>Wifi Üzerinden Uygulamayı Açmak</translation>
+      <translation>WiFi Üzerinden Uygulamaya izin ver</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8215"/>
@@ -1584,9 +1584,9 @@ Uyarı: Bu işlemi devre dışı bırakmak, bataryanın Ayarlar'da "Bilinmeyen P
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
-      <translation>Tendies dosya limitini 2'ye devre dışı bırakır. Yine de açıklayıcı (descriptor) limiti vardır.
+      <translation>2 olan Tendies dosya limitini devre dışı bırakır. Yine de descriptor limiti vardır.
 
-Geri yükleme sırasında cihazınızı asla çıkarmayın.</translation>
+Geri yükleme sırasında cihaz bağlantısını asla kesmeyin.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8260"/>
@@ -1631,7 +1631,7 @@ Geri yükleme sırasında cihazınızı asla çıkarmayın.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="8369"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
-      <translation>Not: "Kurulumu Atla" özelliği, yapılandırma profilleriyle sorunlara yol açabilir. Eğer buna ihtiyacınız varsa, bu özelliği kapatın.</translation>
+      <translation>* Not: "Kurulumu Atla" özelliği, yapılandırma profilleriyle sorunlara yol açabilir. Eğer buna ihtiyacınız varsa, bu özelliği kapatın.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8396"/>
@@ -1666,7 +1666,7 @@ Geri yükleme sırasında cihazınızı asla çıkarmayın.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="3994"/>
       <source>Change Status Bar Date Text</source>
-      <translation>Durum barındaki Tarih metnini değiştirmek</translation>
+      <translation>Durum barındaki Tarih metnini değiştir</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4001"/>
@@ -1771,7 +1771,7 @@ Uygulamanın ayarlarını açın ve "Detect" seçeneğine tıklayın.</translati
     <message>
       <location filename="../devicemanagement/device_manager.py" line="59"/>
       <source>Disable Find My from Settings (Settings -&gt; [Your Name] -&gt; Find My) and then try again.</source>
-      <translation>Bul özelliğini kapatınız (Ayarlar -&gt; [İsmin] -&gt; Bul) ve tekrar deneyin.</translation>
+      <translation>Bul özelliğini kapatıp (Ayarlar -&gt; [İsminiz] -&gt; Bul) ve tekrar deneyin.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="61"/>
@@ -1840,7 +1840,7 @@ Cihazınızı kilidini açın. Açılan pencerede "Güven"e tıklayın, şifreni
     <message>
       <location filename="../devicemanagement/device_manager.py" line="274"/>
       <source>Pairing Reset</source>
-      <translation>Eşleme Sıfırlama</translation>
+      <translation>Eşlemeyi Sıfırla</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="274"/>
@@ -2012,7 +2012,7 @@ Bu, güvenliğiniz içindir. Kalan dosyaları ayrı ayrı uygulayın lütfen.</t
       <location filename="../gui/pages/tools/posterboard.py" line="217"/>
       <location filename="../gui/pages/tools/posterboard.py" line="234"/>
       <source>You selected too many descriptors! The limit is 10.</source>
-      <translation type="unfinished">Çok fazla descriptor seçtiniz! Limit 10'dur.</translation>
+      <translation type="unfinished">Çok fazla tanımlayıcı seçtiniz! Sınır 10'dur.</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="37"/>
@@ -2124,7 +2124,7 @@ Kendi riskinizde kullanın!</translation>
     <message>
       <location filename="../gui/main_window.py" line="48"/>
       <source>None</source>
-      <translation>Hiç biri</translation>
+      <translation>Hiçbiri</translation>
     </message>
   </context>
 </TS>

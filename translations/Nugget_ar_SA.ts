@@ -26,7 +26,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="494"/>
       <source>     Mobile Gestalt</source>
-      <translation>     Mobile Gestalt</translation>
+      <translation>Gestalt الهاتف</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="538"/>
@@ -112,7 +112,7 @@ Posterboard</translation>
       <source>disfordottie
 Feature Flags</source>
       <translation>disfordottie
-Feature Flags</translation>
+مفاتيح الميزات</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1495"/>
@@ -162,37 +162,37 @@ Sparserestore</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="1946"/>
       <source>2436 (iPhone X Gestures for SE phones)</source>
-      <translation>2436 (iPhone X Gestures for SE phones)</translation>
+      <translation>2436 (إيماءات iPhone X لهواتف SE)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1951"/>
       <source>2556 (iPhone 14 Pro Dynamic Island)</source>
-      <translation>2556 (iPhone 14 Pro Dynamic Island)</translation>
+      <translation>2556 (الجزيرة التفاعلية لـ iPhone 14 Pro)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1956"/>
       <source>2796 (iPhone 14 Pro Max Dynamic Island)</source>
-      <translation>2796 (iPhone 14 Pro Max Dynamic Island)</translation>
+      <translation>2796 (الجزيرة التفاعلية لـ  iPhone 14 Pro Max)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1961"/>
       <source>2976 (iPhone 15 Pro Max Dynamic Island)</source>
-      <translation>2976 (iPhone 15 Pro Max Dynamic Island)</translation>
+      <translation>2976 (الجزيرة التفاعلية لـ iPhone 15 Pro Max)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1966"/>
       <source>2622 (iPhone 16 Pro Dynamic Island)</source>
-      <translation>2622 (iPhone 16 Pro Dynamic Island)</translation>
+      <translation>2622 (الجزيرة التفاعلية لـ iPhone 16 Pro)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1971"/>
       <source>2868 (iPhone 16 Pro Max Dynamic Island)</source>
-      <translation>2868 (iPhone 16 Pro Max Dynamic Island)</translation>
+      <translation>2868 (الجزيرة التفاعلية لـ iPhone 16 Pro Max)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1979"/>
       <source>Modifies the resolution to improve functionality of the changed device subtype. May cause weird visual bugs.</source>
-      <translation>Modifies the resolution to improve functionality of the changed device subtype. May cause weird visual bugs.</translation>
+      <translation>يقوم بتعديل دقة العرض لتحسين وظائف نوع الجهاز المُعدل. قد يسبب بعض الأخطاء البصرية الغريبة.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1989"/>
@@ -221,12 +221,12 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
     <message>
       <location filename="../qt/mainwindow.ui" line="2011"/>
       <source>Enable Boot Chime</source>
-      <translation>Enable Boot Chime</translation>
+      <translation>تفعيل صوت بدء التشغيل</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2018"/>
       <source>Shows the charge limit menu in Settings. Actual limiting may not be functional.</source>
-      <translation>Shows the charge limit menu in Settings. Actual limiting may not be functional.</translation>
+      <translation>يعرض قائمة تحديد الحد الأقصى للشحن في الإعدادات. قد لا يعمل التحديد الفعلي بشكل صحيح.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2021"/>
@@ -241,7 +241,7 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
     <message>
       <location filename="../qt/mainwindow.ui" line="2035"/>
       <source>Enables Camera Control menu in Settings app and allows for downloading A17 Pro-exclusive apps (when spoofed).</source>
-      <translation>Enables Camera Control menu in Settings app and allows for downloading A17 Pro-exclusive apps (when spoofed).</translation>
+      <translation>يفعّل قائمة تحكم الكاميرا في تطبيق الإعدادات ويسمح بتنزيل تطبيقات حصرية لـ A17 Pro (عند التزييف).</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2038"/>
@@ -251,7 +251,7 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
     <message>
       <location filename="../qt/mainwindow.ui" line="2045"/>
       <source>Disables the motion of the wallpaper.</source>
-      <translation>Disables the motion of the wallpaper.</translation>
+      <translation>يعطّل حركة الخلفية.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2048"/>
@@ -276,12 +276,12 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
     <message>
       <location filename="../qt/mainwindow.ui" line="2091"/>
       <source>Sets the device's region to LL/A to bypass certain region restrictions like the forced shutter sound.</source>
-      <translation>Sets the device's region to LL/A to bypass certain region restrictions like the forced shutter sound.</translation>
+      <translation>يضبط منطقة الجهاز إلى LL/A لتجاوز بعض قيود المنطقة مثل صوت التقاط الصورة الإجباري.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2094"/>
       <source>Disable Region Restrictions (ie. Shutter Sound)</source>
-      <translation>Disable Region Restrictions (ie. Shutter Sound)</translation>
+      <translation>تعطيل قيود المنطقة (مثل صوت التقاط الصورة)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2101"/>
@@ -311,16 +311,16 @@ Note: OTA updates will be broken until this is disabled.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="2142"/>
       <source>Set as Apple Internal Install (ie Metal HUD in any app)</source>
-      <translation>Set as Apple Internal Install (ie Metal HUD in any app)</translation>
+      <translation>تعيين كتركيب داخلي من آبل (مثل Metal HUD في أي تطبيق)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2149"/>
       <source>Shows internal files in storage settings.
 
 Note: OTA updates will be broken until this is disabled.</source>
-      <translation>Shows internal files in storage settings.
+      <translation>يعرض الملفات الداخلية في إعدادات التخزين.
 
-Note: OTA updates will be broken until this is disabled.</translation>
+ملاحظة: تحديثات OTA ستتوقف عن العمل حتى يتم تعطيل هذا الخيار.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2154"/>
@@ -330,17 +330,17 @@ Note: OTA updates will be broken until this is disabled.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="2176"/>
       <source>Shows collision detection in the SOS page in Settings.</source>
-      <translation>Shows collision detection in the SOS page in Settings.</translation>
+      <translation>يعرض ميزة اكتشاف الاصطدام في صفحة SOS داخل الإعدادات.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2179"/>
       <source>Enable Collision SOS</source>
-      <translation>Enable Collision SOS</translation>
+      <translation>شغّل SOS الاصطدام</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2186"/>
       <source>Enable AOD on unsupported devices. May cause burn in, use with caution.</source>
-      <translation>Enable AOD on unsupported devices. May cause burn in, use with caution.</translation>
+      <translation>تفعيل العرض الدائم (AOD) على الأجهزة غير المدعومة. قد يسبب احتراق الشاشة، استخدمه بحذر.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2189"/>
@@ -350,12 +350,12 @@ Note: OTA updates will be broken until this is disabled.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="2196"/>
       <source>Enable this if something is wonky when using the above toggle.</source>
-      <translation>Enable this if something is wonky when using the above toggle.</translation>
+      <translation>فعّل هذا الخيار إذا لاحظت أي مشكلة عند استخدام الزر أعلاه.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2199"/>
       <source>Enable AOD Vibrancy</source>
-      <translation>Enable AOD Vibrancy</translation>
+      <translation>تفعيل حيوية العرض الدائم</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2229"/>
@@ -365,7 +365,7 @@ Note: OTA updates will be broken until this is disabled.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="2239"/>
       <source>  Add Key</source>
-      <translation>  Add Key</translation>
+      <translation>  اضف مفتاح</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2258"/>
@@ -387,19 +387,19 @@ what you are doing.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="2469"/>
       <source>Enable Lockscreen Clock Animation</source>
-      <translation>Enable Lockscreen Clock Animation</translation>
+      <translation>تفعيل أنميشن ساعة شاشة القفل</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2476"/>
       <source>Enables a button to duplicate the lock screen page in edit mode.
 Enables quickly switching lock screens by holding down and swiping.</source>
-      <translation>Enables a button to duplicate the lock screen page in edit mode.
-Enables quickly switching lock screens by holding down and swiping.</translation>
+      <translation>يفعّل زر لتكرار صفحة شاشة القفل في وضع التحرير.
+يتيح التبديل السريع بين شاشات القفل عن طريق الضغط مع السحب.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2480"/>
       <source>Enable Duplicate Lockscreen Button and Lockscreen Quickswitch</source>
-      <translation>Enable Duplicate Lockscreen Button and Lockscreen Quickswitch</translation>
+      <translation>تفعيل زر تكرار شاشة القفل والتبديل السريع بين شاشات القفل</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2505"/>
@@ -457,12 +457,12 @@ Only works on iOS 18.0 beta 1-2.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="2805"/>
       <source>Region Code (Should be 2 letters)</source>
-      <translation>Region Code (Should be 2 letters)</translation>
+      <translation>رمز المنطقة (يجب أن يكون حرفين)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2812"/>
       <source>Region Code (Default: US)</source>
-      <translation>Region Code (Default: US)</translation>
+      <translation>رمز المنطقة (الافتراضي: US)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2853"/>
@@ -506,13 +506,13 @@ Please be careful!</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="2944"/>
       <source>Spoofed Device Model</source>
-      <translation>Spoofed Device Model</translation>
+      <translation>نموذج جهاز مزيف</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2991"/>
       <location filename="../qt/mainwindow.ui" line="2998"/>
       <source>Original</source>
-      <translation>Original</translation>
+      <translation>الأصل</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3003"/>
@@ -988,7 +988,7 @@ Please be careful!</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="4654"/>
       <source>Rotation Lock Icon</source>
-      <translation>Rotation Lock Icon</translation>
+      <translation>أيقونة قفل تدوير الشاشة</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4719"/>
@@ -1008,7 +1008,7 @@ Please be careful!</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="4914"/>
       <source>Classroom Icon</source>
-      <translation>Classroom Icon</translation>
+      <translation>أيقونة Classroom</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4979"/>
@@ -1053,12 +1053,12 @@ Please be careful!</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5334"/>
       <source>Disable Screen Dimming While Charging</source>
-      <translation>Disable Screen Dimming While Charging</translation>
+      <translation>أيقاف تعتيم الشاشة أثناء الشحن</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5341"/>
       <source>Disable Low Battery Alerts</source>
-      <translation>Disable Low Battery Alerts</translation>
+      <translation>إيقاف تنبيهات البطارية الضعيفة</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5348"/>
@@ -1240,7 +1240,7 @@ To work properly, also disable the daemon using the toggle above.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="5946"/>
       <source>Disable Game Center</source>
-      <translation>Disable Game Center</translation>
+      <translation>إيقاف Game Center</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5953"/>
@@ -1474,7 +1474,7 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="7140"/>
       <source>Height:</source>
-      <translation>Height:</translation>
+      <translation>الطول:</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7155"/>
@@ -1484,7 +1484,7 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="7196"/>
       <source>Width:</source>
-      <translation>Width:</translation>
+      <translation>العرض:</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7213"/>
@@ -1720,7 +1720,7 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
     <message>
       <location filename="../gui/dialogs.py" line="94"/>
       <source>Would you like to go to the download on GitHub?</source>
-      <translation>هل تود التحميل من Github؟ </translation>
+      <translation>هل تود التحميل من Github؟</translation>
     </message>
   </context>
   <context>
@@ -1748,12 +1748,12 @@ Open up its settings and tap "Detect".</translation>
     <message>
       <location filename="../gui/pages/main/settings.py" line="166"/>
       <source>Copy it and paste it</source>
-      <translation>Copy it and paste it</translation>
+      <translation>أنسخه ثم الصق</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/settings.py" line="170"/>
       <source>It has been copied. Paste it</source>
-      <translation>It has been copied. Paste it</translation>
+      <translation>تم النسخ. الصقه الان</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/settings.py" line="172"/>
@@ -1784,7 +1784,7 @@ Open up its settings and tap "Detect".</translation>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="61"/>
       <source>Nugget cannot be used on this device. Click Show Details for more info.</source>
-      <translation>Nugget cannot be used on this device. Click Show Details for more info.</translation>
+      <translation>لا يمكنك ان تستعمل Nugget على هذا الجهاز. انقر على اضهار التفاصيل للمزيد من المعلومات.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="62"/>
@@ -1874,13 +1874,13 @@ Remember to turn Find My back on!</source>
       <location filename="../devicemanagement/device_manager.py" line="630"/>
       <location filename="../devicemanagement/device_manager.py" line="664"/>
       <source>Please restart your device to see changes.</source>
-      <translation>Please restart your device to see changes.</translation>
+      <translation>يرجى إعادة تشغيل جهازك لملاحظة التغييرات.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="630"/>
       <location filename="../devicemanagement/device_manager.py" line="664"/>
       <source>All done! </source>
-      <translation>All done! </translation>
+      <translation>تم كل شيء! </translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="630"/>
@@ -1888,7 +1888,7 @@ Remember to turn Find My back on!</source>
       <location filename="../devicemanagement/device_manager.py" line="664"/>
       <location filename="../devicemanagement/device_manager.py" line="665"/>
       <source>Success!</source>
-      <translation>Success!</translation>
+      <translation>نجحت!</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/home.py" line="67"/>
@@ -1908,12 +1908,12 @@ Remember to turn Find My back on!</source>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="40"/>
       <source>Wrong type of file</source>
-      <translation>Wrong type of file</translation>
+      <translation>نوع ملف خاطئ</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="48"/>
       <source>Warning</source>
-      <translation>Warning</translation>
+      <translation>تحذير</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="49"/>
@@ -1924,13 +1924,13 @@ Remember to turn Find My back on!</source>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="66"/>
       <location filename="../tweaks/posterboard/template_options/templates_tweak.py" line="34"/>
       <source>Error</source>
-      <translation>Error</translation>
+      <translation>عذراً</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="67"/>
       <location filename="../tweaks/posterboard/template_options/templates_tweak.py" line="35"/>
       <source>Failed to load template</source>
-      <translation>Failed to load template</translation>
+      <translation>فشل تحميل القالب</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="199"/>
@@ -1940,62 +1940,62 @@ Remember to turn Find My back on!</source>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="440"/>
       <source>Restoring to device...{0}{1}</source>
-      <translation>Restoring to device...{0}{1}</translation>
+      <translation>جارٍ الاستعادة إلى الجهاز... {0}{1}</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="445"/>
       <source>Applying changes to files...</source>
-      <translation>Applying changes to files...</translation>
+      <translation>جارٍ تطبيق التغييرات على الملفات...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="251"/>
       <source>Generating PosterBoard Video...</source>
-      <translation>Generating PosterBoard Video...</translation>
+      <translation>جاري إنشاء فيديو PosterBoard...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="256"/>
       <source>Extracting tendie {0}...</source>
-      <translation>Extracting tendie {0}...</translation>
+      <translation>جارٍ استخراج tendie {0}...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="261"/>
       <source>Configuring template {0}...</source>
-      <translation>Configuring template {0}...</translation>
+      <translation>جارٍ اعداد القالب {0}...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="264"/>
       <source>Adding tendies...</source>
-      <translation>Adding tendies...</translation>
+      <translation>إضافة tendies...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="266"/>
       <source>Adding other tweaks...</source>
-      <translation>Adding other tweaks...</translation>
+      <translation>إضافة تعديلات أخرى...</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="115"/>
       <source>Revert RDAR fix</source>
-      <translation>Revert RDAR fix</translation>
+      <translation>التراجع عن إصلاح RDAR</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="116"/>
       <source>RDAR Fix</source>
-      <translation>RDAR Fix</translation>
+      <translation>إصلاح RDAR</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="119"/>
       <source>Revert Status Bar Fix</source>
-      <translation>Revert Status Bar Fix</translation>
+      <translation>التراجع عن إصلاح شريط الحالة</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="120"/>
       <source>Dynamic Island Status Bar Fix</source>
-      <translation>Dynamic Island Status Bar Fix</translation>
+      <translation>إصلاح شريط الحالة في الـ Dynamic Island</translation>
     </message>
     <message>
       <location filename="../controllers/video_handler.py" line="103"/>
       <source>Creating {0}...</source>
-      <translation>Creating {0}...</translation>
+      <translation>إنتاج {0}...</translation>
     </message>
   </context>
   <context>
@@ -2005,7 +2005,7 @@ Remember to turn Find My back on!</source>
       <location filename="../gui/pages/tools/posterboard.py" line="216"/>
       <location filename="../gui/pages/tools/posterboard.py" line="233"/>
       <source>Error!</source>
-      <translation>Error!</translation>
+      <translation>حصل خطا!</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="209"/>
@@ -2100,17 +2100,17 @@ No selected file for required option</source>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="31"/>
       <source>Collections</source>
-      <translation>Collections</translation>
+      <translation>التجميعات</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="32"/>
       <source>Suggested Photos</source>
-      <translation>Suggested Photos</translation>
+      <translation>الصور المقترحه</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="33"/>
       <source>Gallery Cache</source>
-      <translation>Gallery Cache</translation>
+      <translation>ذاكرة التخزين المؤقت للمعرض</translation>
     </message>
   </context>
   <context>

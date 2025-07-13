@@ -12,11 +12,16 @@ available_languages = {
     "English": "en",
     "Español": "es",
     "Español (México)": "es_MX",
+    "Português": "pt",
     "Français": "fr",
     "Français (Canada)": "fr_CA",
+    "Français (Belgium)": "fr_BE",
     "Deutsch": "de",
+    "Deutsch (Australia)": "de_AT",
+    "Italiano": "it",
     "Русский язык": "ru",
     "日本語": "ja",
+    "普通话": "zh_CN",
     "臺灣話": "zh_TW",
     "Tiếng Việt": "vi",
     "ภาษาไทย": "th",
@@ -26,10 +31,13 @@ available_languages = {
     "Magyar": "hu",
     "Nederlands": "nl",
     "Čeština": "cs",
+    "Gaeilge": "ga",
+    "Indonesian": "id",
     "Български": "bg",
     "العربية": "ar",
     "العربية (Saudi Arabia)": "ar_SA",
-    "مَصرى (Egypt)": "ar_EG"
+    "مَصرى (Egypt)": "ar_EG",
+    "Аҧсуа бызшәа": "ab",
 }
 
 class SettingsPage(Page):

@@ -1102,57 +1102,57 @@ Please be careful!</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5576"/>
       <source>Enable Metal HUD Debug</source>
-      <translation>Enable Metal HUD Debug</translation>
+      <translation>تشغيل تصحيح Metal HUD</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5583"/>
       <source>Enable iMessage Debugging</source>
-      <translation>Enable iMessage Debugging</translation>
+      <translation>تشغيل تصحيح غلطاط iMessage</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5590"/>
       <source>Enable Continuity Debugging</source>
-      <translation>Enable Continuity Debugging</translation>
+      <translation>تشغيل تصحيح مش بينتهي</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5597"/>
       <source>Enable FaceTime Debugging</source>
-      <translation>Enable FaceTime Debugging</translation>
+      <translation>تشغيل تصحيح غلطاط FaceTime</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5619"/>
       <source>Enable App Store Debug Gesture</source>
-      <translation>Enable App Store Debug Gesture</translation>
+      <translation>تشغيل تصحيح إيماءات محل التطبيقات</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5626"/>
       <source>Enable Notes Debug Mode</source>
-      <translation>Enable Notes Debug Mode</translation>
+      <translation>تشغيل وضع التصحيح في تطبيق الملاحظات</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5648"/>
       <source>Show Touches With Debug Info</source>
-      <translation>Show Touches With Debug Info</translation>
+      <translation>بيين اللمسات مع بيانات التصحيح</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5655"/>
       <source>Hide Respring Icon</source>
-      <translation>Hide Respring Icon</translation>
+      <translation>داري رمز اعادة التشغيل</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5662"/>
       <source>Vibrate on Raise-to-Wake</source>
-      <translation>Vibrate on Raise-to-Wake</translation>
+      <translation>تذبذب عند الرفع للتشغيل</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5684"/>
       <source>Play Sound on Paste</source>
-      <translation>Play Sound on Paste</translation>
+      <translation>شغل صوت عند اللصق</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5691"/>
       <source>Show Notifications for System Pastes</source>
-      <translation>Show Notifications for System Pastes</translation>
+      <translation>رؤية رسالات للصقات النظام</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5792"/>
@@ -1164,62 +1164,62 @@ Please be careful!</source>
       <location filename="../qt/mainwindow.ui" line="5840"/>
       <source>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
 it enabled.</source>
-      <translation>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
-it enabled.</translation>
+      <translation>ملحوظة: حتى على نسخ الSparserestore، ديه بتستخدم مجالات عادية. تخطى الإعداد هيشتغل لو إنت شغلت
+الخاصية بتعتوا.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5866"/>
       <source>Stops over-the-air updates to prevent auto-downloads.</source>
-      <translation>Stops over-the-air updates to prevent auto-downloads.</translation>
+      <translation>توقيف تحديثات فوق-الهوى لتوقيف التحميل الأوتوماتيكي.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5869"/>
       <source>Disable OTA</source>
-      <translation>Disable OTA</translation>
+      <translation>توقيف الOTA</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5876"/>
       <source>Disables usage tracking for improved privacy.</source>
-      <translation>Disables usage tracking for improved privacy.</translation>
+      <translation>بيوقف تتبع الاستخدام لخصوصية احسن.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5879"/>
       <source>Disable UsageTrackingAgent</source>
-      <translation>Disable UsageTrackingAgent</translation>
+      <translation>توقيف عامل تتبع الاستخدام</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5886"/>
       <source>Disables Screen Time monitoring features.</source>
-      <translation>Disables Screen Time monitoring features.</translation>
+      <translation>توقف مميزات تتبع وقت استخدام الجهاز.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5889"/>
       <source>Disable Screen Time Agent</source>
-      <translation>Disable Screen Time Agent</translation>
+      <translation>توقيف عامل تتبع وقت استخدام الجهاز</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5896"/>
       <source>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
 
 To work properly, also disable the daemon using the toggle above.</source>
-      <translation>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
+      <translation>مسح ملف تفضيلات العامل بتاع التتبع لوقت استخدام الجهاز لتوقيف تأمين التطبيق معمول من iCloud.
 
-To work properly, also disable the daemon using the toggle above.</translation>
+عشان تشتغل صح، إبطل الdaemon باستخدام الزرار اللي فوق بردوا.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5901"/>
       <source>Clear ScreenTimeAgent.plist file</source>
-      <translation>Clear ScreenTimeAgent.plist file</translation>
+      <translation>شيل ملف ScreenTimeAgent.plist</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5908"/>
       <source>Stops logs, dumps, and crash reports collection.</source>
-      <translation>Stops logs, dumps, and crash reports collection.</translation>
+      <translation>بيوقف تسجيلات، مقالب، و جمع تقارير الاحتطام.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5911"/>
       <source>Disable Logs, Dumps, and Crash Reports</source>
-      <translation>Disable Logs, Dumps, and Crash Reports</translation>
+      <translation>توقيف تسجيلات، مقالب، و تقارير الاحتطام</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5918"/>
