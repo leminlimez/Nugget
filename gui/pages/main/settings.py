@@ -15,7 +15,7 @@ available_languages = {
     "Français": "fr",
     "Français (Canada)": "fr_CA",
     "Deutsch": "de",
-    "Русский язык": "ru",
+    "Русский": "ru",
     "日本語": "ja",
     "臺灣話": "zh_TW",
     "Tiếng Việt": "vi",
