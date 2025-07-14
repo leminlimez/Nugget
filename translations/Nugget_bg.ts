@@ -1128,7 +1128,7 @@ Face ID, докато не се върнете към предишното съ�
     <message>
       <location filename="../qt/mainwindow.ui" line="5626"/>
       <source>Enable Notes Debug Mode</source>
-      <translation>Активиране на режим за отстраняване на грешки в Notes</translation>
+      <translation>Активиране на режим за отстраняване на грешки в Бележки</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5648"/>
@@ -1143,7 +1143,7 @@ Face ID, докато не се върнете към предишното съ�
     <message>
       <location filename="../qt/mainwindow.ui" line="5662"/>
       <source>Vibrate on Raise-to-Wake</source>
-      <translation>Вибрация при повдигане за събуждане</translation>
+      <translation>Вибрация при Вдигни за активиране</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5684"/>
@@ -1429,7 +1429,7 @@ The options on this page may be unsafe for your device. Use these options at you
 your device resolution has the potential to brick your device when used improperly.
 
 Nugget is not responsible if you mess up your device, especially with resolution changer.</source>
-      <translation>Отказ от отговорност:
+      <translation>Отричане от отговорност:
 
 Опциите на тази страница може да са опасни за вашето устройство. Използвайте тези опции на свой собствен риск. Промяната на разделителната способност на вашето устройство има потенциала да повреди устройството ви, ако се използва неправилно.
 
@@ -1900,7 +1900,7 @@ Remember to turn Find My back on!</source>
     <message>
       <location filename="../gui/pages/main/home.py" line="72"/>
       <source>Partially Supported.</source>
-      <translation>Частично поддържа се.</translation>
+      <translation>Поддържа се частично.</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="40"/>

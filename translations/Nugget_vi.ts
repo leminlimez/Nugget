@@ -2127,7 +2127,7 @@ Khuyên không nghe, hậu quả tự chịu!</translation>
     <message>
       <location filename="../gui/main_window.py" line="48"/>
       <source>None</source>
-      <translation>Không có</translation>
+      <translation>Không có thiết bị</translation>
     </message>
   </context>
 </TS>

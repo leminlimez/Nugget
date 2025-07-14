@@ -286,7 +286,7 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
     <message>
       <location filename="../qt/mainwindow.ui" line="2101"/>
       <source>Enable Find My Friends</source>
-      <translation>啟用尋找我的朋友</translation>
+      <translation>啟用「尋找我的朋友」</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2108"/>
@@ -1775,12 +1775,12 @@ Open up its settings and tap "Detect".</source>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="58"/>
       <source>Find My must be disabled in order to use this tool.</source>
-      <translation>Find My一定要停用才可以使用這個工具。</translation>
+      <translation>一定要停用「尋找」才可以使用這個工具。</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="59"/>
       <source>Disable Find My from Settings (Settings -&gt; [Your Name] -&gt; Find My) and then try again.</source>
-      <translation>請在設定中停用Find My (設定-&gt;[你的名字]-&gt;Find My)然後再試一次。</translation>
+      <translation>請在設定中停用「尋找」(設定-&gt;[你的名字]-&gt;「尋找」)然後再試一次。</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="61"/>
@@ -1869,7 +1869,7 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
 Remember to turn Find My back on!</source>
       <translation>你的裝置現在會重啟。
 
-記得把Find My重新打開！</translation>
+記得把「尋找」重新打開！</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="630"/>
