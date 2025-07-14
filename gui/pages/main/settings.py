@@ -19,7 +19,7 @@ available_languages = {
     "Deutsch": "de",
     "Deutsch (Australia)": "de_AT",
     "Italiano": "it",
-    "Русский язык": "ru",
+    "Русский": "ru",
     "日本語": "ja",
     "普通话": "zh_CN",
     "臺灣話": "zh_TW",
