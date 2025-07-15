@@ -16,6 +16,7 @@ from devicemanagement.constants import Device, Version
 from devicemanagement.data_singleton import DataSingleton
 
 from gui.apply_worker import ApplyAlertMessage
+from gui.pages.pages_list import Page
 from controllers.path_handler import fix_windows_path
 from controllers.files_handler import get_bundle_files
 
@@ -25,7 +26,7 @@ from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, B
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.posterboard.posterboard_tweak import PosterboardTweak
 from tweaks.posterboard.template_options.templates_tweak import TemplatesTweak
-from tweaks.basic_plist_locations import FileLocationsList, RiskyFileLocationsList
+from tweaks.basic_plist_locations import FileLocation
 
 from restore.restore import restore_files, FileToRestore
 from restore.mbdb import _FileMode
@@ -440,7 +441,7 @@ class DeviceManager:
         if progress != None:
             prog = f" ({progress:6.1f}% )"
         self.update_label(QCoreApplication.tr("Restoring to device...{0}{1}").format(prog, self.do_not_unplug))
-    def apply_changes(self, resetting: bool = False, update_label=lambda x: None, show_alert=lambda x: None):
+    def apply_changes(self, update_label=lambda x: None, show_alert=lambda x: None):
         try:
             # set the tweaks and apply
             # first open the file in read mode
@@ -463,59 +464,56 @@ class DeviceManager:
             tmp_dirs = [] # temporary directory for unzipping pb and template files
 
             # set the plist keys
-            if not resetting:
-                for tweak_name in tweaks:
-                    tweak = tweaks[tweak_name]
-                    if isinstance(tweak, FeatureFlagTweak):
-                        flag_plist = tweak.apply_tweak(flag_plist)
-                    elif isinstance(tweak, EligibilityTweak):
-                        eligibility_files = tweak.apply_tweak()
-                    elif isinstance(tweak, AITweak):
-                        ai_file = tweak.apply_tweak()
-                    elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak) or isinstance(tweak, AdvancedPlistTweak):
-                        basic_plists = tweak.apply_tweak(basic_plists, self.allow_risky_tweaks)
-                        basic_plists_ownership[tweak.file_location] = tweak.owner
-                        if tweak.enabled and tweak.owner == 0:
-                            uses_domains = True
-                    elif isinstance(tweak, NullifyFileTweak):
-                        tweak.apply_tweak(files_data)
-                        if tweak.enabled and tweak.file_location.value.startswith("/var/mobile/"):
-                            uses_domains = True
-                    elif isinstance(tweak, PosterboardTweak) or isinstance(tweak, TemplatesTweak):
-                        tmp_dirs.append(TemporaryDirectory())
-                        tweak.apply_tweak(
-                            files_to_restore=files_to_restore,
-                            output_dir=fix_windows_path(tmp_dirs[len(tmp_dirs)-1].name),
-                            templates=tweaks["Templates"].templates,
-                            version=self.get_current_device_version(), update_label=update_label
-                        )
-                        if tweak.uses_domains():
-                            uses_domains = True
-                    elif isinstance(tweak, StatusBarTweak):
-                        tweak.apply_tweak(files_to_restore=files_to_restore)
-                        if tweak.enabled:
-                            uses_domains = True
-                    else:
-                        if gestalt_plist != None:
-                            gestalt_plist = tweak.apply_tweak(gestalt_plist)
-                        elif tweak.enabled:
-                            # no mobilegestalt file provided but applying mga tweaks, give warning
-                            show_alert(ApplyAlertMessage(txt=QCoreApplication.tr("No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.")))
-                            update_label("Failed.")
-                            return
-                # set the custom gestalt keys
-                if gestalt_plist != None:
-                    gestalt_plist = CustomGestaltTweaks.apply_tweaks(gestalt_plist)
+            for tweak_name in tweaks:
+                tweak = tweaks[tweak_name]
+                if isinstance(tweak, FeatureFlagTweak):
+                    flag_plist = tweak.apply_tweak(flag_plist)
+                elif isinstance(tweak, EligibilityTweak):
+                    eligibility_files = tweak.apply_tweak()
+                elif isinstance(tweak, AITweak):
+                    ai_file = tweak.apply_tweak()
+                elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak) or isinstance(tweak, AdvancedPlistTweak):
+                    basic_plists = tweak.apply_tweak(basic_plists, self.allow_risky_tweaks)
+                    basic_plists_ownership[tweak.file_location] = tweak.owner
+                    if tweak.enabled and tweak.owner == 0:
+                        uses_domains = True
+                elif isinstance(tweak, NullifyFileTweak):
+                    tweak.apply_tweak(files_data)
+                    if tweak.enabled and tweak.file_location.value.startswith("/var/mobile/"):
+                        uses_domains = True
+                elif isinstance(tweak, PosterboardTweak) or isinstance(tweak, TemplatesTweak):
+                    tmp_dirs.append(TemporaryDirectory())
+                    tweak.apply_tweak(
+                        files_to_restore=files_to_restore,
+                        output_dir=fix_windows_path(tmp_dirs[len(tmp_dirs)-1].name),
+                        templates=tweaks["Templates"].templates,
+                        version=self.get_current_device_version(), update_label=update_label
+                    )
+                    if tweak.uses_domains():
+                        uses_domains = True
+                elif isinstance(tweak, StatusBarTweak):
+                    tweak.apply_tweak(files_to_restore=files_to_restore)
+                    if tweak.enabled:
+                        uses_domains = True
+                else:
+                    if gestalt_plist != None:
+                        gestalt_plist = tweak.apply_tweak(gestalt_plist)
+                    elif tweak.enabled:
+                        # no mobilegestalt file provided but applying mga tweaks, give warning
+                        show_alert(ApplyAlertMessage(txt=QCoreApplication.tr("No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.")))
+                        update_label("Failed.")
+                        return
+            # set the custom gestalt keys
+            if gestalt_plist != None:
+                gestalt_plist = CustomGestaltTweaks.apply_tweaks(gestalt_plist)
             
             gestalt_data = None
-            if resetting:
-                gestalt_data = b""
-            elif gestalt_plist != None:
+            if gestalt_plist != None:
                 gestalt_data = plistlib.dumps(gestalt_plist)
             
             # Generate backup
-            update_label("Generating backup...")
-            if resetting or len(flag_plist) > 0:
+            update_label(QCoreApplication.tr("Generating backup..."))
+            if len(flag_plist) > 0:
                 self.concat_file(
                     contents=plistlib.dumps(flag_plist),
                     path="/var/preferences/FeatureFlags/Global.plist",
@@ -562,30 +560,6 @@ class DeviceManager:
                     files_to_restore=files_to_restore,
                     owner=ownership, group=ownership
                 )
-            # reset basic tweaks
-            if resetting:
-                empty_data = plistlib.dumps({})
-                for location in FileLocationsList:
-                    self.concat_file(
-                        contents=empty_data,
-                        path=location.value,
-                        files_to_restore=files_to_restore
-                    )
-                if self.allow_risky_tweaks:
-                    for location in RiskyFileLocationsList:
-                        self.concat_file(
-                            contents=empty_data,
-                            path=location.value,
-                            files_to_restore=files_to_restore
-                        )
-                if not self.data_singleton.current_device.has_exploit():
-                    # reset status bar if using domains
-                    files_to_restore.append(FileToRestore(
-                        contents=b"",
-                        restore_path="/Library/SpringBoard/statusBarOverrides",
-                        domain="HomeDomain"
-                    ))
-                    uses_domains=True
 
             # Restore Mobileconfig Profiles
             # Read multiple configuration files from a directory
@@ -643,27 +617,94 @@ class DeviceManager:
                         print(str(e))
             show_alert(final_alert)
 
-    ## RESETTING MOBILE GESTALT
-    def reset_mobilegestalt(self, settings: QSettings, update_label=lambda x: None):
-        # restore to the device
-        update_label("Restoring to device...")
+    ## RESETTING TWEAKS
+    def reset_tweaks(self, reset_pages: list[Page], settings: QSettings, update_label=lambda x: None, show_alert=lambda x: None):
         try:
-            # remove the saved device model, hardware, and cpu
-            settings.setValue(self.data_singleton.current_device.uuid + "_model", "")
-            settings.setValue(self.data_singleton.current_device.uuid + "_hardware", "")
-            settings.setValue(self.data_singleton.current_device.uuid + "_cpu", "")
-            file_path, domain = self.get_domain_for_path(
-                "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist"
-            )
-            restore_files(files=[FileToRestore(
+            # create the restore file list
+            files_to_restore: list[FileToRestore] = []
+            # Generate backup
+            update_label(QCoreApplication.tr("Generating backup..."))
+            files_to_null: list[str] = []
+            uses_domains = False
+
+            # use if-statements instead of match (switch) statements for compatibility with Python 3.9
+            for page in reset_pages:
+                if page == Page.Gestalt:
+                    ## MOBILE GESTALT
+                    # remove the saved device model, hardware, and cpu
+                    settings.setValue(self.data_singleton.current_device.uuid + "_model", "")
+                    settings.setValue(self.data_singleton.current_device.uuid + "_hardware", "")
+                    settings.setValue(self.data_singleton.current_device.uuid + "_cpu", "")
+                    files_to_null.append("/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist")
+                elif page == Page.FeatureFlags:
+                    ## FEATURE FLAGS
+                    files_to_null.append("/var/preferences/FeatureFlags/Global.plist")
+                elif page == Page.StatusBar:
+                    ## STATUS BAR
+                    files_to_restore.append(FileToRestore(
+                        contents=b"",
+                        restore_path="/Library/SpringBoard/statusBarOverrides",
+                        domain="HomeDomain"
+                    ))
+                    uses_domains = True
+                elif page == Page.Daemons:
+                    ## DAEMONS
+                    default_daemons = {
+                        "com.apple.magicswitchd.companion": True,
+                        "com.apple.security.otpaird": True,
+                        "com.apple.dhcp6d": True,
+                        "com.apple.bootpd": True,
+                        "com.apple.ftp-proxy-embedded": False,
+                        "com.apple.relevanced": True
+                    }
+                    self.concat_file(
+                        contents=plistlib.dumps(default_daemons),
+                        path=FileLocation.disabledDaemons.value,
+                        files_to_restore=files_to_restore,
+                        owner=0, group=0
+                    )
+                elif page == Page.RiskyTweaks:
+                    ## RESOLUTION MODIFICATIONS
+                    files_to_null.append(FileLocation.resolution.value)
+                elif page == Page.Springboard:
+                    ## SPRINGBOARD
+                    files_to_null.append(FileLocation.springboard.value)
+                elif page == Page.InternalOptions:
+                    ## INTERNAL OPTIONS
+                    files_to_null.append(FileLocation.globalPreferences.value)
+                    files_to_null.append(FileLocation.appStore.value)
+                    files_to_null.append(FileLocation.backboardd.value)
+                    files_to_null.append(FileLocation.coreMotion.value)
+                    files_to_null.append(FileLocation.pasteboard.value)
+                    files_to_null.append(FileLocation.notes.value)
+            
+            # add the files to null from the list
+            for file_path in files_to_null:
+                self.concat_file(
                     contents=b"",
-                    restore_path=file_path,
-                    domain=domain
-                )], reboot=self.auto_reboot, lockdown_client=self.data_singleton.current_device.ld)
+                    path=file_path,
+                    files_to_restore=files_to_restore
+                )
+            
+            self.add_skip_setup(files_to_restore, uses_domains)
+
+            # restore to the device
+            self.update_label = update_label
+            self.do_not_unplug = ""
+            if self.data_singleton.current_device.connected_via_usb:
+                self.do_not_unplug = f"\n{QCoreApplication.tr("DO NOT UNPLUG")}"
+            update_label(f"{QCoreApplication.tr("Preparing to restore...")}{self.do_not_unplug}")
+            restore_files(
+                files=files_to_restore, reboot=self.auto_reboot,
+                lockdown_client=self.data_singleton.current_device.ld,
+                progress_callback=self.progress_callback
+            )
             msg = QCoreApplication.tr("Your device will now restart.\n\nRemember to turn Find My back on!")
             if not self.auto_reboot:
                 msg = QCoreApplication.tr("Please restart your device to see changes.")
-            QMessageBox.information(None, QCoreApplication.tr("Success!"), QCoreApplication.tr("All done! ") + msg)
+            final_alert = ApplyAlertMessage(txt=QCoreApplication.tr("All done! ") + msg, title=QCoreApplication.tr("Success!"), icon=QMessageBox.Information)
             update_label(QCoreApplication.tr("Success!"))
         except Exception as e:
-            show_error_msg(str(e))
+            final_alert = show_apply_error(e, update_label, files_list=files_to_restore)
+        finally:
+            show_alert(final_alert)

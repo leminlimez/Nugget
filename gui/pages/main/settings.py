@@ -56,8 +56,6 @@ class SettingsPage(Page):
         self.ui.ignorePBFrameLimitChk.toggled.connect(self.on_ignorePBFrameLimitChk_toggled)
         self.ui.disableTendiesLimitChk.toggled.connect(self.on_disableTendiesLimitChk_toggled)
 
-        self.ui.revertRdarChk.toggled.connect(self.on_revertRdarChk_toggled)
-
         self.ui.trustStoreChk.toggled.connect(self.on_trustStoreChk_toggled)
         self.ui.skipSetupChk.toggled.connect(self.on_skipSetupChk_toggled)
         self.ui.supervisionChk.toggled.connect(self.on_supervisionChk_toggled)
@@ -130,11 +128,6 @@ class SettingsPage(Page):
         self.window.device_manager.auto_reboot = checked
         # save the setting
         self.window.settings.setValue("auto_reboot", checked)
-
-    def on_revertRdarChk_toggled(self, checked: bool):
-        if not 'RdarFix' in tweaks:
-            load_rdar_fix(self.window.device_manager.data_singleton.current_device)
-        tweaks["RdarFix"].set_enabled(checked)
 
     def on_trustStoreChk_toggled(self, checked: bool):
         self.window.device_manager.restore_truststore = checked

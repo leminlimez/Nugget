@@ -4136,11 +4136,6 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_25.addWidget(self.removeTweaksBtn)
 
-        self.resetGestaltBtn = QToolButton(self.horizontalWidget11)
-        self.resetGestaltBtn.setObjectName(u"resetGestaltBtn")
-
-        self.horizontalLayout_25.addWidget(self.resetGestaltBtn)
-
         self.horizontalSpacer_16 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_25.addItem(self.horizontalSpacer_16)
@@ -4310,21 +4305,6 @@ class Ui_Nugget(object):
         self.line_24.setFrameShape(QFrame.Shape.HLine)
 
         self._21.addWidget(self.line_24)
-
-        self.revertRdarChk = QCheckBox(self.settingsPageContent)
-        self.revertRdarChk.setObjectName(u"revertRdarChk")
-
-        self._21.addWidget(self.revertRdarChk)
-
-        self.revertRdarLine = QFrame(self.settingsPageContent)
-        self.revertRdarLine.setObjectName(u"revertRdarLine")
-        self.revertRdarLine.setStyleSheet(u"QFrame {\n"
-"	color: #414141;\n"
-"}")
-        self.revertRdarLine.setFrameShadow(QFrame.Plain)
-        self.revertRdarLine.setFrameShape(QFrame.Shape.HLine)
-
-        self._21.addWidget(self.revertRdarLine)
 
         self.trustStoreChk = QCheckBox(self.settingsPageContent)
         self.trustStoreChk.setObjectName(u"trustStoreChk")
@@ -4911,8 +4891,7 @@ class Ui_Nugget(object):
         self.applyTweaksBtn.setText(QCoreApplication.translate("Nugget", u"  Apply Changes", None))
         self.statusLbl.setText(QCoreApplication.translate("Nugget", u"Ready!", None))
         self.skipSetupOnLbl.setText(QCoreApplication.translate("Nugget", u"Note: Skip Setup is currently turned on.", None))
-        self.removeTweaksBtn.setText(QCoreApplication.translate("Nugget", u"Remove All Tweaks", None))
-        self.resetGestaltBtn.setText(QCoreApplication.translate("Nugget", u"Reset Mobile Gestalt", None))
+        self.removeTweaksBtn.setText(QCoreApplication.translate("Nugget", u"Remove Tweaks", None))
         self.springboardOptionsLbl1.setText(QCoreApplication.translate("Nugget", u"Nugget Settings", None))
         self.langLbl.setText(QCoreApplication.translate("Nugget", u"App Language", None))
         self.allowWifiApplyingChk.setText(QCoreApplication.translate("Nugget", u"Allow Applying Over WiFi", None))
@@ -4938,10 +4917,6 @@ class Ui_Nugget(object):
 #if QT_CONFIG(tooltip)
         self.line_24.setToolTip("")
 #endif // QT_CONFIG(tooltip)
-#if QT_CONFIG(tooltip)
-        self.revertRdarChk.setToolTip(QCoreApplication.translate("Nugget", u"If you used the rdar/status bar fix in a previous iOS version, this will revert that.", None))
-#endif // QT_CONFIG(tooltip)
-        self.revertRdarChk.setText(QCoreApplication.translate("Nugget", u"Revert rdar Fix (reset resolution)", None))
 #if QT_CONFIG(tooltip)
         self.trustStoreChk.setToolTip(QCoreApplication.translate("Nugget", u"Restores the SSL config that does something idk", None))
 #endif // QT_CONFIG(tooltip)
