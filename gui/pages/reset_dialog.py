@@ -19,7 +19,7 @@ class ResetDialog(QDialog):
         self.setWindowTitle(self.tr("Reset Page Tweaks"))
 
         layout = QVBoxLayout()
-        message = QLabel(self.tr("Select the pages you would like to reset.") + "\n")
+        message = QLabel(self.tr("Select the pages you would like to reset."))
         message.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         layout.addWidget(message)
 

@@ -663,6 +663,7 @@ class DeviceManager:
                         files_to_restore=files_to_restore,
                         owner=0, group=0
                     )
+                    uses_domains = True
                 elif page == Page.RiskyTweaks:
                     ## RESOLUTION MODIFICATIONS
                     files_to_null.append(FileLocation.resolution.value)
