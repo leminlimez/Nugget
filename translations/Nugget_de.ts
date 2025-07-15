@@ -7,7 +7,8 @@
       <location filename="../gui/dialogs.py" line="25"/>
       <source>The gestalt file looks like it was made for a different device.
 Are you sure you want to use this one?</source>
-      <translation>Es sieht aus als ob das mobile gestalt file für ein anderes Gerät erstellt wurde. Bist du sicher, dass du es verwenden willst?</translation>
+      <translation>Es sieht aus als ob die gestalt-Datei für ein anderes Gerät erstellt wurde.
+Bist du sicher, dass du es verwenden willst?</translation>
     </message>
   </context>
   <context>

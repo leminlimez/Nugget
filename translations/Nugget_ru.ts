@@ -7,8 +7,7 @@
       <location filename="../gui/dialogs.py" line="25"/>
       <source>The gestalt file looks like it was made for a different device.
 Are you sure you want to use this one?</source>
-      <translation>Этот файл gestalt выглядит так, как будто он был сделан для другого устройства. 
-Вы уверены что хотите его использовать?</translation>
+      <translation>Данный файл gestalt по видимому не предназначен для данного устройства. Вы уверены что хотите использовать его?</translation>
     </message>
   </context>
   <context>
@@ -16,7 +15,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="415"/>
       <source>    Home</source>
-      <translation>    Домашняя страница</translation>
+      <translation>    Главная</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="465"/>
@@ -41,7 +40,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="596"/>
       <source>    Status Bar</source>
-      <translation>    Строка Состояния</translation>
+      <translation>    Строка состояния</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="628"/>
@@ -51,7 +50,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="657"/>
       <source>    Miscellaneous</source>
-      <translation>    Разное</translation>
+      <translation>    Прочее</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="701"/>
@@ -81,7 +80,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="1295"/>
       <source>Main Developer</source>
-      <translation>Главный разработчик</translation>
+      <translation>Основной разработчик</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1369"/>
@@ -91,7 +90,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="1391"/>
       <source>dootskyre, dulark, forcequitOS, pengubow, Middo, and SerStars</source>
-      <translation>dootskyre, dulark, forcequitOS, pengubow, Middo, and SerStars</translation>
+      <translation>dootskyre, dulark, forcequitOS, pengubow, Middo, и SerStars</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1407"/>
@@ -119,12 +118,12 @@ Feature Flags</source>
       <source>Mikasa
 Quiet Daemon</source>
       <translation>Mikasa
-Тихий Даемон</translation>
+Quiet Daemon</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1538"/>
       <source>Additional Thanks</source>
-      <translation>Дополнительная Благодарность</translation>
+      <translation>Дополнительная благодарность</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1584"/>
@@ -152,7 +151,7 @@ Sparserestore</translation>
       <location filename="../qt/mainwindow.ui" line="1802"/>
       <location filename="../qt/mainwindow.ui" line="2846"/>
       <source>! You will need a MobileGestalt file for this feature. Please select it in the Apply page !</source>
-      <translation>! Для этой функции вам понадобится файл MobileGestalt. Пожалуйста, выберите его на странице Применить !</translation>
+      <translation>! Для этой функции вам нужен файл MobileGestalt. Пожалуйста, выберите его на странице Применения !</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1875"/>
@@ -162,47 +161,47 @@ Sparserestore</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="1946"/>
       <source>2436 (iPhone X Gestures for SE phones)</source>
-      <translation>2436 (жесты iPhone X для iPhone SE)</translation>
+      <translation>2436 (Жесты iPhone X для iPhone SE)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1951"/>
       <source>2556 (iPhone 14 Pro Dynamic Island)</source>
-      <translation>2556 (динамический остров с iPhone 14 Pro)</translation>
+      <translation>2556 (Динамический остров с iPhone 14 Pro)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1956"/>
       <source>2796 (iPhone 14 Pro Max Dynamic Island)</source>
-      <translation>2796 (динамический остров с iPhone 14 Pro Max)</translation>
+      <translation>2796 (Динамический остров с iPhone 14 Pro Max)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1961"/>
       <source>2976 (iPhone 15 Pro Max Dynamic Island)</source>
-      <translation>2976 (Динамический Остров с iPhone 15 Pro Max)</translation>
+      <translation>2976 (Динамический остров с iPhone 15 Pro Max)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1966"/>
       <source>2622 (iPhone 16 Pro Dynamic Island)</source>
-      <translation>2622 (Динамический Остров с iPhone 16 Pro)</translation>
+      <translation>2622 (Динамический остров с iPhone 16 Pro)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1971"/>
       <source>2868 (iPhone 16 Pro Max Dynamic Island)</source>
-      <translation>2868 (Динамический Остров с iPhone 16 Pro Max)</translation>
+      <translation>2868 (Динамический остров с iPhone 16 Pro Max)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1979"/>
       <source>Modifies the resolution to improve functionality of the changed device subtype. May cause weird visual bugs.</source>
-      <translation>Изменяет разрешение экрана чтобы улучшить функционал измененного подтипа устройства. Может вызвать визуальные баги.</translation>
+      <translation>Изменяет разрешение экрана для улучшения функционала измененного подтипа устройства. Может вызвать визуальные баги.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1989"/>
       <source>Changes the model name in the 'About' page in the Settings app.</source>
-      <translation>Изменяет название модели на странице «О программе» в приложении «Настройки».</translation>
+      <translation>Изменяет название модели в разделе «Об этом устройстве» в «Настройках».</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1992"/>
       <source>Change Device Model Name</source>
-      <translation>Поменять название модели устройства</translation>
+      <translation>Изменить название модели устройства</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1999"/>
@@ -216,7 +215,7 @@ Sparserestore</translation>
 After enabling, you can find the option to enable it in 'Accessibility' settings.</source>
       <translation>Проигрывает звук при выключении устройства. 
 
-После включения, вы можете найти переключатель этой функции в настройках, в разделе Доступности</translation>
+После включения, доступен переключатель этой функции в настройках, в разделе "Универсальный доступ"</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2011"/>
@@ -236,12 +235,12 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
     <message>
       <location filename="../qt/mainwindow.ui" line="2028"/>
       <source>Enable Tap to Wake (for iPhone SEs)</source>
-      <translation>Включить функцию «Нажмите, чтобы разбудить» (для iPhone SE)</translation>
+      <translation>Включить «Вывод из сна касанием» (для iPhone SE)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2035"/>
       <source>Enables Camera Control menu in Settings app and allows for downloading A17 Pro-exclusive apps (when spoofed).</source>
-      <translation>Включает меню управления камерой в приложении «Настройки» и позволяет загружать эксклюзивные приложения A17 Pro (при подделке).</translation>
+      <translation>Включает меню Camera Control в «Настройках» и позволяет загружать приложения для A17 Pro (при подмене).</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2038"/>
@@ -266,7 +265,7 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
     <message>
       <location filename="../qt/mainwindow.ui" line="2077"/>
       <source>Enable Medusa (iPad Multitasking)</source>
-      <translation>Включить Medusa (многозадачность iPad)</translation>
+      <translation>Включить Medusa (Многозадачность iPad)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2084"/>
@@ -276,7 +275,7 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
     <message>
       <location filename="../qt/mainwindow.ui" line="2091"/>
       <source>Sets the device's region to LL/A to bypass certain region restrictions like the forced shutter sound.</source>
-      <translation>Устанавливает регион устройства на LL/A, чтобы обойти определенные региональные ограничения, такие как принудительный звук затвора.</translation>
+      <translation>Устанавливает регион устройства на LL/A, чтобы обойти региональные ограничения, а-ля принудительный звук затвора.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2094"/>
@@ -305,7 +304,7 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
 Note: OTA updates will be broken until this is disabled.</source>
       <translation>Используйте Metal HUD в любом приложении. Включите Metal HUD через настройки Springboard.
 
-Примечание: обновления OTA не будут работать, пока эта функция не будет отключена.</translation>
+Примечание: обновления не будут работать, пока включено.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2142"/>
@@ -319,7 +318,7 @@ Note: OTA updates will be broken until this is disabled.</source>
 Note: OTA updates will be broken until this is disabled.</source>
       <translation>Показывает внутренние файлы в настройках хранилища.
 
-Примечание: обновления OTA не будут работать, пока эта функция не будет отключена.</translation>
+Примечание: обновления OTA не будут работать, пока включено.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2154"/>
@@ -349,7 +348,7 @@ Note: OTA updates will be broken until this is disabled.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="2196"/>
       <source>Enable this if something is wonky when using the above toggle.</source>
-      <translation>Включите эту функцию, если при использовании вышеуказанного переключателя возникают проблемы.</translation>
+      <translation>Включите, если при использовании переключателя выше возникают проблемы.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2199"/>
@@ -461,7 +460,7 @@ Only works on iOS 18.0 beta 1-2.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="2812"/>
       <source>Region Code (Default: US)</source>
-      <translation>Код региона (по умолчанию: US)</translation>
+      <translation>Код региона (По умолчанию: US)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2853"/>
@@ -494,12 +493,12 @@ Entering the menu on your original device model will cause a re-download and may
 restore to fix. Furthermore, if you switch between model groups, like spoofing from the iPhone 16s
 to the iPhone 15 Pro series, a re-download may also occur. 
 Please be careful!</source>
-      <translation>Чтобы загрузить модели искусственного интеллекта, необходимо подделать модель вашего устройства. Однако это может привести к сбою 
+      <translation>Чтобы загрузить модели ИИ, необходимо подменить модель вашего устройства. Однако это может привести к сбою 
 Face ID, пока вы не вернетесь к исходной модели. 
 
-ПРЕДУПРЕЖДЕНИЕ: не переходите в меню Apple Intelligence в приложении «Настройки» после снятия подделки.
+ПРЕДУПРЕЖДЕНИЕ: не переходите в меню Apple Intelligence в приложении «Настройки» после отката подмены.
 
-Вход в меню на оригинальной модели устройства приведет к повторной загрузке и может потребовать полного восстановления для исправления. Кроме того, если вы переключаетесь между группами моделей, например, подделывая модель iPhone 16s на iPhone 15 Pro, также может произойти повторная загрузка. 
+Вход в меню на оригинальной модели приведет к повторной загрузке и может потребовать полного восстановления для исправления. Кроме того, если вы переключаетесь между группами моделей, например, подделываете модель с 16 серии на 15 Pro, также может произойти повторная загрузка. 
 Будьте осторожны!</translation>
     </message>
     <message>
@@ -646,12 +645,12 @@ Face ID, пока вы не вернетесь к исходной модели.
     <message>
       <location filename="../qt/mainwindow.ui" line="3136"/>
       <source>Spoofs the device hardware model (ie D83AP)</source>
-      <translation>Подделывает модель оборудования устройства (например, D83AP)</translation>
+      <translation>Подделывает модель железа устройства (а-ля D83AP)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3139"/>
       <source>Spoof Hardware Model</source>
-      <translation>Подделать модель аппарата</translation>
+      <translation>Подделать код модели</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3149"/>
@@ -677,7 +676,7 @@ Face ID, пока вы не вернетесь к исходной модели.
     <message>
       <location filename="../qt/mainwindow.ui" line="3371"/>
       <source>Primary Cellular</source>
-      <translation>Первичный оператор</translation>
+      <translation>Первая SIM</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3402"/>
@@ -781,7 +780,7 @@ Face ID, пока вы не вернетесь к исходной модели.
       <location filename="../qt/mainwindow.ui" line="3560"/>
       <location filename="../qt/mainwindow.ui" line="3863"/>
       <source>Personal Hotspot</source>
-      <translation>Личная точка доступа</translation>
+      <translation>Точка доступа</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3868"/>
@@ -841,12 +840,12 @@ Face ID, пока вы не вернетесь к исходной модели.
       <location filename="../qt/mainwindow.ui" line="3939"/>
       <location filename="../qt/mainwindow.ui" line="4130"/>
       <source>0 Bars</source>
-      <translation>0 Баров</translation>
+      <translation>0 Состояний</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3683"/>
       <source>Secondary Cellular</source>
-      <translation>Вторичный оператор</translation>
+      <translation>Вторая SIM</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3980"/>
@@ -906,7 +905,7 @@ Face ID, пока вы не вернетесь к исходной модели.
     <message>
       <location filename="../qt/mainwindow.ui" line="4170"/>
       <source>*When set to blank on notched devices, this will display the carrier name.</source>
-      <translation>*Если на устройствах с камерой «челкой» этот параметр установлен как пустой, будет отображаться имя оператора.</translation>
+      <translation>*Если на устройствах с «челкой» этот параметр пустой, будет отображаться имя оператора.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4192"/>
@@ -929,7 +928,7 @@ Face ID, пока вы не вернетесь к исходной модели.
       <location filename="../qt/mainwindow.ui" line="5014"/>
       <location filename="../qt/mainwindow.ui" line="5079"/>
       <source>Always Show</source>
-      <translation>Всегда показывать</translation>
+      <translation>Показать</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4234"/>
@@ -947,7 +946,7 @@ Face ID, пока вы не вернетесь к исходной модели.
       <location filename="../qt/mainwindow.ui" line="5021"/>
       <location filename="../qt/mainwindow.ui" line="5086"/>
       <source>Always Hide</source>
-      <translation>Всегда скрывать</translation>
+      <translation>Скрыть</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4257"/>
@@ -982,12 +981,12 @@ Face ID, пока вы не вернетесь к исходной модели.
     <message>
       <location filename="../qt/mainwindow.ui" line="4589"/>
       <source>Location Icon</source>
-      <translation>Значок местоположения</translation>
+      <translation>Значок геолокации</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4654"/>
       <source>Rotation Lock Icon</source>
-      <translation>Значок блокировки вращения</translation>
+      <translation>Значок блокировки поворота</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4719"/>
@@ -1022,12 +1021,12 @@ Face ID, пока вы не вернетесь к исходной модели.
     <message>
       <location filename="../qt/mainwindow.ui" line="5109"/>
       <source>Force enables everything</source>
-      <translation>Force включает всё</translation>
+      <translation>Принудительно включает всё</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5112"/>
       <source>Silly Mode</source>
-      <translation>Режим Глупого</translation>
+      <translation>Беззвучный режим</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5217"/>
@@ -1037,12 +1036,12 @@ Face ID, пока вы не вернетесь к исходной модели.
     <message>
       <location filename="../qt/mainwindow.ui" line="5298"/>
       <source>Lock Screen Footnote Text</source>
-      <translation>Блокировка экрана Footnote Text</translation>
+      <translation>Текст на экране блокировки</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5305"/>
       <source>Footnote Text</source>
-      <translation>Текст Footnote</translation>
+      <translation>Текст снизу</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5327"/>
@@ -1062,12 +1061,12 @@ Face ID, пока вы не вернетесь к исходной модели.
     <message>
       <location filename="../qt/mainwindow.ui" line="5348"/>
       <source>Removes '&lt; PreviousAppName' glyph in Status Bar when being forwarded to another app.</source>
-      <translation>Удаляет символ «&lt; PreviousAppName» в строке состояния при переходе в другое приложение.</translation>
+      <translation>Удаляет «&lt; ПредыдущееПриложение» в строке состояния при переходе в другое приложение.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5351"/>
       <source>Disable Breadcrumbs</source>
-      <translation>Отключить Breadcrumbs</translation>
+      <translation>Отключить боковушки</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5358"/>
@@ -1077,7 +1076,7 @@ Face ID, пока вы не вернетесь к исходной модели.
     <message>
       <location filename="../qt/mainwindow.ui" line="5361"/>
       <source>Show Supervision Text on Lock Screen</source>
-      <translation>Показывать Supervision Text на блокировке экрана</translation>
+      <translation>Показывать текст Supervision на экране блокировки</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5368"/>
@@ -1092,7 +1091,7 @@ Face ID, пока вы не вернетесь к исходной модели.
     <message>
       <location filename="../qt/mainwindow.ui" line="5544"/>
       <source>Show Build Version in Status Bar</source>
-      <translation>Показать версию сборки в строке состояния</translation>
+      <translation>Показывать версию сборки в строке состояния</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5551"/>
@@ -1137,7 +1136,7 @@ Face ID, пока вы не вернетесь к исходной модели.
     <message>
       <location filename="../qt/mainwindow.ui" line="5655"/>
       <source>Hide Respring Icon</source>
-      <translation>Скрыть значок перезапуска</translation>
+      <translation>Скрыть значок респринга</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5662"/>
@@ -1169,7 +1168,7 @@ it enabled.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5866"/>
       <source>Stops over-the-air updates to prevent auto-downloads.</source>
-      <translation>Прекращает обновления по воздуху, чтобы предотвратить автоматическую загрузку.</translation>
+      <translation>Останавливает обновления для предотвращения автоматической загрузки.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5869"/>
@@ -1194,16 +1193,16 @@ it enabled.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5889"/>
       <source>Disable Screen Time Agent</source>
-      <translation>Отключить Screen Time Agent</translation>
+      <translation>Отключить экранное время</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5896"/>
       <source>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
 
 To work properly, also disable the daemon using the toggle above.</source>
-      <translation>Удаляет файл настроек Screen Time Agent, чтобы предотвратить блокировку приложения, установленную через iCloud.
+      <translation>Удаляет файл настроек агента экранного времени, чтобы предотвратить блокировку приложения, установленную через iCloud.
 
-Для правильной работы также отключите демон с помощью переключателя выше.</translation>
+Для правильной работы также отключите функцию выше.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5901"/>
@@ -1213,7 +1212,7 @@ To work properly, also disable the daemon using the toggle above.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5908"/>
       <source>Stops logs, dumps, and crash reports collection.</source>
-      <translation>Останавливает сбор журналов, дампов и отчетов об авариях.</translation>
+      <translation>Останавливает сбор журналов, дампов и отчетов о крашах.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5911"/>
@@ -1243,12 +1242,12 @@ To work properly, also disable the daemon using the toggle above.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5953"/>
       <source>Disables the Tips service and notifications.</source>
-      <translation>Отключает службу подсказок и уведомления.</translation>
+      <translation>Отключает службу и уведомления от "Советов".</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5956"/>
       <source>Disable Tips Services</source>
-      <translation>Отключить службы подсказок</translation>
+      <translation>Отключить службу "Советы"</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5963"/>
@@ -1298,7 +1297,7 @@ To work properly, also disable the daemon using the toggle above.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="6029"/>
       <source>Disable Internet Tethering (Hotspot)</source>
-      <translation>Отключить интернет-модем (точку доступа)</translation>
+      <translation>Отключить интернет-модем (Режим модема)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6036"/>
@@ -1323,7 +1322,7 @@ To work properly, also disable the daemon using the toggle above.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="6190"/>
       <source>   Discover Wallpapers</source>
-      <translation>   Откройте для себя обои</translation>
+      <translation>   Скачать обои</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6281"/>
@@ -1343,7 +1342,7 @@ To work properly, also disable the daemon using the toggle above.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="6354"/>
       <source>Clear Action:</source>
-      <translation>Очистить действие:</translation>
+      <translation>Сбросить:</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6410"/>
@@ -1367,7 +1366,7 @@ To work properly, also disable the daemon using the toggle above.</source>
       <location filename="../qt/mainwindow.ui" line="6560"/>
       <source>Uses the CoreAnimation file to play the video (300 fps limit)
 Will show up in Collections</source>
-      <translation>Использует файл CoreAnimation для воспроизведения видео (ограничение 300 кадров в секунду)
+      <translation>Использует файл CoreAnimation для воспроизведения видео (ограничение 300 FPS)
 Будет отображаться в коллекциях</translation>
     </message>
     <message>
@@ -1378,22 +1377,22 @@ Will show up in Collections</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="6574"/>
       <source>Reverse on Loop</source>
-      <translation>Reverse на цикле</translation>
+      <translation>Обратная перемотка на цикле</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6581"/>
       <source>Make Foreground (hides clock)</source>
-      <translation>Сделать передним планом (скрыть часы)</translation>
+      <translation>Включить эффект глубины (скрыть часы)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6590"/>
       <source>Choose a photo for the wallpaper to freeze on when finished (.heic files only)</source>
-      <translation>Выберите фотографию, которая будет отображаться в качестве обоев после завершения (.heic файлы только)</translation>
+      <translation>Выберите фотографию, которая будет отображаться в качестве обоев после завершения (ТОЛЬКО .heic)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6593"/>
       <source>Choose Freeze Frame (.HEIC)</source>
-      <translation>Выбрать «Заморозить кадр» (.HEIC)</translation>
+      <translation>Выбрать стоп-кадр (.HEIC)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6600"/>
@@ -1450,9 +1449,9 @@ Nugget не несет ответственности, если вы повре�
       <source>Disables temperature monitoring daemon to reduce system checks.
 
 Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified" in Settings.</source>
-      <translation>Выключает показатель температуры чтобы уменьшать проверки системы.
+      <translation>Выключает датчик температуры чтобы уменьшить проверки системы.
 
-Предупреждение: Выключение допустит аккумулятору показывать “Неизвестная Часть” или "Неподтверждается” в Настройках.</translation>
+Предупреждение: Выключение приведет к ошибке аккумулятора - "Неизвестная деталь" в Настройках.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7087"/>
@@ -1492,7 +1491,7 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="7353"/>
       <source>Miscellaneous Options</source>
-      <translation>Разное</translation>
+      <translation>Прочие Опции</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7463"/>
@@ -1507,7 +1506,7 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="7559"/>
       <source>Risky</source>
-      <translation>Риск</translation>
+      <translation>Рискованно</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7688"/>
@@ -1522,7 +1521,7 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="7777"/>
       <source>  Choose Gestalt File</source>
-      <translation>  Выберете gestalt файл</translation>
+      <translation>  Выберите файл gestalt</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7808"/>
@@ -1542,7 +1541,7 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="7914"/>
       <source>Remove All Tweaks</source>
-      <translation>Удалить все настройки</translation>
+      <translation>Удалить все твики</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7921"/>
@@ -1611,7 +1610,7 @@ DO NOT unplug your device during restores.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="8310"/>
       <source>Restores the SSL config that does something idk</source>
-      <translation>Восстанавливает конфигурацию SSL, которая делает что-то, чего я не знаю.</translation>
+      <translation>Восстанавливает конфигурацию SSL, которая делает хз че</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8313"/>
@@ -1626,7 +1625,7 @@ DO NOT unplug your device during restores.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="8336"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
-      <translation>Выключить Supervision * (потребуется Skip Setup)</translation>
+      <translation>Включить Supervision * (потребуется Skip Setup)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8346"/>
@@ -1646,7 +1645,7 @@ DO NOT unplug your device during restores.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="8410"/>
       <source>Pocket Poster Helper</source>
-      <translation>Pocket Poster помощник</translation>
+      <translation>Помощник по Pocket Poster</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="973"/>
@@ -1689,7 +1688,7 @@ DO NOT unplug your device during restores.</source>
     <message>
       <location filename="../gui/dialogs.py" line="44"/>
       <source>PosterBoard Info</source>
-      <translation>PosterBoard информация</translation>
+      <translation>Информация по PosterBoard</translation>
     </message>
     <message>
       <location filename="../gui/dialogs.py" line="47"/>
@@ -1732,7 +1731,7 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
       <location filename="../gui/pages/main/settings.py" line="162"/>
       <location filename="../gui/pages/main/settings.py" line="172"/>
       <source>PosterBoard App Hash</source>
-      <translation>Хеш приложения PosterBoard</translation>
+      <translation>Хэш приложения PosterBoard</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/settings.py" line="162"/>
@@ -1762,7 +1761,7 @@ Open up its settings and tap "Detect".</source>
       <translation>Ваш хэш:
 {0}
 
-{1} в приложение Nugget, где написано «App Hash» (Хэш приложения).</translation>
+{1} в приложение Nugget, где написано «App Hash».</translation>
     </message>
     <message>
       <location filename="../exceptions/posterboard_exceptions.py" line="6"/>
@@ -1772,12 +1771,12 @@ Open up its settings and tap "Detect".</source>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="58"/>
       <source>Find My must be disabled in order to use this tool.</source>
-      <translation>Чтобы использовать этот инструмент, необходимо отключить функцию «Найти мой iPhone».</translation>
+      <translation>Чтобы использовать этот инструмент, необходимо отключить функцию «Найти iPhone».</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="59"/>
       <source>Disable Find My from Settings (Settings -&gt; [Your Name] -&gt; Find My) and then try again.</source>
-      <translation>Отключите функцию «Найти» в настройках (Настройки -&gt; [Ваше имя] -&gt; Найти мой iPhone) и попробуйте снова.</translation>
+      <translation>Отключите "Локатор" в настройках (Apple ID -&gt; Локатор) и попробуйте снова.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="61"/>
@@ -1866,7 +1865,7 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
 Remember to turn Find My back on!</source>
       <translation>Ваше устройство перезагрузится.
 
-Не забудьте снова включить функцию «Найти мой iPhone»!</translation>
+Не забудьте снова включить функцию «Найти iPhone»!</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="630"/>
@@ -1901,7 +1900,7 @@ Remember to turn Find My back on!</source>
     <message>
       <location filename="../gui/pages/main/home.py" line="72"/>
       <source>Partially Supported.</source>
-      <translation>Частично Поддерживается.</translation>
+      <translation>Частично поддерживается</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="40"/>
@@ -1916,7 +1915,7 @@ Remember to turn Find My back on!</source>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="49"/>
       <source>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</source>
-      <translation>ЗАПИСКА: Вам может потребоваться сбросить все обои (включить Risky Options в настройках) и затем сново применить чтобы файл заработал.</translation>
+      <translation>P.S.: Вам может потребоваться сбросить все обои (включить Risky Options в настройках) и затем снова применить чтобы файл заработал.</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="66"/>
@@ -2010,7 +2009,7 @@ Remember to turn Find My back on!</source>
       <source>You selected too many tendies files! The limit is 3.
 
 This is for your safety. Please apply the rest separately.</source>
-      <translation>Вы выбрали слишком много файлов tendies! Ограничение составляет 3.
+      <translation>Вы выбрали слишком много файлов tendies! Максимум 3.
 
 Это сделано для вашей безопасности. Пожалуйста, примените остальные файлы отдельно.</translation>
     </message>
@@ -2047,14 +2046,14 @@ This is for your safety. Please apply the rest separately.</source>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="70"/>
       <source>This config requires a newer version of Nugget.</source>
-      <translation>Этот config требует новейшую версию Nugget.</translation>
+      <translation>Этот config требует версию Nugget новее.</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="81"/>
       <source>This template requires iOS {0}.
 Your iOS version (iOS {1}) is too outdated!</source>
       <translation>Этот шаблон требует iOS {0}.
-Ваша версия iOS (iOS{1}) очень старая!</translation>
+Ваша версия iOS (iOS{1}) слишком старая!</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="85"/>
@@ -2124,7 +2123,7 @@ Use at your own risk!</source>
 
 Вы можете столкнуться с проблемами или даже невозможностью загрузить iOS.
 
-Используйте на свой страх и риск!</translation>
+Используйте на свой страх и риск</translation>
     </message>
     <message>
       <location filename="../gui/main_window.py" line="48"/>

@@ -303,7 +303,7 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
       <source>Use the Metal HUD in any app. Enable Metal HUD through Springboard Options.
 
 Note: OTA updates will be broken until this is disabled.</source>
-      <translation>ใช้ Metal HUD ได้ในทุกแอป โดยเปิดใช้งานผ่านตัวเลือก Springboard
+      <translation>ใช้ Metal HUD ได้ในทุกแอป โดยเปิดใช้งานผ่านตัวเลือกสปริงบอร์ด
 
 หมายเหตุ: การอัปเดต OTA จะไม่สามารถใช้งานได้จนกว่าจะปิดตัวเลือกนี้</translation>
     </message>
@@ -1034,7 +1034,7 @@ Please be careful!</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5217"/>
       <source>Springboard Options</source>
-      <translation>ตัวเลือก Springboard</translation>
+      <translation>ตัวเลือกสปริงบอร์ด</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5298"/>
@@ -1089,7 +1089,7 @@ Please be careful!</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5469"/>
       <source>Internal Options</source>
-      <translation>ตัวเลือกภายใน</translation>
+      <translation>ตัวเลือกอินเทอร์นอล</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5544"/>
@@ -1421,7 +1421,7 @@ Will show up in Collections</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="6970"/>
       <source>Risky Options</source>
-      <translation>ตัวเลือกอันตราย</translation>
+      <translation>ตัวเลือกเสี่ยงๆ</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7045"/>
@@ -1500,12 +1500,12 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="7463"/>
       <source>Springboard</source>
-      <translation>Springboard</translation>
+      <translation>สปริงบอร์ด</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7498"/>
       <source>Internal</source>
-      <translation>ภายใน</translation>
+      <translation>อินเทอร์นอล</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7559"/>
@@ -1530,7 +1530,7 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="7808"/>
       <source>  Apply Changes</source>
-      <translation>  ใช้ที่เปลี่ยนแปลงเลย</translation>
+      <translation>  ใช้การเปลี่ยนแปลงเลย</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7825"/>
@@ -1545,7 +1545,7 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
     <message>
       <location filename="../qt/mainwindow.ui" line="7914"/>
       <source>Remove All Tweaks</source>
-      <translation>ลบทวีปและการเปลี่ยนแปลงทั้งหมด</translation>
+      <translation>ลบทวีคและการเปลี่ยนแปลงทั้งหมด</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7921"/>

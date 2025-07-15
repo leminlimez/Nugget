@@ -243,13 +243,9 @@ class DeviceManager:
             results[bundle_id] = app_info["Container"].removeprefix("/private/var/mobile/Containers/Data/Application/")
         return results
     
-    def send_app_hashes_afc(self, hashes: dict, bundle_id_order: list[str]) -> str:
+    def send_app_hashes_afc(self, hashes: dict) -> str:
         # create a temporary file to send it as
         with TemporaryDirectory() as tmpdir:
-            tmpf = os.path.join(tmpdir, "NuggetAppHash")
-            with open(tmpf, "w", encoding='UTF-8') as in_file:
-                for bundle_id in bundle_id_order:
-                    in_file.write(hashes[bundle_id] + "\n")
             # get the bundle id of Pocket Poster
             bundle_id = "com.leemin.Pocket-Poster"
             apps = InstallationProxyService(lockdown=self.data_singleton.current_device.ld).get_apps(application_type="User", calculate_sizes=False)
@@ -261,7 +257,13 @@ class DeviceManager:
                     # fallback for live container
                     bundle_id = app["CFBundleIdentifier"]
             afc = HouseArrestService(lockdown=self.data_singleton.current_device.ld, bundle_id=bundle_id, documents_only=True)
-            afc.push(tmpf, "/Documents/NuggetAppHash")
+            # send each hash over
+            for key in hashes.keys():
+                fname = "Nugget" + key.replace("com.apple.", "") + "Hash"
+                tmpf = os.path.join(tmpdir, fname)
+                with open(tmpf, "w", encoding='UTF-8') as in_file:
+                    in_file.write(hashes[key])
+                afc.push(tmpf, f"/Documents/{fname}")
         
 
     def reset_device_pairing(self):

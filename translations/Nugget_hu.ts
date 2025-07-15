@@ -1718,7 +1718,7 @@ vagy elérted a háttérképek maximális számát (15), és törölnöd kell ő
     <message>
       <location filename="../gui/dialogs.py" line="94"/>
       <source>Would you like to go to the download on GitHub?</source>
-      <translation>Le szeretnéd tölteni a GitHubon?</translation>
+      <translation> Le szeretnéd tölteni a GitHubon?</translation>
     </message>
   </context>
   <context>

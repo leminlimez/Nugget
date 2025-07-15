@@ -1909,7 +1909,7 @@ Remember to turn Find My back on!</source>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="40"/>
       <source>Wrong type of file</source>
-      <translation>잘못된 형식의 파일</translation>
+      <translation>잘못된 파일 형식</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="48"/>
@@ -1936,67 +1936,67 @@ Remember to turn Find My back on!</source>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="199"/>
       <source>No Device</source>
-      <translation>No Device</translation>
+      <translation>기기 없음</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="440"/>
       <source>Restoring to device...{0}{1}</source>
-      <translation>Restoring to device...{0}{1}</translation>
+      <translation>기기 복원 중...{0}{1}</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="445"/>
       <source>Applying changes to files...</source>
-      <translation>Applying changes to files...</translation>
+      <translation>파일 변경 사항 저장 중...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="251"/>
       <source>Generating PosterBoard Video...</source>
-      <translation>Generating PosterBoard Video...</translation>
+      <translation>PosterBoard 비디오 생성 중...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="256"/>
       <source>Extracting tendie {0}...</source>
-      <translation>Extracting tendie {0}...</translation>
+      <translation>tendie {0} 추출 중...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="261"/>
       <source>Configuring template {0}...</source>
-      <translation>Configuring template {0}...</translation>
+      <translation>템플릿 {0} 구성 중...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="264"/>
       <source>Adding tendies...</source>
-      <translation>Adding tendies...</translation>
+      <translation>tendies 추가 중...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="266"/>
       <source>Adding other tweaks...</source>
-      <translation>Adding other tweaks...</translation>
+      <translation>다른 트윅 추가 중...</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="115"/>
       <source>Revert RDAR fix</source>
-      <translation>Revert RDAR fix</translation>
+      <translation>RDAR 수정 되돌리기</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="116"/>
       <source>RDAR Fix</source>
-      <translation>RDAR Fix</translation>
+      <translation>RDAR 수정</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="119"/>
       <source>Revert Status Bar Fix</source>
-      <translation>Revert Status Bar Fix</translation>
+      <translation>Status Bar 수정 되돌리기</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="120"/>
       <source>Dynamic Island Status Bar Fix</source>
-      <translation>Dynamic Island Status Bar Fix</translation>
+      <translation>Dynamic Island Status Bar 수정</translation>
     </message>
     <message>
       <location filename="../controllers/video_handler.py" line="103"/>
       <source>Creating {0}...</source>
-      <translation>Creating {0}...</translation>
+      <translation>{0} 추가 중...</translation>
     </message>
   </context>
   <context>
@@ -2069,7 +2069,7 @@ Your iOS version (iOS {1}) is too new!</source>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="138"/>
       <source>Invalid option type in template</source>
-      <translation>템플릿에 잘못 된 유형이 포함되어 있습니다</translation>
+      <translation>템플릿에 잘못된 유형이 포함되어 있습니다</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="140"/>
@@ -2079,7 +2079,7 @@ Your iOS version (iOS {1}) is too new!</source>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="292"/>
       <source>Bundle id (default: {0})</source>
-      <translation>번들 아이디 (default: {0})</translation>
+      <translation>번들 아이디 (기본: {0})</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_options/replace_option.py" line="103"/>
@@ -2093,7 +2093,7 @@ No selected file for required option</source>
     <message>
       <location filename="../gui/pages/tools/gestalt.py" line="73"/>
       <source>modifies resolution</source>
-      <translation>modifies resolution</translation>
+      <translation>해상도 수정</translation>
     </message>
   </context>
   <context>
@@ -2101,17 +2101,17 @@ No selected file for required option</source>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="31"/>
       <source>Collections</source>
-      <translation>Collections</translation>
+      <translation>컬렉션</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="32"/>
       <source>Suggested Photos</source>
-      <translation>Suggested Photos</translation>
+      <translation>추천 사진</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="33"/>
       <source>Gallery Cache</source>
-      <translation>Gallery Cache</translation>
+      <translation>갤러리 캐시</translation>
     </message>
   </context>
   <context>
@@ -2123,11 +2123,11 @@ No selected file for required option</source>
 This has been known to cause problems and potentially lead to bootloops.
 
 Use at your own risk!</source>
-      <translation>Warning: You are on iOS 26 beta.
+      <translation>경고: 기기가 iOS 26 베타입니다.
 
-This has been known to cause problems and potentially lead to bootloops.
+이는 알려진 바와 같이 문제를 일으킬 수 있으며, 무한 재부팅으로 이어질 수 있습니다.
 
-Use at your own risk!</translation>
+사용 시 주의하시기 바랍니다!</translation>
     </message>
     <message>
       <location filename="../gui/main_window.py" line="48"/>

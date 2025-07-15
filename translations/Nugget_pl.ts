@@ -16,7 +16,7 @@ Czy na pewno chcesz go użyć?</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="415"/>
       <source>    Home</source>
-      <translation>    Dom</translation>
+      <translation>    Główna</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="465"/>
@@ -2120,11 +2120,11 @@ Brak wybranego pliku dla wymaganej funkcji</translation>
 This has been known to cause problems and potentially lead to bootloops.
 
 Use at your own risk!</source>
-      <translation>Warning: You are on iOS 26 beta.
+      <translation>Uwaga: Używasz iOS 26 beta.
 
-This has been known to cause problems and potentially lead to bootloops.
+Ta wersja może sprawiać problemy i potencjalnie powodować bootloopy.
 
-Use at your own risk!</translation>
+Używaj na własne ryzyko!</translation>
     </message>
     <message>
       <location filename="../gui/main_window.py" line="48"/>

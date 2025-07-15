@@ -12,11 +12,16 @@ available_languages = {
     "English": "en",
     "Español": "es",
     "Español (México)": "es_MX",
+    "Português": "pt",
     "Français": "fr",
     "Français (Canada)": "fr_CA",
+    "Français (Belgium)": "fr_BE",
     "Deutsch": "de",
-    "Русский язык": "ru",
+    "Deutsch (Australia)": "de_AT",
+    "Italiano": "it",
+    "Русский": "ru",
     "日本語": "ja",
+    "普通话": "zh_CN",
     "臺灣話": "zh_TW",
     "Tiếng Việt": "vi",
     "ภาษาไทย": "th",
@@ -26,10 +31,13 @@ available_languages = {
     "Magyar": "hu",
     "Nederlands": "nl",
     "Čeština": "cs",
+    "Gaeilge": "ga",
+    "Indonesian": "id",
     "Български": "bg",
     "العربية": "ar",
     "العربية (Saudi Arabia)": "ar_SA",
-    "مَصرى (Egypt)": "ar_EG"
+    "مَصرى (Egypt)": "ar_EG",
+    "Аҧсуа бызшәа": "ab",
 }
 
 class SettingsPage(Page):
@@ -161,7 +169,7 @@ class SettingsPage(Page):
         hashes = self.window.device_manager.get_app_hashes(bundle_ids)
         print(hashes)
         try:
-            self.window.device_manager.send_app_hashes_afc(hashes, bundle_ids)
+            self.window.device_manager.send_app_hashes_afc(hashes)
             QMessageBox.information(None, QCoreApplication.tr("PosterBoard App Hash"), QCoreApplication.tr("Your hash has been transferred to the Pocket Poster app.\n\nOpen up its settings and tap \"Detect\"."))
         except:
             # fall back to copy and paste
