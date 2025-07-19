@@ -2,6 +2,7 @@ import webbrowser
 import subprocess
 import os
 import uuid
+import traceback
 
 from PySide6 import QtCore, QtWidgets, QtGui
 
@@ -11,7 +12,6 @@ from gui.dialogs import PBHelpDialog
 from gui.custom_qt_elements.multicombobox import MultiComboBox
 
 from tweaks.tweaks import tweaks
-from ....devicemanagement.device_manager import show_apply_error
 
 class PosterboardPage(Page, QtCore.QObject):
     def __init__(self, window, ui: Ui_Nugget):
@@ -295,13 +295,11 @@ class PosterboardPage(Page, QtCore.QObject):
                     subprocess.call(["open", path])
             except Exception as e:
                 # show error
-                alert = show_apply_error(e)
                 detailsBox = QtWidgets.QMessageBox()
-                detailsBox.setIcon(alert.icon)
-                detailsBox.setWindowTitle(alert.title)
-                detailsBox.setText(alert.txt)
-                if alert.detailed_txt != None:
-                    detailsBox.setDetailedText(alert.detailed_txt)
+                detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
+                detailsBox.setWindowTitle("Error!")
+                detailsBox.setText(type(e).__name__ + ": " + repr(e))
+                detailsBox.setDetailedText("TRACEBACK:\n\n" + str(traceback.format_exc()))
                 detailsBox.exec()
 
     def on_findPBBtn_clicked(self):
