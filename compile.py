@@ -17,6 +17,7 @@ args = [
     '--hidden-import=pyimg4',
     '--hidden-import=zeroconf._utils.ipaddress',
     '--hidden-import=zeroconf._handlers.answers',
+    '--collect-all=devicemanagement',
     '--add-data=files/:./files',
     '--copy-metadata=pyimg4',
     '--onedir',
