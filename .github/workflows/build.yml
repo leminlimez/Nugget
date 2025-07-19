@@ -2,9 +2,26 @@ name: Build Nugget
 
 on:
   workflow_dispatch:
+    inputs:
+      build_for_macos_intel:
+        description: 'Build macOS Intel'
+        required: false
+        default: 'true'
+        type: boolean
+      build_for_macos_arm:
+        description: 'Build macOS arm'
+        required: false
+        default: 'true'
+        type: boolean
+      build_for_windows:
+        description: 'Build Windows'
+        required: false
+        default: 'true'
+        type: boolean
 
 jobs:
   build-macos-intel:
+    if: ${{ inputs.build_for_macos_intel == 'true' }}
     runs-on: macos-13
     steps:
       - name: Checkout code
@@ -35,6 +52,7 @@ jobs:
           path: dist/Nugget_macOS_intel.zip
 
   build-macos-arm:
+    if: ${{ inputs.build_for_macos_arm == 'true' }}
     runs-on: macos-latest
     steps:
       - name: Checkout code
@@ -65,6 +83,7 @@ jobs:
           path: dist/Nugget_macOS_arm.zip
 
   build-windows:
+    if: ${{ inputs.build_for_windows == 'true' }}
     runs-on: windows-latest
     steps:
       - name: Checkout code
