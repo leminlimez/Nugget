@@ -619,8 +619,8 @@ class DeviceManager:
             self.update_label = update_label
             self.do_not_unplug = ""
             if self.data_singleton.current_device.connected_via_usb:
-                self.do_not_unplug = f"\n{QCoreApplication.tr("DO NOT UNPLUG")}"
-            update_label(f"{QCoreApplication.tr("Preparing to restore...")}{self.do_not_unplug}")
+                self.do_not_unplug = "\n" + QCoreApplication.tr("DO NOT UNPLUG")
+            update_label(QCoreApplication.tr("Preparing to restore...") + self.do_not_unplug)
             restore_files(
                 files=files_to_restore, reboot=self.auto_reboot,
                 lockdown_client=self.data_singleton.current_device.ld,
