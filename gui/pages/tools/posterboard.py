@@ -11,7 +11,7 @@ from gui.dialogs import PBHelpDialog
 from gui.custom_qt_elements.multicombobox import MultiComboBox
 
 from tweaks.tweaks import tweaks
-from devicemanagement.device_manager import show_apply_error
+from ....devicemanagement.device_manager import show_apply_error
 
 class PosterboardPage(Page, QtCore.QObject):
     def __init__(self, window, ui: Ui_Nugget):
