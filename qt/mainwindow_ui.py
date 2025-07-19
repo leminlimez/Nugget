@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.2
+## Created by: Qt User Interface Compiler version 6.9.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -234,8 +234,8 @@ class Ui_Nugget(object):
 "    background-color: #535353;\n"
 "    color: #ffffff;\n"
 "}")
-        self.devicePicker.setPlaceholderText(u"None")
         self.devicePicker.setDuplicatesEnabled(True)
+        self.devicePicker.setProperty(u"placeholderText", u"None")
 
         self.horizontalLayout_15.addWidget(self.devicePicker)
 
@@ -359,7 +359,6 @@ class Ui_Nugget(object):
         sizePolicy2.setHeightForWidth(self.featureFlagsPageBtn.sizePolicy().hasHeightForWidth())
         self.featureFlagsPageBtn.setSizePolicy(sizePolicy2)
         font = QFont()
-        font.setFamilies([u".AppleSystemUIFont"])
         self.featureFlagsPageBtn.setFont(font)
         icon5 = QIcon()
         icon5.addFile(u":/icon/flag.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
@@ -488,7 +487,9 @@ class Ui_Nugget(object):
         self.pages.setObjectName(u"pages")
         self.homePage = QWidget()
         self.homePage.setObjectName(u"homePage")
-        self.homePage.setFont(font)
+        font1 = QFont()
+        font1.setFamilies([u".AppleSystemUIFont"])
+        self.homePage.setFont(font1)
         self.verticalLayout_2 = QVBoxLayout(self.homePage)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -520,9 +521,7 @@ class Ui_Nugget(object):
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.phoneNameLbl = QLabel(self.verticalWidget)
         self.phoneNameLbl.setObjectName(u"phoneNameLbl")
-        font1 = QFont()
-        font1.setBold(False)
-        self.phoneNameLbl.setFont(font1)
+        self.phoneNameLbl.setFont(font)
         self.phoneNameLbl.setText(u"Phone")
 
         self.verticalLayout_3.addWidget(self.phoneNameLbl)
@@ -590,9 +589,7 @@ class Ui_Nugget(object):
 
         self.label_2 = QLabel(self.verticalWidget1)
         self.label_2.setObjectName(u"label_2")
-        font2 = QFont()
-        font2.setBold(True)
-        self.label_2.setFont(font2)
+        self.label_2.setFont(font)
         self.label_2.setStyleSheet(u"QLabel {\n"
 "	font-size: 35px;\n"
 "}")
@@ -982,7 +979,7 @@ class Ui_Nugget(object):
         self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.statusBarLbl = QLabel(self.verticalWidget_21)
         self.statusBarLbl.setObjectName(u"statusBarLbl")
-        self.statusBarLbl.setFont(font1)
+        self.statusBarLbl.setFont(font)
 
         self.verticalLayout_5.addWidget(self.statusBarLbl)
 
@@ -1012,7 +1009,7 @@ class Ui_Nugget(object):
 
         self.mgaWarningLbl = QLabel(self.gestaltPage)
         self.mgaWarningLbl.setObjectName(u"mgaWarningLbl")
-        self.mgaWarningLbl.setFont(font2)
+        self.mgaWarningLbl.setFont(font)
 
         self.verticalLayout_4.addWidget(self.mgaWarningLbl)
 
@@ -1086,7 +1083,7 @@ class Ui_Nugget(object):
 "}")
         self.dynamicIslandDrp.setCurrentText(u"None")
         self.dynamicIslandDrp.setMaxVisibleItems(15)
-        self.dynamicIslandDrp.setPlaceholderText(u"")
+        self.dynamicIslandDrp.setProperty(u"placeholderText", u"")
 
         self.verticalLayout_8.addWidget(self.dynamicIslandDrp)
 
@@ -1327,7 +1324,7 @@ class Ui_Nugget(object):
         self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
         self.internalOptionsLbl = QLabel(self.verticalWidget_4)
         self.internalOptionsLbl.setObjectName(u"internalOptionsLbl")
-        self.internalOptionsLbl.setFont(font1)
+        self.internalOptionsLbl.setFont(font)
 
         self.verticalLayout_12.addWidget(self.internalOptionsLbl)
 
@@ -1433,7 +1430,7 @@ class Ui_Nugget(object):
         self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
         self.eligibilityLbl = QLabel(self.verticalWidget_5)
         self.eligibilityLbl.setObjectName(u"eligibilityLbl")
-        self.eligibilityLbl.setFont(font1)
+        self.eligibilityLbl.setFont(font)
 
         self.verticalLayout_15.addWidget(self.eligibilityLbl)
 
@@ -1469,7 +1466,7 @@ class Ui_Nugget(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 660, 573))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 619, 535))
         self.verticalLayout_37 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_37.setObjectName(u"verticalLayout_37")
         self.euEnablerPageContent = QWidget(self.scrollAreaWidgetContents_2)
@@ -1559,7 +1556,7 @@ class Ui_Nugget(object):
 
         self.mgaWarningLbl2 = QLabel(self.euEnablerPageContent)
         self.mgaWarningLbl2.setObjectName(u"mgaWarningLbl2")
-        self.mgaWarningLbl2.setFont(font2)
+        self.mgaWarningLbl2.setFont(font)
 
         self.verticalLayout_16.addWidget(self.mgaWarningLbl2)
 
@@ -1738,7 +1735,7 @@ class Ui_Nugget(object):
         self.verticalLayout_51.setContentsMargins(0, 0, 0, 0)
         self.statusBarLbl1 = QLabel(self.verticalWidget_22)
         self.statusBarLbl1.setObjectName(u"statusBarLbl1")
-        self.statusBarLbl1.setFont(font1)
+        self.statusBarLbl1.setFont(font)
 
         self.verticalLayout_51.addWidget(self.statusBarLbl1)
 
@@ -2752,7 +2749,7 @@ class Ui_Nugget(object):
         self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
         self.springboardOptionsLbl = QLabel(self.verticalWidget_3)
         self.springboardOptionsLbl.setObjectName(u"springboardOptionsLbl")
-        self.springboardOptionsLbl.setFont(font1)
+        self.springboardOptionsLbl.setFont(font)
 
         self.verticalLayout_7.addWidget(self.springboardOptionsLbl)
 
@@ -2880,7 +2877,7 @@ class Ui_Nugget(object):
         self.verticalLayout_121.setContentsMargins(0, 0, 0, 0)
         self.internalOptionsLbl1 = QLabel(self.verticalWidget_41)
         self.internalOptionsLbl1.setObjectName(u"internalOptionsLbl1")
-        self.internalOptionsLbl1.setFont(font1)
+        self.internalOptionsLbl1.setFont(font)
 
         self.verticalLayout_121.addWidget(self.internalOptionsLbl1)
 
@@ -3063,7 +3060,7 @@ class Ui_Nugget(object):
         self.verticalLayout_122.setContentsMargins(0, 0, 0, 0)
         self.daemonsLbl = QLabel(self.verticalWidget_42)
         self.daemonsLbl.setObjectName(u"daemonsLbl")
-        self.daemonsLbl.setFont(font1)
+        self.daemonsLbl.setFont(font)
 
         self.verticalLayout_122.addWidget(self.daemonsLbl)
 
@@ -3254,7 +3251,7 @@ class Ui_Nugget(object):
         self.verticalLayout_123.setContentsMargins(0, 0, 0, 0)
         self.posterboardLbl = QLabel(self.verticalWidget_43)
         self.posterboardLbl.setObjectName(u"posterboardLbl")
-        self.posterboardLbl.setFont(font1)
+        self.posterboardLbl.setFont(font)
 
         self.verticalLayout_123.addWidget(self.posterboardLbl)
 
@@ -3496,15 +3493,6 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_30.addItem(self.horizontalSpacer_19)
 
-        self.exportPBVideoBtn = QToolButton(self.pbVideoPage)
-        self.exportPBVideoBtn.setObjectName(u"exportPBVideoBtn")
-        icon28 = QIcon()
-        icon28.addFile(u":/icon/export.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.exportPBVideoBtn.setIcon(icon28)
-        self.exportPBVideoBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
-
-        self.horizontalLayout_30.addWidget(self.exportPBVideoBtn)
-
 
         self.verticalLayout_39.addLayout(self.horizontalLayout_30)
 
@@ -3523,6 +3511,32 @@ class Ui_Nugget(object):
         self.verticalSpacer_22 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_39.addItem(self.verticalSpacer_22)
+
+        self.horizontalLayout_16 = QHBoxLayout()
+        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.advancedOptionsBtn = QToolButton(self.pbVideoPage)
+        self.advancedOptionsBtn.setObjectName(u"advancedOptionsBtn")
+        self.advancedOptionsBtn.setIcon(icon9)
+        self.advancedOptionsBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+
+        self.horizontalLayout_16.addWidget(self.advancedOptionsBtn)
+
+        self.exportPBVideoBtn = QToolButton(self.pbVideoPage)
+        self.exportPBVideoBtn.setObjectName(u"exportPBVideoBtn")
+        self.exportPBVideoBtn.setEnabled(False)
+        icon28 = QIcon()
+        icon28.addFile(u":/icon/export.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.exportPBVideoBtn.setIcon(icon28)
+        self.exportPBVideoBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+
+        self.horizontalLayout_16.addWidget(self.exportPBVideoBtn)
+
+        self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_16.addItem(self.horizontalSpacer_10)
+
+
+        self.verticalLayout_39.addLayout(self.horizontalLayout_16)
 
         self.pbPages.addWidget(self.pbVideoPage)
 
@@ -3562,7 +3576,7 @@ class Ui_Nugget(object):
         self.verticalLayout_124.setContentsMargins(0, 0, 0, 0)
         self.templatesLbl = QLabel(self.verticalWidget_44)
         self.templatesLbl.setObjectName(u"templatesLbl")
-        self.templatesLbl.setFont(font1)
+        self.templatesLbl.setFont(font)
 
         self.verticalLayout_124.addWidget(self.templatesLbl)
 
@@ -3667,7 +3681,7 @@ class Ui_Nugget(object):
         self.verticalLayout_125.setContentsMargins(0, 0, 0, 0)
         self.advancedOptionsLbl = QLabel(self.verticalWidget_45)
         self.advancedOptionsLbl.setObjectName(u"advancedOptionsLbl")
-        self.advancedOptionsLbl.setFont(font1)
+        self.advancedOptionsLbl.setFont(font)
 
         self.verticalLayout_125.addWidget(self.advancedOptionsLbl)
 
@@ -3865,7 +3879,7 @@ class Ui_Nugget(object):
         self.verticalLayout_33.setContentsMargins(0, 0, 0, 0)
         self.statusBarLbl_5 = QLabel(self.verticalWidget_11)
         self.statusBarLbl_5.setObjectName(u"statusBarLbl_5")
-        self.statusBarLbl_5.setFont(font1)
+        self.statusBarLbl_5.setFont(font)
 
         self.verticalLayout_33.addWidget(self.statusBarLbl_5)
 
@@ -4019,7 +4033,7 @@ class Ui_Nugget(object):
         self.verticalLayout_331.setContentsMargins(0, 0, 0, 0)
         self.statusBarLbl_51 = QLabel(self.verticalWidget_111)
         self.statusBarLbl_51.setObjectName(u"statusBarLbl_51")
-        self.statusBarLbl_51.setFont(font1)
+        self.statusBarLbl_51.setFont(font)
 
         self.verticalLayout_331.addWidget(self.statusBarLbl_51)
 
@@ -4113,7 +4127,7 @@ class Ui_Nugget(object):
 
         self.skipSetupOnLbl = QLabel(self.verticalWidget3)
         self.skipSetupOnLbl.setObjectName(u"skipSetupOnLbl")
-        self.skipSetupOnLbl.setFont(font1)
+        self.skipSetupOnLbl.setFont(font)
         self.skipSetupOnLbl.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_241.addWidget(self.skipSetupOnLbl)
@@ -4185,7 +4199,7 @@ class Ui_Nugget(object):
         self.verticalLayout_71.setContentsMargins(0, 0, 0, 0)
         self.springboardOptionsLbl1 = QLabel(self.verticalWidget_31)
         self.springboardOptionsLbl1.setObjectName(u"springboardOptionsLbl1")
-        self.springboardOptionsLbl1.setFont(font1)
+        self.springboardOptionsLbl1.setFont(font)
 
         self.verticalLayout_71.addWidget(self.springboardOptionsLbl1)
 
@@ -4413,7 +4427,7 @@ class Ui_Nugget(object):
         self.retranslateUi(Nugget)
 
         self.devicePicker.setCurrentIndex(-1)
-        self.pages.setCurrentIndex(0)
+        self.pages.setCurrentIndex(8)
         self.dynamicIslandDrp.setCurrentIndex(0)
         self.spoofedModelDrp.setCurrentIndex(0)
         self.pTypeDrp.setCurrentIndex(0)
@@ -4867,6 +4881,7 @@ class Ui_Nugget(object):
         self.chooseVideoBtn.setToolTip(QCoreApplication.translate("Nugget", u"Choose a video file for the wallpaper (.mov or .mp4)", None))
 #endif // QT_CONFIG(tooltip)
         self.chooseVideoBtn.setText(QCoreApplication.translate("Nugget", u"Choose Video", None))
+        self.advancedOptionsBtn.setText(QCoreApplication.translate("Nugget", u"   Advanced Options", None))
         self.exportPBVideoBtn.setText(QCoreApplication.translate("Nugget", u"   Export Video as Descriptor", None))
         self.templatesLbl.setText(QCoreApplication.translate("Nugget", u"Templates", None))
 #if QT_CONFIG(tooltip)

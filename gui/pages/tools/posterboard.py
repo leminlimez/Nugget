@@ -56,6 +56,20 @@ class PosterboardPage(Page, QtCore.QObject):
         self.ui.reverseLoopChk.toggled.connect(self.on_reverseLoopChk_toggled)
         self.ui.useForegroundChk.toggled.connect(self.on_useForegroundChk_toggled)
         self.ui.exportPBVideoBtn.clicked.connect(self.on_exportPBVideoBtn_clicked)
+
+        if not hasattr(self.ui, "advancedOptionsBtn"):
+            self.ui.advancedOptionsBtn = QtWidgets.QToolButton(self.ui.pbVideoPage)
+            self.ui.advancedOptionsBtn.setText("Advanced Options")
+            self.ui.pbVideoPage.layout().addWidget(self.ui.advancedOptionsBtn)
+
+        self.ui.advancedOptionsBtn.clicked.connect(self.on_advancedOptionsBtn_clicked)
+
+        self.ui.exportPBVideoBtn.hide()
+        #Ensure correct pos
+        layout = self.ui.pbVideoPage.layout()
+        if layout.indexOf(self.ui.exportPBVideoBtn) == -1:
+            idx = layout.indexOf(self.ui.advancedOptionsBtn)
+            layout.insertWidget(idx+1, self.ui.exportPBVideoBtn)
         
         self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
         self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)
@@ -308,3 +322,8 @@ class PosterboardPage(Page, QtCore.QObject):
     def on_pbHelpBtn_clicked(self):
         dialog = PBHelpDialog()
         dialog.exec()
+
+    def on_advancedOptionsBtn_clicked(self):
+    # Toggle visibility of exportPBVideoBtn
+        is_visible = self.ui.exportPBVideoBtn.isVisible()
+        self.ui.exportPBVideoBtn.setVisible(not is_visible)

@@ -289,11 +289,11 @@ QSlider::tick:horizontal {
                <property name="currentIndex">
                 <number>-1</number>
                </property>
-               <property name="placeholderText">
-                <string notr="true">None</string>
-               </property>
                <property name="duplicatesEnabled">
                 <bool>true</bool>
+               </property>
+               <property name="placeholderText" stdset="0">
+                <string notr="true">None</string>
                </property>
               </widget>
              </item>
@@ -530,7 +530,6 @@ QSlider::tick:horizontal {
             </property>
             <property name="font">
              <font>
-              <family>.AppleSystemUIFont</family>
               <pointsize>-1</pointsize>
              </font>
             </property>
@@ -790,7 +789,7 @@ QSlider::tick:horizontal {
           <item>
            <widget class="QStackedWidget" name="pages">
             <property name="currentIndex">
-             <number>0</number>
+             <number>8</number>
             </property>
             <widget class="QWidget" name="homePage">
              <property name="font">
@@ -872,7 +871,6 @@ QSlider::tick:horizontal {
                       <property name="font">
                        <font>
                         <pointsize>-1</pointsize>
-                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -1017,7 +1015,6 @@ QSlider::tick:horizontal {
                       <property name="font">
                        <font>
                         <pointsize>-1</pointsize>
-                        <bold>true</bold>
                        </font>
                       </property>
                       <property name="styleSheet">
@@ -1732,7 +1729,6 @@ QToolButton:pressed {
                       <property name="font">
                        <font>
                         <pointsize>-1</pointsize>
-                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -1795,7 +1791,6 @@ QToolButton:pressed {
                 <property name="font">
                  <font>
                   <pointsize>-1</pointsize>
-                  <bold>true</bold>
                  </font>
                 </property>
                 <property name="text">
@@ -1933,7 +1928,7 @@ QComboBox QAbstractItemView::item:hover {
                        <property name="maxVisibleItems">
                         <number>15</number>
                        </property>
-                       <property name="placeholderText">
+                       <property name="placeholderText" stdset="0">
                         <string notr="true"/>
                        </property>
                        <item>
@@ -2384,7 +2379,6 @@ what you are doing.</string>
                       <property name="font">
                        <font>
                         <pointsize>-1</pointsize>
-                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -2616,7 +2610,6 @@ Only works on iOS 18.0 beta 1-2.</string>
                       <property name="font">
                        <font>
                         <pointsize>-1</pointsize>
-                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -2693,8 +2686,8 @@ Only works on iOS 18.0 beta 1-2.</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>660</width>
-                   <height>573</height>
+                   <width>619</width>
+                   <height>535</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_37">
@@ -2839,7 +2832,6 @@ QComboBox QAbstractItemView::item:hover {
                        <property name="font">
                         <font>
                          <pointsize>-1</pointsize>
-                         <bold>true</bold>
                         </font>
                        </property>
                        <property name="text">
@@ -3250,7 +3242,6 @@ QComboBox QAbstractItemView::item:hover {
                       <property name="font">
                        <font>
                         <pointsize>-1</pointsize>
-                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -5210,7 +5201,6 @@ QComboBox QAbstractItemView::item:hover {
                       <property name="font">
                        <font>
                         <pointsize>-1</pointsize>
-                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -5462,7 +5452,6 @@ QComboBox QAbstractItemView::item:hover {
                       <property name="font">
                        <font>
                         <pointsize>-1</pointsize>
-                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -5785,7 +5774,6 @@ QComboBox QAbstractItemView::item:hover {
                       <property name="font">
                        <font>
                         <pointsize>-1</pointsize>
-                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -6144,7 +6132,6 @@ To work properly, also disable the daemon using the toggle above.</string>
                       <property name="font">
                        <font>
                         <pointsize>-1</pointsize>
-                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -6617,20 +6604,6 @@ Will show up in Collections</string>
                       </property>
                      </spacer>
                     </item>
-                    <item>
-                     <widget class="QToolButton" name="exportPBVideoBtn">
-                      <property name="text">
-                       <string>   Export Video as Descriptor</string>
-                      </property>
-                      <property name="icon">
-                       <iconset resource="../resources.qrc">
-                        <normaloff>:/icon/export.svg</normaloff>:/icon/export.svg</iconset>
-                      </property>
-                      <property name="toolButtonStyle">
-                       <enum>Qt::ToolButtonTextBesideIcon</enum>
-                      </property>
-                     </widget>
-                    </item>
                    </layout>
                   </item>
                   <item>
@@ -6659,6 +6632,54 @@ Will show up in Collections</string>
                      </size>
                     </property>
                    </spacer>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_16" stretch="0,0,0">
+                    <item>
+                     <widget class="QToolButton" name="advancedOptionsBtn">
+                      <property name="text">
+                       <string>   Advanced Options</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="../resources.qrc">
+                        <normaloff>:/icon/ellipsis.svg</normaloff>:/icon/ellipsis.svg</iconset>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextBesideIcon</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="exportPBVideoBtn">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
+                      <property name="text">
+                       <string>   Export Video as Descriptor</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="../resources.qrc">
+                        <normaloff>:/icon/export.svg</normaloff>:/icon/export.svg</iconset>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextBesideIcon</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="horizontalSpacer_10">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
                   </item>
                  </layout>
                 </widget>
@@ -6741,7 +6762,6 @@ Will show up in Collections</string>
                       <property name="font">
                        <font>
                         <pointsize>-1</pointsize>
-                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -6963,7 +6983,6 @@ Will show up in Collections</string>
                       <property name="font">
                        <font>
                         <pointsize>-1</pointsize>
-                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -7346,7 +7365,6 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                          <property name="font">
                           <font>
                            <pointsize>-1</pointsize>
-                           <bold>false</bold>
                           </font>
                          </property>
                          <property name="text">
@@ -7681,7 +7699,6 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                          <property name="font">
                           <font>
                            <pointsize>-1</pointsize>
-                           <bold>false</bold>
                           </font>
                          </property>
                          <property name="text">
@@ -7856,7 +7873,6 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                    <property name="font">
                     <font>
                      <pointsize>-1</pointsize>
-                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="text">
@@ -8018,7 +8034,6 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                       <property name="font">
                        <font>
                         <pointsize>-1</pointsize>
-                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
