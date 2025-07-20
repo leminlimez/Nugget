@@ -5345,7 +5345,7 @@ QComboBox QAbstractItemView::item:hover {
                  <item>
                   <widget class="QCheckBox" name="hideACPowerChk">
                    <property name="text">
-                    <string>Hide AC Power from Lock Screen</string>
+                    <string>Hide AC Power on Lock Screen</string>
                    </property>
                   </widget>
                  </item>

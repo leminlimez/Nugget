@@ -3696,7 +3696,7 @@ class Ui_Nugget(object):
         self.disableLockRespringChk.setText(QCoreApplication.translate("Nugget", u"Disable Lock After Respring", None))
         self.disableDimmingChk.setText(QCoreApplication.translate("Nugget", u"Disable Screen Dimming While Charging", None))
         self.disableBatteryAlertsChk.setText(QCoreApplication.translate("Nugget", u"Disable Low Battery Alerts", None))
-        self.hideACPowerChk.setText(QCoreApplication.translate("Nugget", u"Hide AC Power from Lock Screen", None))
+        self.hideACPowerChk.setText(QCoreApplication.translate("Nugget", u"Hide AC Power on Lock Screen", None))
 #if QT_CONFIG(tooltip)
         self.disableCrumbChk.setToolTip(QCoreApplication.translate("Nugget", u"Removes '< PreviousAppName' glyph in Status Bar when being forwarded to another app.", None))
 #endif // QT_CONFIG(tooltip)
