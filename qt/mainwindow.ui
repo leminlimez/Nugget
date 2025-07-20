@@ -5343,6 +5343,13 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="hideACPowerChk">
+                   <property name="text">
+                    <string>Hide AC Power on Lock Screen</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="disableCrumbChk">
                    <property name="toolTip">
                     <string>Removes '&lt; PreviousAppName' glyph in Status Bar when being forwarded to another app.</string>
