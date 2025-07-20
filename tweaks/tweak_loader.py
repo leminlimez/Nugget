@@ -212,6 +212,10 @@ def load_springboard():
             FileLocation.springboard,
             "SBHideLowPowerAlerts"
         ),
+        "SBHideACPower": BasicPlistTweak(
+            FileLocation.springboard,
+            "SBHideACPower"
+        ),
         "SBNeverBreadcrumb": BasicPlistTweak(
             FileLocation.springboard,
             "SBNeverBreadcrumb"
