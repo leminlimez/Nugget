@@ -14,6 +14,7 @@ class SpringboardPage(Page):
         self.ui.disableLockRespringChk.toggled.connect(self.on_disableLockRespringChk_clicked)
         self.ui.disableDimmingChk.toggled.connect(self.on_disableDimmingChk_clicked)
         self.ui.disableBatteryAlertsChk.toggled.connect(self.on_disableBatteryAlertsChk_clicked)
+        self.ui.hideACPowerChk.toggled.connect(self.on_hideACPowerChk_clicked)
         self.ui.disableCrumbChk.toggled.connect(self.on_disableCrumbChk_clicked)
         self.ui.enableSupervisionTextChk.toggled.connect(self.on_enableSupervisionTextChk_clicked)
         self.ui.enableAirPlayChk.toggled.connect(self.on_enableAirPlayChk_clicked)
@@ -35,3 +36,5 @@ class SpringboardPage(Page):
         tweaks["SBShowSupervisionTextOnLockScreen"].set_enabled(checked)
     def on_enableAirPlayChk_clicked(self, checked: bool):
         tweaks["AirplaySupport"].set_enabled(checked)
+    def on_hideACPowerChk_clicked(self, checked: bool):
+        tweaks["SBHideACPower"].set_enabled(checked)
