@@ -227,6 +227,11 @@ def load_springboard():
         "AirplaySupport": BasicPlistTweak(
             FileLocation.springboard,
             "SBExtendedDisplayOverrideSupportForAirPlayAndDontFileRadars"
+        ),
+        "SBMinimumLockscreenIdleTime": BasicPlistTweak(
+            FileLocation.springboard,
+            key="SBMinimumLockscreenIdleTime",
+            value=5
         )
     }
     tweaks.update(additional_tweaks)
