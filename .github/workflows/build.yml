@@ -6,17 +6,22 @@ on:
       build_for_macos_intel:
         description: 'Build macOS intel'
         required: false
-        default: 'true'
+        default: true
         type: boolean
       build_for_macos_arm:
         description: 'Build macOS arm'
         required: false
-        default: 'true'
+        default: true
         type: boolean
       build_for_windows:
         description: 'Build Windows'
         required: false
-        default: 'true'
+        default: true
+        type: boolean
+      build_for_linux:
+        description: 'Build Linux'
+        required: false
+        default: true
         type: boolean
 
 jobs:
@@ -111,4 +116,35 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Nugget_Windows
+          path: dist/Nugget_Windows.zip
+  
+  build_linux:
+    if: ${{ github.event.inputs.build_for_linux == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build Linux
+        run: python compile.py
+
+      - name: Zip Nugget
+        run: |
+          cd dist
+          tar -cJf Nugget_Linux.tar.xz Nugget
+
+      - name: Upload TAR (Linux)
+        uses: actions/upload-artifact@v4
+        with:
+          name: Nugget_Linux
           path: dist/Nugget_Windows.zip
