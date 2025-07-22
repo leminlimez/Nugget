@@ -147,4 +147,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Nugget_Linux
-          path: dist/Nugget_Windows.zip
+          path: dist/Nugget_Linux.tar.xz
