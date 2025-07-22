@@ -18,6 +18,7 @@ class SpringboardPage(Page):
         self.ui.disableCrumbChk.toggled.connect(self.on_disableCrumbChk_clicked)
         self.ui.enableSupervisionTextChk.toggled.connect(self.on_enableSupervisionTextChk_clicked)
         self.ui.enableAirPlayChk.toggled.connect(self.on_enableAirPlayChk_clicked)
+        self.ui.lockScreenAutoLockSlider.valueChanged.connect(self.on_lockScreenAutoLockSlider_valueChanged)
         
         load_springboard()
 
@@ -38,3 +39,5 @@ class SpringboardPage(Page):
         tweaks["AirplaySupport"].set_enabled(checked)
     def on_hideACPowerChk_clicked(self, checked: bool):
         tweaks["SBHideACPower"].set_enabled(checked)
+    def on_lockScreenAutoLockSlider_valueChanged(self, value: int):
+        tweaks["SBMinimumLockscreenIdleTime"].set_value(value, toggle_enabled=True)

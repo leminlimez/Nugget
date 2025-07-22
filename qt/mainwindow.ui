@@ -5350,6 +5350,22 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
+                 <item>
+                  <widget class="QSlider" name="lockScreenAutoLockSlider">
+                    <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="minimum">
+                      <number>5</number>
+                     </property>
+                     <property name="maximum">
+                      <number>100</number>
+                     </property>
+                     <property name="value">
+                      <number>5</number>
+                     </property>
+                  </widget>
+                 </item>
                   <widget class="QCheckBox" name="disableCrumbChk">
                    <property name="toolTip">
                     <string>Removes '&lt; PreviousAppName' glyph in Status Bar when being forwarded to another app.</string>
