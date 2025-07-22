@@ -1,5 +1,6 @@
 pymobiledevice3
-PySide6-Essentials
+PySide6-Essentials; sys_platform != 'linux'
+PySide6; sys_platform == 'linux'
 PyInstaller
 ffmpeg
 ffmpeg-python

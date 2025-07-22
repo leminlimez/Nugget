@@ -1741,15 +1741,34 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.footnoteTxt)
 
-        self.line_6 = QFrame(self.springboardOptionsPageContent)
-        self.line_6.setObjectName(u"line_6")
-        self.line_6.setStyleSheet(u"QFrame {\n"
+        self.lockScreenAutoLockLabel = QLabel(self.springboardOptionsPageContent)
+        self.lockScreenAutoLockLabel.setObjectName(u"lockScreenAutoLockLabel")
+
+        self._2.addWidget(self.lockScreenAutoLockLabel)
+
+        self.lockScreenAutoLockSlider = QSlider(self.springboardOptionsPageContent)
+        self.lockScreenAutoLockSlider.setObjectName(u"lockScreenAutoLockSlider")
+        self.lockScreenAutoLockSlider.setOrientation(Qt.Horizontal)
+        self.lockScreenAutoLockSlider.setRange(5, 100)
+        self.lockScreenAutoLockSlider.setValue(5)
+        self._2.addWidget(self.lockScreenAutoLockSlider)
+
+        self.lockScreenAutoLockValueLabel = QLabel(f"{self.lockScreenAutoLockSlider.value()} Seconds", self.springboardOptionsPageContent)
+        self._2.addWidget(self.lockScreenAutoLockValueLabel)
+
+        self.lockScreenAutoLockSlider.valueChanged.connect(
+            lambda v: self.lockScreenAutoLockValueLabel.setText(f"{v} {QCoreApplication.translate('Nugget', u'Seconds', None)}")
+        )
+
+        self.lockScreenAutoLockSeparator = QFrame(self.springboardOptionsPageContent)
+        self.lockScreenAutoLockSeparator.setObjectName(u"lockScreenAutoLockSeparator")
+        self.lockScreenAutoLockSeparator.setStyleSheet(u"QFrame {\n"
 "	color: #414141;\n"
 "}")
-        self.line_6.setFrameShadow(QFrame.Plain)
-        self.line_6.setFrameShape(QFrame.Shape.HLine)
+        self.lockScreenAutoLockSeparator.setFrameShadow(QFrame.Plain)
+        self.lockScreenAutoLockSeparator.setFrameShape(QFrame.Shape.HLine)
 
-        self._2.addWidget(self.line_6)
+        self._2.addWidget(self.lockScreenAutoLockSeparator)
 
         self.disableLockRespringChk = QCheckBox(self.springboardOptionsPageContent)
         self.disableLockRespringChk.setObjectName(u"disableLockRespringChk")
@@ -1765,6 +1784,12 @@ class Ui_Nugget(object):
         self.disableBatteryAlertsChk.setObjectName(u"disableBatteryAlertsChk")
 
         self._2.addWidget(self.disableBatteryAlertsChk)
+
+        self.hideACPowerChk = QCheckBox(self.springboardOptionsPageContent)
+        self.hideACPowerChk.setObjectName(u"hideACPowerChk")
+
+        self._2.addWidget(self.hideACPowerChk)
+
 
         self.disableCrumbChk = QCheckBox(self.springboardOptionsPageContent)
         self.disableCrumbChk.setObjectName(u"disableCrumbChk")
@@ -3690,6 +3715,8 @@ class Ui_Nugget(object):
         self.disableLockRespringChk.setText(QCoreApplication.translate("Nugget", u"Disable Lock After Respring", None))
         self.disableDimmingChk.setText(QCoreApplication.translate("Nugget", u"Disable Screen Dimming While Charging", None))
         self.disableBatteryAlertsChk.setText(QCoreApplication.translate("Nugget", u"Disable Low Battery Alerts", None))
+        self.hideACPowerChk.setText(QCoreApplication.translate("Nugget", u"Hide AC Power on Lock Screen", None))
+        self.lockScreenAutoLockLabel.setText(QCoreApplication.translate("Nugget", u"Auto‑Lock (Lock Screen)", None))
 #if QT_CONFIG(tooltip)
         self.disableCrumbChk.setToolTip(QCoreApplication.translate("Nugget", u"Removes '< PreviousAppName' glyph in Status Bar when being forwarded to another app.", None))
 #endif // QT_CONFIG(tooltip)
