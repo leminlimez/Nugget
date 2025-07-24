@@ -40,4 +40,5 @@ class SpringboardPage(Page):
     def on_hideACPowerChk_clicked(self, checked: bool):
         tweaks["SBHideACPower"].set_enabled(checked)
     def on_lockScreenAutoLockSlider_valueChanged(self, value: int):
+        self.ui.lockScreenAutoLockValueLabel.setText(f'{value}s')
         tweaks["SBMinimumLockscreenIdleTime"].set_value(value, toggle_enabled=True)
