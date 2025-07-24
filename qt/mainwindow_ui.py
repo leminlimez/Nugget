@@ -2958,6 +2958,10 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.RTLChk)
 
+        self.sbIconVisibilityChk = QCheckBox(self.internalOptionsPageContent)
+        self.sbIconVisibilityChk.setObjectName(u"sbIconVisibilityChk")
+
+        self.verticalLayout_131.addWidget(self.sbIconVisibilityChk)
         self.div1 = QFrame(self.internalOptionsPageContent)
         self.div1.setObjectName(u"div1")
         self.div1.setEnabled(False)

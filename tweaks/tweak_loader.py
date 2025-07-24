@@ -248,6 +248,10 @@ def load_internal():
             FileLocation.globalPreferences,
             "NSForceRightToLeftWritingDirection"
         ),
+        "SBIconVisibility": BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "SBIconVisibility"
+        ),
         "MetalForceHudEnabled": BasicPlistTweak(
             FileLocation.globalPreferences,
             "MetalForceHudEnabled"
