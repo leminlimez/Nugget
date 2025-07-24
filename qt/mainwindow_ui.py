@@ -2807,24 +2807,35 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.footnoteLine)
 
+        self.horizontalLayout_16 = QHBoxLayout()
+        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.horizontalLayout_16.setContentsMargins(-1, -1, -1, 0)
         self.lockScreenAutoLockLabel = QLabel(self.springboardOptionsPageContent)
         self.lockScreenAutoLockLabel.setObjectName(u"lockScreenAutoLockLabel")
 
-        self._2.addWidget(self.lockScreenAutoLockLabel)
+        self.horizontalLayout_16.addWidget(self.lockScreenAutoLockLabel)
+
+        self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_16.addItem(self.horizontalSpacer_10)
+
+        self.lockScreenAutoLockValueLabel = QLabel(self.springboardOptionsPageContent)
+        self.lockScreenAutoLockValueLabel.setObjectName(u"lockScreenAutoLockValueLabel")
+        self.lockScreenAutoLockValueLabel.setText(u"5s")
+
+        self.horizontalLayout_16.addWidget(self.lockScreenAutoLockValueLabel)
+
+
+        self._2.addLayout(self.horizontalLayout_16)
 
         self.lockScreenAutoLockSlider = QSlider(self.springboardOptionsPageContent)
         self.lockScreenAutoLockSlider.setObjectName(u"lockScreenAutoLockSlider")
-        self.lockScreenAutoLockSlider.setOrientation(Qt.Horizontal)
-        self.lockScreenAutoLockSlider.setRange(5, 100)
+        self.lockScreenAutoLockSlider.setMinimum(5)
+        self.lockScreenAutoLockSlider.setMaximum(100)
         self.lockScreenAutoLockSlider.setValue(5)
+        self.lockScreenAutoLockSlider.setOrientation(Qt.Horizontal)
+
         self._2.addWidget(self.lockScreenAutoLockSlider)
-
-        self.lockScreenAutoLockValueLabel = QLabel(f"{self.lockScreenAutoLockSlider.value()} Seconds", self.springboardOptionsPageContent)
-        self._2.addWidget(self.lockScreenAutoLockValueLabel)
-
-        self.lockScreenAutoLockSlider.valueChanged.connect(
-            lambda v: self.lockScreenAutoLockValueLabel.setText(f"{v} {QCoreApplication.translate('Nugget', u'Seconds', None)}")
-        )
 
         self.lockScreenAutoLockSeparator = QFrame(self.springboardOptionsPageContent)
         self.lockScreenAutoLockSeparator.setObjectName(u"lockScreenAutoLockSeparator")
@@ -4788,11 +4799,11 @@ class Ui_Nugget(object):
         self.springboardOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Springboard Options", None))
         self.footnoteLbl.setText(QCoreApplication.translate("Nugget", u"Lock Screen Footnote Text", None))
         self.footnoteTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Footnote Text", None))
+        self.lockScreenAutoLockLabel.setText(QCoreApplication.translate("Nugget", u"Auto\u2011Lock (Lock Screen)", None))
         self.disableLockRespringChk.setText(QCoreApplication.translate("Nugget", u"Disable Lock After Respring", None))
         self.disableDimmingChk.setText(QCoreApplication.translate("Nugget", u"Disable Screen Dimming While Charging", None))
         self.disableBatteryAlertsChk.setText(QCoreApplication.translate("Nugget", u"Disable Low Battery Alerts", None))
         self.hideACPowerChk.setText(QCoreApplication.translate("Nugget", u"Hide AC Power on Lock Screen", None))
-        self.lockScreenAutoLockLabel.setText(QCoreApplication.translate("Nugget", u"Auto‑Lock (Lock Screen)", None))
 #if QT_CONFIG(tooltip)
         self.disableCrumbChk.setToolTip(QCoreApplication.translate("Nugget", u"Removes '< PreviousAppName' glyph in Status Bar when being forwarded to another app.", None))
 #endif // QT_CONFIG(tooltip)
