@@ -5736,6 +5736,13 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="authEngUICheck">
+                   <property name="text">
+                    <string>Show Red/Green Authentication Line on Lock Screen</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="hideRespringChk">
                    <property name="text">
                     <string>Hide Respring Icon</string>

@@ -299,6 +299,10 @@ def load_internal():
         "AnnounceAllPastes": BasicPlistTweak(
             FileLocation.pasteboard,
             "AnnounceAllPastes"
+        ),
+        "SBShowAuthenticationEngineeringUI": BasicPlistTweak(
+            FileLocation.springboard,
+            "SBShowAuthenticationEngineeringUI"
         )
     }
     tweaks.update(additional_tweaks)

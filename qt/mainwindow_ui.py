@@ -3045,6 +3045,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.showTouchesChk)
 
+        self.authEngUICheck = QCheckBox(self.internalOptionsPageContent)
+        self.authEngUICheck.setObjectName(u"authEngUICheck")
+
+        self.verticalLayout_131.addWidget(self.authEngUICheck)
+
         self.hideRespringChk = QCheckBox(self.internalOptionsPageContent)
         self.hideRespringChk.setObjectName(u"hideRespringChk")
 
@@ -4835,6 +4840,7 @@ class Ui_Nugget(object):
         self.appStoreChk.setText(QCoreApplication.translate("Nugget", u"Enable App Store Debug Gesture", None))
         self.notesChk.setText(QCoreApplication.translate("Nugget", u"Enable Notes Debug Mode", None))
         self.showTouchesChk.setText(QCoreApplication.translate("Nugget", u"Show Touches With Debug Info", None))
+        self.authEngUICheck.setText(QCoreApplication.translate("Nugget", u"Show Red/Green Authentication Line on Lock Screen", None))
         self.hideRespringChk.setText(QCoreApplication.translate("Nugget", u"Hide Respring Icon", None))
         self.enableWakeVibrateChk.setText(QCoreApplication.translate("Nugget", u"Vibrate on Raise-to-Wake", None))
         self.pasteSoundChk.setText(QCoreApplication.translate("Nugget", u"Play Sound on Paste", None))
