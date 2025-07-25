@@ -1,0 +1,152 @@
+name: Build Nugget on PR
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build-macos-intel:
+    runs-on: macos-13
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - run: |
+          python3 -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - run: python3 compile.py
+        name: Build MacOS (Intel)
+
+      - run: |
+          cd dist
+          zip -r -y "Nugget_macOS_intel.zip" Nugget.app
+        name: Zip Nugget.app (Intel)
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Nugget_macOS_intel
+          path: dist/Nugget_macOS_intel.zip
+
+  build-macos-arm:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - run: |
+          python3 -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - run: python3 compile.py
+        name: Build MacOS (ARM)
+
+      - run: |
+          cd dist
+          zip -r -y "Nugget_macOS_arm.zip" Nugget.app
+        name: Zip Nugget.app (ARM)
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Nugget_macOS_arm
+          path: dist/Nugget_macOS_arm.zip
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - run: python compile.py
+        name: Build Windows
+
+      - run: |
+          cd dist
+          Compress-Archive -Path Nugget -DestinationPath "Nugget_Windows.zip"
+        shell: powershell
+        name: Zip Nugget (Windows)
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Nugget_Windows
+          path: dist/Nugget_Windows.zip
+
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - run: python compile.py
+        name: Build Linux
+
+      - run: |
+          cd dist
+          tar -cJf Nugget_Linux.tar.xz Nugget
+        name: Zip Nugget (Linux)
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Nugget_Linux
+          path: dist/Nugget_Linux.tar.xz
+
+  post-comment:
+    needs: [build-macos-intel, build-macos-arm, build-windows, build-linux]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const runId = process.env.GITHUB_RUN_ID;
+            const commitSha = process.env.GITHUB_SHA.substring(0,7);
+            const runUrl = `https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${runId}`;
+            const buildTime = new Date().toISOString().replace('T', ' ').substring(0,19);
+
+            const artifactsResponse = await github.rest.actions.listWorkflowRunArtifacts({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: parseInt(runId),
+            });
+
+            const artifacts = artifactsResponse.data.artifacts;
+            let artifactList = '';
+            for (const artifact of artifacts) {
+              const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${runId}/artifacts/${artifact.id}`;
+              artifactList += `* [**${artifact.name}**](${artifactUrl})\n\n`;
+            }
+
+            const commentBody = 
+              `> **Commit**: [#${commitSha}](https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${process.env.GITHUB_SHA}) **Build Time**: \`${buildTime}\`\n` +
+              `> #### Artifacts:\n>\n` +
+              artifactList +
+              `This comment was automatically generated. [View workflow run](${runUrl})`;
+
+            let issue_number = context.payload.pull_request?.number || context.issue.number;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number,
+              body: commentBody,
+            });
