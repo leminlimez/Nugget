@@ -5435,6 +5435,13 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="showApertureInSnapshotsChk">
+                   <property name="text">
+                    <string>Show Dynamic Island in Screenshots</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="enableAirPlayChk">
                    <property name="text">
                     <string>Enable AirPlay support for Stage Manager</string>

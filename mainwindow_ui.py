@@ -1801,6 +1801,11 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.enableSupervisionTextChk)
 
+        self.showApertureInSnapshotsChk = QCheckBox(self.springboardOptionsPageContent)
+        self.showApertureInSnapshotsChk.setObjectName(u"showApertureInSnapshotsChk")
+
+        self._2.addWidget(self.showApertureInSnapshotsChk)
+
         self.enableAirPlayChk = QCheckBox(self.springboardOptionsPageContent)
         self.enableAirPlayChk.setObjectName(u"enableAirPlayChk")
 
@@ -1890,6 +1895,11 @@ class Ui_Nugget(object):
         self.RTLChk.setObjectName(u"RTLChk")
 
         self.verticalLayout_131.addWidget(self.RTLChk)
+
+        self.sbIconVisibilityChk = QCheckBox(self.internalOptionsPageContent)
+        self.sbIconVisibilityChk.setObjectName(u"sbIconVisibilityChk")
+
+        self.verticalLayout_131.addWidget(self.sbIconVisibilityChk)
 
         self.div1 = QFrame(self.internalOptionsPageContent)
         self.div1.setObjectName(u"div1")
@@ -3725,10 +3735,12 @@ class Ui_Nugget(object):
         self.enableSupervisionTextChk.setToolTip(QCoreApplication.translate("Nugget", u"Shows info about the device supervision status and organization at the bottom of the lock screen.", None))
 #endif // QT_CONFIG(tooltip)
         self.enableSupervisionTextChk.setText(QCoreApplication.translate("Nugget", u"Show Supervision Text on Lock Screen", None))
+        self.showApertureInSnapshotsChk.setText(QCoreApplication.translate("Nugget", u"Show Dynamic Island in Screenshots", None))
         self.enableAirPlayChk.setText(QCoreApplication.translate("Nugget", u"Enable AirPlay support for Stage Manager", None))
         self.internalOptionsLbl1.setText(QCoreApplication.translate("Nugget", u"Internal Options", None))
         self.buildVersionChk.setText(QCoreApplication.translate("Nugget", u"Show Build Version in Status Bar", None))
         self.RTLChk.setText(QCoreApplication.translate("Nugget", u"Force Right-to-Left Layout", None))
+        self.sbIconVisibilityChk.setText(QCoreApplication.translate("Nugget", u"Force Icon Visibility", None))
         self.metalHUDChk.setText(QCoreApplication.translate("Nugget", u"Enable Metal HUD Debug", None))
         self.iMessageChk.setText(QCoreApplication.translate("Nugget", u"Enable iMessage Debugging", None))
         self.IDSChk.setText(QCoreApplication.translate("Nugget", u"Enable Continuity Debugging", None))

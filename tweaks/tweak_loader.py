@@ -232,6 +232,10 @@ def load_springboard():
             FileLocation.springboard,
             key="SBMinimumLockscreenIdleTime",
             value=5
+        ),
+        "SBAlwaysShowSystemApertureInSnapshots": BasicPlistTweak(
+            FileLocation.springboard,
+            "SBAlwaysShowSystemApertureInSnapshots"
         )
     }
     tweaks.update(additional_tweaks)
