@@ -54,9 +54,16 @@ class Daemon(Enum):
     iCloud = ["com.apple.itunescloudd"]
     InternetTethering = ["com.apple.MobileInternetSharing"]
     PassBook = ["com.apple.passd"]
-    Spotlight = ["com.apple.searchd"]
+    Spotlight = [
+        "com.apple.searchd",
+        "com.apple.corespotlightservice",
+        "com.apple.spotlightknowledged",
+        "com.apple.spotlightknowledged.updater",
+        "com.apple.spotlight.IndexAgent"
+    ]
     VoiceControl = [
         "com.apple.assistant_service",
         "com.apple.assistantd",
         "com.apple.voiced"
     ]
+    NanoTimeKit = ["com.apple.nanotimekitcompaniond"]

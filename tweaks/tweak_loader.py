@@ -232,6 +232,10 @@ def load_springboard():
             FileLocation.springboard,
             key="SBMinimumLockscreenIdleTime",
             value=5
+        ),
+        "SBAlwaysShowSystemApertureInSnapshots": BasicPlistTweak(
+            FileLocation.springboard,
+            "SBAlwaysShowSystemApertureInSnapshots"
         )
     }
     tweaks.update(additional_tweaks)
@@ -248,6 +252,10 @@ def load_internal():
             FileLocation.globalPreferences,
             "NSForceRightToLeftWritingDirection"
         ),
+        "SBIconVisibility": BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "SBIconVisibility"
+        ),
         "MetalForceHudEnabled": BasicPlistTweak(
             FileLocation.globalPreferences,
             "MetalForceHudEnabled"
@@ -263,6 +271,10 @@ def load_internal():
         "VCDiagnosticsEnabled": BasicPlistTweak(
             FileLocation.globalPreferences,
             "VCDiagnosticsEnabled"
+        ),
+        "AccessoryDeveloperEnabled": BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "AccessoryDeveloperEnabled"
         ),
         "AppStoreDebug": BasicPlistTweak(
             FileLocation.appStore,
@@ -291,6 +303,10 @@ def load_internal():
         "AnnounceAllPastes": BasicPlistTweak(
             FileLocation.pasteboard,
             "AnnounceAllPastes"
+        ),
+        "SBShowAuthenticationEngineeringUI": BasicPlistTweak(
+            FileLocation.springboard,
+            "SBShowAuthenticationEngineeringUI"
         )
     }
     tweaks.update(additional_tweaks)
