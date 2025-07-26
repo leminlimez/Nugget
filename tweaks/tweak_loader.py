@@ -272,6 +272,10 @@ def load_internal():
             FileLocation.globalPreferences,
             "VCDiagnosticsEnabled"
         ),
+        "AccessoryDeveloperEnabled": BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "AccessoryDeveloperEnabled"
+        ),
         "AppStoreDebug": BasicPlistTweak(
             FileLocation.appStore,
             "debugGestureEnabled"

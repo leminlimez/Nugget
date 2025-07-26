@@ -5685,6 +5685,13 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="accessoryDevChk">
+                   <property name="text">
+                    <string>Show Accessory Developer Settings</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="Line" name="line_17">
                    <property name="styleSheet">
                     <string notr="true">QFrame {

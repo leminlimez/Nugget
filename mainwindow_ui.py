@@ -1932,6 +1932,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.VCChk)
 
+        self.accessoryDevChk = QCheckBox(self.internalOptionsPageContent)
+        self.accessoryDevChk.setObjectName(u"accessoryDevChk")
+
+        self.verticalLayout_131.addWidget(self.accessoryDevChk)
+
         self.line_17 = QFrame(self.internalOptionsPageContent)
         self.line_17.setObjectName(u"line_17")
         self.line_17.setStyleSheet(u"QFrame {\n"
@@ -3755,6 +3760,7 @@ class Ui_Nugget(object):
         self.iMessageChk.setText(QCoreApplication.translate("Nugget", u"Enable iMessage Debugging", None))
         self.IDSChk.setText(QCoreApplication.translate("Nugget", u"Enable Continuity Debugging", None))
         self.VCChk.setText(QCoreApplication.translate("Nugget", u"Enable FaceTime Debugging", None))
+        self.accessoryDevChk.setText(QCoreApplication.translate("Nugget", u"Show Accessory Developer Settings", None))
         self.appStoreChk.setText(QCoreApplication.translate("Nugget", u"Enable App Store Debug Gesture", None))
         self.notesChk.setText(QCoreApplication.translate("Nugget", u"Enable Notes Debug Mode", None))
         self.showTouchesChk.setText(QCoreApplication.translate("Nugget", u"Show Touches With Debug Info", None))

@@ -17,6 +17,7 @@ class InternalPage(Page):
         self.ui.iMessageChk.toggled.connect(self.on_iMessageChk_clicked)
         self.ui.IDSChk.toggled.connect(self.on_IDSChk_clicked)
         self.ui.VCChk.toggled.connect(self.on_VCChk_clicked)
+        self.ui.accessoryDevChk.toggled.connect(self.on_accessoryDevChk_clicked)
         self.ui.appStoreChk.toggled.connect(self.on_appStoreChk_clicked)
         self.ui.notesChk.toggled.connect(self.on_notesChk_clicked)
         self.ui.showTouchesChk.toggled.connect(self.on_showTouchesChk_clicked)
@@ -43,6 +44,9 @@ class InternalPage(Page):
         tweaks["IDSDiagnosticsEnabled"].set_enabled(checked)
     def on_VCChk_clicked(self, checked: bool):
         tweaks["VCDiagnosticsEnabled"].set_enabled(checked)
+    def on_accessoryDevChk_clicked(self, checked: bool):
+	tweaks["AccessoryDeveloperEnabled"].set_enabled(checked)
+
 
     def on_appStoreChk_clicked(self, checked: bool):
         tweaks["AppStoreDebug"].set_enabled(checked)
