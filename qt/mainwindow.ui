@@ -6145,6 +6145,13 @@ To work properly, also disable the daemon using the toggle above.</string>
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="nanoTimeKitChk">
+                   <property name="text">
+                    <string>Disable NanoTimeKit (Apple Watch Face Sync)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <spacer name="verticalSpacer_6">
                    <property name="orientation">
                     <enum>Qt::Vertical</enum>
