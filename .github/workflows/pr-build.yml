@@ -147,10 +147,10 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           message: |
-            # **Commit**: [#${{ github.sha.substring(0,7) }}](https://github.com/${{ github.repository }}/commit/${{ github.sha }}) 
-            # **Build Time**: `${{ (github.event.pull_request.updated_at || github.event.pull_request.created_at) }}`  
-            
             #### Artifacts:
             ${{ steps.artifacts.outputs.result }}
             
             <sub>This comment was automatically generated. [View workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})</sub>
+
+# **Commit**: [#${{ github.sha.substring(0,7) }}](https://github.com/${{ github.repository }}/commit/${{ github.sha }}) 
+# **Build Time**: `${{ (github.event.pull_request.updated_at || github.event.pull_request.created_at) }}`  
