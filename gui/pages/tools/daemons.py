@@ -85,4 +85,4 @@ class DaemonsPage(Page):
     def on_voiceControlChk_clicked(self, checked: bool):
         tweaks["Daemons"].set_multiple_values(Daemon.VoiceControl.value, value=checked)
     def on_nanoTimeKitChk_clicked(self, checked: bool):
-	tweaks["Daemons"].set_multiple_values(Daemon.NanoTimeKit.value, value=checked)
+        tweaks["Daemons"].set_multiple_values(Daemon.NanoTimeKit.value, value=checked)
