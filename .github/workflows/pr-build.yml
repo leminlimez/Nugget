@@ -119,32 +119,19 @@ jobs:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 1
-
-      - name: Delete existing comment
-        uses: izhangzhihao/delete-comment@master
-        with: 
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          delete_user_name: github-actions[bot]
-          issue_number: ${{ github.event.number }}
-
-      - uses: actions/github-script@v6
+      - name: Fetch artifacts list
+        id: artifacts
+        uses: actions/github-script@v6
+        env:
+          GITHUB_RUN_ID: ${{ github.run_id }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const runId = process.env.GITHUB_RUN_ID;
-            const commitSha = process.env.GITHUB_SHA.substring(0,7);
-            const runUrl = `https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${runId}`;
-            const buildTime = new Date().toISOString().replace('T', ' ').substring(0,19);
-
+            const runId = parseInt(process.env.GITHUB_RUN_ID);
             const artifactsResponse = await github.rest.actions.listWorkflowRunArtifacts({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              run_id: parseInt(runId),
+              run_id: runId,
             });
 
             const artifacts = artifactsResponse.data.artifacts;
@@ -153,18 +140,17 @@ jobs:
               const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${runId}/artifacts/${artifact.id}`;
               artifactList += `* [**${artifact.name}**](${artifactUrl})\n\n`;
             }
-
-            const commentBody = 
-              `**Commit**: [#${commitSha}](https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${process.env.GITHUB_SHA})\n**Build Time**: \`${buildTime}\`\n` +
-              `#### Artifacts:\n\n` +
-              artifactList +
-              `<sub>This comment was automatically generated. [View workflow run](${runUrl})</sub>`;
-
-            let issue_number = context.payload.pull_request?.number || context.issue.number;
-
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number,
-              body: commentBody,
-            });
+            return artifactList;
+            
+      - name: Comment on Pull Request
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          message: |
+            # **Commit**: [#${{ github.sha.substring(0,7) }}](https://github.com/${{ github.repository }}/commit/${{ github.sha }}) 
+            # **Build Time**: `${{ (github.event.pull_request.updated_at || github.event.pull_request.created_at) }}`  
+            
+            #### Artifacts:
+            ${{ steps.artifacts.outputs.result }}
+            
+            <sub>This comment was automatically generated. [View workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})</sub>
