@@ -45,8 +45,7 @@ class InternalPage(Page):
     def on_VCChk_clicked(self, checked: bool):
         tweaks["VCDiagnosticsEnabled"].set_enabled(checked)
     def on_accessoryDevChk_clicked(self, checked: bool):
-	tweaks["AccessoryDeveloperEnabled"].set_enabled(checked)
-
+        tweaks["AccessoryDeveloperEnabled"].set_enabled(checked)
 
     def on_appStoreChk_clicked(self, checked: bool):
         tweaks["AppStoreDebug"].set_enabled(checked)
