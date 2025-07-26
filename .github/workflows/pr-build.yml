@@ -132,16 +132,13 @@ jobs:
             const artifacts = artifactsResponse.data.artifacts;
             let artifactList = '';
             for (const artifact of artifacts) {
-              const extMatch = artifact.name.match(/\.[^.]+$/);
-              const ext = extMatch ? extMatch[0] : '';
               const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${runId}/artifacts/${artifact.id}`;
-              artifactList += `* [**${artifact.name}**${ext ? ` (${ext})` : ''}](${artifactUrl})\n\n`;
+              artifactList += `* [**${artifact.name}**](${artifactUrl})\n\n`;
             }
-
 
             const commentBody = 
               `**Commit**: [#${commitSha}](https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${process.env.GITHUB_SHA})\n**Build Time**: \`${buildTime}\`\n` +
-              `#### Artifacts:\n>\n` +
+              `#### Artifacts:\n\n` +
               artifactList +
               `<sub>This comment was automatically generated. [View workflow run](${runUrl})</sub>`;
 
