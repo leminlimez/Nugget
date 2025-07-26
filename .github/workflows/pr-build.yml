@@ -116,7 +116,7 @@ jobs:
 
   post-comment:
     needs: [build-macos-intel, build-macos-arm, build-windows, build-linux]
-    if: github.event_name == 'pull_request' || github.event_name == 'pull_request_target'
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: Fetch artifacts list
