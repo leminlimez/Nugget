@@ -2974,6 +2974,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.RTLChk)
 
+        self.LTRChk = QCheckBox(self.internalOptionsPageContent)
+        self.LTRChk.setObjectName(u"LTRChk")
+
+        self.verticalLayout_131.addWidget(self.LTRChk)
+
         self.sbIconVisibilityChk = QCheckBox(self.internalOptionsPageContent)
         self.sbIconVisibilityChk.setObjectName(u"sbIconVisibilityChk")
 
@@ -4842,6 +4847,7 @@ class Ui_Nugget(object):
         self.internalOptionsLbl1.setText(QCoreApplication.translate("Nugget", u"Internal Options", None))
         self.buildVersionChk.setText(QCoreApplication.translate("Nugget", u"Show Build Version in Status Bar", None))
         self.RTLChk.setText(QCoreApplication.translate("Nugget", u"Force Right-to-Left Layout", None))
+        self.LTRChk.setText(QCoreApplication.translate("Nugget", u"Force Left-to-Right Layout", None))
         self.sbIconVisibilityChk.setText(QCoreApplication.translate("Nugget", u"Force Icon Visibility", None))
         self.metalHUDChk.setText(QCoreApplication.translate("Nugget", u"Enable Metal HUD Debug", None))
         self.iMessageChk.setText(QCoreApplication.translate("Nugget", u"Enable iMessage Debugging", None))

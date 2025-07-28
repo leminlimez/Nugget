@@ -5632,6 +5632,13 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="LTRChk">
+                   <property name="text">
+                    <string>Force Left-to-Right Layout</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="sbIconVisibilityChk">
                    <property name="text">
                     <string>Force Icon Visibility</string>

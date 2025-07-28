@@ -252,6 +252,10 @@ def load_internal():
             FileLocation.globalPreferences,
             "NSForceRightToLeftWritingDirection"
         ),
+        "LTR": BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "NSForceLeftToRightWritingDirection"
+        ),
         "SBIconVisibility": BasicPlistTweak(
             FileLocation.globalPreferences,
             "SBIconVisibility"

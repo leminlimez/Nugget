@@ -12,6 +12,7 @@ class InternalPage(Page):
     def load_page(self):
         self.ui.buildVersionChk.toggled.connect(self.on_buildVersionChk_clicked)
         self.ui.RTLChk.toggled.connect(self.on_RTLChk_clicked)
+        self.ui.LTRChk.toggled.connect(self.on_LTRChk_clicked)
         self.ui.sbIconVisibilityChk.toggled.connect(self.on_sbIconVisibilityChk_clicked)
         self.ui.metalHUDChk.toggled.connect(self.on_metalHUDChk_clicked)
         self.ui.iMessageChk.toggled.connect(self.on_iMessageChk_clicked)
@@ -34,6 +35,8 @@ class InternalPage(Page):
         tweaks["SBBuildNumber"].set_enabled(checked)
     def on_RTLChk_clicked(self, checked: bool):
         tweaks["RTL"].set_enabled(checked)
+    def on_LTRChk_clicked(self, checked: bool):
+        tweaks["LTR"].set_enabled(checked)
     def on_sbIconVisibilityChk_clicked(self, checked: bool):
         tweaks["SBIconVisibility"].set_enabled(checked)
     def on_metalHUDChk_clicked(self, checked: bool):
