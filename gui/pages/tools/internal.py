@@ -14,6 +14,7 @@ class InternalPage(Page):
         self.ui.RTLChk.toggled.connect(self.on_RTLChk_clicked)
         self.ui.LTRChk.toggled.connect(self.on_LTRChk_clicked)
         self.ui.sbIconVisibilityChk.toggled.connect(self.on_sbIconVisibilityChk_clicked)
+        self.ui.floatingTabBarChk.toggled.connect(self.on_floatingTabBarChk_clicked)
         self.ui.metalHUDChk.toggled.connect(self.on_metalHUDChk_clicked)
         self.ui.iMessageChk.toggled.connect(self.on_iMessageChk_clicked)
         self.ui.IDSChk.toggled.connect(self.on_IDSChk_clicked)
@@ -39,6 +40,8 @@ class InternalPage(Page):
         tweaks["LTR"].set_enabled(checked)
     def on_sbIconVisibilityChk_clicked(self, checked: bool):
         tweaks["SBIconVisibility"].set_enabled(checked)
+    def on_floatingTabBarChk_clicked(self, checked: bool):
+        tweaks["UseFloatingTabBar"].set_enabled(checked)
     def on_metalHUDChk_clicked(self, checked: bool):
         tweaks["MetalForceHudEnabled"].set_enabled(checked)
     def on_iMessageChk_clicked(self, checked: bool):

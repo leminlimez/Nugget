@@ -2984,6 +2984,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.sbIconVisibilityChk)
 
+        self.floatingTabBarChk = QCheckBox(self.internalOptionsPageContent)
+        self.floatingTabBarChk.setObjectName(u"floatingTabBarChk")
+
+        self.verticalLayout_131.addWidget(self.floatingTabBarChk)
+
         self.div1 = QFrame(self.internalOptionsPageContent)
         self.div1.setObjectName(u"div1")
         self.div1.setEnabled(False)
@@ -4849,6 +4854,7 @@ class Ui_Nugget(object):
         self.RTLChk.setText(QCoreApplication.translate("Nugget", u"Force Right-to-Left Layout", None))
         self.LTRChk.setText(QCoreApplication.translate("Nugget", u"Force Left-to-Right Layout", None))
         self.sbIconVisibilityChk.setText(QCoreApplication.translate("Nugget", u"Force Icon Visibility", None))
+        self.floatingTabBarChk.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar (iPad only)", None))
         self.metalHUDChk.setText(QCoreApplication.translate("Nugget", u"Enable Metal HUD Debug", None))
         self.iMessageChk.setText(QCoreApplication.translate("Nugget", u"Enable iMessage Debugging", None))
         self.IDSChk.setText(QCoreApplication.translate("Nugget", u"Enable Continuity Debugging", None))

@@ -311,6 +311,12 @@ def load_internal():
         "SBShowAuthenticationEngineeringUI": BasicPlistTweak(
             FileLocation.springboard,
             "SBShowAuthenticationEngineeringUI"
+        ),
+        "UseFloatingTabBar": AdvancedPlistTweak(
+            FileLocation.uikit,
+            {
+             "UseFloatingTabBar": False
+            },
         )
     }
     tweaks.update(additional_tweaks)
