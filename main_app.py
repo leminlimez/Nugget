@@ -14,31 +14,27 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication([])
     dm = DeviceManager()
 
-    # load the language settings
+    # Load language settings
     settings = QSettings("Nugget", "settings")
     translator = Translator(app, settings)
     translator.set_default_locale(translator.get_saved_locale_code())
-    
-    # load translations
     translator.load_translations()
 
-    # set icon
-    icon = QtGui.QIcon("nugget.ico")
-    app.setWindowIcon(icon)
+    # Set icon (works with PyInstaller + from source)
+    icon_path = os.path.join(getattr(sys, "_MEIPASS", os.path.dirname(__file__)), "nugget.ico")
+    app.setWindowIcon(QtGui.QIcon(icon_path))
 
     widget = MainWindow(device_manager=dm, translator=translator)
     translator.fix_ui_for_rtl(widget.ui)
     widget.resize(800, 600)
     widget.show()
 
-    # import files from args
+    # Handle file args (e.g. drag & drop)
     for arg in sys.argv:
         if arg.endswith('.tendies'):
-            # add tendies file
             tweaks["PosterBoard"].add_tendie(arg)
         elif arg.endswith('.batter'):
-            # add batter file
             tweaks["Templates"].add_template(arg)
-    
+
     print("Nugget launched.")
     sys.exit(app.exec())
