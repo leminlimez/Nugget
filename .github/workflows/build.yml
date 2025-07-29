@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       build_for_macos_intel:
-        description: 'Build macOS intel'
+        description: 'Build macOS Intel'
         required: false
         default: true
         type: boolean
       build_for_macos_arm:
-        description: 'Build macOS arm'
+        description: 'Build macOS ARM'
         required: false
         default: true
         type: boolean
@@ -29,20 +29,17 @@ jobs:
     if: ${{ github.event.inputs.build_for_macos_intel == 'true' }}
     runs-on: macos-13
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
       - name: Install dependencies
         run: |
-          python3 -m pip install --upgrade pip
+          python3 -m pip install -U pip
           pip install -r requirements.txt
 
-      - name: Build MacOS (Intel)
+      - name: Build macOS (Intel)
         run: python3 compile.py
 
       - name: Zip Nugget.app (Intel)
@@ -60,20 +57,17 @@ jobs:
     if: ${{ github.event.inputs.build_for_macos_arm == 'true' }}
     runs-on: macos-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
       - name: Install dependencies
         run: |
-          python3 -m pip install --upgrade pip
+          python3 -m pip install -U pip
           pip install -r requirements.txt
 
-      - name: Build MacOS (ARM)
+      - name: Build macOS (ARM)
         run: python3 compile.py
 
       - name: Zip Nugget.app (ARM)
@@ -91,54 +85,50 @@ jobs:
     if: ${{ github.event.inputs.build_for_windows == 'true' }}
     runs-on: windows-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
+          python -m pip install -U pip
           pip install -r requirements.txt
 
       - name: Build Windows
         run: python compile.py
 
-      - name: Zip Nugget
+      - name: Zip Nugget (Windows)
         run: |
           cd dist
-          Compress-Archive -Path Nugget -DestinationPath "Nugget_Windows.zip"
+          Compress-Archive -Path Nugget -DestinationPath Nugget_Windows.zip
 
       - name: Upload ZIP (Windows)
         uses: actions/upload-artifact@v4
         with:
           name: Nugget_Windows
           path: dist/Nugget_Windows.zip
-  
-  build_linux:
+
+  build-linux:
     if: ${{ github.event.inputs.build_for_linux == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
+          python -m pip install -U pip
           pip install -r requirements.txt
 
       - name: Build Linux
         run: python compile.py
 
-      - name: Zip Nugget
+      - name: Tar Nugget (Linux)
         run: |
           cd dist
           tar -cJf Nugget_Linux.tar.xz Nugget
