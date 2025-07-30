@@ -2123,6 +2123,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_132.addWidget(self.crashReportsChk)
 
+        self.diagnosticsChk = QCheckBox(self.daemonsPageContent)
+        self.diagnosticsChk.setObjectName(u"diagnosticsChk")
+
+        self.verticalLayout_132.addWidget(self.diagnosticsChk)
+
         self.atwakeupChk = QCheckBox(self.daemonsPageContent)
         self.atwakeupChk.setObjectName(u"atwakeupChk")
 
@@ -3807,6 +3812,10 @@ class Ui_Nugget(object):
         self.crashReportsChk.setToolTip(QCoreApplication.translate("Nugget", u"Stops logs, dumps, and crash reports collection.", None))
 #endif // QT_CONFIG(tooltip)
         self.crashReportsChk.setText(QCoreApplication.translate("Nugget", u"Disable Logs, Dumps, and Crash Reports", None))
+#if QT_CONFIG(tooltip)
+        self.diagnosticsChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables tools that monitor and test hardware or system behavior for faults and performance issues.", None))
+#endif // QT_CONFIG(tooltip)
+        self.diagnosticsChk.setText(QCoreApplication.translate("Nugget", u"Disable System Diagnostics", None))
 #if QT_CONFIG(tooltip)
         self.atwakeupChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables pinging to sleeping bluetooth devices for improved battery life.", None))
 #endif // QT_CONFIG(tooltip)

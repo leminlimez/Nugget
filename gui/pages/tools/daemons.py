@@ -34,6 +34,7 @@ class DaemonsPage(Page):
         self.ui.spotlightChk.toggled.connect(self.on_spotlightChk_clicked)
         self.ui.voiceControlChk.toggled.connect(self.on_voiceControlChk_clicked)
         self.ui.nanoTimeKitChk.toggled.connect(self.on_nanoTimeKitChk_clicked)
+        self.ui.diagnosticsChk.toggled.connect(self.on_diagnosticsChk_clicked)
 
         load_daemons()
 
@@ -86,3 +87,5 @@ class DaemonsPage(Page):
         tweaks["Daemons"].set_multiple_values(Daemon.VoiceControl.value, value=checked)
     def on_nanoTimeKitChk_clicked(self, checked: bool):
         tweaks["Daemons"].set_multiple_values(Daemon.NanoTimeKit.value, value=checked)
+    def on_diagnosticsChk_clicked(self, checked: bool):
+        tweaks["Daemons"].set_multiple_values(Daemon.Diagnostics.value, value=checked)

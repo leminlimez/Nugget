@@ -39,7 +39,22 @@ class Daemon(Enum):
         "com.apple.hangtracerd",
         "com.apple.spindump",
         "com.apple.rtcreportingd",
-        "com.apple.syslogd"
+        "com.apple.syslogd",
+        "com.apple.signpost.signpost_reporter",
+        "com.apple.pluginkit.pkreporter",
+        "com.apple.ProxiedCrashCopier",
+        "com.apple.ProxiedCrashCopier.ProxyingDevice",
+        "com.apple.ReportSystemMemory"
+    ]
+    Diagnostics = [
+        "com.apple.diagnosticd",
+        "com.apple.diagnosticextensionsd",
+        "com.apple.diagnosticservicesd",
+        "com.apple.diagnosticspushd",
+        "com.apple.symptomsd-diag",
+        "com.apple.sysdiagnose",
+        "com.apple.sysdiagnose.darwinos",
+        "com.apple.sysdiagnose_helper"
     ]
     ATWAKEUP = ["com.apple.atc.atwakeup"]
     Tips = ["com.apple.tipsd"]

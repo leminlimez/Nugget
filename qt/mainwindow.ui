@@ -6027,6 +6027,16 @@ To work properly, also disable the daemon using the toggle above.</string>
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="diagnosticsChk">
+                   <property name="toolTip">
+                    <string>Disables tools that monitor and test hardware or system behavior for faults and performance issues.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable System Diagnostics</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="atwakeupChk">
                    <property name="toolTip">
                     <string>Disables pinging to sleeping bluetooth devices for improved battery life.</string>
