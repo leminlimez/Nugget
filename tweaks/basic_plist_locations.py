@@ -15,6 +15,7 @@ class FileLocation(Enum):
     coreMotion = "/var/Managed Preferences/mobile/com.apple.CoreMotion.plist"
     pasteboard = "/var/Managed Preferences/mobile/com.apple.Pasteboard.plist"
     notes = "/var/Managed Preferences/mobile/com.apple.mobilenotes.plist"
+    uikit = "/var/Managed Preferences/mobile/com.apple.UIKit.plist"
 
     # Daemons
     disabledDaemons = "/var/db/com.apple.xpc.launchd/disabled.plist"

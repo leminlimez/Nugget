@@ -19,6 +19,7 @@ class SpringboardPage(Page):
         self.ui.enableSupervisionTextChk.toggled.connect(self.on_enableSupervisionTextChk_clicked)
         self.ui.enableAirPlayChk.toggled.connect(self.on_enableAirPlayChk_clicked)
         self.ui.lockScreenAutoLockSlider.valueChanged.connect(self.on_lockScreenAutoLockSlider_valueChanged)
+        self.ui.showApertureInSnapshotsChk.toggled.connect(self.on_showApertureInSnapshotsChk_clicked)
         
         load_springboard()
 
@@ -40,4 +41,7 @@ class SpringboardPage(Page):
     def on_hideACPowerChk_clicked(self, checked: bool):
         tweaks["SBHideACPower"].set_enabled(checked)
     def on_lockScreenAutoLockSlider_valueChanged(self, value: int):
+        self.ui.lockScreenAutoLockValueLabel.setText(f'{value}s')
         tweaks["SBMinimumLockscreenIdleTime"].set_value(value, toggle_enabled=True)
+    def on_showApertureInSnapshotsChk_clicked(self, checked: bool):
+        tweaks["SBAlwaysShowSystemApertureInSnapshots"].set_enabled(checked)

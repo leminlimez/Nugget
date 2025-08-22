@@ -5322,6 +5322,71 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_16">
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="lockScreenAutoLockLabel">
+                     <property name="text">
+                      <string>Auto‑Lock (Lock Screen)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_10">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="lockScreenAutoLockValueLabel">
+                     <property name="text">
+                      <string notr="true">5s</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <widget class="QSlider" name="lockScreenAutoLockSlider">
+                   <property name="minimum">
+                    <number>5</number>
+                   </property>
+                   <property name="maximum">
+                    <number>100</number>
+                   </property>
+                   <property name="value">
+                    <number>5</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="Line" name="lockScreenAutoLockSeparator">
+                   <property name="styleSheet">
+                    <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Plain</enum>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="disableLockRespringChk">
                    <property name="text">
                     <string>Disable Lock After Respring</string>
@@ -5350,22 +5415,6 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QSlider" name="lockScreenAutoLockSlider">
-                    <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="minimum">
-                      <number>5</number>
-                     </property>
-                     <property name="maximum">
-                      <number>100</number>
-                     </property>
-                     <property name="value">
-                      <number>5</number>
-                     </property>
-                  </widget>
-                 </item>
-                 <item>
                   <widget class="QCheckBox" name="disableCrumbChk">
                    <property name="toolTip">
                     <string>Removes '&lt; PreviousAppName' glyph in Status Bar when being forwarded to another app.</string>
@@ -5382,6 +5431,13 @@ QComboBox QAbstractItemView::item:hover {
                    </property>
                    <property name="text">
                     <string>Show Supervision Text on Lock Screen</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="showApertureInSnapshotsChk">
+                   <property name="text">
+                    <string>Show Dynamic Island in Screenshots</string>
                    </property>
                   </widget>
                  </item>
@@ -5576,6 +5632,27 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="LTRChk">
+                   <property name="text">
+                    <string>Force Left-to-Right Layout</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="sbIconVisibilityChk">
+                   <property name="text">
+                    <string>Force Icon Visibility</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="floatingTabBarChk">
+                   <property name="text">
+                    <string>Disable Floating Tab Bar (iPad only)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="Line" name="div">
                    <property name="enabled">
                     <bool>false</bool>
@@ -5618,6 +5695,13 @@ QComboBox QAbstractItemView::item:hover {
                   <widget class="QCheckBox" name="VCChk">
                    <property name="text">
                     <string>Enable FaceTime Debugging</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="accessoryDevChk">
+                   <property name="text">
+                    <string>Show Accessory Developer Settings</string>
                    </property>
                   </widget>
                  </item>
@@ -5669,6 +5753,13 @@ QComboBox QAbstractItemView::item:hover {
                   <widget class="QCheckBox" name="showTouchesChk">
                    <property name="text">
                     <string>Show Touches With Debug Info</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="authEngUICheck">
+                   <property name="text">
+                    <string>Show Red/Green Authentication Line on Lock Screen</string>
                    </property>
                   </widget>
                  </item>
@@ -5936,6 +6027,16 @@ To work properly, also disable the daemon using the toggle above.</string>
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="diagnosticsChk">
+                   <property name="toolTip">
+                    <string>Disables tools that monitor and test hardware or system behavior for faults and performance issues.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable System Diagnostics</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="atwakeupChk">
                    <property name="toolTip">
                     <string>Disables pinging to sleeping bluetooth devices for improved battery life.</string>
@@ -6071,6 +6172,13 @@ To work properly, also disable the daemon using the toggle above.</string>
                   <widget class="QCheckBox" name="voiceControlChk">
                    <property name="text">
                     <string>Disable Voice Control</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="nanoTimeKitChk">
+                   <property name="text">
+                    <string>Disable NanoTimeKit (Apple Watch Face Sync)</string>
                    </property>
                   </widget>
                  </item>
