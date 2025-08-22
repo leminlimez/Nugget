@@ -5435,6 +5435,13 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="showApertureInSnapshotsChk">
+                   <property name="text">
+                    <string>Show Dynamic Island in Screenshots</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="enableAirPlayChk">
                    <property name="text">
                     <string>Enable AirPlay support for Stage Manager</string>
@@ -5625,6 +5632,27 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="LTRChk">
+                   <property name="text">
+                    <string>Force Left-to-Right Layout</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="sbIconVisibilityChk">
+                   <property name="text">
+                    <string>Force Icon Visibility</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="floatingTabBarChk">
+                   <property name="text">
+                    <string>Disable Floating Tab Bar (iPad only)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="Line" name="div">
                    <property name="enabled">
                     <bool>false</bool>
@@ -5667,6 +5695,13 @@ QComboBox QAbstractItemView::item:hover {
                   <widget class="QCheckBox" name="VCChk">
                    <property name="text">
                     <string>Enable FaceTime Debugging</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="accessoryDevChk">
+                   <property name="text">
+                    <string>Show Accessory Developer Settings</string>
                    </property>
                   </widget>
                  </item>
@@ -5718,6 +5753,13 @@ QComboBox QAbstractItemView::item:hover {
                   <widget class="QCheckBox" name="showTouchesChk">
                    <property name="text">
                     <string>Show Touches With Debug Info</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="authEngUICheck">
+                   <property name="text">
+                    <string>Show Red/Green Authentication Line on Lock Screen</string>
                    </property>
                   </widget>
                  </item>
@@ -5985,6 +6027,16 @@ To work properly, also disable the daemon using the toggle above.</string>
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="diagnosticsChk">
+                   <property name="toolTip">
+                    <string>Disables tools that monitor and test hardware or system behavior for faults and performance issues.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable System Diagnostics</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="atwakeupChk">
                    <property name="toolTip">
                     <string>Disables pinging to sleeping bluetooth devices for improved battery life.</string>
@@ -6120,6 +6172,13 @@ To work properly, also disable the daemon using the toggle above.</string>
                   <widget class="QCheckBox" name="voiceControlChk">
                    <property name="text">
                     <string>Disable Voice Control</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="nanoTimeKitChk">
+                   <property name="text">
+                    <string>Disable NanoTimeKit (Apple Watch Face Sync)</string>
                    </property>
                   </widget>
                  </item>
