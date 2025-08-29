@@ -38,7 +38,6 @@ class PosterboardPage(Page, QtCore.QObject):
         self.ui.pbVideoLbl.setText(QtCore.QCoreApplication.tr("Current Video: {0}").format(self.window.noneText))
 
     def on_update_picker(self, selected_items: list[str]):
-        print(selected_items)
         tweaks["PosterBoard"].resetModes = selected_items
 
     def load_page(self):
