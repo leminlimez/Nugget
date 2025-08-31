@@ -2984,6 +2984,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.sbIconVisibilityChk)
 
+        self.screenRecordChk = QCheckBox(self.internalOptionsPageContent)
+        self.screenRecordChk.setObjectName(u"screenRecordChk")
+
+        self.verticalLayout_131.addWidget(self.screenRecordChk)
+
         self.floatingTabBarChk = QCheckBox(self.internalOptionsPageContent)
         self.floatingTabBarChk.setObjectName(u"floatingTabBarChk")
 
@@ -4838,7 +4843,14 @@ class Ui_Nugget(object):
         self.buildVersionChk.setText(QCoreApplication.translate("Nugget", u"Show Build Version in Status Bar", None))
         self.RTLChk.setText(QCoreApplication.translate("Nugget", u"Force Right-to-Left Layout", None))
         self.LTRChk.setText(QCoreApplication.translate("Nugget", u"Force Left-to-Right Layout", None))
-        self.sbIconVisibilityChk.setText(QCoreApplication.translate("Nugget", u"Force Icon Visibility", None))
+#if QT_CONFIG(tooltip)
+        self.sbIconVisibilityChk.setToolTip(QCoreApplication.translate("Nugget", u"Shows hidden apps like Field Test and Continuity on the home screen", None))
+#endif // QT_CONFIG(tooltip)
+        self.sbIconVisibilityChk.setText(QCoreApplication.translate("Nugget", u"Show Hidden Icons on Home Screen", None))
+#if QT_CONFIG(tooltip)
+        self.screenRecordChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables detecting when the screen is being recorded", None))
+#endif // QT_CONFIG(tooltip)
+        self.screenRecordChk.setText(QCoreApplication.translate("Nugget", u"Bypass Screen Recording Detection", None))
         self.floatingTabBarChk.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar (iPad only)", None))
         self.metalHUDChk.setText(QCoreApplication.translate("Nugget", u"Enable Metal HUD Debug", None))
         self.iMessageChk.setText(QCoreApplication.translate("Nugget", u"Enable iMessage Debugging", None))

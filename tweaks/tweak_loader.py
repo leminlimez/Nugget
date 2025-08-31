@@ -317,6 +317,12 @@ def load_internal():
             {
              "UseFloatingTabBar": False
             },
+        ),
+        "UIScreenIsCapturedValue": AdvancedPlistTweak(
+            FileLocation.uikit,
+            {
+                "UIScreenIsCapturedValue": False
+            }
         )
     }
     tweaks.update(additional_tweaks)

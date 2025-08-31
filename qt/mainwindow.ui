@@ -5640,8 +5640,21 @@ QComboBox QAbstractItemView::item:hover {
                  </item>
                  <item>
                   <widget class="QCheckBox" name="sbIconVisibilityChk">
+                   <property name="toolTip">
+                    <string>Shows hidden apps like Field Test and Continuity on the home screen</string>
+                   </property>
                    <property name="text">
-                    <string>Force Icon Visibility</string>
+                    <string>Show Hidden Icons on Home Screen</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="screenRecordChk">
+                   <property name="toolTip">
+                    <string>Disables detecting when the screen is being recorded</string>
+                   </property>
+                   <property name="text">
+                    <string>Bypass Screen Recording Detection</string>
                    </property>
                   </widget>
                  </item>

@@ -678,6 +678,7 @@ class DeviceManager:
                     files_to_null.append(FileLocation.coreMotion.value)
                     files_to_null.append(FileLocation.pasteboard.value)
                     files_to_null.append(FileLocation.notes.value)
+                    files_to_null.append(FileLocation.uikit.value)
             
             # add the files to null from the list
             for file_path in files_to_null:
