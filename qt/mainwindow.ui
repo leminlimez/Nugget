@@ -5449,6 +5449,13 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="authEngUICheck">
+                   <property name="text">
+                    <string>Show Red/Green Authentication Line on Lock Screen</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <spacer name="verticalSpacer_5">
                    <property name="orientation">
                     <enum>Qt::Vertical</enum>
@@ -5776,13 +5783,6 @@ QComboBox QAbstractItemView::item:hover {
                   <widget class="QCheckBox" name="showTouchesChk">
                    <property name="text">
                     <string>Show Touches With Debug Info</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="authEngUICheck">
-                   <property name="text">
-                    <string>Show Red/Green Authentication Line on Lock Screen</string>
                    </property>
                   </widget>
                  </item>

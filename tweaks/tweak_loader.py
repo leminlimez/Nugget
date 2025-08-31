@@ -236,6 +236,10 @@ def load_springboard():
         "SBAlwaysShowSystemApertureInSnapshots": BasicPlistTweak(
             FileLocation.springboard,
             "SBAlwaysShowSystemApertureInSnapshots"
+        ),
+        "SBShowAuthenticationEngineeringUI": BasicPlistTweak(
+            FileLocation.springboard,
+            "SBShowAuthenticationEngineeringUI"
         )
     }
     tweaks.update(additional_tweaks)
@@ -311,10 +315,6 @@ def load_internal():
         "AnnounceAllPastes": BasicPlistTweak(
             FileLocation.pasteboard,
             "AnnounceAllPastes"
-        ),
-        "SBShowAuthenticationEngineeringUI": BasicPlistTweak(
-            FileLocation.springboard,
-            "SBShowAuthenticationEngineeringUI"
         ),
         "UseFloatingTabBar": AdvancedPlistTweak(
             FileLocation.uikit,

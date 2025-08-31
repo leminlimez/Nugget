@@ -29,7 +29,6 @@ class InternalPage(Page):
         self.ui.enableWakeVibrateChk.toggled.connect(self.on_enableWakeVibrateChk_clicked)
         self.ui.pasteSoundChk.toggled.connect(self.on_pasteSoundChk_clicked)
         self.ui.notifyPastesChk.toggled.connect(self.on_notifyPastesChk_clicked)
-        self.ui.authEngUICheck.toggled.connect(self.on_authEngUICheck_clicked)
 
         load_internal()
 
@@ -74,5 +73,3 @@ class InternalPage(Page):
         tweaks["PlaySoundOnPaste"].set_enabled(checked)
     def on_notifyPastesChk_clicked(self, checked: bool):
         tweaks["AnnounceAllPastes"].set_enabled(checked)
-    def on_authEngUICheck_clicked(self, checked: bool):
-        tweaks["SBShowAuthenticationEngineeringUI"].set_enabled(checked)

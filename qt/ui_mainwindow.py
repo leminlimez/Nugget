@@ -2887,6 +2887,11 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.enableAirPlayChk)
 
+        self.authEngUICheck = QCheckBox(self.springboardOptionsPageContent)
+        self.authEngUICheck.setObjectName(u"authEngUICheck")
+
+        self._2.addWidget(self.authEngUICheck)
+
         self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self._2.addItem(self.verticalSpacer_5)
@@ -3069,11 +3074,6 @@ class Ui_Nugget(object):
         self.showTouchesChk.setObjectName(u"showTouchesChk")
 
         self.verticalLayout_131.addWidget(self.showTouchesChk)
-
-        self.authEngUICheck = QCheckBox(self.internalOptionsPageContent)
-        self.authEngUICheck.setObjectName(u"authEngUICheck")
-
-        self.verticalLayout_131.addWidget(self.authEngUICheck)
 
         self.hideRespringChk = QCheckBox(self.internalOptionsPageContent)
         self.hideRespringChk.setObjectName(u"hideRespringChk")
@@ -4844,6 +4844,7 @@ class Ui_Nugget(object):
         self.enableSupervisionTextChk.setText(QCoreApplication.translate("Nugget", u"Show Supervision Text on Lock Screen", None))
         self.showApertureInSnapshotsChk.setText(QCoreApplication.translate("Nugget", u"Show Dynamic Island in Screenshots", None))
         self.enableAirPlayChk.setText(QCoreApplication.translate("Nugget", u"Enable AirPlay support for Stage Manager", None))
+        self.authEngUICheck.setText(QCoreApplication.translate("Nugget", u"Show Red/Green Authentication Line on Lock Screen", None))
         self.internalOptionsLbl1.setText(QCoreApplication.translate("Nugget", u"Internal Options", None))
         self.buildVersionChk.setText(QCoreApplication.translate("Nugget", u"Show Build Version in Status Bar", None))
         self.RTLChk.setText(QCoreApplication.translate("Nugget", u"Force Right-to-Left Layout", None))
@@ -4869,7 +4870,6 @@ class Ui_Nugget(object):
         self.appStoreChk.setText(QCoreApplication.translate("Nugget", u"Enable App Store Debug Gesture", None))
         self.notesChk.setText(QCoreApplication.translate("Nugget", u"Enable Notes Debug Mode", None))
         self.showTouchesChk.setText(QCoreApplication.translate("Nugget", u"Show Touches With Debug Info", None))
-        self.authEngUICheck.setText(QCoreApplication.translate("Nugget", u"Show Red/Green Authentication Line on Lock Screen", None))
         self.hideRespringChk.setText(QCoreApplication.translate("Nugget", u"Hide Respring Icon", None))
         self.enableWakeVibrateChk.setText(QCoreApplication.translate("Nugget", u"Vibrate on Raise-to-Wake", None))
         self.pasteSoundChk.setText(QCoreApplication.translate("Nugget", u"Play Sound on Paste", None))
