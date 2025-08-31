@@ -14,6 +14,7 @@ class InternalPage(Page):
         self.ui.RTLChk.toggled.connect(self.on_RTLChk_clicked)
         self.ui.LTRChk.toggled.connect(self.on_LTRChk_clicked)
         self.ui.sbIconVisibilityChk.toggled.connect(self.on_sbIconVisibilityChk_clicked)
+        self.ui.keyFlickChk.toggled.connect(self.on_keyFlickChk_clicked)
         self.ui.screenRecordChk.toggled.connect(self.on_screenRecordChk_clicked)
         self.ui.floatingTabBarChk.toggled.connect(self.on_floatingTabBarChk_clicked)
         self.ui.metalHUDChk.toggled.connect(self.on_metalHUDChk_clicked)
@@ -41,6 +42,8 @@ class InternalPage(Page):
         tweaks["LTR"].set_enabled(checked)
     def on_sbIconVisibilityChk_clicked(self, checked: bool):
         tweaks["SBIconVisibility"].set_enabled(checked)
+    def on_keyFlickChk_clicked(self, checked: bool):
+        tweaks["KeyFlick"].set_enabled(checked)
     def on_screenRecordChk_clicked(self, checked: bool):
         tweaks["UIScreenIsCapturedValue"].set_enabled(checked)
     def on_floatingTabBarChk_clicked(self, checked: bool):

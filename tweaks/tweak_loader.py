@@ -280,6 +280,10 @@ def load_internal():
             FileLocation.globalPreferences,
             "AccessoryDeveloperEnabled"
         ),
+        "KeyFlick": BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "GesturesEnabled"
+        ),
         "AppStoreDebug": BasicPlistTweak(
             FileLocation.appStore,
             "debugGestureEnabled"

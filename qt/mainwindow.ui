@@ -5659,6 +5659,16 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="keyFlickChk">
+                   <property name="toolTip">
+                    <string>Enables the iPad-style keyboard keyflicks on iPhones</string>
+                   </property>
+                   <property name="text">
+                    <string>Enable Key Flick</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="floatingTabBarChk">
                    <property name="text">
                     <string>Disable Floating Tab Bar (iPad only)</string>

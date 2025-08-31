@@ -2989,6 +2989,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.screenRecordChk)
 
+        self.keyFlickChk = QCheckBox(self.internalOptionsPageContent)
+        self.keyFlickChk.setObjectName(u"keyFlickChk")
+
+        self.verticalLayout_131.addWidget(self.keyFlickChk)
+
         self.floatingTabBarChk = QCheckBox(self.internalOptionsPageContent)
         self.floatingTabBarChk.setObjectName(u"floatingTabBarChk")
 
@@ -4851,6 +4856,10 @@ class Ui_Nugget(object):
         self.screenRecordChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables detecting when the screen is being recorded", None))
 #endif // QT_CONFIG(tooltip)
         self.screenRecordChk.setText(QCoreApplication.translate("Nugget", u"Bypass Screen Recording Detection", None))
+#if QT_CONFIG(tooltip)
+        self.keyFlickChk.setToolTip(QCoreApplication.translate("Nugget", u"Enables the iPad-style keyboard keyflicks on iPhones", None))
+#endif // QT_CONFIG(tooltip)
+        self.keyFlickChk.setText(QCoreApplication.translate("Nugget", u"Enable Key Flick", None))
         self.floatingTabBarChk.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar (iPad only)", None))
         self.metalHUDChk.setText(QCoreApplication.translate("Nugget", u"Enable Metal HUD Debug", None))
         self.iMessageChk.setText(QCoreApplication.translate("Nugget", u"Enable iMessage Debugging", None))
