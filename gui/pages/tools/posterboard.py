@@ -4,6 +4,7 @@ import os
 import uuid
 import traceback
 
+from shutil import make_archive, rmtree
 from PySide6 import QtCore, QtWidgets, QtGui
 
 from ..page import Page
@@ -287,11 +288,17 @@ class PosterboardPage(Page, QtCore.QObject):
                 # create export folder
                 path = os.path.join(directory, f"Nugget-Export-{uuid.uuid4()}")
                 tweaks["PosterBoard"].create_video_loop_files(output_dir=path)
+                # make it a zip
+                zip_path = path + ".tendies"
+                make_archive(path, 'zip', path)
+                os.rename(path + '.zip', zip_path)
+                rmtree(path)
                 # show it in file explorer
+                print(f"Created at {zip_path}")
                 if os.name == 'nt':
-                    subprocess.Popen(f'explorer "{os.path.normpath(path)}"')
+                    subprocess.Popen(f'explorer "{os.path.normpath(zip_path)}"')
                 else:
-                    subprocess.call(["open", path])
+                    subprocess.call(["open", '-R', zip_path])
             except Exception as e:
                 # show error
                 detailsBox = QtWidgets.QMessageBox()

@@ -6774,7 +6774,7 @@ Will show up in Collections</string>
                     <item>
                      <widget class="QToolButton" name="exportPBVideoBtn">
                       <property name="text">
-                       <string>   Export Video as Descriptor</string>
+                       <string>   Export as .tendies</string>
                       </property>
                       <property name="icon">
                        <iconset resource="../resources.qrc">

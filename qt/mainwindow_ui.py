@@ -4966,7 +4966,7 @@ class Ui_Nugget(object):
         self.chooseVideoBtn.setToolTip(QCoreApplication.translate("Nugget", u"Choose a video file for the wallpaper (.mov or .mp4)", None))
 #endif // QT_CONFIG(tooltip)
         self.chooseVideoBtn.setText(QCoreApplication.translate("Nugget", u"Choose Video", None))
-        self.exportPBVideoBtn.setText(QCoreApplication.translate("Nugget", u"   Export Video as Descriptor", None))
+        self.exportPBVideoBtn.setText(QCoreApplication.translate("Nugget", u"   Export as .tendies", None))
         self.templatesLbl.setText(QCoreApplication.translate("Nugget", u"Templates", None))
 #if QT_CONFIG(tooltip)
         self.importTemplatesBtn.setToolTip(QCoreApplication.translate("Nugget", u"Select a wallpaper file with the .tendies extension.", None))
