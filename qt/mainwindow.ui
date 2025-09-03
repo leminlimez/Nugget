@@ -6737,6 +6737,70 @@ Will show up in Collections</string>
                    </widget>
                   </item>
                   <item>
+                   <widget class="QLabel" name="calcModeLbl">
+                    <property name="text">
+                     <string>Frame Calculation Mode</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="calcModeDrp">
+                    <property name="maximumSize">
+                     <size>
+                      <width>325</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string/>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QComboBox {
+	background-color: #3b3b3b;
+    border: none;
+    color: #e8e8e8;
+    font-size: 14px;
+	padding-left: 8px;
+	border-radius: 8px;
+}
+
+QComboBox::drop-down {
+    image: url(:/icon/caret-down-fill.svg);
+	icon-size: 16px;
+    subcontrol-position: right center;
+	margin-right: 8px;
+}
+
+QComboBox QAbstractItemView {
+	background-color: #3b3b3b;
+    outline: none;
+	margin-top: 1px;
+}
+
+QComboBox QAbstractItemView::item {
+	background-color: #3b3b3b;
+	color: #e8e8e8;
+    padding-left: 8px;
+}
+
+QComboBox QAbstractItemView::item:hover {
+    background-color: #535353;
+    color: #ffffff;
+}</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>Linear</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Discrete</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_30">
                     <item>
                      <widget class="QToolButton" name="chooseThumbBtn">

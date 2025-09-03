@@ -3575,6 +3575,51 @@ class Ui_Nugget(object):
 
         self.verticalLayout_39.addWidget(self.useForegroundChk)
 
+        self.calcModeLbl = QLabel(self.pbVideoPage)
+        self.calcModeLbl.setObjectName(u"calcModeLbl")
+
+        self.verticalLayout_39.addWidget(self.calcModeLbl)
+
+        self.calcModeDrp = QComboBox(self.pbVideoPage)
+        self.calcModeDrp.addItem("")
+        self.calcModeDrp.addItem("")
+        self.calcModeDrp.setObjectName(u"calcModeDrp")
+        self.calcModeDrp.setMaximumSize(QSize(325, 16777215))
+        self.calcModeDrp.setStyleSheet(u"QComboBox {\n"
+"	background-color: #3b3b3b;\n"
+"    border: none;\n"
+"    color: #e8e8e8;\n"
+"    font-size: 14px;\n"
+"	padding-left: 8px;\n"
+"	border-radius: 8px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    image: url(:/icon/caret-down-fill.svg);\n"
+"	icon-size: 16px;\n"
+"    subcontrol-position: right center;\n"
+"	margin-right: 8px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"	background-color: #3b3b3b;\n"
+"    outline: none;\n"
+"	margin-top: 1px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView::item {\n"
+"	background-color: #3b3b3b;\n"
+"	color: #e8e8e8;\n"
+"    padding-left: 8px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView::item:hover {\n"
+"    background-color: #535353;\n"
+"    color: #ffffff;\n"
+"}")
+
+        self.verticalLayout_39.addWidget(self.calcModeDrp)
+
         self.horizontalLayout_30 = QHBoxLayout()
         self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
         self.chooseThumbBtn = QToolButton(self.pbVideoPage)
@@ -4958,6 +5003,13 @@ class Ui_Nugget(object):
         self.caVideoChk.setText(QCoreApplication.translate("Nugget", u"Loop (use CoreAnimation method)", None))
         self.reverseLoopChk.setText(QCoreApplication.translate("Nugget", u"Reverse on Loop", None))
         self.useForegroundChk.setText(QCoreApplication.translate("Nugget", u"Make Foreground (hides clock)", None))
+        self.calcModeLbl.setText(QCoreApplication.translate("Nugget", u"Frame Calculation Mode", None))
+        self.calcModeDrp.setItemText(0, QCoreApplication.translate("Nugget", u"Linear", None))
+        self.calcModeDrp.setItemText(1, QCoreApplication.translate("Nugget", u"Discrete", None))
+
+#if QT_CONFIG(tooltip)
+        self.calcModeDrp.setToolTip("")
+#endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
         self.chooseThumbBtn.setToolTip(QCoreApplication.translate("Nugget", u"Choose a photo for the wallpaper to freeze on when finished (.heic files only)", None))
 #endif // QT_CONFIG(tooltip)

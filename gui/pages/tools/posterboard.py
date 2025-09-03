@@ -52,9 +52,11 @@ class PosterboardPage(Page, QtCore.QObject):
 
         self.ui.chooseThumbBtn.clicked.connect(self.on_chooseThumbBtn_clicked)
         self.ui.chooseVideoBtn.clicked.connect(self.on_chooseVideoBtn_clicked)
+
         self.ui.caVideoChk.toggled.connect(self.on_caVideoChk_toggled)
         self.ui.reverseLoopChk.toggled.connect(self.on_reverseLoopChk_toggled)
         self.ui.useForegroundChk.toggled.connect(self.on_useForegroundChk_toggled)
+        self.ui.calcModeDrp.activated.connect(self.on_calcModeDrp_activated)
         self.ui.exportPBVideoBtn.clicked.connect(self.on_exportPBVideoBtn_clicked)
         
         self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
@@ -278,6 +280,13 @@ class PosterboardPage(Page, QtCore.QObject):
         tweaks["PosterBoard"].reverse_video = checked
     def on_useForegroundChk_toggled(self, checked: bool):
         tweaks["PosterBoard"].use_foreground = checked
+
+    def on_calcModeDrp_activated(self, index: int):
+        # 0 = linear, 1 = discrete
+        if index == 0:
+            tweaks["PosterBoard"].calculationMode = 'linear'
+        elif index == 1:
+            tweaks["PosterBoard"].calculationMode = 'discrete'
 
     def on_exportPBVideoBtn_clicked(self):
         # Open the directory selection dialog
