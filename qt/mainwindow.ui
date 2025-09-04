@@ -5483,7 +5483,7 @@ QComboBox QAbstractItemView::item:hover {
                  <item>
                   <widget class="QCheckBox" name="floatingTabBarChk">
                    <property name="text">
-                    <string>Disable Floating Tab Bar (iPad only)</string>
+                    <string>Disable Floating Tab Bar</string>
                    </property>
                   </widget>
                  </item>

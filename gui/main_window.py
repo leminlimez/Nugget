@@ -322,6 +322,9 @@ class MainWindow(QtWidgets.QMainWindow):
             # show status bar date on ipads
             self.ui.dateChk.setVisible(not is_iphone)
             self.ui.dateTxt.setVisible(not is_iphone)
+            # show floating tab bar on ipads and keyflicks on phones
+            self.ui.floatingTabBarChk.setVisible(not is_iphone)
+            self.ui.keyFlickChk.setVisible(is_iphone)
 
             # show the PB if initial load is true
             if self.initial_load:

@@ -4911,7 +4911,7 @@ class Ui_Nugget(object):
         self.screenRecordChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables detecting when the screen is being recorded", None))
 #endif // QT_CONFIG(tooltip)
         self.screenRecordChk.setText(QCoreApplication.translate("Nugget", u"Bypass Screen Recording Detection", None))
-        self.floatingTabBarChk.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar (iPad only)", None))
+        self.floatingTabBarChk.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar", None))
         self.internalOptionsLbl1.setText(QCoreApplication.translate("Nugget", u"Internal Options", None))
         self.buildVersionChk.setText(QCoreApplication.translate("Nugget", u"Show Build Version in Status Bar", None))
         self.RTLChk.setText(QCoreApplication.translate("Nugget", u"Force Right-to-Left Layout", None))
