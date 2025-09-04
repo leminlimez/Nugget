@@ -670,6 +670,7 @@ class DeviceManager:
                 elif page == Page.Springboard:
                     ## SPRINGBOARD
                     files_to_null.append(FileLocation.springboard.value)
+                    files_to_null.append(FileLocation.uikit.value)
                 elif page == Page.InternalOptions:
                     ## INTERNAL OPTIONS
                     files_to_null.append(FileLocation.globalPreferences.value)
@@ -678,7 +679,6 @@ class DeviceManager:
                     files_to_null.append(FileLocation.coreMotion.value)
                     files_to_null.append(FileLocation.pasteboard.value)
                     files_to_null.append(FileLocation.notes.value)
-                    files_to_null.append(FileLocation.uikit.value)
             
             # add the files to null from the list
             for file_path in files_to_null:

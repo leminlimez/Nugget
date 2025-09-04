@@ -5449,9 +5449,48 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
+                  <widget class="Line" name="line_2">
+                   <property name="styleSheet">
+                    <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Plain</enum>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="authEngUICheck">
                    <property name="text">
                     <string>Show Red/Green Authentication Line on Lock Screen</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="screenRecordChk">
+                   <property name="toolTip">
+                    <string>Disables detecting when the screen is being recorded</string>
+                   </property>
+                   <property name="text">
+                    <string>Bypass Screen Recording Detection</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="floatingTabBarChk">
+                   <property name="text">
+                    <string>Disable Floating Tab Bar (iPad only)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="Line" name="line">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -5656,29 +5695,12 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QCheckBox" name="screenRecordChk">
-                   <property name="toolTip">
-                    <string>Disables detecting when the screen is being recorded</string>
-                   </property>
-                   <property name="text">
-                    <string>Bypass Screen Recording Detection</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
                   <widget class="QCheckBox" name="keyFlickChk">
                    <property name="toolTip">
                     <string>Enables the iPad-style keyboard keyflicks on iPhones</string>
                    </property>
                    <property name="text">
                     <string>Enable Key Flick</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="floatingTabBarChk">
-                   <property name="text">
-                    <string>Disable Floating Tab Bar (iPad only)</string>
                    </property>
                   </widget>
                  </item>

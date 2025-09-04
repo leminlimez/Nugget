@@ -240,6 +240,18 @@ def load_springboard():
         "SBShowAuthenticationEngineeringUI": BasicPlistTweak(
             FileLocation.springboard,
             "SBShowAuthenticationEngineeringUI"
+        ),
+        "UseFloatingTabBar": AdvancedPlistTweak(
+            FileLocation.uikit,
+            {
+             "UseFloatingTabBar": False
+            },
+        ),
+        "UIScreenIsCapturedValue": AdvancedPlistTweak(
+            FileLocation.uikit,
+            {
+                "UIScreenIsCapturedValue": False
+            }
         )
     }
     tweaks.update(additional_tweaks)
@@ -315,18 +327,6 @@ def load_internal():
         "AnnounceAllPastes": BasicPlistTweak(
             FileLocation.pasteboard,
             "AnnounceAllPastes"
-        ),
-        "UseFloatingTabBar": AdvancedPlistTweak(
-            FileLocation.uikit,
-            {
-             "UseFloatingTabBar": False
-            },
-        ),
-        "UIScreenIsCapturedValue": AdvancedPlistTweak(
-            FileLocation.uikit,
-            {
-                "UIScreenIsCapturedValue": False
-            }
         )
     }
     tweaks.update(additional_tweaks)

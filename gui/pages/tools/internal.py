@@ -15,8 +15,6 @@ class InternalPage(Page):
         self.ui.LTRChk.toggled.connect(self.on_LTRChk_clicked)
         self.ui.sbIconVisibilityChk.toggled.connect(self.on_sbIconVisibilityChk_clicked)
         self.ui.keyFlickChk.toggled.connect(self.on_keyFlickChk_clicked)
-        self.ui.screenRecordChk.toggled.connect(self.on_screenRecordChk_clicked)
-        self.ui.floatingTabBarChk.toggled.connect(self.on_floatingTabBarChk_clicked)
         self.ui.metalHUDChk.toggled.connect(self.on_metalHUDChk_clicked)
         self.ui.iMessageChk.toggled.connect(self.on_iMessageChk_clicked)
         self.ui.IDSChk.toggled.connect(self.on_IDSChk_clicked)
@@ -43,10 +41,7 @@ class InternalPage(Page):
         tweaks["SBIconVisibility"].set_enabled(checked)
     def on_keyFlickChk_clicked(self, checked: bool):
         tweaks["KeyFlick"].set_enabled(checked)
-    def on_screenRecordChk_clicked(self, checked: bool):
-        tweaks["UIScreenIsCapturedValue"].set_enabled(checked)
-    def on_floatingTabBarChk_clicked(self, checked: bool):
-        tweaks["UseFloatingTabBar"].set_enabled(checked)
+    
     def on_metalHUDChk_clicked(self, checked: bool):
         tweaks["MetalForceHudEnabled"].set_enabled(checked)
     def on_iMessageChk_clicked(self, checked: bool):

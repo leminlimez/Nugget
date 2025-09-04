@@ -2887,10 +2887,37 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.enableAirPlayChk)
 
+        self.line_2 = QFrame(self.springboardOptionsPageContent)
+        self.line_2.setObjectName(u"line_2")
+        self.line_2.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_2.setFrameShadow(QFrame.Plain)
+        self.line_2.setFrameShape(QFrame.Shape.HLine)
+
+        self._2.addWidget(self.line_2)
+
         self.authEngUICheck = QCheckBox(self.springboardOptionsPageContent)
         self.authEngUICheck.setObjectName(u"authEngUICheck")
 
         self._2.addWidget(self.authEngUICheck)
+
+        self.screenRecordChk = QCheckBox(self.springboardOptionsPageContent)
+        self.screenRecordChk.setObjectName(u"screenRecordChk")
+
+        self._2.addWidget(self.screenRecordChk)
+
+        self.floatingTabBarChk = QCheckBox(self.springboardOptionsPageContent)
+        self.floatingTabBarChk.setObjectName(u"floatingTabBarChk")
+
+        self._2.addWidget(self.floatingTabBarChk)
+
+        self.line = QFrame(self.springboardOptionsPageContent)
+        self.line.setObjectName(u"line")
+        self.line.setFrameShape(QFrame.Shape.HLine)
+        self.line.setFrameShadow(QFrame.Shadow.Sunken)
+
+        self._2.addWidget(self.line)
 
         self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -2989,20 +3016,10 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.sbIconVisibilityChk)
 
-        self.screenRecordChk = QCheckBox(self.internalOptionsPageContent)
-        self.screenRecordChk.setObjectName(u"screenRecordChk")
-
-        self.verticalLayout_131.addWidget(self.screenRecordChk)
-
         self.keyFlickChk = QCheckBox(self.internalOptionsPageContent)
         self.keyFlickChk.setObjectName(u"keyFlickChk")
 
         self.verticalLayout_131.addWidget(self.keyFlickChk)
-
-        self.floatingTabBarChk = QCheckBox(self.internalOptionsPageContent)
-        self.floatingTabBarChk.setObjectName(u"floatingTabBarChk")
-
-        self.verticalLayout_131.addWidget(self.floatingTabBarChk)
 
         self.div1 = QFrame(self.internalOptionsPageContent)
         self.div1.setObjectName(u"div1")
@@ -4890,6 +4907,11 @@ class Ui_Nugget(object):
         self.showApertureInSnapshotsChk.setText(QCoreApplication.translate("Nugget", u"Show Dynamic Island in Screenshots", None))
         self.enableAirPlayChk.setText(QCoreApplication.translate("Nugget", u"Enable AirPlay support for Stage Manager", None))
         self.authEngUICheck.setText(QCoreApplication.translate("Nugget", u"Show Red/Green Authentication Line on Lock Screen", None))
+#if QT_CONFIG(tooltip)
+        self.screenRecordChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables detecting when the screen is being recorded", None))
+#endif // QT_CONFIG(tooltip)
+        self.screenRecordChk.setText(QCoreApplication.translate("Nugget", u"Bypass Screen Recording Detection", None))
+        self.floatingTabBarChk.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar (iPad only)", None))
         self.internalOptionsLbl1.setText(QCoreApplication.translate("Nugget", u"Internal Options", None))
         self.buildVersionChk.setText(QCoreApplication.translate("Nugget", u"Show Build Version in Status Bar", None))
         self.RTLChk.setText(QCoreApplication.translate("Nugget", u"Force Right-to-Left Layout", None))
@@ -4899,14 +4921,9 @@ class Ui_Nugget(object):
 #endif // QT_CONFIG(tooltip)
         self.sbIconVisibilityChk.setText(QCoreApplication.translate("Nugget", u"Show Hidden Icons on Home Screen", None))
 #if QT_CONFIG(tooltip)
-        self.screenRecordChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables detecting when the screen is being recorded", None))
-#endif // QT_CONFIG(tooltip)
-        self.screenRecordChk.setText(QCoreApplication.translate("Nugget", u"Bypass Screen Recording Detection", None))
-#if QT_CONFIG(tooltip)
         self.keyFlickChk.setToolTip(QCoreApplication.translate("Nugget", u"Enables the iPad-style keyboard keyflicks on iPhones", None))
 #endif // QT_CONFIG(tooltip)
         self.keyFlickChk.setText(QCoreApplication.translate("Nugget", u"Enable Key Flick", None))
-        self.floatingTabBarChk.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar (iPad only)", None))
         self.metalHUDChk.setText(QCoreApplication.translate("Nugget", u"Enable Metal HUD Debug", None))
         self.iMessageChk.setText(QCoreApplication.translate("Nugget", u"Enable iMessage Debugging", None))
         self.IDSChk.setText(QCoreApplication.translate("Nugget", u"Enable Continuity Debugging", None))
