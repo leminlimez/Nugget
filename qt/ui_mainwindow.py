@@ -4923,7 +4923,7 @@ class Ui_Nugget(object):
 #if QT_CONFIG(tooltip)
         self.keyFlickChk.setToolTip(QCoreApplication.translate("Nugget", u"Enables the iPad-style keyboard keyflicks on iPhones", None))
 #endif // QT_CONFIG(tooltip)
-        self.keyFlickChk.setText(QCoreApplication.translate("Nugget", u"Enable Key Flick", None))
+        self.keyFlickChk.setText(QCoreApplication.translate("Nugget", u"Enable Keyboard Character Flick", None))
         self.metalHUDChk.setText(QCoreApplication.translate("Nugget", u"Enable Metal HUD Debug", None))
         self.iMessageChk.setText(QCoreApplication.translate("Nugget", u"Enable iMessage Debugging", None))
         self.IDSChk.setText(QCoreApplication.translate("Nugget", u"Enable Continuity Debugging", None))

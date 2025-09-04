@@ -5700,7 +5700,7 @@ QComboBox QAbstractItemView::item:hover {
                     <string>Enables the iPad-style keyboard keyflicks on iPhones</string>
                    </property>
                    <property name="text">
-                    <string>Enable Key Flick</string>
+                    <string>Enable Keyboard Character Flick</string>
                    </property>
                   </widget>
                  </item>
