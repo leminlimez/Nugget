@@ -71,7 +71,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="1074"/>
       <source> Star on Github</source>
-      <translation> Mettez en favori sur Github</translation>
+      <translation> Ajouter en favori sur Github</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1178"/>
