@@ -40,12 +40,12 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="596"/>
       <source>    Status Bar</source>
-      <translation>Statusleiste</translation>
+      <translation>    Statusleiste</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="628"/>
       <source>    Templates</source>
-      <translation>Vorlagen</translation>
+      <translation>    Vorlagen</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="657"/>
@@ -65,7 +65,7 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="1060"/>
       <source>  Join the Discord</source>
-      <translation>Tritt dem dem Discord bei</translation>
+      <translation>Discord beitreten</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1074"/>
@@ -80,17 +80,17 @@ Are you sure you want to use this one?</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="1295"/>
       <source>Main Developer</source>
-      <translation>Front Entwickler</translation>
+      <translation>Hauptentwickler</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1369"/>
       <source>With Help From</source>
-      <translation>Mit der hilfe von</translation>
+      <translation>Mit der Hilfe von</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1391"/>
       <source>dootskyre, dulark, forcequitOS, pengubow, Middo, and SerStars</source>
-      <translation>dootskyre, dulark, forcequitOS, pengubow, Middo, lorenz.9015 und SerStars</translation>
+      <translation>dootskyre, dulark, forcequitOS, pengubow, Middo, und SerStars</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1407"/>
@@ -1353,12 +1353,12 @@ To work properly, also disable the daemon using the toggle above.</translation>
       <location filename="../qt/mainwindow.ui" line="6497"/>
       <location filename="../qt/mainwindow.ui" line="6831"/>
       <source>Select a wallpaper file with the .tendies extension.</source>
-      <translation>Select a wallpaper file with the .tendies extension.</translation>
+      <translation>Wähle eine Wallpaper Datei mit .tendies Endung.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6416"/>
       <source>  Import Files (.tendies)</source>
-      <translation>  Import Files (.tendies)</translation>
+      <translation>  Dateien importieren (.tendies)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6503"/>
@@ -1815,7 +1815,7 @@ Open up its settings and tap "Detect".</translation>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="104"/>
       <source>If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.</source>
-      <translation>If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.</translation>
+      <translation>Falls du Linux verwendest, versichere dich, dass du Usbmuxd und Libimobiledevice installiert hast.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="106"/>
@@ -1837,14 +1837,14 @@ Open up its settings and tap "Detect".</translation>
       <source>Device is password protected! You must trust the computer on your device.
 
 Unlock your device. On the popup, click "Trust", enter your password, then try again.</source>
-      <translation>Device is password protected! You must trust the computer on your device.
+      <translation>Gerät ist passwortgeschützt! You must trust the computer on your device.
 
 Unlock your device. On the popup, click "Trust", enter your password, then try again.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="161"/>
       <source>If you keep receiving this error, try using a different cable or port.</source>
-      <translation>If you keep receiving this error, try using a different cable or port.</translation>
+      <translation>Falls dieser Fehler erneut auftauchen SVGSymbolElement, versuche ein anderes Kabel.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="274"/>
@@ -1859,7 +1859,7 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
     <message>
       <location filename="../devicemanagement/device_manager.py" line="501"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
-      <translation>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</translation>
+      <translation>Keine Mobilegestalt Datei zur Verfügung gestellt! Bitte wähle deine Datei um Mobilegestalt Tweaks anzuwenden.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="628"/>
@@ -1867,21 +1867,21 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
-      <translation>Your device will now restart.
+      <translation>Dein Gerät wird jetzt neu starten.
 
-Remember to turn Find My back on!</translation>
+Vergiss nicht "Wo ist?" wieder einzuschalten!</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="630"/>
       <location filename="../devicemanagement/device_manager.py" line="664"/>
       <source>Please restart your device to see changes.</source>
-      <translation>Please restart your device to see changes.</translation>
+      <translation>Bitte starte dein Gerät neu um die Änderungen zu sehen.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="630"/>
       <location filename="../devicemanagement/device_manager.py" line="664"/>
       <source>All done! </source>
-      <translation>All done! </translation>
+      <translation>Fertig! </translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="630"/>
@@ -1889,37 +1889,37 @@ Remember to turn Find My back on!</translation>
       <location filename="../devicemanagement/device_manager.py" line="664"/>
       <location filename="../devicemanagement/device_manager.py" line="665"/>
       <source>Success!</source>
-      <translation>Success!</translation>
+      <translation>Erfolg!</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/home.py" line="67"/>
       <source>Supported!</source>
-      <translation>Supported!</translation>
+      <translation>Unterstützt!</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/home.py" line="69"/>
       <source>Not Supported.</source>
-      <translation>Not Supported.</translation>
+      <translation>Nicht unterstützt.</translation>
     </message>
     <message>
       <location filename="../gui/pages/main/home.py" line="72"/>
       <source>Partially Supported.</source>
-      <translation>Partially Supported.</translation>
+      <translation>Teilweise unterstützt.</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="40"/>
       <source>Wrong type of file</source>
-      <translation>Wrong type of file</translation>
+      <translation>Falsche Dateientyp</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="48"/>
       <source>Warning</source>
-      <translation>Warning</translation>
+      <translation>Warnung</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="49"/>
       <source>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</source>
-      <translation>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</translation>
+      <translation>INFO: Du musst möglicherweise alle Wallpaper zurücksetzen (aktiviere Risky Options in den Einstellungen) und wende erneut am damit diese Datei funktioniert.</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="66"/>
@@ -1931,12 +1931,12 @@ Remember to turn Find My back on!</translation>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="67"/>
       <location filename="../tweaks/posterboard/template_options/templates_tweak.py" line="35"/>
       <source>Failed to load template</source>
-      <translation>Failed to load template</translation>
+      <translation>Template konnte nicht geladen werden</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="199"/>
       <source>No Device</source>
-      <translation>No Device</translation>
+      <translation>Kein Gerät</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="440"/>
@@ -1946,22 +1946,22 @@ Remember to turn Find My back on!</translation>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="445"/>
       <source>Applying changes to files...</source>
-      <translation>Applying changes to files...</translation>
+      <translation>Dateiänderungen werden angewandt...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="251"/>
       <source>Generating PosterBoard Video...</source>
-      <translation>Generating PosterBoard Video...</translation>
+      <translation>PosterBoard Video wird generiert...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="256"/>
       <source>Extracting tendie {0}...</source>
-      <translation>Extracting tendie {0}...</translation>
+      <translation>Tendie {0} wird extrahiert...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="261"/>
       <source>Configuring template {0}...</source>
-      <translation>Configuring template {0}...</translation>
+      <translation>Configuring Template {0}...</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="264"/>
@@ -1971,7 +1971,7 @@ Remember to turn Find My back on!</translation>
     <message>
       <location filename="../tweaks/posterboard/posterboard_tweak.py" line="266"/>
       <source>Adding other tweaks...</source>
-      <translation>Adding other tweaks...</translation>
+      <translation>Andere Tweaks werden hinzugefügt...</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="115"/>
@@ -1996,7 +1996,7 @@ Remember to turn Find My back on!</translation>
     <message>
       <location filename="../controllers/video_handler.py" line="103"/>
       <source>Creating {0}...</source>
-      <translation>Creating {0}...</translation>
+      <translation>Erstelle {0}...</translation>
     </message>
   </context>
   <context>
@@ -2013,34 +2013,34 @@ Remember to turn Find My back on!</translation>
       <source>You selected too many tendies files! The limit is 3.
 
 This is for your safety. Please apply the rest separately.</source>
-      <translation>You selected too many tendies files! The limit is 3.
+      <translation>Du hast zu viele Tendies Dateien hinzugefügt! Das Limit ist 3.
 
-This is for your safety. Please apply the rest separately.</translation>
+Das ist zu deiner Sicherheit. Bitte füge den Rest seperat hinzu.</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="217"/>
       <location filename="../gui/pages/tools/posterboard.py" line="234"/>
       <source>You selected too many descriptors! The limit is 10.</source>
-      <translation>You selected too many descriptors! The limit is 10.</translation>
+      <translation>YDu hast zu viele Descriptors ausgewählt! Das Limit ist 10.</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="37"/>
       <location filename="../gui/pages/tools/posterboard.py" line="245"/>
       <location filename="../gui/pages/tools/posterboard.py" line="248"/>
       <source>Current Thumbnail: {0}</source>
-      <translation>Current Thumbnail: {0}</translation>
+      <translation>Aktuelles Thumbnail: {0}</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="38"/>
       <location filename="../gui/pages/tools/posterboard.py" line="254"/>
       <location filename="../gui/pages/tools/posterboard.py" line="259"/>
       <source>Current Video: {0}</source>
-      <translation>Current Video: {0}</translation>
+      <translation>Aktuelles Video: {0}</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="61"/>
       <source>No options were found in the config. Make sure that it is in the correct format.</source>
-      <translation>No options were found in the config. Make sure that it is in the correct format.</translation>
+      <translation>Es konnten keine Optionen in der Config gefunden werden. Verwende ein gültiges Format.</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="63"/>
@@ -2050,21 +2050,21 @@ This is for your safety. Please apply the rest separately.</translation>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="70"/>
       <source>This config requires a newer version of Nugget.</source>
-      <translation>This config requires a newer version of Nugget.</translation>
+      <translation>Diese Config benötigt eine neuere Nugget Version.</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="81"/>
       <source>This template requires iOS {0}.
 Your iOS version (iOS {1}) is too outdated!</source>
-      <translation>This template requires iOS {0}.
-Your iOS version (iOS {1}) is too outdated!</translation>
+      <translation>Dieses Template benötigt iOS {0}.
+Your iOS version (iOS {1}) ist zu alt!</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="85"/>
       <source>This template requires iOS {0}.
 Your iOS version (iOS {1}) is too new!</source>
-      <translation>This template requires iOS {0}.
-Your iOS version (iOS {1}) is too new!</translation>
+      <translation>Dieses Template benötigt iOS {0}.
+Deine iOS Version (iOS {1}) ist zu neu!</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="138"/>
@@ -2074,12 +2074,12 @@ Your iOS version (iOS {1}) is too new!</translation>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="140"/>
       <source>No config.json found in file!</source>
-      <translation>No config.json found in file!</translation>
+      <translation>Keine config.json in der Datei!</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_file.py" line="292"/>
       <source>Bundle id (default: {0})</source>
-      <translation>Bundle id (default: {0})</translation>
+      <translation>Bundle id (Standard: {0})</translation>
     </message>
     <message>
       <location filename="../tweaks/posterboard/template_options/replace_option.py" line="103"/>
@@ -2093,7 +2093,7 @@ No selected file for required option</translation>
     <message>
       <location filename="../gui/pages/tools/gestalt.py" line="73"/>
       <source>modifies resolution</source>
-      <translation>modifies resolution</translation>
+      <translation>Bearbeitet Auflösung</translation>
     </message>
   </context>
   <context>
@@ -2101,17 +2101,17 @@ No selected file for required option</translation>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="31"/>
       <source>Collections</source>
-      <translation>Collections</translation>
+      <translation>Kollektionen</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="32"/>
       <source>Suggested Photos</source>
-      <translation>Suggested Photos</translation>
+      <translation>Empfohlene Fotos</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="33"/>
       <source>Gallery Cache</source>
-      <translation>Gallery Cache</translation>
+      <translation>Gallerie Cache</translation>
     </message>
   </context>
   <context>
@@ -2123,7 +2123,7 @@ No selected file for required option</translation>
 This has been known to cause problems and potentially lead to bootloops.
 
 Use at your own risk!</source>
-      <translation>Warning: You are on iOS 26 beta.
+      <translation>Warnung: Du bist auf einer iOS 26 beta
 
 This has been known to cause problems and potentially lead to bootloops.
 
