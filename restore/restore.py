@@ -3,6 +3,7 @@ from .mbdb import _FileMode
 from pymobiledevice3.lockdown import LockdownClient
 from pymobiledevice3.services.installation_proxy import InstallationProxyService
 import os
+import plistlib
 
 class FileToRestore:
     def __init__(self,
@@ -92,6 +93,33 @@ def concat_regular_file(file: FileToRestore, files_list: list[FileToRestore], la
     ))
     return new_last_domain, full_path
 
+# merge all files that have duplicates and returns the list without duplicates
+def merge_duplicates(original_files: list[FileToRestore]) -> list[FileToRestore]:
+    no_dupe_files: list[FileToRestore] = []
+    existing_locations: dict[str: int] = {}
+    for file in original_files:
+        if file.domain == None:
+            file_loc = "-"
+        else:
+            file_loc = file.domain + '-'
+        file_loc += file.restore_path
+        if file_loc in existing_locations:
+            if not file.restore_path.endswith('.plist'):
+                print(f'cannot merge duplicate file, ignoring {file_loc}')
+                continue
+            # merge the data (plist files only)
+            print(f'merging duplicate files for {file_loc}')
+            initial_data = plistlib.loads(no_dupe_files[existing_locations[file_loc]].contents)
+            added_data = plistlib.loads(file.contents)
+            initial_data.update(added_data)
+            no_dupe_files[existing_locations[file_loc]].contents = plistlib.dumps(initial_data)
+            del initial_data, added_data
+        else:
+            # add it to the no dupes list
+            no_dupe_files.append(file)
+            existing_locations[file_loc] = len(no_dupe_files) - 1
+    return no_dupe_files
+
 # files is a list of FileToRestore objects
 def restore_files(files: list[FileToRestore], reboot: bool = False, lockdown_client: LockdownClient = None, progress_callback = lambda x: None):
     # create the files to be backed up
@@ -100,7 +128,7 @@ def restore_files(files: list[FileToRestore], reboot: bool = False, lockdown_cli
     apps_list = []
     active_bundle_ids = []
     apps = None
-    sorted_files = sorted(files, key=lambda x: (x.domain, x.restore_path), reverse=False)
+    sorted_files = sorted(merge_duplicates(files), key=lambda x: (x.domain, x.restore_path), reverse=False)
     # add the file paths
     last_domain = ""
     last_path = ""

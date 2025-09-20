@@ -13,28 +13,14 @@ from devicemanagement.constants import Version
 from devicemanagement.device_manager import DeviceManager
 
 from gui.dialogs import GestaltDialog, UpdateAppDialog
+from gui.pages.reset_dialog import ResetDialog
 from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThread
+from gui.pages.pages_list import Page
 
 from tweaks.tweaks import tweaks
 
-App_Version = "6.1.1"
+App_Version = "6.2"
 App_Build = 0
-
-class Page(Enum):
-    Home = 0
-    Gestalt = 1
-    FeatureFlags = 2
-    EUEnabler = 3
-    StatusBar = 4
-    Springboard = 5
-    InternalOptions = 6
-    Daemons = 7
-    Posterboard = 8
-    Templates = 9
-    RiskyTweaks = 10
-    MiscOptions = 11
-    Apply = 12
-    Settings = 13
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager, translator: Translator):
@@ -118,7 +104,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.applyTweaksBtn.clicked.connect(self.on_applyPageBtn_clicked)
         self.ui.removeTweaksBtn.clicked.connect(self.on_removeTweaksBtn_clicked)
         self.ui.chooseGestaltBtn.clicked.connect(self.on_chooseGestaltBtn_clicked)
-        self.ui.resetGestaltBtn.clicked.connect(self.on_resetGestaltBtn_clicked)
 
 
     ## GENERAL INTERFACE FUNCTIONS
@@ -251,13 +236,12 @@ class MainWindow(QtWidgets.QMainWindow):
             # hide options that are for newer versions
             # remove the new dynamic island options
             MinTweakVersions = {
-                "no_patch": [self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn, self.ui.resetGestaltBtn, self.ui.gestaltLocationLbl, self.ui.gestaltLocationTitleLbl, self.ui.showAllSpoofableChk],
+                "no_patch": [self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn, self.ui.gestaltLocationLbl, self.ui.gestaltLocationTitleLbl, self.ui.showAllSpoofableChk],
                 "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk), ("1.0", self.ui.regularDomainsLbl)],
                 "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
                 "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk]
             }
             MaxTweakVersions = {
-                "patch": [self.ui.revertRdarChk, self.ui.revertRdarLine],
                 "17.7": [self.ui.euEnablerContent],
                 "18.0": [self.ui.photosChk, self.ui.aiChk]
             }
@@ -297,18 +281,12 @@ class MainWindow(QtWidgets.QMainWindow):
                             view.hide()
             # toggle option visibility for the max versions
             for version in MaxTweakVersions.keys():
-                if version == "patch":
-                    if patched:
-                        view.hide()
-                    else:
+                parsed_ver = Version(version)
+                for view in MaxTweakVersions[version]:
+                    if device_ver <= parsed_ver:
                         view.show()
-                else:
-                    parsed_ver = Version(version)
-                    for view in MaxTweakVersions[version]:
-                        if device_ver <= parsed_ver:
-                            view.show()
-                        else:
-                            view.hide()
+                    else:
+                        view.hide()
             if device_ver >= Version("18.0"):
                 # show the other dynamic island options
                 self.ui.dynamicIslandDrp.addItem("2622 (iPhone 16 Pro Dynamic Island)")
@@ -344,6 +322,9 @@ class MainWindow(QtWidgets.QMainWindow):
             # show status bar date on ipads
             self.ui.dateChk.setVisible(not is_iphone)
             self.ui.dateTxt.setVisible(not is_iphone)
+            # show floating tab bar on ipads and keyflicks on phones
+            self.ui.floatingTabBarChk.setVisible(not is_iphone)
+            self.ui.keyFlickChk.setVisible(is_iphone)
 
             # show the PB if initial load is true
             if self.initial_load:
@@ -526,19 +507,18 @@ class MainWindow(QtWidgets.QMainWindow):
     def update_bar(self, percent):
         self.ui.restoreProgressBar.setValue(int(percent))
     def on_removeTweaksBtn_clicked(self):
-        self.apply_changes(resetting=True)
-    def on_resetGestaltBtn_clicked(self):
-        self.device_manager.reset_mobilegestalt(self.settings, update_label=self.update_label)
+        dialog = ResetDialog(device_manager=self.device_manager, apply_reset=self.apply_changes)
+        dialog.exec()
 
     @QtCore.Slot()
     def on_applyTweaksBtn_clicked(self):
         self.apply_changes()
 
-    def apply_changes(self, resetting: bool = False):
+    def apply_changes(self, reset_pages: list=None):
         if not self.apply_in_progress:
             self.apply_in_progress = True
             self.toggle_thread_btns(disabled=True)
-            self.worker_thread = ApplyThread(manager=self.device_manager, resetting=resetting)
+            self.worker_thread = ApplyThread(manager=self.device_manager, settings=self.settings, reset_pages=reset_pages)
             self.worker_thread.progress.connect(self.ui.statusLbl.setText)
             self.worker_thread.alert.connect(self.alert_message)
             self.worker_thread.finished.connect(self.finish_apply_thread)
@@ -561,7 +541,6 @@ class MainWindow(QtWidgets.QMainWindow):
     def toggle_thread_btns(self, disabled: bool):
         if disabled or not self.apply_in_progress:
             self.ui.applyTweaksBtn.setDisabled(disabled)
-            self.ui.resetGestaltBtn.setDisabled(disabled)
             self.ui.removeTweaksBtn.setDisabled(disabled)
         if disabled or not self.refresh_in_progress:
             self.ui.refreshBtn.setDisabled(disabled)

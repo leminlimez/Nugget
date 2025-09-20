@@ -2887,6 +2887,38 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.enableAirPlayChk)
 
+        self.line_2 = QFrame(self.springboardOptionsPageContent)
+        self.line_2.setObjectName(u"line_2")
+        self.line_2.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_2.setFrameShadow(QFrame.Plain)
+        self.line_2.setFrameShape(QFrame.Shape.HLine)
+
+        self._2.addWidget(self.line_2)
+
+        self.authEngUICheck = QCheckBox(self.springboardOptionsPageContent)
+        self.authEngUICheck.setObjectName(u"authEngUICheck")
+
+        self._2.addWidget(self.authEngUICheck)
+
+        self.screenRecordChk = QCheckBox(self.springboardOptionsPageContent)
+        self.screenRecordChk.setObjectName(u"screenRecordChk")
+
+        self._2.addWidget(self.screenRecordChk)
+
+        self.floatingTabBarChk = QCheckBox(self.springboardOptionsPageContent)
+        self.floatingTabBarChk.setObjectName(u"floatingTabBarChk")
+
+        self._2.addWidget(self.floatingTabBarChk)
+
+        self.line = QFrame(self.springboardOptionsPageContent)
+        self.line.setObjectName(u"line")
+        self.line.setFrameShape(QFrame.Shape.HLine)
+        self.line.setFrameShadow(QFrame.Shadow.Sunken)
+
+        self._2.addWidget(self.line)
+
         self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self._2.addItem(self.verticalSpacer_5)
@@ -2984,10 +3016,10 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.sbIconVisibilityChk)
 
-        self.floatingTabBarChk = QCheckBox(self.internalOptionsPageContent)
-        self.floatingTabBarChk.setObjectName(u"floatingTabBarChk")
+        self.keyFlickChk = QCheckBox(self.internalOptionsPageContent)
+        self.keyFlickChk.setObjectName(u"keyFlickChk")
 
-        self.verticalLayout_131.addWidget(self.floatingTabBarChk)
+        self.verticalLayout_131.addWidget(self.keyFlickChk)
 
         self.div1 = QFrame(self.internalOptionsPageContent)
         self.div1.setObjectName(u"div1")
@@ -3059,11 +3091,6 @@ class Ui_Nugget(object):
         self.showTouchesChk.setObjectName(u"showTouchesChk")
 
         self.verticalLayout_131.addWidget(self.showTouchesChk)
-
-        self.authEngUICheck = QCheckBox(self.internalOptionsPageContent)
-        self.authEngUICheck.setObjectName(u"authEngUICheck")
-
-        self.verticalLayout_131.addWidget(self.authEngUICheck)
 
         self.hideRespringChk = QCheckBox(self.internalOptionsPageContent)
         self.hideRespringChk.setObjectName(u"hideRespringChk")
@@ -3564,6 +3591,51 @@ class Ui_Nugget(object):
         self.useForegroundChk.setObjectName(u"useForegroundChk")
 
         self.verticalLayout_39.addWidget(self.useForegroundChk)
+
+        self.calcModeLbl = QLabel(self.pbVideoPage)
+        self.calcModeLbl.setObjectName(u"calcModeLbl")
+
+        self.verticalLayout_39.addWidget(self.calcModeLbl)
+
+        self.calcModeDrp = QComboBox(self.pbVideoPage)
+        self.calcModeDrp.addItem("")
+        self.calcModeDrp.addItem("")
+        self.calcModeDrp.setObjectName(u"calcModeDrp")
+        self.calcModeDrp.setMaximumSize(QSize(325, 16777215))
+        self.calcModeDrp.setStyleSheet(u"QComboBox {\n"
+"	background-color: #3b3b3b;\n"
+"    border: none;\n"
+"    color: #e8e8e8;\n"
+"    font-size: 14px;\n"
+"	padding-left: 8px;\n"
+"	border-radius: 8px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    image: url(:/icon/caret-down-fill.svg);\n"
+"	icon-size: 16px;\n"
+"    subcontrol-position: right center;\n"
+"	margin-right: 8px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"	background-color: #3b3b3b;\n"
+"    outline: none;\n"
+"	margin-top: 1px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView::item {\n"
+"	background-color: #3b3b3b;\n"
+"	color: #e8e8e8;\n"
+"    padding-left: 8px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView::item:hover {\n"
+"    background-color: #535353;\n"
+"    color: #ffffff;\n"
+"}")
+
+        self.verticalLayout_39.addWidget(self.calcModeDrp)
 
         self.horizontalLayout_30 = QHBoxLayout()
         self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
@@ -4221,11 +4293,6 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_25.addWidget(self.removeTweaksBtn)
 
-        self.resetGestaltBtn = QToolButton(self.horizontalWidget11)
-        self.resetGestaltBtn.setObjectName(u"resetGestaltBtn")
-
-        self.horizontalLayout_25.addWidget(self.resetGestaltBtn)
-
         self.horizontalSpacer_16 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_25.addItem(self.horizontalSpacer_16)
@@ -4395,21 +4462,6 @@ class Ui_Nugget(object):
         self.line_24.setFrameShape(QFrame.Shape.HLine)
 
         self._21.addWidget(self.line_24)
-
-        self.revertRdarChk = QCheckBox(self.settingsPageContent)
-        self.revertRdarChk.setObjectName(u"revertRdarChk")
-
-        self._21.addWidget(self.revertRdarChk)
-
-        self.revertRdarLine = QFrame(self.settingsPageContent)
-        self.revertRdarLine.setObjectName(u"revertRdarLine")
-        self.revertRdarLine.setStyleSheet(u"QFrame {\n"
-"	color: #414141;\n"
-"}")
-        self.revertRdarLine.setFrameShadow(QFrame.Plain)
-        self.revertRdarLine.setFrameShape(QFrame.Shape.HLine)
-
-        self._21.addWidget(self.revertRdarLine)
 
         self.trustStoreChk = QCheckBox(self.settingsPageContent)
         self.trustStoreChk.setObjectName(u"trustStoreChk")
@@ -4854,12 +4906,24 @@ class Ui_Nugget(object):
         self.enableSupervisionTextChk.setText(QCoreApplication.translate("Nugget", u"Show Supervision Text on Lock Screen", None))
         self.showApertureInSnapshotsChk.setText(QCoreApplication.translate("Nugget", u"Show Dynamic Island in Screenshots", None))
         self.enableAirPlayChk.setText(QCoreApplication.translate("Nugget", u"Enable AirPlay support for Stage Manager", None))
+        self.authEngUICheck.setText(QCoreApplication.translate("Nugget", u"Show Red/Green Authentication Line on Lock Screen", None))
+#if QT_CONFIG(tooltip)
+        self.screenRecordChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables detecting when the screen is being recorded", None))
+#endif // QT_CONFIG(tooltip)
+        self.screenRecordChk.setText(QCoreApplication.translate("Nugget", u"Bypass Screen Recording Detection", None))
+        self.floatingTabBarChk.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar", None))
         self.internalOptionsLbl1.setText(QCoreApplication.translate("Nugget", u"Internal Options", None))
         self.buildVersionChk.setText(QCoreApplication.translate("Nugget", u"Show Build Version in Status Bar", None))
         self.RTLChk.setText(QCoreApplication.translate("Nugget", u"Force Right-to-Left Layout", None))
         self.LTRChk.setText(QCoreApplication.translate("Nugget", u"Force Left-to-Right Layout", None))
-        self.sbIconVisibilityChk.setText(QCoreApplication.translate("Nugget", u"Force Icon Visibility", None))
-        self.floatingTabBarChk.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar (iPad only)", None))
+#if QT_CONFIG(tooltip)
+        self.sbIconVisibilityChk.setToolTip(QCoreApplication.translate("Nugget", u"Shows hidden apps like Field Test and Continuity on the home screen", None))
+#endif // QT_CONFIG(tooltip)
+        self.sbIconVisibilityChk.setText(QCoreApplication.translate("Nugget", u"Show Hidden Icons on Home Screen", None))
+#if QT_CONFIG(tooltip)
+        self.keyFlickChk.setToolTip(QCoreApplication.translate("Nugget", u"Enables the iPad-style keyboard keyflicks on iPhones", None))
+#endif // QT_CONFIG(tooltip)
+        self.keyFlickChk.setText(QCoreApplication.translate("Nugget", u"Enable Keyboard Character Flick", None))
         self.metalHUDChk.setText(QCoreApplication.translate("Nugget", u"Enable Metal HUD Debug", None))
         self.iMessageChk.setText(QCoreApplication.translate("Nugget", u"Enable iMessage Debugging", None))
         self.IDSChk.setText(QCoreApplication.translate("Nugget", u"Enable Continuity Debugging", None))
@@ -4868,7 +4932,6 @@ class Ui_Nugget(object):
         self.appStoreChk.setText(QCoreApplication.translate("Nugget", u"Enable App Store Debug Gesture", None))
         self.notesChk.setText(QCoreApplication.translate("Nugget", u"Enable Notes Debug Mode", None))
         self.showTouchesChk.setText(QCoreApplication.translate("Nugget", u"Show Touches With Debug Info", None))
-        self.authEngUICheck.setText(QCoreApplication.translate("Nugget", u"Show Red/Green Authentication Line on Lock Screen", None))
         self.hideRespringChk.setText(QCoreApplication.translate("Nugget", u"Hide Respring Icon", None))
         self.enableWakeVibrateChk.setText(QCoreApplication.translate("Nugget", u"Vibrate on Raise-to-Wake", None))
         self.pasteSoundChk.setText(QCoreApplication.translate("Nugget", u"Play Sound on Paste", None))
@@ -4957,6 +5020,13 @@ class Ui_Nugget(object):
         self.caVideoChk.setText(QCoreApplication.translate("Nugget", u"Loop (use CoreAnimation method)", None))
         self.reverseLoopChk.setText(QCoreApplication.translate("Nugget", u"Reverse on Loop", None))
         self.useForegroundChk.setText(QCoreApplication.translate("Nugget", u"Make Foreground (hides clock)", None))
+        self.calcModeLbl.setText(QCoreApplication.translate("Nugget", u"Frame Calculation Mode", None))
+        self.calcModeDrp.setItemText(0, QCoreApplication.translate("Nugget", u"Linear", None))
+        self.calcModeDrp.setItemText(1, QCoreApplication.translate("Nugget", u"Discrete", None))
+
+#if QT_CONFIG(tooltip)
+        self.calcModeDrp.setToolTip("")
+#endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
         self.chooseThumbBtn.setToolTip(QCoreApplication.translate("Nugget", u"Choose a photo for the wallpaper to freeze on when finished (.heic files only)", None))
 #endif // QT_CONFIG(tooltip)
@@ -4965,7 +5035,7 @@ class Ui_Nugget(object):
         self.chooseVideoBtn.setToolTip(QCoreApplication.translate("Nugget", u"Choose a video file for the wallpaper (.mov or .mp4)", None))
 #endif // QT_CONFIG(tooltip)
         self.chooseVideoBtn.setText(QCoreApplication.translate("Nugget", u"Choose Video", None))
-        self.exportPBVideoBtn.setText(QCoreApplication.translate("Nugget", u"   Export Video as Descriptor", None))
+        self.exportPBVideoBtn.setText(QCoreApplication.translate("Nugget", u"   Export as .tendies", None))
         self.templatesLbl.setText(QCoreApplication.translate("Nugget", u"Templates", None))
 #if QT_CONFIG(tooltip)
         self.importTemplatesBtn.setToolTip(QCoreApplication.translate("Nugget", u"Select a wallpaper file with the .tendies extension.", None))
@@ -5009,8 +5079,7 @@ class Ui_Nugget(object):
         self.applyTweaksBtn.setText(QCoreApplication.translate("Nugget", u"  Apply Changes", None))
         self.statusLbl.setText(QCoreApplication.translate("Nugget", u"Ready!", None))
         self.skipSetupOnLbl.setText(QCoreApplication.translate("Nugget", u"Note: Skip Setup is currently turned on.", None))
-        self.removeTweaksBtn.setText(QCoreApplication.translate("Nugget", u"Remove All Tweaks", None))
-        self.resetGestaltBtn.setText(QCoreApplication.translate("Nugget", u"Reset Mobile Gestalt", None))
+        self.removeTweaksBtn.setText(QCoreApplication.translate("Nugget", u"Remove Tweaks", None))
         self.springboardOptionsLbl1.setText(QCoreApplication.translate("Nugget", u"Nugget Settings", None))
         self.langLbl.setText(QCoreApplication.translate("Nugget", u"App Language", None))
         self.allowWifiApplyingChk.setText(QCoreApplication.translate("Nugget", u"Allow Applying Over WiFi", None))
@@ -5036,10 +5105,6 @@ class Ui_Nugget(object):
 #if QT_CONFIG(tooltip)
         self.line_24.setToolTip("")
 #endif // QT_CONFIG(tooltip)
-#if QT_CONFIG(tooltip)
-        self.revertRdarChk.setToolTip(QCoreApplication.translate("Nugget", u"If you used the rdar/status bar fix in a previous iOS version, this will revert that.", None))
-#endif // QT_CONFIG(tooltip)
-        self.revertRdarChk.setText(QCoreApplication.translate("Nugget", u"Revert rdar Fix (reset resolution)", None))
 #if QT_CONFIG(tooltip)
         self.trustStoreChk.setToolTip(QCoreApplication.translate("Nugget", u"Restores the SSL config that does something idk", None))
 #endif // QT_CONFIG(tooltip)

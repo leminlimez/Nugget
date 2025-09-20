@@ -4,6 +4,7 @@ import os
 import uuid
 import traceback
 
+from shutil import make_archive, rmtree
 from PySide6 import QtCore, QtWidgets, QtGui
 
 from ..page import Page
@@ -38,7 +39,6 @@ class PosterboardPage(Page, QtCore.QObject):
         self.ui.pbVideoLbl.setText(QtCore.QCoreApplication.tr("Current Video: {0}").format(self.window.noneText))
 
     def on_update_picker(self, selected_items: list[str]):
-        print(selected_items)
         tweaks["PosterBoard"].resetModes = selected_items
 
     def load_page(self):
@@ -52,9 +52,11 @@ class PosterboardPage(Page, QtCore.QObject):
 
         self.ui.chooseThumbBtn.clicked.connect(self.on_chooseThumbBtn_clicked)
         self.ui.chooseVideoBtn.clicked.connect(self.on_chooseVideoBtn_clicked)
+
         self.ui.caVideoChk.toggled.connect(self.on_caVideoChk_toggled)
         self.ui.reverseLoopChk.toggled.connect(self.on_reverseLoopChk_toggled)
         self.ui.useForegroundChk.toggled.connect(self.on_useForegroundChk_toggled)
+        self.ui.calcModeDrp.activated.connect(self.on_calcModeDrp_activated)
         self.ui.exportPBVideoBtn.clicked.connect(self.on_exportPBVideoBtn_clicked)
         
         self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
@@ -279,6 +281,13 @@ class PosterboardPage(Page, QtCore.QObject):
     def on_useForegroundChk_toggled(self, checked: bool):
         tweaks["PosterBoard"].use_foreground = checked
 
+    def on_calcModeDrp_activated(self, index: int):
+        # 0 = linear, 1 = discrete
+        if index == 0:
+            tweaks["PosterBoard"].calculationMode = 'linear'
+        elif index == 1:
+            tweaks["PosterBoard"].calculationMode = 'discrete'
+
     def on_exportPBVideoBtn_clicked(self):
         # Open the directory selection dialog
         directory = QtWidgets.QFileDialog.getExistingDirectory(self.window, "Select Directory", "", QtWidgets.QFileDialog.ShowDirsOnly)
@@ -288,11 +297,17 @@ class PosterboardPage(Page, QtCore.QObject):
                 # create export folder
                 path = os.path.join(directory, f"Nugget-Export-{uuid.uuid4()}")
                 tweaks["PosterBoard"].create_video_loop_files(output_dir=path)
+                # make it a zip
+                zip_path = path + ".tendies"
+                make_archive(path, 'zip', path)
+                os.rename(path + '.zip', zip_path)
+                rmtree(path)
                 # show it in file explorer
+                print(f"Created at {zip_path}")
                 if os.name == 'nt':
-                    subprocess.Popen(f'explorer "{os.path.normpath(path)}"')
+                    subprocess.Popen(f'explorer "{os.path.normpath(zip_path)}"')
                 else:
-                    subprocess.call(["open", path])
+                    subprocess.call(["open", '-R', zip_path])
             except Exception as e:
                 # show error
                 detailsBox = QtWidgets.QMessageBox()

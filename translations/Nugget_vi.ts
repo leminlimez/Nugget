@@ -668,7 +668,7 @@ Việc vào menu trên mẫu thiết bị gốc sẽ làm cho quá trình tải 
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3264"/>
-      <location filename="../qt/mainwindow.ui" line="5799"/>
+      <location filename="../qt/mainwindow.ui" line="5958"/>
       <source>Modify</source>
       <translation>Tuỳ chỉnh</translation>
     </message>
@@ -1043,160 +1043,160 @@ Việc vào menu trên mẫu thiết bị gốc sẽ làm cho quá trình tải 
       <translation>Chữ nhỏ dưới chân</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5327"/>
+      <location filename="../qt/mainwindow.ui" line="5392"/>
       <source>Disable Lock After Respring</source>
       <translation>Tắt Khóa sau khi Respring</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5334"/>
+      <location filename="../qt/mainwindow.ui" line="5399"/>
       <source>Disable Screen Dimming While Charging</source>
       <translation>Bật chức năng Không tắt Màn hình trong khi Sạc</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5341"/>
+      <location filename="../qt/mainwindow.ui" line="5406"/>
       <source>Disable Low Battery Alerts</source>
       <translation>Tắt cảnh báo Pin yếu</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5348"/>
+      <location filename="../qt/mainwindow.ui" line="5420"/>
       <source>Removes '&lt; PreviousAppName' glyph in Status Bar when being forwarded to another app.</source>
       <translation>Xóa '&lt; ỨngdụngTrướcĐó' trên Thanh thông báo khi chuyển sang ứng dụng khác.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5351"/>
+      <location filename="../qt/mainwindow.ui" line="5423"/>
       <source>Disable Breadcrumbs</source>
       <translation>Tắt nút nhỏ khi chuyển Ứng dụng</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5358"/>
+      <location filename="../qt/mainwindow.ui" line="5430"/>
       <source>Shows info about the device supervision status and organization at the bottom of the lock screen.</source>
       <translation>Hiện trạng thái giám sát của thiết bị và tên công ty ở phía dưới của màn hình khóa.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5361"/>
+      <location filename="../qt/mainwindow.ui" line="5433"/>
       <source>Show Supervision Text on Lock Screen</source>
       <translation>Hiện Trạng thái Giám sát trên Màn hình khóa</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5368"/>
+      <location filename="../qt/mainwindow.ui" line="5447"/>
       <source>Enable AirPlay support for Stage Manager</source>
       <translation>Bật Airplay hỗ trợ cho Stage Manager</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5469"/>
+      <location filename="../qt/mainwindow.ui" line="5594"/>
       <source>Internal Options</source>
       <translation>Cài đặt Nội bộ</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5544"/>
+      <location filename="../qt/mainwindow.ui" line="5669"/>
       <source>Show Build Version in Status Bar</source>
       <translation>Hiện Số bản dựng trên Thanh trạng thái</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5551"/>
+      <location filename="../qt/mainwindow.ui" line="5676"/>
       <source>Force Right-to-Left Layout</source>
       <translation>Buộc Bố Trí từ Phải sang Trái</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5576"/>
+      <location filename="../qt/mainwindow.ui" line="5728"/>
       <source>Enable Metal HUD Debug</source>
       <translation>Kích hoạt gỡ lỗi Metal HUD</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5583"/>
+      <location filename="../qt/mainwindow.ui" line="5735"/>
       <source>Enable iMessage Debugging</source>
       <translation>Kích hoạt gỡ lỗi iMessage</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5590"/>
+      <location filename="../qt/mainwindow.ui" line="5742"/>
       <source>Enable Continuity Debugging</source>
       <translation>Bật gỡ lỗi liên tục</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5597"/>
+      <location filename="../qt/mainwindow.ui" line="5749"/>
       <source>Enable FaceTime Debugging</source>
       <translation>Bật gỡ lỗi FaceTime</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5619"/>
+      <location filename="../qt/mainwindow.ui" line="5778"/>
       <source>Enable App Store Debug Gesture</source>
       <translation>Bật gỡ lỗi App Store</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5626"/>
+      <location filename="../qt/mainwindow.ui" line="5785"/>
       <source>Enable Notes Debug Mode</source>
       <translation>Bật Chế độ gỡ lỗi Ghi chú</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5648"/>
+      <location filename="../qt/mainwindow.ui" line="5807"/>
       <source>Show Touches With Debug Info</source>
       <translation>Hiển thị Chạm với thông tin gỡ lỗi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5655"/>
+      <location filename="../qt/mainwindow.ui" line="5814"/>
       <source>Hide Respring Icon</source>
       <translation>Ẩn Biểu tượng Respring</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5662"/>
+      <location filename="../qt/mainwindow.ui" line="5821"/>
       <source>Vibrate on Raise-to-Wake</source>
       <translation>Rung khi Nâng lên để Đánh thức</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5684"/>
+      <location filename="../qt/mainwindow.ui" line="5843"/>
       <source>Play Sound on Paste</source>
       <translation>Phât Âm thanh khi Dán</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5691"/>
+      <location filename="../qt/mainwindow.ui" line="5850"/>
       <source>Show Notifications for System Pastes</source>
       <translation>Hiển thị thông báo Dán trên Hệ thống</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5792"/>
-      <location filename="../qt/mainwindow.ui" line="7530"/>
+      <location filename="../qt/mainwindow.ui" line="5951"/>
+      <location filename="../qt/mainwindow.ui" line="7770"/>
       <source>Daemons</source>
       <translation>Deamons</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5840"/>
+      <location filename="../qt/mainwindow.ui" line="5999"/>
       <source>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
 it enabled.</source>
       <translation>Lưu ý: Ngay cả trên các phiên bản Sparserestore, thứ này sử dụng các tên miền thông thường. Bỏ qua Thiết lập sẽ được áp dụng nếu
 nó đã được bật.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5866"/>
+      <location filename="../qt/mainwindow.ui" line="6025"/>
       <source>Stops over-the-air updates to prevent auto-downloads.</source>
       <translation>Dừng cập nhật qua mạng để ngăn chặn việc tải xuống tự động.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5869"/>
+      <location filename="../qt/mainwindow.ui" line="6028"/>
       <source>Disable OTA</source>
       <translation>Vô Hiệu hóa OTA</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5876"/>
+      <location filename="../qt/mainwindow.ui" line="6035"/>
       <source>Disables usage tracking for improved privacy.</source>
       <translation>Vô Hiệu hóa Theo dõi sử dụng để cải thiện Quyền riêng tư.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5879"/>
+      <location filename="../qt/mainwindow.ui" line="6038"/>
       <source>Disable UsageTrackingAgent</source>
       <translation>Vô hiệu hóa UsageTrackingAgent</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5886"/>
+      <location filename="../qt/mainwindow.ui" line="6045"/>
       <source>Disables Screen Time monitoring features.</source>
       <translation>Tắt tính năng Theo dõi Thời gian sử dụng.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5889"/>
+      <location filename="../qt/mainwindow.ui" line="6048"/>
       <source>Disable Screen Time Agent</source>
       <translation>Vô hiệu hóa Thời gian sử dụng</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5896"/>
+      <location filename="../qt/mainwindow.ui" line="6055"/>
       <source>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
 
 To work properly, also disable the daemon using the toggle above.</source>
@@ -1205,202 +1205,202 @@ To work properly, also disable the daemon using the toggle above.</source>
 Để hoạt động bình thường, hãy tắt daemon bằng cách sử dụng nút chuyển đổi ở trên.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5901"/>
+      <location filename="../qt/mainwindow.ui" line="6060"/>
       <source>Clear ScreenTimeAgent.plist file</source>
       <translation>Xoá tệp ScreenTimeAgent.plist</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5908"/>
+      <location filename="../qt/mainwindow.ui" line="6067"/>
       <source>Stops logs, dumps, and crash reports collection.</source>
       <translation>Dừng thu thập nhật ký, rác và báo cáo sự cố.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5911"/>
+      <location filename="../qt/mainwindow.ui" line="6070"/>
       <source>Disable Logs, Dumps, and Crash Reports</source>
       <translation>Vô Hiệu hóa Nhật ký, Rác, và Báo cáo sự cố</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5918"/>
+      <location filename="../qt/mainwindow.ui" line="6087"/>
       <source>Disables pinging to sleeping bluetooth devices for improved battery life.</source>
       <translation>Vô hiệu hóa chức năng ping đến các thiết bị Bluetooth khi đang ở chế độ ngủ để cải thiện tuổi thọ pin.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5921"/>
+      <location filename="../qt/mainwindow.ui" line="6090"/>
       <source>Disable ATWAKEUP</source>
       <translation>Tắt ATWAKEUP</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5943"/>
+      <location filename="../qt/mainwindow.ui" line="6112"/>
       <source>Turns off Game Center background services.</source>
       <translation>Tắt Dịch vụ hoạt động nền Game Center.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5946"/>
+      <location filename="../qt/mainwindow.ui" line="6115"/>
       <source>Disable Game Center</source>
       <translation>Tắt Game Center</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5953"/>
+      <location filename="../qt/mainwindow.ui" line="6122"/>
       <source>Disables the Tips service and notifications.</source>
       <translation>Vô Hiệu hóa Dịch vụ Mẹo và Thông báo.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5956"/>
+      <location filename="../qt/mainwindow.ui" line="6125"/>
       <source>Disable Tips Services</source>
       <translation>Vô Hiệu hóa Dịch vụ Mẹo</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5963"/>
+      <location filename="../qt/mainwindow.ui" line="6132"/>
       <source>Disables the Virtual Private Network service.</source>
       <translation>Vô hiệu hóa Dịch vụ Mạng riêng ảo.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5966"/>
+      <location filename="../qt/mainwindow.ui" line="6135"/>
       <source>Disable VPN Service</source>
       <translation>Vô Hiệu hóa Dịch vụ VPN</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5973"/>
+      <location filename="../qt/mainwindow.ui" line="6142"/>
       <source>Disables the service that deals with errors with WiFi networks with Chinese characters in the name.</source>
       <translation>Vô hiệu hóa dịch vụ xử lý lỗi với mạng WiFi có tên là ký tự tiếng Trung.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5976"/>
+      <location filename="../qt/mainwindow.ui" line="6145"/>
       <source>Disable Chinese WLAN Service</source>
       <translation>Vô Hiệu hóa Dịch vụ WLAN Trung Quốc</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5983"/>
+      <location filename="../qt/mainwindow.ui" line="6152"/>
       <source>Disables HealthKit services used by the health app.</source>
       <translation>Vô Hiệu dịch vụ HealthKit được ứng dụng sức khỏe sử dụng.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5986"/>
+      <location filename="../qt/mainwindow.ui" line="6155"/>
       <source>Disable HealthKit</source>
       <translation>Vô Hiệu HealthKit</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6008"/>
+      <location filename="../qt/mainwindow.ui" line="6177"/>
       <source>Disable AirPrint</source>
       <translation>Vô Hiệu Hoá AirPrint</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6015"/>
+      <location filename="../qt/mainwindow.ui" line="6184"/>
       <source>Disable Assistive Touch</source>
       <translation>Tắt Assistive Touch</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6022"/>
+      <location filename="../qt/mainwindow.ui" line="6191"/>
       <source>Disable iCloud</source>
       <translation>Vô Hiệu Hoá iCloud</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6029"/>
+      <location filename="../qt/mainwindow.ui" line="6198"/>
       <source>Disable Internet Tethering (Hotspot)</source>
       <translation>Tắt kết nối Internet (Điểm phát sóng)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6036"/>
+      <location filename="../qt/mainwindow.ui" line="6205"/>
       <source>Disable Passbook</source>
       <translation>Vô hiệu hóa Passbook</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6043"/>
+      <location filename="../qt/mainwindow.ui" line="6212"/>
       <source>Disable Spotlight</source>
       <translation>Tắt Spotlight</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6050"/>
+      <location filename="../qt/mainwindow.ui" line="6219"/>
       <source>Disable Voice Control</source>
       <translation>Tắt điều khiển bằng giọng nói</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6151"/>
+      <location filename="../qt/mainwindow.ui" line="6327"/>
       <source>Posterboard</source>
       <translation>Posterboard</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6190"/>
+      <location filename="../qt/mainwindow.ui" line="6366"/>
       <source>   Discover Wallpapers</source>
       <translation>   Khám phá Hình nền</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6281"/>
+      <location filename="../qt/mainwindow.ui" line="6457"/>
       <source>  Tendies</source>
       <translation>  Tendies</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6301"/>
+      <location filename="../qt/mainwindow.ui" line="6477"/>
       <source>   Templates</source>
       <translation>   Mẫu</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6324"/>
+      <location filename="../qt/mainwindow.ui" line="6500"/>
       <source>   Video</source>
       <translation>   Video</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6354"/>
+      <location filename="../qt/mainwindow.ui" line="6530"/>
       <source>Clear Action:</source>
       <translation>Xóa tác vụ:</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6410"/>
-      <location filename="../qt/mainwindow.ui" line="6497"/>
-      <location filename="../qt/mainwindow.ui" line="6831"/>
+      <location filename="../qt/mainwindow.ui" line="6586"/>
+      <location filename="../qt/mainwindow.ui" line="6673"/>
+      <location filename="../qt/mainwindow.ui" line="7071"/>
       <source>Select a wallpaper file with the .tendies extension.</source>
       <translation>Chọn tệp hình nền có phần mở rộng là .tendies.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6416"/>
+      <location filename="../qt/mainwindow.ui" line="6592"/>
       <source>  Import Files (.tendies)</source>
       <translation>  Nhập Tệp tin (.tendies)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6503"/>
-      <location filename="../qt/mainwindow.ui" line="6837"/>
+      <location filename="../qt/mainwindow.ui" line="6679"/>
+      <location filename="../qt/mainwindow.ui" line="7077"/>
       <source>  Import Templates (.batter)</source>
       <translation>  Nhập Mẫu (.batter)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6560"/>
+      <location filename="../qt/mainwindow.ui" line="6736"/>
       <source>Uses the CoreAnimation file to play the video (300 fps limit)
 Will show up in Collections</source>
       <translation>Sử dụng tệp CoreAnimation để phát video (giới hạn tổng cộng 300 khung hình)
 Sẽ hiển thị trong Bộ sưu tập</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6564"/>
+      <location filename="../qt/mainwindow.ui" line="6740"/>
       <source>Loop (use CoreAnimation method)</source>
       <translation>Lặp (sử dụng phương thức CoreAnimation)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6574"/>
+      <location filename="../qt/mainwindow.ui" line="6750"/>
       <source>Reverse on Loop</source>
       <translation>Đảo ngược Video khi lặp</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6581"/>
+      <location filename="../qt/mainwindow.ui" line="6757"/>
       <source>Make Foreground (hides clock)</source>
       <translation>Làm tiền cảnh (ẩn đồng hồ)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6590"/>
+      <location filename="../qt/mainwindow.ui" line="6830"/>
       <source>Choose a photo for the wallpaper to freeze on when finished (.heic files only)</source>
       <translation>Chọn một bức ảnh để làm hình nền khi hoàn tất (chỉ dành cho tệp .heic)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6593"/>
+      <location filename="../qt/mainwindow.ui" line="6833"/>
       <source>Choose Freeze Frame (.HEIC)</source>
       <translation>Chọn Khung hình đóng băng (.HEIC)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6600"/>
+      <location filename="../qt/mainwindow.ui" line="6840"/>
       <source>Choose a video file for the wallpaper (.mov or .mp4)</source>
       <translation>Chọn tệp video làm hình nền (.mov hoặc .mp4)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6603"/>
+      <location filename="../qt/mainwindow.ui" line="6843"/>
       <source>Choose Video</source>
       <translation>Chọn Video</translation>
     </message>
@@ -1410,17 +1410,17 @@ Sẽ hiển thị trong Bộ sưu tập</translation>
       <translation>   Xuất video dưới dạng Mô tả</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6748"/>
+      <location filename="../qt/mainwindow.ui" line="6988"/>
       <source>Templates</source>
       <translation>Mẫu</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6970"/>
+      <location filename="../qt/mainwindow.ui" line="7210"/>
       <source>Risky Options</source>
       <translation>Tùy chọn Rủi Ro</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7045"/>
+      <location filename="../qt/mainwindow.ui" line="7285"/>
       <source>Disclaimer:
 
 The options on this page may be unsafe for your device. Use these options at your own risk. Changing
@@ -1434,17 +1434,17 @@ Các tùy chọn trên trang này có thể không an toàn cho thiết bị c�
 Nugget không chịu trách nhiệm nếu bạn làm hỏng thiết bị của mình, đặc biệt là với tính năng thay đổi độ phân giải.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7072"/>
+      <location filename="../qt/mainwindow.ui" line="7312"/>
       <source>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</source>
       <translation>Dùng phương pháp sử dụng tệp. Khuyến nghị tắt daemon thay thế trong tab Daemons.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7075"/>
+      <location filename="../qt/mainwindow.ui" line="7315"/>
       <source>Disable OTA Updates (file)</source>
       <translation>Vô Hiệu hóa Cập nhật OTA (tệp)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7082"/>
+      <location filename="../qt/mainwindow.ui" line="7322"/>
       <source>Disables temperature monitoring daemon to reduce system checks.
 
 Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified" in Settings.</source>
@@ -1453,87 +1453,87 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
 Cảnh báo: Tắt sẽ khiến pin hiển thị "Bộ phận không xác định" hoặc "Chưa xác minh" trong Cài đặt.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7087"/>
+      <location filename="../qt/mainwindow.ui" line="7327"/>
       <source>Disable thermalmonitord</source>
       <translation>Vô hiệu hóa thermalmonitord</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7109"/>
+      <location filename="../qt/mainwindow.ui" line="7349"/>
       <source>Set a custom device screen resolution.</source>
       <translation>Tùy chỉnh độ phân giải màn hình.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7112"/>
+      <location filename="../qt/mainwindow.ui" line="7352"/>
       <source>Set a Custom Device Resolution</source>
       <translation>Tùy chỉnh Độ phân giải Màn hình</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7140"/>
+      <location filename="../qt/mainwindow.ui" line="7380"/>
       <source>Height:</source>
       <translation>Chiều cao:</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7155"/>
+      <location filename="../qt/mainwindow.ui" line="7395"/>
       <source>Resolution Height</source>
       <translation>Độ dài độ phân giải</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7196"/>
+      <location filename="../qt/mainwindow.ui" line="7436"/>
       <source>Width:</source>
       <translation>Chiều rộng:</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7213"/>
+      <location filename="../qt/mainwindow.ui" line="7453"/>
       <source>Resolution Width</source>
       <translation>Độ rộng độ phân giải</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7353"/>
+      <location filename="../qt/mainwindow.ui" line="7593"/>
       <source>Miscellaneous Options</source>
       <translation>Các Tùy chọn Khác</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7463"/>
+      <location filename="../qt/mainwindow.ui" line="7703"/>
       <source>Springboard</source>
       <translation>Springboard</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7498"/>
+      <location filename="../qt/mainwindow.ui" line="7738"/>
       <source>Internal</source>
       <translation>Nội Bộ</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7559"/>
+      <location filename="../qt/mainwindow.ui" line="7799"/>
       <source>Risky</source>
       <translation>Rủi ro</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7688"/>
+      <location filename="../qt/mainwindow.ui" line="7928"/>
       <source>Apply</source>
       <translation>Áp dụng</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7749"/>
+      <location filename="../qt/mainwindow.ui" line="7989"/>
       <source>Current gestalt file location:</source>
       <translation>Vị trí tệp Gestalt hiện tại:</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7777"/>
+      <location filename="../qt/mainwindow.ui" line="8017"/>
       <source>  Choose Gestalt File</source>
       <translation>  Chọn tệp Gestalt</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7808"/>
+      <location filename="../qt/mainwindow.ui" line="8048"/>
       <source>  Apply Changes</source>
       <translation>  Áp dụng Thay đổi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7825"/>
+      <location filename="../qt/mainwindow.ui" line="8065"/>
       <source>Ready!</source>
       <translation>Chuẩn bị này!</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7863"/>
+      <location filename="../qt/mainwindow.ui" line="8103"/>
       <source>Note: Skip Setup is currently turned on.</source>
       <translation>Lưu ý: Bỏ qua Thiết Lập hiện đang được bật.</translation>
     </message>
@@ -1548,42 +1548,42 @@ Cảnh báo: Tắt sẽ khiến pin hiển thị "Bộ phận không xác địn
       <translation>Đặt lại MobileGestalt</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8025"/>
+      <location filename="../qt/mainwindow.ui" line="8258"/>
       <source>Nugget Settings</source>
       <translation>Cài đặt Nugget</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8205"/>
+      <location filename="../qt/mainwindow.ui" line="8438"/>
       <source>Allow Applying Over WiFi</source>
       <translation>Áp dụng thông qua Wi-Fi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8215"/>
+      <location filename="../qt/mainwindow.ui" line="8448"/>
       <source>Auto Reboot After Applying</source>
       <translation>Tự động Khởi động lại sau khi Áp dụng</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8225"/>
+      <location filename="../qt/mainwindow.ui" line="8458"/>
       <source>Show Risky Tweak Options</source>
       <translation>Hiện những Tinh chỉnh Rủi ro</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8232"/>
+      <location filename="../qt/mainwindow.ui" line="8465"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
       <translation>Hiện thêm những model cho những kiểu thiết bi khác trong mục làm giả thiết bị AI.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8241"/>
+      <location filename="../qt/mainwindow.ui" line="8474"/>
       <source>Show All Spoofable Models</source>
       <translation>Hiện Tất cả Model có thể làm giả</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8248"/>
+      <location filename="../qt/mainwindow.ui" line="8481"/>
       <source>Ignore Posterboard Frame Limit</source>
       <translation>Bỏ qua Giới hạn khung hình Posterboard</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8255"/>
+      <location filename="../qt/mainwindow.ui" line="8488"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
@@ -1592,7 +1592,7 @@ DO NOT unplug your device during restores.</source>
 KHÔNG ĐƯỢC rút dây cáp của thiết bị trong quá trình khôi phục.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8260"/>
+      <location filename="../qt/mainwindow.ui" line="8493"/>
       <source>Disable Tendies Limit</source>
       <translation>Tắt Giới hạn Tendies</translation>
     </message>
@@ -1607,42 +1607,42 @@ KHÔNG ĐƯỢC rút dây cáp của thiết bị trong quá trình khôi phục
       <translation>Khôi phục thay đổi Sửa rdar (Đặt lại tỉ lệ màn hình)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8310"/>
+      <location filename="../qt/mainwindow.ui" line="8518"/>
       <source>Restores the SSL config that does something idk</source>
       <translation>Khôi phục cấu hình SSL để làm cái gì ấy nhỉ chả biết nữa hi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8313"/>
+      <location filename="../qt/mainwindow.ui" line="8521"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
       <translation>Khôi phục TrustStore (Hồ sơ Cấu hình SSL)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8323"/>
+      <location filename="../qt/mainwindow.ui" line="8531"/>
       <source>Skip Setup * (non-exploit files only)</source>
       <translation>Bỏ qua Thiết lập *(chỉ những tệp không phải khai thác)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8336"/>
+      <location filename="../qt/mainwindow.ui" line="8544"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
       <translation>Bật Supervision * (yêu cầu Bỏ qua Thiết lập)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8346"/>
+      <location filename="../qt/mainwindow.ui" line="8554"/>
       <source>Enter Organization Name</source>
       <translation>Nhập tên Công ty/Tổ chức</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8369"/>
+      <location filename="../qt/mainwindow.ui" line="8577"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
       <translation>*Lưu ý: Bỏ qua Thiết lập có thể gây ra lỗi với hồ sơ cấu hình. Tắt nó đi nếu bạn vẫn cần dùng nó.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8396"/>
+      <location filename="../qt/mainwindow.ui" line="8604"/>
       <source>Reset Device Pairing</source>
       <translation>Đặt lại Ghép đôi Thiết bị</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8410"/>
+      <location filename="../qt/mainwindow.ui" line="8618"/>
       <source>Pocket Poster Helper</source>
       <translation>Trợ giúp Pocket Poster</translation>
     </message>
@@ -1651,7 +1651,7 @@ KHÔNG ĐƯỢC rút dây cáp của thiết bị trong quá trình khôi phục
       <location filename="../qt/mainwindow.ui" line="1205"/>
       <location filename="../qt/mainwindow.ui" line="1229"/>
       <location filename="../qt/mainwindow.ui" line="1254"/>
-      <location filename="../qt/mainwindow.ui" line="6216"/>
+      <location filename="../qt/mainwindow.ui" line="6392"/>
       <source>...</source>
       <translation>...</translation>
     </message>
@@ -1677,9 +1677,114 @@ KHÔNG ĐƯỢC rút dây cáp của thiết bị trong quá trình khôi phục
       <translation>Ngày tháng trên Thanh trạng thái</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8165"/>
+      <location filename="../qt/mainwindow.ui" line="8398"/>
       <source>App Language</source>
       <translation>Ngôn ngữ Ứng dụng</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="6863"/>
+      <source>   Export as .tendies</source>
+      <translation>Trích xuất dưới dạng .tendies</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="8154"/>
+      <source>Remove Tweaks</source>
+      <translation>Xoá hết tinh chỉnh</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5332"/>
+      <source>Auto‑Lock (Lock Screen)</source>
+      <translation>Tự động khoá màn hình</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5413"/>
+      <source>Hide AC Power on Lock Screen</source>
+      <translation>Ẩn thông báo sạc trên màn hình khoá</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5440"/>
+      <source>Show Dynamic Island in Screenshots</source>
+      <translation>Hiện Dynamic Island trong ảnh chụp màn hình</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5469"/>
+      <source>Show Red/Green Authentication Line on Lock Screen</source>
+      <translation>Hiện vạch xác thực đỏ/xanh lá trên màn hình khóa</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5476"/>
+      <source>Disables detecting when the screen is being recorded</source>
+      <translation>Tắt phát hiện khi đang quay màn hình</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5479"/>
+      <source>Bypass Screen Recording Detection</source>
+      <translation>Tránh phát hiện quay màn hình</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5486"/>
+      <source>Disable Floating Tab Bar</source>
+      <translation>Tắt tab nổi</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5683"/>
+      <source>Force Left-to-Right Layout</source>
+      <translation>Bắt buộc giao diện Trái qua Phải</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5690"/>
+      <source>Shows hidden apps like Field Test and Continuity on the home screen</source>
+      <translation>Hiện ứng dụng ẩn như Field Test và Continuity trên màn hình chính</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5693"/>
+      <source>Show Hidden Icons on Home Screen</source>
+      <translation>Hiện icon ẩn trên màn hình khoá</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5700"/>
+      <source>Enables the iPad-style keyboard keyflicks on iPhones</source>
+      <translation>Bật bàn phím vuốt giao diện iPad trên iPhone</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5703"/>
+      <source>Enable Keyboard Character Flick</source>
+      <translation>Bật bàn phím vuốt kí tự</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5756"/>
+      <source>Show Accessory Developer Settings</source>
+      <translation>Hiển thị Cài đặt Nhà phát triển Phụ kiện</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="6077"/>
+      <source>Disables tools that monitor and test hardware or system behavior for faults and performance issues.</source>
+      <translation>Vô hiệu hóa các công cụ theo dõi và kiểm tra phần cứng hoặc hành vi của hệ thống để tìm lỗi và vấn đề về hiệu suất.</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="6080"/>
+      <source>Disable System Diagnostics</source>
+      <translation>Tắt theo dõi hệ thống</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="6226"/>
+      <source>Disable NanoTimeKit (Apple Watch Face Sync)</source>
+      <translation>Tắt NanoTimeKit (Đồng bộ màn hình Apple Watch)</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="6764"/>
+      <source>Frame Calculation Mode</source>
+      <translation>Chế độ khung tính toán</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="6815"/>
+      <source>Linear</source>
+      <translation>Tuyến tính</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="6820"/>
+      <source>Discrete</source>
+      <translation>Tách rời</translation>
     </message>
   </context>
   <context>
@@ -1727,13 +1832,13 @@ hoặc bạn đã đạt đến số lượng hình nền tối đa (15) và ph�
       <translation>Vui lòng kết nối thiết bị.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="162"/>
-      <location filename="../gui/pages/main/settings.py" line="172"/>
+      <location filename="../gui/pages/main/settings.py" line="166"/>
+      <location filename="../gui/pages/main/settings.py" line="176"/>
       <source>PosterBoard App Hash</source>
       <translation>Mã định danh Posterboard</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="162"/>
+      <location filename="../gui/pages/main/settings.py" line="166"/>
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
@@ -1742,17 +1847,17 @@ Open up its settings and tap "Detect".</source>
 Mở cài đặt trong ứng dụng đó và ấn "Phát hiện".</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="166"/>
+      <location filename="../gui/pages/main/settings.py" line="170"/>
       <source>Copy it and paste it</source>
       <translation>Sao chép và Dán</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="170"/>
+      <location filename="../gui/pages/main/settings.py" line="174"/>
       <source>It has been copied. Paste it</source>
       <translation>Đã Sao chép. Dán đi</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="172"/>
+      <location filename="../gui/pages/main/settings.py" line="176"/>
       <source>Your hash is:
 {0}
 
@@ -1768,67 +1873,67 @@ Mở cài đặt trong ứng dụng đó và ấn "Phát hiện".</translation>
       <translation>Video cần phải dưới {0} khung hình để có thể lặp lại. Hãy giảm khung hình xuống hoặc cắt ngắn video lại.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="58"/>
+      <location filename="../devicemanagement/device_manager.py" line="59"/>
       <source>Find My must be disabled in order to use this tool.</source>
       <translation>Tìm iPhone phải được tắt để có thể dùng công cụ này.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="59"/>
+      <location filename="../devicemanagement/device_manager.py" line="60"/>
       <source>Disable Find My from Settings (Settings -&gt; [Your Name] -&gt; Find My) and then try again.</source>
       <translation>Tắt Tìm iPhone trong Cài đặt (Cài đặt -&gt; [Tên iCloud] -&gt; Tìm iPhone) rồi thử lại.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="61"/>
+      <location filename="../devicemanagement/device_manager.py" line="62"/>
       <source>Nugget cannot be used on this device. Click Show Details for more info.</source>
       <translation>Nugget không thể sử dụng trên thiết bị này. Ấn Xem Chi tiết để biết thêm thông tin.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="62"/>
+      <location filename="../devicemanagement/device_manager.py" line="63"/>
       <source>Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!</source>
       <translation>Thiết bị của bạn đã được quản lí và mã hóa sao lưu MDM đang bật. Phải tắt tính năng này để có thể sử dụng Nugget. Không sử dụng Nugget trên các thiết bị Trường học/Cơ quan của bạn!</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="64"/>
+      <location filename="../devicemanagement/device_manager.py" line="65"/>
       <source>The session was terminated. Refresh the device list and try again.</source>
       <translation>Phiên sử dụng đã kết thúc. Làm mới lại danh sách thiết bị và thử lại lần nữa.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="66"/>
+      <location filename="../devicemanagement/device_manager.py" line="67"/>
       <source>Device is password protected! You must trust the computer on your device.</source>
       <translation>Thiết bị đang bị khóa! Bạn phải nhấn Tin cậy máy tính trên thiết bị.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="67"/>
+      <location filename="../devicemanagement/device_manager.py" line="68"/>
       <source>Unlock your device. On the popup, click "Trust", enter your password, then try again.</source>
       <translation>Mở khóa thiết bị. Trên cửa sổ pop-up, ấn "Tin cậy", nhập mật khẩu, rồi thử lại lần nữa.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="70"/>
+      <location filename="../devicemanagement/device_manager.py" line="71"/>
       <source>Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info.</source>
       <translation>Thiết bị truyền tệp thất bại. Danh sách tệp có thể đã bị hỏng hoặc đã có bản sao. Ấn Xem Chi tiết để biết thêm thông tin.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="104"/>
+      <location filename="../devicemanagement/device_manager.py" line="105"/>
       <source>If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.</source>
       <translation>Nếu bạn đang dùng Linux, hãy chắc chắn rằng bạn đã cài đặt usbmuxd và libimobiledevice.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="106"/>
+      <location filename="../devicemanagement/device_manager.py" line="107"/>
       <source>Make sure you have the "Apple Devices" app from the Microsoft Store or iTunes from Apple's website.</source>
       <translation>Hãy chắc chắn rằng bạn đã cài ứng dụng "Apple Devices" từ Microsoft Store hoặc iTunes từ trang web của Apple.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="107"/>
+      <location filename="../devicemanagement/device_manager.py" line="108"/>
       <source>Failed to get device list. Click "Show Details" for the traceback.</source>
       <translation>Không thể lấy được danh sách thiết bị. Ấn "Xem Chi tiết" để truy cứu.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="140"/>
+      <location filename="../devicemanagement/device_manager.py" line="141"/>
       <source>Click "Show Details" for the traceback.</source>
       <translation>Ấn "Xem Chi tiết" để truy cứu.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="157"/>
+      <location filename="../devicemanagement/device_manager.py" line="158"/>
       <source>Device is password protected! You must trust the computer on your device.
 
 Unlock your device. On the popup, click "Trust", enter your password, then try again.</source>
@@ -1837,28 +1942,28 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
 Mở khóa thiết bị. Trên cửa sổ pop-up, ấn "Tin cậy", nhập mật khẩu, rồi thử lại lần nữa.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="161"/>
+      <location filename="../devicemanagement/device_manager.py" line="162"/>
       <source>If you keep receiving this error, try using a different cable or port.</source>
       <translation>Nếu bạn tiếp tục bị lỗi này, thử một cái cáp sạc khác hoặc thay đổi cổng kết nối trên máy tính.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="274"/>
+      <location filename="../devicemanagement/device_manager.py" line="277"/>
       <source>Pairing Reset</source>
       <translation>Đặt lại Ghép đôi</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="274"/>
+      <location filename="../devicemanagement/device_manager.py" line="277"/>
       <source>Your device's pairing was successfully reset. Refresh the device list before applying.</source>
       <translation>Đã đặt lại Ghép đôi với thiết bị của bạn thành công. Làm mới lại danh sách thiết bị trước khi áp dụng tinh chỉnh.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="501"/>
+      <location filename="../devicemanagement/device_manager.py" line="503"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
       <translation>Chưa nhập MobileGestalt! Chọn tệp MobileGestalt của bạn để có thể áp dụng các tinh chỉnh MobileGestalt.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="628"/>
-      <location filename="../devicemanagement/device_manager.py" line="662"/>
+      <location filename="../devicemanagement/device_manager.py" line="604"/>
+      <location filename="../devicemanagement/device_manager.py" line="705"/>
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
@@ -1867,22 +1972,22 @@ Remember to turn Find My back on!</source>
 Nhớ bật Tìm iPhone lên nhé!</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="630"/>
-      <location filename="../devicemanagement/device_manager.py" line="664"/>
+      <location filename="../devicemanagement/device_manager.py" line="606"/>
+      <location filename="../devicemanagement/device_manager.py" line="707"/>
       <source>Please restart your device to see changes.</source>
       <translation>Hãy khởi động lại thiết bị để xem thay đổi.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="630"/>
-      <location filename="../devicemanagement/device_manager.py" line="664"/>
+      <location filename="../devicemanagement/device_manager.py" line="606"/>
+      <location filename="../devicemanagement/device_manager.py" line="707"/>
       <source>All done! </source>
       <translation>Đã xong! </translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="630"/>
-      <location filename="../devicemanagement/device_manager.py" line="631"/>
-      <location filename="../devicemanagement/device_manager.py" line="664"/>
-      <location filename="../devicemanagement/device_manager.py" line="665"/>
+      <location filename="../devicemanagement/device_manager.py" line="606"/>
+      <location filename="../devicemanagement/device_manager.py" line="607"/>
+      <location filename="../devicemanagement/device_manager.py" line="707"/>
+      <location filename="../devicemanagement/device_manager.py" line="708"/>
       <source>Success!</source>
       <translation>Hoàn thành!</translation>
     </message>
@@ -1902,69 +2007,69 @@ Nhớ bật Tìm iPhone lên nhé!</translation>
       <translation>Hỗ trợ Một phần.</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="40"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="41"/>
       <source>Wrong type of file</source>
       <translation>Sai loại tệp</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="48"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="49"/>
       <source>Warning</source>
       <translation>Cảnh báo</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="49"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="50"/>
       <source>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</source>
       <translation>LƯU Ý: Bạn có thể cần phải thiết lập lại tất cả hình nền (bật Tùy chọn rủi ro trong cài đặt) rồi áp dụng lại để tệp này hoạt động.</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="66"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="67"/>
       <location filename="../tweaks/posterboard/template_options/templates_tweak.py" line="34"/>
       <source>Error</source>
       <translation>Lỗi</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="67"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="68"/>
       <location filename="../tweaks/posterboard/template_options/templates_tweak.py" line="35"/>
       <source>Failed to load template</source>
       <translation>Không tải được Mẫu</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="199"/>
+      <location filename="../devicemanagement/device_manager.py" line="200"/>
       <source>No Device</source>
       <translation>Không phát hiện thiết bị nào</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="440"/>
+      <location filename="../devicemanagement/device_manager.py" line="443"/>
       <source>Restoring to device...{0}{1}</source>
       <translation>Đang khôi phục lại thiết bị...{0}{1}</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="445"/>
+      <location filename="../devicemanagement/device_manager.py" line="448"/>
       <source>Applying changes to files...</source>
       <translation>Áp dụng các thay đổi trên tệp...</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="251"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="256"/>
       <source>Generating PosterBoard Video...</source>
       <translation>Đang khởi tạo Video PosterBoard...</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="256"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="261"/>
       <source>Extracting tendie {0}...</source>
       <translation>Đang giải nén tendie {0}...</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="261"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="266"/>
       <source>Configuring template {0}...</source>
       <translation>Đang thiết lập mẫu {0}...</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="264"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="269"/>
       <source>Adding tendies...</source>
       <translation>Đang thêm tendies...</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="266"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="271"/>
       <source>Adding other tweaks...</source>
       <translation>Đang thêm các tinh chỉnh khác...</translation>
     </message>
@@ -1993,18 +2098,34 @@ Nhớ bật Tìm iPhone lên nhé!</translation>
       <source>Creating {0}...</source>
       <translation>Đang tạo {0}...</translation>
     </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="515"/>
+      <location filename="../devicemanagement/device_manager.py" line="626"/>
+      <source>Generating backup...</source>
+      <translation>Đang tạo bản sao lưu...</translation>
+    </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="597"/>
+      <source>DO NOT UNPLUG</source>
+      <translation>KHÔNG ĐƯỢC RÚT DÂY USB</translation>
+    </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="597"/>
+      <source>Preparing to restore...</source>
+      <translation>Đang chuẩn bị khôi phục...</translation>
+    </message>
   </context>
   <context>
     <name>QtCore.QCoreApplication</name>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="208"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="216"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="233"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="210"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="218"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="235"/>
       <source>Error!</source>
       <translation>Lỗi!</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="209"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="211"/>
       <source>You selected too many tendies files! The limit is 3.
 
 This is for your safety. Please apply the rest separately.</source>
@@ -2013,22 +2134,22 @@ This is for your safety. Please apply the rest separately.</source>
 Đây là vì sự an toàn của bạn. Vui lòng áp dụng phần còn lại riêng 3 cái mỗi lần.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="217"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="234"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="219"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="236"/>
       <source>You selected too many descriptors! The limit is 10.</source>
       <translation>Bạn đã chọn quá nhiều phần mô tả! Giới hạn là 10 cái thôi.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="37"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="245"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="248"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="38"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="247"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="250"/>
       <source>Current Thumbnail: {0}</source>
       <translation>Hình thu nhỏ Hiện có: {0}</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="38"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="254"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="259"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="39"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="256"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="261"/>
       <source>Current Video: {0}</source>
       <translation>Video Hiện tại: {0}</translation>
     </message>
@@ -2094,17 +2215,17 @@ Không có tệp nào được chọn cho tùy chọn bắt buộc</translation>
   <context>
     <name>PosterboardPage</name>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="31"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="32"/>
       <source>Collections</source>
       <translation>Bộ sưu tập</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="32"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="33"/>
       <source>Suggested Photos</source>
       <translation>Ảnh được gợi ý</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="33"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="34"/>
       <source>Gallery Cache</source>
       <translation>Cache hình nền</translation>
     </message>
@@ -2112,7 +2233,7 @@ Không có tệp nào được chọn cho tùy chọn bắt buộc</translation>
   <context>
     <name>MainWindow</name>
     <message>
-      <location filename="../gui/main_window.py" line="157"/>
+      <location filename="../gui/main_window.py" line="142"/>
       <source>Warning: You are on iOS 26 beta.
 
 This has been known to cause problems and potentially lead to bootloops.
@@ -2125,7 +2246,7 @@ Phiên bản iOS này có khả năng sẽ mắc phải một số vấn đề v
 Khuyên không nghe, hậu quả tự chịu!</translation>
     </message>
     <message>
-      <location filename="../gui/main_window.py" line="48"/>
+      <location filename="../gui/main_window.py" line="34"/>
       <source>None</source>
       <translation>Không có thiết bị</translation>
     </message>

@@ -236,6 +236,22 @@ def load_springboard():
         "SBAlwaysShowSystemApertureInSnapshots": BasicPlistTweak(
             FileLocation.springboard,
             "SBAlwaysShowSystemApertureInSnapshots"
+        ),
+        "SBShowAuthenticationEngineeringUI": BasicPlistTweak(
+            FileLocation.springboard,
+            "SBShowAuthenticationEngineeringUI"
+        ),
+        "UseFloatingTabBar": AdvancedPlistTweak(
+            FileLocation.uikit,
+            {
+             "UseFloatingTabBar": False
+            },
+        ),
+        "UIScreenIsCapturedValue": AdvancedPlistTweak(
+            FileLocation.uikit,
+            {
+                "UIScreenIsCapturedValue": False
+            }
         )
     }
     tweaks.update(additional_tweaks)
@@ -280,6 +296,10 @@ def load_internal():
             FileLocation.globalPreferences,
             "AccessoryDeveloperEnabled"
         ),
+        "KeyFlick": BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "GesturesEnabled"
+        ),
         "AppStoreDebug": BasicPlistTweak(
             FileLocation.appStore,
             "debugGestureEnabled"
@@ -307,16 +327,6 @@ def load_internal():
         "AnnounceAllPastes": BasicPlistTweak(
             FileLocation.pasteboard,
             "AnnounceAllPastes"
-        ),
-        "SBShowAuthenticationEngineeringUI": BasicPlistTweak(
-            FileLocation.springboard,
-            "SBShowAuthenticationEngineeringUI"
-        ),
-        "UseFloatingTabBar": AdvancedPlistTweak(
-            FileLocation.uikit,
-            {
-             "UseFloatingTabBar": False
-            },
         )
     }
     tweaks.update(additional_tweaks)

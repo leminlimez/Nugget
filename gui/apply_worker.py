@@ -1,5 +1,8 @@
-from PySide6.QtCore import Signal, QThread
+from PySide6.QtCore import Signal, QThread, QSettings
 from PySide6.QtWidgets import QMessageBox
+from typing import Optional
+
+from gui.pages.pages_list import Page
 
 class ApplyAlertMessage:
     def __init__(self, txt: str, title: str = "Error!", icon = QMessageBox.Critical, detailed_txt: str = None):
@@ -17,13 +20,19 @@ class ApplyThread(QThread):
     def alert_window(self, msg: ApplyAlertMessage):
         self.alert.emit(msg)
     
-    def __init__(self, manager, resetting: bool = False):
+    def __init__(self, manager, settings: QSettings, reset_pages: Optional[list[Page]] = None):
         super().__init__()
         self.manager = manager
-        self.resetting = resetting
+        self.settings = settings
+        self.reset_pages = reset_pages
 
     def do_work(self):
-        self.manager.apply_changes(self.resetting, self.update_label, self.alert_window)
+        if self.reset_pages == None:
+            # applying tweaks
+            self.manager.apply_changes(self.update_label, self.alert_window)
+        else:
+            # resetting tweaks
+            self.manager.reset_tweaks(self.reset_pages, self.settings, self.update_label, self.alert_window)
 
     def run(self):
         self.do_work()

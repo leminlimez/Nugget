@@ -27,6 +27,7 @@ class PosterboardTweak(Tweak):
         self.loop_video = True
         self.reverse_video = False
         self.use_foreground = False
+        self.calculationMode = 'linear'
         self.bundle_id = "com.apple.PosterBoard"
         self.resetModes = []
         self.structure_version = 61
@@ -211,7 +212,11 @@ class PosterboardTweak(Tweak):
             else:
                 contents_path = os.path.join(contents_path, "9183.Custom_Background-810w-1080h@2x~ipad.ca")
             print(f"path at {contents_path}, creating caml")
-            video_handler.create_caml(video_path=self.videoFile, output_file=contents_path, auto_reverses=self.reverse_video, update_label=update_label)
+            video_handler.create_caml(
+                video_path=self.videoFile, output_file=contents_path,
+                auto_reverses=self.reverse_video, calculationMode=self.calculationMode,
+                update_label=update_label
+            )
             
             
 

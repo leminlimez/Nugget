@@ -53,7 +53,7 @@ def get_thumbnail_from_contents(contents: bytes, output_file: str = None):
         contents = get_thumbnail_from_mov(inp_file.name, output_file)
     return contents
 
-def create_caml(video_path: str, output_file: str, auto_reverses: bool, update_label=lambda x: None):
+def create_caml(video_path: str, output_file: str, auto_reverses: bool, calculationMode: str, update_label=lambda x: None):
     cam = cv2.VideoCapture(video_path)
     assets_path = os.path.join(output_file, "assets")
     frame_count = int(cam.get(cv2.CAP_PROP_FRAME_COUNT))
@@ -90,7 +90,7 @@ def create_caml(video_path: str, output_file: str, auto_reverses: bool, update_l
 	  <CALayer allowsEdgeAntialiasing="1" allowsGroupOpacity="1" bounds="0 0 {width} {height}" contentsFormat="RGBA8" cornerCurve="circular" name="CALayer1" position="{int(width/2)} {int(height/2)}">
 	    <contents type="CGImage" src="assets/0.jpg"/>
 	    <animations>
-	      <animation type="CAKeyframeAnimation" calculationMode="linear" keyPath="contents" beginTime="1e-100" duration="{duration}" removedOnCompletion="0" repeatCount="inf" repeatDuration="0" speed="1" timeOffset="0" autoreverses="{reverse}">
+	      <animation type="CAKeyframeAnimation" calculationMode="{calculationMode}" keyPath="contents" beginTime="1e-100" duration="{duration}" removedOnCompletion="0" repeatCount="inf" repeatDuration="0" speed="1" timeOffset="0" autoreverses="{reverse}">
 		<values>\n""")
         while(True):
             # reading from frame 

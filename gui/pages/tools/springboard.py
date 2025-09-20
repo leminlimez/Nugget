@@ -20,6 +20,9 @@ class SpringboardPage(Page):
         self.ui.enableAirPlayChk.toggled.connect(self.on_enableAirPlayChk_clicked)
         self.ui.lockScreenAutoLockSlider.valueChanged.connect(self.on_lockScreenAutoLockSlider_valueChanged)
         self.ui.showApertureInSnapshotsChk.toggled.connect(self.on_showApertureInSnapshotsChk_clicked)
+        self.ui.authEngUICheck.toggled.connect(self.on_authEngUICheck_clicked)
+        self.ui.screenRecordChk.toggled.connect(self.on_screenRecordChk_clicked)
+        self.ui.floatingTabBarChk.toggled.connect(self.on_floatingTabBarChk_clicked)
         
         load_springboard()
 
@@ -45,3 +48,10 @@ class SpringboardPage(Page):
         tweaks["SBMinimumLockscreenIdleTime"].set_value(value, toggle_enabled=True)
     def on_showApertureInSnapshotsChk_clicked(self, checked: bool):
         tweaks["SBAlwaysShowSystemApertureInSnapshots"].set_enabled(checked)
+
+    def on_authEngUICheck_clicked(self, checked: bool):
+        tweaks["SBShowAuthenticationEngineeringUI"].set_enabled(checked)
+    def on_screenRecordChk_clicked(self, checked: bool):
+        tweaks["UIScreenIsCapturedValue"].set_enabled(checked)
+    def on_floatingTabBarChk_clicked(self, checked: bool):
+        tweaks["UseFloatingTabBar"].set_enabled(checked)

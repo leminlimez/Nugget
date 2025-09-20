@@ -5449,6 +5449,52 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
+                  <widget class="Line" name="line_2">
+                   <property name="styleSheet">
+                    <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Plain</enum>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="authEngUICheck">
+                   <property name="text">
+                    <string>Show Red/Green Authentication Line on Lock Screen</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="screenRecordChk">
+                   <property name="toolTip">
+                    <string>Disables detecting when the screen is being recorded</string>
+                   </property>
+                   <property name="text">
+                    <string>Bypass Screen Recording Detection</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="floatingTabBarChk">
+                   <property name="text">
+                    <string>Disable Floating Tab Bar</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="Line" name="line">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <spacer name="verticalSpacer_5">
                    <property name="orientation">
                     <enum>Qt::Vertical</enum>
@@ -5640,15 +5686,21 @@ QComboBox QAbstractItemView::item:hover {
                  </item>
                  <item>
                   <widget class="QCheckBox" name="sbIconVisibilityChk">
+                   <property name="toolTip">
+                    <string>Shows hidden apps like Field Test and Continuity on the home screen</string>
+                   </property>
                    <property name="text">
-                    <string>Force Icon Visibility</string>
+                    <string>Show Hidden Icons on Home Screen</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QCheckBox" name="floatingTabBarChk">
+                  <widget class="QCheckBox" name="keyFlickChk">
+                   <property name="toolTip">
+                    <string>Enables the iPad-style keyboard keyflicks on iPhones</string>
+                   </property>
                    <property name="text">
-                    <string>Disable Floating Tab Bar (iPad only)</string>
+                    <string>Enable Keyboard Character Flick</string>
                    </property>
                   </widget>
                  </item>
@@ -5753,13 +5805,6 @@ QComboBox QAbstractItemView::item:hover {
                   <widget class="QCheckBox" name="showTouchesChk">
                    <property name="text">
                     <string>Show Touches With Debug Info</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="authEngUICheck">
-                   <property name="text">
-                    <string>Show Red/Green Authentication Line on Lock Screen</string>
                    </property>
                   </widget>
                  </item>
@@ -6714,6 +6759,70 @@ Will show up in Collections</string>
                    </widget>
                   </item>
                   <item>
+                   <widget class="QLabel" name="calcModeLbl">
+                    <property name="text">
+                     <string>Frame Calculation Mode</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="calcModeDrp">
+                    <property name="maximumSize">
+                     <size>
+                      <width>325</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string/>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QComboBox {
+	background-color: #3b3b3b;
+    border: none;
+    color: #e8e8e8;
+    font-size: 14px;
+	padding-left: 8px;
+	border-radius: 8px;
+}
+
+QComboBox::drop-down {
+    image: url(:/icon/caret-down-fill.svg);
+	icon-size: 16px;
+    subcontrol-position: right center;
+	margin-right: 8px;
+}
+
+QComboBox QAbstractItemView {
+	background-color: #3b3b3b;
+    outline: none;
+	margin-top: 1px;
+}
+
+QComboBox QAbstractItemView::item {
+	background-color: #3b3b3b;
+	color: #e8e8e8;
+    padding-left: 8px;
+}
+
+QComboBox QAbstractItemView::item:hover {
+    background-color: #535353;
+    color: #ffffff;
+}</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>Linear</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Discrete</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_30">
                     <item>
                      <widget class="QToolButton" name="chooseThumbBtn">
@@ -6751,7 +6860,7 @@ Will show up in Collections</string>
                     <item>
                      <widget class="QToolButton" name="exportPBVideoBtn">
                       <property name="text">
-                       <string>   Export Video as Descriptor</string>
+                       <string>   Export as .tendies</string>
                       </property>
                       <property name="icon">
                        <iconset resource="../resources.qrc">
@@ -8042,14 +8151,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     <item>
                      <widget class="QToolButton" name="removeTweaksBtn">
                       <property name="text">
-                       <string>Remove All Tweaks</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QToolButton" name="resetGestaltBtn">
-                      <property name="text">
-                       <string>Reset Mobile Gestalt</string>
+                       <string>Remove Tweaks</string>
                       </property>
                      </widget>
                     </item>
@@ -8397,31 +8499,6 @@ DO NOT unplug your device during restores.</string>
                    <property name="toolTip">
                     <string/>
                    </property>
-                   <property name="styleSheet">
-                    <string notr="true">QFrame {
-	color: #414141;
-}</string>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="revertRdarChk">
-                   <property name="toolTip">
-                    <string>If you used the rdar/status bar fix in a previous iOS version, this will revert that.</string>
-                   </property>
-                   <property name="text">
-                    <string>Revert rdar Fix (reset resolution)</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="Line" name="revertRdarLine">
                    <property name="styleSheet">
                     <string notr="true">QFrame {
 	color: #414141;

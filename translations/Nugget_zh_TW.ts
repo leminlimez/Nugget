@@ -7,7 +7,7 @@
       <location filename="../gui/dialogs.py" line="25"/>
       <source>The gestalt file looks like it was made for a different device.
 Are you sure you want to use this one?</source>
-      <translation>gestalt檔案看起來是別的裝置的。
+      <translation>gestalt檔案看起來是別的裝置。
 你確定要使用這個嗎？</translation>
     </message>
   </context>
@@ -671,7 +671,7 @@ Please be careful!</source>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3264"/>
-      <location filename="../qt/mainwindow.ui" line="5799"/>
+      <location filename="../qt/mainwindow.ui" line="5958"/>
       <source>Modify</source>
       <translation>修改</translation>
     </message>
@@ -1046,161 +1046,161 @@ Please be careful!</source>
       <translation>底部文字</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5327"/>
+      <location filename="../qt/mainwindow.ui" line="5392"/>
       <source>Disable Lock After Respring</source>
       <translation>停用重啟主畫面後自動鎖定</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5334"/>
+      <location filename="../qt/mainwindow.ui" line="5399"/>
       <source>Disable Screen Dimming While Charging</source>
       <translation>
 停用充電時自動調暗螢幕</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5341"/>
+      <location filename="../qt/mainwindow.ui" line="5406"/>
       <source>Disable Low Battery Alerts</source>
       <translation>關閉低電量警告</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5348"/>
+      <location filename="../qt/mainwindow.ui" line="5420"/>
       <source>Removes '&lt; PreviousAppName' glyph in Status Bar when being forwarded to another app.</source>
       <translation>跳轉至其他 App 時，移除狀態列左上角的「返回上一個 App」文字與箭頭符號。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5351"/>
+      <location filename="../qt/mainwindow.ui" line="5423"/>
       <source>Disable Breadcrumbs</source>
       <translation>移除返回路徑提示文字</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5358"/>
+      <location filename="../qt/mainwindow.ui" line="5430"/>
       <source>Shows info about the device supervision status and organization at the bottom of the lock screen.</source>
       <translation>在鎖定畫面底部顯示裝置的監管狀態與所屬組織資訊。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5361"/>
+      <location filename="../qt/mainwindow.ui" line="5433"/>
       <source>Show Supervision Text on Lock Screen</source>
       <translation>在鎖定畫面顯示監管資訊</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5368"/>
+      <location filename="../qt/mainwindow.ui" line="5447"/>
       <source>Enable AirPlay support for Stage Manager</source>
       <translation>啟用AirPlay在幕前調度的支援</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5469"/>
+      <location filename="../qt/mainwindow.ui" line="5594"/>
       <source>Internal Options</source>
       <translation>內部選項</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5544"/>
+      <location filename="../qt/mainwindow.ui" line="5669"/>
       <source>Show Build Version in Status Bar</source>
       <translation>在狀態欄顯示版本號碼</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5551"/>
+      <location filename="../qt/mainwindow.ui" line="5676"/>
       <source>Force Right-to-Left Layout</source>
       <translation>強制由右到左的介面</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5576"/>
+      <location filename="../qt/mainwindow.ui" line="5728"/>
       <source>Enable Metal HUD Debug</source>
       <translation>啟用Metal HUD的除錯功能</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5583"/>
+      <location filename="../qt/mainwindow.ui" line="5735"/>
       <source>Enable iMessage Debugging</source>
       <translation>啟用iMessage除錯</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5590"/>
+      <location filename="../qt/mainwindow.ui" line="5742"/>
       <source>Enable Continuity Debugging</source>
       <translation>啟用「連續互通功能」除錯</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5597"/>
+      <location filename="../qt/mainwindow.ui" line="5749"/>
       <source>Enable FaceTime Debugging</source>
       <translation>啟用FaceTime除錯</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5619"/>
+      <location filename="../qt/mainwindow.ui" line="5778"/>
       <source>Enable App Store Debug Gesture</source>
       <translation>啟用App Store除錯手勢</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5626"/>
+      <location filename="../qt/mainwindow.ui" line="5785"/>
       <source>Enable Notes Debug Mode</source>
       <translation>啟用備忘錄除錯模式</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5648"/>
+      <location filename="../qt/mainwindow.ui" line="5807"/>
       <source>Show Touches With Debug Info</source>
       <translation>顯示觸控點及除錯資訊</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5655"/>
+      <location filename="../qt/mainwindow.ui" line="5814"/>
       <source>Hide Respring Icon</source>
       <translation>隱藏重啟主畫面圖示</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5662"/>
+      <location filename="../qt/mainwindow.ui" line="5821"/>
       <source>Vibrate on Raise-to-Wake</source>
       <translation>抬起喚醒時震動</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5684"/>
+      <location filename="../qt/mainwindow.ui" line="5843"/>
       <source>Play Sound on Paste</source>
       <translation>貼上時播放聲音</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5691"/>
+      <location filename="../qt/mainwindow.ui" line="5850"/>
       <source>Show Notifications for System Pastes</source>
       <translation>顯示系統剪貼簿貼上的通知</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5792"/>
-      <location filename="../qt/mainwindow.ui" line="7530"/>
+      <location filename="../qt/mainwindow.ui" line="5951"/>
+      <location filename="../qt/mainwindow.ui" line="7770"/>
       <source>Daemons</source>
       <translation>背景程式</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5840"/>
+      <location filename="../qt/mainwindow.ui" line="5999"/>
       <source>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
 it enabled.</source>
       <translation>註：即使是在 Sparserestore 版本中，此功能仍使用一般網域。
 如果你已啟用 Skip Setup，該功能將照常生效。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5866"/>
+      <location filename="../qt/mainwindow.ui" line="6025"/>
       <source>Stops over-the-air updates to prevent auto-downloads.</source>
       <translation>關閉OTA更新來避免自動下載更新</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5869"/>
+      <location filename="../qt/mainwindow.ui" line="6028"/>
       <source>Disable OTA</source>
       <translation>停用OTA更新</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5876"/>
+      <location filename="../qt/mainwindow.ui" line="6035"/>
       <source>Disables usage tracking for improved privacy.</source>
       <translation>停用使用量追蹤來達到更好的隱私</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5879"/>
+      <location filename="../qt/mainwindow.ui" line="6038"/>
       <source>Disable UsageTrackingAgent</source>
       <translation>停用用量追蹤服務</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5886"/>
+      <location filename="../qt/mainwindow.ui" line="6045"/>
       <source>Disables Screen Time monitoring features.</source>
       <translation>停用螢幕使用時間監控功能</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5889"/>
+      <location filename="../qt/mainwindow.ui" line="6048"/>
       <source>Disable Screen Time Agent</source>
       <translation>停用螢幕使用時間服務</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5896"/>
+      <location filename="../qt/mainwindow.ui" line="6055"/>
       <source>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
 
 To work properly, also disable the daemon using the toggle above.</source>
@@ -1209,202 +1209,202 @@ To work properly, also disable the daemon using the toggle above.</source>
 為了讓此功能正常運作，請同時使用上方的開關停用該背景程式（daemon）。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5901"/>
+      <location filename="../qt/mainwindow.ui" line="6060"/>
       <source>Clear ScreenTimeAgent.plist file</source>
       <translation>清除ScreenTimeAgent.plist檔案</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5908"/>
+      <location filename="../qt/mainwindow.ui" line="6067"/>
       <source>Stops logs, dumps, and crash reports collection.</source>
       <translation>停止收集日誌、記錄檔以及當機報告。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5911"/>
+      <location filename="../qt/mainwindow.ui" line="6070"/>
       <source>Disable Logs, Dumps, and Crash Reports</source>
       <translation>停止收集日誌、記錄檔以及當機報告</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5918"/>
+      <location filename="../qt/mainwindow.ui" line="6087"/>
       <source>Disables pinging to sleeping bluetooth devices for improved battery life.</source>
       <translation>停用對處於睡眠狀態藍牙裝置的訊號偵測，以延長電池續航。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5921"/>
+      <location filename="../qt/mainwindow.ui" line="6090"/>
       <source>Disable ATWAKEUP</source>
       <translation>停用ATWAKEUP</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5943"/>
+      <location filename="../qt/mainwindow.ui" line="6112"/>
       <source>Turns off Game Center background services.</source>
       <translation>關閉Game Center的背景服務</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5946"/>
+      <location filename="../qt/mainwindow.ui" line="6115"/>
       <source>Disable Game Center</source>
       <translation>停用Game Center</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5953"/>
+      <location filename="../qt/mainwindow.ui" line="6122"/>
       <source>Disables the Tips service and notifications.</source>
       <translation>停用「提示」服務及相關通知。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5956"/>
+      <location filename="../qt/mainwindow.ui" line="6125"/>
       <source>Disable Tips Services</source>
       <translation>停用提示服務</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5963"/>
+      <location filename="../qt/mainwindow.ui" line="6132"/>
       <source>Disables the Virtual Private Network service.</source>
       <translation>停用VPN服務。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5966"/>
+      <location filename="../qt/mainwindow.ui" line="6135"/>
       <source>Disable VPN Service</source>
       <translation>停用VPN服務</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5973"/>
+      <location filename="../qt/mainwindow.ui" line="6142"/>
       <source>Disables the service that deals with errors with WiFi networks with Chinese characters in the name.</source>
       <translation>停用處理 WiFi 網路名稱含中文字符錯誤的服務。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5976"/>
+      <location filename="../qt/mainwindow.ui" line="6145"/>
       <source>Disable Chinese WLAN Service</source>
       <translation>停用中文無線網路服務</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5983"/>
+      <location filename="../qt/mainwindow.ui" line="6152"/>
       <source>Disables HealthKit services used by the health app.</source>
       <translation>停用健康app使用的HealthKit服務</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5986"/>
+      <location filename="../qt/mainwindow.ui" line="6155"/>
       <source>Disable HealthKit</source>
       <translation>停用HealthKit </translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6008"/>
+      <location filename="../qt/mainwindow.ui" line="6177"/>
       <source>Disable AirPrint</source>
       <translation>停用AirPrint</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6015"/>
+      <location filename="../qt/mainwindow.ui" line="6184"/>
       <source>Disable Assistive Touch</source>
       <translation>停用輔助觸控</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6022"/>
+      <location filename="../qt/mainwindow.ui" line="6191"/>
       <source>Disable iCloud</source>
       <translation>停用iCloud</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6029"/>
+      <location filename="../qt/mainwindow.ui" line="6198"/>
       <source>Disable Internet Tethering (Hotspot)</source>
       <translation>停用網路共享（個人熱點）</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6036"/>
+      <location filename="../qt/mainwindow.ui" line="6205"/>
       <source>Disable Passbook</source>
       <translation>停用錢包</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6043"/>
+      <location filename="../qt/mainwindow.ui" line="6212"/>
       <source>Disable Spotlight</source>
       <translation>停用Spotlight</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6050"/>
+      <location filename="../qt/mainwindow.ui" line="6219"/>
       <source>Disable Voice Control</source>
       <translation>停用語音控制</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6151"/>
+      <location filename="../qt/mainwindow.ui" line="6327"/>
       <source>Posterboard</source>
       <translation>Posterboard</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6190"/>
+      <location filename="../qt/mainwindow.ui" line="6366"/>
       <source>   Discover Wallpapers</source>
       <translation>   探索桌布</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6281"/>
+      <location filename="../qt/mainwindow.ui" line="6457"/>
       <source>  Tendies</source>
       <translation>  Tendies</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6301"/>
+      <location filename="../qt/mainwindow.ui" line="6477"/>
       <source>   Templates</source>
       <translation>   範本</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6324"/>
+      <location filename="../qt/mainwindow.ui" line="6500"/>
       <source>   Video</source>
       <translation>   影片</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6354"/>
+      <location filename="../qt/mainwindow.ui" line="6530"/>
       <source>Clear Action:</source>
       <translation>清除操作：</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6410"/>
-      <location filename="../qt/mainwindow.ui" line="6497"/>
-      <location filename="../qt/mainwindow.ui" line="6831"/>
+      <location filename="../qt/mainwindow.ui" line="6586"/>
+      <location filename="../qt/mainwindow.ui" line="6673"/>
+      <location filename="../qt/mainwindow.ui" line="7071"/>
       <source>Select a wallpaper file with the .tendies extension.</source>
       <translation>選擇一個帶有.tendies副檔名的桌布檔案。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6416"/>
+      <location filename="../qt/mainwindow.ui" line="6592"/>
       <source>  Import Files (.tendies)</source>
       <translation>  匯入檔案(.tendies)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6503"/>
-      <location filename="../qt/mainwindow.ui" line="6837"/>
+      <location filename="../qt/mainwindow.ui" line="6679"/>
+      <location filename="../qt/mainwindow.ui" line="7077"/>
       <source>  Import Templates (.batter)</source>
       <translation>  匯入範本 (.batter)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6560"/>
+      <location filename="../qt/mainwindow.ui" line="6736"/>
       <source>Uses the CoreAnimation file to play the video (300 fps limit)
 Will show up in Collections</source>
       <translation>使用CoreAnimation檔案來播放影片(限制300fps)
 會顯示在「精選」</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6564"/>
+      <location filename="../qt/mainwindow.ui" line="6740"/>
       <source>Loop (use CoreAnimation method)</source>
       <translation>循環播放(使用CoreAnimation的方法)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6574"/>
+      <location filename="../qt/mainwindow.ui" line="6750"/>
       <source>Reverse on Loop</source>
       <translation>循環播放的時候反向</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6581"/>
+      <location filename="../qt/mainwindow.ui" line="6757"/>
       <source>Make Foreground (hides clock)</source>
       <translation>變成前景(隱藏時鐘)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6590"/>
+      <location filename="../qt/mainwindow.ui" line="6830"/>
       <source>Choose a photo for the wallpaper to freeze on when finished (.heic files only)</source>
       <translation>選擇一個圖片讓動畫結束的時候凍結在那張圖片上(僅限.heic的檔案)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6593"/>
+      <location filename="../qt/mainwindow.ui" line="6833"/>
       <source>Choose Freeze Frame (.HEIC)</source>
       <translation>選擇凍結的幀(.HEIC)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6600"/>
+      <location filename="../qt/mainwindow.ui" line="6840"/>
       <source>Choose a video file for the wallpaper (.mov or .mp4)</source>
       <translation>為桌布選擇一個影片檔(.mov或.mo4)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6603"/>
+      <location filename="../qt/mainwindow.ui" line="6843"/>
       <source>Choose Video</source>
       <translation>選擇影片</translation>
     </message>
@@ -1414,17 +1414,17 @@ Will show up in Collections</source>
       <translation>   匯出影片作為Descriptor</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6748"/>
+      <location filename="../qt/mainwindow.ui" line="6988"/>
       <source>Templates</source>
       <translation>範本</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6970"/>
+      <location filename="../qt/mainwindow.ui" line="7210"/>
       <source>Risky Options</source>
       <translation>有風險的選項</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7045"/>
+      <location filename="../qt/mainwindow.ui" line="7285"/>
       <source>Disclaimer:
 
 The options on this page may be unsafe for your device. Use these options at your own risk. Changing
@@ -1439,17 +1439,17 @@ Nugget is not responsible if you mess up your device, especially with resolution
 Nugget 對您因操作錯誤導致的任何問題概不負責，特別是在使用解析度調整功能時，請務必小心。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7072"/>
+      <location filename="../qt/mainwindow.ui" line="7312"/>
       <source>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</source>
       <translation>此操作會使用檔案方式處理。建議改為在「背景服務」標籤頁中停用該背景服務</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7075"/>
+      <location filename="../qt/mainwindow.ui" line="7315"/>
       <source>Disable OTA Updates (file)</source>
       <translation>停用OTA更新(檔案方式)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7082"/>
+      <location filename="../qt/mainwindow.ui" line="7322"/>
       <source>Disables temperature monitoring daemon to reduce system checks.
 
 Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified" in Settings.</source>
@@ -1457,87 +1457,87 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
 警告：停用後，電池資訊將在「設定」中顯示為「未知零件」或「無法驗證」。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7087"/>
+      <location filename="../qt/mainwindow.ui" line="7327"/>
       <source>Disable thermalmonitord</source>
       <translation>停用溫度監控</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7109"/>
+      <location filename="../qt/mainwindow.ui" line="7349"/>
       <source>Set a custom device screen resolution.</source>
       <translation>設定一個自訂的裝置解析度</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7112"/>
+      <location filename="../qt/mainwindow.ui" line="7352"/>
       <source>Set a Custom Device Resolution</source>
       <translation>設定自訂裝置解析度</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7140"/>
+      <location filename="../qt/mainwindow.ui" line="7380"/>
       <source>Height:</source>
       <translation>高度：</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7155"/>
+      <location filename="../qt/mainwindow.ui" line="7395"/>
       <source>Resolution Height</source>
       <translation>解析度高度</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7196"/>
+      <location filename="../qt/mainwindow.ui" line="7436"/>
       <source>Width:</source>
       <translation>寬度：</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7213"/>
+      <location filename="../qt/mainwindow.ui" line="7453"/>
       <source>Resolution Width</source>
       <translation>解析度寬度</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7353"/>
+      <location filename="../qt/mainwindow.ui" line="7593"/>
       <source>Miscellaneous Options</source>
       <translation>其他選項</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7463"/>
+      <location filename="../qt/mainwindow.ui" line="7703"/>
       <source>Springboard</source>
       <translation>主畫面系統</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7498"/>
+      <location filename="../qt/mainwindow.ui" line="7738"/>
       <source>Internal</source>
       <translation>內部</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7559"/>
+      <location filename="../qt/mainwindow.ui" line="7799"/>
       <source>Risky</source>
       <translation>風險的</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7688"/>
+      <location filename="../qt/mainwindow.ui" line="7928"/>
       <source>Apply</source>
       <translation>套用</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7749"/>
+      <location filename="../qt/mainwindow.ui" line="7989"/>
       <source>Current gestalt file location:</source>
       <translation>目前的gestalt檔案位置</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7777"/>
+      <location filename="../qt/mainwindow.ui" line="8017"/>
       <source>  Choose Gestalt File</source>
       <translation>  選擇Gestalt檔案</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7808"/>
+      <location filename="../qt/mainwindow.ui" line="8048"/>
       <source>  Apply Changes</source>
       <translation>  套用改動</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7825"/>
+      <location filename="../qt/mainwindow.ui" line="8065"/>
       <source>Ready!</source>
       <translation>準備好了！</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7863"/>
+      <location filename="../qt/mainwindow.ui" line="8103"/>
       <source>Note: Skip Setup is currently turned on.</source>
       <translation>提示：跳過設定流程目前是啟用狀態</translation>
     </message>
@@ -1552,42 +1552,42 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
       <translation>重設Mobile Gestalt檔案</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8025"/>
+      <location filename="../qt/mainwindow.ui" line="8258"/>
       <source>Nugget Settings</source>
       <translation>Nugget設定</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8205"/>
+      <location filename="../qt/mainwindow.ui" line="8438"/>
       <source>Allow Applying Over WiFi</source>
       <translation>允許透過Wi-Fi套用改動</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8215"/>
+      <location filename="../qt/mainwindow.ui" line="8448"/>
       <source>Auto Reboot After Applying</source>
       <translation>套用後自動重新開機</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8225"/>
+      <location filename="../qt/mainwindow.ui" line="8458"/>
       <source>Show Risky Tweak Options</source>
       <translation>顯示有風險的調整選項</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8232"/>
+      <location filename="../qt/mainwindow.ui" line="8465"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
       <translation>在AI裝置偽裝頁面顯示其他裝置種類的型號</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8241"/>
+      <location filename="../qt/mainwindow.ui" line="8474"/>
       <source>Show All Spoofable Models</source>
       <translation>顯示所有可偽裝的型號</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8248"/>
+      <location filename="../qt/mainwindow.ui" line="8481"/>
       <source>Ignore Posterboard Frame Limit</source>
       <translation>忽略Posterboard的幀數限制</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8255"/>
+      <location filename="../qt/mainwindow.ui" line="8488"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
@@ -1596,7 +1596,7 @@ DO NOT unplug your device during restores.</source>
 「不要」在裝置設定時拔掉你的線。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8260"/>
+      <location filename="../qt/mainwindow.ui" line="8493"/>
       <source>Disable Tendies Limit</source>
       <translation>停用Tendies限制</translation>
     </message>
@@ -1611,42 +1611,42 @@ DO NOT unplug your device during restores.</source>
       <translation>回復rdar修復(重設解析度)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8310"/>
+      <location filename="../qt/mainwindow.ui" line="8518"/>
       <source>Restores the SSL config that does something idk</source>
       <translation>恢復我也不知道會做什麼事的SSL 設定</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8313"/>
+      <location filename="../qt/mainwindow.ui" line="8521"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
       <translation>恢復 TrustStore(SSL 配置設定檔)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8323"/>
+      <location filename="../qt/mainwindow.ui" line="8531"/>
       <source>Skip Setup * (non-exploit files only)</source>
       <translation>跳過設定流程*(僅限非漏洞利用檔案)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8336"/>
+      <location filename="../qt/mainwindow.ui" line="8544"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
       <translation>啟用監管模式*(需先啟用跳過設定流程)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8346"/>
+      <location filename="../qt/mainwindow.ui" line="8554"/>
       <source>Enter Organization Name</source>
       <translation>輸入組織名稱</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8369"/>
+      <location filename="../qt/mainwindow.ui" line="8577"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
       <translation>*提示：跳過設定流程可能會導致設定描述檔出現問題。若你需要使用描述檔，請關閉此功能。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8396"/>
+      <location filename="../qt/mainwindow.ui" line="8604"/>
       <source>Reset Device Pairing</source>
       <translation>重設裝置配對</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8410"/>
+      <location filename="../qt/mainwindow.ui" line="8618"/>
       <source>Pocket Poster Helper</source>
       <translation>Pocket Poster助手</translation>
     </message>
@@ -1655,7 +1655,7 @@ DO NOT unplug your device during restores.</source>
       <location filename="../qt/mainwindow.ui" line="1205"/>
       <location filename="../qt/mainwindow.ui" line="1229"/>
       <location filename="../qt/mainwindow.ui" line="1254"/>
-      <location filename="../qt/mainwindow.ui" line="6216"/>
+      <location filename="../qt/mainwindow.ui" line="6392"/>
       <source>...</source>
       <translation>…</translation>
     </message>
@@ -1681,9 +1681,114 @@ DO NOT unplug your device during restores.</source>
       <translation>狀態欄日期文字</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8165"/>
+      <location filename="../qt/mainwindow.ui" line="8398"/>
       <source>App Language</source>
       <translation>App語言</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="6863"/>
+      <source>   Export as .tendies</source>
+      <translation>   匯出為.tendies檔案</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="8154"/>
+      <source>Remove Tweaks</source>
+      <translation>移除修改項目</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5332"/>
+      <source>Auto‑Lock (Lock Screen)</source>
+      <translation>自動鎖定(鎖定畫面)</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5413"/>
+      <source>Hide AC Power on Lock Screen</source>
+      <translation></translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5440"/>
+      <source>Show Dynamic Island in Screenshots</source>
+      <translation>在螢幕截圖中顯示動態島</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5469"/>
+      <source>Show Red/Green Authentication Line on Lock Screen</source>
+      <translation>在鎖定畫面中顯示紅色/綠色的驗證線</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5476"/>
+      <source>Disables detecting when the screen is being recorded</source>
+      <translation>在螢幕錄影時不會被偵測到</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5479"/>
+      <source>Bypass Screen Recording Detection</source>
+      <translation>規避偵測螢幕錄影的功能</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5486"/>
+      <source>Disable Floating Tab Bar</source>
+      <translation>關閉懸浮的標籤列</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5683"/>
+      <source>Force Left-to-Right Layout</source>
+      <translation>強制由左到右的布局</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5690"/>
+      <source>Shows hidden apps like Field Test and Continuity on the home screen</source>
+      <translation>在主畫面顯示被系統隱藏的app(如「現場測試」或「接續互通」)</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5693"/>
+      <source>Show Hidden Icons on Home Screen</source>
+      <translation>在主畫面顯示隱藏的圖示</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5700"/>
+      <source>Enables the iPad-style keyboard keyflicks on iPhones</source>
+      <translation>在iPhone上啟用iPad鍵盤的「按鍵輕拂」功能</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5703"/>
+      <source>Enable Keyboard Character Flick</source>
+      <translation>啟用鍵盤的按鍵輕拂功能</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="5756"/>
+      <source>Show Accessory Developer Settings</source>
+      <translation>顯示配件開發者設定</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="6077"/>
+      <source>Disables tools that monitor and test hardware or system behavior for faults and performance issues.</source>
+      <translation>關閉監測硬體或系統的錯誤或性能問題之工具。</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="6080"/>
+      <source>Disable System Diagnostics</source>
+      <translation>關閉系統診斷</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="6226"/>
+      <source>Disable NanoTimeKit (Apple Watch Face Sync)</source>
+      <translation>關閉NanoTimeKit(Apple Watch錶面同步)</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="6764"/>
+      <source>Frame Calculation Mode</source>
+      <translation>影格計算模式</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="6815"/>
+      <source>Linear</source>
+      <translation>線性</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="6820"/>
+      <source>Discrete</source>
+      <translation>離散</translation>
     </message>
   </context>
   <context>
@@ -1732,13 +1837,13 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
       <translation>請連接一個裝置。</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="162"/>
-      <location filename="../gui/pages/main/settings.py" line="172"/>
+      <location filename="../gui/pages/main/settings.py" line="166"/>
+      <location filename="../gui/pages/main/settings.py" line="176"/>
       <source>PosterBoard App Hash</source>
       <translation>PosterBoard App 雜湊值</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="162"/>
+      <location filename="../gui/pages/main/settings.py" line="166"/>
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
@@ -1747,17 +1852,17 @@ Open up its settings and tap "Detect".</source>
 開啟該應用程式的設定，然後點選「偵測」。</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="166"/>
+      <location filename="../gui/pages/main/settings.py" line="170"/>
       <source>Copy it and paste it</source>
       <translation>複製他並貼上他</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="170"/>
+      <location filename="../gui/pages/main/settings.py" line="174"/>
       <source>It has been copied. Paste it</source>
       <translation>他已經被複製了。請貼上他</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="172"/>
+      <location filename="../gui/pages/main/settings.py" line="176"/>
       <source>Your hash is:
 {0}
 
@@ -1773,67 +1878,67 @@ Open up its settings and tap "Detect".</source>
       <translation>影片一定要低於{0}幀才能循環。你可以選擇減少幀率或是讓影片短一點。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="58"/>
+      <location filename="../devicemanagement/device_manager.py" line="59"/>
       <source>Find My must be disabled in order to use this tool.</source>
       <translation>一定要停用「尋找」才可以使用這個工具。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="59"/>
+      <location filename="../devicemanagement/device_manager.py" line="60"/>
       <source>Disable Find My from Settings (Settings -&gt; [Your Name] -&gt; Find My) and then try again.</source>
       <translation>請在設定中停用「尋找」(設定-&gt;[你的名字]-&gt;「尋找」)然後再試一次。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="61"/>
+      <location filename="../devicemanagement/device_manager.py" line="62"/>
       <source>Nugget cannot be used on this device. Click Show Details for more info.</source>
       <translation>Nugget在這個裝置上不可用。點擊顯示細節來取得更多資訊。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="62"/>
+      <location filename="../devicemanagement/device_manager.py" line="63"/>
       <source>Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!</source>
       <translation>偵測到您的裝置受 MDM 管理，且已啟用備份加密功能。Nugget 無法在此情況下正常運作，請先關閉此設定。請勿在學校或公司管理的裝置上使用 Nugget！</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="64"/>
+      <location filename="../devicemanagement/device_manager.py" line="65"/>
       <source>The session was terminated. Refresh the device list and try again.</source>
       <translation>操作階段已中斷。請重新整理裝置列表後再試一次。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="66"/>
+      <location filename="../devicemanagement/device_manager.py" line="67"/>
       <source>Device is password protected! You must trust the computer on your device.</source>
       <translation>裝置被密碼鎖著！你必須在你的裝置上信任這台電腦。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="67"/>
+      <location filename="../devicemanagement/device_manager.py" line="68"/>
       <source>Unlock your device. On the popup, click "Trust", enter your password, then try again.</source>
       <translation>解鎖你的裝置。在彈出視窗中點擊「信任」，輸入你的裝置密碼，然後再試一次。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="70"/>
+      <location filename="../devicemanagement/device_manager.py" line="71"/>
       <source>Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info.</source>
       <translation>裝置傳送檔案失敗。可能原因為檔案清單已損壞或包含重複項目。請點選顯示詳細資訊以取得更多說明。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="104"/>
+      <location filename="../devicemanagement/device_manager.py" line="105"/>
       <source>If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.</source>
       <translation>如果你用Linux，請確保你安裝了usbmuxd跟libimobiledevice。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="106"/>
+      <location filename="../devicemanagement/device_manager.py" line="107"/>
       <source>Make sure you have the "Apple Devices" app from the Microsoft Store or iTunes from Apple's website.</source>
       <translation>確保你有從Microsoft Store安裝「Apple裝置」app或是從Apple官網安裝iTunes。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="107"/>
+      <location filename="../devicemanagement/device_manager.py" line="108"/>
       <source>Failed to get device list. Click "Show Details" for the traceback.</source>
       <translation>無法取得裝置清單。請點選「顯示詳細資訊」以查看錯誤追蹤。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="140"/>
+      <location filename="../devicemanagement/device_manager.py" line="141"/>
       <source>Click "Show Details" for the traceback.</source>
       <translation>請點選「顯示詳細資訊」以查看錯誤追蹤。 </translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="157"/>
+      <location filename="../devicemanagement/device_manager.py" line="158"/>
       <source>Device is password protected! You must trust the computer on your device.
 
 Unlock your device. On the popup, click "Trust", enter your password, then try again.</source>
@@ -1842,28 +1947,28 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
 解鎖你的裝置。在彈出視窗中點擊「信任」，輸入你的裝置密碼，然後再試一次。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="161"/>
+      <location filename="../devicemanagement/device_manager.py" line="162"/>
       <source>If you keep receiving this error, try using a different cable or port.</source>
       <translation>如果你持續收到這個錯誤，嘗試換一條線或是換一個接口。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="274"/>
+      <location filename="../devicemanagement/device_manager.py" line="277"/>
       <source>Pairing Reset</source>
       <translation>重設配對</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="274"/>
+      <location filename="../devicemanagement/device_manager.py" line="277"/>
       <source>Your device's pairing was successfully reset. Refresh the device list before applying.</source>
       <translation>你的裝置配對成功重設了。請在套用變更之前刷新裝置列表。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="501"/>
+      <location filename="../devicemanagement/device_manager.py" line="503"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
       <translation>沒有提供mobilegestalt檔案！請選擇你的檔案才能套用mobilegestalt的調整項目。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="628"/>
-      <location filename="../devicemanagement/device_manager.py" line="662"/>
+      <location filename="../devicemanagement/device_manager.py" line="604"/>
+      <location filename="../devicemanagement/device_manager.py" line="705"/>
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
@@ -1872,22 +1977,22 @@ Remember to turn Find My back on!</source>
 記得把「尋找」重新打開！</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="630"/>
-      <location filename="../devicemanagement/device_manager.py" line="664"/>
+      <location filename="../devicemanagement/device_manager.py" line="606"/>
+      <location filename="../devicemanagement/device_manager.py" line="707"/>
       <source>Please restart your device to see changes.</source>
       <translation>請重新啟動你的裝置來查看變更。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="630"/>
-      <location filename="../devicemanagement/device_manager.py" line="664"/>
+      <location filename="../devicemanagement/device_manager.py" line="606"/>
+      <location filename="../devicemanagement/device_manager.py" line="707"/>
       <source>All done! </source>
       <translation>全部完成！ </translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="630"/>
-      <location filename="../devicemanagement/device_manager.py" line="631"/>
-      <location filename="../devicemanagement/device_manager.py" line="664"/>
-      <location filename="../devicemanagement/device_manager.py" line="665"/>
+      <location filename="../devicemanagement/device_manager.py" line="606"/>
+      <location filename="../devicemanagement/device_manager.py" line="607"/>
+      <location filename="../devicemanagement/device_manager.py" line="707"/>
+      <location filename="../devicemanagement/device_manager.py" line="708"/>
       <source>Success!</source>
       <translation>成功！</translation>
     </message>
@@ -1907,69 +2012,69 @@ Remember to turn Find My back on!</source>
       <translation>部分支援。</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="40"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="41"/>
       <source>Wrong type of file</source>
       <translation>錯誤的檔案類型</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="48"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="49"/>
       <source>Warning</source>
       <translation>警告</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="49"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="50"/>
       <source>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</source>
       <translation>注意：你可能需要重設所有的桌布(在設定的有風險的選項啟用)然後重新套用這個檔案才有效。</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="66"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="67"/>
       <location filename="../tweaks/posterboard/template_options/templates_tweak.py" line="34"/>
       <source>Error</source>
       <translation>錯誤</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="67"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="68"/>
       <location filename="../tweaks/posterboard/template_options/templates_tweak.py" line="35"/>
       <source>Failed to load template</source>
       <translation>載入範本失敗</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="199"/>
+      <location filename="../devicemanagement/device_manager.py" line="200"/>
       <source>No Device</source>
       <translation>沒有裝置</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="440"/>
+      <location filename="../devicemanagement/device_manager.py" line="443"/>
       <source>Restoring to device...{0}{1}</source>
       <translation>正在恢復裝置…{0}{1}</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="445"/>
+      <location filename="../devicemanagement/device_manager.py" line="448"/>
       <source>Applying changes to files...</source>
       <translation>正在套用變更到檔案上…</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="251"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="256"/>
       <source>Generating PosterBoard Video...</source>
       <translation>正在生成PosterBoard影片…</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="256"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="261"/>
       <source>Extracting tendie {0}...</source>
       <translation>正在提取tendie {0}</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="261"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="266"/>
       <source>Configuring template {0}...</source>
       <translation>正在設定模板 {0}…</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="264"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="269"/>
       <source>Adding tendies...</source>
       <translation>正在添加tendies檔案…</translation>
     </message>
     <message>
-      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="266"/>
+      <location filename="../tweaks/posterboard/posterboard_tweak.py" line="271"/>
       <source>Adding other tweaks...</source>
       <translation>正在添加其他調整項目…</translation>
     </message>
@@ -1998,18 +2103,34 @@ Remember to turn Find My back on!</source>
       <source>Creating {0}...</source>
       <translation>正在創建{0}…</translation>
     </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="515"/>
+      <location filename="../devicemanagement/device_manager.py" line="626"/>
+      <source>Generating backup...</source>
+      <translation>正在生成備份...</translation>
+    </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="597"/>
+      <source>DO NOT UNPLUG</source>
+      <translation>請勿中斷裝置連接</translation>
+    </message>
+    <message>
+      <location filename="../devicemanagement/device_manager.py" line="597"/>
+      <source>Preparing to restore...</source>
+      <translation>準備回復...</translation>
+    </message>
   </context>
   <context>
     <name>QtCore.QCoreApplication</name>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="208"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="216"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="233"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="210"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="218"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="235"/>
       <source>Error!</source>
       <translation>錯誤！</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="209"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="211"/>
       <source>You selected too many tendies files! The limit is 3.
 
 This is for your safety. Please apply the rest separately.</source>
@@ -2018,22 +2139,22 @@ This is for your safety. Please apply the rest separately.</source>
 這是為了您的安全。請分開套用剩下的檔案。</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="217"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="234"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="219"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="236"/>
       <source>You selected too many descriptors! The limit is 10.</source>
       <translation>你選擇太多descriptors了！限制是10個。</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="37"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="245"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="248"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="38"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="247"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="250"/>
       <source>Current Thumbnail: {0}</source>
       <translation>目前縮圖：{0}</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="38"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="254"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="259"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="39"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="256"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="261"/>
       <source>Current Video: {0}</source>
       <translation>目前影片：{0}</translation>
     </message>
@@ -2099,17 +2220,17 @@ No selected file for required option</source>
   <context>
     <name>PosterboardPage</name>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="31"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="32"/>
       <source>Collections</source>
       <translation>收藏</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="32"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="33"/>
       <source>Suggested Photos</source>
       <translation>建議的圖片</translation>
     </message>
     <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="33"/>
+      <location filename="../gui/pages/tools/posterboard.py" line="34"/>
       <source>Gallery Cache</source>
       <translation>圖庫快取</translation>
     </message>
@@ -2117,7 +2238,7 @@ No selected file for required option</source>
   <context>
     <name>MainWindow</name>
     <message>
-      <location filename="../gui/main_window.py" line="157"/>
+      <location filename="../gui/main_window.py" line="142"/>
       <source>Warning: You are on iOS 26 beta.
 
 This has been known to cause problems and potentially lead to bootloops.
@@ -2130,7 +2251,7 @@ Use at your own risk!</source>
 請自行承擔使用風險！</translation>
     </message>
     <message>
-      <location filename="../gui/main_window.py" line="48"/>
+      <location filename="../gui/main_window.py" line="34"/>
       <source>None</source>
       <translation>無</translation>
     </message>
