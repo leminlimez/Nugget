@@ -153,11 +153,6 @@ python3 main_app.py
 > [!NOTE]
 > Depending on your system configuration, use either `python/pip` or `python3/pip3`.
 
-The CLI version can be run with:
-```py 
-python3 cli_app.py
-```
-
 ## Getting the File
 On iOS 18.1.1 and below, you may need to get the mobilegestalt file that is specific to your device. To do that, follow these steps:
 1. Install the [Shortcuts][ShortcutsApp] app from the iOS app store.
