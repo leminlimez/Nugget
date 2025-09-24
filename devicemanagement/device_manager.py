@@ -554,6 +554,7 @@ class DeviceManager:
                     owner=ownership, group=ownership
                 )
             for location, data in files_data.items():
+                ownership = basic_plists_ownership[location]
                 self.concat_file(
                     contents=data,
                     path=location.value,
