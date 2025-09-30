@@ -7,6 +7,7 @@ from PySide6.QtWidgets import QMessageBox
 from PySide6.QtCore import QSettings, QCoreApplication
 
 from pymobiledevice3 import usbmux
+from pymobiledevice3.services.mobile_config import MobileConfigService
 from pymobiledevice3.lockdown import create_using_usbmux
 from pymobiledevice3.exceptions import MuxException, PasswordRequiredError, ConnectionTerminatedError
 from pymobiledevice3.services.installation_proxy import InstallationProxyService
@@ -279,9 +280,10 @@ class DeviceManager:
 
     def add_skip_setup(self, files_to_restore: list[FileToRestore], restoring_domains: bool):
         if self.skip_setup and (not self.get_current_device_supported() or restoring_domains):
+            # get the already existing cloud config info
+            cloud_config_plist = MobileConfigService(lockdown=self.data_singleton.current_device.ld).get_cloud_configuration()
             # add the 2 skip setup files
-            cloud_config_plist: dict = {
-                "SkipSetup": [
+            cloud_config_plist["SkipSetup"] = [
                     'Location',
                     'Restore',
                     'SIMSetup',
@@ -362,14 +364,13 @@ class DeviceManager:
                     'OSShowcase',
                     'SafetyAndHandling',
                     'Tips',
-                ],
-                "AllowPairing": True,
-                "ConfigurationWasApplied": True,
-                "CloudConfigurationUIComplete": True,
-                "ConfigurationSource": 0,
-                "PostSetupProfileWasInstalled": True,
-                "IsSupervised": False,
-            }
+                ]
+            cloud_config_plist["AllowPairing"] = True
+            cloud_config_plist["ConfigurationWasApplied"] = True
+            cloud_config_plist["CloudConfigurationUIComplete"] = True
+            cloud_config_plist["IsSupervised"] = False
+            cloud_config_plist["ConfigurationSource"] = 0
+            cloud_config_plist["PostSetupProfileWasInstalled"] = True
             if self.supervised == True:
                 cloud_config_plist["IsSupervised"] = True
                 cloud_config_plist["OrganizationName"] = self.organization_name
