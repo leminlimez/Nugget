@@ -546,7 +546,10 @@ class DeviceManager:
                     files_to_restore=files_to_restore
                 )
             for location, plist in basic_plists.items():
-                ownership = basic_plists_ownership[location]
+                if location in basic_plists_ownership:
+                    ownership = basic_plists_ownership[location]
+                else:
+                    ownership = 501
                 self.concat_file(
                     contents=plistlib.dumps(plist),
                     path=location.value,
@@ -554,7 +557,10 @@ class DeviceManager:
                     owner=ownership, group=ownership
                 )
             for location, data in files_data.items():
-                ownership = basic_plists_ownership[location]
+                if isinstance(data, NullifyFileTweak):
+                    ownership = data.owner
+                else:
+                    ownership = 501
                 self.concat_file(
                     contents=data,
                     path=location.value,

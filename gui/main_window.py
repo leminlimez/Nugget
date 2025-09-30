@@ -19,7 +19,7 @@ from gui.pages.pages_list import Page
 
 from tweaks.tweaks import tweaks
 
-App_Version = "6.2.1"
+App_Version = "6.2.2"
 App_Build = 0
 
 class MainWindow(QtWidgets.QMainWindow):
