@@ -2,11 +2,17 @@ import traceback
 import plistlib
 from tempfile import TemporaryDirectory
 import os.path
+from pathlib import Path
+
+from cryptography import x509
+from cryptography.hazmat.primitives.serialization import Encoding
+from uuid import uuid4
 
 from PySide6.QtWidgets import QMessageBox
 from PySide6.QtCore import QSettings, QCoreApplication
 
 from pymobiledevice3 import usbmux
+from pymobiledevice3.ca import create_keybag_file
 from pymobiledevice3.services.mobile_config import MobileConfigService
 from pymobiledevice3.lockdown import create_using_usbmux
 from pymobiledevice3.exceptions import MuxException, PasswordRequiredError, ConnectionTerminatedError
@@ -279,6 +285,7 @@ class DeviceManager:
         
 
     def add_skip_setup(self, files_to_restore: list[FileToRestore], restoring_domains: bool):
+        # TODO: Probably should move this to its own file
         if self.skip_setup and (not self.get_current_device_supported() or restoring_domains):
             # get the already existing cloud config info
             cloud_config_plist = MobileConfigService(lockdown=self.data_singleton.current_device.ld).get_cloud_configuration()
@@ -374,6 +381,21 @@ class DeviceManager:
             if self.supervised == True:
                 cloud_config_plist["IsSupervised"] = True
                 cloud_config_plist["OrganizationName"] = self.organization_name
+                # create/add the keybag
+                if self.organization_name != None and self.organization_name != "":
+                    with TemporaryDirectory() as temp_dir:
+                        keybag_file = Path(temp_dir) / 'keybag'
+                        create_keybag_file(keybag_file, self.organization_name)
+                        cer = x509.load_pem_x509_certificate(keybag_file.read_bytes())
+                        public_key = cer.public_bytes(Encoding.DER)
+                        # make sure the mdm is removable
+                        cloud_config_plist['OrganizationMagic'] = str(uuid4())
+                        cloud_config_plist['IsMDMUnremovable'] = False
+                        cloud_config_plist['SupervisorHostCertificates'] = [public_key]
+                else:
+                    # remove keybag info
+                    cloud_config_plist.pop('OrganizationMagic')
+                    cloud_config_plist.pop('SupervisorHostCertificates')
             files_to_restore.append(FileToRestore(
                 contents=plistlib.dumps(cloud_config_plist),
                 restore_path="Library/ConfigurationProfiles/CloudConfigurationDetails.plist",
