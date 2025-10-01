@@ -380,7 +380,6 @@ class DeviceManager:
             cloud_config_plist["PostSetupProfileWasInstalled"] = True
             if self.supervised == True:
                 cloud_config_plist["IsSupervised"] = True
-                cloud_config_plist["OrganizationName"] = self.organization_name
                 # create/add the keybag
                 if self.organization_name != None and self.organization_name != "":
                     with TemporaryDirectory() as temp_dir:
@@ -389,6 +388,7 @@ class DeviceManager:
                         cer = x509.load_pem_x509_certificate(keybag_file.read_bytes())
                         public_key = cer.public_bytes(Encoding.DER)
                         # make sure the mdm is removable
+                        cloud_config_plist["OrganizationName"] = self.organization_name
                         cloud_config_plist['OrganizationMagic'] = str(uuid4())
                         cloud_config_plist['IsMDMUnremovable'] = False
                         cloud_config_plist['SupervisorHostCertificates'] = [public_key]
@@ -396,6 +396,9 @@ class DeviceManager:
                     # remove keybag info
                     cloud_config_plist.pop('OrganizationMagic')
                     cloud_config_plist.pop('SupervisorHostCertificates')
+                    if not 'OrganizatonName' in cloud_config_plist:
+                        # need to add it anyway
+                        cloud_config_plist["OrganizationName"] = self.organization_name
             files_to_restore.append(FileToRestore(
                 contents=plistlib.dumps(cloud_config_plist),
                 restore_path="Library/ConfigurationProfiles/CloudConfigurationDetails.plist",
