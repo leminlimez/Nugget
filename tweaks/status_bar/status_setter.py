@@ -76,13 +76,19 @@ class Setter:
                 final_str += "0"
         return final_str
     def get_data(self) -> bytes:
+        overrides = self.current_overrides
         if self.silly_mode:
+            # create a copy so that it doesn't change the original data
+            overrides = ffi.new("StatusBarOverrideData *")
+            # since it doesn't contain pointers, can just copy directly
+            ffi.memmove(overrides, self.current_overrides, ffi.sizeof(self.current_overrides))
+            # now turn on everything funny
             for i in range(46):
-                if self.current_overrides.overrideItemIsEnabled[i] == 1:
+                if overrides.overrideItemIsEnabled[i] == 1:
                     # don't change setting
                     continue
-                self.current_overrides.overrideItemIsEnabled[i] = 1
-                self.current_overrides.values.itemIsEnabled[i] = 1
+                overrides.overrideItemIsEnabled[i] = 1
+                overrides.values.itemIsEnabled[i] = 1
         if os.name != 'nt':
             return ffi.buffer(self.current_overrides)
         # need to run the C++ cli tool because of differing bitfield standards
@@ -90,7 +96,6 @@ class Setter:
         tmpin = os.path.join(tmpdir, "sbin")
         tmpout = os.path.join(tmpdir, "status_bar_overrides")
         #os.fsync(tmpin) # sync so external program can see it
-        overrides = self.current_overrides
         try:
             # generate the input file
             with open(tmpin, "w", encoding="utf-8") as in_file:
