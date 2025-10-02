@@ -12,7 +12,7 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
 
 ## Features
 <details>
-<summary>iOS 17.0+</summary>
+<summary>iOS 17.0 - 26.0+</summary>
 
 - PosterBoard: Animated wallpapers and descriptors.
   - Community wallpapers can be found [here][WallpapersWebsite]
@@ -33,20 +33,33 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
   - Change breadcrumb text
   - Show numeric WiFi/Cellular strength
   - Hide or show many icons in the status bar
-- Springboard Options (from [Cowabunga Lite][CowabungaLite])
+- Springboard Options
   - Set Lock Screen Footnote
+  - Set Lock Screen Idle Auto-Lock Time
   - Disable Lock After Respring
   - Disable Screen Dimming While Charging
   - Disable Low Battery Alerts
-- Internal Options (from [Cowabunga Lite][CowabungaLite])
+  - Hide AC Power on Lock Screen
+  - Show Supervision Text on Lock Screen
+  - Show Dynamic Island in Screenshots
+  - Enable AirPlay support for Stage Manager
+  - Show Red/Green Authentication Line on Lock Screen (See [this issue](https://github.com/leminlimez/Nugget/issues/656) for what it looks like)
+  - Disable Floating Tab Bar on iPads
+- Internal Options
+  - Enabling Key Flick (iPad-style keyboard) on iPhones
   - Build Version in Status Bar
   - Force Right to Left
+  - Show Hidden Icons on Home Screen
   - Force Metal HUD Debug
   - iMessage Diagnostics
   - IDS Diagnostics
   - VC Diagnostics
   - App Store Debug Gesture
   - Notes App Debug Mode
+  - Show Touches With Debug Info
+  - Hide Respring Icon
+  - Play Sound on Paste
+  - Show Notifications for System Pastes
 - Disable Daemons:
   - OTAd
   - UsageTrackingAgent
@@ -67,8 +80,6 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
   - Voice Control
 - Risky (Hidden) Options:
   - Disable thermalmonitord
-  - OTA Killer
-  - Custom Resolution
 </details>
 <details>
 <summary>iOS 17.0 - 18.1.1</summary>
