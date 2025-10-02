@@ -394,8 +394,10 @@ class DeviceManager:
                         cloud_config_plist['SupervisorHostCertificates'] = [public_key]
                 else:
                     # remove keybag info
-                    cloud_config_plist.pop('OrganizationMagic')
-                    cloud_config_plist.pop('SupervisorHostCertificates')
+                    if 'OrganizationMagic' in cloud_config_plist:
+                        cloud_config_plist.pop('OrganizationMagic')
+                    if 'SupervisorHostCertificates' in cloud_config_plist:
+                        cloud_config_plist.pop('SupervisorHostCertificates')
                     if not 'OrganizatonName' in cloud_config_plist:
                         # need to add it anyway
                         cloud_config_plist["OrganizationName"] = self.organization_name
