@@ -5471,16 +5471,6 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QCheckBox" name="screenRecordChk">
-                   <property name="toolTip">
-                    <string>Disables detecting when the screen is being recorded</string>
-                   </property>
-                   <property name="text">
-                    <string>Bypass Screen Recording Detection</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
                   <widget class="QCheckBox" name="floatingTabBarChk">
                    <property name="text">
                     <string>Disable Floating Tab Bar</string>
@@ -5663,6 +5653,23 @@ QComboBox QAbstractItemView::item:hover {
                  <property name="bottomMargin">
                   <number>0</number>
                  </property>
+                 <item>
+                  <widget class="QCheckBox" name="disableSolariumChk">
+                   <property name="text">
+                    <string>Disable Liquid Glass</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="ignoreSolariumAppBuildChk">
+                   <property name="toolTip">
+                    <string>Enables liquid glass on apps regardless of whether or not it has been updated to include it</string>
+                   </property>
+                   <property name="text">
+                    <string>Ignore Liquid Glass App Build Check</string>
+                   </property>
+                  </widget>
+                 </item>
                  <item>
                   <widget class="QCheckBox" name="buildVersionChk">
                    <property name="text">

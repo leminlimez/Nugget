@@ -246,12 +246,6 @@ def load_springboard():
             {
              "UseFloatingTabBar": False
             },
-        ),
-        "UIScreenIsCapturedValue": AdvancedPlistTweak(
-            FileLocation.uikit,
-            {
-                "UIScreenIsCapturedValue": False
-            }
         )
     }
     tweaks.update(additional_tweaks)
@@ -260,6 +254,14 @@ def load_internal():
     if "RTL" in tweaks:
         return
     additional_tweaks = {
+        "DisableSolarium": BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "com.apple.SwiftUI.DisableSolarium"
+        ),
+        "IgnoreSolariumLinkedOnCheck": BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "com.apple.SwiftUI.IgnoreSolariumLinkedOnCheck"
+        ),
         "SBBuildNumber": BasicPlistTweak(
             FileLocation.globalPreferences,
             "UIStatusBarShowBuildVersion"

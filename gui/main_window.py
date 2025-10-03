@@ -19,8 +19,8 @@ from gui.pages.pages_list import Page
 
 from tweaks.tweaks import tweaks
 
-App_Version = "6.2.2"
-App_Build = 0
+App_Version = "6.3"
+App_Build = 1
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager, translator: Translator):
@@ -239,7 +239,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 "no_patch": [self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn, self.ui.gestaltLocationLbl, self.ui.gestaltLocationTitleLbl, self.ui.showAllSpoofableChk],
                 "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk), ("1.0", self.ui.regularDomainsLbl)],
                 "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
-                "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk]
+                "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk],
+                "26.0": [self.ui.disableSolariumChk, self.ui.ignoreSolariumAppBuildChk]
             }
             MaxTweakVersions = {
                 "17.7": [self.ui.euEnablerContent],
