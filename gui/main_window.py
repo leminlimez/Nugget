@@ -244,7 +244,8 @@ class MainWindow(QtWidgets.QMainWindow):
             }
             MaxTweakVersions = {
                 "17.7": [self.ui.euEnablerContent],
-                "18.0": [self.ui.photosChk, self.ui.aiChk]
+                "18.0": [self.ui.photosChk, self.ui.aiChk],
+                "19.0": [self.ui.resChangerContent]
             }
 
             try:
@@ -325,7 +326,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.dateTxt.setVisible(not is_iphone)
             # show floating tab bar on ipads and keyflicks on phones
             self.ui.floatingTabBarChk.setVisible(not is_iphone)
-            self.ui.keyFlickChk.setVisible(is_iphone)
+            self.ui.keyFlickChk.setVisible(is_iphone and device_ver < Version("26.1"))
 
             # show the PB if initial load is true
             if self.initial_load:
