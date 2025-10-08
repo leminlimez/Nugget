@@ -245,7 +245,7 @@ class MainWindow(QtWidgets.QMainWindow):
             MaxTweakVersions = {
                 "17.7": [self.ui.euEnablerContent],
                 "18.0": [self.ui.photosChk, self.ui.aiChk],
-                "19.0": [self.ui.resChangerContent]
+                "19.0": [self.ui.resChangerContent, self.ui.metalHUDChk]
             }
 
             try:
