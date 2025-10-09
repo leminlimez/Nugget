@@ -84,7 +84,7 @@ Use at your own risk!</source>
         <location filename="../qt/mainwindow.ui" line="1205"/>
         <location filename="../qt/mainwindow.ui" line="1229"/>
         <location filename="../qt/mainwindow.ui" line="1254"/>
-        <location filename="../qt/mainwindow.ui" line="6392"/>
+        <location filename="../qt/mainwindow.ui" line="6399"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -678,7 +678,7 @@ Please be careful!</source>
     </message>
     <message>
         <location filename="../qt/mainwindow.ui" line="3264"/>
-        <location filename="../qt/mainwindow.ui" line="5958"/>
+        <location filename="../qt/mainwindow.ui" line="5965"/>
         <source>Modify</source>
         <translation type="unfinished"></translation>
     </message>
@@ -797,12 +797,27 @@ Please be careful!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6863"/>
+        <location filename="../qt/mainwindow.ui" line="5659"/>
+        <source>Disable Liquid Glass</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qt/mainwindow.ui" line="5666"/>
+        <source>Enables liquid glass on apps regardless of whether or not it has been updated to include it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qt/mainwindow.ui" line="5669"/>
+        <source>Ignore Liquid Glass App Build Check</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qt/mainwindow.ui" line="6870"/>
         <source>   Export as .tendies</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8154"/>
+        <location filename="../qt/mainwindow.ui" line="8161"/>
         <source>Remove Tweaks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1139,409 +1154,399 @@ Please be careful!</source>
     </message>
     <message>
         <location filename="../qt/mainwindow.ui" line="5476"/>
-        <source>Disables detecting when the screen is being recorded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qt/mainwindow.ui" line="5479"/>
-        <source>Bypass Screen Recording Detection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qt/mainwindow.ui" line="5486"/>
         <source>Disable Floating Tab Bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5594"/>
+        <location filename="../qt/mainwindow.ui" line="5584"/>
         <source>Internal Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5669"/>
+        <location filename="../qt/mainwindow.ui" line="5676"/>
         <source>Show Build Version in Status Bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5676"/>
+        <location filename="../qt/mainwindow.ui" line="5683"/>
         <source>Force Right-to-Left Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5683"/>
+        <location filename="../qt/mainwindow.ui" line="5690"/>
         <source>Force Left-to-Right Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5690"/>
+        <location filename="../qt/mainwindow.ui" line="5697"/>
         <source>Shows hidden apps like Field Test and Continuity on the home screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5693"/>
+        <location filename="../qt/mainwindow.ui" line="5700"/>
         <source>Show Hidden Icons on Home Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5700"/>
+        <location filename="../qt/mainwindow.ui" line="5707"/>
         <source>Enables the iPad-style keyboard keyflicks on iPhones</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5703"/>
+        <location filename="../qt/mainwindow.ui" line="5710"/>
         <source>Enable Keyboard Character Flick</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5728"/>
+        <location filename="../qt/mainwindow.ui" line="5735"/>
         <source>Enable Metal HUD Debug</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5735"/>
+        <location filename="../qt/mainwindow.ui" line="5742"/>
         <source>Enable iMessage Debugging</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5742"/>
+        <location filename="../qt/mainwindow.ui" line="5749"/>
         <source>Enable Continuity Debugging</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5749"/>
+        <location filename="../qt/mainwindow.ui" line="5756"/>
         <source>Enable FaceTime Debugging</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5756"/>
+        <location filename="../qt/mainwindow.ui" line="5763"/>
         <source>Show Accessory Developer Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5778"/>
+        <location filename="../qt/mainwindow.ui" line="5785"/>
         <source>Enable App Store Debug Gesture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5785"/>
+        <location filename="../qt/mainwindow.ui" line="5792"/>
         <source>Enable Notes Debug Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5807"/>
+        <location filename="../qt/mainwindow.ui" line="5814"/>
         <source>Show Touches With Debug Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5814"/>
+        <location filename="../qt/mainwindow.ui" line="5821"/>
         <source>Hide Respring Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5821"/>
+        <location filename="../qt/mainwindow.ui" line="5828"/>
         <source>Vibrate on Raise-to-Wake</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5843"/>
+        <location filename="../qt/mainwindow.ui" line="5850"/>
         <source>Play Sound on Paste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5850"/>
+        <location filename="../qt/mainwindow.ui" line="5857"/>
         <source>Show Notifications for System Pastes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5951"/>
-        <location filename="../qt/mainwindow.ui" line="7770"/>
+        <location filename="../qt/mainwindow.ui" line="5958"/>
+        <location filename="../qt/mainwindow.ui" line="7777"/>
         <source>Daemons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="5999"/>
+        <location filename="../qt/mainwindow.ui" line="6006"/>
         <source>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
 it enabled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6025"/>
+        <location filename="../qt/mainwindow.ui" line="6032"/>
         <source>Stops over-the-air updates to prevent auto-downloads.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6028"/>
+        <location filename="../qt/mainwindow.ui" line="6035"/>
         <source>Disable OTA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6035"/>
+        <location filename="../qt/mainwindow.ui" line="6042"/>
         <source>Disables usage tracking for improved privacy.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6038"/>
+        <location filename="../qt/mainwindow.ui" line="6045"/>
         <source>Disable UsageTrackingAgent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6045"/>
+        <location filename="../qt/mainwindow.ui" line="6052"/>
         <source>Disables Screen Time monitoring features.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6048"/>
+        <location filename="../qt/mainwindow.ui" line="6055"/>
         <source>Disable Screen Time Agent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6055"/>
+        <location filename="../qt/mainwindow.ui" line="6062"/>
         <source>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
 
 To work properly, also disable the daemon using the toggle above.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6060"/>
+        <location filename="../qt/mainwindow.ui" line="6067"/>
         <source>Clear ScreenTimeAgent.plist file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6067"/>
+        <location filename="../qt/mainwindow.ui" line="6074"/>
         <source>Stops logs, dumps, and crash reports collection.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6070"/>
+        <location filename="../qt/mainwindow.ui" line="6077"/>
         <source>Disable Logs, Dumps, and Crash Reports</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6077"/>
+        <location filename="../qt/mainwindow.ui" line="6084"/>
         <source>Disables tools that monitor and test hardware or system behavior for faults and performance issues.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6080"/>
+        <location filename="../qt/mainwindow.ui" line="6087"/>
         <source>Disable System Diagnostics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6087"/>
+        <location filename="../qt/mainwindow.ui" line="6094"/>
         <source>Disables pinging to sleeping bluetooth devices for improved battery life.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6090"/>
+        <location filename="../qt/mainwindow.ui" line="6097"/>
         <source>Disable ATWAKEUP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6112"/>
+        <location filename="../qt/mainwindow.ui" line="6119"/>
         <source>Turns off Game Center background services.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6115"/>
+        <location filename="../qt/mainwindow.ui" line="6122"/>
         <source>Disable Game Center</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6122"/>
+        <location filename="../qt/mainwindow.ui" line="6129"/>
         <source>Disables the Tips service and notifications.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6125"/>
+        <location filename="../qt/mainwindow.ui" line="6132"/>
         <source>Disable Tips Services</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6132"/>
+        <location filename="../qt/mainwindow.ui" line="6139"/>
         <source>Disables the Virtual Private Network service.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6135"/>
+        <location filename="../qt/mainwindow.ui" line="6142"/>
         <source>Disable VPN Service</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6142"/>
+        <location filename="../qt/mainwindow.ui" line="6149"/>
         <source>Disables the service that deals with errors with WiFi networks with Chinese characters in the name.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6145"/>
+        <location filename="../qt/mainwindow.ui" line="6152"/>
         <source>Disable Chinese WLAN Service</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6152"/>
+        <location filename="../qt/mainwindow.ui" line="6159"/>
         <source>Disables HealthKit services used by the health app.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6155"/>
+        <location filename="../qt/mainwindow.ui" line="6162"/>
         <source>Disable HealthKit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6177"/>
+        <location filename="../qt/mainwindow.ui" line="6184"/>
         <source>Disable AirPrint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6184"/>
+        <location filename="../qt/mainwindow.ui" line="6191"/>
         <source>Disable Assistive Touch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6191"/>
+        <location filename="../qt/mainwindow.ui" line="6198"/>
         <source>Disable iCloud</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6198"/>
+        <location filename="../qt/mainwindow.ui" line="6205"/>
         <source>Disable Internet Tethering (Hotspot)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6205"/>
+        <location filename="../qt/mainwindow.ui" line="6212"/>
         <source>Disable Passbook</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6212"/>
+        <location filename="../qt/mainwindow.ui" line="6219"/>
         <source>Disable Spotlight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6219"/>
+        <location filename="../qt/mainwindow.ui" line="6226"/>
         <source>Disable Voice Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6226"/>
+        <location filename="../qt/mainwindow.ui" line="6233"/>
         <source>Disable NanoTimeKit (Apple Watch Face Sync)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6327"/>
+        <location filename="../qt/mainwindow.ui" line="6334"/>
         <source>Posterboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6366"/>
+        <location filename="../qt/mainwindow.ui" line="6373"/>
         <source>   Discover Wallpapers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6457"/>
+        <location filename="../qt/mainwindow.ui" line="6464"/>
         <source>  Tendies</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6477"/>
+        <location filename="../qt/mainwindow.ui" line="6484"/>
         <source>   Templates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6500"/>
+        <location filename="../qt/mainwindow.ui" line="6507"/>
         <source>   Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6530"/>
+        <location filename="../qt/mainwindow.ui" line="6537"/>
         <source>Clear Action:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6586"/>
-        <location filename="../qt/mainwindow.ui" line="6673"/>
-        <location filename="../qt/mainwindow.ui" line="7071"/>
+        <location filename="../qt/mainwindow.ui" line="6593"/>
+        <location filename="../qt/mainwindow.ui" line="6680"/>
+        <location filename="../qt/mainwindow.ui" line="7078"/>
         <source>Select a wallpaper file with the .tendies extension.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6592"/>
+        <location filename="../qt/mainwindow.ui" line="6599"/>
         <source>  Import Files (.tendies)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6679"/>
-        <location filename="../qt/mainwindow.ui" line="7077"/>
+        <location filename="../qt/mainwindow.ui" line="6686"/>
+        <location filename="../qt/mainwindow.ui" line="7084"/>
         <source>  Import Templates (.batter)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6736"/>
+        <location filename="../qt/mainwindow.ui" line="6743"/>
         <source>Uses the CoreAnimation file to play the video (300 fps limit)
 Will show up in Collections</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6740"/>
+        <location filename="../qt/mainwindow.ui" line="6747"/>
         <source>Loop (use CoreAnimation method)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6750"/>
+        <location filename="../qt/mainwindow.ui" line="6757"/>
         <source>Reverse on Loop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6757"/>
+        <location filename="../qt/mainwindow.ui" line="6764"/>
         <source>Make Foreground (hides clock)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6764"/>
+        <location filename="../qt/mainwindow.ui" line="6771"/>
         <source>Frame Calculation Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6815"/>
+        <location filename="../qt/mainwindow.ui" line="6822"/>
         <source>Linear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6820"/>
+        <location filename="../qt/mainwindow.ui" line="6827"/>
         <source>Discrete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6830"/>
+        <location filename="../qt/mainwindow.ui" line="6837"/>
         <source>Choose a photo for the wallpaper to freeze on when finished (.heic files only)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6833"/>
+        <location filename="../qt/mainwindow.ui" line="6840"/>
         <source>Choose Freeze Frame (.HEIC)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6840"/>
+        <location filename="../qt/mainwindow.ui" line="6847"/>
         <source>Choose a video file for the wallpaper (.mov or .mp4)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6843"/>
+        <location filename="../qt/mainwindow.ui" line="6850"/>
         <source>Choose Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="6988"/>
+        <location filename="../qt/mainwindow.ui" line="6995"/>
         <source>Templates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7210"/>
+        <location filename="../qt/mainwindow.ui" line="7217"/>
         <source>Risky Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7285"/>
+        <location filename="../qt/mainwindow.ui" line="7292"/>
         <source>Disclaimer:
 
 The options on this page may be unsafe for your device. Use these options at your own risk. Changing
@@ -1551,196 +1556,196 @@ Nugget is not responsible if you mess up your device, especially with resolution
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7312"/>
+        <location filename="../qt/mainwindow.ui" line="7319"/>
         <source>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7315"/>
+        <location filename="../qt/mainwindow.ui" line="7322"/>
         <source>Disable OTA Updates (file)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7322"/>
+        <location filename="../qt/mainwindow.ui" line="7329"/>
         <source>Disables temperature monitoring daemon to reduce system checks.
 
 Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &quot;Unverified&quot; in Settings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7327"/>
+        <location filename="../qt/mainwindow.ui" line="7334"/>
         <source>Disable thermalmonitord</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7349"/>
+        <location filename="../qt/mainwindow.ui" line="7356"/>
         <source>Set a custom device screen resolution.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7352"/>
+        <location filename="../qt/mainwindow.ui" line="7359"/>
         <source>Set a Custom Device Resolution</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7380"/>
+        <location filename="../qt/mainwindow.ui" line="7387"/>
         <source>Height:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7395"/>
+        <location filename="../qt/mainwindow.ui" line="7402"/>
         <source>Resolution Height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7436"/>
+        <location filename="../qt/mainwindow.ui" line="7443"/>
         <source>Width:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7453"/>
+        <location filename="../qt/mainwindow.ui" line="7460"/>
         <source>Resolution Width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7593"/>
+        <location filename="../qt/mainwindow.ui" line="7600"/>
         <source>Miscellaneous Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7703"/>
+        <location filename="../qt/mainwindow.ui" line="7710"/>
         <source>Springboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7738"/>
+        <location filename="../qt/mainwindow.ui" line="7745"/>
         <source>Internal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7799"/>
+        <location filename="../qt/mainwindow.ui" line="7806"/>
         <source>Risky</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7928"/>
+        <location filename="../qt/mainwindow.ui" line="7935"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="7989"/>
+        <location filename="../qt/mainwindow.ui" line="7996"/>
         <source>Current gestalt file location:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8017"/>
+        <location filename="../qt/mainwindow.ui" line="8024"/>
         <source>  Choose Gestalt File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8048"/>
+        <location filename="../qt/mainwindow.ui" line="8055"/>
         <source>  Apply Changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8065"/>
+        <location filename="../qt/mainwindow.ui" line="8072"/>
         <source>Ready!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8103"/>
+        <location filename="../qt/mainwindow.ui" line="8110"/>
         <source>Note: Skip Setup is currently turned on.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8258"/>
+        <location filename="../qt/mainwindow.ui" line="8265"/>
         <source>Nugget Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8398"/>
+        <location filename="../qt/mainwindow.ui" line="8405"/>
         <source>App Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8438"/>
+        <location filename="../qt/mainwindow.ui" line="8445"/>
         <source>Allow Applying Over WiFi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8448"/>
+        <location filename="../qt/mainwindow.ui" line="8455"/>
         <source>Auto Reboot After Applying</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8458"/>
+        <location filename="../qt/mainwindow.ui" line="8465"/>
         <source>Show Risky Tweak Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8465"/>
+        <location filename="../qt/mainwindow.ui" line="8472"/>
         <source>Show models for other device types in the AI device spoofing tab.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8474"/>
+        <location filename="../qt/mainwindow.ui" line="8481"/>
         <source>Show All Spoofable Models</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8481"/>
+        <location filename="../qt/mainwindow.ui" line="8488"/>
         <source>Ignore Posterboard Frame Limit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8488"/>
+        <location filename="../qt/mainwindow.ui" line="8495"/>
         <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8493"/>
+        <location filename="../qt/mainwindow.ui" line="8500"/>
         <source>Disable Tendies Limit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8518"/>
+        <location filename="../qt/mainwindow.ui" line="8525"/>
         <source>Restores the SSL config that does something idk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8521"/>
+        <location filename="../qt/mainwindow.ui" line="8528"/>
         <source>Restore TrustStore (SSL Configuration Profiles)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8531"/>
+        <location filename="../qt/mainwindow.ui" line="8538"/>
         <source>Skip Setup * (non-exploit files only)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8544"/>
+        <location filename="../qt/mainwindow.ui" line="8551"/>
         <source>Enable Supervision * (requires Skip Setup)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8554"/>
+        <location filename="../qt/mainwindow.ui" line="8561"/>
         <source>Enter Organization Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8577"/>
+        <location filename="../qt/mainwindow.ui" line="8584"/>
         <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8604"/>
+        <location filename="../qt/mainwindow.ui" line="8611"/>
         <source>Reset Device Pairing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="8618"/>
+        <location filename="../qt/mainwindow.ui" line="8625"/>
         <source>Pocket Poster Helper</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1787,148 +1792,148 @@ or you&apos;ve reached the maximum amount of wallpapers (15) and have to wipe th
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="59"/>
+        <location filename="../devicemanagement/device_manager.py" line="66"/>
         <source>Find My must be disabled in order to use this tool.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="60"/>
+        <location filename="../devicemanagement/device_manager.py" line="67"/>
         <source>Disable Find My from Settings (Settings -&gt; [Your Name] -&gt; Find My) and then try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="62"/>
+        <location filename="../devicemanagement/device_manager.py" line="69"/>
         <source>Nugget cannot be used on this device. Click Show Details for more info.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="63"/>
+        <location filename="../devicemanagement/device_manager.py" line="70"/>
         <source>Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="65"/>
+        <location filename="../devicemanagement/device_manager.py" line="72"/>
         <source>The session was terminated. Refresh the device list and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="67"/>
+        <location filename="../devicemanagement/device_manager.py" line="74"/>
         <source>Device is password protected! You must trust the computer on your device.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="68"/>
+        <location filename="../devicemanagement/device_manager.py" line="75"/>
         <source>Unlock your device. On the popup, click &quot;Trust&quot;, enter your password, then try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="71"/>
+        <location filename="../devicemanagement/device_manager.py" line="78"/>
         <source>Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="105"/>
+        <location filename="../devicemanagement/device_manager.py" line="112"/>
         <source>If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="107"/>
+        <location filename="../devicemanagement/device_manager.py" line="114"/>
         <source>Make sure you have the &quot;Apple Devices&quot; app from the Microsoft Store or iTunes from Apple&apos;s website.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="108"/>
+        <location filename="../devicemanagement/device_manager.py" line="115"/>
         <source>Failed to get device list. Click &quot;Show Details&quot; for the traceback.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="141"/>
+        <location filename="../devicemanagement/device_manager.py" line="148"/>
         <source>Click &quot;Show Details&quot; for the traceback.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="158"/>
+        <location filename="../devicemanagement/device_manager.py" line="165"/>
         <source>Device is password protected! You must trust the computer on your device.
 
 Unlock your device. On the popup, click &quot;Trust&quot;, enter your password, then try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="162"/>
+        <location filename="../devicemanagement/device_manager.py" line="169"/>
         <source>If you keep receiving this error, try using a different cable or port.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="200"/>
+        <location filename="../devicemanagement/device_manager.py" line="207"/>
         <source>No Device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="277"/>
+        <location filename="../devicemanagement/device_manager.py" line="284"/>
         <source>Pairing Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="277"/>
+        <location filename="../devicemanagement/device_manager.py" line="284"/>
         <source>Your device&apos;s pairing was successfully reset. Refresh the device list before applying.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="443"/>
+        <location filename="../devicemanagement/device_manager.py" line="471"/>
         <source>Restoring to device...{0}{1}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="448"/>
+        <location filename="../devicemanagement/device_manager.py" line="476"/>
         <source>Applying changes to files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="503"/>
+        <location filename="../devicemanagement/device_manager.py" line="531"/>
         <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="515"/>
-        <location filename="../devicemanagement/device_manager.py" line="626"/>
+        <location filename="../devicemanagement/device_manager.py" line="543"/>
+        <location filename="../devicemanagement/device_manager.py" line="661"/>
         <source>Generating backup...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="597"/>
+        <location filename="../devicemanagement/device_manager.py" line="632"/>
         <source>DO NOT UNPLUG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="597"/>
+        <location filename="../devicemanagement/device_manager.py" line="632"/>
         <source>Preparing to restore...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="604"/>
-        <location filename="../devicemanagement/device_manager.py" line="705"/>
+        <location filename="../devicemanagement/device_manager.py" line="639"/>
+        <location filename="../devicemanagement/device_manager.py" line="740"/>
         <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="606"/>
-        <location filename="../devicemanagement/device_manager.py" line="707"/>
+        <location filename="../devicemanagement/device_manager.py" line="641"/>
+        <location filename="../devicemanagement/device_manager.py" line="742"/>
         <source>Please restart your device to see changes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="606"/>
-        <location filename="../devicemanagement/device_manager.py" line="707"/>
+        <location filename="../devicemanagement/device_manager.py" line="641"/>
+        <location filename="../devicemanagement/device_manager.py" line="742"/>
         <source>All done! </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="606"/>
-        <location filename="../devicemanagement/device_manager.py" line="607"/>
-        <location filename="../devicemanagement/device_manager.py" line="707"/>
-        <location filename="../devicemanagement/device_manager.py" line="708"/>
+        <location filename="../devicemanagement/device_manager.py" line="641"/>
+        <location filename="../devicemanagement/device_manager.py" line="642"/>
+        <location filename="../devicemanagement/device_manager.py" line="742"/>
+        <location filename="../devicemanagement/device_manager.py" line="743"/>
         <source>Success!</source>
         <translation type="unfinished"></translation>
     </message>

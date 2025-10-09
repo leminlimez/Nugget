@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.2
+## Created by: Qt User Interface Compiler version 6.9.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -2902,11 +2902,6 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.authEngUICheck)
 
-        self.screenRecordChk = QCheckBox(self.springboardOptionsPageContent)
-        self.screenRecordChk.setObjectName(u"screenRecordChk")
-
-        self._2.addWidget(self.screenRecordChk)
-
         self.floatingTabBarChk = QCheckBox(self.springboardOptionsPageContent)
         self.floatingTabBarChk.setObjectName(u"floatingTabBarChk")
 
@@ -2996,6 +2991,16 @@ class Ui_Nugget(object):
         self.verticalLayout_131 = QVBoxLayout(self.internalOptionsPageContent)
         self.verticalLayout_131.setObjectName(u"verticalLayout_131")
         self.verticalLayout_131.setContentsMargins(0, 0, 0, 0)
+        self.disableSolariumChk = QCheckBox(self.internalOptionsPageContent)
+        self.disableSolariumChk.setObjectName(u"disableSolariumChk")
+
+        self.verticalLayout_131.addWidget(self.disableSolariumChk)
+
+        self.ignoreSolariumAppBuildChk = QCheckBox(self.internalOptionsPageContent)
+        self.ignoreSolariumAppBuildChk.setObjectName(u"ignoreSolariumAppBuildChk")
+
+        self.verticalLayout_131.addWidget(self.ignoreSolariumAppBuildChk)
+
         self.buildVersionChk = QCheckBox(self.internalOptionsPageContent)
         self.buildVersionChk.setObjectName(u"buildVersionChk")
 
@@ -4907,12 +4912,13 @@ class Ui_Nugget(object):
         self.showApertureInSnapshotsChk.setText(QCoreApplication.translate("Nugget", u"Show Dynamic Island in Screenshots", None))
         self.enableAirPlayChk.setText(QCoreApplication.translate("Nugget", u"Enable AirPlay support for Stage Manager", None))
         self.authEngUICheck.setText(QCoreApplication.translate("Nugget", u"Show Red/Green Authentication Line on Lock Screen", None))
-#if QT_CONFIG(tooltip)
-        self.screenRecordChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables detecting when the screen is being recorded", None))
-#endif // QT_CONFIG(tooltip)
-        self.screenRecordChk.setText(QCoreApplication.translate("Nugget", u"Bypass Screen Recording Detection", None))
         self.floatingTabBarChk.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar", None))
         self.internalOptionsLbl1.setText(QCoreApplication.translate("Nugget", u"Internal Options", None))
+        self.disableSolariumChk.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass", None))
+#if QT_CONFIG(tooltip)
+        self.ignoreSolariumAppBuildChk.setToolTip(QCoreApplication.translate("Nugget", u"Enables liquid glass on apps regardless of whether or not it has been updated to include it", None))
+#endif // QT_CONFIG(tooltip)
+        self.ignoreSolariumAppBuildChk.setText(QCoreApplication.translate("Nugget", u"Ignore Liquid Glass App Build Check", None))
         self.buildVersionChk.setText(QCoreApplication.translate("Nugget", u"Show Build Version in Status Bar", None))
         self.RTLChk.setText(QCoreApplication.translate("Nugget", u"Force Right-to-Left Layout", None))
         self.LTRChk.setText(QCoreApplication.translate("Nugget", u"Force Left-to-Right Layout", None))

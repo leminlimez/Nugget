@@ -10,6 +10,8 @@ class InternalPage(Page):
         self.ui = ui
 
     def load_page(self):
+        self.ui.disableSolariumChk.toggled.connect(self.on_disableSolariumChk_clicked)
+        self.ui.ignoreSolariumAppBuildChk.toggled.connect(self.on_ignoreSolariumAppBuildChk_clicked)
         self.ui.buildVersionChk.toggled.connect(self.on_buildVersionChk_clicked)
         self.ui.RTLChk.toggled.connect(self.on_RTLChk_clicked)
         self.ui.LTRChk.toggled.connect(self.on_LTRChk_clicked)
@@ -31,6 +33,10 @@ class InternalPage(Page):
         load_internal()
 
     ## ACTIONS
+    def on_disableSolariumChk_clicked(self, checked: bool):
+        tweaks["DisableSolarium"].set_enabled(checked)
+    def on_ignoreSolariumAppBuildChk_clicked(self, checked: bool):
+        tweaks["IgnoreSolariumLinkedOnCheck"].set_enabled(checked)
     def on_buildVersionChk_clicked(self, checked: bool):
         tweaks["SBBuildNumber"].set_enabled(checked)
     def on_RTLChk_clicked(self, checked: bool):

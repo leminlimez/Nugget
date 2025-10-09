@@ -19,7 +19,7 @@ from gui.pages.pages_list import Page
 
 from tweaks.tweaks import tweaks
 
-App_Version = "6.2.2"
+App_Version = "6.2.3"
 App_Build = 0
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -239,11 +239,13 @@ class MainWindow(QtWidgets.QMainWindow):
                 "no_patch": [self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn, self.ui.gestaltLocationLbl, self.ui.gestaltLocationTitleLbl, self.ui.showAllSpoofableChk],
                 "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk), ("1.0", self.ui.regularDomainsLbl)],
                 "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
-                "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk]
+                "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk],
+                "26.0": [self.ui.disableSolariumChk, self.ui.ignoreSolariumAppBuildChk]
             }
             MaxTweakVersions = {
                 "17.7": [self.ui.euEnablerContent],
-                "18.0": [self.ui.photosChk, self.ui.aiChk]
+                "18.0": [self.ui.photosChk, self.ui.aiChk],
+                "19.0": [self.ui.resChangerContent, self.ui.metalHUDChk]
             }
 
             try:
@@ -324,7 +326,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.dateTxt.setVisible(not is_iphone)
             # show floating tab bar on ipads and keyflicks on phones
             self.ui.floatingTabBarChk.setVisible(not is_iphone)
-            self.ui.keyFlickChk.setVisible(is_iphone)
+            self.ui.keyFlickChk.setVisible(is_iphone and device_ver < Version("26.1"))
 
             # show the PB if initial load is true
             if self.initial_load:

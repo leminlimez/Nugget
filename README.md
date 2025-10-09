@@ -46,7 +46,9 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
   - Show Red/Green Authentication Line on Lock Screen (See [this issue](https://github.com/leminlimez/Nugget/issues/656) for what it looks like)
   - Disable Floating Tab Bar on iPads
 - Internal Options
-  - Enabling Key Flick (iPad-style keyboard) on iPhones
+  - Disable Liquid Glass (iOS 26.0+)
+  - Ignore Liquid Glass App Build Check (iOS 26.0+)
+  - Enabling Key Flick (iPad-style keyboard) on iPhones (iOS 26.0-)
   - Build Version in Status Bar
   - Force Right to Left
   - Show Hidden Icons on Home Screen
