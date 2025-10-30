@@ -17,9 +17,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QCheckBox, QComboBox,
     QFrame, QGridLayout, QHBoxLayout, QLabel,
-    QLineEdit, QMainWindow, QProgressBar, QRadioButton,
-    QScrollArea, QSizePolicy, QSlider, QSpacerItem,
-    QStackedWidget, QToolButton, QVBoxLayout, QWidget)
+    QLayout, QLineEdit, QMainWindow, QProgressBar,
+    QRadioButton, QScrollArea, QSizePolicy, QSlider,
+    QSpacerItem, QStackedWidget, QToolButton, QVBoxLayout,
+    QWidget)
 import resources_rc
 
 class Ui_Nugget(object):
@@ -2789,13 +2790,13 @@ class Ui_Nugget(object):
         self.sbOptionsScrollArea.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         self.scrollAreaWidgetContents2 = QWidget()
         self.scrollAreaWidgetContents2.setObjectName(u"scrollAreaWidgetContents2")
-        self.scrollAreaWidgetContents2.setGeometry(QRect(0, 0, 650, 1200))
+        self.scrollAreaWidgetContents2.setGeometry(QRect(0, 0, 650, 800))
         sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
         sizePolicy5.setHorizontalStretch(0)
         sizePolicy5.setVerticalStretch(0)
         sizePolicy5.setHeightForWidth(self.scrollAreaWidgetContents2.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContents2.setSizePolicy(sizePolicy5)
-        self.scrollAreaWidgetContents2.setMinimumSize(QSize(650, 800))
+        self.scrollAreaWidgetContents2.setMinimumSize(QSize(650, 500))
         self.scrollAreaWidgetContents2.setMaximumSize(QSize(650, 2000))
         self.verticalLayout_92 = QVBoxLayout(self.scrollAreaWidgetContents2)
         self.verticalLayout_92.setObjectName(u"verticalLayout_92")
@@ -2809,6 +2810,11 @@ class Ui_Nugget(object):
         self._2.setContentsMargins(0, 0, 0, 0)
         self.footnoteLbl = QLabel(self.springboardOptionsPageContent)
         self.footnoteLbl.setObjectName(u"footnoteLbl")
+        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.footnoteLbl.sizePolicy().hasHeightForWidth())
+        self.footnoteLbl.setSizePolicy(sizePolicy6)
 
         self._2.addWidget(self.footnoteLbl)
 
@@ -2827,11 +2833,18 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.footnoteLine)
 
-        self.horizontalLayout_16 = QHBoxLayout()
+        self.autoLockLbl = QWidget(self.springboardOptionsPageContent)
+        self.autoLockLbl.setObjectName(u"autoLockLbl")
+        sizePolicy6.setHeightForWidth(self.autoLockLbl.sizePolicy().hasHeightForWidth())
+        self.autoLockLbl.setSizePolicy(sizePolicy6)
+        self.horizontalLayout_16 = QHBoxLayout(self.autoLockLbl)
         self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
-        self.horizontalLayout_16.setContentsMargins(-1, -1, -1, 0)
-        self.lockScreenAutoLockLabel = QLabel(self.springboardOptionsPageContent)
+        self.horizontalLayout_16.setSizeConstraint(QLayout.SetDefaultConstraint)
+        self.horizontalLayout_16.setContentsMargins(-1, -1, -1, 1)
+        self.lockScreenAutoLockLabel = QLabel(self.autoLockLbl)
         self.lockScreenAutoLockLabel.setObjectName(u"lockScreenAutoLockLabel")
+        sizePolicy6.setHeightForWidth(self.lockScreenAutoLockLabel.sizePolicy().hasHeightForWidth())
+        self.lockScreenAutoLockLabel.setSizePolicy(sizePolicy6)
 
         self.horizontalLayout_16.addWidget(self.lockScreenAutoLockLabel)
 
@@ -2839,14 +2852,16 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_16.addItem(self.horizontalSpacer_10)
 
-        self.lockScreenAutoLockValueLabel = QLabel(self.springboardOptionsPageContent)
+        self.lockScreenAutoLockValueLabel = QLabel(self.autoLockLbl)
         self.lockScreenAutoLockValueLabel.setObjectName(u"lockScreenAutoLockValueLabel")
+        sizePolicy6.setHeightForWidth(self.lockScreenAutoLockValueLabel.sizePolicy().hasHeightForWidth())
+        self.lockScreenAutoLockValueLabel.setSizePolicy(sizePolicy6)
         self.lockScreenAutoLockValueLabel.setText(u"5s")
 
         self.horizontalLayout_16.addWidget(self.lockScreenAutoLockValueLabel)
 
 
-        self._2.addLayout(self.horizontalLayout_16)
+        self._2.addWidget(self.autoLockLbl)
 
         self.lockScreenAutoLockSlider = QSlider(self.springboardOptionsPageContent)
         self.lockScreenAutoLockSlider.setObjectName(u"lockScreenAutoLockSlider")
@@ -2869,9 +2884,6 @@ class Ui_Nugget(object):
 
         self.disableLockRespringContent = QWidget(self.springboardOptionsPageContent)
         self.disableLockRespringContent.setObjectName(u"disableLockRespringContent")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
         sizePolicy6.setHeightForWidth(self.disableLockRespringContent.sizePolicy().hasHeightForWidth())
         self.disableLockRespringContent.setSizePolicy(sizePolicy6)
         self.verticalLayout_48 = QVBoxLayout(self.disableLockRespringContent)
@@ -3087,10 +3099,6 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.floatingTabBarContent)
 
-        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self._2.addItem(self.verticalSpacer_5)
-
 
         self.verticalLayout_92.addWidget(self.springboardOptionsPageContent)
 
@@ -3174,7 +3182,7 @@ class Ui_Nugget(object):
         self.scrollAreaWidgetContents3.setGeometry(QRect(0, 0, 650, 1200))
         sizePolicy5.setHeightForWidth(self.scrollAreaWidgetContents3.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContents3.setSizePolicy(sizePolicy5)
-        self.scrollAreaWidgetContents3.setMinimumSize(QSize(650, 1100))
+        self.scrollAreaWidgetContents3.setMinimumSize(QSize(650, 900))
         self.scrollAreaWidgetContents3.setMaximumSize(QSize(650, 2000))
         self.verticalLayout_93 = QVBoxLayout(self.scrollAreaWidgetContents3)
         self.verticalLayout_93.setObjectName(u"verticalLayout_93")
@@ -5010,9 +5018,9 @@ class Ui_Nugget(object):
 
         self._21.addLayout(self.horizontalLayout_3211)
 
-        self.verticalSpacer_51 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self._21.addItem(self.verticalSpacer_51)
+        self._21.addItem(self.verticalSpacer_5)
 
 
         self.verticalLayout_101.addWidget(self.settingsPageContent)

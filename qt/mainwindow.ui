@@ -5291,7 +5291,7 @@ QComboBox QAbstractItemView::item:hover {
                    <x>0</x>
                    <y>0</y>
                    <width>650</width>
-                   <height>1200</height>
+                   <height>800</height>
                   </rect>
                  </property>
                  <property name="sizePolicy">
@@ -5303,7 +5303,7 @@ QComboBox QAbstractItemView::item:hover {
                  <property name="minimumSize">
                   <size>
                    <width>650</width>
-                   <height>800</height>
+                   <height>500</height>
                   </size>
                  </property>
                  <property name="maximumSize">
@@ -5351,6 +5351,12 @@ QComboBox QAbstractItemView::item:hover {
                      </property>
                      <item>
                       <widget class="QLabel" name="footnoteLbl">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
                        <property name="text">
                         <string>Lock Screen Footnote Text</string>
                        </property>
@@ -5379,38 +5385,61 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
-                      <layout class="QHBoxLayout" name="horizontalLayout_16">
-                       <property name="bottomMargin">
-                        <number>0</number>
+                      <widget class="QWidget" name="autoLockLbl" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
-                       <item>
-                        <widget class="QLabel" name="lockScreenAutoLockLabel">
-                         <property name="text">
-                          <string>Auto‑Lock (Lock Screen)</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <spacer name="horizontalSpacer_10">
-                         <property name="orientation">
-                          <enum>Qt::Horizontal</enum>
-                         </property>
-                         <property name="sizeHint" stdset="0">
-                          <size>
-                           <width>40</width>
-                           <height>20</height>
-                          </size>
-                         </property>
-                        </spacer>
-                       </item>
-                       <item>
-                        <widget class="QLabel" name="lockScreenAutoLockValueLabel">
-                         <property name="text">
-                          <string notr="true">5s</string>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
+                       <layout class="QHBoxLayout" name="horizontalLayout_16">
+                        <property name="sizeConstraint">
+                         <enum>QLayout::SetDefaultConstraint</enum>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>1</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="lockScreenAutoLockLabel">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="text">
+                           <string>Auto‑Lock (Lock Screen)</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <spacer name="horizontalSpacer_10">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>40</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="lockScreenAutoLockValueLabel">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="text">
+                           <string notr="true">5s</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
                      </item>
                      <item>
                       <widget class="QSlider" name="lockScreenAutoLockSlider">
@@ -5811,19 +5840,6 @@ QComboBox QAbstractItemView::item:hover {
                        </layout>
                       </widget>
                      </item>
-                     <item>
-                      <spacer name="verticalSpacer_5">
-                       <property name="orientation">
-                        <enum>Qt::Vertical</enum>
-                       </property>
-                       <property name="sizeHint" stdset="0">
-                        <size>
-                         <width>20</width>
-                         <height>40</height>
-                        </size>
-                       </property>
-                      </spacer>
-                     </item>
                     </layout>
                    </widget>
                   </item>
@@ -6001,7 +6017,7 @@ QComboBox QAbstractItemView::item:hover {
                  <property name="minimumSize">
                   <size>
                    <width>650</width>
-                   <height>1100</height>
+                   <height>900</height>
                   </size>
                  </property>
                  <property name="maximumSize">
