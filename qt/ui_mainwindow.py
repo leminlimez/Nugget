@@ -1325,11 +1325,11 @@ class Ui_Nugget(object):
         self.verticalLayout_12.setSpacing(6)
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
-        self.internalOptionsLbl = QLabel(self.verticalWidget_4)
-        self.internalOptionsLbl.setObjectName(u"internalOptionsLbl")
-        self.internalOptionsLbl.setFont(font1)
+        self.featureFlagsLbl = QLabel(self.verticalWidget_4)
+        self.featureFlagsLbl.setObjectName(u"featureFlagsLbl")
+        self.featureFlagsLbl.setFont(font1)
 
-        self.verticalLayout_12.addWidget(self.internalOptionsLbl)
+        self.verticalLayout_12.addWidget(self.featureFlagsLbl)
 
         self.verticalSpacer_15 = QSpacerItem(20, 16, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
@@ -2955,11 +2955,11 @@ class Ui_Nugget(object):
         self.verticalLayout_121.setSpacing(6)
         self.verticalLayout_121.setObjectName(u"verticalLayout_121")
         self.verticalLayout_121.setContentsMargins(0, 0, 0, 0)
-        self.internalOptionsLbl1 = QLabel(self.verticalWidget_41)
-        self.internalOptionsLbl1.setObjectName(u"internalOptionsLbl1")
-        self.internalOptionsLbl1.setFont(font1)
+        self.internalOptionsLbl = QLabel(self.verticalWidget_41)
+        self.internalOptionsLbl.setObjectName(u"internalOptionsLbl")
+        self.internalOptionsLbl.setFont(font1)
 
-        self.verticalLayout_121.addWidget(self.internalOptionsLbl1)
+        self.verticalLayout_121.addWidget(self.internalOptionsLbl)
 
         self.verticalSpacer_18 = QSpacerItem(20, 16, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
@@ -2985,7 +2985,27 @@ class Ui_Nugget(object):
 
         self.verticalLayout_141.addWidget(self.line_121)
 
-        self.internalOptionsPageContent = QWidget(self.internalOptionsPage)
+        self.internalOptionsScrollArea = QScrollArea(self.internalOptionsPage)
+        self.internalOptionsScrollArea.setObjectName(u"internalOptionsScrollArea")
+        self.internalOptionsScrollArea.setFrameShape(QFrame.NoFrame)
+        self.internalOptionsScrollArea.setFrameShadow(QFrame.Plain)
+        self.internalOptionsScrollArea.setLineWidth(0)
+        self.internalOptionsScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.internalOptionsScrollArea.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.scrollAreaWidgetContents2 = QWidget()
+        self.scrollAreaWidgetContents2.setObjectName(u"scrollAreaWidgetContents2")
+        self.scrollAreaWidgetContents2.setGeometry(QRect(0, 0, 650, 425))
+        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.scrollAreaWidgetContents2.sizePolicy().hasHeightForWidth())
+        self.scrollAreaWidgetContents2.setSizePolicy(sizePolicy5)
+        self.scrollAreaWidgetContents2.setMinimumSize(QSize(650, 425))
+        self.scrollAreaWidgetContents2.setMaximumSize(QSize(650, 1200))
+        self.verticalLayout_92 = QVBoxLayout(self.scrollAreaWidgetContents2)
+        self.verticalLayout_92.setObjectName(u"verticalLayout_92")
+        self.verticalLayout_92.setContentsMargins(0, 0, 0, 0)
+        self.internalOptionsPageContent = QWidget(self.scrollAreaWidgetContents2)
         self.internalOptionsPageContent.setObjectName(u"internalOptionsPageContent")
         self.internalOptionsPageContent.setEnabled(False)
         self.verticalLayout_131 = QVBoxLayout(self.internalOptionsPageContent)
@@ -3127,12 +3147,12 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.notifyPastesChk)
 
-        self.verticalSpacer_61 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.verticalLayout_131.addItem(self.verticalSpacer_61)
+        self.verticalLayout_92.addWidget(self.internalOptionsPageContent)
 
+        self.internalOptionsScrollArea.setWidget(self.scrollAreaWidgetContents2)
 
-        self.verticalLayout_141.addWidget(self.internalOptionsPageContent)
+        self.verticalLayout_141.addWidget(self.internalOptionsScrollArea)
 
         self.pages.addWidget(self.internalOptionsPage)
         self.daemonsPage = QWidget()
@@ -3330,9 +3350,9 @@ class Ui_Nugget(object):
 
         self.verticalLayout_132.addWidget(self.nanoTimeKitChk)
 
-        self.verticalSpacer_62 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer_61 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.verticalLayout_132.addItem(self.verticalSpacer_62)
+        self.verticalLayout_132.addItem(self.verticalSpacer_61)
 
 
         self.verticalLayout_142.addWidget(self.daemonsPageContent)
@@ -3411,11 +3431,11 @@ class Ui_Nugget(object):
 
         self.pbPagePicker = QWidget(self.posterboardPage)
         self.pbPagePicker.setObjectName(u"pbPagePicker")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.pbPagePicker.sizePolicy().hasHeightForWidth())
-        self.pbPagePicker.setSizePolicy(sizePolicy5)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.pbPagePicker.sizePolicy().hasHeightForWidth())
+        self.pbPagePicker.setSizePolicy(sizePolicy6)
         self.pbPagePicker.setMinimumSize(QSize(0, 30))
         self.pbPagePicker.setMaximumSize(QSize(16777215, 35))
         self.pbPagePicker.setStyleSheet(u"QToolButton {\n"
@@ -3427,11 +3447,11 @@ class Ui_Nugget(object):
         self.horizontalLayout_14.setContentsMargins(-1, 0, -1, 0)
         self.tendiesPageBtn = QToolButton(self.pbPagePicker)
         self.tendiesPageBtn.setObjectName(u"tendiesPageBtn")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Expanding)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.tendiesPageBtn.sizePolicy().hasHeightForWidth())
-        self.tendiesPageBtn.setSizePolicy(sizePolicy6)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Expanding)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.tendiesPageBtn.sizePolicy().hasHeightForWidth())
+        self.tendiesPageBtn.setSizePolicy(sizePolicy7)
         self.tendiesPageBtn.setMinimumSize(QSize(0, 25))
         icon25 = QIcon()
         icon25.addFile(u":/icon/file-earmark-zip.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
@@ -3524,11 +3544,11 @@ class Ui_Nugget(object):
 
         self.pbFilesList = QWidget(self.pbTendiesPage)
         self.pbFilesList.setObjectName(u"pbFilesList")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.pbFilesList.sizePolicy().hasHeightForWidth())
-        self.pbFilesList.setSizePolicy(sizePolicy7)
+        sizePolicy8 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(0)
+        sizePolicy8.setHeightForWidth(self.pbFilesList.sizePolicy().hasHeightForWidth())
+        self.pbFilesList.setSizePolicy(sizePolicy8)
         self.pbFilesList.setMinimumSize(QSize(200, 35))
 
         self.verticalLayout_38.addWidget(self.pbFilesList)
@@ -3570,8 +3590,8 @@ class Ui_Nugget(object):
 
         self.pbTemplatesList = QWidget(self.pbTemplatesPage)
         self.pbTemplatesList.setObjectName(u"pbTemplatesList")
-        sizePolicy7.setHeightForWidth(self.pbTemplatesList.sizePolicy().hasHeightForWidth())
-        self.pbTemplatesList.setSizePolicy(sizePolicy7)
+        sizePolicy8.setHeightForWidth(self.pbTemplatesList.sizePolicy().hasHeightForWidth())
+        self.pbTemplatesList.setSizePolicy(sizePolicy8)
         self.pbTemplatesList.setMinimumSize(QSize(200, 35))
 
         self.verticalLayout_381.addWidget(self.pbTemplatesList)
@@ -3786,8 +3806,8 @@ class Ui_Nugget(object):
 
         self.templatesList = QWidget(self.templatesPage)
         self.templatesList.setObjectName(u"templatesList")
-        sizePolicy7.setHeightForWidth(self.templatesList.sizePolicy().hasHeightForWidth())
-        self.templatesList.setSizePolicy(sizePolicy7)
+        sizePolicy8.setHeightForWidth(self.templatesList.sizePolicy().hasHeightForWidth())
+        self.templatesList.setSizePolicy(sizePolicy8)
         self.templatesList.setMinimumSize(QSize(200, 35))
 
         self.verticalLayout_382.addWidget(self.templatesList)
@@ -3981,9 +4001,9 @@ class Ui_Nugget(object):
 
         self.verticalLayout_133.addWidget(self.resChangerContent)
 
-        self.verticalSpacer_63 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer_62 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.verticalLayout_133.addItem(self.verticalSpacer_63)
+        self.verticalLayout_133.addItem(self.verticalSpacer_62)
 
 
         self.verticalLayout_145.addWidget(self.advancedOptionsPageContent)
@@ -4680,7 +4700,7 @@ class Ui_Nugget(object):
         self.addGestaltKeyBtn.setText(QCoreApplication.translate("Nugget", u"  Add Key", None))
         self.label_12.setText(QCoreApplication.translate("Nugget", u"Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know\n"
 "what you are doing.", None))
-        self.internalOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Feature Flags", None))
+        self.featureFlagsLbl.setText(QCoreApplication.translate("Nugget", u"Feature Flags", None))
 #if QT_CONFIG(tooltip)
         self.clockAnimChk.setToolTip(QCoreApplication.translate("Nugget", u"Enables an animation when the lock screen clock changes time or style.", None))
 #endif // QT_CONFIG(tooltip)
@@ -4913,7 +4933,7 @@ class Ui_Nugget(object):
         self.enableAirPlayChk.setText(QCoreApplication.translate("Nugget", u"Enable AirPlay support for Stage Manager", None))
         self.authEngUICheck.setText(QCoreApplication.translate("Nugget", u"Show Red/Green Authentication Line on Lock Screen", None))
         self.floatingTabBarChk.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar", None))
-        self.internalOptionsLbl1.setText(QCoreApplication.translate("Nugget", u"Internal Options", None))
+        self.internalOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Internal Options", None))
         self.disableSolariumChk.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass", None))
 #if QT_CONFIG(tooltip)
         self.ignoreSolariumAppBuildChk.setToolTip(QCoreApplication.translate("Nugget", u"Enables liquid glass on apps regardless of whether or not it has been updated to include it", None))

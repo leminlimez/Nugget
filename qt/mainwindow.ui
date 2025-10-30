@@ -2380,7 +2380,7 @@ what you are doing.</string>
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QLabel" name="internalOptionsLbl">
+                     <widget class="QLabel" name="featureFlagsLbl">
                       <property name="font">
                        <font>
                         <pointsize>-1</pointsize>
@@ -5636,242 +5636,290 @@ QComboBox QAbstractItemView::item:hover {
                </widget>
               </item>
               <item>
-               <widget class="QWidget" name="internalOptionsPageContent" native="true">
-                <property name="enabled">
-                 <bool>false</bool>
+               <widget class="QScrollArea" name="internalOptionsScrollArea">
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_13">
-                 <property name="leftMargin">
-                  <number>0</number>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="lineWidth">
+                 <number>0</number>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::AdjustToContents</enum>
+                </property>
+                <widget class="QWidget" name="scrollAreaWidgetContents">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>650</width>
+                   <height>425</height>
+                  </rect>
                  </property>
-                 <property name="topMargin">
-                  <number>0</number>
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
                  </property>
-                 <property name="rightMargin">
-                  <number>0</number>
+                 <property name="minimumSize">
+                  <size>
+                   <width>650</width>
+                   <height>425</height>
+                  </size>
                  </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
+                 <property name="maximumSize">
+                  <size>
+                   <width>650</width>
+                   <height>1200</height>
+                  </size>
                  </property>
-                 <item>
-                  <widget class="QCheckBox" name="disableSolariumChk">
-                   <property name="text">
-                    <string>Disable Liquid Glass</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="ignoreSolariumAppBuildChk">
-                   <property name="toolTip">
-                    <string>Enables liquid glass on apps regardless of whether or not it has been updated to include it</string>
-                   </property>
-                   <property name="text">
-                    <string>Ignore Liquid Glass App Build Check</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="buildVersionChk">
-                   <property name="text">
-                    <string>Show Build Version in Status Bar</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="RTLChk">
-                   <property name="text">
-                    <string>Force Right-to-Left Layout</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="LTRChk">
-                   <property name="text">
-                    <string>Force Left-to-Right Layout</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="sbIconVisibilityChk">
-                   <property name="toolTip">
-                    <string>Shows hidden apps like Field Test and Continuity on the home screen</string>
-                   </property>
-                   <property name="text">
-                    <string>Show Hidden Icons on Home Screen</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="keyFlickChk">
-                   <property name="toolTip">
-                    <string>Enables the iPad-style keyboard keyflicks on iPhones</string>
-                   </property>
-                   <property name="text">
-                    <string>Enable Keyboard Character Flick</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="Line" name="div">
-                   <property name="enabled">
-                    <bool>false</bool>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QFrame {
+                 <layout class="QVBoxLayout" name="verticalLayout_9">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QWidget" name="internalOptionsPageContent" native="true">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_13">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <widget class="QCheckBox" name="disableSolariumChk">
+                       <property name="text">
+                        <string>Disable Liquid Glass</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="ignoreSolariumAppBuildChk">
+                       <property name="toolTip">
+                        <string>Enables liquid glass on apps regardless of whether or not it has been updated to include it</string>
+                       </property>
+                       <property name="text">
+                        <string>Ignore Liquid Glass App Build Check</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="buildVersionChk">
+                       <property name="text">
+                        <string>Show Build Version in Status Bar</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="RTLChk">
+                       <property name="text">
+                        <string>Force Right-to-Left Layout</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="LTRChk">
+                       <property name="text">
+                        <string>Force Left-to-Right Layout</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="sbIconVisibilityChk">
+                       <property name="toolTip">
+                        <string>Shows hidden apps like Field Test and Continuity on the home screen</string>
+                       </property>
+                       <property name="text">
+                        <string>Show Hidden Icons on Home Screen</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="keyFlickChk">
+                       <property name="toolTip">
+                        <string>Enables the iPad-style keyboard keyflicks on iPhones</string>
+                       </property>
+                       <property name="text">
+                        <string>Enable Keyboard Character Flick</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="Line" name="div">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QFrame {
 	color: #414141;
 }</string>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="metalHUDChk">
-                   <property name="text">
-                    <string>Enable Metal HUD Debug</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="iMessageChk">
-                   <property name="text">
-                    <string>Enable iMessage Debugging</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="IDSChk">
-                   <property name="text">
-                    <string>Enable Continuity Debugging</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="VCChk">
-                   <property name="text">
-                    <string>Enable FaceTime Debugging</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="accessoryDevChk">
-                   <property name="text">
-                    <string>Show Accessory Developer Settings</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="Line" name="line_17">
-                   <property name="styleSheet">
-                    <string notr="true">QFrame {
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Plain</enum>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="metalHUDChk">
+                       <property name="text">
+                        <string>Enable Metal HUD Debug</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="iMessageChk">
+                       <property name="text">
+                        <string>Enable iMessage Debugging</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="IDSChk">
+                       <property name="text">
+                        <string>Enable Continuity Debugging</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="VCChk">
+                       <property name="text">
+                        <string>Enable FaceTime Debugging</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="accessoryDevChk">
+                       <property name="text">
+                        <string>Show Accessory Developer Settings</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="Line" name="line_17">
+                       <property name="styleSheet">
+                        <string notr="true">QFrame {
 	color: #414141;
 }</string>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="appStoreChk">
-                   <property name="text">
-                    <string>Enable App Store Debug Gesture</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="notesChk">
-                   <property name="text">
-                    <string>Enable Notes Debug Mode</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="Line" name="line_18">
-                   <property name="styleSheet">
-                    <string notr="true">QFrame {
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Plain</enum>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="appStoreChk">
+                       <property name="text">
+                        <string>Enable App Store Debug Gesture</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="notesChk">
+                       <property name="text">
+                        <string>Enable Notes Debug Mode</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="Line" name="line_18">
+                       <property name="styleSheet">
+                        <string notr="true">QFrame {
 	color: #414141;
 }</string>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="showTouchesChk">
-                   <property name="text">
-                    <string>Show Touches With Debug Info</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="hideRespringChk">
-                   <property name="text">
-                    <string>Hide Respring Icon</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="enableWakeVibrateChk">
-                   <property name="text">
-                    <string>Vibrate on Raise-to-Wake</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="Line" name="line_19">
-                   <property name="styleSheet">
-                    <string notr="true">QFrame {
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Plain</enum>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="showTouchesChk">
+                       <property name="text">
+                        <string>Show Touches With Debug Info</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="hideRespringChk">
+                       <property name="text">
+                        <string>Hide Respring Icon</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="enableWakeVibrateChk">
+                       <property name="text">
+                        <string>Vibrate on Raise-to-Wake</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="Line" name="line_19">
+                       <property name="styleSheet">
+                        <string notr="true">QFrame {
 	color: #414141;
 }</string>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="pasteSoundChk">
-                   <property name="text">
-                    <string>Play Sound on Paste</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="notifyPastesChk">
-                   <property name="text">
-                    <string>Show Notifications for System Pastes</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <spacer name="verticalSpacer_6">
-                   <property name="orientation">
-                    <enum>Qt::Vertical</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>20</width>
-                     <height>40</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                </layout>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Plain</enum>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="pasteSoundChk">
+                       <property name="text">
+                        <string>Play Sound on Paste</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="notifyPastesChk">
+                       <property name="text">
+                        <string>Show Notifications for System Pastes</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
                </widget>
               </item>
              </layout>
