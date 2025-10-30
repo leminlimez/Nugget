@@ -6,14 +6,14 @@ class Page:
     def __init__(self):
         self.loaded = False
 
-    def createRadioBtns(self, key: TweakID, container: QHBoxLayout):
+    def createRadioBtns(self, key: TweakID, container: QHBoxLayout, invert_values: bool = False):
         defaultBtn = QRadioButton(QCoreApplication.tr("Default"))
         defaultBtn.setChecked(True)
         defaultBtn.clicked.connect(lambda _, k=key: tweaks[k].set_enabled(False))
         enabledBtn = QRadioButton(QCoreApplication.tr("Enabled"))
-        enabledBtn.clicked.connect(lambda _, k=key: tweaks[k].set_value(True))
+        enabledBtn.clicked.connect(lambda _, k=key: tweaks[k].set_value(not invert_values))
         disabledBtn = QRadioButton(QCoreApplication.tr("Disabled"))
-        disabledBtn.clicked.connect(lambda _, k=key: tweaks[k].set_value(False))
+        disabledBtn.clicked.connect(lambda _, k=key: tweaks[k].set_value(invert_values))
         container.addWidget(defaultBtn)
         container.addWidget(enabledBtn)
         container.addWidget(disabledBtn)

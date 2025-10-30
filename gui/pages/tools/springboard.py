@@ -24,7 +24,7 @@ class SpringboardPage(Page):
         self.createRadioBtns(key=TweakID.SBAlwaysShowSystemApertureInSnapshots, container=self.ui.showDIInScreenshotsBtns)
 
         self.createRadioBtns(key=TweakID.SBShowAuthenticationEngineeringUI, container=self.ui.authEngUIBtns)
-        self.createRadioBtns(key=TweakID.UseFloatingTabBar, container=self.ui.floatingTabBarBtns)
+        self.createRadioBtns(key=TweakID.UseFloatingTabBar, container=self.ui.floatingTabBarBtns, invert_values=True)
         
         load_springboard()
 

@@ -241,11 +241,10 @@ def load_springboard():
             FileLocation.springboard,
             "SBShowAuthenticationEngineeringUI"
         ),
-        TweakID.UseFloatingTabBar: AdvancedPlistTweak(
+        TweakID.UseFloatingTabBar: BasicPlistTweak(
             FileLocation.uikit,
-            {
-             "UseFloatingTabBar": False
-            },
+            key="UseFloatingTabBar",
+            value=False
         )
     }
     tweaks.update(additional_tweaks)
