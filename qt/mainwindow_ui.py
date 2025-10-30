@@ -2780,7 +2780,27 @@ class Ui_Nugget(object):
 
         self.verticalLayout_10.addWidget(self.line_11)
 
-        self.springboardOptionsPageContent = QWidget(self.springboardOptionsPage)
+        self.sbOptionsScrollArea = QScrollArea(self.springboardOptionsPage)
+        self.sbOptionsScrollArea.setObjectName(u"sbOptionsScrollArea")
+        self.sbOptionsScrollArea.setFrameShape(QFrame.NoFrame)
+        self.sbOptionsScrollArea.setFrameShadow(QFrame.Plain)
+        self.sbOptionsScrollArea.setLineWidth(0)
+        self.sbOptionsScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.sbOptionsScrollArea.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.scrollAreaWidgetContents2 = QWidget()
+        self.scrollAreaWidgetContents2.setObjectName(u"scrollAreaWidgetContents2")
+        self.scrollAreaWidgetContents2.setGeometry(QRect(0, 0, 650, 1200))
+        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.scrollAreaWidgetContents2.sizePolicy().hasHeightForWidth())
+        self.scrollAreaWidgetContents2.setSizePolicy(sizePolicy5)
+        self.scrollAreaWidgetContents2.setMinimumSize(QSize(650, 800))
+        self.scrollAreaWidgetContents2.setMaximumSize(QSize(650, 2000))
+        self.verticalLayout_92 = QVBoxLayout(self.scrollAreaWidgetContents2)
+        self.verticalLayout_92.setObjectName(u"verticalLayout_92")
+        self.verticalLayout_92.setContentsMargins(0, 0, 0, 0)
+        self.springboardOptionsPageContent = QWidget(self.scrollAreaWidgetContents2)
         self.springboardOptionsPageContent.setObjectName(u"springboardOptionsPageContent")
         self.springboardOptionsPageContent.setEnabled(False)
         self.springboardOptionsPageContent.setMaximumSize(QSize(650, 16777215))
@@ -2847,45 +2867,168 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.lockScreenAutoLockSeparator)
 
-        self.disableLockRespringChk = QCheckBox(self.springboardOptionsPageContent)
-        self.disableLockRespringChk.setObjectName(u"disableLockRespringChk")
+        self.disableLockRespringContent = QWidget(self.springboardOptionsPageContent)
+        self.disableLockRespringContent.setObjectName(u"disableLockRespringContent")
+        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.disableLockRespringContent.sizePolicy().hasHeightForWidth())
+        self.disableLockRespringContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_48 = QVBoxLayout(self.disableLockRespringContent)
+        self.verticalLayout_48.setObjectName(u"verticalLayout_48")
+        self.verticalLayout_48.setContentsMargins(0, 0, 0, 0)
+        self.label_36 = QLabel(self.disableLockRespringContent)
+        self.label_36.setObjectName(u"label_36")
 
-        self._2.addWidget(self.disableLockRespringChk)
+        self.verticalLayout_48.addWidget(self.label_36)
 
-        self.disableDimmingChk = QCheckBox(self.springboardOptionsPageContent)
-        self.disableDimmingChk.setObjectName(u"disableDimmingChk")
+        self.disableLockRespringBtns = QHBoxLayout()
+        self.disableLockRespringBtns.setObjectName(u"disableLockRespringBtns")
 
-        self._2.addWidget(self.disableDimmingChk)
+        self.verticalLayout_48.addLayout(self.disableLockRespringBtns)
 
-        self.disableBatteryAlertsChk = QCheckBox(self.springboardOptionsPageContent)
-        self.disableBatteryAlertsChk.setObjectName(u"disableBatteryAlertsChk")
 
-        self._2.addWidget(self.disableBatteryAlertsChk)
+        self._2.addWidget(self.disableLockRespringContent)
 
-        self.hideACPowerChk = QCheckBox(self.springboardOptionsPageContent)
-        self.hideACPowerChk.setObjectName(u"hideACPowerChk")
+        self.disableDimmingContent = QWidget(self.springboardOptionsPageContent)
+        self.disableDimmingContent.setObjectName(u"disableDimmingContent")
+        sizePolicy6.setHeightForWidth(self.disableDimmingContent.sizePolicy().hasHeightForWidth())
+        self.disableDimmingContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_49 = QVBoxLayout(self.disableDimmingContent)
+        self.verticalLayout_49.setObjectName(u"verticalLayout_49")
+        self.verticalLayout_49.setContentsMargins(0, 0, 0, 0)
+        self.label_37 = QLabel(self.disableDimmingContent)
+        self.label_37.setObjectName(u"label_37")
 
-        self._2.addWidget(self.hideACPowerChk)
+        self.verticalLayout_49.addWidget(self.label_37)
 
-        self.disableCrumbChk = QCheckBox(self.springboardOptionsPageContent)
-        self.disableCrumbChk.setObjectName(u"disableCrumbChk")
+        self.disableDimmingBtns = QHBoxLayout()
+        self.disableDimmingBtns.setObjectName(u"disableDimmingBtns")
 
-        self._2.addWidget(self.disableCrumbChk)
+        self.verticalLayout_49.addLayout(self.disableDimmingBtns)
 
-        self.enableSupervisionTextChk = QCheckBox(self.springboardOptionsPageContent)
-        self.enableSupervisionTextChk.setObjectName(u"enableSupervisionTextChk")
 
-        self._2.addWidget(self.enableSupervisionTextChk)
+        self._2.addWidget(self.disableDimmingContent)
 
-        self.showApertureInSnapshotsChk = QCheckBox(self.springboardOptionsPageContent)
-        self.showApertureInSnapshotsChk.setObjectName(u"showApertureInSnapshotsChk")
+        self.lowBatteryAlertsContent = QWidget(self.springboardOptionsPageContent)
+        self.lowBatteryAlertsContent.setObjectName(u"lowBatteryAlertsContent")
+        sizePolicy6.setHeightForWidth(self.lowBatteryAlertsContent.sizePolicy().hasHeightForWidth())
+        self.lowBatteryAlertsContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_50 = QVBoxLayout(self.lowBatteryAlertsContent)
+        self.verticalLayout_50.setObjectName(u"verticalLayout_50")
+        self.verticalLayout_50.setContentsMargins(0, 0, 0, 0)
+        self.label_38 = QLabel(self.lowBatteryAlertsContent)
+        self.label_38.setObjectName(u"label_38")
 
-        self._2.addWidget(self.showApertureInSnapshotsChk)
+        self.verticalLayout_50.addWidget(self.label_38)
 
-        self.enableAirPlayChk = QCheckBox(self.springboardOptionsPageContent)
-        self.enableAirPlayChk.setObjectName(u"enableAirPlayChk")
+        self.lowBatteryAlertsBtns = QHBoxLayout()
+        self.lowBatteryAlertsBtns.setObjectName(u"lowBatteryAlertsBtns")
 
-        self._2.addWidget(self.enableAirPlayChk)
+        self.verticalLayout_50.addLayout(self.lowBatteryAlertsBtns)
+
+
+        self._2.addWidget(self.lowBatteryAlertsContent)
+
+        self.hideACPowerContent = QWidget(self.springboardOptionsPageContent)
+        self.hideACPowerContent.setObjectName(u"hideACPowerContent")
+        sizePolicy6.setHeightForWidth(self.hideACPowerContent.sizePolicy().hasHeightForWidth())
+        self.hideACPowerContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_511 = QVBoxLayout(self.hideACPowerContent)
+        self.verticalLayout_511.setObjectName(u"verticalLayout_511")
+        self.verticalLayout_511.setContentsMargins(0, 0, 0, 0)
+        self.label_39 = QLabel(self.hideACPowerContent)
+        self.label_39.setObjectName(u"label_39")
+
+        self.verticalLayout_511.addWidget(self.label_39)
+
+        self.hideACPowerBtns = QHBoxLayout()
+        self.hideACPowerBtns.setObjectName(u"hideACPowerBtns")
+
+        self.verticalLayout_511.addLayout(self.hideACPowerBtns)
+
+
+        self._2.addWidget(self.hideACPowerContent)
+
+        self.disableCrumbContent = QWidget(self.springboardOptionsPageContent)
+        self.disableCrumbContent.setObjectName(u"disableCrumbContent")
+        sizePolicy6.setHeightForWidth(self.disableCrumbContent.sizePolicy().hasHeightForWidth())
+        self.disableCrumbContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_52 = QVBoxLayout(self.disableCrumbContent)
+        self.verticalLayout_52.setObjectName(u"verticalLayout_52")
+        self.verticalLayout_52.setContentsMargins(0, 0, 0, 0)
+        self.label_40 = QLabel(self.disableCrumbContent)
+        self.label_40.setObjectName(u"label_40")
+
+        self.verticalLayout_52.addWidget(self.label_40)
+
+        self.disableCrumbBtns = QHBoxLayout()
+        self.disableCrumbBtns.setObjectName(u"disableCrumbBtns")
+
+        self.verticalLayout_52.addLayout(self.disableCrumbBtns)
+
+
+        self._2.addWidget(self.disableCrumbContent)
+
+        self.supervisionTextContent = QWidget(self.springboardOptionsPageContent)
+        self.supervisionTextContent.setObjectName(u"supervisionTextContent")
+        sizePolicy6.setHeightForWidth(self.supervisionTextContent.sizePolicy().hasHeightForWidth())
+        self.supervisionTextContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_53 = QVBoxLayout(self.supervisionTextContent)
+        self.verticalLayout_53.setObjectName(u"verticalLayout_53")
+        self.verticalLayout_53.setContentsMargins(0, 0, 0, 0)
+        self.label_41 = QLabel(self.supervisionTextContent)
+        self.label_41.setObjectName(u"label_41")
+
+        self.verticalLayout_53.addWidget(self.label_41)
+
+        self.supervisionTextBtns = QHBoxLayout()
+        self.supervisionTextBtns.setObjectName(u"supervisionTextBtns")
+
+        self.verticalLayout_53.addLayout(self.supervisionTextBtns)
+
+
+        self._2.addWidget(self.supervisionTextContent)
+
+        self.showDIInScreenshotsContent = QWidget(self.springboardOptionsPageContent)
+        self.showDIInScreenshotsContent.setObjectName(u"showDIInScreenshotsContent")
+        sizePolicy6.setHeightForWidth(self.showDIInScreenshotsContent.sizePolicy().hasHeightForWidth())
+        self.showDIInScreenshotsContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_54 = QVBoxLayout(self.showDIInScreenshotsContent)
+        self.verticalLayout_54.setObjectName(u"verticalLayout_54")
+        self.verticalLayout_54.setContentsMargins(0, 0, 0, 0)
+        self.label_42 = QLabel(self.showDIInScreenshotsContent)
+        self.label_42.setObjectName(u"label_42")
+
+        self.verticalLayout_54.addWidget(self.label_42)
+
+        self.showDIInScreenshotsBtns = QHBoxLayout()
+        self.showDIInScreenshotsBtns.setObjectName(u"showDIInScreenshotsBtns")
+
+        self.verticalLayout_54.addLayout(self.showDIInScreenshotsBtns)
+
+
+        self._2.addWidget(self.showDIInScreenshotsContent)
+
+        self.enableAirPlayContent = QWidget(self.springboardOptionsPageContent)
+        self.enableAirPlayContent.setObjectName(u"enableAirPlayContent")
+        sizePolicy6.setHeightForWidth(self.enableAirPlayContent.sizePolicy().hasHeightForWidth())
+        self.enableAirPlayContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_55 = QVBoxLayout(self.enableAirPlayContent)
+        self.verticalLayout_55.setObjectName(u"verticalLayout_55")
+        self.verticalLayout_55.setContentsMargins(0, 0, 0, 0)
+        self.label_43 = QLabel(self.enableAirPlayContent)
+        self.label_43.setObjectName(u"label_43")
+
+        self.verticalLayout_55.addWidget(self.label_43)
+
+        self.enableAirPlayBtns = QHBoxLayout()
+        self.enableAirPlayBtns.setObjectName(u"enableAirPlayBtns")
+
+        self.verticalLayout_55.addLayout(self.enableAirPlayBtns)
+
+
+        self._2.addWidget(self.enableAirPlayContent)
 
         self.line_2 = QFrame(self.springboardOptionsPageContent)
         self.line_2.setObjectName(u"line_2")
@@ -2897,15 +3040,25 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.line_2)
 
-        self.authEngUICheck = QCheckBox(self.springboardOptionsPageContent)
-        self.authEngUICheck.setObjectName(u"authEngUICheck")
+        self.authEngUIContent = QWidget(self.springboardOptionsPageContent)
+        self.authEngUIContent.setObjectName(u"authEngUIContent")
+        sizePolicy6.setHeightForWidth(self.authEngUIContent.sizePolicy().hasHeightForWidth())
+        self.authEngUIContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_56 = QVBoxLayout(self.authEngUIContent)
+        self.verticalLayout_56.setObjectName(u"verticalLayout_56")
+        self.verticalLayout_56.setContentsMargins(0, 0, 0, 0)
+        self.label_44 = QLabel(self.authEngUIContent)
+        self.label_44.setObjectName(u"label_44")
 
-        self._2.addWidget(self.authEngUICheck)
+        self.verticalLayout_56.addWidget(self.label_44)
 
-        self.floatingTabBarChk = QCheckBox(self.springboardOptionsPageContent)
-        self.floatingTabBarChk.setObjectName(u"floatingTabBarChk")
+        self.authEngUIBtns = QHBoxLayout()
+        self.authEngUIBtns.setObjectName(u"authEngUIBtns")
 
-        self._2.addWidget(self.floatingTabBarChk)
+        self.verticalLayout_56.addLayout(self.authEngUIBtns)
+
+
+        self._2.addWidget(self.authEngUIContent)
 
         self.line = QFrame(self.springboardOptionsPageContent)
         self.line.setObjectName(u"line")
@@ -2914,12 +3067,36 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.line)
 
+        self.floatingTabBarContent = QWidget(self.springboardOptionsPageContent)
+        self.floatingTabBarContent.setObjectName(u"floatingTabBarContent")
+        sizePolicy6.setHeightForWidth(self.floatingTabBarContent.sizePolicy().hasHeightForWidth())
+        self.floatingTabBarContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_57 = QVBoxLayout(self.floatingTabBarContent)
+        self.verticalLayout_57.setObjectName(u"verticalLayout_57")
+        self.verticalLayout_57.setContentsMargins(0, 0, 0, 0)
+        self.label_45 = QLabel(self.floatingTabBarContent)
+        self.label_45.setObjectName(u"label_45")
+
+        self.verticalLayout_57.addWidget(self.label_45)
+
+        self.floatingTabBarBtns = QHBoxLayout()
+        self.floatingTabBarBtns.setObjectName(u"floatingTabBarBtns")
+
+        self.verticalLayout_57.addLayout(self.floatingTabBarBtns)
+
+
+        self._2.addWidget(self.floatingTabBarContent)
+
         self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self._2.addItem(self.verticalSpacer_5)
 
 
-        self.verticalLayout_10.addWidget(self.springboardOptionsPageContent)
+        self.verticalLayout_92.addWidget(self.springboardOptionsPageContent)
+
+        self.sbOptionsScrollArea.setWidget(self.scrollAreaWidgetContents2)
+
+        self.verticalLayout_10.addWidget(self.sbOptionsScrollArea)
 
         self.pages.addWidget(self.springboardOptionsPage)
         self.internalOptionsPage = QWidget()
@@ -2992,20 +3169,17 @@ class Ui_Nugget(object):
         self.internalOptionsScrollArea.setLineWidth(0)
         self.internalOptionsScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.internalOptionsScrollArea.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
-        self.scrollAreaWidgetContents2 = QWidget()
-        self.scrollAreaWidgetContents2.setObjectName(u"scrollAreaWidgetContents2")
-        self.scrollAreaWidgetContents2.setGeometry(QRect(0, 0, 650, 1200))
-        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.scrollAreaWidgetContents2.sizePolicy().hasHeightForWidth())
-        self.scrollAreaWidgetContents2.setSizePolicy(sizePolicy5)
-        self.scrollAreaWidgetContents2.setMinimumSize(QSize(650, 1100))
-        self.scrollAreaWidgetContents2.setMaximumSize(QSize(650, 2000))
-        self.verticalLayout_92 = QVBoxLayout(self.scrollAreaWidgetContents2)
-        self.verticalLayout_92.setObjectName(u"verticalLayout_92")
-        self.verticalLayout_92.setContentsMargins(0, 0, 0, 0)
-        self.internalOptionsPageContent = QWidget(self.scrollAreaWidgetContents2)
+        self.scrollAreaWidgetContents3 = QWidget()
+        self.scrollAreaWidgetContents3.setObjectName(u"scrollAreaWidgetContents3")
+        self.scrollAreaWidgetContents3.setGeometry(QRect(0, 0, 650, 1200))
+        sizePolicy5.setHeightForWidth(self.scrollAreaWidgetContents3.sizePolicy().hasHeightForWidth())
+        self.scrollAreaWidgetContents3.setSizePolicy(sizePolicy5)
+        self.scrollAreaWidgetContents3.setMinimumSize(QSize(650, 1100))
+        self.scrollAreaWidgetContents3.setMaximumSize(QSize(650, 2000))
+        self.verticalLayout_93 = QVBoxLayout(self.scrollAreaWidgetContents3)
+        self.verticalLayout_93.setObjectName(u"verticalLayout_93")
+        self.verticalLayout_93.setContentsMargins(0, 0, 0, 0)
+        self.internalOptionsPageContent = QWidget(self.scrollAreaWidgetContents3)
         self.internalOptionsPageContent.setObjectName(u"internalOptionsPageContent")
         self.internalOptionsPageContent.setEnabled(True)
         self.verticalLayout_131 = QVBoxLayout(self.internalOptionsPageContent)
@@ -3013,9 +3187,6 @@ class Ui_Nugget(object):
         self.verticalLayout_131.setContentsMargins(0, 0, 0, 0)
         self.disableSolariumContent = QWidget(self.internalOptionsPageContent)
         self.disableSolariumContent.setObjectName(u"disableSolariumContent")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
         sizePolicy6.setHeightForWidth(self.disableSolariumContent.sizePolicy().hasHeightForWidth())
         self.disableSolariumContent.setSizePolicy(sizePolicy6)
         self.disableSolariumContent.setMinimumSize(QSize(0, 25))
@@ -3437,9 +3608,9 @@ class Ui_Nugget(object):
         self.verticalLayout_131.addWidget(self.notifyPastesContent)
 
 
-        self.verticalLayout_92.addWidget(self.internalOptionsPageContent)
+        self.verticalLayout_93.addWidget(self.internalOptionsPageContent)
 
-        self.internalOptionsScrollArea.setWidget(self.scrollAreaWidgetContents2)
+        self.internalOptionsScrollArea.setWidget(self.scrollAreaWidgetContents3)
 
         self.verticalLayout_141.addWidget(self.internalOptionsScrollArea)
 
@@ -5203,22 +5374,22 @@ class Ui_Nugget(object):
         self.footnoteLbl.setText(QCoreApplication.translate("Nugget", u"Lock Screen Footnote Text", None))
         self.footnoteTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Footnote Text", None))
         self.lockScreenAutoLockLabel.setText(QCoreApplication.translate("Nugget", u"Auto\u2011Lock (Lock Screen)", None))
-        self.disableLockRespringChk.setText(QCoreApplication.translate("Nugget", u"Disable Lock After Respring", None))
-        self.disableDimmingChk.setText(QCoreApplication.translate("Nugget", u"Disable Screen Dimming While Charging", None))
-        self.disableBatteryAlertsChk.setText(QCoreApplication.translate("Nugget", u"Disable Low Battery Alerts", None))
-        self.hideACPowerChk.setText(QCoreApplication.translate("Nugget", u"Hide AC Power on Lock Screen", None))
+        self.label_36.setText(QCoreApplication.translate("Nugget", u"Disable Lock After Respring", None))
+        self.label_37.setText(QCoreApplication.translate("Nugget", u"Disable Screen Dimming While Charging", None))
+        self.label_38.setText(QCoreApplication.translate("Nugget", u"Disable Low Battery Alerts", None))
+        self.label_39.setText(QCoreApplication.translate("Nugget", u"Hide AC Power on Lock Screen", None))
 #if QT_CONFIG(tooltip)
-        self.disableCrumbChk.setToolTip(QCoreApplication.translate("Nugget", u"Removes '< PreviousAppName' glyph in Status Bar when being forwarded to another app.", None))
+        self.disableCrumbContent.setToolTip(QCoreApplication.translate("Nugget", u"Removes '< PreviousAppName' glyph in Status Bar when being forwarded to another app.", None))
 #endif // QT_CONFIG(tooltip)
-        self.disableCrumbChk.setText(QCoreApplication.translate("Nugget", u"Disable Breadcrumbs", None))
+        self.label_40.setText(QCoreApplication.translate("Nugget", u"Disable Breadcrumbs", None))
 #if QT_CONFIG(tooltip)
-        self.enableSupervisionTextChk.setToolTip(QCoreApplication.translate("Nugget", u"Shows info about the device supervision status and organization at the bottom of the lock screen.", None))
+        self.supervisionTextContent.setToolTip(QCoreApplication.translate("Nugget", u"Shows info about the device supervision status and organization at the bottom of the lock screen.", None))
 #endif // QT_CONFIG(tooltip)
-        self.enableSupervisionTextChk.setText(QCoreApplication.translate("Nugget", u"Show Supervision Text on Lock Screen", None))
-        self.showApertureInSnapshotsChk.setText(QCoreApplication.translate("Nugget", u"Show Dynamic Island in Screenshots", None))
-        self.enableAirPlayChk.setText(QCoreApplication.translate("Nugget", u"Enable AirPlay support for Stage Manager", None))
-        self.authEngUICheck.setText(QCoreApplication.translate("Nugget", u"Show Red/Green Authentication Line on Lock Screen", None))
-        self.floatingTabBarChk.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar", None))
+        self.label_41.setText(QCoreApplication.translate("Nugget", u"Show Supervision Text on Lock Screen", None))
+        self.label_42.setText(QCoreApplication.translate("Nugget", u"Show Dynamic Island in Screenshots", None))
+        self.label_43.setText(QCoreApplication.translate("Nugget", u"Enable AirPlay support for Stage Manager", None))
+        self.label_44.setText(QCoreApplication.translate("Nugget", u"Show Red/Green Authentication Line on Lock Screen", None))
+        self.label_45.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar", None))
         self.internalOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Internal Options", None))
         self.label_3.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass", None))
 #if QT_CONFIG(tooltip)

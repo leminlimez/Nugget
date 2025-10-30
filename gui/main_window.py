@@ -325,7 +325,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.dateChk.setVisible(not is_iphone)
             self.ui.dateTxt.setVisible(not is_iphone)
             # show floating tab bar on ipads and keyflicks on phones
-            self.ui.floatingTabBarChk.setVisible(not is_iphone)
+            self.ui.floatingTabBarContent.setVisible(not is_iphone)
             self.ui.keyFlickContent.setVisible(is_iphone and device_ver < Version("26.1"))
 
             # show the PB if initial load is true

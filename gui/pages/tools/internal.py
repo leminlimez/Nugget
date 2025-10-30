@@ -1,31 +1,13 @@
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
-from PySide6.QtWidgets import QRadioButton, QHBoxLayout, QSpacerItem, QSizePolicy
-from PySide6.QtCore import QCoreApplication
-
 from tweaks.tweak_loader import load_internal
-from tweaks.tweaks import tweaks, TweakID
+from tweaks.tweaks import TweakID
 
 class InternalPage(Page):
     def __init__(self, ui: Ui_Nugget):
         super().__init__()
         self.ui = ui
-
-    def createRadioBtns(self, key: TweakID, container: QHBoxLayout):
-        defaultBtn = QRadioButton(QCoreApplication.tr("Default"))
-        defaultBtn.setChecked(True)
-        defaultBtn.clicked.connect(lambda _, k=key: tweaks[k].set_enabled(False))
-        enabledBtn = QRadioButton(QCoreApplication.tr("Enabled"))
-        enabledBtn.clicked.connect(lambda _, k=key: tweaks[k].set_value(True))
-        disabledBtn = QRadioButton(QCoreApplication.tr("Disabled"))
-        disabledBtn.clicked.connect(lambda _, k=key: tweaks[k].set_value(False))
-        container.addWidget(defaultBtn)
-        container.addWidget(enabledBtn)
-        container.addWidget(disabledBtn)
-        # spacer to left-align it
-        spacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-        container.addItem(spacer)
 
     def load_page(self):
         # Create the radio buttons where needed
