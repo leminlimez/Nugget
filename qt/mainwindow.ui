@@ -5658,7 +5658,7 @@ QComboBox QAbstractItemView::item:hover {
                    <x>0</x>
                    <y>0</y>
                    <width>650</width>
-                   <height>425</height>
+                   <height>1200</height>
                   </rect>
                  </property>
                  <property name="sizePolicy">
@@ -5670,13 +5670,13 @@ QComboBox QAbstractItemView::item:hover {
                  <property name="minimumSize">
                   <size>
                    <width>650</width>
-                   <height>425</height>
+                   <height>1100</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
                    <width>650</width>
-                   <height>1200</height>
+                   <height>2000</height>
                   </size>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -5695,7 +5695,7 @@ QComboBox QAbstractItemView::item:hover {
                   <item>
                    <widget class="QWidget" name="internalOptionsPageContent" native="true">
                     <property name="enabled">
-                     <bool>false</bool>
+                     <bool>true</bool>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_13">
                      <property name="leftMargin">
@@ -5711,61 +5711,256 @@ QComboBox QAbstractItemView::item:hover {
                       <number>0</number>
                      </property>
                      <item>
-                      <widget class="QCheckBox" name="disableSolariumChk">
-                       <property name="text">
-                        <string>Disable Liquid Glass</string>
+                      <widget class="QWidget" name="disableSolariumContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>25</height>
+                        </size>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_18">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_3">
+                          <property name="text">
+                           <string>Disable Liquid Glass</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="disableSolariumBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="ignoreSolariumAppBuildChk">
+                      <widget class="QWidget" name="ignoreSolariumAppBuildContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
                        <property name="toolTip">
                         <string>Enables liquid glass on apps regardless of whether or not it has been updated to include it</string>
                        </property>
-                       <property name="text">
-                        <string>Ignore Liquid Glass App Build Check</string>
-                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_20">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_11">
+                          <property name="text">
+                           <string>Ignore Liquid Glass App Build Check</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="ignoreSolariumAppBuildBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="buildVersionChk">
-                       <property name="text">
-                        <string>Show Build Version in Status Bar</string>
+                      <widget class="QWidget" name="buildVersionContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_19">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_7">
+                          <property name="text">
+                           <string>Show Build Version in Status Bar</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="buildVersionBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="RTLChk">
-                       <property name="text">
-                        <string>Force Right-to-Left Layout</string>
+                      <widget class="QWidget" name="RTLContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_21">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_13">
+                          <property name="text">
+                           <string>Force Right-to-Left Layout</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="RTLBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="LTRChk">
-                       <property name="text">
-                        <string>Force Left-to-Right Layout</string>
+                      <widget class="QWidget" name="LTRContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_22">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_14">
+                          <property name="text">
+                           <string>Force Left-to-Right Layout</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="LTRBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="sbIconVisibilityChk">
+                      <widget class="QWidget" name="sbIconVisibilityContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
                        <property name="toolTip">
                         <string>Shows hidden apps like Field Test and Continuity on the home screen</string>
                        </property>
-                       <property name="text">
-                        <string>Show Hidden Icons on Home Screen</string>
-                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_23">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_22">
+                          <property name="text">
+                           <string>Show Hidden Icons on Home Screen</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="sbIconVisibilityBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="keyFlickChk">
+                      <widget class="QWidget" name="keyFlickContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
                        <property name="toolTip">
                         <string>Enables the iPad-style keyboard keyflicks on iPhones</string>
                        </property>
-                       <property name="text">
-                        <string>Enable Keyboard Character Flick</string>
-                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_27">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_23">
+                          <property name="text">
+                           <string>Keyboard Character Flick</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="keyFlickBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
@@ -5787,38 +5982,173 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="metalHUDChk">
-                       <property name="text">
-                        <string>Enable Metal HUD Debug</string>
+                      <widget class="QWidget" name="metalHUDContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_28">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_24">
+                          <property name="text">
+                           <string>Metal HUD Debug</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="metalHUDBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="iMessageChk">
-                       <property name="text">
-                        <string>Enable iMessage Debugging</string>
+                      <widget class="QWidget" name="iMessageContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_29">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_25">
+                          <property name="text">
+                           <string>iMessage Debugging</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="iMessageBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="IDSChk">
-                       <property name="text">
-                        <string>Enable Continuity Debugging</string>
+                      <widget class="QWidget" name="IDSContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_30">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_26">
+                          <property name="text">
+                           <string>Continuity Debugging</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="IDSBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="VCChk">
-                       <property name="text">
-                        <string>Enable FaceTime Debugging</string>
+                      <widget class="QWidget" name="VCContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_31">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_27">
+                          <property name="text">
+                           <string>FaceTime Debugging</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="VCBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="accessoryDevChk">
-                       <property name="text">
-                        <string>Show Accessory Developer Settings</string>
+                      <widget class="QWidget" name="accessoryDevContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_40">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_28">
+                          <property name="text">
+                           <string>Show Accessory Developer Settings</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="accessoryDevBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
@@ -5837,17 +6167,71 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="appStoreChk">
-                       <property name="text">
-                        <string>Enable App Store Debug Gesture</string>
+                      <widget class="QWidget" name="appStoreContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_41">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_29">
+                          <property name="text">
+                           <string>App Store Debug Gesture</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="appStoreBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="notesChk">
-                       <property name="text">
-                        <string>Enable Notes Debug Mode</string>
+                      <widget class="QWidget" name="notesContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_42">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_30">
+                          <property name="text">
+                           <string>Notes Debug Mode</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="notesBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
@@ -5866,24 +6250,105 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="showTouchesChk">
-                       <property name="text">
-                        <string>Show Touches With Debug Info</string>
+                      <widget class="QWidget" name="showTouchesContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_43">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_31">
+                          <property name="text">
+                           <string>Show Touches With Debug Info</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="showTouchesBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="hideRespringChk">
-                       <property name="text">
-                        <string>Hide Respring Icon</string>
+                      <widget class="QWidget" name="hideRespringContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_44">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_32">
+                          <property name="text">
+                           <string>Hide Respring Icon</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="hideRespringBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="enableWakeVibrateChk">
-                       <property name="text">
-                        <string>Vibrate on Raise-to-Wake</string>
+                      <widget class="QWidget" name="wakeVibrateContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_45">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_33">
+                          <property name="text">
+                           <string>Vibrate on Raise-to-Wake</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="wakeVibrateBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
@@ -5902,17 +6367,71 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="pasteSoundChk">
-                       <property name="text">
-                        <string>Play Sound on Paste</string>
+                      <widget class="QWidget" name="pasteSoundContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_46">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_34">
+                          <property name="text">
+                           <string>Play Sound on Paste</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="pasteSoundBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="notifyPastesChk">
-                       <property name="text">
-                        <string>Show Notifications for System Pastes</string>
+                      <widget class="QWidget" name="notifyPastesContent" native="true">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_47">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="label_35">
+                          <property name="text">
+                           <string>Show Notifications for System Pastes</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="notifyPastesBtns"/>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                     </layout>

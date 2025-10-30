@@ -1,6 +1,9 @@
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
+from PySide6.QtWidgets import QRadioButton, QHBoxLayout, QSpacerItem, QSizePolicy
+from PySide6.QtCore import QCoreApplication
+
 from tweaks.tweak_loader import load_internal
 from tweaks.tweaks import tweaks
 
@@ -9,68 +12,45 @@ class InternalPage(Page):
         super().__init__()
         self.ui = ui
 
+    def createRadioBtns(self, key: str, container: QHBoxLayout):
+        defaultBtn = QRadioButton(QCoreApplication.tr("Default"))
+        defaultBtn.setChecked(True)
+        defaultBtn.clicked.connect(lambda _, k=key: tweaks[k].set_enabled(False))
+        enabledBtn = QRadioButton(QCoreApplication.tr("Enabled"))
+        enabledBtn.clicked.connect(lambda _, k=key: tweaks[k].set_value(True))
+        disabledBtn = QRadioButton(QCoreApplication.tr("Disabled"))
+        disabledBtn.clicked.connect(lambda _, k=key: tweaks[k].set_value(False))
+        container.addWidget(defaultBtn)
+        container.addWidget(enabledBtn)
+        container.addWidget(disabledBtn)
+        # spacer to left-align it
+        spacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        container.addItem(spacer)
+
     def load_page(self):
-        self.ui.disableSolariumChk.toggled.connect(self.on_disableSolariumChk_clicked)
-        self.ui.ignoreSolariumAppBuildChk.toggled.connect(self.on_ignoreSolariumAppBuildChk_clicked)
-        self.ui.buildVersionChk.toggled.connect(self.on_buildVersionChk_clicked)
-        self.ui.RTLChk.toggled.connect(self.on_RTLChk_clicked)
-        self.ui.LTRChk.toggled.connect(self.on_LTRChk_clicked)
-        self.ui.sbIconVisibilityChk.toggled.connect(self.on_sbIconVisibilityChk_clicked)
-        self.ui.keyFlickChk.toggled.connect(self.on_keyFlickChk_clicked)
-        self.ui.metalHUDChk.toggled.connect(self.on_metalHUDChk_clicked)
-        self.ui.iMessageChk.toggled.connect(self.on_iMessageChk_clicked)
-        self.ui.IDSChk.toggled.connect(self.on_IDSChk_clicked)
-        self.ui.VCChk.toggled.connect(self.on_VCChk_clicked)
-        self.ui.accessoryDevChk.toggled.connect(self.on_accessoryDevChk_clicked)
-        self.ui.appStoreChk.toggled.connect(self.on_appStoreChk_clicked)
-        self.ui.notesChk.toggled.connect(self.on_notesChk_clicked)
-        self.ui.showTouchesChk.toggled.connect(self.on_showTouchesChk_clicked)
-        self.ui.hideRespringChk.toggled.connect(self.on_hideRespringChk_clicked)
-        self.ui.enableWakeVibrateChk.toggled.connect(self.on_enableWakeVibrateChk_clicked)
-        self.ui.pasteSoundChk.toggled.connect(self.on_pasteSoundChk_clicked)
-        self.ui.notifyPastesChk.toggled.connect(self.on_notifyPastesChk_clicked)
+        # Create the radio buttons where needed
+        self.createRadioBtns(key="DisableSolarium", container=self.ui.disableSolariumBtns)
+        self.createRadioBtns(key="IgnoreSolariumLinkedOnCheck", container=self.ui.ignoreSolariumAppBuildBtns)
+
+        self.createRadioBtns(key="SBBuildNumber", container=self.ui.buildVersionBtns)
+        self.createRadioBtns(key="RTL", container=self.ui.RTLBtns)
+        self.createRadioBtns(key="LTR", container=self.ui.LTRBtns)
+        self.createRadioBtns(key="SBIconVisibility", container=self.ui.sbIconVisibilityBtns)
+        self.createRadioBtns(key="KeyFlick", container=self.ui.keyFlickBtns)
+
+        self.createRadioBtns(key="MetalForceHudEnabled", container=self.ui.metalHUDBtns)
+        self.createRadioBtns(key="iMessageDiagnosticsEnabled", container=self.ui.iMessageBtns)
+        self.createRadioBtns(key="IDSDiagnosticsEnabled", container=self.ui.IDSBtns)
+        self.createRadioBtns(key="VCDiagnosticsEnabled", container=self.ui.VCBtns)
+        self.createRadioBtns(key="AccessoryDeveloperEnabled", container=self.ui.accessoryDevBtns)
+
+        self.createRadioBtns(key="AppStoreDebug", container=self.ui.appStoreBtns)
+        self.createRadioBtns(key="NotesDebugMode", container=self.ui.notesBtns)
+
+        self.createRadioBtns(key="BKDigitizerVisualizeTouches", container=self.ui.showTouchesBtns)
+        self.createRadioBtns(key="BKHideAppleLogoOnLaunch", container=self.ui.hideRespringBtns)
+        self.createRadioBtns(key="EnableWakeGestureHaptic", container=self.ui.wakeVibrateBtns)
+        self.createRadioBtns(key="PlaySoundOnPaste", container=self.ui.pasteSoundBtns)
+        self.createRadioBtns(key="AnnounceAllPastes", container=self.ui.notifyPastesBtns)
 
         load_internal()
-
-    ## ACTIONS
-    def on_disableSolariumChk_clicked(self, checked: bool):
-        tweaks["DisableSolarium"].set_enabled(checked)
-    def on_ignoreSolariumAppBuildChk_clicked(self, checked: bool):
-        tweaks["IgnoreSolariumLinkedOnCheck"].set_enabled(checked)
-    def on_buildVersionChk_clicked(self, checked: bool):
-        tweaks["SBBuildNumber"].set_enabled(checked)
-    def on_RTLChk_clicked(self, checked: bool):
-        tweaks["RTL"].set_enabled(checked)
-    def on_LTRChk_clicked(self, checked: bool):
-        tweaks["LTR"].set_enabled(checked)
-    def on_sbIconVisibilityChk_clicked(self, checked: bool):
-        tweaks["SBIconVisibility"].set_enabled(checked)
-    def on_keyFlickChk_clicked(self, checked: bool):
-        tweaks["KeyFlick"].set_enabled(checked)
-    
-    def on_metalHUDChk_clicked(self, checked: bool):
-        tweaks["MetalForceHudEnabled"].set_enabled(checked)
-    def on_iMessageChk_clicked(self, checked: bool):
-        tweaks["iMessageDiagnosticsEnabled"].set_enabled(checked)
-    def on_IDSChk_clicked(self, checked: bool):
-        tweaks["IDSDiagnosticsEnabled"].set_enabled(checked)
-    def on_VCChk_clicked(self, checked: bool):
-        tweaks["VCDiagnosticsEnabled"].set_enabled(checked)
-    def on_accessoryDevChk_clicked(self, checked: bool):
-        tweaks["AccessoryDeveloperEnabled"].set_enabled(checked)
-
-    def on_appStoreChk_clicked(self, checked: bool):
-        tweaks["AppStoreDebug"].set_enabled(checked)
-    def on_notesChk_clicked(self, checked: bool):
-        tweaks["NotesDebugMode"].set_enabled(checked)
-
-    def on_showTouchesChk_clicked(self, checked: bool):
-        tweaks["BKDigitizerVisualizeTouches"].set_enabled(checked)
-    def on_hideRespringChk_clicked(self, checked: bool):
-        tweaks["BKHideAppleLogoOnLaunch"].set_enabled(checked)
-    def on_enableWakeVibrateChk_clicked(self, checked: bool):
-        tweaks["EnableWakeGestureHaptic"].set_enabled(checked)
-    def on_pasteSoundChk_clicked(self, checked: bool):
-        tweaks["PlaySoundOnPaste"].set_enabled(checked)
-    def on_notifyPastesChk_clicked(self, checked: bool):
-        tweaks["AnnounceAllPastes"].set_enabled(checked)

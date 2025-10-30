@@ -2994,57 +2994,166 @@ class Ui_Nugget(object):
         self.internalOptionsScrollArea.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         self.scrollAreaWidgetContents2 = QWidget()
         self.scrollAreaWidgetContents2.setObjectName(u"scrollAreaWidgetContents2")
-        self.scrollAreaWidgetContents2.setGeometry(QRect(0, 0, 650, 425))
+        self.scrollAreaWidgetContents2.setGeometry(QRect(0, 0, 650, 1200))
         sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
         sizePolicy5.setHorizontalStretch(0)
         sizePolicy5.setVerticalStretch(0)
         sizePolicy5.setHeightForWidth(self.scrollAreaWidgetContents2.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContents2.setSizePolicy(sizePolicy5)
-        self.scrollAreaWidgetContents2.setMinimumSize(QSize(650, 425))
-        self.scrollAreaWidgetContents2.setMaximumSize(QSize(650, 1200))
+        self.scrollAreaWidgetContents2.setMinimumSize(QSize(650, 1100))
+        self.scrollAreaWidgetContents2.setMaximumSize(QSize(650, 2000))
         self.verticalLayout_92 = QVBoxLayout(self.scrollAreaWidgetContents2)
         self.verticalLayout_92.setObjectName(u"verticalLayout_92")
         self.verticalLayout_92.setContentsMargins(0, 0, 0, 0)
         self.internalOptionsPageContent = QWidget(self.scrollAreaWidgetContents2)
         self.internalOptionsPageContent.setObjectName(u"internalOptionsPageContent")
-        self.internalOptionsPageContent.setEnabled(False)
+        self.internalOptionsPageContent.setEnabled(True)
         self.verticalLayout_131 = QVBoxLayout(self.internalOptionsPageContent)
         self.verticalLayout_131.setObjectName(u"verticalLayout_131")
         self.verticalLayout_131.setContentsMargins(0, 0, 0, 0)
-        self.disableSolariumChk = QCheckBox(self.internalOptionsPageContent)
-        self.disableSolariumChk.setObjectName(u"disableSolariumChk")
+        self.disableSolariumContent = QWidget(self.internalOptionsPageContent)
+        self.disableSolariumContent.setObjectName(u"disableSolariumContent")
+        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.disableSolariumContent.sizePolicy().hasHeightForWidth())
+        self.disableSolariumContent.setSizePolicy(sizePolicy6)
+        self.disableSolariumContent.setMinimumSize(QSize(0, 25))
+        self.verticalLayout_18 = QVBoxLayout(self.disableSolariumContent)
+        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
+        self.verticalLayout_18.setContentsMargins(0, 0, 0, 0)
+        self.label_3 = QLabel(self.disableSolariumContent)
+        self.label_3.setObjectName(u"label_3")
 
-        self.verticalLayout_131.addWidget(self.disableSolariumChk)
+        self.verticalLayout_18.addWidget(self.label_3)
 
-        self.ignoreSolariumAppBuildChk = QCheckBox(self.internalOptionsPageContent)
-        self.ignoreSolariumAppBuildChk.setObjectName(u"ignoreSolariumAppBuildChk")
+        self.disableSolariumBtns = QHBoxLayout()
+        self.disableSolariumBtns.setObjectName(u"disableSolariumBtns")
 
-        self.verticalLayout_131.addWidget(self.ignoreSolariumAppBuildChk)
+        self.verticalLayout_18.addLayout(self.disableSolariumBtns)
 
-        self.buildVersionChk = QCheckBox(self.internalOptionsPageContent)
-        self.buildVersionChk.setObjectName(u"buildVersionChk")
 
-        self.verticalLayout_131.addWidget(self.buildVersionChk)
+        self.verticalLayout_131.addWidget(self.disableSolariumContent)
 
-        self.RTLChk = QCheckBox(self.internalOptionsPageContent)
-        self.RTLChk.setObjectName(u"RTLChk")
+        self.ignoreSolariumAppBuildContent = QWidget(self.internalOptionsPageContent)
+        self.ignoreSolariumAppBuildContent.setObjectName(u"ignoreSolariumAppBuildContent")
+        sizePolicy6.setHeightForWidth(self.ignoreSolariumAppBuildContent.sizePolicy().hasHeightForWidth())
+        self.ignoreSolariumAppBuildContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_20 = QVBoxLayout(self.ignoreSolariumAppBuildContent)
+        self.verticalLayout_20.setObjectName(u"verticalLayout_20")
+        self.verticalLayout_20.setContentsMargins(0, 0, 0, 0)
+        self.label_11 = QLabel(self.ignoreSolariumAppBuildContent)
+        self.label_11.setObjectName(u"label_11")
 
-        self.verticalLayout_131.addWidget(self.RTLChk)
+        self.verticalLayout_20.addWidget(self.label_11)
 
-        self.LTRChk = QCheckBox(self.internalOptionsPageContent)
-        self.LTRChk.setObjectName(u"LTRChk")
+        self.ignoreSolariumAppBuildBtns = QHBoxLayout()
+        self.ignoreSolariumAppBuildBtns.setObjectName(u"ignoreSolariumAppBuildBtns")
 
-        self.verticalLayout_131.addWidget(self.LTRChk)
+        self.verticalLayout_20.addLayout(self.ignoreSolariumAppBuildBtns)
 
-        self.sbIconVisibilityChk = QCheckBox(self.internalOptionsPageContent)
-        self.sbIconVisibilityChk.setObjectName(u"sbIconVisibilityChk")
 
-        self.verticalLayout_131.addWidget(self.sbIconVisibilityChk)
+        self.verticalLayout_131.addWidget(self.ignoreSolariumAppBuildContent)
 
-        self.keyFlickChk = QCheckBox(self.internalOptionsPageContent)
-        self.keyFlickChk.setObjectName(u"keyFlickChk")
+        self.buildVersionContent = QWidget(self.internalOptionsPageContent)
+        self.buildVersionContent.setObjectName(u"buildVersionContent")
+        sizePolicy6.setHeightForWidth(self.buildVersionContent.sizePolicy().hasHeightForWidth())
+        self.buildVersionContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_19 = QVBoxLayout(self.buildVersionContent)
+        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
+        self.verticalLayout_19.setContentsMargins(0, 0, 0, 0)
+        self.label_7 = QLabel(self.buildVersionContent)
+        self.label_7.setObjectName(u"label_7")
 
-        self.verticalLayout_131.addWidget(self.keyFlickChk)
+        self.verticalLayout_19.addWidget(self.label_7)
+
+        self.buildVersionBtns = QHBoxLayout()
+        self.buildVersionBtns.setObjectName(u"buildVersionBtns")
+
+        self.verticalLayout_19.addLayout(self.buildVersionBtns)
+
+
+        self.verticalLayout_131.addWidget(self.buildVersionContent)
+
+        self.RTLContent = QWidget(self.internalOptionsPageContent)
+        self.RTLContent.setObjectName(u"RTLContent")
+        sizePolicy6.setHeightForWidth(self.RTLContent.sizePolicy().hasHeightForWidth())
+        self.RTLContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_21 = QVBoxLayout(self.RTLContent)
+        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
+        self.verticalLayout_21.setContentsMargins(0, 0, 0, 0)
+        self.label_13 = QLabel(self.RTLContent)
+        self.label_13.setObjectName(u"label_13")
+
+        self.verticalLayout_21.addWidget(self.label_13)
+
+        self.RTLBtns = QHBoxLayout()
+        self.RTLBtns.setObjectName(u"RTLBtns")
+
+        self.verticalLayout_21.addLayout(self.RTLBtns)
+
+
+        self.verticalLayout_131.addWidget(self.RTLContent)
+
+        self.LTRContent = QWidget(self.internalOptionsPageContent)
+        self.LTRContent.setObjectName(u"LTRContent")
+        sizePolicy6.setHeightForWidth(self.LTRContent.sizePolicy().hasHeightForWidth())
+        self.LTRContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_22 = QVBoxLayout(self.LTRContent)
+        self.verticalLayout_22.setObjectName(u"verticalLayout_22")
+        self.verticalLayout_22.setContentsMargins(0, 0, 0, 0)
+        self.label_14 = QLabel(self.LTRContent)
+        self.label_14.setObjectName(u"label_14")
+
+        self.verticalLayout_22.addWidget(self.label_14)
+
+        self.LTRBtns = QHBoxLayout()
+        self.LTRBtns.setObjectName(u"LTRBtns")
+
+        self.verticalLayout_22.addLayout(self.LTRBtns)
+
+
+        self.verticalLayout_131.addWidget(self.LTRContent)
+
+        self.sbIconVisibilityContent = QWidget(self.internalOptionsPageContent)
+        self.sbIconVisibilityContent.setObjectName(u"sbIconVisibilityContent")
+        sizePolicy6.setHeightForWidth(self.sbIconVisibilityContent.sizePolicy().hasHeightForWidth())
+        self.sbIconVisibilityContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_23 = QVBoxLayout(self.sbIconVisibilityContent)
+        self.verticalLayout_23.setObjectName(u"verticalLayout_23")
+        self.verticalLayout_23.setContentsMargins(0, 0, 0, 0)
+        self.label_22 = QLabel(self.sbIconVisibilityContent)
+        self.label_22.setObjectName(u"label_22")
+
+        self.verticalLayout_23.addWidget(self.label_22)
+
+        self.sbIconVisibilityBtns = QHBoxLayout()
+        self.sbIconVisibilityBtns.setObjectName(u"sbIconVisibilityBtns")
+
+        self.verticalLayout_23.addLayout(self.sbIconVisibilityBtns)
+
+
+        self.verticalLayout_131.addWidget(self.sbIconVisibilityContent)
+
+        self.keyFlickContent = QWidget(self.internalOptionsPageContent)
+        self.keyFlickContent.setObjectName(u"keyFlickContent")
+        sizePolicy6.setHeightForWidth(self.keyFlickContent.sizePolicy().hasHeightForWidth())
+        self.keyFlickContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_27 = QVBoxLayout(self.keyFlickContent)
+        self.verticalLayout_27.setObjectName(u"verticalLayout_27")
+        self.verticalLayout_27.setContentsMargins(0, 0, 0, 0)
+        self.label_23 = QLabel(self.keyFlickContent)
+        self.label_23.setObjectName(u"label_23")
+
+        self.verticalLayout_27.addWidget(self.label_23)
+
+        self.keyFlickBtns = QHBoxLayout()
+        self.keyFlickBtns.setObjectName(u"keyFlickBtns")
+
+        self.verticalLayout_27.addLayout(self.keyFlickBtns)
+
+
+        self.verticalLayout_131.addWidget(self.keyFlickContent)
 
         self.div1 = QFrame(self.internalOptionsPageContent)
         self.div1.setObjectName(u"div1")
@@ -3057,30 +3166,105 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.div1)
 
-        self.metalHUDChk = QCheckBox(self.internalOptionsPageContent)
-        self.metalHUDChk.setObjectName(u"metalHUDChk")
+        self.metalHUDContent = QWidget(self.internalOptionsPageContent)
+        self.metalHUDContent.setObjectName(u"metalHUDContent")
+        sizePolicy6.setHeightForWidth(self.metalHUDContent.sizePolicy().hasHeightForWidth())
+        self.metalHUDContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_28 = QVBoxLayout(self.metalHUDContent)
+        self.verticalLayout_28.setObjectName(u"verticalLayout_28")
+        self.verticalLayout_28.setContentsMargins(0, 0, 0, 0)
+        self.label_24 = QLabel(self.metalHUDContent)
+        self.label_24.setObjectName(u"label_24")
 
-        self.verticalLayout_131.addWidget(self.metalHUDChk)
+        self.verticalLayout_28.addWidget(self.label_24)
 
-        self.iMessageChk = QCheckBox(self.internalOptionsPageContent)
-        self.iMessageChk.setObjectName(u"iMessageChk")
+        self.metalHUDBtns = QHBoxLayout()
+        self.metalHUDBtns.setObjectName(u"metalHUDBtns")
 
-        self.verticalLayout_131.addWidget(self.iMessageChk)
+        self.verticalLayout_28.addLayout(self.metalHUDBtns)
 
-        self.IDSChk = QCheckBox(self.internalOptionsPageContent)
-        self.IDSChk.setObjectName(u"IDSChk")
 
-        self.verticalLayout_131.addWidget(self.IDSChk)
+        self.verticalLayout_131.addWidget(self.metalHUDContent)
 
-        self.VCChk = QCheckBox(self.internalOptionsPageContent)
-        self.VCChk.setObjectName(u"VCChk")
+        self.iMessageContent = QWidget(self.internalOptionsPageContent)
+        self.iMessageContent.setObjectName(u"iMessageContent")
+        sizePolicy6.setHeightForWidth(self.iMessageContent.sizePolicy().hasHeightForWidth())
+        self.iMessageContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_29 = QVBoxLayout(self.iMessageContent)
+        self.verticalLayout_29.setObjectName(u"verticalLayout_29")
+        self.verticalLayout_29.setContentsMargins(0, 0, 0, 0)
+        self.label_25 = QLabel(self.iMessageContent)
+        self.label_25.setObjectName(u"label_25")
 
-        self.verticalLayout_131.addWidget(self.VCChk)
+        self.verticalLayout_29.addWidget(self.label_25)
 
-        self.accessoryDevChk = QCheckBox(self.internalOptionsPageContent)
-        self.accessoryDevChk.setObjectName(u"accessoryDevChk")
+        self.iMessageBtns = QHBoxLayout()
+        self.iMessageBtns.setObjectName(u"iMessageBtns")
 
-        self.verticalLayout_131.addWidget(self.accessoryDevChk)
+        self.verticalLayout_29.addLayout(self.iMessageBtns)
+
+
+        self.verticalLayout_131.addWidget(self.iMessageContent)
+
+        self.IDSContent = QWidget(self.internalOptionsPageContent)
+        self.IDSContent.setObjectName(u"IDSContent")
+        sizePolicy6.setHeightForWidth(self.IDSContent.sizePolicy().hasHeightForWidth())
+        self.IDSContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_30 = QVBoxLayout(self.IDSContent)
+        self.verticalLayout_30.setObjectName(u"verticalLayout_30")
+        self.verticalLayout_30.setContentsMargins(0, 0, 0, 0)
+        self.label_26 = QLabel(self.IDSContent)
+        self.label_26.setObjectName(u"label_26")
+
+        self.verticalLayout_30.addWidget(self.label_26)
+
+        self.IDSBtns = QHBoxLayout()
+        self.IDSBtns.setObjectName(u"IDSBtns")
+
+        self.verticalLayout_30.addLayout(self.IDSBtns)
+
+
+        self.verticalLayout_131.addWidget(self.IDSContent)
+
+        self.VCContent = QWidget(self.internalOptionsPageContent)
+        self.VCContent.setObjectName(u"VCContent")
+        sizePolicy6.setHeightForWidth(self.VCContent.sizePolicy().hasHeightForWidth())
+        self.VCContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_31 = QVBoxLayout(self.VCContent)
+        self.verticalLayout_31.setObjectName(u"verticalLayout_31")
+        self.verticalLayout_31.setContentsMargins(0, 0, 0, 0)
+        self.label_27 = QLabel(self.VCContent)
+        self.label_27.setObjectName(u"label_27")
+
+        self.verticalLayout_31.addWidget(self.label_27)
+
+        self.VCBtns = QHBoxLayout()
+        self.VCBtns.setObjectName(u"VCBtns")
+
+        self.verticalLayout_31.addLayout(self.VCBtns)
+
+
+        self.verticalLayout_131.addWidget(self.VCContent)
+
+        self.accessoryDevContent = QWidget(self.internalOptionsPageContent)
+        self.accessoryDevContent.setObjectName(u"accessoryDevContent")
+        sizePolicy6.setHeightForWidth(self.accessoryDevContent.sizePolicy().hasHeightForWidth())
+        self.accessoryDevContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_40 = QVBoxLayout(self.accessoryDevContent)
+        self.verticalLayout_40.setObjectName(u"verticalLayout_40")
+        self.verticalLayout_40.setContentsMargins(0, 0, 0, 0)
+        self.label_28 = QLabel(self.accessoryDevContent)
+        self.label_28.setObjectName(u"label_28")
+
+        self.verticalLayout_40.addWidget(self.label_28)
+
+        self.accessoryDevBtns = QHBoxLayout()
+        self.accessoryDevBtns.setObjectName(u"accessoryDevBtns")
+
+        self.verticalLayout_40.addLayout(self.accessoryDevBtns)
+
+
+        self.verticalLayout_131.addWidget(self.accessoryDevContent)
 
         self.line_17 = QFrame(self.internalOptionsPageContent)
         self.line_17.setObjectName(u"line_17")
@@ -3092,15 +3276,45 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.line_17)
 
-        self.appStoreChk = QCheckBox(self.internalOptionsPageContent)
-        self.appStoreChk.setObjectName(u"appStoreChk")
+        self.appStoreContent = QWidget(self.internalOptionsPageContent)
+        self.appStoreContent.setObjectName(u"appStoreContent")
+        sizePolicy6.setHeightForWidth(self.appStoreContent.sizePolicy().hasHeightForWidth())
+        self.appStoreContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_411 = QVBoxLayout(self.appStoreContent)
+        self.verticalLayout_411.setObjectName(u"verticalLayout_411")
+        self.verticalLayout_411.setContentsMargins(0, 0, 0, 0)
+        self.label_29 = QLabel(self.appStoreContent)
+        self.label_29.setObjectName(u"label_29")
 
-        self.verticalLayout_131.addWidget(self.appStoreChk)
+        self.verticalLayout_411.addWidget(self.label_29)
 
-        self.notesChk = QCheckBox(self.internalOptionsPageContent)
-        self.notesChk.setObjectName(u"notesChk")
+        self.appStoreBtns = QHBoxLayout()
+        self.appStoreBtns.setObjectName(u"appStoreBtns")
 
-        self.verticalLayout_131.addWidget(self.notesChk)
+        self.verticalLayout_411.addLayout(self.appStoreBtns)
+
+
+        self.verticalLayout_131.addWidget(self.appStoreContent)
+
+        self.notesContent = QWidget(self.internalOptionsPageContent)
+        self.notesContent.setObjectName(u"notesContent")
+        sizePolicy6.setHeightForWidth(self.notesContent.sizePolicy().hasHeightForWidth())
+        self.notesContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_42 = QVBoxLayout(self.notesContent)
+        self.verticalLayout_42.setObjectName(u"verticalLayout_42")
+        self.verticalLayout_42.setContentsMargins(0, 0, 0, 0)
+        self.label_30 = QLabel(self.notesContent)
+        self.label_30.setObjectName(u"label_30")
+
+        self.verticalLayout_42.addWidget(self.label_30)
+
+        self.notesBtns = QHBoxLayout()
+        self.notesBtns.setObjectName(u"notesBtns")
+
+        self.verticalLayout_42.addLayout(self.notesBtns)
+
+
+        self.verticalLayout_131.addWidget(self.notesContent)
 
         self.line_18 = QFrame(self.internalOptionsPageContent)
         self.line_18.setObjectName(u"line_18")
@@ -3112,20 +3326,65 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.line_18)
 
-        self.showTouchesChk = QCheckBox(self.internalOptionsPageContent)
-        self.showTouchesChk.setObjectName(u"showTouchesChk")
+        self.showTouchesContent = QWidget(self.internalOptionsPageContent)
+        self.showTouchesContent.setObjectName(u"showTouchesContent")
+        sizePolicy6.setHeightForWidth(self.showTouchesContent.sizePolicy().hasHeightForWidth())
+        self.showTouchesContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_43 = QVBoxLayout(self.showTouchesContent)
+        self.verticalLayout_43.setObjectName(u"verticalLayout_43")
+        self.verticalLayout_43.setContentsMargins(0, 0, 0, 0)
+        self.label_31 = QLabel(self.showTouchesContent)
+        self.label_31.setObjectName(u"label_31")
 
-        self.verticalLayout_131.addWidget(self.showTouchesChk)
+        self.verticalLayout_43.addWidget(self.label_31)
 
-        self.hideRespringChk = QCheckBox(self.internalOptionsPageContent)
-        self.hideRespringChk.setObjectName(u"hideRespringChk")
+        self.showTouchesBtns = QHBoxLayout()
+        self.showTouchesBtns.setObjectName(u"showTouchesBtns")
 
-        self.verticalLayout_131.addWidget(self.hideRespringChk)
+        self.verticalLayout_43.addLayout(self.showTouchesBtns)
 
-        self.enableWakeVibrateChk = QCheckBox(self.internalOptionsPageContent)
-        self.enableWakeVibrateChk.setObjectName(u"enableWakeVibrateChk")
 
-        self.verticalLayout_131.addWidget(self.enableWakeVibrateChk)
+        self.verticalLayout_131.addWidget(self.showTouchesContent)
+
+        self.hideRespringContent = QWidget(self.internalOptionsPageContent)
+        self.hideRespringContent.setObjectName(u"hideRespringContent")
+        sizePolicy6.setHeightForWidth(self.hideRespringContent.sizePolicy().hasHeightForWidth())
+        self.hideRespringContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_44 = QVBoxLayout(self.hideRespringContent)
+        self.verticalLayout_44.setObjectName(u"verticalLayout_44")
+        self.verticalLayout_44.setContentsMargins(0, 0, 0, 0)
+        self.label_32 = QLabel(self.hideRespringContent)
+        self.label_32.setObjectName(u"label_32")
+
+        self.verticalLayout_44.addWidget(self.label_32)
+
+        self.hideRespringBtns = QHBoxLayout()
+        self.hideRespringBtns.setObjectName(u"hideRespringBtns")
+
+        self.verticalLayout_44.addLayout(self.hideRespringBtns)
+
+
+        self.verticalLayout_131.addWidget(self.hideRespringContent)
+
+        self.wakeVibrateContent = QWidget(self.internalOptionsPageContent)
+        self.wakeVibrateContent.setObjectName(u"wakeVibrateContent")
+        sizePolicy6.setHeightForWidth(self.wakeVibrateContent.sizePolicy().hasHeightForWidth())
+        self.wakeVibrateContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_45 = QVBoxLayout(self.wakeVibrateContent)
+        self.verticalLayout_45.setObjectName(u"verticalLayout_45")
+        self.verticalLayout_45.setContentsMargins(0, 0, 0, 0)
+        self.label_33 = QLabel(self.wakeVibrateContent)
+        self.label_33.setObjectName(u"label_33")
+
+        self.verticalLayout_45.addWidget(self.label_33)
+
+        self.wakeVibrateBtns = QHBoxLayout()
+        self.wakeVibrateBtns.setObjectName(u"wakeVibrateBtns")
+
+        self.verticalLayout_45.addLayout(self.wakeVibrateBtns)
+
+
+        self.verticalLayout_131.addWidget(self.wakeVibrateContent)
 
         self.line_19 = QFrame(self.internalOptionsPageContent)
         self.line_19.setObjectName(u"line_19")
@@ -3137,15 +3396,45 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.line_19)
 
-        self.pasteSoundChk = QCheckBox(self.internalOptionsPageContent)
-        self.pasteSoundChk.setObjectName(u"pasteSoundChk")
+        self.pasteSoundContent = QWidget(self.internalOptionsPageContent)
+        self.pasteSoundContent.setObjectName(u"pasteSoundContent")
+        sizePolicy6.setHeightForWidth(self.pasteSoundContent.sizePolicy().hasHeightForWidth())
+        self.pasteSoundContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_46 = QVBoxLayout(self.pasteSoundContent)
+        self.verticalLayout_46.setObjectName(u"verticalLayout_46")
+        self.verticalLayout_46.setContentsMargins(0, 0, 0, 0)
+        self.label_34 = QLabel(self.pasteSoundContent)
+        self.label_34.setObjectName(u"label_34")
 
-        self.verticalLayout_131.addWidget(self.pasteSoundChk)
+        self.verticalLayout_46.addWidget(self.label_34)
 
-        self.notifyPastesChk = QCheckBox(self.internalOptionsPageContent)
-        self.notifyPastesChk.setObjectName(u"notifyPastesChk")
+        self.pasteSoundBtns = QHBoxLayout()
+        self.pasteSoundBtns.setObjectName(u"pasteSoundBtns")
 
-        self.verticalLayout_131.addWidget(self.notifyPastesChk)
+        self.verticalLayout_46.addLayout(self.pasteSoundBtns)
+
+
+        self.verticalLayout_131.addWidget(self.pasteSoundContent)
+
+        self.notifyPastesContent = QWidget(self.internalOptionsPageContent)
+        self.notifyPastesContent.setObjectName(u"notifyPastesContent")
+        sizePolicy6.setHeightForWidth(self.notifyPastesContent.sizePolicy().hasHeightForWidth())
+        self.notifyPastesContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_47 = QVBoxLayout(self.notifyPastesContent)
+        self.verticalLayout_47.setObjectName(u"verticalLayout_47")
+        self.verticalLayout_47.setContentsMargins(0, 0, 0, 0)
+        self.label_35 = QLabel(self.notifyPastesContent)
+        self.label_35.setObjectName(u"label_35")
+
+        self.verticalLayout_47.addWidget(self.label_35)
+
+        self.notifyPastesBtns = QHBoxLayout()
+        self.notifyPastesBtns.setObjectName(u"notifyPastesBtns")
+
+        self.verticalLayout_47.addLayout(self.notifyPastesBtns)
+
+
+        self.verticalLayout_131.addWidget(self.notifyPastesContent)
 
 
         self.verticalLayout_92.addWidget(self.internalOptionsPageContent)
@@ -3431,9 +3720,6 @@ class Ui_Nugget(object):
 
         self.pbPagePicker = QWidget(self.posterboardPage)
         self.pbPagePicker.setObjectName(u"pbPagePicker")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
         sizePolicy6.setHeightForWidth(self.pbPagePicker.sizePolicy().hasHeightForWidth())
         self.pbPagePicker.setSizePolicy(sizePolicy6)
         self.pbPagePicker.setMinimumSize(QSize(0, 30))
@@ -4934,34 +5220,34 @@ class Ui_Nugget(object):
         self.authEngUICheck.setText(QCoreApplication.translate("Nugget", u"Show Red/Green Authentication Line on Lock Screen", None))
         self.floatingTabBarChk.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar", None))
         self.internalOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Internal Options", None))
-        self.disableSolariumChk.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass", None))
+        self.label_3.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass", None))
 #if QT_CONFIG(tooltip)
-        self.ignoreSolariumAppBuildChk.setToolTip(QCoreApplication.translate("Nugget", u"Enables liquid glass on apps regardless of whether or not it has been updated to include it", None))
+        self.ignoreSolariumAppBuildContent.setToolTip(QCoreApplication.translate("Nugget", u"Enables liquid glass on apps regardless of whether or not it has been updated to include it", None))
 #endif // QT_CONFIG(tooltip)
-        self.ignoreSolariumAppBuildChk.setText(QCoreApplication.translate("Nugget", u"Ignore Liquid Glass App Build Check", None))
-        self.buildVersionChk.setText(QCoreApplication.translate("Nugget", u"Show Build Version in Status Bar", None))
-        self.RTLChk.setText(QCoreApplication.translate("Nugget", u"Force Right-to-Left Layout", None))
-        self.LTRChk.setText(QCoreApplication.translate("Nugget", u"Force Left-to-Right Layout", None))
+        self.label_11.setText(QCoreApplication.translate("Nugget", u"Ignore Liquid Glass App Build Check", None))
+        self.label_7.setText(QCoreApplication.translate("Nugget", u"Show Build Version in Status Bar", None))
+        self.label_13.setText(QCoreApplication.translate("Nugget", u"Force Right-to-Left Layout", None))
+        self.label_14.setText(QCoreApplication.translate("Nugget", u"Force Left-to-Right Layout", None))
 #if QT_CONFIG(tooltip)
-        self.sbIconVisibilityChk.setToolTip(QCoreApplication.translate("Nugget", u"Shows hidden apps like Field Test and Continuity on the home screen", None))
+        self.sbIconVisibilityContent.setToolTip(QCoreApplication.translate("Nugget", u"Shows hidden apps like Field Test and Continuity on the home screen", None))
 #endif // QT_CONFIG(tooltip)
-        self.sbIconVisibilityChk.setText(QCoreApplication.translate("Nugget", u"Show Hidden Icons on Home Screen", None))
+        self.label_22.setText(QCoreApplication.translate("Nugget", u"Show Hidden Icons on Home Screen", None))
 #if QT_CONFIG(tooltip)
-        self.keyFlickChk.setToolTip(QCoreApplication.translate("Nugget", u"Enables the iPad-style keyboard keyflicks on iPhones", None))
+        self.keyFlickContent.setToolTip(QCoreApplication.translate("Nugget", u"Enables the iPad-style keyboard keyflicks on iPhones", None))
 #endif // QT_CONFIG(tooltip)
-        self.keyFlickChk.setText(QCoreApplication.translate("Nugget", u"Enable Keyboard Character Flick", None))
-        self.metalHUDChk.setText(QCoreApplication.translate("Nugget", u"Enable Metal HUD Debug", None))
-        self.iMessageChk.setText(QCoreApplication.translate("Nugget", u"Enable iMessage Debugging", None))
-        self.IDSChk.setText(QCoreApplication.translate("Nugget", u"Enable Continuity Debugging", None))
-        self.VCChk.setText(QCoreApplication.translate("Nugget", u"Enable FaceTime Debugging", None))
-        self.accessoryDevChk.setText(QCoreApplication.translate("Nugget", u"Show Accessory Developer Settings", None))
-        self.appStoreChk.setText(QCoreApplication.translate("Nugget", u"Enable App Store Debug Gesture", None))
-        self.notesChk.setText(QCoreApplication.translate("Nugget", u"Enable Notes Debug Mode", None))
-        self.showTouchesChk.setText(QCoreApplication.translate("Nugget", u"Show Touches With Debug Info", None))
-        self.hideRespringChk.setText(QCoreApplication.translate("Nugget", u"Hide Respring Icon", None))
-        self.enableWakeVibrateChk.setText(QCoreApplication.translate("Nugget", u"Vibrate on Raise-to-Wake", None))
-        self.pasteSoundChk.setText(QCoreApplication.translate("Nugget", u"Play Sound on Paste", None))
-        self.notifyPastesChk.setText(QCoreApplication.translate("Nugget", u"Show Notifications for System Pastes", None))
+        self.label_23.setText(QCoreApplication.translate("Nugget", u"Keyboard Character Flick", None))
+        self.label_24.setText(QCoreApplication.translate("Nugget", u"Metal HUD Debug", None))
+        self.label_25.setText(QCoreApplication.translate("Nugget", u"iMessage Debugging", None))
+        self.label_26.setText(QCoreApplication.translate("Nugget", u"Continuity Debugging", None))
+        self.label_27.setText(QCoreApplication.translate("Nugget", u"FaceTime Debugging", None))
+        self.label_28.setText(QCoreApplication.translate("Nugget", u"Show Accessory Developer Settings", None))
+        self.label_29.setText(QCoreApplication.translate("Nugget", u"App Store Debug Gesture", None))
+        self.label_30.setText(QCoreApplication.translate("Nugget", u"Notes Debug Mode", None))
+        self.label_31.setText(QCoreApplication.translate("Nugget", u"Show Touches With Debug Info", None))
+        self.label_32.setText(QCoreApplication.translate("Nugget", u"Hide Respring Icon", None))
+        self.label_33.setText(QCoreApplication.translate("Nugget", u"Vibrate on Raise-to-Wake", None))
+        self.label_34.setText(QCoreApplication.translate("Nugget", u"Play Sound on Paste", None))
+        self.label_35.setText(QCoreApplication.translate("Nugget", u"Show Notifications for System Pastes", None))
         self.daemonsLbl.setText(QCoreApplication.translate("Nugget", u"Daemons", None))
         self.modifyDaemonsChk.setText(QCoreApplication.translate("Nugget", u"Modify", None))
         self.regularDomainsLbl.setText(QCoreApplication.translate("Nugget", u"Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have\n"
