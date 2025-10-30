@@ -17,7 +17,7 @@ from gui.pages.reset_dialog import ResetDialog
 from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThread
 from gui.pages.pages_list import Page
 
-from tweaks.tweaks import tweaks
+from tweaks.tweaks import tweaks, TweakID
 
 App_Version = "7.0"
 App_Build = 1
@@ -253,7 +253,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.dynamicIslandDrp.removeItem(5)
             except:
                 pass
-            if "RdarFix" in tweaks:
+            if TweakID.RdarFix in tweaks:
                 self.pages[Page.Gestalt].set_rdar_fix_label()
             device_ver = Version(self.device_manager.data_singleton.current_device.version)
             patched: bool = self.device_manager.get_current_device_patched()
@@ -306,7 +306,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.advancedPageBtn.hide()
             
             # hide the ai content if not on
-            if device_ver >= Version("18.1") and (not 'AIGestalt' in tweaks or not tweaks["AIGestalt"].enabled):
+            if device_ver >= Version("18.1") and (not TweakID.AIGestalt in tweaks or not tweaks[TweakID.AIGestalt].enabled):
                 self.ui.aiEnablerContent.hide()
             if device_ver < Version("18.2"):
                 self.pages[Page.Gestalt].setup_spoofedModelDrp_models()
@@ -315,12 +315,12 @@ class MainWindow(QtWidgets.QMainWindow):
             is_iphone = self.device_manager.get_current_device_model().startswith("iPhone")
             if not is_iphone:
                 # force looping
-                tweaks["PosterBoard"].loop_video = True
-            is_looping = tweaks["PosterBoard"].loop_video
+                tweaks[TweakID.PosterBoard].loop_video = True
+            is_looping = tweaks[TweakID.PosterBoard].loop_video
             self.ui.pbVideoThumbLbl.setVisible(is_iphone and not is_looping)
             self.ui.chooseThumbBtn.setVisible(is_iphone and not is_looping)
             self.ui.caVideoChk.setVisible(is_iphone)
-            self.ui.exportPBVideoBtn.setVisible(is_looping and tweaks["PosterBoard"].videoFile != None)
+            self.ui.exportPBVideoBtn.setVisible(is_looping and tweaks[TweakID.PosterBoard].videoFile != None)
             # show status bar date on ipads
             self.ui.dateChk.setVisible(not is_iphone)
             self.ui.dateTxt.setVisible(not is_iphone)
@@ -331,12 +331,12 @@ class MainWindow(QtWidgets.QMainWindow):
             # show the PB if initial load is true
             if self.initial_load:
                 self.initial_load = False
-                if len(tweaks["PosterBoard"].tendies) > 0:
+                if len(tweaks[TweakID.PosterBoard].tendies) > 0:
                     self.pages[Page.Posterboard].load()
                     self.ui.pages.setCurrentIndex(Page.Posterboard.value)
                     self.ui.posterboardPageBtn.setChecked(True)
                     self.ui.homePageBtn.setChecked(False)
-                elif len(tweaks["Templates"].templates) > 0:
+                elif len(tweaks[TweakID.Templates].templates) > 0:
                     self.pages[Page.Templates].load()
                     self.ui.pages.setCurrentIndex(Page.Templates.value)
                     self.ui.templatePageBtn.setChecked(True)

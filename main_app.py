@@ -8,7 +8,7 @@ from PySide6.QtCore import QLocale, QSettings
 from controllers.translator import Translator
 from gui.main_window import MainWindow
 from devicemanagement.device_manager import DeviceManager
-from tweaks.tweaks import tweaks
+from tweaks.tweaks import tweaks, TweakID
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
@@ -32,9 +32,9 @@ if __name__ == "__main__":
     # Handle file args (e.g. drag & drop)
     for arg in sys.argv:
         if arg.endswith('.tendies'):
-            tweaks["PosterBoard"].add_tendie(arg)
+            tweaks[TweakID.PosterBoard].add_tendie(arg)
         elif arg.endswith('.batter'):
-            tweaks["Templates"].add_template(arg)
+            tweaks[TweakID.Templates].add_template(arg)
 
     print("Nugget launched.")
     sys.exit(app.exec())

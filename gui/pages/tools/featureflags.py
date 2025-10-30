@@ -2,7 +2,7 @@ from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
 from tweaks.tweak_loader import load_featureflags
-from tweaks.tweaks import tweaks
+from tweaks.tweaks import tweaks, TweakID
 
 class FeatureFlagsPage(Page):
     def __init__(self, ui: Ui_Nugget):
@@ -19,11 +19,11 @@ class FeatureFlagsPage(Page):
 
     ## ACTIONS
     def on_clockAnimChk_toggled(self, checked: bool):
-        tweaks["ClockAnim"].set_enabled(checked)
+        tweaks[TweakID.ClockAnim].set_enabled(checked)
     def on_lockscreenChk_clicked(self, checked: bool):
-        tweaks["Lockscreen"].set_enabled(checked)
+        tweaks[TweakID.Lockscreen].set_enabled(checked)
 
     def on_photosChk_clicked(self, checked: bool):
-        tweaks["PhotoUI"].set_enabled(checked)
+        tweaks[TweakID.PhotoUI].set_enabled(checked)
     def on_aiChk_clicked(self, checked: bool):
-        tweaks["AI"].set_enabled(checked)
+        tweaks[TweakID.AI].set_enabled(checked)

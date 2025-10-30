@@ -2,7 +2,7 @@ from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
 from tweaks.tweak_loader import load_springboard
-from tweaks.tweaks import tweaks
+from tweaks.tweaks import tweaks, TweakID
 
 class SpringboardPage(Page):
     def __init__(self, ui: Ui_Nugget):
@@ -27,28 +27,28 @@ class SpringboardPage(Page):
 
     ## ACTIONS
     def on_footnoteTxt_textEdited(self, text: str):
-        tweaks["LockScreenFootnote"].set_value(text, toggle_enabled=True)
+        tweaks[TweakID.LockScreenFootnote].set_value(text, toggle_enabled=True)
     def on_disableLockRespringChk_clicked(self, checked: bool):
-        tweaks["SBDontLockAfterCrash"].set_enabled(checked)
+        tweaks[TweakID.SBDontLockAfterCrash].set_enabled(checked)
     def on_disableDimmingChk_clicked(self, checked: bool):
-        tweaks["SBDontDimOrLockOnAC"].set_enabled(checked)
+        tweaks[TweakID.SBDontDimOrLockOnAC].set_enabled(checked)
     def on_disableBatteryAlertsChk_clicked(self, checked: bool):
-        tweaks["SBHideLowPowerAlerts"].set_enabled(checked)
+        tweaks[TweakID.SBHideLowPowerAlerts].set_enabled(checked)
     def on_disableCrumbChk_clicked(self, checked: bool):
-        tweaks["SBNeverBreadcrumb"].set_enabled(checked)
+        tweaks[TweakID.SBNeverBreadcrumb].set_enabled(checked)
     def on_enableSupervisionTextChk_clicked(self, checked: bool):
-        tweaks["SBShowSupervisionTextOnLockScreen"].set_enabled(checked)
+        tweaks[TweakID.SBShowSupervisionTextOnLockScreen].set_enabled(checked)
     def on_enableAirPlayChk_clicked(self, checked: bool):
-        tweaks["AirplaySupport"].set_enabled(checked)
+        tweaks[TweakID.AirplaySupport].set_enabled(checked)
     def on_hideACPowerChk_clicked(self, checked: bool):
-        tweaks["SBHideACPower"].set_enabled(checked)
+        tweaks[TweakID.SBHideACPower].set_enabled(checked)
     def on_lockScreenAutoLockSlider_valueChanged(self, value: int):
         self.ui.lockScreenAutoLockValueLabel.setText(f'{value}s')
-        tweaks["SBMinimumLockscreenIdleTime"].set_value(value, toggle_enabled=True)
+        tweaks[TweakID.SBMinimumLockscreenIdleTime].set_value(value, toggle_enabled=True)
     def on_showApertureInSnapshotsChk_clicked(self, checked: bool):
-        tweaks["SBAlwaysShowSystemApertureInSnapshots"].set_enabled(checked)
+        tweaks[TweakID.SBAlwaysShowSystemApertureInSnapshots].set_enabled(checked)
 
     def on_authEngUICheck_clicked(self, checked: bool):
-        tweaks["SBShowAuthenticationEngineeringUI"].set_enabled(checked)
+        tweaks[TweakID.SBShowAuthenticationEngineeringUI].set_enabled(checked)
     def on_floatingTabBarChk_clicked(self, checked: bool):
-        tweaks["UseFloatingTabBar"].set_enabled(checked)
+        tweaks[TweakID.UseFloatingTabBar].set_enabled(checked)

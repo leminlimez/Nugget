@@ -29,7 +29,7 @@ from controllers.files_handler import get_bundle_files
 
 from exceptions.nugget_exception import NuggetException
 
-from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak, StatusBarTweak
+from tweaks.tweaks import tweaks, TweakID, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak, StatusBarTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.posterboard.posterboard_tweak import PosterboardTweak
 from tweaks.posterboard.template_options.templates_tweak import TemplatesTweak
@@ -158,8 +158,8 @@ class DeviceManager:
                             locale=ld.locale,
                             ld=ld
                         )
-                    if "RdarFix" in tweaks:
-                        tweaks["RdarFix"].get_rdar_mode(model)
+                    if TweakID.RdarFix in tweaks:
+                        tweaks[TweakID.RdarFix].get_rdar_mode(model)
                     self.devices.append(dev)
                 except PasswordRequiredError as e:
                     show_alert(ApplyAlertMessage(txt=QCoreApplication.tr("Device is password protected! You must trust the computer on your device.\n\nUnlock your device. On the popup, click \"Trust\", enter your password, then try again.")))
@@ -184,10 +184,10 @@ class DeviceManager:
             self.data_singleton.device_available = False
             self.data_singleton.gestalt_path = None
             self.current_device_index = 0
-            if "SpoofModel" in tweaks:
-                tweaks["SpoofModel"].value[0] = "Placeholder"
-                tweaks["SpoofHardware"].value[0] = "Placeholder"
-                tweaks["SpoofCPU"].value[0] = "Placeholder"
+            if TweakID.SpoofModel in tweaks:
+                tweaks[TweakID.SpoofModel].value[0] = "Placeholder"
+                tweaks[TweakID.SpoofHardware].value[0] = "Placeholder"
+                tweaks[TweakID.SpoofCPU].value[0] = "Placeholder"
         else:
             self.data_singleton.current_device = self.devices[index]
             if Version(self.devices[index].version) < Version("17.0"):
@@ -195,10 +195,10 @@ class DeviceManager:
                 self.data_singleton.gestalt_path = None
             else:
                 self.data_singleton.device_available = True
-                if "SpoofModel" in tweaks:
-                    tweaks["SpoofModel"].value[0] = self.data_singleton.current_device.model
-                    tweaks["SpoofHardware"].value[0] = self.data_singleton.current_device.hardware
-                    tweaks["SpoofCPU"].value[0] = self.data_singleton.current_device.cpu
+                if TweakID.SpoofModel in tweaks:
+                    tweaks[TweakID.SpoofModel].value[0] = self.data_singleton.current_device.model
+                    tweaks[TweakID.SpoofHardware].value[0] = self.data_singleton.current_device.hardware
+                    tweaks[TweakID.SpoofCPU].value[0] = self.data_singleton.current_device.cpu
             self.current_device_index = index
         
     def get_current_device_name(self) -> str:
@@ -514,7 +514,7 @@ class DeviceManager:
                     tweak.apply_tweak(
                         files_to_restore=files_to_restore,
                         output_dir=fix_windows_path(tmp_dirs[len(tmp_dirs)-1].name),
-                        templates=tweaks["Templates"].templates,
+                        templates=tweaks[TweakID.Templates].templates,
                         version=self.get_current_device_version(), update_label=update_label
                     )
                     if tweak.uses_domains():

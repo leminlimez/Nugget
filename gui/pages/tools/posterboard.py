@@ -12,7 +12,7 @@ from qt.ui_mainwindow import Ui_Nugget
 from gui.dialogs import PBHelpDialog
 from gui.custom_qt_elements.multicombobox import MultiComboBox
 
-from tweaks.tweaks import tweaks
+from tweaks.tweaks import tweaks, TweakID
 
 class PosterboardPage(Page, QtCore.QObject):
     def __init__(self, window, ui: Ui_Nugget):
@@ -39,7 +39,7 @@ class PosterboardPage(Page, QtCore.QObject):
         self.ui.pbVideoLbl.setText(QtCore.QCoreApplication.tr("Current Video: {0}").format(self.window.noneText))
 
     def on_update_picker(self, selected_items: list[str]):
-        tweaks["PosterBoard"].resetModes = selected_items
+        tweaks[TweakID.PosterBoard].resetModes = selected_items
 
     def load_page(self):
         self.ui.tendiesPageBtn.clicked.connect(self.on_tendiesPageBtn_clicked)
@@ -63,15 +63,15 @@ class PosterboardPage(Page, QtCore.QObject):
         self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)
 
         # load the pages if needed
-        if len(tweaks["PosterBoard"].tendies) > 0:
+        if len(tweaks[TweakID.PosterBoard].tendies) > 0:
             self.load_pb_tendies()
-        # if len(tweaks["PosterBoard"].templates) > 0:
+        # if len(tweaks[TweakID.PosterBoard].templates) > 0:
         #     self.load_pb_templates()
 
     ## ACTIONS
     def delete_pb_file(self, file, widget):
-        if file in tweaks["PosterBoard"].tendies:
-            tweaks["PosterBoard"].tendies.remove(file)
+        if file in tweaks[TweakID.PosterBoard].tendies:
+            tweaks[TweakID.PosterBoard].tendies.remove(file)
         widget.deleteLater()
 
     def create_title_widget(self, tendie, widget: QtWidgets.QWidget) -> QtWidgets.QToolButton:
@@ -85,7 +85,7 @@ class PosterboardPage(Page, QtCore.QObject):
         return titleBtn
 
     def load_pb_tendies(self):
-        if len(tweaks["PosterBoard"].tendies) == 0:
+        if len(tweaks[TweakID.PosterBoard].tendies) == 0:
             return
         
         if self.pb_mainLayout == None:
@@ -118,7 +118,7 @@ class PosterboardPage(Page, QtCore.QObject):
 
         widgets = {}
         # Iterate through the files
-        for tendie in tweaks["PosterBoard"].tendies:
+        for tendie in tweaks[TweakID.PosterBoard].tendies:
             if tendie.loaded:
                 continue
             widget = QtWidgets.QWidget()
@@ -129,7 +129,7 @@ class PosterboardPage(Page, QtCore.QObject):
 
             delBtn = QtWidgets.QToolButton(widget)
             delBtn.setIcon(QtGui.QIcon(":/icon/trash.svg"))
-            delBtn.clicked.connect(lambda _, file=tendie: (widgets[file].deleteLater(), tweaks["PosterBoard"].tendies.remove(file)))
+            delBtn.clicked.connect(lambda _, file=tendie: (widgets[file].deleteLater(), tweaks[TweakID.PosterBoard].tendies.remove(file)))
 
             spacer = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
             # main layout
@@ -144,7 +144,7 @@ class PosterboardPage(Page, QtCore.QObject):
             tendie.loaded = True
 
     def load_pb_templates(self):
-        if len(tweaks["PosterBoard"].templates) == 0:
+        if len(tweaks[TweakID.PosterBoard].templates) == 0:
             return
         if self.pb_templateLayout == None:
             # Create scroll layout
@@ -176,8 +176,8 @@ class PosterboardPage(Page, QtCore.QObject):
         
         widgets = {}
         # Iterate through the templates
-        for template in tweaks["PosterBoard"].templates:
-            template.create_ui(self.window, tweaks["PosterBoard"], widgets, self.pb_templateLayout)
+        for template in tweaks[TweakID.PosterBoard].templates:
+            template.create_ui(self.window, tweaks[TweakID.PosterBoard], widgets, self.pb_templateLayout)
 
     # PB Pages Selectors
     def on_tendiesPageBtn_clicked(self):
@@ -203,7 +203,7 @@ class PosterboardPage(Page, QtCore.QObject):
         if selected_files != None and len(selected_files) > 0:
             # user selected files, add them
             for file in selected_files:
-                if not self.window.device_manager.disable_tendies_limit and len(tweaks["PosterBoard"].tendies) >= 3:
+                if not self.window.device_manager.disable_tendies_limit and len(tweaks[TweakID.PosterBoard].tendies) >= 3:
                     # alert that there are too many tendies
                     detailsBox = QtWidgets.QMessageBox()
                     detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
@@ -211,7 +211,7 @@ class PosterboardPage(Page, QtCore.QObject):
                     detailsBox.setText(QtCore.QCoreApplication.tr("You selected too many tendies files! The limit is 3.\n\nThis is for your safety. Please apply the rest separately."))
                     detailsBox.exec()
                     break
-                if not tweaks["PosterBoard"].add_tendie(file):
+                if not tweaks[TweakID.PosterBoard].add_tendie(file):
                     # alert that there are too many
                     detailsBox = QtWidgets.QMessageBox()
                     detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
@@ -228,7 +228,7 @@ class PosterboardPage(Page, QtCore.QObject):
         if selected_files != None and len(selected_files) > 0:
             # user selected files, add them
             for file in selected_files:
-                if not tweaks["PosterBoard"].add_template(file, self.window.device_manager.data_singleton.current_device.version):
+                if not tweaks[TweakID.PosterBoard].add_template(file, self.window.device_manager.data_singleton.current_device.version):
                     # alert that there are too many
                     detailsBox = QtWidgets.QMessageBox()
                     detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
@@ -243,32 +243,32 @@ class PosterboardPage(Page, QtCore.QObject):
         selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self.window, "Select Image File", "", "Image Files (*.heic)", options=QtWidgets.QFileDialog.ReadOnly)
         self.ui.resetPBDrp.deselectAll()
         if selected_file != None and selected_file != "":
-            tweaks["PosterBoard"].videoThumbnail = selected_file
+            tweaks[TweakID.PosterBoard].videoThumbnail = selected_file
             self.ui.pbVideoThumbLbl.setText(QtCore.QCoreApplication.tr("Current Thumbnail: {0}").format(selected_file))
         else:
-            tweaks["PosterBoard"].videoThumbnail = None
+            tweaks[TweakID.PosterBoard].videoThumbnail = None
             self.ui.pbVideoThumbLbl.setText(QtCore.QCoreApplication.tr("Current Thumbnail: {0}").format(self.window.noneText))
     def on_chooseVideoBtn_clicked(self):
         selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self.window, "Select Video File", "", "Video Files (*.mov *.mp4 *.mkv)", options=QtWidgets.QFileDialog.ReadOnly)
         self.ui.resetPBDrp.deselectAll()
         if selected_file != None and selected_file != "":
-            tweaks["PosterBoard"].videoFile = selected_file
+            tweaks[TweakID.PosterBoard].videoFile = selected_file
             self.ui.pbVideoLbl.setText(QtCore.QCoreApplication.tr("Current Video: {0}").format(selected_file))
-            if tweaks["PosterBoard"].loop_video:
+            if tweaks[TweakID.PosterBoard].loop_video:
                 self.ui.exportPBVideoBtn.show()
         else:
-            tweaks["PosterBoard"].videoFile = None
+            tweaks[TweakID.PosterBoard].videoFile = None
             self.ui.pbVideoLbl.setText(QtCore.QCoreApplication.tr("Current Video: {0}").format(self.window.noneText))
             self.ui.exportPBVideoBtn.hide()
     def on_caVideoChk_toggled(self, checked: bool):
-        tweaks["PosterBoard"].loop_video = checked
+        tweaks[TweakID.PosterBoard].loop_video = checked
         # hide thumbnail button and label
         if checked:
             self.ui.chooseThumbBtn.hide()
             self.ui.pbVideoThumbLbl.hide()
             self.ui.reverseLoopChk.show()
             self.ui.useForegroundChk.show()
-            if tweaks["PosterBoard"].videoFile != None:
+            if tweaks[TweakID.PosterBoard].videoFile != None:
                 self.ui.exportPBVideoBtn.show()
         else:
             self.ui.chooseThumbBtn.show()
@@ -277,16 +277,16 @@ class PosterboardPage(Page, QtCore.QObject):
             self.ui.useForegroundChk.hide()
             self.ui.exportPBVideoBtn.hide()
     def on_reverseLoopChk_toggled(self, checked: bool):
-        tweaks["PosterBoard"].reverse_video = checked
+        tweaks[TweakID.PosterBoard].reverse_video = checked
     def on_useForegroundChk_toggled(self, checked: bool):
-        tweaks["PosterBoard"].use_foreground = checked
+        tweaks[TweakID.PosterBoard].use_foreground = checked
 
     def on_calcModeDrp_activated(self, index: int):
         # 0 = linear, 1 = discrete
         if index == 0:
-            tweaks["PosterBoard"].calculationMode = 'linear'
+            tweaks[TweakID.PosterBoard].calculationMode = 'linear'
         elif index == 1:
-            tweaks["PosterBoard"].calculationMode = 'discrete'
+            tweaks[TweakID.PosterBoard].calculationMode = 'discrete'
 
     def on_exportPBVideoBtn_clicked(self):
         # Open the directory selection dialog
@@ -296,7 +296,7 @@ class PosterboardPage(Page, QtCore.QObject):
             try:
                 # create export folder
                 path = os.path.join(directory, f"Nugget-Export-{uuid.uuid4()}")
-                tweaks["PosterBoard"].create_video_loop_files(output_dir=path)
+                tweaks[TweakID.PosterBoard].create_video_loop_files(output_dir=path)
                 # make it a zip
                 zip_path = path + ".tendies"
                 make_archive(path, 'zip', path)
