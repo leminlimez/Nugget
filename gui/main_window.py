@@ -20,7 +20,7 @@ from gui.pages.pages_list import Page
 from tweaks.tweaks import tweaks, TweakID
 
 App_Version = "7.0"
-App_Build = 1
+App_Build = 2
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager, translator: Translator):
@@ -239,8 +239,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 "no_patch": [self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn, self.ui.gestaltLocationLbl, self.ui.gestaltLocationTitleLbl, self.ui.showAllSpoofableChk],
                 "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk), ("1.0", self.ui.regularDomainsLbl)],
                 "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
-                "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk],
-                "26.0": [self.ui.disableSolariumContent, self.ui.ignoreSolariumAppBuildContent]
+                "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk]
             }
             MaxTweakVersions = {
                 "17.7": [self.ui.euEnablerContent],
@@ -327,6 +326,10 @@ class MainWindow(QtWidgets.QMainWindow):
             # show floating tab bar on ipads and keyflicks on phones
             self.ui.floatingTabBarContent.setVisible(not is_iphone)
             self.ui.keyFlickContent.setVisible(is_iphone and device_ver < Version("26.1"))
+            # liquid glass no longer working on ios 26.1
+            can_have_solarium = device_ver >= Version("26.0") and device_ver < Version("26.1")
+            self.ui.disableSolariumContent.setVisible(can_have_solarium)
+            self.ui.ignoreSolariumAppBuildContent.setVisible(can_have_solarium)
 
             # show the PB if initial load is true
             if self.initial_load:
