@@ -102,9 +102,12 @@ def merge_duplicates(original_files: list[FileToRestore]) -> list[FileToRestore]
             file_loc = "-"
         else:
             file_loc = file.domain + '-'
-        file_loc += file.restore_path
+        restore_path = file.restore_path
+        if file.restore_path.startswith('/'):
+            restore_path = restore_path.removeprefix('/')
+        file_loc += restore_path
         if file_loc in existing_locations:
-            if not file.restore_path.endswith('.plist'):
+            if not restore_path.endswith('.plist'):
                 print(f'cannot merge duplicate file, ignoring {file_loc}')
                 continue
             # merge the data (plist files only)
