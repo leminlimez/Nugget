@@ -303,6 +303,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.advancedPageBtn.show()
             else:
                 self.ui.advancedPageBtn.hide()
+            # toggle AtWakeUp checkbox with risky tweaks
+            self.ui.atwakeupChk.setVisible(self.device_manager.allow_risky_tweaks)
             
             # hide the ai content if not on
             if device_ver >= Version("18.1") and (not TweakID.AIGestalt in tweaks or not tweaks[TweakID.AIGestalt].enabled):

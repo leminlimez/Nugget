@@ -92,24 +92,17 @@ class SettingsPage(Page):
         self.window.device_manager.allow_risky_tweaks = checked
         # save the setting
         self.window.settings.setValue("show_risky_tweaks", checked)
-        # toggle the button visibility
+        # toggle the button visibilities
+        self.ui.advancedPageBtn.setVisible(checked)
+        self.ui.ignorePBFrameLimitChk.setVisible(checked)
+        self.ui.disableTendiesLimitChk.setVisible(checked)
+        self.ui.atwakeupChk.setVisible(checked)
+        try:
+            self.ui.resetPBDrp.removeItem(4)
+        except:
+            pass
         if checked:
-            self.ui.advancedPageBtn.show()
-            self.ui.ignorePBFrameLimitChk.show()
-            self.ui.disableTendiesLimitChk.show()
-            try:
-                self.ui.resetPBDrp.removeItem(4)
-            except:
-                pass
             self.ui.resetPBDrp.addItem("PB Extensions")
-        else:
-            self.ui.advancedPageBtn.hide()
-            self.ui.ignorePBFrameLimitChk.hide()
-            self.ui.disableTendiesLimitChk.hide()
-            try:
-                self.ui.resetPBDrp.removeItem(4)
-            except:
-                pass
     def on_ignorePBFrameLimitChk_toggled(self, checked: bool):
         set_ignore_frame_limit(checked)
         # save the setting
