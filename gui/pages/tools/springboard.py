@@ -14,6 +14,7 @@ class SpringboardPage(Page):
         self.ui.lockScreenAutoLockSlider.valueChanged.connect(self.on_lockScreenAutoLockSlider_valueChanged)
 
         # create the radio buttons
+        self.createRadioBtns(key=TweakID.AirDropDisableTimeLimit, container=self.ui.airdropTimeLimitBtns)
         self.createRadioBtns(key=TweakID.SBDontLockAfterCrash, container=self.ui.disableLockRespringBtns)
         self.createRadioBtns(key=TweakID.SBDontDimOrLockOnAC, container=self.ui.disableDimmingBtns)
         self.createRadioBtns(key=TweakID.SBHideLowPowerAlerts, container=self.ui.lowBatteryAlertsBtns)

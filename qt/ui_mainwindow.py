@@ -2882,6 +2882,26 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.lockScreenAutoLockSeparator)
 
+        self.airdropTimeLimitContent = QWidget(self.springboardOptionsPageContent)
+        self.airdropTimeLimitContent.setObjectName(u"airdropTimeLimitContent")
+        sizePolicy6.setHeightForWidth(self.airdropTimeLimitContent.sizePolicy().hasHeightForWidth())
+        self.airdropTimeLimitContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_58 = QVBoxLayout(self.airdropTimeLimitContent)
+        self.verticalLayout_58.setObjectName(u"verticalLayout_58")
+        self.verticalLayout_58.setContentsMargins(0, 0, 0, 0)
+        self.label_46 = QLabel(self.airdropTimeLimitContent)
+        self.label_46.setObjectName(u"label_46")
+
+        self.verticalLayout_58.addWidget(self.label_46)
+
+        self.airdropTimeLimitBtns = QHBoxLayout()
+        self.airdropTimeLimitBtns.setObjectName(u"airdropTimeLimitBtns")
+
+        self.verticalLayout_58.addLayout(self.airdropTimeLimitBtns)
+
+
+        self._2.addWidget(self.airdropTimeLimitContent)
+
         self.disableLockRespringContent = QWidget(self.springboardOptionsPageContent)
         self.disableLockRespringContent.setObjectName(u"disableLockRespringContent")
         sizePolicy6.setHeightForWidth(self.disableLockRespringContent.sizePolicy().hasHeightForWidth())
@@ -5382,6 +5402,7 @@ class Ui_Nugget(object):
         self.footnoteLbl.setText(QCoreApplication.translate("Nugget", u"Lock Screen Footnote Text", None))
         self.footnoteTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Footnote Text", None))
         self.lockScreenAutoLockLabel.setText(QCoreApplication.translate("Nugget", u"Auto\u2011Lock (Lock Screen)", None))
+        self.label_46.setText(QCoreApplication.translate("Nugget", u"Disable AirDrop Time Limit for Everyone Option", None))
         self.label_36.setText(QCoreApplication.translate("Nugget", u"Disable Lock After Respring", None))
         self.label_37.setText(QCoreApplication.translate("Nugget", u"Disable Screen Dimming While Charging", None))
         self.label_38.setText(QCoreApplication.translate("Nugget", u"Disable Low Battery Alerts", None))

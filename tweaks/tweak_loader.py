@@ -200,6 +200,10 @@ def load_springboard():
             FileLocation.footnote,
             key="LockScreenFootnote", value=""
         ),
+        TweakID.AirDropDisableTimeLimit: BasicPlistTweak(
+            FileLocation.airdrop,
+            "OverrideTimeLimitEveryoneMode"
+        ),
         TweakID.SBDontLockAfterCrash: BasicPlistTweak(
             FileLocation.springboard,
             "SBDontLockAfterCrash"

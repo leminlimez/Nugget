@@ -44,6 +44,7 @@ class TweakID(Enum):
 
     # springboard
     LockScreenFootnote = auto()
+    AirDropDisableTimeLimit = auto()
     SBDontLockAfterCrash = auto()
     SBDontDimOrLockOnAC = auto()
     SBHideLowPowerAlerts = auto()
