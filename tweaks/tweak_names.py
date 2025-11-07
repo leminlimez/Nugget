@@ -58,7 +58,7 @@ class TweakID(Enum):
     UseFloatingTabBar = auto()
 
     # internal
-    DisableSolarium = auto()
+    ForceSolariumFallback = auto()
     IgnoreSolariumLinkedOnCheck = auto()
     NoLiquidClock = auto()
     NoLiquidDock = auto()

@@ -257,9 +257,9 @@ def load_internal():
     if TweakID.RTL in tweaks:
         return
     additional_tweaks = {
-        TweakID.DisableSolarium: BasicPlistTweak(
+        TweakID.ForceSolariumFallback: BasicPlistTweak(
             FileLocation.globalPreferences,
-            "com.apple.SwiftUI.DisableSolarium"
+            "SolariumForceFallback"
         ),
         TweakID.IgnoreSolariumLinkedOnCheck: BasicPlistTweak(
             FileLocation.globalPreferences,

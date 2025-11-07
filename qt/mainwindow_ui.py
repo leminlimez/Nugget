@@ -5478,7 +5478,7 @@ class Ui_Nugget(object):
         self.label_44.setText(QCoreApplication.translate("Nugget", u"Show Red/Green Authentication Line on Lock Screen", None))
         self.label_45.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar", None))
         self.internalOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Internal Options", None))
-        self.label_3.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass", None))
+        self.label_3.setText(QCoreApplication.translate("Nugget", u"Force Solarium Fallback", None))
 #if QT_CONFIG(tooltip)
         self.ignoreSolariumAppBuildContent.setToolTip(QCoreApplication.translate("Nugget", u"Enables liquid glass on apps regardless of whether or not it has been updated to include it", None))
 #endif // QT_CONFIG(tooltip)

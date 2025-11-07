@@ -6142,7 +6142,7 @@ QComboBox QAbstractItemView::item:hover {
                            <item>
                             <widget class="QLabel" name="label_3">
                              <property name="text">
-                              <string>Disable Liquid Glass</string>
+                              <string>Force Solarium Fallback</string>
                              </property>
                             </widget>
                            </item>

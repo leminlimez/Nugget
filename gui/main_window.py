@@ -329,9 +329,6 @@ class MainWindow(QtWidgets.QMainWindow):
             # show floating tab bar on ipads and keyflicks on phones
             self.ui.floatingTabBarContent.setVisible(not is_iphone)
             self.ui.keyFlickContent.setVisible(is_iphone and device_ver < Version("26.1"))
-            # liquid glass no longer working on ios 26.1
-            can_have_solarium = device_ver >= Version("26.0") and device_ver < Version("26.1")
-            self.ui.disableSolariumContent.setVisible(can_have_solarium)
 
             # show the PB if initial load is true
             if self.initial_load:
