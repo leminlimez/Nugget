@@ -239,7 +239,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 "no_patch": [self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn, self.ui.gestaltLocationLbl, self.ui.gestaltLocationTitleLbl, self.ui.showAllSpoofableChk],
                 "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk), ("1.0", self.ui.regularDomainsLbl)],
                 "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
-                "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk]
+                "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk],
+                "26.0": [self.ui.liquidGlassOptionsContent]
             }
             MaxTweakVersions = {
                 "17.7": [self.ui.euEnablerContent],
@@ -331,7 +332,6 @@ class MainWindow(QtWidgets.QMainWindow):
             # liquid glass no longer working on ios 26.1
             can_have_solarium = device_ver >= Version("26.0") and device_ver < Version("26.1")
             self.ui.disableSolariumContent.setVisible(can_have_solarium)
-            self.ui.ignoreSolariumAppBuildContent.setVisible(can_have_solarium)
 
             # show the PB if initial load is true
             if self.initial_load:

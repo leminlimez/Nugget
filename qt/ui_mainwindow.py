@@ -3213,7 +3213,14 @@ class Ui_Nugget(object):
         self.verticalLayout_131 = QVBoxLayout(self.internalOptionsPageContent)
         self.verticalLayout_131.setObjectName(u"verticalLayout_131")
         self.verticalLayout_131.setContentsMargins(0, 0, 0, 0)
-        self.disableSolariumContent = QWidget(self.internalOptionsPageContent)
+        self.liquidGlassOptionsContent = QWidget(self.internalOptionsPageContent)
+        self.liquidGlassOptionsContent.setObjectName(u"liquidGlassOptionsContent")
+        sizePolicy6.setHeightForWidth(self.liquidGlassOptionsContent.sizePolicy().hasHeightForWidth())
+        self.liquidGlassOptionsContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_59 = QVBoxLayout(self.liquidGlassOptionsContent)
+        self.verticalLayout_59.setObjectName(u"verticalLayout_59")
+        self.verticalLayout_59.setContentsMargins(0, 0, 0, 0)
+        self.disableSolariumContent = QWidget(self.liquidGlassOptionsContent)
         self.disableSolariumContent.setObjectName(u"disableSolariumContent")
         sizePolicy6.setHeightForWidth(self.disableSolariumContent.sizePolicy().hasHeightForWidth())
         self.disableSolariumContent.setSizePolicy(sizePolicy6)
@@ -3232,9 +3239,9 @@ class Ui_Nugget(object):
         self.verticalLayout_18.addLayout(self.disableSolariumBtns)
 
 
-        self.verticalLayout_131.addWidget(self.disableSolariumContent)
+        self.verticalLayout_59.addWidget(self.disableSolariumContent)
 
-        self.ignoreSolariumAppBuildContent = QWidget(self.internalOptionsPageContent)
+        self.ignoreSolariumAppBuildContent = QWidget(self.liquidGlassOptionsContent)
         self.ignoreSolariumAppBuildContent.setObjectName(u"ignoreSolariumAppBuildContent")
         sizePolicy6.setHeightForWidth(self.ignoreSolariumAppBuildContent.sizePolicy().hasHeightForWidth())
         self.ignoreSolariumAppBuildContent.setSizePolicy(sizePolicy6)
@@ -3252,7 +3259,20 @@ class Ui_Nugget(object):
         self.verticalLayout_20.addLayout(self.ignoreSolariumAppBuildBtns)
 
 
-        self.verticalLayout_131.addWidget(self.ignoreSolariumAppBuildContent)
+        self.verticalLayout_59.addWidget(self.ignoreSolariumAppBuildContent)
+
+        self.line_3 = QFrame(self.liquidGlassOptionsContent)
+        self.line_3.setObjectName(u"line_3")
+        self.line_3.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_3.setFrameShadow(QFrame.Plain)
+        self.line_3.setFrameShape(QFrame.Shape.HLine)
+
+        self.verticalLayout_59.addWidget(self.line_3)
+
+
+        self.verticalLayout_131.addWidget(self.liquidGlassOptionsContent)
 
         self.buildVersionContent = QWidget(self.internalOptionsPageContent)
         self.buildVersionContent.setObjectName(u"buildVersionContent")
