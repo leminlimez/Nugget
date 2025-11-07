@@ -60,6 +60,8 @@ class TweakID(Enum):
     # internal
     DisableSolarium = auto()
     IgnoreSolariumLinkedOnCheck = auto()
+    NoLiquidClock = auto()
+    NoLiquidDock = auto()
     SBBuildNumber = auto()
     RTL = auto()
     LTR = auto()

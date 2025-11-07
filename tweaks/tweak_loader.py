@@ -265,6 +265,14 @@ def load_internal():
             FileLocation.globalPreferences,
             "com.apple.SwiftUI.IgnoreSolariumLinkedOnCheck"
         ),
+        TweakID.NoLiquidClock: BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "SBDisallowGlassTime"
+        ),
+        TweakID.NoLiquidDock: BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "SBDisableGlassDock"
+        ),
         TweakID.SBBuildNumber: BasicPlistTweak(
             FileLocation.globalPreferences,
             "UIStatusBarShowBuildVersion"

@@ -3261,6 +3261,44 @@ class Ui_Nugget(object):
 
         self.verticalLayout_59.addWidget(self.ignoreSolariumAppBuildContent)
 
+        self.noLiquidClockContent = QWidget(self.liquidGlassOptionsContent)
+        self.noLiquidClockContent.setObjectName(u"noLiquidClockContent")
+        self.verticalLayout_60 = QVBoxLayout(self.noLiquidClockContent)
+        self.verticalLayout_60.setObjectName(u"verticalLayout_60")
+        self.verticalLayout_60.setContentsMargins(0, 0, 0, 0)
+        self.label_47 = QLabel(self.noLiquidClockContent)
+        self.label_47.setObjectName(u"label_47")
+
+        self.verticalLayout_60.addWidget(self.label_47)
+
+        self.noLiquidClockBtns = QHBoxLayout()
+        self.noLiquidClockBtns.setObjectName(u"noLiquidClockBtns")
+
+        self.verticalLayout_60.addLayout(self.noLiquidClockBtns)
+
+
+        self.verticalLayout_59.addWidget(self.noLiquidClockContent)
+
+        self.noLiquidDockContent = QWidget(self.liquidGlassOptionsContent)
+        self.noLiquidDockContent.setObjectName(u"noLiquidDockContent")
+        sizePolicy6.setHeightForWidth(self.noLiquidDockContent.sizePolicy().hasHeightForWidth())
+        self.noLiquidDockContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_61 = QVBoxLayout(self.noLiquidDockContent)
+        self.verticalLayout_61.setObjectName(u"verticalLayout_61")
+        self.verticalLayout_61.setContentsMargins(0, 0, 0, 0)
+        self.label_48 = QLabel(self.noLiquidDockContent)
+        self.label_48.setObjectName(u"label_48")
+
+        self.verticalLayout_61.addWidget(self.label_48)
+
+        self.noLiquidDockBtns = QHBoxLayout()
+        self.noLiquidDockBtns.setObjectName(u"noLiquidDockBtns")
+
+        self.verticalLayout_61.addLayout(self.noLiquidDockBtns)
+
+
+        self.verticalLayout_59.addWidget(self.noLiquidDockContent)
+
         self.line_3 = QFrame(self.liquidGlassOptionsContent)
         self.line_3.setObjectName(u"line_3")
         self.line_3.setStyleSheet(u"QFrame {\n"
@@ -4670,9 +4708,9 @@ class Ui_Nugget(object):
         self.pages.addWidget(self.miscOptionsPage)
         self.applyPage = QWidget()
         self.applyPage.setObjectName(u"applyPage")
-        self.verticalLayout_61 = QVBoxLayout(self.applyPage)
-        self.verticalLayout_61.setObjectName(u"verticalLayout_61")
-        self.verticalLayout_61.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_62 = QVBoxLayout(self.applyPage)
+        self.verticalLayout_62.setObjectName(u"verticalLayout_62")
+        self.verticalLayout_62.setContentsMargins(0, 0, 0, 0)
         self.verticalWidget3 = QWidget(self.applyPage)
         self.verticalWidget3.setObjectName(u"verticalWidget3")
         self.verticalLayout_241 = QVBoxLayout(self.verticalWidget3)
@@ -4831,7 +4869,7 @@ class Ui_Nugget(object):
         self.verticalLayout_241.addWidget(self.horizontalWidget11)
 
 
-        self.verticalLayout_61.addWidget(self.verticalWidget3)
+        self.verticalLayout_62.addWidget(self.verticalWidget3)
 
         self.pages.addWidget(self.applyPage)
         self.settingsPage = QWidget()
@@ -5445,6 +5483,8 @@ class Ui_Nugget(object):
         self.ignoreSolariumAppBuildContent.setToolTip(QCoreApplication.translate("Nugget", u"Enables liquid glass on apps regardless of whether or not it has been updated to include it", None))
 #endif // QT_CONFIG(tooltip)
         self.label_11.setText(QCoreApplication.translate("Nugget", u"Ignore Liquid Glass App Build Check", None))
+        self.label_47.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass on LS Clock", None))
+        self.label_48.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass on Dock", None))
         self.label_7.setText(QCoreApplication.translate("Nugget", u"Show Build Version in Status Bar", None))
         self.label_13.setText(QCoreApplication.translate("Nugget", u"Force Right-to-Left Layout", None))
         self.label_14.setText(QCoreApplication.translate("Nugget", u"Force Left-to-Right Layout", None))
