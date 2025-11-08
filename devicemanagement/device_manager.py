@@ -371,6 +371,7 @@ class DeviceManager:
                     'OSShowcase',
                     'SafetyAndHandling',
                     'Tips',
+                    "AgeBasedSafetySettings",
                 ]
             cloud_config_plist["AllowPairing"] = True
             cloud_config_plist["ConfigurationWasApplied"] = True

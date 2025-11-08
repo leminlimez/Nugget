@@ -20,7 +20,7 @@ from gui.pages.pages_list import Page
 from tweaks.tweaks import tweaks, TweakID
 
 App_Version = "7.0"
-App_Build = 2
+App_Build = 3
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager, translator: Translator):
