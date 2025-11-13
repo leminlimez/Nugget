@@ -68,7 +68,7 @@ def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list
     elif "Encrypted Backup MDM" in str(e):
         return ApplyAlertMessage(QCoreApplication.tr("Nugget cannot be used on this device. Click Show Details for more info."),
                        detailed_txt=QCoreApplication.tr("Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!"))
-    elif "SessionInactive" in str(e):
+    elif "SessionInactive" in str(e) or "ConnectionAbortedError" in str(e):
         return ApplyAlertMessage(QCoreApplication.tr("The session was terminated. Refresh the device list and try again."))
     elif "PasswordRequiredError" in str(e):
         return ApplyAlertMessage(QCoreApplication.tr("Device is password protected! You must trust the computer on your device."),
