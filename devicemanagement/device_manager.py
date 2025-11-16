@@ -36,6 +36,7 @@ from tweaks.posterboard.template_options.templates_tweak import TemplatesTweak
 from tweaks.basic_plist_locations import FileLocation
 
 from restore.restore import restore_files, FileToRestore
+from restore.bookrestore import perform_bookrestore
 from restore.mbdb import _FileMode
 
 def show_error_msg(txt: str, title: str = "Error!", icon = QMessageBox.Critical, detailed_txt: str = None):
@@ -631,12 +632,13 @@ class DeviceManager:
             if self.data_singleton.current_device.connected_via_usb:
                 self.do_not_unplug = "\n" + QCoreApplication.tr("DO NOT UNPLUG")
             update_label(QCoreApplication.tr("Preparing to restore...") + self.do_not_unplug)
-            restore_files(
-                files=files_to_restore, reboot=self.auto_reboot,
-                lockdown_client=self.data_singleton.current_device.ld,
-                progress_callback=self.progress_callback
-            )
-            msg = QCoreApplication.tr("Your device will now restart.\n\nRemember to turn Find My back on!")
+            perform_bookrestore(files=files_to_restore, udid=self.data_singleton.current_device.ld.udid, progress_callback=self.update_label)
+            # restore_files(
+            #     files=files_to_restore, reboot=self.auto_reboot,
+            #     lockdown_client=self.data_singleton.current_device.ld,
+            #     progress_callback=self.progress_callback
+            # )
+            msg = ""#QCoreApplication.tr("Your device will now restart.\n\nRemember to turn Find My back on!")
             if not self.auto_reboot:
                 msg = QCoreApplication.tr("Please restart your device to see changes.")
             final_alert = ApplyAlertMessage(txt=QCoreApplication.tr("All done! ") + msg, title=QCoreApplication.tr("Success!"), icon=QMessageBox.Information)

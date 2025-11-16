@@ -204,6 +204,8 @@ class MobileGestaltPickerTweak(Tweak):
             plist["CacheExtra"][self.key] = new_value
         else:
             plist["CacheExtra"][self.key][self.subkey] = new_value
+            if self.subkey == "ArtworkDeviceSubType":
+                plist["CacheExtra"]["YlEtTtHlNesRBMal1CqRaA"] = 1
         return plist
     
     def set_selected_option(self, new_option: int, is_enabled: bool = True):

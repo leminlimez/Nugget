@@ -251,6 +251,7 @@ class MainWindow(QtWidgets.QMainWindow):
             try:
                 self.ui.dynamicIslandDrp.removeItem(6)
                 self.ui.dynamicIslandDrp.removeItem(5)
+                self.ui.dynamicIslandDrp.removeItem(5)
             except:
                 pass
             if TweakID.RdarFix in tweaks:
