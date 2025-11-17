@@ -15,7 +15,7 @@ from pymobiledevice3 import usbmux
 from pymobiledevice3.ca import create_keybag_file
 from pymobiledevice3.services.mobile_config import MobileConfigService
 from pymobiledevice3.lockdown import create_using_usbmux
-from pymobiledevice3.exceptions import MuxException, PasswordRequiredError, ConnectionTerminatedError
+from pymobiledevice3.exceptions import MuxException, PasswordRequiredError, ConnectionTerminatedError, AccessDeniedError
 from pymobiledevice3.services.installation_proxy import InstallationProxyService
 from pymobiledevice3.services.house_arrest import HouseArrestService
 
@@ -78,6 +78,8 @@ def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list
         files_str: str = get_files_list_str(files_list)
         return ApplyAlertMessage(QCoreApplication.tr("Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info."),
                                  detailed_txt=files_str + "TRACEBACK:\n\n" + str(traceback.format_exc()))
+    elif isinstance(e, AccessDeniedError):
+        return ApplyAlertMessage(QCoreApplication.tr("You must run the application as an administer to use BookRestore tweaks."), detailed_txt="Try running the program with sudo.")
     elif isinstance(e, NuggetException):
         return ApplyAlertMessage(str(e))
     else:
@@ -631,7 +633,8 @@ class DeviceManager:
             self.do_not_unplug = ""
             if self.data_singleton.current_device.connected_via_usb:
                 self.do_not_unplug = "\n" + QCoreApplication.tr("DO NOT UNPLUG")
-            update_label(QCoreApplication.tr("Preparing to restore...") + self.do_not_unplug)
+            # update_label(QCoreApplication.tr("Preparing to restore...") + self.do_not_unplug)
+            update_label(QCoreApplication.tr("Creating connection to device..."))
             perform_bookrestore(files=files_to_restore, udid=self.data_singleton.current_device.ld.udid, progress_callback=self.update_label)
             # restore_files(
             #     files=files_to_restore, reboot=self.auto_reboot,

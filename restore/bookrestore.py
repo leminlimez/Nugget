@@ -1,13 +1,11 @@
-import subprocess
-import atexit
 import asyncio
 import concurrent
-import sys
 import os
 import posixpath
 import shutil
 import sqlite3
 import time
+import threading
 
 from .restore import FileToRestore
 from controllers.files_handler import get_bundle_files
@@ -17,8 +15,14 @@ from pymobiledevice3.remote.remote_service_discovery import RemoteServiceDiscove
 from pymobiledevice3.services.dvt.dvt_secure_socket_proxy import DvtSecureSocketProxyService
 from pymobiledevice3.services.dvt.instruments.process_control import ProcessControl
 from pymobiledevice3.services.os_trace import OsTraceService
+from pymobiledevice3.remote.tunnel_service import create_core_device_tunnel_service_using_rsd, get_rsds
 from tempfile import NamedTemporaryFile
 from pathlib import Path
+
+# Global Vars
+should_terminate_tunnel = False
+rsd_info = None
+thread_exception = None
 
 def _run_async_rsd_connection(address, port, files, progress):
     async def async_connection():
@@ -45,35 +49,28 @@ def _run_async_rsd_connection(address, port, files, progress):
 def exit_func(tunnel_proc):
     tunnel_proc.terminate()
 
-async def create_tunnel(udid):
-    # TODO: check for Windows
-    tunnel_process = subprocess.Popen(f"sudo pymobiledevice3 lockdown start-tunnel --script-mode --udid {udid}", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    atexit.register(exit_func, tunnel_process)
-    while True:
-        output = tunnel_process.stdout.readline()
-        if output:
-            rsd_val = output.decode().strip()
-            break
-        if tunnel_process.poll() is not None:
-            error = tunnel_process.stderr.readlines()
-            if error:
-                not_connected = None
-                admin_error = None
-                for i in range(len(error)):
-                    if (error[i].find(b'connected') > -1):
-                        not_connected = True
-                    if (error[i].find(b'admin') > -1):
-                        admin_error = True
-                if not_connected:
-                    raise Exception(f"It seems like your device isn't connected. {error}")
-                elif admin_error:
-                    raise Exception(f"It seems like you're not running this script as admin, which is required. {error}")
-                else:
-                    raise Exception(f"Error opening a tunnel. {error}")
-            break
-    rsd_str = str(rsd_val)
-    print("Sucessfully created tunnel: " + rsd_str)
-    return {"address": rsd_str.split(" ")[0], "port": int(rsd_str.split(" ")[1])}
+async def create_tunnel_async(udid):
+    global terminate_tunnel_thread
+    global thread_exception
+    try:
+        rsds = await get_rsds(udid=udid)
+        tunnel_service = await create_core_device_tunnel_service_using_rsd(rsds[0], autopair=True)
+        print("creating tcp tunnel")
+        async with tunnel_service.start_tcp_tunnel() as tunnel_result:
+            print("Sucessfully created tunnel: " + str(tunnel_result.address) + " " + str(tunnel_result.port))
+            global rsd_info
+            rsd_info = {"address": tunnel_result.address, "port": tunnel_result.port}
+            # keep the thread alive until terminated
+            while True:
+                if should_terminate_tunnel:
+                    return
+                await asyncio.sleep(0.5)
+    except Exception as e:
+        thread_exception = e
+        return
+
+def create_tunnel(udid):
+    asyncio.run(create_tunnel_async(udid))
 
 def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: LockdownClient, dvt: DvtSecureSocketProxyService, progress_callback = lambda x: None):
     afc = AfcService(lockdown=lockdown_client)
@@ -151,7 +148,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
     
     # Wait for itunesstored to finish download and raise an error
     timeout = time.time() + 90 # time out after a set amount of time
-    progress_callback("Waiting for itunesstored to finish download...")
+    progress_callback("Waiting for itunesstored to finish download..." + "\n" + "(This might take a minute)")
     for syslog_entry in OsTraceService(lockdown=lockdown_client).syslog():
         if time.time() > timeout:
             raise Exception("Timed out waiting for download. Please try again.")
@@ -173,22 +170,56 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
     except Exception as e:
         raise Exception(f"Error launching Books app: {e}")
     
-    progress_callback("Waiting for MobileGestalt overwrite to complete...")
-    success_message = "/private/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist) [Install-Mgr]: Marking download as [finished]"
+    progress_callback("Waiting for MobileGestalt overwrite to complete..." + "\n" + "(This might take a minute)")
+    success_message = "Marking download as [finished]"
     timeout2 = time.time() + 120 # time out after a set amount of time
     for syslog_entry in OsTraceService(lockdown=lockdown_client).syslog():
         if time.time() > timeout2:
             raise Exception("Timed out waiting for file, please try again.")
-        if (posixpath.basename(syslog_entry.filename) == 'bookassetd') and \
-                success_message in syslog_entry.message:
+        elif (posixpath.basename(syslog_entry.filename) == 'bookassetd') and success_message in syslog_entry.message:
             break
 
-async def create_connection_context(files: list[FileToRestore], udid, progress_callback = lambda x: None):
-    available_address = await create_tunnel(udid)
-    if available_address:
-        _run_async_rsd_connection(available_address["address"], available_address["port"], files, progress_callback)
-    else:
-        raise Exception("An error occurred getting tunnels addresses...")
+def check_rsd_info():
+    MAX_ATTEMPTS = 30
+    attempts = 0
+    while attempts < MAX_ATTEMPTS:
+        if rsd_info is not None:
+            return True  # Data is available
+        elif thread_exception is not None:
+            return False # Thread returned an error
+        time.sleep(1)
+        attempts += 1
+    return False
 
-def perform_bookrestore(files: list[FileToRestore], udid, progress_callback = lambda x: None):
+async def create_connection_context(files: list[FileToRestore], udid: str, progress_callback = lambda x: None):
+    global terminate_tunnel_thread
+    global rsd_info
+    global thread_exception
+    terminate_tunnel_thread = False
+    rsd_info = None
+    thread_exception = None
+    thread = threading.Thread(target=create_tunnel, args=(udid,))
+    thread.start()
+    try:
+        if check_rsd_info():
+            _run_async_rsd_connection(rsd_info["address"], rsd_info["port"], files, progress_callback)
+        else:
+            if thread_exception is not None:
+                raise thread_exception
+            else:
+                raise Exception("An error occurred getting tunnels addresses...")
+    except:
+        terminate_tunnel_thread = True
+        raise
+    terminate_tunnel_thread = True
+
+def perform_bookrestore(files: list[FileToRestore], udid: str, progress_callback = lambda x: None):
+    if os.name == 'nt':
+        try:
+            import pyuac
+            if not pyuac.isUserAdmin():
+                print("Relaunching as Admin")
+                pyuac.runAsAdmin()
+        except:
+            pass
     asyncio.run(create_connection_context(files, udid, progress_callback))
