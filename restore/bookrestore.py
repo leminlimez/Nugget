@@ -8,6 +8,7 @@ import time
 import threading
 
 from .restore import FileToRestore
+from . import reboot_device
 from controllers.files_handler import get_bundle_files
 from pymobiledevice3.lockdown import LockdownClient
 from pymobiledevice3.services.afc import AfcService
@@ -213,7 +214,7 @@ async def create_connection_context(files: list[FileToRestore], udid: str, progr
         raise
     terminate_tunnel_thread = True
 
-def perform_bookrestore(files: list[FileToRestore], udid: str, progress_callback = lambda x: None):
+def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownClient, reboot: bool, progress_callback = lambda x: None):
     if os.name == 'nt':
         try:
             import pyuac
@@ -222,4 +223,6 @@ def perform_bookrestore(files: list[FileToRestore], udid: str, progress_callback
                 pyuac.runAsAdmin()
         except:
             pass
-    asyncio.run(create_connection_context(files, udid, progress_callback))
+    asyncio.run(create_connection_context(files, lockdown_client.udid, progress_callback))
+    if reboot:
+        reboot_device(reboot, lockdown_client)
