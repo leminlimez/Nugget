@@ -15,11 +15,21 @@ class Device:
         self.ld = ld
 
     def is_exploit_fully_patched(self) -> bool:
-        parsed_ver: Version = Version(self.version)
         # mobile gestalt methods are completely patched on iOS 26.2 beta 2+
-        if (parsed_ver < Version("26.2")):
-            return False
-        return True
+        return not (self.has_bookrestore() or self.has_partial_sparserestore())
+    
+    def has_bookrestore(self) -> bool:
+        parsed_ver: Version = Version(self.version)
+        if (parsed_ver <= Version("26.1") or self.build == "23C5027f"):
+            return True
+        return False
+    
+    def has_partial_sparserestore(self) -> bool:
+        parsed_ver: Version = Version(self.version)
+        if (parsed_ver < Version("18.2")
+            or self.build == "22C5109p" or self.build == "22C5125e"):
+            return True
+        return False
 
     def has_exploit(self) -> bool:
         parsed_ver: Version = Version(self.version)

@@ -490,6 +490,7 @@ class DeviceManager:
             basic_plists_ownership: dict = {}
             files_data: dict = {}
             uses_domains: bool = False
+            use_bookrestore: bool = False
             # create the restore file list
             files_to_restore: list[FileToRestore] = [
             ]
@@ -530,6 +531,7 @@ class DeviceManager:
                 else:
                     if gestalt_plist != None:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
+                        use_bookrestore = True
                     elif tweak.enabled:
                         # no mobilegestalt file provided but applying mga tweaks, give warning
                         show_alert(ApplyAlertMessage(txt=QCoreApplication.tr("No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.")))
@@ -633,14 +635,16 @@ class DeviceManager:
             self.do_not_unplug = ""
             if self.data_singleton.current_device.connected_via_usb:
                 self.do_not_unplug = "\n" + QCoreApplication.tr("DO NOT UNPLUG")
-            # update_label(QCoreApplication.tr("Preparing to restore...") + self.do_not_unplug)
-            update_label(QCoreApplication.tr("Creating connection to device..."))
-            perform_bookrestore(files=files_to_restore, udid=self.data_singleton.current_device.ld.udid, progress_callback=self.update_label)
-            # restore_files(
-            #     files=files_to_restore, reboot=self.auto_reboot,
-            #     lockdown_client=self.data_singleton.current_device.ld,
-            #     progress_callback=self.progress_callback
-            # )
+            if use_bookrestore:
+                update_label(QCoreApplication.tr("Creating connection to device...") + self.do_not_unplug)
+                perform_bookrestore(files=files_to_restore, udid=self.data_singleton.current_device.ld.udid, progress_callback=self.update_label)
+            else:
+                update_label(QCoreApplication.tr("Preparing to restore...") + self.do_not_unplug)
+                restore_files(
+                    files=files_to_restore, reboot=self.auto_reboot,
+                    lockdown_client=self.data_singleton.current_device.ld,
+                    progress_callback=self.progress_callback
+                )
             msg = ""#QCoreApplication.tr("Your device will now restart.\n\nRemember to turn Find My back on!")
             if not self.auto_reboot:
                 msg = QCoreApplication.tr("Please restart your device to see changes.")

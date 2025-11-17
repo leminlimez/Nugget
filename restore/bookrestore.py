@@ -151,7 +151,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
     progress_callback("Waiting for itunesstored to finish download..." + "\n" + "(This might take a minute)")
     for syslog_entry in OsTraceService(lockdown=lockdown_client).syslog():
         if time.time() > timeout:
-            raise Exception("Timed out waiting for download. Please try again.")
+            raise Exception("Timed out waiting for download. Please reboot and try again.")
         if (posixpath.basename(syslog_entry.filename) == 'itunesstored') and \
             "Install complete for download: 6936249076851270152 result: Failed" in syslog_entry.message:
             break
@@ -171,13 +171,13 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         raise Exception(f"Error launching Books app: {e}")
     
     progress_callback("Waiting for MobileGestalt overwrite to complete..." + "\n" + "(This might take a minute)")
-    success_message = "Marking download as [finished]"
-    timeout2 = time.time() + 120 # time out after a set amount of time
+    success_message = "/private/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist) [Install-Mgr]: Marking download as [finished]"
+    timeout2 = time.time() + 90 # time out after a set amount of time
     for syslog_entry in OsTraceService(lockdown=lockdown_client).syslog():
-        if time.time() > timeout2:
-            raise Exception("Timed out waiting for file, please try again.")
-        elif (posixpath.basename(syslog_entry.filename) == 'bookassetd') and success_message in syslog_entry.message:
+        if (syslog_entry.filename.endswith('bookassetd')) and success_message in syslog_entry.message:
             break
+        elif time.time() > timeout2:
+            raise Exception("Timed out waiting for file, please reboot and try again.")
 
 def check_rsd_info():
     MAX_ATTEMPTS = 30
