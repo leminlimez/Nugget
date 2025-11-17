@@ -649,7 +649,7 @@ class DeviceManager:
             self.do_not_unplug = ""
             if self.data_singleton.current_device.connected_via_usb:
                 self.do_not_unplug = "\n" + QCoreApplication.tr("DO NOT UNPLUG")
-            if use_bookrestore:
+            if use_bookrestore and not self.data_singleton.current_device.has_partial_sparserestore():
                 update_label(QCoreApplication.tr("Creating connection to device...") + self.do_not_unplug)
                 perform_bookrestore(files=files_to_restore, lockdown_client=self.data_singleton.current_device.ld, reboot=self.auto_reboot, current_device_books_uuid_callback=self.current_device_books_container_uuid_callback, progress_callback=self.update_label)
             else:
