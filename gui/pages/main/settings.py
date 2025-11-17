@@ -56,6 +56,8 @@ class SettingsPage(Page):
         self.ui.ignorePBFrameLimitChk.toggled.connect(self.on_ignorePBFrameLimitChk_toggled)
         self.ui.disableTendiesLimitChk.toggled.connect(self.on_disableTendiesLimitChk_toggled)
 
+        self.ui.booksContainerUUIDTxt.textEdited.connect(self.on_booksContainerUUIDTxt_textEdited)
+
         self.ui.trustStoreChk.toggled.connect(self.on_trustStoreChk_toggled)
         self.ui.skipSetupChk.toggled.connect(self.on_skipSetupChk_toggled)
         self.ui.supervisionChk.toggled.connect(self.on_supervisionChk_toggled)
@@ -147,6 +149,8 @@ class SettingsPage(Page):
     # Device Options
     def on_resetPairBtn_clicked(self):
         self.window.device_manager.reset_device_pairing()
+    def on_booksContainerUUIDTxt_textEdited(self, text: str):
+        self.window.device_manager.current_device_books_container_uuid_callback(text)
     def on_pocketPosterHelperBtn_clicked(self):
         # get app hash for posterboard
         bundle_ids = ["com.apple.PosterBoard"]

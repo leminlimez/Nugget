@@ -4933,7 +4933,24 @@ class Ui_Nugget(object):
 
         self.verticalLayout_101.addWidget(self.line_111)
 
-        self.settingsPageContent = QWidget(self.settingsPage)
+        self.settingsScrollArea = QScrollArea(self.settingsPage)
+        self.settingsScrollArea.setObjectName(u"settingsScrollArea")
+        self.settingsScrollArea.setFrameShape(QFrame.NoFrame)
+        self.settingsScrollArea.setFrameShadow(QFrame.Plain)
+        self.settingsScrollArea.setLineWidth(0)
+        self.settingsScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.settingsScrollArea.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.scrollAreaWidgetContents4 = QWidget()
+        self.scrollAreaWidgetContents4.setObjectName(u"scrollAreaWidgetContents4")
+        self.scrollAreaWidgetContents4.setGeometry(QRect(0, 0, 650, 800))
+        sizePolicy5.setHeightForWidth(self.scrollAreaWidgetContents4.sizePolicy().hasHeightForWidth())
+        self.scrollAreaWidgetContents4.setSizePolicy(sizePolicy5)
+        self.scrollAreaWidgetContents4.setMinimumSize(QSize(650, 500))
+        self.scrollAreaWidgetContents4.setMaximumSize(QSize(650, 2000))
+        self.verticalLayout_94 = QVBoxLayout(self.scrollAreaWidgetContents4)
+        self.verticalLayout_94.setObjectName(u"verticalLayout_94")
+        self.verticalLayout_94.setContentsMargins(0, 0, 0, 0)
+        self.settingsPageContent = QWidget(self.scrollAreaWidgetContents4)
         self.settingsPageContent.setObjectName(u"settingsPageContent")
         self.settingsPageContent.setEnabled(True)
         self.settingsPageContent.setMaximumSize(QSize(650, 16777215))
@@ -5021,6 +5038,34 @@ class Ui_Nugget(object):
 
         self._21.addWidget(self.disableTendiesLimitChk)
 
+        self.bookrestoreWidget = QWidget(self.settingsPageContent)
+        self.bookrestoreWidget.setObjectName(u"bookrestoreWidget")
+        self.verticalLayout_621 = QVBoxLayout(self.bookrestoreWidget)
+        self.verticalLayout_621.setObjectName(u"verticalLayout_621")
+        self.verticalLayout_621.setContentsMargins(0, 0, 0, 0)
+        self.line_6 = QFrame(self.bookrestoreWidget)
+        self.line_6.setObjectName(u"line_6")
+        self.line_6.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_6.setFrameShadow(QFrame.Plain)
+        self.line_6.setFrameShape(QFrame.Shape.HLine)
+
+        self.verticalLayout_621.addWidget(self.line_6)
+
+        self.label_49 = QLabel(self.bookrestoreWidget)
+        self.label_49.setObjectName(u"label_49")
+
+        self.verticalLayout_621.addWidget(self.label_49)
+
+        self.booksContainerUUIDTxt = QLineEdit(self.bookrestoreWidget)
+        self.booksContainerUUIDTxt.setObjectName(u"booksContainerUUIDTxt")
+
+        self.verticalLayout_621.addWidget(self.booksContainerUUIDTxt)
+
+
+        self._21.addWidget(self.bookrestoreWidget)
+
         self.line_24 = QFrame(self.settingsPageContent)
         self.line_24.setObjectName(u"line_24")
         self.line_24.setStyleSheet(u"QFrame {\n"
@@ -5101,7 +5146,11 @@ class Ui_Nugget(object):
         self._21.addItem(self.verticalSpacer_5)
 
 
-        self.verticalLayout_101.addWidget(self.settingsPageContent)
+        self.verticalLayout_94.addWidget(self.settingsPageContent)
+
+        self.settingsScrollArea.setWidget(self.scrollAreaWidgetContents4)
+
+        self.verticalLayout_101.addWidget(self.settingsScrollArea)
 
         self.pages.addWidget(self.settingsPage)
 
@@ -5674,6 +5723,12 @@ class Ui_Nugget(object):
 "DO NOT unplug your device during restores.", None))
 #endif // QT_CONFIG(tooltip)
         self.disableTendiesLimitChk.setText(QCoreApplication.translate("Nugget", u"Disable Tendies Limit", None))
+        self.label_49.setText(QCoreApplication.translate("Nugget", u"Books Container UUID", None))
+#if QT_CONFIG(tooltip)
+        self.booksContainerUUIDTxt.setToolTip(QCoreApplication.translate("Nugget", u"Enter your books container UUID if you know it.\n"
+"It will be automatically found if this is left blank.", None))
+#endif // QT_CONFIG(tooltip)
+        self.booksContainerUUIDTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Enter Books Container UUID", None))
 #if QT_CONFIG(tooltip)
         self.line_24.setToolTip("")
 #endif // QT_CONFIG(tooltip)

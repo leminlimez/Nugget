@@ -331,6 +331,14 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.floatingTabBarContent.setVisible(not is_iphone)
             self.ui.keyFlickContent.setVisible(is_iphone and device_ver < Version("26.1"))
 
+            # bookrestore stuff
+            if self.device_manager.data_singleton.current_device.has_bookrestore():
+                self.ui.bookrestoreWidget.show()
+                self.ui.booksContainerUUIDTxt.setText(self.device_manager.data_singleton.current_device.books_container_uuid)
+                self.ui.rdarFixChk.hide() # do not show for bookrestore
+            else:
+                self.ui.bookrestoreWidget.hide()
+
             # show the PB if initial load is true
             if self.initial_load:
                 self.initial_load = False

@@ -1,6 +1,7 @@
 import traceback
 import plistlib
 from tempfile import TemporaryDirectory
+from typing import Optional
 import os.path
 from pathlib import Path
 
@@ -95,6 +96,7 @@ class DeviceManager:
 
         # preferences
         # TODO: Move to its own class
+        self.settings = None
         self.apply_over_wifi = False
         self.auto_reboot = True
         self.allow_risky_tweaks = False
@@ -107,6 +109,8 @@ class DeviceManager:
     
     def get_devices(self, settings: QSettings, show_alert=lambda x: None):
         self.devices.clear()
+        if self.settings == None:
+            self.settings = settings
         # handle errors when failing to get connected devices
         try:
             connected_devices = usbmux.list_devices()
@@ -132,6 +136,7 @@ class DeviceManager:
                         product_type = settings.value(device.serial + "_model", "", type=str)
                         hardware_type = settings.value(device.serial + "_hardware", "", type=str)
                         cpu_type = settings.value(device.serial + "_cpu", "", type=str)
+                        books_uuid = settings.value(device.serial + "_books_container_uuid", "", type=str)
                         if product_type == "":
                             # save the new product type
                             settings.setValue(device.serial + "_model", model)
@@ -150,7 +155,7 @@ class DeviceManager:
                     except:
                         show_alert(ApplyAlertMessage(txt=QCoreApplication.tr("Click \"Show Details\" for the traceback."), detailed_txt=str(traceback.format_exc())))
                     dev = Device(
-                            uuid=device.serial,
+                            udid=device.serial,
                             usb=device.is_usb,
                             name=vals['DeviceName'],
                             version=vals['ProductVersion'],
@@ -159,6 +164,7 @@ class DeviceManager:
                             hardware=hardware,
                             cpu=cpu,
                             locale=ld.locale,
+                            books_container_uuid=books_uuid,
                             ld=ld
                         )
                     if TweakID.RdarFix in tweaks:
@@ -226,7 +232,7 @@ class DeviceManager:
         if self.data_singleton.current_device == None:
             return ""
         else:
-            return self.data_singleton.current_device.uuid
+            return self.data_singleton.current_device.udid
         
     def get_current_device_model(self) -> str:
         if self.data_singleton.current_device == None:
@@ -245,6 +251,14 @@ class DeviceManager:
             return True
         else:
             return self.data_singleton.current_device.is_exploit_fully_patched()
+        
+    def current_device_books_container_uuid_callback(self, uuid: Optional[str]=None) -> Optional[str | None]:
+        # if there is no argument, return the existing uuid
+        if uuid is None:
+            return self.data_singleton.current_device.books_container_uuid
+        self.data_singleton.current_device.books_container_uuid = uuid
+        # save it to settings
+        self.settings.setValue(self.data_singleton.current_device.udid + "_books_container_uuid", uuid)
         
     def get_app_hashes(self, bundle_ids: list[str]) -> dict:
         apps = InstallationProxyService(lockdown=self.data_singleton.current_device.ld).get_apps(application_type="Any", calculate_sizes=False)
@@ -637,7 +651,7 @@ class DeviceManager:
                 self.do_not_unplug = "\n" + QCoreApplication.tr("DO NOT UNPLUG")
             if use_bookrestore:
                 update_label(QCoreApplication.tr("Creating connection to device...") + self.do_not_unplug)
-                perform_bookrestore(files=files_to_restore, lockdown_client=self.data_singleton.current_device.ld, reboot=self.auto_reboot, progress_callback=self.update_label)
+                perform_bookrestore(files=files_to_restore, lockdown_client=self.data_singleton.current_device.ld, reboot=self.auto_reboot, current_device_books_uuid_callback=self.current_device_books_container_uuid_callback, progress_callback=self.update_label)
             else:
                 update_label(QCoreApplication.tr("Preparing to restore...") + self.do_not_unplug)
                 restore_files(
@@ -677,9 +691,9 @@ class DeviceManager:
                 if page == Page.Gestalt:
                     ## MOBILE GESTALT
                     # remove the saved device model, hardware, and cpu
-                    settings.setValue(self.data_singleton.current_device.uuid + "_model", "")
-                    settings.setValue(self.data_singleton.current_device.uuid + "_hardware", "")
-                    settings.setValue(self.data_singleton.current_device.uuid + "_cpu", "")
+                    settings.setValue(self.data_singleton.current_device.udid + "_model", "")
+                    settings.setValue(self.data_singleton.current_device.udid + "_hardware", "")
+                    settings.setValue(self.data_singleton.current_device.udid + "_cpu", "")
                     files_to_null.append("/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist")
                 elif page == Page.FeatureFlags:
                     ## FEATURE FLAGS

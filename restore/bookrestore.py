@@ -25,14 +25,14 @@ should_terminate_tunnel = False
 rsd_info = None
 thread_exception = None
 
-def _run_async_rsd_connection(address, port, files, progress):
+def _run_async_rsd_connection(address, port, files, current_device_uuid_callback, progress):
     async def async_connection():
         async with RemoteServiceDiscoveryService((address, port)) as rsd:
             loop = asyncio.get_running_loop()
 
             def run_blocking_callback():
                 with DvtSecureSocketProxyService(rsd) as dvt:
-                    apply_bookrestore_files(files, rsd, dvt, progress)
+                    apply_bookrestore_files(files, rsd, dvt, current_device_uuid_callback, progress)
 
             await loop.run_in_executor(None, run_blocking_callback)
 
@@ -73,11 +73,11 @@ async def create_tunnel_async(udid):
 def create_tunnel(udid):
     asyncio.run(create_tunnel_async(udid))
 
-def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: LockdownClient, dvt: DvtSecureSocketProxyService, progress_callback = lambda x: None):
+def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: LockdownClient, dvt: DvtSecureSocketProxyService, current_device_uuid_callback = lambda x: None, progress_callback = lambda x: None):
     afc = AfcService(lockdown=lockdown_client)
     pc = ProcessControl(dvt)
     # get the uuid of the container
-    uuid = open("uuid.txt", "r").read().strip() if Path("uuid.txt").exists() else ""
+    uuid = current_device_uuid_callback().strip()
     if len(uuid) < 10:
         try:
             pc.launch("com.apple.iBooks")
@@ -90,8 +90,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
                 continue
             uuid = syslog_entry.message.split("/var/containers/Shared/SystemGroup/")[1] \
                     .split("/Documents/BLDownloads")[0]
-            with open("uuid.txt", "w") as f:
-                f.write(uuid)
+            current_device_uuid_callback(uuid)
             break
     
     # modify the sqlite database
@@ -192,7 +191,7 @@ def check_rsd_info():
         attempts += 1
     return False
 
-async def create_connection_context(files: list[FileToRestore], udid: str, progress_callback = lambda x: None):
+async def create_connection_context(files: list[FileToRestore], udid: str, current_device_uuid_callback = lambda x: None, progress_callback = lambda x: None):
     global terminate_tunnel_thread
     global rsd_info
     global thread_exception
@@ -203,7 +202,7 @@ async def create_connection_context(files: list[FileToRestore], udid: str, progr
     thread.start()
     try:
         if check_rsd_info():
-            _run_async_rsd_connection(rsd_info["address"], rsd_info["port"], files, progress_callback)
+            _run_async_rsd_connection(rsd_info["address"], rsd_info["port"], files, current_device_uuid_callback, progress_callback)
         else:
             if thread_exception is not None:
                 raise thread_exception
@@ -214,7 +213,7 @@ async def create_connection_context(files: list[FileToRestore], udid: str, progr
         raise
     terminate_tunnel_thread = True
 
-def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownClient, reboot: bool, progress_callback = lambda x: None):
+def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownClient, reboot: bool, current_device_books_uuid_callback = lambda x: None, progress_callback = lambda x: None):
     if os.name == 'nt':
         try:
             import pyuac
@@ -223,6 +222,6 @@ def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownCli
                 pyuac.runAsAdmin()
         except:
             pass
-    asyncio.run(create_connection_context(files, lockdown_client.udid, progress_callback))
+    asyncio.run(create_connection_context(files, lockdown_client.udid, current_device_books_uuid_callback, progress_callback))
     if reboot:
         reboot_device(reboot, lockdown_client)

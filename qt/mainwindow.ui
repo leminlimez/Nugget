@@ -9366,331 +9366,443 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                </widget>
               </item>
               <item>
-               <widget class="QWidget" name="settingsPageContent" native="true">
-                <property name="enabled">
-                 <bool>true</bool>
+               <widget class="QScrollArea" name="settingsScrollArea">
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
                 </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>650</width>
-                  <height>16777215</height>
-                 </size>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
                 </property>
-                <layout class="QVBoxLayout" name="_2">
-                 <property name="leftMargin">
-                  <number>0</number>
+                <property name="lineWidth">
+                 <number>0</number>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::AdjustToContents</enum>
+                </property>
+                <widget class="QWidget" name="scrollAreaWidgetContents">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>650</width>
+                   <height>800</height>
+                  </rect>
                  </property>
-                 <property name="topMargin">
-                  <number>0</number>
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
                  </property>
-                 <property name="rightMargin">
-                  <number>0</number>
+                 <property name="minimumSize">
+                  <size>
+                   <width>650</width>
+                   <height>500</height>
+                  </size>
                  </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
+                 <property name="maximumSize">
+                  <size>
+                   <width>650</width>
+                   <height>2000</height>
+                  </size>
                  </property>
-                 <item>
-                  <widget class="QWidget" name="languageWidget" native="true">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>25</height>
-                    </size>
-                   </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_3">
-                    <property name="leftMargin">
-                     <number>0</number>
+                 <layout class="QVBoxLayout" name="verticalLayout_9">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QWidget" name="settingsPageContent" native="true">
+                    <property name="enabled">
+                     <bool>true</bool>
                     </property>
-                    <property name="topMargin">
-                     <number>0</number>
+                    <property name="maximumSize">
+                     <size>
+                      <width>650</width>
+                      <height>16777215</height>
+                     </size>
                     </property>
-                    <property name="rightMargin">
-                     <number>0</number>
-                    </property>
-                    <property name="bottomMargin">
-                     <number>0</number>
-                    </property>
-                    <item>
-                     <widget class="QToolButton" name="langIcn">
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>35</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">QToolButton {
+                    <layout class="QVBoxLayout" name="_2">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <widget class="QWidget" name="languageWidget" native="true">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>25</height>
+                        </size>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_3">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QToolButton" name="langIcn">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>35</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QToolButton {
 	icon-size: 24px;
 	background-color: transparent;
 	padding-left: 0px;
 	padding-right: 5px;
 	border-radius: 0px;
 }</string>
-                      </property>
-                      <property name="text">
-                       <string notr="true"/>
-                      </property>
-                      <property name="icon">
-                       <iconset resource="../resources.qrc">
-                        <normaloff>:/icon/translate.svg</normaloff>:/icon/translate.svg</iconset>
-                      </property>
-                      <property name="iconSize">
-                       <size>
-                        <width>20</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="langLbl">
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string>App Language</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <spacer name="horizontalSpacer_9">
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>40</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="label_4">
-                      <property name="text">
-                       <string notr="true"/>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QComboBox" name="langDrp">
-                      <property name="minimumSize">
-                       <size>
-                        <width>200</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="allowWifiApplyingChk">
-                   <property name="text">
-                    <string>Allow Applying Over WiFi</string>
-                   </property>
-                   <property name="checked">
-                    <bool>false</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="autoRebootChk">
-                   <property name="text">
-                    <string>Auto Reboot After Applying</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="showRiskyChk">
-                   <property name="text">
-                    <string>Show Risky Tweak Options</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="showAllSpoofableChk">
-                   <property name="toolTip">
-                    <string>Show models for other device types in the AI device spoofing tab.</string>
-                   </property>
-                   <property name="statusTip">
-                    <string/>
-                   </property>
-                   <property name="whatsThis">
-                    <string/>
-                   </property>
-                   <property name="text">
-                    <string>Show All Spoofable Models</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="ignorePBFrameLimitChk">
-                   <property name="text">
-                    <string>Ignore Posterboard Frame Limit</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="disableTendiesLimitChk">
-                   <property name="toolTip">
-                    <string>Disables the tendies file limit of 2. There is still the descriptor limit.
+                          </property>
+                          <property name="text">
+                           <string notr="true"/>
+                          </property>
+                          <property name="icon">
+                           <iconset resource="../resources.qrc">
+                            <normaloff>:/icon/translate.svg</normaloff>:/icon/translate.svg</iconset>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>20</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="langLbl">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>App Language</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <spacer name="horizontalSpacer_9">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>40</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_4">
+                          <property name="text">
+                           <string notr="true"/>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QComboBox" name="langDrp">
+                          <property name="minimumSize">
+                           <size>
+                            <width>200</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="allowWifiApplyingChk">
+                       <property name="text">
+                        <string>Allow Applying Over WiFi</string>
+                       </property>
+                       <property name="checked">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="autoRebootChk">
+                       <property name="text">
+                        <string>Auto Reboot After Applying</string>
+                       </property>
+                       <property name="checked">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="showRiskyChk">
+                       <property name="text">
+                        <string>Show Risky Tweak Options</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="showAllSpoofableChk">
+                       <property name="toolTip">
+                        <string>Show models for other device types in the AI device spoofing tab.</string>
+                       </property>
+                       <property name="statusTip">
+                        <string/>
+                       </property>
+                       <property name="whatsThis">
+                        <string/>
+                       </property>
+                       <property name="text">
+                        <string>Show All Spoofable Models</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="ignorePBFrameLimitChk">
+                       <property name="text">
+                        <string>Ignore Posterboard Frame Limit</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="disableTendiesLimitChk">
+                       <property name="toolTip">
+                        <string>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</string>
-                   </property>
-                   <property name="text">
-                    <string>Disable Tendies Limit</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="Line" name="line_24">
-                   <property name="toolTip">
-                    <string/>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QFrame {
+                       </property>
+                       <property name="text">
+                        <string>Disable Tendies Limit</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QWidget" name="bookrestoreWidget" native="true">
+                       <layout class="QVBoxLayout" name="verticalLayout_62">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="Line" name="line_6">
+                          <property name="styleSheet">
+                           <string notr="true">QFrame {
 	color: #414141;
 }</string>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="trustStoreChk">
-                   <property name="toolTip">
-                    <string>Restores the SSL config that does something idk</string>
-                   </property>
-                   <property name="text">
-                    <string>Restore TrustStore (SSL Configuration Profiles)</string>
-                   </property>
-                   <property name="checked">
-                    <bool>false</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="skipSetupChk">
-                   <property name="text">
-                    <string>Skip Setup * (non-exploit files only)</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="supervisionChk">
-                   <property name="enabled">
-                    <bool>true</bool>
-                   </property>
-                   <property name="text">
-                    <string>Enable Supervision * (requires Skip Setup)</string>
-                   </property>
-                   <property name="checked">
-                    <bool>false</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="supervisionOrganization">
-                   <property name="placeholderText">
-                    <string>Enter Organization Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <spacer name="verticalSpacer_21">
-                   <property name="orientation">
-                    <enum>Qt::Vertical</enum>
-                   </property>
-                   <property name="sizeType">
-                    <enum>QSizePolicy::Fixed</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>20</width>
-                     <height>10</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="label_15">
-                   <property name="text">
-                    <string>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="Line" name="line_20">
-                   <property name="styleSheet">
-                    <string notr="true">QFrame {
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Plain</enum>
+                          </property>
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_49">
+                          <property name="text">
+                           <string>Books Container UUID</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="booksContainerUUIDTxt">
+                          <property name="toolTip">
+                           <string>Enter your books container UUID if you know it.
+It will be automatically found if this is left blank.</string>
+                          </property>
+                          <property name="placeholderText">
+                           <string>Enter Books Container UUID</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="Line" name="line_24">
+                       <property name="toolTip">
+                        <string/>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QFrame {
 	color: #414141;
 }</string>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="deviceSettingsBtns">
-                   <property name="bottomMargin">
-                    <number>0</number>
-                   </property>
-                   <item>
-                    <widget class="QToolButton" name="resetPairBtn">
-                     <property name="text">
-                      <string>Reset Device Pairing</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_32">
-                   <property name="bottomMargin">
-                    <number>0</number>
-                   </property>
-                   <item>
-                    <widget class="QToolButton" name="pocketPosterHelperBtn">
-                     <property name="text">
-                      <string>Pocket Poster Helper</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <spacer name="verticalSpacer_5">
-                   <property name="orientation">
-                    <enum>Qt::Vertical</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>20</width>
-                     <height>40</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                </layout>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Plain</enum>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="trustStoreChk">
+                       <property name="toolTip">
+                        <string>Restores the SSL config that does something idk</string>
+                       </property>
+                       <property name="text">
+                        <string>Restore TrustStore (SSL Configuration Profiles)</string>
+                       </property>
+                       <property name="checked">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="skipSetupChk">
+                       <property name="text">
+                        <string>Skip Setup * (non-exploit files only)</string>
+                       </property>
+                       <property name="checked">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="supervisionChk">
+                       <property name="enabled">
+                        <bool>true</bool>
+                       </property>
+                       <property name="text">
+                        <string>Enable Supervision * (requires Skip Setup)</string>
+                       </property>
+                       <property name="checked">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="supervisionOrganization">
+                       <property name="placeholderText">
+                        <string>Enter Organization Name</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="verticalSpacer_21">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                       <property name="sizeType">
+                        <enum>QSizePolicy::Fixed</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>10</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_15">
+                       <property name="text">
+                        <string>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="Line" name="line_20">
+                       <property name="styleSheet">
+                        <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Plain</enum>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <layout class="QHBoxLayout" name="deviceSettingsBtns">
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QToolButton" name="resetPairBtn">
+                         <property name="text">
+                          <string>Reset Device Pairing</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_32">
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QToolButton" name="pocketPosterHelperBtn">
+                         <property name="text">
+                          <string>Pocket Poster Helper</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <spacer name="verticalSpacer_5">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
                </widget>
               </item>
              </layout>

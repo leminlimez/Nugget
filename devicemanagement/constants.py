@@ -2,8 +2,14 @@ from enum import Enum
 from pymobiledevice3.lockdown import LockdownClient
 
 class Device:
-    def __init__(self, uuid: int, usb: bool, name: str, version: str, build: str, model: str, hardware: str, cpu: str, locale: str, ld: LockdownClient):
-        self.uuid = uuid
+    def __init__(self, 
+                udid: int, usb: bool, name: str,
+                version: str, build: str,
+                model: str, hardware: str, cpu: str, locale: str,
+                books_container_uuid: str,
+                ld: LockdownClient
+            ):
+        self.udid = udid
         self.connected_via_usb = usb
         self.name = name
         self.version = version
@@ -12,6 +18,7 @@ class Device:
         self.hardware = hardware
         self.cpu = cpu
         self.locale = locale
+        self.books_container_uuid = books_container_uuid
         self.ld = ld
 
     def is_exploit_fully_patched(self) -> bool:
