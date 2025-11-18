@@ -398,9 +398,6 @@ class DeviceManager:
                         cloud_config_plist.pop('OrganizationMagic')
                     if 'SupervisorHostCertificates' in cloud_config_plist:
                         cloud_config_plist.pop('SupervisorHostCertificates')
-                    if not 'OrganizatonName' in cloud_config_plist:
-                        # need to add it anyway
-                        cloud_config_plist["OrganizationName"] = self.organization_name
             files_to_restore.append(FileToRestore(
                 contents=plistlib.dumps(cloud_config_plist),
                 restore_path="Library/ConfigurationProfiles/CloudConfigurationDetails.plist",
