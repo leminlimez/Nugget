@@ -20,7 +20,7 @@ from gui.pages.pages_list import Page
 from tweaks.tweaks import tweaks, TweakID
 
 App_Version = "7.0"
-App_Build = 4
+App_Build = 5
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager, translator: Translator):
@@ -294,6 +294,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 # show the other dynamic island options
                 self.ui.dynamicIslandDrp.addItem("2622 (iPhone 16 Pro Dynamic Island)")
                 self.ui.dynamicIslandDrp.addItem("2868 (iPhone 16 Pro Max Dynamic Island)")
+                if device_ver >= Version("26.0"):
+                    self.ui.dynamicIslandDrp.addItem("2736 (iPhone Air Dynamic Island)")
             # eligibility page button
             if not patched and device_ver >= Version("17.4") and (device_ver <= Version("17.7") or device_ver >= Version("18.1")):
                 self.ui.euEnablerPageBtn.show()
