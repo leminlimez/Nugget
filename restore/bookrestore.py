@@ -93,17 +93,19 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
             if error:
                 not_connected = None
                 admin_error = None
+                error_str = "\n"
                 for i in range(len(error)):
+                    error_str += error[i].decode() + "\n"
                     if (error[i].find(b'connected') > -1):
                         not_connected = True
                     if (error[i].find(b'admin') > -1):
                         admin_error = True
                 if not_connected:
-                    raise Exception(f"It seems like your device isn't connected. {error}")
+                    raise Exception(f"It seems like your device isn't connected.{error_str}")
                 elif admin_error:
-                    raise Exception(f"It seems like you're not running this script as admin, which is required. {error}")
+                    raise Exception(f"It seems like you're not running this script as admin, which is required.{error_str}")
                 else:
-                    raise Exception(f"Error opening a tunnel. {error}")
+                    raise Exception(f"Error opening a tunnel.{error_str}")
             break
     rsd_str = str(rsd_val)
     print("Sucessfully created tunnel: " + rsd_str)
