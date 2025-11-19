@@ -4,6 +4,23 @@ from typing import Optional
 
 from gui.pages.pages_list import Page
 
+# Global Vars
+sudo_pwd = None # reset this variable whenever it is used
+sudo_action_complete = False
+def get_sudo_pwd() -> str | None:
+    pre_reset = sudo_pwd
+    set_sudo_pwd(None)
+    set_sudo_complete(False)
+    return pre_reset
+def get_sudo_complete() -> bool:
+    return sudo_action_complete
+def set_sudo_complete(isComplete: bool):
+    global sudo_action_complete
+    sudo_action_complete = isComplete
+def set_sudo_pwd(pwd: str | None):
+    global sudo_pwd
+    sudo_pwd = pwd
+
 class ApplyAlertMessage:
     def __init__(self, txt: str, title: str = "Error!", icon = QMessageBox.Critical, detailed_txt: str = None):
         self.txt = txt
@@ -16,7 +33,11 @@ class ApplyThread(QThread):
     alert = Signal(ApplyAlertMessage)
 
     def update_label(self, txt: str):
-        self.progress.emit(txt)
+        if txt == 'sudo_pwd':
+            # hacky workaround
+            self.alert.emit(None)
+        else:
+            self.progress.emit(txt)
     def alert_window(self, msg: ApplyAlertMessage):
         self.alert.emit(msg)
     

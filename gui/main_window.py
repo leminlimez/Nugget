@@ -1,5 +1,4 @@
 from PySide6 import QtCore, QtWidgets
-from enum import Enum
 import plistlib
 
 from qt.ui_mainwindow import Ui_Nugget
@@ -14,13 +13,13 @@ from devicemanagement.device_manager import DeviceManager
 
 from gui.dialogs import GestaltDialog, UpdateAppDialog
 from gui.pages.reset_dialog import ResetDialog
-from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThread
+from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThread, set_sudo_pwd, set_sudo_complete, get_sudo_pwd
 from gui.pages.pages_list import Page
 
 from tweaks.tweaks import tweaks, TweakID
 
 App_Version = "7.0"
-App_Build = 6
+App_Build = 7
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager, translator: Translator):
@@ -539,7 +538,15 @@ class MainWindow(QtWidgets.QMainWindow):
             self.worker_thread.finished.connect(self.finish_apply_thread)
             self.worker_thread.finished.connect(self.worker_thread.deleteLater)
             self.worker_thread.start()
-    def alert_message(self, alert: ApplyAlertMessage, log_to_console: bool = True):
+    def alert_message(self, alert: ApplyAlertMessage | None, log_to_console: bool = True):
+        if alert is None:
+            # do sudo dialog input
+            get_sudo_pwd() # clear if it is already there
+            pwd, ok = QtWidgets.QInputDialog.getText(None, "Enter Password for Sudo", "Sudo Password:", QtWidgets.QLineEdit.Password, "")
+            if ok and pwd:
+                set_sudo_pwd(pwd)
+            set_sudo_complete(True)
+            return
         if log_to_console:
             print(alert.txt)
         detailsBox = QtWidgets.QMessageBox()
