@@ -80,15 +80,13 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
                 del pwd
             else:
                 raise Exception("No administrator permission")
-        tunnel_process = subprocess.Popen(f"{sudo_cmd} pymobiledevice3 lockdown start-tunnel --script-mode --udid {udid}", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        tunnel_process = subprocess.Popen(f"{sudo_cmd} pymobiledevice3 lockdown start-tunnel --script-mode --udid {udid}", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         del sudo_cmd
     atexit.register(exit_func, tunnel_process)
     while True:
         output = tunnel_process.stdout.readline()
         if output:
-            if type(output) is bytes:
-                output = output.decode()
-            rsd_val = output.strip()
+            rsd_val = output.decode().strip()
             break
         if tunnel_process.poll() is not None:
             error = tunnel_process.stderr.readlines()
@@ -96,12 +94,9 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
                 not_connected = None
                 admin_error = None
                 for i in range(len(error)):
-                    msg = error[i]
-                    if type(msg) is bytes:
-                        msg = error[i].decode()
-                    if (msg.find(b'connected') > -1):
+                    if (error[i].find(b'connected') > -1):
                         not_connected = True
-                    if (msg.find(b'admin') > -1):
+                    if (error[i].find(b'admin') > -1):
                         admin_error = True
                 if not_connected:
                     raise Exception(f"It seems like your device isn't connected. {error}")
