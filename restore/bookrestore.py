@@ -6,6 +6,9 @@ import shutil
 import sqlite3
 import time
 import threading
+import functools
+import queue
+import socket
 import sys
 
 from .restore import FileToRestore
@@ -21,11 +24,27 @@ from pymobiledevice3.cli.remote import start_tunnel_task, ConnectionType
 from pymobiledevice3.cli.lockdown import async_cli_start_tunnel
 from tempfile import NamedTemporaryFile
 from io import StringIO
+from http.server import HTTPServer, SimpleHTTPRequestHandler
 
 # Global Vars
 should_terminate_tunnel = False
 rsd_info = None
 thread_exception = None
+info_queue = queue.Queue()
+
+def get_lan_ip():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        s.connect(("8.8.8.8", 80))
+        return s.getsockname()[0]
+    finally:
+        s.close()
+
+def start_http_server():
+    handler = functools.partial(SimpleHTTPRequestHandler)
+    httpd = HTTPServer(("0.0.0.0", 0), handler)
+    info_queue.put((get_lan_ip(), httpd.server_port))
+    httpd.serve_forever()
 
 async def create_tunnel_async(service_provider: LockdownClient):
     global thread_exception
@@ -75,9 +94,11 @@ async def create_connection_context(files: list[FileToRestore], service_provider
     sys.stdout = redir_stdout
     thread = threading.Thread(target=create_tunnel, args=(service_provider,))
     thread.start()
+    old_dir = os.getcwd()
     try:
         if check_rsd_info(redir_stdout):
             sys.stdout = old_stdout
+            os.chdir(os.path.abspath(get_bundle_files("files/bookrestore")))
             _run_async_rsd_connection(rsd_info["address"], rsd_info["port"], files, current_device_uuid_callback, progress_callback)
         else:
             if thread_exception is not None:
@@ -87,7 +108,9 @@ async def create_connection_context(files: list[FileToRestore], service_provider
     except:
         terminate_tunnel_thread = True
         sys.stdout = old_stdout
+        os.chdir(old_dir)
         raise
+    os.chdir(old_dir)
     terminate_tunnel_thread = True
 
 def _run_async_rsd_connection(address, port, files, current_device_uuid_callback, progress):
@@ -116,6 +139,12 @@ def exit_func(tunnel_proc):
     tunnel_proc.terminate()
 
 def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: LockdownClient, dvt: DvtSecureSocketProxyService, current_device_uuid_callback = lambda x: None, progress_callback = lambda x: None):
+    # start a local http server
+    http_thread = threading.Thread(target=start_http_server, daemon=True)
+    http_thread.start()
+    ip, port = info_queue.get()
+    print(f"Hosting temporary http server on: http://{ip}:{port}/")
+
     afc = AfcService(lockdown=lockdown_client)
     pc = ProcessControl(dvt)
     # get the uuid of the container
@@ -136,8 +165,9 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
             break
     
     # modify the sqlite database
-    br_files = get_bundle_files("files/bookrestore")
+    br_files = get_bundle_files("")
     sqlite_path = os.path.join(br_files, "downloads.28.sqlitedb")
+    bldb_local_prefix = f"/private/var/containers/Shared/SystemGroup/{uuid}/Documents/BLDatabaseManager/BLDatabaseManager.sqlite"
     with NamedTemporaryFile("rb+", suffix=".sqlite") as sq_file:
         shutil.copyfile(sqlite_path, sq_file.name)
         connection = sqlite3.connect(sq_file.name)
@@ -145,14 +175,27 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         cursor.execute(f"""
         UPDATE asset
         SET local_path = CASE
-            WHEN local_path LIKE '/private/var/containers/Shared/SystemGroup/%/Documents/BLDatabaseManager/BLDatabaseManager.sqlite'
-                THEN '/private/var/containers/Shared/SystemGroup/{uuid}/Documents/BLDatabaseManager/BLDatabaseManager.sqlite'
-            WHEN local_path LIKE '/private/var/containers/Shared/SystemGroup/%/Documents/BLDatabaseManager/BLDatabaseManager.sqlite-shm'
-                THEN '/private/var/containers/Shared/SystemGroup/{uuid}/Documents/BLDatabaseManager/BLDatabaseManager.sqlite-shm'
-            WHEN local_path LIKE '/private/var/containers/Shared/SystemGroup/%/Documents/BLDatabaseManager/BLDatabaseManager.sqlite-wal'
-                THEN '/private/var/containers/Shared/SystemGroup/{uuid}/Documents/BLDatabaseManager/BLDatabaseManager.sqlite-wal'
+            WHEN local_path LIKE '%/BLDatabaseManager.sqlite'
+                THEN '{bldb_local_prefix}'
+            WHEN local_path LIKE '%/BLDatabaseManager.sqlite-shm'
+                THEN '{bldb_local_prefix}-shm'
+            WHEN local_path LIKE '%/BLDatabaseManager.sqlite-wal'
+                THEN '{bldb_local_prefix}-wal'
         END
         WHERE local_path LIKE '/private/var/containers/Shared/SystemGroup/%/Documents/BLDatabaseManager/BLDatabaseManager.sqlite%'
+        """)
+        bldb_server_prefix = f"http://{ip}:{port}/BLDatabaseManager.sqlite"
+        cursor.execute(f"""
+        UPDATE asset
+        SET url = CASE
+            WHEN url LIKE '%/BLDatabaseManager.sqlite'
+                THEN '{bldb_server_prefix}'
+            WHEN url LIKE '%/BLDatabaseManager.sqlite-shm'
+                THEN '{bldb_server_prefix}-shm'
+            WHEN url LIKE '%/BLDatabaseManager.sqlite-wal'
+                THEN '{bldb_server_prefix}-wal'
+        END
+        WHERE url LIKE '%/BLDatabaseManager.sqlite%'
         """)
         connection.commit()
 
