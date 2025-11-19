@@ -220,8 +220,11 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
             break
         elif time.time() > timeout2:
             raise Exception("Timed out waiting for file, please reboot and try again.")
+        
+    progress_callback("Respringing")
+    procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
+    pid = next((pid for pid, p in procs.items() if p['ProcessName'] == 'backboardd'), None)
+    pc.kill(pid)
 
-def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownClient, reboot: bool, current_device_books_uuid_callback = lambda x: None, progress_callback = lambda x: None):
+def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownClient, current_device_books_uuid_callback = lambda x: None, progress_callback = lambda x: None):
     asyncio.run(create_connection_context(files, lockdown_client, current_device_books_uuid_callback, progress_callback))
-    if reboot:
-        reboot_device(reboot, lockdown_client)
