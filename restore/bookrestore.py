@@ -155,14 +155,13 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         WHERE local_path LIKE '/private/var/containers/Shared/SystemGroup/%/Documents/BLDatabaseManager/BLDatabaseManager.sqlite%'
         """)
         connection.commit()
-        connection.close()
 
         # Kill bookassetd and Books processes to stop them from updating BLDatabaseManager.sqlite
         procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
         pid_bookassetd = next((pid for pid, p in procs.items() if p['ProcessName'] == 'bookassetd'), None)
         pid_books = next((pid for pid, p in procs.items() if p['ProcessName'] == 'Books'), None)
         if pid_bookassetd:
-            pc.kill(pid_bookassetd)
+            pc.signal(pid_bookassetd, 19)
         if pid_books:
             pc.kill(pid_books)
 
@@ -179,8 +178,9 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         # Upload the sqlite db
         empty_file = os.path.join(br_files, "empty.txt")
         afc.push(sq_file.name, "Downloads/downloads.28.sqlitedb")
-        afc.push(empty_file, "Downloads/downloads.28.sqlitedb-shm")
-        afc.push(empty_file, "Downloads/downloads.28.sqlitedb-wal")
+        afc.push(sq_file.name + "-shm", "Downloads/downloads.28.sqlitedb-shm")
+        afc.push(sq_file.name + "-wal", "Downloads/downloads.28.sqlitedb-wal")
+        connection.close()
 
     # Kill itunesstored to trigger BLDataBaseManager.sqlite overwrite
     procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
@@ -220,6 +220,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
             break
         elif time.time() > timeout2:
             raise Exception("Timed out waiting for file, please reboot and try again.")
+    pc.kill(pid_bookassetd)
         
     progress_callback("Respringing")
     procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
