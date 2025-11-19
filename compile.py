@@ -21,6 +21,9 @@ args = [
 	'--hidden-import=pyimg4',
 	'--hidden-import=zeroconf._utils.ipaddress',
 	'--hidden-import=zeroconf._handlers.answers',
+	'--hidden-import=inquirer',
+	'--hidden-import=readchar',
+	'--copy-metadata=readchar'
 ]
 
 # Use --optimize only if target arch not specified
@@ -36,7 +39,7 @@ if platform == "darwin":
 
 	# Try codesign if secrets module available
 	try:
-		import secrets.compile_config as compile_config
+		import secrets_nugget.compile_config as compile_config
 		args.append('--osx-entitlements-file=entitlements.plist')
 		args.append(f"--codesign-identity={compile_config.CODESIGN_HASH}")
 	except ImportError:
@@ -44,9 +47,13 @@ if platform == "darwin":
 
 # Windows-specific flags
 elif os.name == 'nt':
+	import site
+	site_packages_path = site.getsitepackages()[1]
 	args.append('--version-file=version.txt')
 	args.append('--add-binary=status_setter_windows.exe;.')
 	args.append('--add-data=nugget.ico;.')
+	args.append('--add-binary')
+	args.append(f"{site_packages_path}/pytun_pmd3/*;pytun_pmd3")
 
 	# Optional: bundle ffmpeg if available
 	if os.path.isdir("ffmpeg/bin"):

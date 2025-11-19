@@ -6,7 +6,7 @@ __pycache__
 *.spec
 /ffmpeg
 /dist
-/secrets
+/secrets_nugget
 .compile+codesign.sh
 .create_build.sh
 /.vscode
