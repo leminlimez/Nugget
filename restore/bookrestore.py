@@ -295,7 +295,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
     progress_callback("Waiting for itunesstored to finish download..." + "\n" + "(This might take a minute)")
     for syslog_entry in OsTraceService(lockdown=lockdown_client).syslog():
         if time.time() > timeout:
-            raise Exception("Timed out waiting for download. Please reboot and try again.")
+            raise Exception("Timed out waiting for download. Please try again.")
         if (posixpath.basename(syslog_entry.filename) == 'itunesstored') and \
             "Install complete for download: 6936249076851270152 result: Failed" in syslog_entry.message:
             break
@@ -321,7 +321,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         if (syslog_entry.filename.endswith('bookassetd')) and success_message in syslog_entry.message:
             break
         elif time.time() > timeout2:
-            raise Exception("Timed out waiting for file, please reboot and try again.")
+            raise Exception("Timed out waiting for file, please try again.")
     pc.kill(pid_bookassetd)
         
     progress_callback("Respringing")
