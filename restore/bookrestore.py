@@ -86,6 +86,8 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
     while True:
         output = tunnel_process.stdout.readline()
         if output:
+            if type(output) is bytes:
+                output = output.decode()
             rsd_val = output.strip()
             break
         if tunnel_process.poll() is not None:
@@ -94,9 +96,12 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
                 not_connected = None
                 admin_error = None
                 for i in range(len(error)):
-                    if (error[i].find(b'connected') > -1):
+                    msg = error[i]
+                    if type(msg) is bytes:
+                        msg = error[i].decode()
+                    if (msg.find(b'connected') > -1):
                         not_connected = True
-                    if (error[i].find(b'admin') > -1):
+                    if (msg.find(b'admin') > -1):
                         admin_error = True
                 if not_connected:
                     raise Exception(f"It seems like your device isn't connected. {error}")
