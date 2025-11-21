@@ -1,6 +1,7 @@
-print("Starting Nugget...")
-
 import sys
+if len(sys.argv) < 2 or sys.argv[1] != '--tunnel':
+    print("Starting Nugget...")
+
 import os
 from PySide6 import QtGui, QtWidgets
 from PySide6.QtCore import QLocale, QSettings
@@ -12,17 +13,33 @@ from tweaks.tweaks import tweaks, TweakID
 
 if __name__ == "__main__":
     # run as admin on windows (for bookrestore)
-    switched_to_admin = False
-    if os.name == 'nt':
-        try:
-            import pyuac
-            if not pyuac.isUserAdmin():
-                print("Relaunching as Admin")
-                switched_to_admin = True
-                pyuac.runAsAdmin()
-        except:
-            pass
-    if not switched_to_admin:
+    should_run_app = True
+    # if os.name == 'nt':
+    #     try:
+    #         import pyuac
+    #         if not pyuac.isUserAdmin():
+    #             print("Relaunching as Admin")
+    #             should_run_app = False
+    #             pyuac.runAsAdmin()
+    #     except:
+    #         pass
+    # bookrestore creating tunnel
+    # formats:
+    # python main_app.py --tunnel [udid]
+    # python main_app.py --tunnel [udid] [stdout file] [stderr file]
+    if len(sys.argv) > 2 and sys.argv[1] == '--tunnel':
+        udid = sys.argv[2]
+        fout = None
+        ferr = None
+        if len(sys.argv) > 4:
+            fout = sys.argv[3]
+            ferr = sys.argv[4]
+        from restore.tunneling import create_tunnel
+        should_run_app = False
+        create_tunnel(udid, fout, ferr)
+
+    # main app launch
+    if should_run_app:
         app = QtWidgets.QApplication([])
         dm = DeviceManager()
 

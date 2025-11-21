@@ -66,7 +66,15 @@ def start_http_server():
 #     asyncio.run(create_tunnel_async(service_provider))
 
 async def create_tunnel(udid, progress_callback = lambda x: None):
+    cmd = sys.executable
+    if not getattr(sys, 'frozen', False):
+        cmd = f'{cmd} main_app.py'
+    cmd = f'{cmd} --tunnel {udid}'
     if os.name == 'nt':
+        # create temp files
+        fout = NamedTemporaryFile(delete=False).name
+        ferr = NamedTemporaryFile(delete=False).name
+        cmd = f'{cmd} "{fout}" "{ferr}"'
         tunnel_process = subprocess.Popen(f"pymobiledevice3 lockdown start-tunnel --script-mode --udid {udid}", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     else:
         sudo_cmd = "sudo"
@@ -81,7 +89,7 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
                 del pwd
             else:
                 raise Exception("No administrator permission")
-        tunnel_process = subprocess.Popen(f"{sudo_cmd} {sys.executable} -m pymobiledevice3 lockdown start-tunnel --script-mode --udid {udid}", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        tunnel_process = subprocess.Popen(f"{sudo_cmd} {cmd}", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         del sudo_cmd
     atexit.register(exit_func, tunnel_process)
     while True:
@@ -294,7 +302,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         pc.kill(pid_itunesstored)
     
     # Wait for itunesstored to finish download and raise an error
-    timeout = time.time() + 90 # time out after a set amount of time
+    timeout = time.time() + 120 # time out after a set amount of time
     progress_callback("Waiting for itunesstored to finish download..." + "\n" + "(This might take a minute)")
     for syslog_entry in OsTraceService(lockdown=lockdown_client).syslog():
         if time.time() > timeout:
