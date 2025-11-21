@@ -2072,9 +2072,9 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="enableMedusaChk">
+                      <widget class="QCheckBox" name="enableiPadOSChk">
                        <property name="text">
-                        <string>Enable Medusa (iPad Multitasking)</string>
+                        <string>Enable iPadOS</string>
                        </property>
                       </widget>
                      </item>

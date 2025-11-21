@@ -16,7 +16,7 @@ class TweakID(Enum):
     CameraButton = auto()
     Parallax = auto()
     StageManager = auto()
-    Medusa = auto()
+    iPadOS = auto()
     iPadApps = auto()
     Shutter = auto()
     FindMyFriends = auto()

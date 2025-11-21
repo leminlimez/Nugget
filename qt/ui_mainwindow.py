@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.3
+## Created by: Qt User Interface Compiler version 6.10.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -1147,10 +1147,10 @@ class Ui_Nugget(object):
 
         self.verticalLayout_8.addWidget(self.stageManagerChk)
 
-        self.enableMedusaChk = QCheckBox(self.gestaltPageContent)
-        self.enableMedusaChk.setObjectName(u"enableMedusaChk")
+        self.enableiPadOSChk = QCheckBox(self.gestaltPageContent)
+        self.enableiPadOSChk.setObjectName(u"enableiPadOSChk")
 
-        self.verticalLayout_8.addWidget(self.enableMedusaChk)
+        self.verticalLayout_8.addWidget(self.enableiPadOSChk)
 
         self.ipadAppsChk = QCheckBox(self.gestaltPageContent)
         self.ipadAppsChk.setObjectName(u"ipadAppsChk")
@@ -5255,7 +5255,7 @@ class Ui_Nugget(object):
 #endif // QT_CONFIG(tooltip)
         self.parallaxChk.setText(QCoreApplication.translate("Nugget", u"Disable Wallpaper Parallax", None))
         self.stageManagerChk.setText(QCoreApplication.translate("Nugget", u"Enable Stage Manager Supported", None))
-        self.enableMedusaChk.setText(QCoreApplication.translate("Nugget", u"Enable Medusa (iPad Multitasking)", None))
+        self.enableiPadOSChk.setText(QCoreApplication.translate("Nugget", u"Enable iPadOS", None))
         self.ipadAppsChk.setText(QCoreApplication.translate("Nugget", u"Allow iPad Apps on iPhone", None))
 #if QT_CONFIG(tooltip)
         self.shutterChk.setToolTip(QCoreApplication.translate("Nugget", u"Sets the device's region to LL/A to bypass certain region restrictions like the forced shutter sound.", None))

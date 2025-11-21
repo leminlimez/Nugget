@@ -25,7 +25,7 @@ class GestaltPage(Page):
         self.ui.iphone16SettingsChk.clicked.connect(self.on_iphone16SettingsChk_clicked)
         self.ui.parallaxChk.clicked.connect(self.on_parallaxChk_clicked)
         self.ui.stageManagerChk.clicked.connect(self.on_stageManagerChk_clicked)
-        self.ui.enableMedusaChk.clicked.connect(self.on_enableMedusaChk_clicked)
+        self.ui.enableiPadOSChk.clicked.connect(self.on_enableiPadOSChk_clicked)
         self.ui.ipadAppsChk.clicked.connect(self.on_ipadAppsChk_clicked)
         self.ui.shutterChk.clicked.connect(self.on_shutterChk_clicked)
         self.ui.findMyFriendsChk.clicked.connect(self.on_findMyFriendsChk_clicked)
@@ -107,8 +107,8 @@ class GestaltPage(Page):
 
     def on_stageManagerChk_clicked(self, checked: bool):
         tweaks[TweakID.StageManager].set_enabled(checked)
-    def on_enableMedusaChk_clicked(self, checked: bool):
-        tweaks[TweakID.Medusa].set_enabled(checked)
+    def on_enableiPadOSChk_clicked(self, checked: bool):
+        tweaks[TweakID.iPadOS].set_enabled(checked)
     def on_ipadAppsChk_clicked(self, checked: bool):
         tweaks[TweakID.iPadApps].set_enabled(checked)
     def on_shutterChk_clicked(self, checked: bool):
