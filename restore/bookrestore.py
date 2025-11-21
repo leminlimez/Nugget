@@ -131,7 +131,7 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
                 "-Command",
                 f"Start-Process {POWERSHELL!r} -Verb RunAs -Wait",
                 "-WindowStyle Hidden",
-                f"-ArgumentList '-NoExit -NoLogo -NoProfile -Command \"{cmd}\"'"
+                f"-ArgumentList '-NoLogo -NoProfile -Command \"{cmd}\"'"
             ]
         )
         atexit.register(exit_func, tunnel_process)
