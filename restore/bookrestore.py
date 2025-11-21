@@ -1,5 +1,4 @@
 import asyncio
-import concurrent
 import os
 import posixpath
 import shutil
@@ -22,16 +21,19 @@ from pymobiledevice3.remote.remote_service_discovery import RemoteServiceDiscove
 from pymobiledevice3.services.dvt.dvt_secure_socket_proxy import DvtSecureSocketProxyService
 from pymobiledevice3.services.dvt.instruments.process_control import ProcessControl
 from pymobiledevice3.services.os_trace import OsTraceService
-# from pymobiledevice3.cli.remote import start_tunnel_task, ConnectionType
-# from pymobiledevice3.cli.lockdown import async_cli_start_tunnel
-from tempfile import NamedTemporaryFile
+from tempfile import NamedTemporaryFile, gettempdir
+from uuid import uuid4
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
 # Global Vars
-# should_terminate_tunnel = False
-# rsd_info = None
-# thread_exception = None
 info_queue = queue.Queue()
+tmp_fout = None
+tmp_ferr = None
+SCRIPT_PATH = None
+
+def set_script_path(path: str):
+    global SCRIPT_PATH
+    SCRIPT_PATH = path
 
 def get_lan_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -47,67 +49,28 @@ def start_http_server():
     info_queue.put((get_lan_ip(), httpd.server_port))
     httpd.serve_forever()
 
-# async def create_tunnel_async(service_provider: LockdownClient):
-#     global thread_exception
-#     thread_exception = None
-#     try:
-#         if os.name == 'nt':
-#             task = asyncio.create_task(async_cli_start_tunnel(service_provider, script_mode=True))
-#         else:
-#             task = asyncio.create_task(start_tunnel_task(connection_type=ConnectionType.USB, secrets=None, udid=service_provider.udid, script_mode=True))
-#         while not terminate_tunnel_thread:
-#             await asyncio.sleep(1)
-#         task.cancel()
-#     except Exception as e:
-#         thread_exception = e
-#         return
-
-# def create_tunnel(service_provider: LockdownClient):
-#     asyncio.run(create_tunnel_async(service_provider))
-
-async def create_tunnel(udid, progress_callback = lambda x: None):
-    cmd = sys.executable
-    if not getattr(sys, 'frozen', False):
-        cmd = f'{cmd} main_app.py'
-    cmd = f'{cmd} --tunnel {udid}'
-    if os.name == 'nt':
-        # create temp files
-        fout = NamedTemporaryFile(delete=False).name
-        ferr = NamedTemporaryFile(delete=False).name
-        cmd = f'{cmd} "{fout}" "{ferr}"'
-        tunnel_process = subprocess.Popen(f"pymobiledevice3 lockdown start-tunnel --script-mode --udid {udid}", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    else:
-        sudo_cmd = "sudo"
-        if not os.geteuid() == 0:
-            # prompt for sudo password
-            progress_callback('sudo_pwd')
-            while not get_sudo_complete():
-                time.sleep(0.5)
-            pwd = get_sudo_pwd()
-            if pwd:
-                sudo_cmd = f"echo {pwd} | sudo -S"
-                del pwd
-            else:
-                raise Exception("No administrator permission")
-        tunnel_process = subprocess.Popen(f"{sudo_cmd} {cmd}", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        del sudo_cmd
-    atexit.register(exit_func, tunnel_process)
+def read_tunnel_process(tunnel_process, stdout, stderr):
     while True:
-        output = tunnel_process.stdout.readline()
+        output = stdout.readline()
         if output:
-            rsd_val = output.decode().strip()
+            if type(output) is bytes:
+                output = output.decode()
+            rsd_val = output.strip()
             break
         if tunnel_process.poll() is not None:
-            error = tunnel_process.stderr.readlines()
+            error = stderr.readlines()
             if error:
                 not_connected = None
                 admin_error = None
                 error_str = "\n"
                 for i in range(len(error)):
-                    error_str += error[i].decode() + "\n"
-                    if (error[i].find(b'connected') > -1):
+                    msg = error[i]
+                    if type(msg) is bytes:
+                        msg = msg.decode()
+                    error_str += msg + "\n"
+                    if (msg.find('connected') > -1):
                         not_connected = True
-                    if (error[i].find(b'admin') > -1):
+                    if (msg.find('admin') > -1):
                         admin_error = True
                 if not_connected:
                     raise Exception(f"It seems like your device isn't connected.{error_str}")
@@ -120,54 +83,77 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
     print("Sucessfully created tunnel: " + rsd_str)
     return {"address": rsd_str.split(" ")[0], "port": int(rsd_str.split(" ")[1])}
 
-# def check_rsd_info(stdout):
-#     global rsd_info
-#     MAX_ATTEMPTS = 30
-#     attempts = 0
-#     while attempts < MAX_ATTEMPTS:
-#         output = stdout.getvalue()
-#         if output:
-#             rsd_val = output.strip()
-#             rsd_info = {"address": rsd_val.split(" ")[0], "port": int(rsd_val.split(" ")[1])}
-#             return True # Data is available
-#         if thread_exception is not None:
-#             return False # Thread returned an error
-#         time.sleep(1)
-#         attempts += 1
-#     return False
-
-# async def create_connection_context(files: list[FileToRestore], service_provider: LockdownClient, current_device_uuid_callback = lambda x: None, progress_callback = lambda x: None):
-#     global terminate_tunnel_thread
-#     global rsd_info
-#     global thread_exception
-#     terminate_tunnel_thread = False
-#     rsd_info = None
-#     thread_exception = None
-
-#     old_stdout = sys.stdout
-#     # redirect stdout
-#     redir_stdout = StringIO()
-#     sys.stdout = redir_stdout
-#     thread = threading.Thread(target=create_tunnel, args=(service_provider,))
-#     thread.start()
-#     old_dir = os.getcwd()
-#     try:
-#         if check_rsd_info(redir_stdout):
-#             sys.stdout = old_stdout
-#             os.chdir(os.path.abspath(get_bundle_files("files/bookrestore")))
-#             _run_async_rsd_connection(rsd_info["address"], rsd_info["port"], files, current_device_uuid_callback, progress_callback)
-#         else:
-#             if thread_exception is not None:
-#                 raise thread_exception
-#             else:
-#                 raise Exception("An error occurred getting tunnels addresses...")
-#     except:
-#         terminate_tunnel_thread = True
-#         sys.stdout = old_stdout
-#         os.chdir(old_dir)
-#         raise
-#     os.chdir(old_dir)
-#     terminate_tunnel_thread = True
+async def create_tunnel(udid, progress_callback = lambda x: None):
+    cmd = sys.executable
+    if getattr(sys, 'frozen', False):
+        # PyInstaller exe
+        if sys.platform == 'win32':
+            # Windows process launch command
+            cmd = f'Start-Process -FilePath "{cmd}" -ArgumentList "--tunnel", "{udid}"'
+        elif sys.platform == 'darwin':
+            # macOS process launch command
+            cmd = f'"{cmd}" --tunnel {udid}'
+        elif sys.platform.startswith('linux'):
+            # Linux process launch command
+            cmd = f'"{cmd}" --tunnel {udid}'
+    else:
+        # Running via a Python command
+        cmd = f'"{cmd}" "{SCRIPT_PATH}" --tunnel {udid}'
+    if os.name == 'nt':
+        # create temp files
+        global tmp_fout
+        global tmp_ferr
+        tmpdir = gettempdir()
+        tmp_fout = os.path.join(tmpdir, str(uuid4()))
+        tmp_ferr = os.path.join(tmpdir, str(uuid4()))
+        with open(tmp_fout, 'w') as out_f:
+            out_f.write('')
+        with open(tmp_ferr, 'w') as err_f:
+            err_f.write('')
+        if getattr(sys, 'frozen', False):
+            cmd = f'{cmd}, "{tmp_fout}", "{tmp_ferr}"'
+        else:
+            cmd = f'{cmd} "{tmp_fout}" "{tmp_ferr}"'
+        # find powershell
+        os.environ["PATH"] = r"C:\Windows\System32;" + os.environ["PATH"]
+        pwsh = shutil.which("pwsh") 
+        powershell = shutil.which("powershell")
+        if pwsh:
+            POWERSHELL = pwsh
+        elif powershell:
+            POWERSHELL = powershell
+        else:
+            # manually get the powershell path
+            POWERSHELL = r"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+        tunnel_process = subprocess.Popen(
+            [
+                POWERSHELL,
+                "-Command",
+                f"Start-Process {POWERSHELL!r} -Verb RunAs -Wait",
+                "-WindowStyle Hidden",
+                f"-ArgumentList '-NoExit -NoLogo -NoProfile -Command \"{cmd}\"'"
+            ]
+        )
+        atexit.register(exit_func, tunnel_process)
+        with open(tmp_fout, 'r') as stdout, open(tmp_ferr, 'r') as stderr:
+            return read_tunnel_process(tunnel_process, stdout, stderr)
+    else:
+        sudo_cmd = "sudo"
+        if not os.geteuid() == 0:
+            # prompt for sudo password
+            progress_callback('sudo_pwd')
+            while not get_sudo_complete():
+                time.sleep(0.5)
+            pwd = get_sudo_pwd()
+            if pwd:
+                sudo_cmd = f'echo {pwd} | sudo -S'
+                del pwd
+            else:
+                raise Exception("No administrator permission")
+        tunnel_process = subprocess.Popen(f"{sudo_cmd} {cmd}", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        del sudo_cmd
+        atexit.register(exit_func, tunnel_process)
+        return read_tunnel_process(tunnel_process, tunnel_process.stdout, tunnel_process.stderr)
 
 async def create_connection_context(files: list[FileToRestore], service_provider: LockdownClient, current_device_uuid_callback = lambda x: None, progress_callback = lambda x: None):
     available_address = await create_tunnel(service_provider.udid, progress_callback)
@@ -175,7 +161,7 @@ async def create_connection_context(files: list[FileToRestore], service_provider
         old_dir = os.getcwd()
         try:
             os.chdir(os.path.abspath(get_bundle_files("files/bookrestore")))
-            _run_async_rsd_connection(available_address["address"], available_address["port"], files, current_device_uuid_callback, progress_callback)
+            await _run_async_rsd_connection(available_address["address"], available_address["port"], files, current_device_uuid_callback, progress_callback)
             os.chdir(old_dir)
         except:
             os.chdir(old_dir)
@@ -183,27 +169,30 @@ async def create_connection_context(files: list[FileToRestore], service_provider
     else:
         raise Exception("An error occurred getting tunnels addresses...")
 
-def _run_async_rsd_connection(address, port, files, current_device_uuid_callback, progress):
-    async def async_connection():
-        async with RemoteServiceDiscoveryService((address, port)) as rsd:
-            loop = asyncio.get_running_loop()
+async def _run_async_rsd_connection(address, port, files, current_device_uuid_callback, progress):
+    for attempt in range(3):
+        try:
+            async def async_connection():
+                async with RemoteServiceDiscoveryService((address, port)) as rsd:
+                    loop = asyncio.get_running_loop()
+                    
+                    def run_blocking_callback():
+                        with DvtSecureSocketProxyService(rsd) as dvt:
+                            apply_bookrestore_files(files, rsd, dvt, current_device_uuid_callback, progress)
+                    
+                    await loop.run_in_executor(None, run_blocking_callback)
 
-            def run_blocking_callback():
-                with DvtSecureSocketProxyService(rsd) as dvt:
-                    apply_bookrestore_files(files, rsd, dvt, current_device_uuid_callback, progress)
+            print(f"attempt connection ({attempt + 1}/3)...")
+            await async_connection()
+            return
 
-            await loop.run_in_executor(None, run_blocking_callback)
-
-    try:
-        loop = asyncio.get_event_loop()
-        if loop.is_running():
-            with concurrent.futures.ThreadPoolExecutor() as executor:
-                future = executor.submit(asyncio.run, async_connection())
-                future.result()
-        else:
-            loop.run_until_complete(async_connection())
-    except RuntimeError:
-        asyncio.run(async_connection())
+        except (ConnectionRefusedError, OSError) as e:
+            print(f"tunnel connect failed: {e}")
+            if attempt < 3 - 1:
+                print(f"failed. wait 2 seconds...")
+                await asyncio.sleep(2)
+            else:
+                raise Exception(f"Tunnel connection failed: {repr(e)}")
 
 def exit_func(tunnel_proc):
     tunnel_proc.terminate()
@@ -341,4 +330,23 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
     pc.kill(pid)
 
 def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownClient, current_device_books_uuid_callback = lambda x: None, progress_callback = lambda x: None):
-    asyncio.run(create_connection_context(files, lockdown_client, current_device_books_uuid_callback, progress_callback))
+    try:
+        # Force SelectorEventLoopPolicy for Windows IPv6 support
+        if os.name == 'nt':
+            asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+        asyncio.run(create_connection_context(files, lockdown_client, current_device_books_uuid_callback, progress_callback))
+    finally:
+        global tmp_fout
+        global tmp_ferr
+        if tmp_fout is not None and os.path.exists(tmp_fout):
+            try:
+                os.remove(tmp_fout)
+            except:
+                print(f"failed to remove temporary file {tmp_fout}")
+        if tmp_ferr is not None and os.path.exists(tmp_ferr):
+            try:
+                os.remove(tmp_ferr)
+            except:
+                print(f"failed to remove temporary file {tmp_ferr}")
+        tmp_fout = None
+        tmp_ferr = None

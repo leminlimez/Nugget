@@ -4,14 +4,17 @@ if len(sys.argv) < 2 or sys.argv[1] != '--tunnel':
 
 import os
 from PySide6 import QtGui, QtWidgets
-from PySide6.QtCore import QLocale, QSettings
+from PySide6.QtCore import QSettings
 
 from controllers.translator import Translator
 from gui.main_window import MainWindow
 from devicemanagement.device_manager import DeviceManager
 from tweaks.tweaks import tweaks, TweakID
+from restore.bookrestore import set_script_path
 
 if __name__ == "__main__":
+    # set the path of the script
+    set_script_path(os.path.abspath(__file__))
     # run as admin on windows (for bookrestore)
     should_run_app = True
     # if os.name == 'nt':
