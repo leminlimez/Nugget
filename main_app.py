@@ -15,22 +15,22 @@ from restore.bookrestore import set_script_path
 if __name__ == "__main__":
     # set the path of the script
     set_script_path(os.path.abspath(__file__))
-    # run as admin on windows (for bookrestore)
     should_run_app = True
-    # if os.name == 'nt':
-    #     try:
-    #         import pyuac
-    #         if not pyuac.isUserAdmin():
-    #             print("Relaunching as Admin")
-    #             should_run_app = False
-    #             pyuac.runAsAdmin()
-    #     except:
-    #         pass
     # bookrestore creating tunnel
     # formats:
     # python main_app.py --tunnel [udid]
     # python main_app.py --tunnel [udid] [stdout file] [stderr file]
     if len(sys.argv) > 2 and sys.argv[1] == '--tunnel':
+        # run as admin on windows (for bookrestore)
+        if os.name == 'nt':
+            try:
+                import pyuac
+                if not pyuac.isUserAdmin():
+                    print("Relaunching as Admin")
+                    should_run_app = False
+                    pyuac.runAsAdmin()
+            except:
+                pass
         udid = sys.argv[2]
         fout = None
         ferr = None
