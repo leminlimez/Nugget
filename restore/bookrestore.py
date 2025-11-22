@@ -156,7 +156,8 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
                 del pwd
             else:
                 raise Exception("No administrator permission")
-        tunnel_process = subprocess.Popen([sudo_cmd, cmd], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        cmd_str = " ".join(cmd)
+        tunnel_process = subprocess.Popen(f'{sudo_cmd} {cmd_str}', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         del sudo_cmd
         atexit.register(exit_func, tunnel_process)
         return read_tunnel_process(tunnel_process, tunnel_process.stdout, tunnel_process.stderr)

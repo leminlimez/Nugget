@@ -569,7 +569,7 @@ class DeviceManager:
                     files_to_restore=files_to_restore
                 )
             self.add_skip_setup(files_to_restore, uses_domains)
-            if gestalt_data != None:
+            if gestalt_data != None and use_bookrestore:
                 self.concat_file(
                     contents=gestalt_data,
                     path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
