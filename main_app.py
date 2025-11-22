@@ -22,24 +22,27 @@ if __name__ == "__main__":
     # python main_app.py --tunnel [udid] [stdout file] [stderr file]
     if len(sys.argv) > 2 and sys.argv[1] == '--tunnel':
         # run as admin on windows (for bookrestore)
+        relaunched=False
         if os.name == 'nt':
             try:
                 import pyuac
                 if not pyuac.isUserAdmin():
                     print("Relaunching as Admin")
+                    relaunched = True
                     should_run_app = False
                     pyuac.runAsAdmin()
             except:
                 pass
-        udid = sys.argv[2]
-        fout = None
-        ferr = None
-        if len(sys.argv) > 4:
-            fout = sys.argv[3]
-            ferr = sys.argv[4]
-        from restore.tunneling import create_tunnel
-        should_run_app = False
-        create_tunnel(udid, fout, ferr)
+        if not relaunched:
+            udid = sys.argv[2]
+            fout = None
+            ferr = None
+            if len(sys.argv) > 4:
+                fout = sys.argv[3]
+                ferr = sys.argv[4]
+            from restore.tunneling import create_tunnel
+            should_run_app = False
+            create_tunnel(udid, fout, ferr)
 
     # main app launch
     if should_run_app:

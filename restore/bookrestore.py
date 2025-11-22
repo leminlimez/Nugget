@@ -29,6 +29,7 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 info_queue = queue.Queue()
 tmp_fout = None
 tmp_ferr = None
+sq_file = None
 SCRIPT_PATH = None
 
 def set_script_path(path: str):
@@ -98,7 +99,7 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
             cmd = f'"{cmd}" --tunnel {udid}'
     else:
         # Running via a Python command
-        cmd = f'"{cmd}" "{SCRIPT_PATH}" --tunnel {udid}'
+        cmd = f'{cmd} {SCRIPT_PATH} --tunnel {udid}'
     if os.name == 'nt':
         # create temp files
         global tmp_fout
@@ -115,7 +116,6 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
         else:
             cmd = f'{cmd} "{tmp_fout}" "{tmp_ferr}"'
         # find powershell
-        os.environ["PATH"] = r"C:\Windows\System32;" + os.environ["PATH"]
         pwsh = shutil.which("pwsh") 
         powershell = shutil.which("powershell")
         if pwsh:
@@ -129,9 +129,10 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
             [
                 POWERSHELL,
                 "-Command",
-                f"Start-Process {POWERSHELL!r} -Verb RunAs -Wait",
-                "-WindowStyle Hidden",
-                f"-ArgumentList '-NoLogo -NoProfile -Command \"{cmd}\"'"
+                cmd
+                # f"Start-Process {POWERSHELL!r} -Verb RunAs -Wait",
+                # "-WindowStyle Hidden",
+                # f"-ArgumentList '-NoLogo -NoProfile -Command \"{cmd}\"'"
             ]
         )
         atexit.register(exit_func, tunnel_process)
@@ -227,62 +228,65 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
     br_files = get_bundle_files("")
     sqlite_path = os.path.join(br_files, "downloads.28.sqlitedb")
     bldb_local_prefix = f"/private/var/containers/Shared/SystemGroup/{uuid}/Documents/BLDatabaseManager/BLDatabaseManager.sqlite"
-    with NamedTemporaryFile("rb+", suffix=".sqlite") as sq_file:
-        shutil.copyfile(sqlite_path, sq_file.name)
-        connection = sqlite3.connect(sq_file.name)
-        cursor = connection.cursor()
-        cursor.execute(f"""
-        UPDATE asset
-        SET local_path = CASE
-            WHEN local_path LIKE '%/BLDatabaseManager.sqlite'
-                THEN '{bldb_local_prefix}'
-            WHEN local_path LIKE '%/BLDatabaseManager.sqlite-shm'
-                THEN '{bldb_local_prefix}-shm'
-            WHEN local_path LIKE '%/BLDatabaseManager.sqlite-wal'
-                THEN '{bldb_local_prefix}-wal'
-        END
-        WHERE local_path LIKE '/private/var/containers/Shared/SystemGroup/%/Documents/BLDatabaseManager/BLDatabaseManager.sqlite%'
-        """)
-        bldb_server_prefix = f"http://{ip}:{port}/BLDatabaseManager.sqlite"
-        cursor.execute(f"""
-        UPDATE asset
-        SET url = CASE
-            WHEN url LIKE '%/BLDatabaseManager.sqlite'
-                THEN '{bldb_server_prefix}'
-            WHEN url LIKE '%/BLDatabaseManager.sqlite-shm'
-                THEN '{bldb_server_prefix}-shm'
-            WHEN url LIKE '%/BLDatabaseManager.sqlite-wal'
-                THEN '{bldb_server_prefix}-wal'
-        END
-        WHERE url LIKE '%/BLDatabaseManager.sqlite%'
-        """)
-        connection.commit()
+    global sq_file
+    sq_file = os.path.join(gettempdir(), f'{str(uuid4())}.sqlite')
+    shutil.copyfile(sqlite_path, sq_file)
+    connection = sqlite3.connect(sq_file)
+    cursor = connection.cursor()
+    cursor.execute(f"""
+    UPDATE asset
+    SET local_path = CASE
+        WHEN local_path LIKE '%/BLDatabaseManager.sqlite'
+            THEN '{bldb_local_prefix}'
+        WHEN local_path LIKE '%/BLDatabaseManager.sqlite-shm'
+            THEN '{bldb_local_prefix}-shm'
+        WHEN local_path LIKE '%/BLDatabaseManager.sqlite-wal'
+            THEN '{bldb_local_prefix}-wal'
+    END
+    WHERE local_path LIKE '/private/var/containers/Shared/SystemGroup/%/Documents/BLDatabaseManager/BLDatabaseManager.sqlite%'
+    """)
+    bldb_server_prefix = f"http://{ip}:{port}/BLDatabaseManager.sqlite"
+    cursor.execute(f"""
+    UPDATE asset
+    SET url = CASE
+        WHEN url LIKE '%/BLDatabaseManager.sqlite'
+            THEN '{bldb_server_prefix}'
+        WHEN url LIKE '%/BLDatabaseManager.sqlite-shm'
+            THEN '{bldb_server_prefix}-shm'
+        WHEN url LIKE '%/BLDatabaseManager.sqlite-wal'
+            THEN '{bldb_server_prefix}-wal'
+    END
+    WHERE url LIKE '%/BLDatabaseManager.sqlite%'
+    """)
+    connection.commit()
 
-        # Kill bookassetd and Books processes to stop them from updating BLDatabaseManager.sqlite
-        procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
-        pid_bookassetd = next((pid for pid, p in procs.items() if p['ProcessName'] == 'bookassetd'), None)
-        pid_books = next((pid for pid, p in procs.items() if p['ProcessName'] == 'Books'), None)
-        if pid_bookassetd:
-            pc.signal(pid_bookassetd, 19)
-        if pid_books:
-            pc.kill(pid_books)
+    # Kill bookassetd and Books processes to stop them from updating BLDatabaseManager.sqlite
+    procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
+    pid_bookassetd = next((pid for pid, p in procs.items() if p['ProcessName'] == 'bookassetd'), None)
+    pid_books = next((pid for pid, p in procs.items() if p['ProcessName'] == 'Books'), None)
+    if pid_bookassetd:
+        pc.signal(pid_bookassetd, 19)
+    if pid_books:
+        pc.kill(pid_books)
 
-        progress_callback("Uploading files...")
+    progress_callback("Uploading files...")
 
-        # TEMP: Only for mobile gestalt
-        for file in files:
-            if not file.restore_path.endswith("com.apple.MobileGestalt.plist"):
-                continue
-            with NamedTemporaryFile("wb", suffix=".plist") as in_file:
-                in_file.write(file.contents)
-                afc.push(in_file.name, "com.apple.MobileGestalt.plist")
-        
-        # Upload the sqlite db
-        empty_file = os.path.join(br_files, "empty.txt")
-        afc.push(sq_file.name, "Downloads/downloads.28.sqlitedb")
-        afc.push(sq_file.name + "-shm", "Downloads/downloads.28.sqlitedb-shm")
-        afc.push(sq_file.name + "-wal", "Downloads/downloads.28.sqlitedb-wal")
-        connection.close()
+    # TEMP: Only for mobile gestalt
+    for file in files:
+        if not file.restore_path.endswith("com.apple.MobileGestalt.plist"):
+            continue
+        file_to_send = os.path.join(gettempdir(), f'{str(uuid4())}.plist')
+        with open(file_to_send, "wb") as in_file:
+            in_file.write(file.contents)
+        afc.push(file_to_send, "com.apple.MobileGestalt.plist")
+        remove_file(file_to_send)
+    
+    # Upload the sqlite db
+    empty_file = os.path.join(br_files, "empty.txt")
+    afc.push(sq_file, "Downloads/downloads.28.sqlitedb")
+    afc.push(sq_file + "-shm", "Downloads/downloads.28.sqlitedb-shm")
+    afc.push(sq_file + "-wal", "Downloads/downloads.28.sqlitedb-wal")
+    connection.close()
 
     # Kill itunesstored to trigger BLDataBaseManager.sqlite overwrite
     procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
@@ -329,6 +333,13 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
     pid = next((pid for pid, p in procs.items() if p['ProcessName'] == 'backboardd'), None)
     pc.kill(pid)
 
+def remove_file(name: str | None):
+    if name is not None and os.path.exists(name):
+        try:
+            os.remove(name)
+        except:
+            print(f"failed to remove temporary file {name}")
+
 def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownClient, current_device_books_uuid_callback = lambda x: None, progress_callback = lambda x: None):
     try:
         # Force SelectorEventLoopPolicy for Windows IPv6 support
@@ -338,15 +349,10 @@ def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownCli
     finally:
         global tmp_fout
         global tmp_ferr
-        if tmp_fout is not None and os.path.exists(tmp_fout):
-            try:
-                os.remove(tmp_fout)
-            except:
-                print(f"failed to remove temporary file {tmp_fout}")
-        if tmp_ferr is not None and os.path.exists(tmp_ferr):
-            try:
-                os.remove(tmp_ferr)
-            except:
-                print(f"failed to remove temporary file {tmp_ferr}")
+        global sq_file
+        remove_file(tmp_fout)
+        remove_file(tmp_fout)
+        remove_file(sq_file)
         tmp_fout = None
         tmp_ferr = None
+        sq_file = None
