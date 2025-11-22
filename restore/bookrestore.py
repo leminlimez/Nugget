@@ -10,6 +10,7 @@ import queue
 import socket
 import subprocess
 import atexit
+import shlex
 import sys
 
 from .restore import FileToRestore
@@ -85,21 +86,21 @@ def read_tunnel_process(tunnel_process, stdout, stderr):
     return {"address": rsd_str.split(" ")[0], "port": int(rsd_str.split(" ")[1])}
 
 async def create_tunnel(udid, progress_callback = lambda x: None):
-    cmd = sys.executable
+    exe = sys.executable
+    cmd = [exe]
+    windows_exe_args = None
     if getattr(sys, 'frozen', False):
         # PyInstaller exe
         if sys.platform == 'win32':
             # Windows process launch command
-            cmd = f'Start-Process -FilePath "{cmd}" -ArgumentList "--tunnel", "{udid}"'
-        elif sys.platform == 'darwin':
-            # macOS process launch command
-            cmd = f'"{cmd}" --tunnel {udid}'
-        elif sys.platform.startswith('linux'):
-            # Linux process launch command
-            cmd = f'"{cmd}" --tunnel {udid}'
+            cmd = ['Start-Process', '-FilePath', exe, '-ArgumentList']
+            windows_exe_args = f"--tunnel, {udid}"
+        elif sys.platform == 'darwin' or sys.platform.startswith('linux'):
+            # macOS or Linux process launch command
+            cmd += ['--tunnel', udid]
     else:
         # Running via a Python command
-        cmd = f'{cmd} {SCRIPT_PATH} --tunnel {udid}'
+        cmd += [f'"{SCRIPT_PATH}"', '--tunnel', udid]
     if os.name == 'nt':
         # create temp files
         global tmp_fout
@@ -111,10 +112,7 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
             out_f.write('')
         with open(tmp_ferr, 'w') as err_f:
             err_f.write('')
-        if getattr(sys, 'frozen', False):
-            cmd = f'{cmd}, "{tmp_fout}", "{tmp_ferr}"'
-        else:
-            cmd = f'{cmd} "{tmp_fout}" "{tmp_ferr}"'
+
         # find powershell
         pwsh = shutil.which("pwsh") 
         powershell = shutil.which("powershell")
@@ -125,15 +123,22 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
         else:
             # manually get the powershell path
             POWERSHELL = r"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+
+        if windows_exe_args is not None:
+            windows_exe_args = f'{windows_exe_args}, "{tmp_fout}", "{tmp_ferr}"'
+            cmd += [windows_exe_args]
+        else:
+            cmd += [shlex.quote(tmp_fout), shlex.quote(tmp_ferr)]
+        # arguments to run as admin
+        cmd_str = " ".join(cmd)
+        cmd = [
+            POWERSHELL, '-Command',
+            f"Start-Process {POWERSHELL!r} -Verb RunAs -Wait",
+            # "-WindowStyle Hidden",
+            f"-ArgumentList '-NoLogo -NoExit -NoProfile -Command \"{cmd_str}\"'"
+        ]
         tunnel_process = subprocess.Popen(
-            [
-                POWERSHELL,
-                "-Command",
-                cmd
-                # f"Start-Process {POWERSHELL!r} -Verb RunAs -Wait",
-                # "-WindowStyle Hidden",
-                # f"-ArgumentList '-NoLogo -NoProfile -Command \"{cmd}\"'"
-            ]
+            cmd
         )
         atexit.register(exit_func, tunnel_process)
         with open(tmp_fout, 'r') as stdout, open(tmp_ferr, 'r') as stderr:
@@ -151,7 +156,7 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
                 del pwd
             else:
                 raise Exception("No administrator permission")
-        tunnel_process = subprocess.Popen(f"{sudo_cmd} {cmd}", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        tunnel_process = subprocess.Popen([sudo_cmd, cmd], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         del sudo_cmd
         atexit.register(exit_func, tunnel_process)
         return read_tunnel_process(tunnel_process, tunnel_process.stdout, tunnel_process.stderr)
@@ -225,7 +230,10 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
             break
     
     # modify the sqlite database
-    br_files = get_bundle_files("")
+    if getattr(sys, 'frozen', False):
+        br_files = get_bundle_files("files/bookrestore")
+    else:
+        br_files = get_bundle_files("")
     sqlite_path = os.path.join(br_files, "downloads.28.sqlitedb")
     bldb_local_prefix = f"/private/var/containers/Shared/SystemGroup/{uuid}/Documents/BLDatabaseManager/BLDatabaseManager.sqlite"
     global sq_file
