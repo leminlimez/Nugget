@@ -1,3 +1,5 @@
+import re
+
 from enum import Enum
 from PySide6.QtCore import QCoreApplication
 
@@ -227,6 +229,44 @@ class MobileGestaltMultiTweak(Tweak):
         for key in self.keyValues:
             plist["CacheExtra"][key] = self.keyValues[key]
         return plist
+    
+class MobileGestaltCacheDataTweak(Tweak):
+    def __init__(self, slice_start: int, slice_length: int):
+        super().__init__(key=None)
+        self.slice_start = slice_start
+        self.slice_len = slice_length
+
+    def apply_tweak(self, plist: dict):
+        if not self.enabled:
+            return plist
+        data = bytes(plist["CacheData"]).hex().lower()
+        if len(data) <= self.slice_start:
+            raise Exception("CacheData is too short!")
+        # skip the padding and get the last 2 bytes for every instance to find the offset
+        pattern = re.compile(r"0+(?:5555)*([0-9a-f]{4})")
+        offset = None
+        value = None
+        for match in pattern.finditer(data[self.slice_start : self.slice_start + self.slice_len]):
+            value = match.group(1)
+            if sum(c != "0" for c in value) >= 3:
+                offset = self.slice_start + match.start(1)
+                break
+        
+        # Error handling
+        if offset is None:
+            raise Exception("Pattern not found")
+        # Get the extrema offset
+        loffset = offset - 67 # real
+        # TODO: Finish error handling checks
+
+        # Set the value of the left offset to 3 to enable iPadOS
+        data_list = list(data)
+        data_list[loffset] = "3"
+        data = "".join(data_list)
+        plist["CacheData"] = bytes.fromhex(data)
+        return plist
+        
+
     
 class FeatureFlagTweak(Tweak):
     def __init__(

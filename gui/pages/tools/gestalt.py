@@ -109,6 +109,7 @@ class GestaltPage(Page):
         tweaks[TweakID.StageManager].set_enabled(checked)
     def on_enableiPadOSChk_clicked(self, checked: bool):
         tweaks[TweakID.iPadOS].set_enabled(checked)
+        tweaks[TweakID.iPadOSCacheData].set_enabled(checked)
     def on_ipadAppsChk_clicked(self, checked: bool):
         tweaks[TweakID.iPadApps].set_enabled(checked)
     def on_shutterChk_clicked(self, checked: bool):
