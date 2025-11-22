@@ -135,7 +135,7 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
             POWERSHELL, '-Command',
             f"Start-Process {POWERSHELL!r} -Verb RunAs -Wait",
             # "-WindowStyle Hidden",
-            f"-ArgumentList '-NoLogo -NoExit -NoProfile -Command \"{cmd_str}\"'"
+            f"-ArgumentList '-NoLogo -NoProfile -Command \"{cmd_str}\"'"
         ]
         tunnel_process = subprocess.Popen(
             cmd
