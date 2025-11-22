@@ -151,7 +151,7 @@ class RdarFixTweak(BasicPlistTweak):
             if self.di_type == 2556:
                 width = 1179
                 height = 2556
-            elif self.di_type == 2796 or self.di_type == 2976:
+            elif self.di_type == 2796:
                 width = 1290
                 height = 2796
             elif self.di_type == 2622:
@@ -160,6 +160,9 @@ class RdarFixTweak(BasicPlistTweak):
             elif self.di_type == 2868:
                 width = 1320
                 height = 2868
+            elif self.di_type == 2736:
+                width = 1260
+                height = 2736
             plist = {
                 "canvas_height": height,
                 "canvas_width": width
