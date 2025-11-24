@@ -545,6 +545,8 @@ class DeviceManager:
                     )
                     if tweak.uses_domains():
                         uses_domains = True
+                    else:
+                        use_bookrestore = True
                 elif isinstance(tweak, StatusBarTweak):
                     tweak.apply_tweak(files_to_restore=files_to_restore)
                     if tweak.enabled:
