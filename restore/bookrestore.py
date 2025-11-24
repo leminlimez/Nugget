@@ -151,6 +151,15 @@ def _run_async_rsd_connection(address, port, files, current_device_uuid_callback
 def exit_func(tunnel_proc):
     tunnel_proc.terminate()
 
+def remove_db_files(db_path):
+    for ext in ["", "-shm", "-wal"]:
+        fpath = db_path + ext
+        if os.path.exists(fpath):
+            try:
+                os.remove(fpath)
+            except:
+                pass
+
 def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: LockdownClient, dvt: DvtSecureSocketProxyService, current_device_uuid_callback = lambda x: None, progress_callback = lambda x: None):
     # start a local http server
     http_thread = threading.Thread(target=start_http_server, daemon=True)
@@ -192,15 +201,19 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
     if not os.path.exists(br_files):
         br_files = get_bundle_files("")
     sqlite_path = os.path.join(br_files, "downloads.28.sqlitedb")
+    dl_manager = os.path.join(br_files, "BLDatabaseManager.sqlite")
     
     bldb_local_prefix = f"/private/var/containers/Shared/SystemGroup/{uuid}/Documents/BLDatabaseManager/BLDatabaseManager.sqlite"
     
     temp_dir = tempfile.gettempdir()
     temp_db_path = os.path.join(temp_dir, f"nugget_db_{uuid}.sqlite")
+    temp_dl_manager = os.path.join(br_files, f"tmp.BLDatabaseManager.sqlite")
+    remove_db_files(temp_dl_manager)
 
     try:
         shutil.copyfile(sqlite_path, temp_db_path)
-        
+        shutil.copyfile(dl_manager, temp_dl_manager)
+
         connection = sqlite3.connect(temp_db_path)
         cursor = connection.cursor()
         cursor.execute(f"""
@@ -215,7 +228,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         END
         WHERE local_path LIKE '/private/var/containers/Shared/SystemGroup/%/Documents/BLDatabaseManager/BLDatabaseManager.sqlite%'
         """)
-        bldb_server_prefix = f"http://{ip}:{port}/BLDatabaseManager.sqlite"
+        bldb_server_prefix = f"http://{ip}:{port}/tmp.BLDatabaseManager.sqlite"
         cursor.execute(f"""
         UPDATE asset
         SET url = CASE
@@ -229,7 +242,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         WHERE url LIKE '%/BLDatabaseManager.sqlite%'
         """)
         connection.commit()
-        connection.close() 
+        connection.close()
 
         procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
         pid_bookassetd = next((pid for pid, p in procs.items() if p['ProcessName'] == 'bookassetd'), None)
@@ -241,10 +254,32 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
 
         progress_callback("Uploading files...")
 
+        # Update the download db
+        dl_connection = sqlite3.connect(temp_dl_manager)
+        dl_cursor = dl_connection.cursor()
+        file_attr_path = os.path.join(br_files, "zfileattributes.plist")
+        attr_data = None
+        with open(file_attr_path, 'rb') as attr_file:
+            attr_data = attr_file.read()
+            print(len(attr_data))
+        z_id = 0
         for file in files:
-            if not file.restore_path.endswith("com.apple.MobileGestalt.plist"):
+            if not file.domain == "":
                 continue
-            afc.set_file_contents("com.apple.MobileGestalt.plist", file.contents)
+            path, file_name = os.path.split(file.restore_path)
+            print(f"including {file.restore_path}")
+            backpath = '../../../../../..'
+            if path.startswith('/'):
+                backpath += file.restore_path
+            else:
+                backpath += f'/{file.restore_path}'
+            z_id += 1
+            dl_cursor.execute(f"""
+            INSERT INTO ZBLDOWNLOADINFO (Z_PK, Z_ENT, Z_OPT, ZACCOUNTIDENTIFIER, ZCLEANUPPENDING, ZFAMILYACCOUNTIDENTIFIER, ZISAUTOMATICDOWNLOAD, ZISLOCALCACHESERVER, ZNUMBEROFBYTESTOHASH, ZPERSISTENTIDENTIFIER, ZPUBLICATIONVERSION, ZSIZE, ZSTATE, ZSTOREIDENTIFIER, ZLASTSTATECHANGETIME, ZSTARTTIME, ZASSETPATH, ZBUYPARAMETERS, ZCANCELDOWNLOADURL, ZCLIENTIDENTIFIER, ZCOLLECTIONARTISTNAME, ZCOLLECTIONTITLE, ZDOWNLOADID, ZGENRE, ZKIND, ZPLISTPATH, ZSUBTITLE, ZTHUMBNAILIMAGEURL, ZTITLE, ZTRANSACTIONIDENTIFIER, ZURL, ZFILEATTRIBUTES)
+            VALUES ({z_id}, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 765107108, 767991550.119197, 767991353.245275, '{file.restore_path}.zassetpath', 'productType=PUB&price=0&salableAdamId=765107106&pricingParameters=PLUS&pg=default&mtApp=com.apple.iBooks&mtEventTime=1746298553233&mtOsVersion=18.4.1&mtPageId=SearchIncrementalTopResults&mtPageType=Search&mtPageContext=search&mtTopic=xp_amp_bookstore&mtRequestId=35276ff6-5c8b-4136-894e-b6d8fc7677b3', 'https://p19-buy.itunes.apple.com/WebObjects/MZFastFinance.woa/wa/songDownloadDone?download-id=J19N_PUB_190099164604738&cancel=1', '4GG2695MJK.com.apple.iBooks', 'idk', '{file_name} file', '{backpath}', 'Contemporary Romance', 'ebook', '/var/mobile/Media/{file_name}', 'Cartas de Amor a la Luna', 'https://is1-ssl.mzstatic.com/image/thumb/Publication126/v4/3d/b6/0a/3db60a65-b1a5-51c3-b306-c58870663fd3/Portada.jpg/200x200bb.jpg', 'Cartas de Amor a la Luna', 'J19N_PUB_190099164604738', 'https://www.google.com/robots.txt', (?));
+            """, (sqlite3.Binary(attr_data),))
+            afc.set_file_contents(file_name, file.contents)
+        dl_connection.commit()
         
         def fast_upload(local_path, remote_path):
             content = b''
@@ -261,13 +296,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         fast_upload(temp_db_path + "-wal", "Downloads/downloads.28.sqlitedb-wal")
 
     finally:
-        for ext in ["", "-shm", "-wal"]:
-            fpath = temp_db_path + ext
-            if os.path.exists(fpath):
-                try:
-                    os.remove(fpath)
-                except:
-                    pass
+        remove_db_files(temp_db_path)
 
         if os.name == 'nt':
             try:
@@ -305,14 +334,20 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         raise Exception(f"Error launching Books app: {e}")
     
     progress_callback("Waiting for MobileGestalt overwrite to complete..." + "\n" + "(This might take a minute)")
-    success_message = "/private/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist) [Install-Mgr]: Marking download as [finished]"
+    success_message = "[Install-Mgr]: Marking download as [finished]"
+    num_replaced = 0
     timeout2 = time.time() + 120
     for syslog_entry in OsTraceService(lockdown=lockdown_client).syslog():
         if (syslog_entry.filename.endswith('bookassetd')) and success_message in syslog_entry.message:
-            break
+            num_replaced += 1
+            print(f"files found: {num_replaced}\nmsg: {syslog_entry.message}")
+            if num_replaced >= z_id:
+                break
         elif time.time() > timeout2:
             raise Exception("Timed out waiting for file, please try again.")
     pc.kill(pid_bookassetd)
+    dl_connection.close()
+    remove_db_files(temp_dl_manager)
         
     progress_callback("Respringing")
     procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")

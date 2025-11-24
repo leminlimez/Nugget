@@ -246,6 +246,12 @@ class DeviceManager:
         else:
             return self.data_singleton.current_device.supported()
     
+    def get_current_device_uses_bookrestore(self) -> bool:
+        if self.data_singleton.current_device == None:
+            return False
+        else:
+            return self.data_singleton.current_device.has_bookrestore()
+    
     def get_current_device_patched(self) -> bool:
         if self.data_singleton.current_device == None:
             return True
@@ -435,9 +441,9 @@ class DeviceManager:
                 domain="ManagedPreferencesDomain"
             ))
 
-    def get_domain_for_path(self, path: str, owner: int = 501, uses_domains: bool = False) -> str:
+    def get_domain_for_path(self, path: str, owner: int = 501, use_bookrestore: bool = False) -> str:
         # returns Domain: str?, Path: str
-        if self.get_current_device_supported() and not path.startswith("/var/mobile/") and not owner == 0:# and not uses_domains:
+        if ((self.get_current_device_supported() and not path.startswith("/var/mobile/")) or (self.get_current_device_uses_bookrestore() and use_bookrestore)) and not owner == 0:# and not uses_domains:
             # don't do anything on sparserestore versions
             return path, ""
         fully_patched = self.get_current_device_patched()
@@ -471,7 +477,7 @@ class DeviceManager:
     
     def concat_file(self, contents: str, path: str, files_to_restore: list[FileToRestore], owner: int = 501, group: int = 501, uses_domains: bool = False):
         # TODO: try using inodes here instead
-        file_path, domain = self.get_domain_for_path(path, owner=owner, uses_domains=uses_domains)
+        file_path, domain = self.get_domain_for_path(path, owner=owner, use_bookrestore=uses_domains)
         files_to_restore.append(FileToRestore(
             contents=contents,
             restore_path=file_path,
@@ -568,12 +574,12 @@ class DeviceManager:
                     path="/var/preferences/FeatureFlags/Global.plist",
                     files_to_restore=files_to_restore
                 )
-            self.add_skip_setup(files_to_restore, uses_domains)
+            self.add_skip_setup(files_to_restore, uses_domains and not use_bookrestore)
             if gestalt_data != None and use_bookrestore:
                 self.concat_file(
                     contents=gestalt_data,
                     path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
-                    files_to_restore=files_to_restore, uses_domains=uses_domains
+                    files_to_restore=files_to_restore, uses_domains=True
                 )
             if eligibility_files:
                 new_eligibility_files: dict[FileToRestore] = []
@@ -603,7 +609,7 @@ class DeviceManager:
                     contents=plistlib.dumps(plist),
                     path=location.value,
                     files_to_restore=files_to_restore,
-                    owner=ownership, group=ownership
+                    owner=ownership, group=ownership, uses_domains=use_bookrestore
                 )
             for location, data in files_data.items():
                 if isinstance(data, NullifyFileTweak):

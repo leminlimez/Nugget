@@ -336,7 +336,6 @@ class MainWindow(QtWidgets.QMainWindow):
             if self.device_manager.data_singleton.current_device.has_bookrestore():
                 self.ui.bookrestoreWidget.show()
                 self.ui.booksContainerUUIDTxt.setText(self.device_manager.data_singleton.current_device.books_container_uuid)
-                self.ui.rdarFixChk.hide() # do not show for bookrestore
             else:
                 self.ui.bookrestoreWidget.hide()
 
