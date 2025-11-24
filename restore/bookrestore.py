@@ -349,7 +349,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
     progress_callback("Waiting for MobileGestalt overwrite to complete..." + "\n" + "(This might take a minute)")
     success_message = "[Install-Mgr]: Marking download as [finished]"
     num_replaced = 0
-    timeout2 = time.time() + 120
+    timeout2 = time.time() + 90
     for syslog_entry in OsTraceService(lockdown=lockdown_client).syslog():
         if (syslog_entry.filename.endswith('bookassetd')) and success_message in syslog_entry.message:
             num_replaced += 1
@@ -357,7 +357,9 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
             if num_replaced >= z_id:
                 break
         elif time.time() > timeout2:
-            raise Exception("Timed out waiting for file, please try again.")
+            # respring anyway even if it is not detected that all files overwrote
+            break
+            # raise Exception("Timed out waiting for file, please try again.")
     pc.kill(pid_bookassetd)
     dl_connection.close()
     remove_db_files(temp_dl_manager)
