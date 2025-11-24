@@ -692,6 +692,7 @@ class DeviceManager:
             update_label(QCoreApplication.tr("Generating backup..."))
             files_to_null: list[str] = []
             uses_domains = False
+            use_bookrestore = False
 
             # use if-statements instead of match (switch) statements for compatibility with Python 3.9
             for page in reset_pages:
@@ -702,6 +703,7 @@ class DeviceManager:
                     settings.setValue(self.data_singleton.current_device.udid + "_hardware", "")
                     settings.setValue(self.data_singleton.current_device.udid + "_cpu", "")
                     files_to_null.append("/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist")
+                    use_bookrestore = True
                 elif page == Page.FeatureFlags:
                     ## FEATURE FLAGS
                     files_to_null.append("/var/preferences/FeatureFlags/Global.plist")
@@ -761,13 +763,18 @@ class DeviceManager:
             self.do_not_unplug = ""
             if self.data_singleton.current_device.connected_via_usb:
                 self.do_not_unplug = f"\n{QCoreApplication.tr('DO NOT UNPLUG')}"
-            update_label(f"{QCoreApplication.tr('Preparing to restore...')}{self.do_not_unplug}")
-            restore_files(
-                files=files_to_restore, reboot=self.auto_reboot,
-                lockdown_client=self.data_singleton.current_device.ld,
-                progress_callback=self.progress_callback
-            )
-            msg = QCoreApplication.tr("Your device will now restart.\n\nRemember to turn Find My back on!")
+            if use_bookrestore and not self.data_singleton.current_device.has_partial_sparserestore():
+                update_label(QCoreApplication.tr("Creating connection to device...") + self.do_not_unplug)
+                perform_bookrestore(files=files_to_restore, lockdown_client=self.data_singleton.current_device.ld, current_device_books_uuid_callback=self.current_device_books_container_uuid_callback, progress_callback=self.update_label)
+                msg = "Success!"
+            else:
+                update_label(f"{QCoreApplication.tr('Preparing to restore...')}{self.do_not_unplug}")
+                restore_files(
+                    files=files_to_restore, reboot=self.auto_reboot,
+                    lockdown_client=self.data_singleton.current_device.ld,
+                    progress_callback=self.progress_callback
+                )
+                msg = QCoreApplication.tr("Your device will now restart.\n\nRemember to turn Find My back on!")
             if not self.auto_reboot:
                 msg = QCoreApplication.tr("Please restart your device to see changes.")
             final_alert = ApplyAlertMessage(txt=QCoreApplication.tr("All done! ") + msg, title=QCoreApplication.tr("Success!"), icon=QMessageBox.Information)
