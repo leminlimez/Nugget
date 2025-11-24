@@ -267,6 +267,8 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         # Update the download db
         dl_connection = sqlite3.connect(temp_dl_manager)
         dl_cursor = dl_connection.cursor()
+        # make sure to clear the rows so it doesn't error
+        dl_cursor.execute("DELETE FROM ZBLDOWNLOADINFO")
         file_attr_path = os.path.join(br_files, "zfileattributes.plist")
         attr_data = None
         with open(file_attr_path, 'rb') as attr_file:
