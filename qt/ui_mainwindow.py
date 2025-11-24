@@ -1642,6 +1642,7 @@ class Ui_Nugget(object):
         self.spoofedModelDrp.addItem("")
         self.spoofedModelDrp.addItem("")
         self.spoofedModelDrp.addItem("")
+        self.spoofedModelDrp.addItem("")
         self.spoofedModelDrp.setObjectName(u"spoofedModelDrp")
         self.spoofedModelDrp.setMaximumSize(QSize(325, 16777215))
         self.spoofedModelDrp.setStyleSheet(u"QComboBox {\n"
@@ -5053,6 +5054,29 @@ class Ui_Nugget(object):
 
         self.verticalLayout_621.addWidget(self.line_6)
 
+        self.horizontalLayout_22 = QHBoxLayout()
+        self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
+        self.horizontalLayout_22.setContentsMargins(-1, -1, -1, 10)
+        self.label_50 = QLabel(self.bookrestoreWidget)
+        self.label_50.setObjectName(u"label_50")
+
+        self.horizontalLayout_22.addWidget(self.label_50)
+
+        self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_22.addItem(self.horizontalSpacer_11)
+
+        self.brTransferModeDrp = QComboBox(self.bookrestoreWidget)
+        self.brTransferModeDrp.addItem("")
+        self.brTransferModeDrp.addItem("")
+        self.brTransferModeDrp.setObjectName(u"brTransferModeDrp")
+        self.brTransferModeDrp.setMinimumSize(QSize(175, 0))
+
+        self.horizontalLayout_22.addWidget(self.brTransferModeDrp)
+
+
+        self.verticalLayout_621.addLayout(self.horizontalLayout_22)
+
         self.label_49 = QLabel(self.bookrestoreWidget)
         self.label_49.setObjectName(u"label_49")
 
@@ -5171,6 +5195,7 @@ class Ui_Nugget(object):
         self.dynamicIslandDrp.setCurrentIndex(0)
         self.spoofedModelDrp.setCurrentIndex(0)
         self.pTypeDrp.setCurrentIndex(0)
+        self.brTransferModeDrp.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(Nugget)
@@ -5724,6 +5749,10 @@ class Ui_Nugget(object):
 "DO NOT unplug your device during restores.", None))
 #endif // QT_CONFIG(tooltip)
         self.disableTendiesLimitChk.setText(QCoreApplication.translate("Nugget", u"Disable Tendies Limit", None))
+        self.label_50.setText(QCoreApplication.translate("Nugget", u"BookRestore File Transfer Method", None))
+        self.brTransferModeDrp.setItemText(0, QCoreApplication.translate("Nugget", u"   LocalHost", None))
+        self.brTransferModeDrp.setItemText(1, QCoreApplication.translate("Nugget", u"   On-Device (Slower)", None))
+
         self.label_49.setText(QCoreApplication.translate("Nugget", u"Books Container UUID", None))
 #if QT_CONFIG(tooltip)
         self.booksContainerUUIDTxt.setToolTip(QCoreApplication.translate("Nugget", u"Enter your books container UUID if you know it.\n"

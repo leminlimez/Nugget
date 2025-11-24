@@ -7,6 +7,7 @@ from PySide6.QtCore import QCoreApplication, QLocale
 from tweaks.tweak_loader import load_rdar_fix
 from tweaks.tweaks import tweaks
 from controllers.video_handler import set_ignore_frame_limit
+from restore.bookrestore import BookRestoreFileTransferMethod
 
 available_languages = {
     "English": "en",
@@ -56,6 +57,7 @@ class SettingsPage(Page):
         self.ui.ignorePBFrameLimitChk.toggled.connect(self.on_ignorePBFrameLimitChk_toggled)
         self.ui.disableTendiesLimitChk.toggled.connect(self.on_disableTendiesLimitChk_toggled)
 
+        self.ui.brTransferModeDrp.activated.connect(self.on_brTransferModeDrp_activated)
         self.ui.booksContainerUUIDTxt.textEdited.connect(self.on_booksContainerUUIDTxt_textEdited)
 
         self.ui.trustStoreChk.toggled.connect(self.on_trustStoreChk_toggled)
@@ -146,11 +148,18 @@ class SettingsPage(Page):
         # save the setting
         self.window.settings.setValue("supervised", checked)
 
+    # BookRestore Options
+    def on_booksContainerUUIDTxt_textEdited(self, text: str):
+        self.window.device_manager.current_device_books_container_uuid_callback(text)
+    def on_brTransferModeDrp_activated(self, index: int):
+        new_mode = BookRestoreFileTransferMethod(index)
+        self.window.device_manager.bookrestore_transfer_mode = new_mode
+        # save the setting
+        self.window.settings.setValue("bookrestore_transfer_mode", index)
+
     # Device Options
     def on_resetPairBtn_clicked(self):
         self.window.device_manager.reset_device_pairing()
-    def on_booksContainerUUIDTxt_textEdited(self, text: str):
-        self.window.device_manager.current_device_books_container_uuid_callback(text)
     def on_pocketPosterHelperBtn_clicked(self):
         # get app hash for posterboard
         bundle_ids = ["com.apple.PosterBoard"]

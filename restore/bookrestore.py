@@ -1,3 +1,4 @@
+from enum import Enum
 import asyncio
 import concurrent
 import os
@@ -25,6 +26,10 @@ from pymobiledevice3.services.dvt.dvt_secure_socket_proxy import DvtSecureSocket
 from pymobiledevice3.services.dvt.instruments.process_control import ProcessControl
 from pymobiledevice3.services.os_trace import OsTraceService
 from http.server import HTTPServer, SimpleHTTPRequestHandler
+
+class BookRestoreFileTransferMethod(Enum):
+    LocalHost = 0
+    OnDevice = 1
 
 # Global Vars
 info_queue = queue.Queue()
@@ -99,13 +104,15 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
     
     return {"address": address, "port": port}
 
-async def create_connection_context(files: list[FileToRestore], service_provider: LockdownClient, current_device_uuid_callback = lambda x: None, progress_callback = lambda x: None):
+async def create_connection_context(files: list[FileToRestore], service_provider: LockdownClient,
+                                    current_device_uuid_callback = lambda x: None, progress_callback = lambda x: None,
+                                    transfer_mode = BookRestoreFileTransferMethod.LocalHost):
     available_address = await create_tunnel(service_provider.udid, progress_callback)
     if available_address:
         old_dir = os.getcwd()
         try:
             os.chdir(os.path.abspath(get_bundle_files("files/bookrestore")))
-            _run_async_rsd_connection(available_address["address"], available_address["port"], files, current_device_uuid_callback, progress_callback)
+            _run_async_rsd_connection(available_address["address"], available_address["port"], files, current_device_uuid_callback, progress_callback, transfer_mode)
             os.chdir(old_dir)
         except:
             os.chdir(old_dir)
@@ -113,7 +120,7 @@ async def create_connection_context(files: list[FileToRestore], service_provider
     else:
         raise Exception("An error occurred getting tunnels addresses...")
 
-def _run_async_rsd_connection(address, port, files, current_device_uuid_callback, progress):
+def _run_async_rsd_connection(address, port, files, current_device_uuid_callback, progress, transfer_mode):
     async def async_connection():
         max_retries = 10
         for i in range(max_retries):
@@ -123,7 +130,7 @@ def _run_async_rsd_connection(address, port, files, current_device_uuid_callback
                     
                     def run_blocking_callback():
                         with DvtSecureSocketProxyService(rsd) as dvt:
-                            apply_bookrestore_files(files, rsd, dvt, current_device_uuid_callback, progress)
+                            apply_bookrestore_files(files, rsd, dvt, current_device_uuid_callback, progress, transfer_mode)
 
                     await loop.run_in_executor(None, run_blocking_callback)
                     return # Success
@@ -160,12 +167,15 @@ def remove_db_files(db_path):
             except:
                 pass
 
-def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: LockdownClient, dvt: DvtSecureSocketProxyService, current_device_uuid_callback = lambda x: None, progress_callback = lambda x: None):
-    # start a local http server
-    http_thread = threading.Thread(target=start_http_server, daemon=True)
-    http_thread.start()
-    ip, port = info_queue.get()
-    print(f"Hosting temporary http server on: http://{ip}:{port}/")
+def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: LockdownClient, dvt: DvtSecureSocketProxyService,
+                            current_device_uuid_callback = lambda x: None, progress_callback = lambda x: None,
+                            transfer_mode: BookRestoreFileTransferMethod = BookRestoreFileTransferMethod.LocalHost):
+    if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
+        # start a local http server
+        http_thread = threading.Thread(target=start_http_server, daemon=True)
+        http_thread.start()
+        ip, port = info_queue.get()
+        print(f"Hosting temporary http server on: http://{ip}:{port}/")
     
     firewall_rule_name = f"Nugget_Temp_{port}"
     if os.name == 'nt':
@@ -228,21 +238,21 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         END
         WHERE local_path LIKE '/private/var/containers/Shared/SystemGroup/%/Documents/BLDatabaseManager/BLDatabaseManager.sqlite%'
         """)
-        bldb_server_prefix = f"http://{ip}:{port}/tmp.BLDatabaseManager.sqlite"
-        cursor.execute(f"""
-        UPDATE asset
-        SET url = CASE
-            WHEN url LIKE '%/BLDatabaseManager.sqlite'
-                THEN '{bldb_server_prefix}'
-            WHEN url LIKE '%/BLDatabaseManager.sqlite-shm'
-                THEN '{bldb_server_prefix}-shm'
-            WHEN url LIKE '%/BLDatabaseManager.sqlite-wal'
-                THEN '{bldb_server_prefix}-wal'
-        END
-        WHERE url LIKE '%/BLDatabaseManager.sqlite%'
-        """)
+        if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
+            bldb_server_prefix = f"http://{ip}:{port}/tmp.BLDatabaseManager.sqlite"
+            cursor.execute(f"""
+            UPDATE asset
+            SET url = CASE
+                WHEN url LIKE '%/BLDatabaseManager.sqlite'
+                    THEN '{bldb_server_prefix}'
+                WHEN url LIKE '%/BLDatabaseManager.sqlite-shm'
+                    THEN '{bldb_server_prefix}-shm'
+                WHEN url LIKE '%/BLDatabaseManager.sqlite-wal'
+                    THEN '{bldb_server_prefix}-wal'
+            END
+            WHERE url LIKE '%/BLDatabaseManager.sqlite%'
+            """)
         connection.commit()
-        connection.close()
 
         procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
         pid_bookassetd = next((pid for pid, p in procs.items() if p['ProcessName'] == 'bookassetd'), None)
@@ -294,6 +304,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         fast_upload(temp_db_path, "Downloads/downloads.28.sqlitedb")
         fast_upload(temp_db_path + "-shm", "Downloads/downloads.28.sqlitedb-shm")
         fast_upload(temp_db_path + "-wal", "Downloads/downloads.28.sqlitedb-wal")
+        connection.close()
 
     finally:
         remove_db_files(temp_db_path)
@@ -354,7 +365,9 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
     pid = next((pid for pid, p in procs.items() if p['ProcessName'] == 'backboardd'), None)
     pc.kill(pid)
 
-def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownClient, current_device_books_uuid_callback = lambda x: None, progress_callback = lambda x: None):
+def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownClient,
+                        current_device_books_uuid_callback = lambda x: None, progress_callback = lambda x: None,
+                        transfer_mode: BookRestoreFileTransferMethod = BookRestoreFileTransferMethod.LocalHost):
     if os.name == 'nt':
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-    asyncio.run(create_connection_context(files, lockdown_client, current_device_books_uuid_callback, progress_callback))
+    asyncio.run(create_connection_context(files, lockdown_client, current_device_books_uuid_callback, progress_callback, transfer_mode))

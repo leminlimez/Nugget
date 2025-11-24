@@ -37,7 +37,7 @@ from tweaks.posterboard.template_options.templates_tweak import TemplatesTweak
 from tweaks.basic_plist_locations import FileLocation
 
 from restore.restore import restore_files, FileToRestore
-from restore.bookrestore import perform_bookrestore
+from restore.bookrestore import perform_bookrestore, BookRestoreFileTransferMethod
 from restore.mbdb import _FileMode
 
 def show_error_msg(txt: str, title: str = "Error!", icon = QMessageBox.Critical, detailed_txt: str = None):
@@ -103,6 +103,7 @@ class DeviceManager:
         self.show_all_spoofable_models = False
         self.disable_tendies_limit = False
         self.restore_truststore = False
+        self.bookrestore_transfer_mode = BookRestoreFileTransferMethod.LocalHost
         self.skip_setup = True
         self.supervised = False
         self.organization_name = ""
@@ -658,7 +659,7 @@ class DeviceManager:
                 self.do_not_unplug = "\n" + QCoreApplication.tr("DO NOT UNPLUG")
             if use_bookrestore and not self.data_singleton.current_device.has_partial_sparserestore():
                 update_label(QCoreApplication.tr("Creating connection to device...") + self.do_not_unplug)
-                perform_bookrestore(files=files_to_restore, lockdown_client=self.data_singleton.current_device.ld, current_device_books_uuid_callback=self.current_device_books_container_uuid_callback, progress_callback=self.update_label)
+                perform_bookrestore(files=files_to_restore, lockdown_client=self.data_singleton.current_device.ld, current_device_books_uuid_callback=self.current_device_books_container_uuid_callback, progress_callback=self.update_label, transfer_mode=self.bookrestore_transfer_mode)
             else:
                 update_label(QCoreApplication.tr("Preparing to restore...") + self.do_not_unplug)
                 restore_files(
@@ -765,7 +766,7 @@ class DeviceManager:
                 self.do_not_unplug = f"\n{QCoreApplication.tr('DO NOT UNPLUG')}"
             if use_bookrestore and not self.data_singleton.current_device.has_partial_sparserestore():
                 update_label(QCoreApplication.tr("Creating connection to device...") + self.do_not_unplug)
-                perform_bookrestore(files=files_to_restore, lockdown_client=self.data_singleton.current_device.ld, current_device_books_uuid_callback=self.current_device_books_container_uuid_callback, progress_callback=self.update_label)
+                perform_bookrestore(files=files_to_restore, lockdown_client=self.data_singleton.current_device.ld, current_device_books_uuid_callback=self.current_device_books_container_uuid_callback, progress_callback=self.update_label, transfer_mode=self.bookrestore_transfer_mode)
                 msg = "Success!"
             else:
                 update_label(f"{QCoreApplication.tr('Preparing to restore...')}{self.do_not_unplug}")

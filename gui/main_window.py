@@ -15,6 +15,7 @@ from gui.dialogs import GestaltDialog, UpdateAppDialog
 from gui.pages.reset_dialog import ResetDialog
 from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThread, set_sudo_pwd, set_sudo_complete, get_sudo_pwd
 from gui.pages.pages_list import Page
+from restore.bookrestore import BookRestoreFileTransferMethod
 
 from tweaks.tweaks import tweaks, TweakID
 
@@ -370,6 +371,7 @@ class MainWindow(QtWidgets.QMainWindow):
             disable_tendies_limit = self.settings.value("disable_tendies_limit", False, type=bool)
             show_all_spoofable = self.settings.value("show_all_spoofable_models", False, type=bool)
             restore_truststore = self.settings.value("restore_truststore", False, type=bool)
+            br_transfer_mode = self.settings.value("bookrestore_transfer_mode", 0, type=int)
             skip_setup = self.settings.value("skip_setup", True, type=bool)
             supervised = self.settings.value("supervised", False, type=bool)
             organization_name = self.settings.value("organization_name", "", type=str)
@@ -381,6 +383,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.disableTendiesLimitChk.setChecked(disable_tendies_limit)
             self.ui.showAllSpoofableChk.setChecked(show_all_spoofable)
             self.ui.trustStoreChk.setChecked(restore_truststore)
+            self.ui.brTransferModeDrp.setCurrentIndex(br_transfer_mode)
             self.ui.skipSetupChk.setChecked(skip_setup)
             self.ui.supervisionChk.setChecked(supervised)
             self.ui.supervisionOrganization.setText(organization_name)
@@ -406,6 +409,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.device_manager.show_all_spoofable_models = show_all_spoofable
             self.device_manager.disable_tendies_limit = disable_tendies_limit
             self.device_manager.restore_truststore = restore_truststore
+            self.device_manager.bookrestore_transfer_mode = BookRestoreFileTransferMethod(br_transfer_mode)
             self.device_manager.skip_setup = skip_setup
             self.device_manager.supervised = supervised
             self.device_manager.organization_name = organization_name
