@@ -62,34 +62,35 @@ def load_eligibility(dev: Device):
             "iPhone17,4", # 4 | iPhone 16 Plus
             "iPhone17,1", # 5 | iPhone 16 Pro
             "iPhone17,2", # 6 | iPhone 16 Pro Max
+            "iPhone18,3", # 7 | iPhone 17
 
             # A17 Pro iPads
-            "iPad16,1", # 7 | iPad Mini (A17 Pro) (W)
-            "iPad16,2", # 8 | iPad Mini (A17 Pro) (C)
+            "iPad16,1", # 8 | iPad Mini (A17 Pro) (W)
+            "iPad16,2", # 9 | iPad Mini (A17 Pro) (C)
         
             # M4 iPads
-            "iPad16,5", # 9 | iPad Pro (13-inch) (M4) (W)
-            "iPad16,6", # 10 | iPad Pro (13-inch) (M4) (C)
-            "iPad16,3", # 11 | iPad Pro (11-inch) (M4) (W)
-            "iPad16,4", # 12 | iPad Pro (11-inch) (M4) (C)
+            "iPad16,5", # 10 | iPad Pro (13-inch) (M4) (W)
+            "iPad16,6", # 11 | iPad Pro (13-inch) (M4) (C)
+            "iPad16,3", # 12 | iPad Pro (11-inch) (M4) (W)
+            "iPad16,4", # 13 | iPad Pro (11-inch) (M4) (C)
 
             # M2 iPads
-            "iPad14,5", # 13 | iPad Pro (12.9-inch) (M2) (W)
-            "iPad14,6", # 14 | iPad Pro (12.9-inch) (M2) (C)
-            "iPad14,3", # 15 | iPad Pro (11-inch) (M2) (W)
-            "iPad14,4", # 16 | iPad Pro (11-inch) (M2) (C)
-            "iPad14,10", # 17 | iPad Air (13-inch) (M2) (W)
-            "iPad14,11", # 18 | iPad Air (13-inch) (M2) (C)
-            "iPad14,8", # 19 | iPad Air (11-inch) (M2) (W)
-            "iPad14,9", # 20 | iPad Air (11-inch) (M2) (C)
+            "iPad14,5", # 14 | iPad Pro (12.9-inch) (M2) (W)
+            "iPad14,6", # 15 | iPad Pro (12.9-inch) (M2) (C)
+            "iPad14,3", # 16 | iPad Pro (11-inch) (M2) (W)
+            "iPad14,4", # 17 | iPad Pro (11-inch) (M2) (C)
+            "iPad14,10", # 18 | iPad Air (13-inch) (M2) (W)
+            "iPad14,11", # 19 | iPad Air (13-inch) (M2) (C)
+            "iPad14,8", # 20 | iPad Air (11-inch) (M2) (W)
+            "iPad14,9", # 21 | iPad Air (11-inch) (M2) (C)
 
             # M1 iPads
-            "iPad13,4", # 21 | iPad Pro (11-inch) (M1) (W)
-            "iPad13,5", # 22 | iPad Pro (11-inch) (M1) (C)
-            "iPad13,8", # 23 | iPad Pro (12.9-inch) (M1) (W)
-            "iPad13,9", # 24 | iPad Pro (12.9-inch) (M1) (C)
-            "iPad13,16", # 25 | iPad Air (M1) (W)
-            "iPad13,17", # 26 | iPad Air (M1) (C)
+            "iPad13,4", # 22 | iPad Pro (11-inch) (M1) (W)
+            "iPad13,5", # 23 | iPad Pro (11-inch) (M1) (C)
+            "iPad13,8", # 24 | iPad Pro (12.9-inch) (M1) (W)
+            "iPad13,9", # 25 | iPad Pro (12.9-inch) (M1) (C)
+            "iPad13,16", # 26 | iPad Air (M1) (W)
+            "iPad13,17", # 27 | iPad Air (M1) (C)
         ]),
         TweakID.SpoofHardware: MobileGestaltPickerTweak("oYicEKzVTz4/CxxE05pEgQ", values=[
             # Default
@@ -102,34 +103,35 @@ def load_eligibility(dev: Device):
             "D48AP", # 4 | iPhone 16 Plus
             "D93AP", # 5 | iPhone 16 Pro
             "D94AP", # 6 | iPhone 16 Pro Max
+            "V57AP", # 7 | iPhone 17
 
             # A17 Pro iPads
-            "J410AP", # 7 | iPad Mini (A17 Pro) (W)
-            "J411AP", # 8 | iPad Mini (A17 Pro) (C)
+            "J410AP", # 8 | iPad Mini (A17 Pro) (W)
+            "J411AP", # 9 | iPad Mini (A17 Pro) (C)
         
             # M4 iPads
-            "J720AP", # 9 | iPad Pro (13-inch) (M4) (W)
-            "J721AP", # 10 | iPad Pro (13-inch) (M4) (C)
-            "J717AP", # 11 | iPad Pro (11-inch) (M4) (W)
-            "J718AP", # 12 | iPad Pro (11-inch) (M4) (C)
+            "J720AP", # 10 | iPad Pro (13-inch) (M4) (W)
+            "J721AP", # 11 | iPad Pro (13-inch) (M4) (C)
+            "J717AP", # 12 | iPad Pro (11-inch) (M4) (W)
+            "J718AP", # 13 | iPad Pro (11-inch) (M4) (C)
 
             # M2 iPads
-            "J620AP", # 13 | iPad Pro (12.9-inch) (M2) (W)
-            "J621AP", # 14 | iPad Pro (12.9-inch) (M2) (C)
-            "J617AP", # 15 | iPad Pro (11-inch) (M2) (W)
-            "J618AP", # 16 | iPad Pro (11-inch) (M2) (C)
-            "J537AP", # 17 | iPad Air (13-inch) (M2) (W)
-            "J538AP", # 18 | iPad Air (13-inch) (M2) (C)
-            "J507AP", # 19 | iPad Air (11-inch) (M2) (W)
-            "J508AP", # 20 | iPad Air (11-inch) (M2) (C)
+            "J620AP", # 14 | iPad Pro (12.9-inch) (M2) (W)
+            "J621AP", # 15 | iPad Pro (12.9-inch) (M2) (C)
+            "J617AP", # 16 | iPad Pro (11-inch) (M2) (W)
+            "J618AP", # 17 | iPad Pro (11-inch) (M2) (C)
+            "J537AP", # 18 | iPad Air (13-inch) (M2) (W)
+            "J538AP", # 19 | iPad Air (13-inch) (M2) (C)
+            "J507AP", # 20 | iPad Air (11-inch) (M2) (W)
+            "J508AP", # 21 | iPad Air (11-inch) (M2) (C)
 
             # M1 iPads
-            "J517AP", # 21 | iPad Pro (11-inch) (M1) (W)
-            "J517xAP", # 22 | iPad Pro (11-inch) (M1) (C)
-            "J522AP", # 23 | iPad Pro (12.9-inch) (M1) (W)
-            "J522xAP", # 24 | iPad Pro (12.9-inch) (M1) (C)
-            "J407AP", # 25 | iPad Air (M1) (W)
-            "J408AP", # 26 | iPad Air (M1) (C)
+            "J517AP", # 22 | iPad Pro (11-inch) (M1) (W)
+            "J517xAP", # 23 | iPad Pro (11-inch) (M1) (C)
+            "J522AP", # 24 | iPad Pro (12.9-inch) (M1) (W)
+            "J522xAP", # 25 | iPad Pro (12.9-inch) (M1) (C)
+            "J407AP", # 26 | iPad Air (M1) (W)
+            "J408AP", # 27 | iPad Air (M1) (C)
         ]),
         TweakID.SpoofCPU: MobileGestaltPickerTweak("5pYKlGnYYBzGvAlIU8RjEQ", values=[
             # Default
@@ -142,34 +144,35 @@ def load_eligibility(dev: Device):
             "t8140", # 4 | iPhone 16 Plus
             "t8140", # 5 | iPhone 16 Pro
             "t8140", # 6 | iPhone 16 Pro Max
+            "t8150", # 7 | iPhone 17
 
             # A17 Pro iPads
-            "t8130", # 7 | iPad Mini (A17 Pro) (W)
-            "t8130", # 8 | iPad Mini (A17 Pro) (C)
+            "t8130", # 8 | iPad Mini (A17 Pro) (W)
+            "t8130", # 9 | iPad Mini (A17 Pro) (C)
         
             # M4 iPads
-            "t8182", # 9 | iPad Pro (13-inch) (M4) (W)
-            "t8182", # 10 | iPad Pro (13-inch) (M4) (C)
-            "t8182", # 11 | iPad Pro (11-inch) (M4) (W)
-            "t8182", # 12 | iPad Pro (11-inch) (M4) (C)
+            "t8182", # 10 | iPad Pro (13-inch) (M4) (W)
+            "t8182", # 11 | iPad Pro (13-inch) (M4) (C)
+            "t8182", # 12 | iPad Pro (11-inch) (M4) (W)
+            "t8182", # 13 | iPad Pro (11-inch) (M4) (C)
 
             # M2 iPads
-            "t8112", # 13 | iPad Pro (12.9-inch) (M2) (W)
-            "t8112", # 14 | iPad Pro (12.9-inch) (M2) (C)
-            "t8112", # 15 | iPad Pro (11-inch) (M2) (W)
-            "t8112", # 16 | iPad Pro (11-inch) (M2) (C)
-            "t8112", # 17 | iPad Air (13-inch) (M2) (W)
-            "t8112", # 18 | iPad Air (13-inch) (M2) (C)
-            "t8112", # 19 | iPad Air (11-inch) (M2) (W)
-            "t8112", # 20 | iPad Air (11-inch) (M2) (C)
+            "t8112", # 14 | iPad Pro (12.9-inch) (M2) (W)
+            "t8112", # 15 | iPad Pro (12.9-inch) (M2) (C)
+            "t8112", # 16 | iPad Pro (11-inch) (M2) (W)
+            "t8112", # 17 | iPad Pro (11-inch) (M2) (C)
+            "t8112", # 18 | iPad Air (13-inch) (M2) (W)
+            "t8112", # 19 | iPad Air (13-inch) (M2) (C)
+            "t8112", # 20 | iPad Air (11-inch) (M2) (W)
+            "t8112", # 21 | iPad Air (11-inch) (M2) (C)
 
             # M1 iPads
-            "t8103", # 21 | iPad Pro (11-inch) (M1) (W)
-            "t8103", # 22 | iPad Pro (11-inch) (M1) (C)
-            "t8103", # 23 | iPad Pro (12.9-inch) (M1) (W)
-            "t8103", # 24 | iPad Pro (12.9-inch) (M1) (C)
-            "t8103", # 25 | iPad Air (M1) (W)
-            "t8103", # 26 | iPad Air (M1) (C)
+            "t8103", # 22 | iPad Pro (11-inch) (M1) (W)
+            "t8103", # 23 | iPad Pro (11-inch) (M1) (C)
+            "t8103", # 24 | iPad Pro (12.9-inch) (M1) (W)
+            "t8103", # 25 | iPad Pro (12.9-inch) (M1) (C)
+            "t8103", # 26 | iPad Air (M1) (W)
+            "t8103", # 27 | iPad Air (M1) (C)
         ])
     }
     # load settings
