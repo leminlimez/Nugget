@@ -59,7 +59,7 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
                 del pwd
             else:
                 raise Exception("No administrator permission")
-        tunnel_process = subprocess.Popen(f"{sudo_cmd} pymobiledevice3 lockdown start-tunnel --script-mode --udid {udid}", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        tunnel_process = subprocess.Popen(f'{sudo_cmd} "{sys.executable}" -m pymobiledevice3 lockdown start-tunnel --script-mode --udid {udid}', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         del sudo_cmd
         
     atexit.register(exit_func, tunnel_process)
