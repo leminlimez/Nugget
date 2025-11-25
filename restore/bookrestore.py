@@ -33,6 +33,8 @@ class BookRestoreFileTransferMethod(Enum):
 
 # Global Vars
 info_queue = queue.Queue()
+server_folder = None
+br_files = get_bundle_files("files/bookrestore")
 
 def get_lan_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -107,15 +109,27 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
 async def create_connection_context(files: list[FileToRestore], service_provider: LockdownClient,
                                     current_device_uuid_callback = lambda x: None, progress_callback = lambda x: None,
                                     transfer_mode = BookRestoreFileTransferMethod.LocalHost):
+    global server_folder
     available_address = await create_tunnel(service_provider.udid, progress_callback)
     if available_address:
         old_dir = os.getcwd()
         try:
             if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-                os.chdir(os.path.abspath(get_bundle_files("files/bookrestore")))
+                server_folder = tempfile.mkdtemp()
+                os.chdir(os.path.abspath(server_folder))
             _run_async_rsd_connection(available_address["address"], available_address["port"], files, current_device_uuid_callback, progress_callback, transfer_mode)
+            try:
+                shutil.rmtree(server_folder)
+            except:
+                pass
+            server_folder = None
             os.chdir(old_dir)
         except:
+            try:
+                shutil.rmtree(server_folder)
+            except:
+                pass
+            server_folder = None
             os.chdir(old_dir)
             raise
     else:
@@ -208,9 +222,6 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
             current_device_uuid_callback(uuid)
             break
     
-    br_files = get_bundle_files("files/bookrestore")
-    if not os.path.exists(br_files):
-        br_files = get_bundle_files("")
     sqlite_path = os.path.join(br_files, "downloads.28.sqlitedb")
     dl_manager = os.path.join(br_files, "BLDatabaseManager.sqlite")
     
@@ -218,7 +229,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
     
     temp_dir = tempfile.gettempdir()
     temp_db_path = os.path.join(temp_dir, f"nugget_db_{uuid}.sqlite")
-    temp_dl_manager = os.path.join(br_files, f"tmp.BLDatabaseManager.sqlite")
+    temp_dl_manager = os.path.join(server_folder, f"tmp.BLDatabaseManager.sqlite")
     remove_db_files(temp_dl_manager)
 
     try:
@@ -239,7 +250,8 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         WHERE local_path LIKE '/private/var/containers/Shared/SystemGroup/%/Documents/BLDatabaseManager/BLDatabaseManager.sqlite%'
         """)
         if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-            bldb_server_prefix = f"http://{ip}:{port}/tmp.BLDatabaseManager.sqlite"
+            server_prefix = f"http://{ip}:{port}"
+            bldb_server_prefix = f"{server_prefix}/tmp.BLDatabaseManager.sqlite"
             cursor.execute(f"""
             UPDATE asset
             SET url = CASE
@@ -288,27 +300,39 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
             print(f"including {file.restore_path}")
             media_folder = file_name
             if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-                if len(file.contents) > 0:
-                    backpath = '../../../../../..'
-                    zassetpath = f'{file.restore_path}.zassetpath'
+                # use the local file method for mga and local server for everything else
+                if file.restore_path.endswith("MobileGestalt.plist"):
+                    zurl = 'https://www.google.com/robots.txt'
+                    if len(file.contents) > 0:
+                        zdownloadid = '../../../../../..'
+                        zassetpath = f'{file.restore_path}.zassetpath'
+                        media_folder = f'{nugget_media_folder}/{file_name}'
+                        zplistpath = f'/var/mobile/Media/{media_folder}'
+                        afc.set_file_contents(media_folder, file.contents)
+                    else:
+                        zdownloadid = ""
+                        zassetpath = file.restore_path
+                        zplistpath = file.restore_path
+                    if path.startswith('/'):
+                        zdownloadid += file.restore_path
+                    else:
+                        zdownloadid += f'/{file.restore_path}'
                 else:
-                    backpath = ""
                     zassetpath = file.restore_path
-                if path.startswith('/'):
-                    backpath += file.restore_path
-                else:
-                    backpath += f'/{file.restore_path}'
+                    zplistpath = zassetpath
+                    zdownloadid = zassetpath
+                    zurl = f'{server_prefix}/{file_name}'
+                    # copy file to the server
+                    server_path = os.path.join(server_folder, file_name)
+                    with open(server_path, 'wb') as temp_write:
+                        temp_write.write(file.contents)
                 z_id += 1
-                media_folder = f'{nugget_media_folder}/{file_name}'
-                media_file_path = f'/var/mobile/Media/{media_folder}'
-                # only use the extension for /var files
-                # zassetpath = file.restore_path
-                # if not file.restore_path.startswith("/var/mobile"):
                 dl_cursor.execute(f"""
                 INSERT INTO ZBLDOWNLOADINFO (Z_PK, Z_ENT, Z_OPT, ZACCOUNTIDENTIFIER, ZCLEANUPPENDING, ZFAMILYACCOUNTIDENTIFIER, ZISAUTOMATICDOWNLOAD, ZISLOCALCACHESERVER, ZNUMBEROFBYTESTOHASH, ZPERSISTENTIDENTIFIER, ZPUBLICATIONVERSION, ZSIZE, ZSTATE, ZSTOREIDENTIFIER, ZLASTSTATECHANGETIME, ZSTARTTIME, ZASSETPATH, ZBUYPARAMETERS, ZCANCELDOWNLOADURL, ZCLIENTIDENTIFIER, ZCOLLECTIONARTISTNAME, ZCOLLECTIONTITLE, ZDOWNLOADID, ZGENRE, ZKIND, ZPLISTPATH, ZSUBTITLE, ZTHUMBNAILIMAGEURL, ZTITLE, ZTRANSACTIONIDENTIFIER, ZURL, ZFILEATTRIBUTES)
-                VALUES ({z_id}, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 765107108, 767991550.119197, 767991353.245275, '{zassetpath}', 'productType=PUB&price=0&salableAdamId=765107106&pricingParameters=PLUS&pg=default&mtApp=com.apple.iBooks&mtEventTime=1746298553233&mtOsVersion=18.4.1&mtPageId=SearchIncrementalTopResults&mtPageType=Search&mtPageContext=search&mtTopic=xp_amp_bookstore&mtRequestId=35276ff6-5c8b-4136-894e-b6d8fc7677b3', 'https://p19-buy.itunes.apple.com/WebObjects/MZFastFinance.woa/wa/songDownloadDone?download-id=J19N_PUB_190099164604738&cancel=1', '4GG2695MJK.com.apple.iBooks', 'idk', '{file_name} file', '{backpath}', 'Contemporary Romance', 'ebook', '{media_file_path}', 'Cartas de Amor a la Luna', 'https://is1-ssl.mzstatic.com/image/thumb/Publication126/v4/3d/b6/0a/3db60a65-b1a5-51c3-b306-c58870663fd3/Portada.jpg/200x200bb.jpg', 'Cartas de Amor a la Luna', 'J19N_PUB_190099164604738', 'https://www.google.com/robots.txt', (?));
+                VALUES ({z_id}, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 765107108, 767991550.119197, 767991353.245275, '{zassetpath}', 'productType=PUB&price=0&salableAdamId=765107106&pricingParameters=PLUS&pg=default&mtApp=com.apple.iBooks&mtEventTime=1746298553233&mtOsVersion=18.4.1&mtPageId=SearchIncrementalTopResults&mtPageType=Search&mtPageContext=search&mtTopic=xp_amp_bookstore&mtRequestId=35276ff6-5c8b-4136-894e-b6d8fc7677b3', 'https://p19-buy.itunes.apple.com/WebObjects/MZFastFinance.woa/wa/songDownloadDone?download-id=J19N_PUB_190099164604738&cancel=1', '4GG2695MJK.com.apple.iBooks', 'idk', '{file_name} file', '{zdownloadid}', 'Contemporary Romance', 'ebook', '{zplistpath}', 'Cartas de Amor a la Luna', 'https://is1-ssl.mzstatic.com/image/thumb/Publication126/v4/3d/b6/0a/3db60a65-b1a5-51c3-b306-c58870663fd3/Portada.jpg/200x200bb.jpg', 'Cartas de Amor a la Luna', 'J19N_PUB_190099164604738', '{zurl}', (?));
                 """, (sqlite3.Binary(attr_data),))
-            afc.set_file_contents(media_folder, file.contents)
+            else:
+                afc.set_file_contents(media_folder, file.contents)
         if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
             dl_connection.commit()
         

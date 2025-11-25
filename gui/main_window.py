@@ -19,8 +19,8 @@ from restore.bookrestore import BookRestoreFileTransferMethod
 
 from tweaks.tweaks import tweaks, TweakID
 
-App_Version = "7.0"
-App_Build = 13
+App_Version = "7.1"
+App_Build = 1
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager, translator: Translator):
