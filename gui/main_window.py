@@ -332,6 +332,9 @@ class MainWindow(QtWidgets.QMainWindow):
             # show floating tab bar on ipads and keyflicks on phones
             self.ui.floatingTabBarContent.setVisible(not is_iphone)
             self.ui.keyFlickContent.setVisible(is_iphone and device_ver < Version("26.1"))
+            # iPadOS stuff
+            self.ui.enableiPadOSChk.setVisible(is_iphone)
+            self.ui.stageManagerChk.setVisible(not is_iphone)
 
             # bookrestore stuff
             if self.device_manager.data_singleton.current_device.has_bookrestore():
