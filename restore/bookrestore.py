@@ -111,7 +111,8 @@ async def create_connection_context(files: list[FileToRestore], service_provider
     if available_address:
         old_dir = os.getcwd()
         try:
-            os.chdir(os.path.abspath(get_bundle_files("files/bookrestore")))
+            if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
+                os.chdir(os.path.abspath(get_bundle_files("files/bookrestore")))
             _run_async_rsd_connection(available_address["address"], available_address["port"], files, current_device_uuid_callback, progress_callback, transfer_mode)
             os.chdir(old_dir)
         except:
@@ -177,15 +178,15 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         ip, port = info_queue.get()
         print(f"Hosting temporary http server on: http://{ip}:{port}/")
     
-    firewall_rule_name = f"Nugget_Temp_{port}"
-    if os.name == 'nt':
-        try:
-            subprocess.run(
-                f'netsh advfirewall firewall add rule name="{firewall_rule_name}" dir=in action=allow protocol=TCP localport={port}',
-                shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
-            )
-        except Exception as e:
-            print(f"Warning: Could not add firewall rule: {e}")
+        firewall_rule_name = f"Nugget_Temp_{port}"
+        if os.name == 'nt':
+            try:
+                subprocess.run(
+                    f'netsh advfirewall firewall add rule name="{firewall_rule_name}" dir=in action=allow protocol=TCP localport={port}',
+                    shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+                )
+            except Exception as e:
+                print(f"Warning: Could not add firewall rule: {e}")
 
     afc = AfcService(lockdown=lockdown_client)
     pc = ProcessControl(dvt)
@@ -222,7 +223,6 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
 
     try:
         shutil.copyfile(sqlite_path, temp_db_path)
-        shutil.copyfile(dl_manager, temp_dl_manager)
 
         connection = sqlite3.connect(temp_db_path)
         cursor = connection.cursor()
@@ -265,33 +265,38 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         progress_callback("Uploading files...")
 
         # Update the download db
-        dl_connection = sqlite3.connect(temp_dl_manager)
-        dl_cursor = dl_connection.cursor()
-        # make sure to clear the rows so it doesn't error
-        dl_cursor.execute("DELETE FROM ZBLDOWNLOADINFO")
-        file_attr_path = os.path.join(br_files, "zfileattributes.plist")
-        attr_data = None
-        with open(file_attr_path, 'rb') as attr_file:
-            attr_data = attr_file.read()
-            print(len(attr_data))
-        z_id = 0
+        if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
+            shutil.copyfile(dl_manager, temp_dl_manager)
+            dl_connection = sqlite3.connect(temp_dl_manager)
+            dl_cursor = dl_connection.cursor()
+            # make sure to clear the rows so it doesn't error
+            dl_cursor.execute("DELETE FROM ZBLDOWNLOADINFO")
+            file_attr_path = os.path.join(br_files, "zfileattributes.plist")
+            attr_data = None
+            with open(file_attr_path, 'rb') as attr_file:
+                attr_data = attr_file.read()
+                print(len(attr_data))
+            z_id = 0
         for file in files:
             if not file.domain == "" and not file.domain == None:
                 continue
             path, file_name = os.path.split(file.restore_path)
             print(f"including {file.restore_path}")
-            backpath = '../../../../../..'
-            if path.startswith('/'):
-                backpath += file.restore_path
-            else:
-                backpath += f'/{file.restore_path}'
-            z_id += 1
-            dl_cursor.execute(f"""
-            INSERT INTO ZBLDOWNLOADINFO (Z_PK, Z_ENT, Z_OPT, ZACCOUNTIDENTIFIER, ZCLEANUPPENDING, ZFAMILYACCOUNTIDENTIFIER, ZISAUTOMATICDOWNLOAD, ZISLOCALCACHESERVER, ZNUMBEROFBYTESTOHASH, ZPERSISTENTIDENTIFIER, ZPUBLICATIONVERSION, ZSIZE, ZSTATE, ZSTOREIDENTIFIER, ZLASTSTATECHANGETIME, ZSTARTTIME, ZASSETPATH, ZBUYPARAMETERS, ZCANCELDOWNLOADURL, ZCLIENTIDENTIFIER, ZCOLLECTIONARTISTNAME, ZCOLLECTIONTITLE, ZDOWNLOADID, ZGENRE, ZKIND, ZPLISTPATH, ZSUBTITLE, ZTHUMBNAILIMAGEURL, ZTITLE, ZTRANSACTIONIDENTIFIER, ZURL, ZFILEATTRIBUTES)
-            VALUES ({z_id}, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 765107108, 767991550.119197, 767991353.245275, '{file.restore_path}.zassetpath', 'productType=PUB&price=0&salableAdamId=765107106&pricingParameters=PLUS&pg=default&mtApp=com.apple.iBooks&mtEventTime=1746298553233&mtOsVersion=18.4.1&mtPageId=SearchIncrementalTopResults&mtPageType=Search&mtPageContext=search&mtTopic=xp_amp_bookstore&mtRequestId=35276ff6-5c8b-4136-894e-b6d8fc7677b3', 'https://p19-buy.itunes.apple.com/WebObjects/MZFastFinance.woa/wa/songDownloadDone?download-id=J19N_PUB_190099164604738&cancel=1', '4GG2695MJK.com.apple.iBooks', 'idk', '{file_name} file', '{backpath}', 'Contemporary Romance', 'ebook', '/var/mobile/Media/{file_name}', 'Cartas de Amor a la Luna', 'https://is1-ssl.mzstatic.com/image/thumb/Publication126/v4/3d/b6/0a/3db60a65-b1a5-51c3-b306-c58870663fd3/Portada.jpg/200x200bb.jpg', 'Cartas de Amor a la Luna', 'J19N_PUB_190099164604738', 'https://www.google.com/robots.txt', (?));
-            """, (sqlite3.Binary(attr_data),))
-            afc.set_file_contents(file_name, file.contents)
-        dl_connection.commit()
+            if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
+                backpath = '../../../../../..'
+                if path.startswith('/'):
+                    backpath += file.restore_path
+                else:
+                    backpath += f'/{file.restore_path}'
+                z_id += 1
+                media_file_path = f'/var/mobile/Media/{file_name}'
+                dl_cursor.execute(f"""
+                INSERT INTO ZBLDOWNLOADINFO (Z_PK, Z_ENT, Z_OPT, ZACCOUNTIDENTIFIER, ZCLEANUPPENDING, ZFAMILYACCOUNTIDENTIFIER, ZISAUTOMATICDOWNLOAD, ZISLOCALCACHESERVER, ZNUMBEROFBYTESTOHASH, ZPERSISTENTIDENTIFIER, ZPUBLICATIONVERSION, ZSIZE, ZSTATE, ZSTOREIDENTIFIER, ZLASTSTATECHANGETIME, ZSTARTTIME, ZASSETPATH, ZBUYPARAMETERS, ZCANCELDOWNLOADURL, ZCLIENTIDENTIFIER, ZCOLLECTIONARTISTNAME, ZCOLLECTIONTITLE, ZDOWNLOADID, ZGENRE, ZKIND, ZPLISTPATH, ZSUBTITLE, ZTHUMBNAILIMAGEURL, ZTITLE, ZTRANSACTIONIDENTIFIER, ZURL, ZFILEATTRIBUTES)
+                VALUES ({z_id}, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 765107108, 767991550.119197, 767991353.245275, '{file.restore_path}.zassetpath', 'productType=PUB&price=0&salableAdamId=765107106&pricingParameters=PLUS&pg=default&mtApp=com.apple.iBooks&mtEventTime=1746298553233&mtOsVersion=18.4.1&mtPageId=SearchIncrementalTopResults&mtPageType=Search&mtPageContext=search&mtTopic=xp_amp_bookstore&mtRequestId=35276ff6-5c8b-4136-894e-b6d8fc7677b3', 'https://p19-buy.itunes.apple.com/WebObjects/MZFastFinance.woa/wa/songDownloadDone?download-id=J19N_PUB_190099164604738&cancel=1', '4GG2695MJK.com.apple.iBooks', 'idk', '{file_name} file', '{backpath}', 'Contemporary Romance', 'ebook', '{media_file_path}', 'Cartas de Amor a la Luna', 'https://is1-ssl.mzstatic.com/image/thumb/Publication126/v4/3d/b6/0a/3db60a65-b1a5-51c3-b306-c58870663fd3/Portada.jpg/200x200bb.jpg', 'Cartas de Amor a la Luna', 'J19N_PUB_190099164604738', 'https://www.google.com/robots.txt', (?));
+                """, (sqlite3.Binary(attr_data),))
+            afc.set_file_contents(f"{file_name}", file.contents)
+        if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
+            dl_connection.commit()
         
         def fast_upload(local_path, remote_path):
             content = b''
@@ -354,15 +359,16 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         if (syslog_entry.filename.endswith('bookassetd')) and success_message in syslog_entry.message:
             num_replaced += 1
             print(f"files found: {num_replaced}\nmsg: {syslog_entry.message}")
-            if num_replaced >= z_id:
+            if transfer_mode != BookRestoreFileTransferMethod.LocalHost or num_replaced >= z_id:
                 break
         elif time.time() > timeout2:
             # respring anyway even if it is not detected that all files overwrote
             break
             # raise Exception("Timed out waiting for file, please try again.")
     pc.kill(pid_bookassetd)
-    dl_connection.close()
-    remove_db_files(temp_dl_manager)
+    if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
+        dl_connection.close()
+        remove_db_files(temp_dl_manager)
         
     progress_callback("Respringing")
     procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
