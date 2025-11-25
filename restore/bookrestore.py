@@ -288,7 +288,12 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
             print(f"including {file.restore_path}")
             media_folder = file_name
             if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-                backpath = '../../../../../..'
+                if len(file.contents) > 0:
+                    backpath = '../../../../../..'
+                    zassetpath = f'{file.restore_path}.zassetpath'
+                else:
+                    backpath = ""
+                    zassetpath = file.restore_path
                 if path.startswith('/'):
                     backpath += file.restore_path
                 else:
@@ -299,7 +304,6 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
                 # only use the extension for /var files
                 # zassetpath = file.restore_path
                 # if not file.restore_path.startswith("/var/mobile"):
-                zassetpath = f'{file.restore_path}.zassetpath'
                 dl_cursor.execute(f"""
                 INSERT INTO ZBLDOWNLOADINFO (Z_PK, Z_ENT, Z_OPT, ZACCOUNTIDENTIFIER, ZCLEANUPPENDING, ZFAMILYACCOUNTIDENTIFIER, ZISAUTOMATICDOWNLOAD, ZISLOCALCACHESERVER, ZNUMBEROFBYTESTOHASH, ZPERSISTENTIDENTIFIER, ZPUBLICATIONVERSION, ZSIZE, ZSTATE, ZSTOREIDENTIFIER, ZLASTSTATECHANGETIME, ZSTARTTIME, ZASSETPATH, ZBUYPARAMETERS, ZCANCELDOWNLOADURL, ZCLIENTIDENTIFIER, ZCOLLECTIONARTISTNAME, ZCOLLECTIONTITLE, ZDOWNLOADID, ZGENRE, ZKIND, ZPLISTPATH, ZSUBTITLE, ZTHUMBNAILIMAGEURL, ZTITLE, ZTRANSACTIONIDENTIFIER, ZURL, ZFILEATTRIBUTES)
                 VALUES ({z_id}, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 765107108, 767991550.119197, 767991353.245275, '{zassetpath}', 'productType=PUB&price=0&salableAdamId=765107106&pricingParameters=PLUS&pg=default&mtApp=com.apple.iBooks&mtEventTime=1746298553233&mtOsVersion=18.4.1&mtPageId=SearchIncrementalTopResults&mtPageType=Search&mtPageContext=search&mtTopic=xp_amp_bookstore&mtRequestId=35276ff6-5c8b-4136-894e-b6d8fc7677b3', 'https://p19-buy.itunes.apple.com/WebObjects/MZFastFinance.woa/wa/songDownloadDone?download-id=J19N_PUB_190099164604738&cancel=1', '4GG2695MJK.com.apple.iBooks', 'idk', '{file_name} file', '{backpath}', 'Contemporary Romance', 'ebook', '{media_file_path}', 'Cartas de Amor a la Luna', 'https://is1-ssl.mzstatic.com/image/thumb/Publication126/v4/3d/b6/0a/3db60a65-b1a5-51c3-b306-c58870663fd3/Portada.jpg/200x200bb.jpg', 'Cartas de Amor a la Luna', 'J19N_PUB_190099164604738', 'https://www.google.com/robots.txt', (?));
