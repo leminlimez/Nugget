@@ -276,7 +276,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
             print(len(attr_data))
         z_id = 0
         for file in files:
-            if not file.domain == "":
+            if not file.domain == "" and not file.domain == None:
                 continue
             path, file_name = os.path.split(file.restore_path)
             print(f"including {file.restore_path}")
