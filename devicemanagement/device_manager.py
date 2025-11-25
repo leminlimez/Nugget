@@ -709,7 +709,8 @@ class DeviceManager:
                     settings.setValue(self.data_singleton.current_device.udid + "_hardware", "")
                     settings.setValue(self.data_singleton.current_device.udid + "_cpu", "")
                     files_to_null.append("/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist")
-                    use_bookrestore = True
+                    if self.get_current_device_uses_bookrestore():
+                        use_bookrestore = True
                 elif page == Page.FeatureFlags:
                     ## FEATURE FLAGS
                     files_to_null.append("/var/preferences/FeatureFlags/Global.plist")
@@ -759,10 +760,11 @@ class DeviceManager:
                 self.concat_file(
                     contents=b"",
                     path=file_path,
-                    files_to_restore=files_to_restore
+                    files_to_restore=files_to_restore, uses_domains=use_bookrestore
                 )
             
-            self.add_skip_setup(files_to_restore, uses_domains)
+            if not use_bookrestore:
+                self.add_skip_setup(files_to_restore, uses_domains)
 
             # restore to the device
             self.update_label = update_label
