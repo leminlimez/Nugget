@@ -13,10 +13,10 @@ import socket
 import subprocess
 import atexit
 import sys
-import uuid
 import tempfile
 
 from .restore import FileToRestore
+from exceptions.nugget_exception import NuggetException
 from gui.apply_worker import get_sudo_pwd, get_sudo_complete
 from controllers.files_handler import get_bundle_files
 from pymobiledevice3.lockdown import LockdownClient
@@ -63,7 +63,7 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
                 sudo_cmd = f"echo {pwd} | sudo -S"
                 del pwd
             else:
-                raise Exception("No administrator permission")
+                raise NuggetException("No administrator permission")
         tunnel_process = subprocess.Popen(f'{sudo_cmd} "{sys.executable}" -m pymobiledevice3 lockdown start-tunnel --script-mode --udid {udid}', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         del sudo_cmd
         
@@ -83,15 +83,15 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
             error = tunnel_process.stderr.read().decode()
             if error:
                 if 'connected' in error:
-                    raise Exception(f"Device not connected.\n{error}")
+                    raise NuggetException("Device not connected.", detailed_text=error)
                 elif 'admin' in error:
-                    raise Exception(f"Admin privileges required.\n{error}")
+                    raise NuggetException("Admin privileges required.", detailed_text=error)
                 else:
-                    raise Exception(f"Tunnel Error:\n{error}")
+                    raise NuggetException("Tunnel Error:", detailed_text=error)
             break
     
     if rsd_val is None:
-        raise Exception("Tunnel process ended without returning connection details. Check if device is connected/trusted.")
+        raise NuggetException("Tunnel process ended without returning connection details. Check if device is connected/trusted.")
 
     rsd_str = str(rsd_val)
     print("Sucessfully created tunnel: " + rsd_str)
@@ -100,7 +100,7 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
         address = rsd_str.split(" ")[0]
         port = int(rsd_str.split(" ")[1])
     except (IndexError, ValueError):
-        raise Exception(f"Failed to parse tunnel output: '{rsd_str}'. Expected 'Address Port'.")
+        raise NuggetException(f"Failed to parse tunnel output: '{rsd_str}'. Expected 'Address Port'.")
     
     return {"address": address, "port": port}
 
@@ -119,7 +119,7 @@ async def create_connection_context(files: list[FileToRestore], service_provider
             os.chdir(old_dir)
             raise
     else:
-        raise Exception("An error occurred getting tunnels addresses...")
+        raise NuggetException("An error occurred getting tunnels addresses...")
 
 def _run_async_rsd_connection(address, port, files, current_device_uuid_callback, progress, transfer_mode):
     async def async_connection():
@@ -197,7 +197,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         try:
             pc.launch("com.apple.iBooks")
         except Exception as e:
-            raise Exception(f"Error launching books app: {e}")
+            raise NuggetException("Error launching books app", detailed_text=repr(e))
         progress_callback("Please open Books app and download a book to continue.")
         for syslog_entry in OsTraceService(lockdown=lockdown_client).syslog():
             if (posixpath.basename(syslog_entry.filename) != 'bookassetd') or \
@@ -334,7 +334,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
     progress_callback("Waiting for itunesstored to finish download..." + "\n" + "(This might take a minute)")
     for syslog_entry in OsTraceService(lockdown=lockdown_client).syslog():
         if time.time() > timeout:
-            raise Exception("Timed out waiting for download. Please try again.")
+            raise NuggetException("Timed out waiting for download. Please try again.")
         if (posixpath.basename(syslog_entry.filename) == 'itunesstored') and \
             "Install complete for download: 6936249076851270152 result: Failed" in syslog_entry.message:
             break
@@ -349,9 +349,9 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
     try:
         pc.launch("com.apple.iBooks")
     except Exception as e:
-        raise Exception(f"Error launching Books app: {e}")
+        raise NuggetException("Error launching Books app", detailed_text=repr(e))
     
-    progress_callback("Waiting for MobileGestalt overwrite to complete..." + "\n" + "(This might take a minute)")
+    progress_callback("Waiting for file overwrite to complete..." + "\n" + "(This might take a minute)")
     success_message = "[Install-Mgr]: Marking download as [finished]"
     num_replaced = 0
     timeout2 = time.time() + 90

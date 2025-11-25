@@ -16,7 +16,7 @@ from pymobiledevice3 import usbmux
 from pymobiledevice3.ca import create_keybag_file
 from pymobiledevice3.services.mobile_config import MobileConfigService
 from pymobiledevice3.lockdown import create_using_usbmux
-from pymobiledevice3.exceptions import MuxException, PasswordRequiredError, ConnectionTerminatedError, AccessDeniedError
+from pymobiledevice3.exceptions import MuxException, PasswordRequiredError, ConnectionTerminatedError, AccessDeniedError, InvalidServiceError
 from pymobiledevice3.services.installation_proxy import InstallationProxyService
 from pymobiledevice3.services.house_arrest import HouseArrestService
 
@@ -81,8 +81,11 @@ def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list
                                  detailed_txt=files_str + "TRACEBACK:\n\n" + str(traceback.format_exc()))
     elif isinstance(e, AccessDeniedError):
         return ApplyAlertMessage(QCoreApplication.tr("You must run the application as an administer to use BookRestore tweaks."), detailed_txt="Try running the program with sudo.")
+    elif isinstance(e, InvalidServiceError):
+        return ApplyAlertMessage(QCoreApplication.tr("You must enable developer mode on your device. You can do it in the Settings app."),
+                                 detailed_txt=QCoreApplication.tr("BookRestore tweaks require developer mode to apply. You can enable this at the bottom of the Settings app on your iPhone or iPad."))
     elif isinstance(e, NuggetException):
-        return ApplyAlertMessage(str(e))
+        return ApplyAlertMessage(str(e), detailed_txt=e.detailed_text)
     else:
         files_str: str = get_files_list_str(files_list)
         return ApplyAlertMessage(type(e).__name__ + ": " + repr(e), detailed_txt=files_str + "TRACEBACK:\n\n" + str(traceback.format_exc()))

@@ -548,7 +548,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if alert is None:
             # do sudo dialog input
             get_sudo_pwd() # clear if it is already there
-            pwd, ok = QtWidgets.QInputDialog.getText(None, "Enter Password for Sudo", "Sudo Password:", QtWidgets.QLineEdit.Password, "")
+            pwd, ok = QtWidgets.QInputDialog.getText(None, "Enter Sudo Password", "Enter Your Computer's Password:", QtWidgets.QLineEdit.Password, "")
             if ok and pwd:
                 set_sudo_pwd(pwd)
             set_sudo_complete(True)
