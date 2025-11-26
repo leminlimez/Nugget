@@ -1,14 +1,14 @@
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
-from tweaks.tweaks import tweaks
+from tweaks.tweaks import tweaks, TweakID
 from tweaks.status_bar.status_setter import StatusBarItem
 
 class StatusBarPage(Page):
     def __init__(self, ui: Ui_Nugget):
         super().__init__()
         self.ui = ui
-        self.status_manager = tweaks["StatusBar"]
+        self.status_manager = tweaks[TweakID.StatusBar]
 
     def load_page(self):
         self.ui.statusBarEnabledChk.toggled.connect(self.on_statusBarEnabledChk_toggled)

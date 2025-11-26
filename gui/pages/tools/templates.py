@@ -7,7 +7,7 @@ import uuid
 from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
-from tweaks.tweaks import tweaks
+from tweaks.tweaks import tweaks, TweakID
 
 class TemplatesPage(Page):
     def __init__(self, window, ui: Ui_Nugget):
@@ -24,11 +24,11 @@ class TemplatesPage(Page):
         if selected_files != None and len(selected_files) > 0:
             # user selected files, add them
             for file in selected_files:
-                tweaks["Templates"].add_template(file, self.window.device_manager.data_singleton.current_device.version)
+                tweaks[TweakID.Templates].add_template(file, self.window.device_manager.data_singleton.current_device.version)
             self.load_templates_list()
 
     def load_templates_list(self):
-        if len(tweaks["Templates"].templates) == 0:
+        if len(tweaks[TweakID.Templates].templates) == 0:
             return
         if self.templateLayout == None:
             # Create scroll layout
@@ -60,5 +60,5 @@ class TemplatesPage(Page):
         
         widgets = {}
         # Iterate through the templates
-        for template in tweaks["Templates"].templates:
-            template.create_ui(self.window, tweaks["Templates"], widgets, self.templateLayout)
+        for template in tweaks[TweakID.Templates].templates:
+            template.create_ui(self.window, tweaks[TweakID.Templates], widgets, self.templateLayout)

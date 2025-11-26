@@ -1,3 +1,5 @@
+import re
+
 from enum import Enum
 from PySide6.QtCore import QCoreApplication
 
@@ -149,7 +151,7 @@ class RdarFixTweak(BasicPlistTweak):
             if self.di_type == 2556:
                 width = 1179
                 height = 2556
-            elif self.di_type == 2796 or self.di_type == 2976:
+            elif self.di_type == 2796:
                 width = 1290
                 height = 2796
             elif self.di_type == 2622:
@@ -158,6 +160,9 @@ class RdarFixTweak(BasicPlistTweak):
             elif self.di_type == 2868:
                 width = 1320
                 height = 2868
+            elif self.di_type == 2736:
+                width = 1260
+                height = 2736
             plist = {
                 "canvas_height": height,
                 "canvas_width": width
@@ -204,6 +209,8 @@ class MobileGestaltPickerTweak(Tweak):
             plist["CacheExtra"][self.key] = new_value
         else:
             plist["CacheExtra"][self.key][self.subkey] = new_value
+            if self.subkey == "ArtworkDeviceSubType":
+                plist["CacheExtra"]["YlEtTtHlNesRBMal1CqRaA"] = 1
         return plist
     
     def set_selected_option(self, new_option: int, is_enabled: bool = True):
@@ -225,6 +232,44 @@ class MobileGestaltMultiTweak(Tweak):
         for key in self.keyValues:
             plist["CacheExtra"][key] = self.keyValues[key]
         return plist
+    
+class MobileGestaltCacheDataTweak(Tweak):
+    def __init__(self, slice_start: int, slice_length: int):
+        super().__init__(key=None)
+        self.slice_start = slice_start
+        self.slice_len = slice_length
+
+    def apply_tweak(self, plist: dict):
+        if not self.enabled:
+            return plist
+        data = bytes(plist["CacheData"]).hex().lower()
+        if len(data) <= self.slice_start:
+            raise Exception("CacheData is too short!")
+        # skip the padding and get the last 2 bytes for every instance to find the offset
+        pattern = re.compile(r"0+(?:5555)*([0-9a-f]{4})")
+        offset = None
+        value = None
+        for match in pattern.finditer(data[self.slice_start : self.slice_start + self.slice_len]):
+            value = match.group(1)
+            if sum(c != "0" for c in value) >= 3:
+                offset = self.slice_start + match.start(1)
+                break
+        
+        # Error handling
+        if offset is None:
+            raise Exception("Pattern not found")
+        # Get the extrema offset
+        loffset = offset - 67 # real
+        # TODO: Finish error handling checks
+
+        # Set the value of the left offset to 3 to enable iPadOS
+        data_list = list(data)
+        data_list[loffset] = "3"
+        data = "".join(data_list)
+        plist["CacheData"] = bytes.fromhex(data)
+        return plist
+        
+
     
 class FeatureFlagTweak(Tweak):
     def __init__(

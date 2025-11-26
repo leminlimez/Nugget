@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.3
+## Created by: Qt User Interface Compiler version 6.10.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -17,9 +17,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QCheckBox, QComboBox,
     QFrame, QGridLayout, QHBoxLayout, QLabel,
-    QLineEdit, QMainWindow, QProgressBar, QRadioButton,
-    QScrollArea, QSizePolicy, QSlider, QSpacerItem,
-    QStackedWidget, QToolButton, QVBoxLayout, QWidget)
+    QLayout, QLineEdit, QMainWindow, QProgressBar,
+    QRadioButton, QScrollArea, QSizePolicy, QSlider,
+    QSpacerItem, QStackedWidget, QToolButton, QVBoxLayout,
+    QWidget)
 import resources_rc
 
 class Ui_Nugget(object):
@@ -1146,10 +1147,10 @@ class Ui_Nugget(object):
 
         self.verticalLayout_8.addWidget(self.stageManagerChk)
 
-        self.enableMedusaChk = QCheckBox(self.gestaltPageContent)
-        self.enableMedusaChk.setObjectName(u"enableMedusaChk")
+        self.enableiPadOSChk = QCheckBox(self.gestaltPageContent)
+        self.enableiPadOSChk.setObjectName(u"enableiPadOSChk")
 
-        self.verticalLayout_8.addWidget(self.enableMedusaChk)
+        self.verticalLayout_8.addWidget(self.enableiPadOSChk)
 
         self.ipadAppsChk = QCheckBox(self.gestaltPageContent)
         self.ipadAppsChk.setObjectName(u"ipadAppsChk")
@@ -1325,11 +1326,11 @@ class Ui_Nugget(object):
         self.verticalLayout_12.setSpacing(6)
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
-        self.internalOptionsLbl = QLabel(self.verticalWidget_4)
-        self.internalOptionsLbl.setObjectName(u"internalOptionsLbl")
-        self.internalOptionsLbl.setFont(font1)
+        self.featureFlagsLbl = QLabel(self.verticalWidget_4)
+        self.featureFlagsLbl.setObjectName(u"featureFlagsLbl")
+        self.featureFlagsLbl.setFont(font1)
 
-        self.verticalLayout_12.addWidget(self.internalOptionsLbl)
+        self.verticalLayout_12.addWidget(self.featureFlagsLbl)
 
         self.verticalSpacer_15 = QSpacerItem(20, 16, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
@@ -1614,6 +1615,7 @@ class Ui_Nugget(object):
         self.verticalLayout_34.addWidget(self.label_8)
 
         self.spoofedModelDrp = QComboBox(self.aiEnablerContent)
+        self.spoofedModelDrp.addItem("")
         self.spoofedModelDrp.addItem("")
         self.spoofedModelDrp.addItem("")
         self.spoofedModelDrp.addItem("")
@@ -2780,7 +2782,27 @@ class Ui_Nugget(object):
 
         self.verticalLayout_10.addWidget(self.line_11)
 
-        self.springboardOptionsPageContent = QWidget(self.springboardOptionsPage)
+        self.sbOptionsScrollArea = QScrollArea(self.springboardOptionsPage)
+        self.sbOptionsScrollArea.setObjectName(u"sbOptionsScrollArea")
+        self.sbOptionsScrollArea.setFrameShape(QFrame.NoFrame)
+        self.sbOptionsScrollArea.setFrameShadow(QFrame.Plain)
+        self.sbOptionsScrollArea.setLineWidth(0)
+        self.sbOptionsScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.sbOptionsScrollArea.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.scrollAreaWidgetContents2 = QWidget()
+        self.scrollAreaWidgetContents2.setObjectName(u"scrollAreaWidgetContents2")
+        self.scrollAreaWidgetContents2.setGeometry(QRect(0, 0, 650, 800))
+        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.scrollAreaWidgetContents2.sizePolicy().hasHeightForWidth())
+        self.scrollAreaWidgetContents2.setSizePolicy(sizePolicy5)
+        self.scrollAreaWidgetContents2.setMinimumSize(QSize(650, 500))
+        self.scrollAreaWidgetContents2.setMaximumSize(QSize(650, 2000))
+        self.verticalLayout_92 = QVBoxLayout(self.scrollAreaWidgetContents2)
+        self.verticalLayout_92.setObjectName(u"verticalLayout_92")
+        self.verticalLayout_92.setContentsMargins(0, 0, 0, 0)
+        self.springboardOptionsPageContent = QWidget(self.scrollAreaWidgetContents2)
         self.springboardOptionsPageContent.setObjectName(u"springboardOptionsPageContent")
         self.springboardOptionsPageContent.setEnabled(False)
         self.springboardOptionsPageContent.setMaximumSize(QSize(650, 16777215))
@@ -2789,6 +2811,11 @@ class Ui_Nugget(object):
         self._2.setContentsMargins(0, 0, 0, 0)
         self.footnoteLbl = QLabel(self.springboardOptionsPageContent)
         self.footnoteLbl.setObjectName(u"footnoteLbl")
+        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.footnoteLbl.sizePolicy().hasHeightForWidth())
+        self.footnoteLbl.setSizePolicy(sizePolicy6)
 
         self._2.addWidget(self.footnoteLbl)
 
@@ -2807,11 +2834,18 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.footnoteLine)
 
-        self.horizontalLayout_16 = QHBoxLayout()
+        self.autoLockLbl = QWidget(self.springboardOptionsPageContent)
+        self.autoLockLbl.setObjectName(u"autoLockLbl")
+        sizePolicy6.setHeightForWidth(self.autoLockLbl.sizePolicy().hasHeightForWidth())
+        self.autoLockLbl.setSizePolicy(sizePolicy6)
+        self.horizontalLayout_16 = QHBoxLayout(self.autoLockLbl)
         self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
-        self.horizontalLayout_16.setContentsMargins(-1, -1, -1, 0)
-        self.lockScreenAutoLockLabel = QLabel(self.springboardOptionsPageContent)
+        self.horizontalLayout_16.setSizeConstraint(QLayout.SetDefaultConstraint)
+        self.horizontalLayout_16.setContentsMargins(-1, -1, -1, 1)
+        self.lockScreenAutoLockLabel = QLabel(self.autoLockLbl)
         self.lockScreenAutoLockLabel.setObjectName(u"lockScreenAutoLockLabel")
+        sizePolicy6.setHeightForWidth(self.lockScreenAutoLockLabel.sizePolicy().hasHeightForWidth())
+        self.lockScreenAutoLockLabel.setSizePolicy(sizePolicy6)
 
         self.horizontalLayout_16.addWidget(self.lockScreenAutoLockLabel)
 
@@ -2819,14 +2853,16 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_16.addItem(self.horizontalSpacer_10)
 
-        self.lockScreenAutoLockValueLabel = QLabel(self.springboardOptionsPageContent)
+        self.lockScreenAutoLockValueLabel = QLabel(self.autoLockLbl)
         self.lockScreenAutoLockValueLabel.setObjectName(u"lockScreenAutoLockValueLabel")
+        sizePolicy6.setHeightForWidth(self.lockScreenAutoLockValueLabel.sizePolicy().hasHeightForWidth())
+        self.lockScreenAutoLockValueLabel.setSizePolicy(sizePolicy6)
         self.lockScreenAutoLockValueLabel.setText(u"5s")
 
         self.horizontalLayout_16.addWidget(self.lockScreenAutoLockValueLabel)
 
 
-        self._2.addLayout(self.horizontalLayout_16)
+        self._2.addWidget(self.autoLockLbl)
 
         self.lockScreenAutoLockSlider = QSlider(self.springboardOptionsPageContent)
         self.lockScreenAutoLockSlider.setObjectName(u"lockScreenAutoLockSlider")
@@ -2847,45 +2883,185 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.lockScreenAutoLockSeparator)
 
-        self.disableLockRespringChk = QCheckBox(self.springboardOptionsPageContent)
-        self.disableLockRespringChk.setObjectName(u"disableLockRespringChk")
+        self.airdropTimeLimitContent = QWidget(self.springboardOptionsPageContent)
+        self.airdropTimeLimitContent.setObjectName(u"airdropTimeLimitContent")
+        sizePolicy6.setHeightForWidth(self.airdropTimeLimitContent.sizePolicy().hasHeightForWidth())
+        self.airdropTimeLimitContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_58 = QVBoxLayout(self.airdropTimeLimitContent)
+        self.verticalLayout_58.setObjectName(u"verticalLayout_58")
+        self.verticalLayout_58.setContentsMargins(0, 0, 0, 0)
+        self.label_46 = QLabel(self.airdropTimeLimitContent)
+        self.label_46.setObjectName(u"label_46")
 
-        self._2.addWidget(self.disableLockRespringChk)
+        self.verticalLayout_58.addWidget(self.label_46)
 
-        self.disableDimmingChk = QCheckBox(self.springboardOptionsPageContent)
-        self.disableDimmingChk.setObjectName(u"disableDimmingChk")
+        self.airdropTimeLimitBtns = QHBoxLayout()
+        self.airdropTimeLimitBtns.setObjectName(u"airdropTimeLimitBtns")
 
-        self._2.addWidget(self.disableDimmingChk)
+        self.verticalLayout_58.addLayout(self.airdropTimeLimitBtns)
 
-        self.disableBatteryAlertsChk = QCheckBox(self.springboardOptionsPageContent)
-        self.disableBatteryAlertsChk.setObjectName(u"disableBatteryAlertsChk")
 
-        self._2.addWidget(self.disableBatteryAlertsChk)
+        self._2.addWidget(self.airdropTimeLimitContent)
 
-        self.hideACPowerChk = QCheckBox(self.springboardOptionsPageContent)
-        self.hideACPowerChk.setObjectName(u"hideACPowerChk")
+        self.disableLockRespringContent = QWidget(self.springboardOptionsPageContent)
+        self.disableLockRespringContent.setObjectName(u"disableLockRespringContent")
+        sizePolicy6.setHeightForWidth(self.disableLockRespringContent.sizePolicy().hasHeightForWidth())
+        self.disableLockRespringContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_48 = QVBoxLayout(self.disableLockRespringContent)
+        self.verticalLayout_48.setObjectName(u"verticalLayout_48")
+        self.verticalLayout_48.setContentsMargins(0, 0, 0, 0)
+        self.label_36 = QLabel(self.disableLockRespringContent)
+        self.label_36.setObjectName(u"label_36")
 
-        self._2.addWidget(self.hideACPowerChk)
+        self.verticalLayout_48.addWidget(self.label_36)
 
-        self.disableCrumbChk = QCheckBox(self.springboardOptionsPageContent)
-        self.disableCrumbChk.setObjectName(u"disableCrumbChk")
+        self.disableLockRespringBtns = QHBoxLayout()
+        self.disableLockRespringBtns.setObjectName(u"disableLockRespringBtns")
 
-        self._2.addWidget(self.disableCrumbChk)
+        self.verticalLayout_48.addLayout(self.disableLockRespringBtns)
 
-        self.enableSupervisionTextChk = QCheckBox(self.springboardOptionsPageContent)
-        self.enableSupervisionTextChk.setObjectName(u"enableSupervisionTextChk")
 
-        self._2.addWidget(self.enableSupervisionTextChk)
+        self._2.addWidget(self.disableLockRespringContent)
 
-        self.showApertureInSnapshotsChk = QCheckBox(self.springboardOptionsPageContent)
-        self.showApertureInSnapshotsChk.setObjectName(u"showApertureInSnapshotsChk")
+        self.disableDimmingContent = QWidget(self.springboardOptionsPageContent)
+        self.disableDimmingContent.setObjectName(u"disableDimmingContent")
+        sizePolicy6.setHeightForWidth(self.disableDimmingContent.sizePolicy().hasHeightForWidth())
+        self.disableDimmingContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_49 = QVBoxLayout(self.disableDimmingContent)
+        self.verticalLayout_49.setObjectName(u"verticalLayout_49")
+        self.verticalLayout_49.setContentsMargins(0, 0, 0, 0)
+        self.label_37 = QLabel(self.disableDimmingContent)
+        self.label_37.setObjectName(u"label_37")
 
-        self._2.addWidget(self.showApertureInSnapshotsChk)
+        self.verticalLayout_49.addWidget(self.label_37)
 
-        self.enableAirPlayChk = QCheckBox(self.springboardOptionsPageContent)
-        self.enableAirPlayChk.setObjectName(u"enableAirPlayChk")
+        self.disableDimmingBtns = QHBoxLayout()
+        self.disableDimmingBtns.setObjectName(u"disableDimmingBtns")
 
-        self._2.addWidget(self.enableAirPlayChk)
+        self.verticalLayout_49.addLayout(self.disableDimmingBtns)
+
+
+        self._2.addWidget(self.disableDimmingContent)
+
+        self.lowBatteryAlertsContent = QWidget(self.springboardOptionsPageContent)
+        self.lowBatteryAlertsContent.setObjectName(u"lowBatteryAlertsContent")
+        sizePolicy6.setHeightForWidth(self.lowBatteryAlertsContent.sizePolicy().hasHeightForWidth())
+        self.lowBatteryAlertsContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_50 = QVBoxLayout(self.lowBatteryAlertsContent)
+        self.verticalLayout_50.setObjectName(u"verticalLayout_50")
+        self.verticalLayout_50.setContentsMargins(0, 0, 0, 0)
+        self.label_38 = QLabel(self.lowBatteryAlertsContent)
+        self.label_38.setObjectName(u"label_38")
+
+        self.verticalLayout_50.addWidget(self.label_38)
+
+        self.lowBatteryAlertsBtns = QHBoxLayout()
+        self.lowBatteryAlertsBtns.setObjectName(u"lowBatteryAlertsBtns")
+
+        self.verticalLayout_50.addLayout(self.lowBatteryAlertsBtns)
+
+
+        self._2.addWidget(self.lowBatteryAlertsContent)
+
+        self.hideACPowerContent = QWidget(self.springboardOptionsPageContent)
+        self.hideACPowerContent.setObjectName(u"hideACPowerContent")
+        sizePolicy6.setHeightForWidth(self.hideACPowerContent.sizePolicy().hasHeightForWidth())
+        self.hideACPowerContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_511 = QVBoxLayout(self.hideACPowerContent)
+        self.verticalLayout_511.setObjectName(u"verticalLayout_511")
+        self.verticalLayout_511.setContentsMargins(0, 0, 0, 0)
+        self.label_39 = QLabel(self.hideACPowerContent)
+        self.label_39.setObjectName(u"label_39")
+
+        self.verticalLayout_511.addWidget(self.label_39)
+
+        self.hideACPowerBtns = QHBoxLayout()
+        self.hideACPowerBtns.setObjectName(u"hideACPowerBtns")
+
+        self.verticalLayout_511.addLayout(self.hideACPowerBtns)
+
+
+        self._2.addWidget(self.hideACPowerContent)
+
+        self.disableCrumbContent = QWidget(self.springboardOptionsPageContent)
+        self.disableCrumbContent.setObjectName(u"disableCrumbContent")
+        sizePolicy6.setHeightForWidth(self.disableCrumbContent.sizePolicy().hasHeightForWidth())
+        self.disableCrumbContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_52 = QVBoxLayout(self.disableCrumbContent)
+        self.verticalLayout_52.setObjectName(u"verticalLayout_52")
+        self.verticalLayout_52.setContentsMargins(0, 0, 0, 0)
+        self.label_40 = QLabel(self.disableCrumbContent)
+        self.label_40.setObjectName(u"label_40")
+
+        self.verticalLayout_52.addWidget(self.label_40)
+
+        self.disableCrumbBtns = QHBoxLayout()
+        self.disableCrumbBtns.setObjectName(u"disableCrumbBtns")
+
+        self.verticalLayout_52.addLayout(self.disableCrumbBtns)
+
+
+        self._2.addWidget(self.disableCrumbContent)
+
+        self.supervisionTextContent = QWidget(self.springboardOptionsPageContent)
+        self.supervisionTextContent.setObjectName(u"supervisionTextContent")
+        sizePolicy6.setHeightForWidth(self.supervisionTextContent.sizePolicy().hasHeightForWidth())
+        self.supervisionTextContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_53 = QVBoxLayout(self.supervisionTextContent)
+        self.verticalLayout_53.setObjectName(u"verticalLayout_53")
+        self.verticalLayout_53.setContentsMargins(0, 0, 0, 0)
+        self.label_41 = QLabel(self.supervisionTextContent)
+        self.label_41.setObjectName(u"label_41")
+
+        self.verticalLayout_53.addWidget(self.label_41)
+
+        self.supervisionTextBtns = QHBoxLayout()
+        self.supervisionTextBtns.setObjectName(u"supervisionTextBtns")
+
+        self.verticalLayout_53.addLayout(self.supervisionTextBtns)
+
+
+        self._2.addWidget(self.supervisionTextContent)
+
+        self.showDIInScreenshotsContent = QWidget(self.springboardOptionsPageContent)
+        self.showDIInScreenshotsContent.setObjectName(u"showDIInScreenshotsContent")
+        sizePolicy6.setHeightForWidth(self.showDIInScreenshotsContent.sizePolicy().hasHeightForWidth())
+        self.showDIInScreenshotsContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_54 = QVBoxLayout(self.showDIInScreenshotsContent)
+        self.verticalLayout_54.setObjectName(u"verticalLayout_54")
+        self.verticalLayout_54.setContentsMargins(0, 0, 0, 0)
+        self.label_42 = QLabel(self.showDIInScreenshotsContent)
+        self.label_42.setObjectName(u"label_42")
+
+        self.verticalLayout_54.addWidget(self.label_42)
+
+        self.showDIInScreenshotsBtns = QHBoxLayout()
+        self.showDIInScreenshotsBtns.setObjectName(u"showDIInScreenshotsBtns")
+
+        self.verticalLayout_54.addLayout(self.showDIInScreenshotsBtns)
+
+
+        self._2.addWidget(self.showDIInScreenshotsContent)
+
+        self.enableAirPlayContent = QWidget(self.springboardOptionsPageContent)
+        self.enableAirPlayContent.setObjectName(u"enableAirPlayContent")
+        sizePolicy6.setHeightForWidth(self.enableAirPlayContent.sizePolicy().hasHeightForWidth())
+        self.enableAirPlayContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_55 = QVBoxLayout(self.enableAirPlayContent)
+        self.verticalLayout_55.setObjectName(u"verticalLayout_55")
+        self.verticalLayout_55.setContentsMargins(0, 0, 0, 0)
+        self.label_43 = QLabel(self.enableAirPlayContent)
+        self.label_43.setObjectName(u"label_43")
+
+        self.verticalLayout_55.addWidget(self.label_43)
+
+        self.enableAirPlayBtns = QHBoxLayout()
+        self.enableAirPlayBtns.setObjectName(u"enableAirPlayBtns")
+
+        self.verticalLayout_55.addLayout(self.enableAirPlayBtns)
+
+
+        self._2.addWidget(self.enableAirPlayContent)
 
         self.line_2 = QFrame(self.springboardOptionsPageContent)
         self.line_2.setObjectName(u"line_2")
@@ -2897,15 +3073,25 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.line_2)
 
-        self.authEngUICheck = QCheckBox(self.springboardOptionsPageContent)
-        self.authEngUICheck.setObjectName(u"authEngUICheck")
+        self.authEngUIContent = QWidget(self.springboardOptionsPageContent)
+        self.authEngUIContent.setObjectName(u"authEngUIContent")
+        sizePolicy6.setHeightForWidth(self.authEngUIContent.sizePolicy().hasHeightForWidth())
+        self.authEngUIContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_56 = QVBoxLayout(self.authEngUIContent)
+        self.verticalLayout_56.setObjectName(u"verticalLayout_56")
+        self.verticalLayout_56.setContentsMargins(0, 0, 0, 0)
+        self.label_44 = QLabel(self.authEngUIContent)
+        self.label_44.setObjectName(u"label_44")
 
-        self._2.addWidget(self.authEngUICheck)
+        self.verticalLayout_56.addWidget(self.label_44)
 
-        self.floatingTabBarChk = QCheckBox(self.springboardOptionsPageContent)
-        self.floatingTabBarChk.setObjectName(u"floatingTabBarChk")
+        self.authEngUIBtns = QHBoxLayout()
+        self.authEngUIBtns.setObjectName(u"authEngUIBtns")
 
-        self._2.addWidget(self.floatingTabBarChk)
+        self.verticalLayout_56.addLayout(self.authEngUIBtns)
+
+
+        self._2.addWidget(self.authEngUIContent)
 
         self.line = QFrame(self.springboardOptionsPageContent)
         self.line.setObjectName(u"line")
@@ -2914,12 +3100,32 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.line)
 
-        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.floatingTabBarContent = QWidget(self.springboardOptionsPageContent)
+        self.floatingTabBarContent.setObjectName(u"floatingTabBarContent")
+        sizePolicy6.setHeightForWidth(self.floatingTabBarContent.sizePolicy().hasHeightForWidth())
+        self.floatingTabBarContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_57 = QVBoxLayout(self.floatingTabBarContent)
+        self.verticalLayout_57.setObjectName(u"verticalLayout_57")
+        self.verticalLayout_57.setContentsMargins(0, 0, 0, 0)
+        self.label_45 = QLabel(self.floatingTabBarContent)
+        self.label_45.setObjectName(u"label_45")
 
-        self._2.addItem(self.verticalSpacer_5)
+        self.verticalLayout_57.addWidget(self.label_45)
+
+        self.floatingTabBarBtns = QHBoxLayout()
+        self.floatingTabBarBtns.setObjectName(u"floatingTabBarBtns")
+
+        self.verticalLayout_57.addLayout(self.floatingTabBarBtns)
 
 
-        self.verticalLayout_10.addWidget(self.springboardOptionsPageContent)
+        self._2.addWidget(self.floatingTabBarContent)
+
+
+        self.verticalLayout_92.addWidget(self.springboardOptionsPageContent)
+
+        self.sbOptionsScrollArea.setWidget(self.scrollAreaWidgetContents2)
+
+        self.verticalLayout_10.addWidget(self.sbOptionsScrollArea)
 
         self.pages.addWidget(self.springboardOptionsPage)
         self.internalOptionsPage = QWidget()
@@ -2955,11 +3161,11 @@ class Ui_Nugget(object):
         self.verticalLayout_121.setSpacing(6)
         self.verticalLayout_121.setObjectName(u"verticalLayout_121")
         self.verticalLayout_121.setContentsMargins(0, 0, 0, 0)
-        self.internalOptionsLbl1 = QLabel(self.verticalWidget_41)
-        self.internalOptionsLbl1.setObjectName(u"internalOptionsLbl1")
-        self.internalOptionsLbl1.setFont(font1)
+        self.internalOptionsLbl = QLabel(self.verticalWidget_41)
+        self.internalOptionsLbl.setObjectName(u"internalOptionsLbl")
+        self.internalOptionsLbl.setFont(font1)
 
-        self.verticalLayout_121.addWidget(self.internalOptionsLbl1)
+        self.verticalLayout_121.addWidget(self.internalOptionsLbl)
 
         self.verticalSpacer_18 = QSpacerItem(20, 16, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
@@ -2985,46 +3191,227 @@ class Ui_Nugget(object):
 
         self.verticalLayout_141.addWidget(self.line_121)
 
-        self.internalOptionsPageContent = QWidget(self.internalOptionsPage)
+        self.internalOptionsScrollArea = QScrollArea(self.internalOptionsPage)
+        self.internalOptionsScrollArea.setObjectName(u"internalOptionsScrollArea")
+        self.internalOptionsScrollArea.setFrameShape(QFrame.NoFrame)
+        self.internalOptionsScrollArea.setFrameShadow(QFrame.Plain)
+        self.internalOptionsScrollArea.setLineWidth(0)
+        self.internalOptionsScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.internalOptionsScrollArea.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.scrollAreaWidgetContents3 = QWidget()
+        self.scrollAreaWidgetContents3.setObjectName(u"scrollAreaWidgetContents3")
+        self.scrollAreaWidgetContents3.setGeometry(QRect(0, 0, 650, 1200))
+        sizePolicy5.setHeightForWidth(self.scrollAreaWidgetContents3.sizePolicy().hasHeightForWidth())
+        self.scrollAreaWidgetContents3.setSizePolicy(sizePolicy5)
+        self.scrollAreaWidgetContents3.setMinimumSize(QSize(650, 900))
+        self.scrollAreaWidgetContents3.setMaximumSize(QSize(650, 2000))
+        self.verticalLayout_93 = QVBoxLayout(self.scrollAreaWidgetContents3)
+        self.verticalLayout_93.setObjectName(u"verticalLayout_93")
+        self.verticalLayout_93.setContentsMargins(0, 0, 0, 0)
+        self.internalOptionsPageContent = QWidget(self.scrollAreaWidgetContents3)
         self.internalOptionsPageContent.setObjectName(u"internalOptionsPageContent")
-        self.internalOptionsPageContent.setEnabled(False)
+        self.internalOptionsPageContent.setEnabled(True)
         self.verticalLayout_131 = QVBoxLayout(self.internalOptionsPageContent)
         self.verticalLayout_131.setObjectName(u"verticalLayout_131")
         self.verticalLayout_131.setContentsMargins(0, 0, 0, 0)
-        self.disableSolariumChk = QCheckBox(self.internalOptionsPageContent)
-        self.disableSolariumChk.setObjectName(u"disableSolariumChk")
+        self.liquidGlassOptionsContent = QWidget(self.internalOptionsPageContent)
+        self.liquidGlassOptionsContent.setObjectName(u"liquidGlassOptionsContent")
+        sizePolicy6.setHeightForWidth(self.liquidGlassOptionsContent.sizePolicy().hasHeightForWidth())
+        self.liquidGlassOptionsContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_59 = QVBoxLayout(self.liquidGlassOptionsContent)
+        self.verticalLayout_59.setObjectName(u"verticalLayout_59")
+        self.verticalLayout_59.setContentsMargins(0, 0, 0, 0)
+        self.disableSolariumContent = QWidget(self.liquidGlassOptionsContent)
+        self.disableSolariumContent.setObjectName(u"disableSolariumContent")
+        sizePolicy6.setHeightForWidth(self.disableSolariumContent.sizePolicy().hasHeightForWidth())
+        self.disableSolariumContent.setSizePolicy(sizePolicy6)
+        self.disableSolariumContent.setMinimumSize(QSize(0, 25))
+        self.verticalLayout_18 = QVBoxLayout(self.disableSolariumContent)
+        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
+        self.verticalLayout_18.setContentsMargins(0, 0, 0, 0)
+        self.label_3 = QLabel(self.disableSolariumContent)
+        self.label_3.setObjectName(u"label_3")
 
-        self.verticalLayout_131.addWidget(self.disableSolariumChk)
+        self.verticalLayout_18.addWidget(self.label_3)
 
-        self.ignoreSolariumAppBuildChk = QCheckBox(self.internalOptionsPageContent)
-        self.ignoreSolariumAppBuildChk.setObjectName(u"ignoreSolariumAppBuildChk")
+        self.disableSolariumBtns = QHBoxLayout()
+        self.disableSolariumBtns.setObjectName(u"disableSolariumBtns")
 
-        self.verticalLayout_131.addWidget(self.ignoreSolariumAppBuildChk)
+        self.verticalLayout_18.addLayout(self.disableSolariumBtns)
 
-        self.buildVersionChk = QCheckBox(self.internalOptionsPageContent)
-        self.buildVersionChk.setObjectName(u"buildVersionChk")
 
-        self.verticalLayout_131.addWidget(self.buildVersionChk)
+        self.verticalLayout_59.addWidget(self.disableSolariumContent)
 
-        self.RTLChk = QCheckBox(self.internalOptionsPageContent)
-        self.RTLChk.setObjectName(u"RTLChk")
+        self.ignoreSolariumAppBuildContent = QWidget(self.liquidGlassOptionsContent)
+        self.ignoreSolariumAppBuildContent.setObjectName(u"ignoreSolariumAppBuildContent")
+        sizePolicy6.setHeightForWidth(self.ignoreSolariumAppBuildContent.sizePolicy().hasHeightForWidth())
+        self.ignoreSolariumAppBuildContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_20 = QVBoxLayout(self.ignoreSolariumAppBuildContent)
+        self.verticalLayout_20.setObjectName(u"verticalLayout_20")
+        self.verticalLayout_20.setContentsMargins(0, 0, 0, 0)
+        self.label_11 = QLabel(self.ignoreSolariumAppBuildContent)
+        self.label_11.setObjectName(u"label_11")
 
-        self.verticalLayout_131.addWidget(self.RTLChk)
+        self.verticalLayout_20.addWidget(self.label_11)
 
-        self.LTRChk = QCheckBox(self.internalOptionsPageContent)
-        self.LTRChk.setObjectName(u"LTRChk")
+        self.ignoreSolariumAppBuildBtns = QHBoxLayout()
+        self.ignoreSolariumAppBuildBtns.setObjectName(u"ignoreSolariumAppBuildBtns")
 
-        self.verticalLayout_131.addWidget(self.LTRChk)
+        self.verticalLayout_20.addLayout(self.ignoreSolariumAppBuildBtns)
 
-        self.sbIconVisibilityChk = QCheckBox(self.internalOptionsPageContent)
-        self.sbIconVisibilityChk.setObjectName(u"sbIconVisibilityChk")
 
-        self.verticalLayout_131.addWidget(self.sbIconVisibilityChk)
+        self.verticalLayout_59.addWidget(self.ignoreSolariumAppBuildContent)
 
-        self.keyFlickChk = QCheckBox(self.internalOptionsPageContent)
-        self.keyFlickChk.setObjectName(u"keyFlickChk")
+        self.noLiquidClockContent = QWidget(self.liquidGlassOptionsContent)
+        self.noLiquidClockContent.setObjectName(u"noLiquidClockContent")
+        self.verticalLayout_60 = QVBoxLayout(self.noLiquidClockContent)
+        self.verticalLayout_60.setObjectName(u"verticalLayout_60")
+        self.verticalLayout_60.setContentsMargins(0, 0, 0, 0)
+        self.label_47 = QLabel(self.noLiquidClockContent)
+        self.label_47.setObjectName(u"label_47")
 
-        self.verticalLayout_131.addWidget(self.keyFlickChk)
+        self.verticalLayout_60.addWidget(self.label_47)
+
+        self.noLiquidClockBtns = QHBoxLayout()
+        self.noLiquidClockBtns.setObjectName(u"noLiquidClockBtns")
+
+        self.verticalLayout_60.addLayout(self.noLiquidClockBtns)
+
+
+        self.verticalLayout_59.addWidget(self.noLiquidClockContent)
+
+        self.noLiquidDockContent = QWidget(self.liquidGlassOptionsContent)
+        self.noLiquidDockContent.setObjectName(u"noLiquidDockContent")
+        sizePolicy6.setHeightForWidth(self.noLiquidDockContent.sizePolicy().hasHeightForWidth())
+        self.noLiquidDockContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_61 = QVBoxLayout(self.noLiquidDockContent)
+        self.verticalLayout_61.setObjectName(u"verticalLayout_61")
+        self.verticalLayout_61.setContentsMargins(0, 0, 0, 0)
+        self.label_48 = QLabel(self.noLiquidDockContent)
+        self.label_48.setObjectName(u"label_48")
+
+        self.verticalLayout_61.addWidget(self.label_48)
+
+        self.noLiquidDockBtns = QHBoxLayout()
+        self.noLiquidDockBtns.setObjectName(u"noLiquidDockBtns")
+
+        self.verticalLayout_61.addLayout(self.noLiquidDockBtns)
+
+
+        self.verticalLayout_59.addWidget(self.noLiquidDockContent)
+
+        self.line_3 = QFrame(self.liquidGlassOptionsContent)
+        self.line_3.setObjectName(u"line_3")
+        self.line_3.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_3.setFrameShadow(QFrame.Plain)
+        self.line_3.setFrameShape(QFrame.Shape.HLine)
+
+        self.verticalLayout_59.addWidget(self.line_3)
+
+
+        self.verticalLayout_131.addWidget(self.liquidGlassOptionsContent)
+
+        self.buildVersionContent = QWidget(self.internalOptionsPageContent)
+        self.buildVersionContent.setObjectName(u"buildVersionContent")
+        sizePolicy6.setHeightForWidth(self.buildVersionContent.sizePolicy().hasHeightForWidth())
+        self.buildVersionContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_19 = QVBoxLayout(self.buildVersionContent)
+        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
+        self.verticalLayout_19.setContentsMargins(0, 0, 0, 0)
+        self.label_7 = QLabel(self.buildVersionContent)
+        self.label_7.setObjectName(u"label_7")
+
+        self.verticalLayout_19.addWidget(self.label_7)
+
+        self.buildVersionBtns = QHBoxLayout()
+        self.buildVersionBtns.setObjectName(u"buildVersionBtns")
+
+        self.verticalLayout_19.addLayout(self.buildVersionBtns)
+
+
+        self.verticalLayout_131.addWidget(self.buildVersionContent)
+
+        self.RTLContent = QWidget(self.internalOptionsPageContent)
+        self.RTLContent.setObjectName(u"RTLContent")
+        sizePolicy6.setHeightForWidth(self.RTLContent.sizePolicy().hasHeightForWidth())
+        self.RTLContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_21 = QVBoxLayout(self.RTLContent)
+        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
+        self.verticalLayout_21.setContentsMargins(0, 0, 0, 0)
+        self.label_13 = QLabel(self.RTLContent)
+        self.label_13.setObjectName(u"label_13")
+
+        self.verticalLayout_21.addWidget(self.label_13)
+
+        self.RTLBtns = QHBoxLayout()
+        self.RTLBtns.setObjectName(u"RTLBtns")
+
+        self.verticalLayout_21.addLayout(self.RTLBtns)
+
+
+        self.verticalLayout_131.addWidget(self.RTLContent)
+
+        self.LTRContent = QWidget(self.internalOptionsPageContent)
+        self.LTRContent.setObjectName(u"LTRContent")
+        sizePolicy6.setHeightForWidth(self.LTRContent.sizePolicy().hasHeightForWidth())
+        self.LTRContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_22 = QVBoxLayout(self.LTRContent)
+        self.verticalLayout_22.setObjectName(u"verticalLayout_22")
+        self.verticalLayout_22.setContentsMargins(0, 0, 0, 0)
+        self.label_14 = QLabel(self.LTRContent)
+        self.label_14.setObjectName(u"label_14")
+
+        self.verticalLayout_22.addWidget(self.label_14)
+
+        self.LTRBtns = QHBoxLayout()
+        self.LTRBtns.setObjectName(u"LTRBtns")
+
+        self.verticalLayout_22.addLayout(self.LTRBtns)
+
+
+        self.verticalLayout_131.addWidget(self.LTRContent)
+
+        self.sbIconVisibilityContent = QWidget(self.internalOptionsPageContent)
+        self.sbIconVisibilityContent.setObjectName(u"sbIconVisibilityContent")
+        sizePolicy6.setHeightForWidth(self.sbIconVisibilityContent.sizePolicy().hasHeightForWidth())
+        self.sbIconVisibilityContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_23 = QVBoxLayout(self.sbIconVisibilityContent)
+        self.verticalLayout_23.setObjectName(u"verticalLayout_23")
+        self.verticalLayout_23.setContentsMargins(0, 0, 0, 0)
+        self.label_22 = QLabel(self.sbIconVisibilityContent)
+        self.label_22.setObjectName(u"label_22")
+
+        self.verticalLayout_23.addWidget(self.label_22)
+
+        self.sbIconVisibilityBtns = QHBoxLayout()
+        self.sbIconVisibilityBtns.setObjectName(u"sbIconVisibilityBtns")
+
+        self.verticalLayout_23.addLayout(self.sbIconVisibilityBtns)
+
+
+        self.verticalLayout_131.addWidget(self.sbIconVisibilityContent)
+
+        self.keyFlickContent = QWidget(self.internalOptionsPageContent)
+        self.keyFlickContent.setObjectName(u"keyFlickContent")
+        sizePolicy6.setHeightForWidth(self.keyFlickContent.sizePolicy().hasHeightForWidth())
+        self.keyFlickContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_27 = QVBoxLayout(self.keyFlickContent)
+        self.verticalLayout_27.setObjectName(u"verticalLayout_27")
+        self.verticalLayout_27.setContentsMargins(0, 0, 0, 0)
+        self.label_23 = QLabel(self.keyFlickContent)
+        self.label_23.setObjectName(u"label_23")
+
+        self.verticalLayout_27.addWidget(self.label_23)
+
+        self.keyFlickBtns = QHBoxLayout()
+        self.keyFlickBtns.setObjectName(u"keyFlickBtns")
+
+        self.verticalLayout_27.addLayout(self.keyFlickBtns)
+
+
+        self.verticalLayout_131.addWidget(self.keyFlickContent)
 
         self.div1 = QFrame(self.internalOptionsPageContent)
         self.div1.setObjectName(u"div1")
@@ -3037,30 +3424,105 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.div1)
 
-        self.metalHUDChk = QCheckBox(self.internalOptionsPageContent)
-        self.metalHUDChk.setObjectName(u"metalHUDChk")
+        self.metalHUDContent = QWidget(self.internalOptionsPageContent)
+        self.metalHUDContent.setObjectName(u"metalHUDContent")
+        sizePolicy6.setHeightForWidth(self.metalHUDContent.sizePolicy().hasHeightForWidth())
+        self.metalHUDContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_28 = QVBoxLayout(self.metalHUDContent)
+        self.verticalLayout_28.setObjectName(u"verticalLayout_28")
+        self.verticalLayout_28.setContentsMargins(0, 0, 0, 0)
+        self.label_24 = QLabel(self.metalHUDContent)
+        self.label_24.setObjectName(u"label_24")
 
-        self.verticalLayout_131.addWidget(self.metalHUDChk)
+        self.verticalLayout_28.addWidget(self.label_24)
 
-        self.iMessageChk = QCheckBox(self.internalOptionsPageContent)
-        self.iMessageChk.setObjectName(u"iMessageChk")
+        self.metalHUDBtns = QHBoxLayout()
+        self.metalHUDBtns.setObjectName(u"metalHUDBtns")
 
-        self.verticalLayout_131.addWidget(self.iMessageChk)
+        self.verticalLayout_28.addLayout(self.metalHUDBtns)
 
-        self.IDSChk = QCheckBox(self.internalOptionsPageContent)
-        self.IDSChk.setObjectName(u"IDSChk")
 
-        self.verticalLayout_131.addWidget(self.IDSChk)
+        self.verticalLayout_131.addWidget(self.metalHUDContent)
 
-        self.VCChk = QCheckBox(self.internalOptionsPageContent)
-        self.VCChk.setObjectName(u"VCChk")
+        self.iMessageContent = QWidget(self.internalOptionsPageContent)
+        self.iMessageContent.setObjectName(u"iMessageContent")
+        sizePolicy6.setHeightForWidth(self.iMessageContent.sizePolicy().hasHeightForWidth())
+        self.iMessageContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_29 = QVBoxLayout(self.iMessageContent)
+        self.verticalLayout_29.setObjectName(u"verticalLayout_29")
+        self.verticalLayout_29.setContentsMargins(0, 0, 0, 0)
+        self.label_25 = QLabel(self.iMessageContent)
+        self.label_25.setObjectName(u"label_25")
 
-        self.verticalLayout_131.addWidget(self.VCChk)
+        self.verticalLayout_29.addWidget(self.label_25)
 
-        self.accessoryDevChk = QCheckBox(self.internalOptionsPageContent)
-        self.accessoryDevChk.setObjectName(u"accessoryDevChk")
+        self.iMessageBtns = QHBoxLayout()
+        self.iMessageBtns.setObjectName(u"iMessageBtns")
 
-        self.verticalLayout_131.addWidget(self.accessoryDevChk)
+        self.verticalLayout_29.addLayout(self.iMessageBtns)
+
+
+        self.verticalLayout_131.addWidget(self.iMessageContent)
+
+        self.IDSContent = QWidget(self.internalOptionsPageContent)
+        self.IDSContent.setObjectName(u"IDSContent")
+        sizePolicy6.setHeightForWidth(self.IDSContent.sizePolicy().hasHeightForWidth())
+        self.IDSContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_30 = QVBoxLayout(self.IDSContent)
+        self.verticalLayout_30.setObjectName(u"verticalLayout_30")
+        self.verticalLayout_30.setContentsMargins(0, 0, 0, 0)
+        self.label_26 = QLabel(self.IDSContent)
+        self.label_26.setObjectName(u"label_26")
+
+        self.verticalLayout_30.addWidget(self.label_26)
+
+        self.IDSBtns = QHBoxLayout()
+        self.IDSBtns.setObjectName(u"IDSBtns")
+
+        self.verticalLayout_30.addLayout(self.IDSBtns)
+
+
+        self.verticalLayout_131.addWidget(self.IDSContent)
+
+        self.VCContent = QWidget(self.internalOptionsPageContent)
+        self.VCContent.setObjectName(u"VCContent")
+        sizePolicy6.setHeightForWidth(self.VCContent.sizePolicy().hasHeightForWidth())
+        self.VCContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_31 = QVBoxLayout(self.VCContent)
+        self.verticalLayout_31.setObjectName(u"verticalLayout_31")
+        self.verticalLayout_31.setContentsMargins(0, 0, 0, 0)
+        self.label_27 = QLabel(self.VCContent)
+        self.label_27.setObjectName(u"label_27")
+
+        self.verticalLayout_31.addWidget(self.label_27)
+
+        self.VCBtns = QHBoxLayout()
+        self.VCBtns.setObjectName(u"VCBtns")
+
+        self.verticalLayout_31.addLayout(self.VCBtns)
+
+
+        self.verticalLayout_131.addWidget(self.VCContent)
+
+        self.accessoryDevContent = QWidget(self.internalOptionsPageContent)
+        self.accessoryDevContent.setObjectName(u"accessoryDevContent")
+        sizePolicy6.setHeightForWidth(self.accessoryDevContent.sizePolicy().hasHeightForWidth())
+        self.accessoryDevContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_40 = QVBoxLayout(self.accessoryDevContent)
+        self.verticalLayout_40.setObjectName(u"verticalLayout_40")
+        self.verticalLayout_40.setContentsMargins(0, 0, 0, 0)
+        self.label_28 = QLabel(self.accessoryDevContent)
+        self.label_28.setObjectName(u"label_28")
+
+        self.verticalLayout_40.addWidget(self.label_28)
+
+        self.accessoryDevBtns = QHBoxLayout()
+        self.accessoryDevBtns.setObjectName(u"accessoryDevBtns")
+
+        self.verticalLayout_40.addLayout(self.accessoryDevBtns)
+
+
+        self.verticalLayout_131.addWidget(self.accessoryDevContent)
 
         self.line_17 = QFrame(self.internalOptionsPageContent)
         self.line_17.setObjectName(u"line_17")
@@ -3072,15 +3534,45 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.line_17)
 
-        self.appStoreChk = QCheckBox(self.internalOptionsPageContent)
-        self.appStoreChk.setObjectName(u"appStoreChk")
+        self.appStoreContent = QWidget(self.internalOptionsPageContent)
+        self.appStoreContent.setObjectName(u"appStoreContent")
+        sizePolicy6.setHeightForWidth(self.appStoreContent.sizePolicy().hasHeightForWidth())
+        self.appStoreContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_411 = QVBoxLayout(self.appStoreContent)
+        self.verticalLayout_411.setObjectName(u"verticalLayout_411")
+        self.verticalLayout_411.setContentsMargins(0, 0, 0, 0)
+        self.label_29 = QLabel(self.appStoreContent)
+        self.label_29.setObjectName(u"label_29")
 
-        self.verticalLayout_131.addWidget(self.appStoreChk)
+        self.verticalLayout_411.addWidget(self.label_29)
 
-        self.notesChk = QCheckBox(self.internalOptionsPageContent)
-        self.notesChk.setObjectName(u"notesChk")
+        self.appStoreBtns = QHBoxLayout()
+        self.appStoreBtns.setObjectName(u"appStoreBtns")
 
-        self.verticalLayout_131.addWidget(self.notesChk)
+        self.verticalLayout_411.addLayout(self.appStoreBtns)
+
+
+        self.verticalLayout_131.addWidget(self.appStoreContent)
+
+        self.notesContent = QWidget(self.internalOptionsPageContent)
+        self.notesContent.setObjectName(u"notesContent")
+        sizePolicy6.setHeightForWidth(self.notesContent.sizePolicy().hasHeightForWidth())
+        self.notesContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_42 = QVBoxLayout(self.notesContent)
+        self.verticalLayout_42.setObjectName(u"verticalLayout_42")
+        self.verticalLayout_42.setContentsMargins(0, 0, 0, 0)
+        self.label_30 = QLabel(self.notesContent)
+        self.label_30.setObjectName(u"label_30")
+
+        self.verticalLayout_42.addWidget(self.label_30)
+
+        self.notesBtns = QHBoxLayout()
+        self.notesBtns.setObjectName(u"notesBtns")
+
+        self.verticalLayout_42.addLayout(self.notesBtns)
+
+
+        self.verticalLayout_131.addWidget(self.notesContent)
 
         self.line_18 = QFrame(self.internalOptionsPageContent)
         self.line_18.setObjectName(u"line_18")
@@ -3092,20 +3584,65 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.line_18)
 
-        self.showTouchesChk = QCheckBox(self.internalOptionsPageContent)
-        self.showTouchesChk.setObjectName(u"showTouchesChk")
+        self.showTouchesContent = QWidget(self.internalOptionsPageContent)
+        self.showTouchesContent.setObjectName(u"showTouchesContent")
+        sizePolicy6.setHeightForWidth(self.showTouchesContent.sizePolicy().hasHeightForWidth())
+        self.showTouchesContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_43 = QVBoxLayout(self.showTouchesContent)
+        self.verticalLayout_43.setObjectName(u"verticalLayout_43")
+        self.verticalLayout_43.setContentsMargins(0, 0, 0, 0)
+        self.label_31 = QLabel(self.showTouchesContent)
+        self.label_31.setObjectName(u"label_31")
 
-        self.verticalLayout_131.addWidget(self.showTouchesChk)
+        self.verticalLayout_43.addWidget(self.label_31)
 
-        self.hideRespringChk = QCheckBox(self.internalOptionsPageContent)
-        self.hideRespringChk.setObjectName(u"hideRespringChk")
+        self.showTouchesBtns = QHBoxLayout()
+        self.showTouchesBtns.setObjectName(u"showTouchesBtns")
 
-        self.verticalLayout_131.addWidget(self.hideRespringChk)
+        self.verticalLayout_43.addLayout(self.showTouchesBtns)
 
-        self.enableWakeVibrateChk = QCheckBox(self.internalOptionsPageContent)
-        self.enableWakeVibrateChk.setObjectName(u"enableWakeVibrateChk")
 
-        self.verticalLayout_131.addWidget(self.enableWakeVibrateChk)
+        self.verticalLayout_131.addWidget(self.showTouchesContent)
+
+        self.hideRespringContent = QWidget(self.internalOptionsPageContent)
+        self.hideRespringContent.setObjectName(u"hideRespringContent")
+        sizePolicy6.setHeightForWidth(self.hideRespringContent.sizePolicy().hasHeightForWidth())
+        self.hideRespringContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_44 = QVBoxLayout(self.hideRespringContent)
+        self.verticalLayout_44.setObjectName(u"verticalLayout_44")
+        self.verticalLayout_44.setContentsMargins(0, 0, 0, 0)
+        self.label_32 = QLabel(self.hideRespringContent)
+        self.label_32.setObjectName(u"label_32")
+
+        self.verticalLayout_44.addWidget(self.label_32)
+
+        self.hideRespringBtns = QHBoxLayout()
+        self.hideRespringBtns.setObjectName(u"hideRespringBtns")
+
+        self.verticalLayout_44.addLayout(self.hideRespringBtns)
+
+
+        self.verticalLayout_131.addWidget(self.hideRespringContent)
+
+        self.wakeVibrateContent = QWidget(self.internalOptionsPageContent)
+        self.wakeVibrateContent.setObjectName(u"wakeVibrateContent")
+        sizePolicy6.setHeightForWidth(self.wakeVibrateContent.sizePolicy().hasHeightForWidth())
+        self.wakeVibrateContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_45 = QVBoxLayout(self.wakeVibrateContent)
+        self.verticalLayout_45.setObjectName(u"verticalLayout_45")
+        self.verticalLayout_45.setContentsMargins(0, 0, 0, 0)
+        self.label_33 = QLabel(self.wakeVibrateContent)
+        self.label_33.setObjectName(u"label_33")
+
+        self.verticalLayout_45.addWidget(self.label_33)
+
+        self.wakeVibrateBtns = QHBoxLayout()
+        self.wakeVibrateBtns.setObjectName(u"wakeVibrateBtns")
+
+        self.verticalLayout_45.addLayout(self.wakeVibrateBtns)
+
+
+        self.verticalLayout_131.addWidget(self.wakeVibrateContent)
 
         self.line_19 = QFrame(self.internalOptionsPageContent)
         self.line_19.setObjectName(u"line_19")
@@ -3117,22 +3654,52 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.line_19)
 
-        self.pasteSoundChk = QCheckBox(self.internalOptionsPageContent)
-        self.pasteSoundChk.setObjectName(u"pasteSoundChk")
+        self.pasteSoundContent = QWidget(self.internalOptionsPageContent)
+        self.pasteSoundContent.setObjectName(u"pasteSoundContent")
+        sizePolicy6.setHeightForWidth(self.pasteSoundContent.sizePolicy().hasHeightForWidth())
+        self.pasteSoundContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_46 = QVBoxLayout(self.pasteSoundContent)
+        self.verticalLayout_46.setObjectName(u"verticalLayout_46")
+        self.verticalLayout_46.setContentsMargins(0, 0, 0, 0)
+        self.label_34 = QLabel(self.pasteSoundContent)
+        self.label_34.setObjectName(u"label_34")
 
-        self.verticalLayout_131.addWidget(self.pasteSoundChk)
+        self.verticalLayout_46.addWidget(self.label_34)
 
-        self.notifyPastesChk = QCheckBox(self.internalOptionsPageContent)
-        self.notifyPastesChk.setObjectName(u"notifyPastesChk")
+        self.pasteSoundBtns = QHBoxLayout()
+        self.pasteSoundBtns.setObjectName(u"pasteSoundBtns")
 
-        self.verticalLayout_131.addWidget(self.notifyPastesChk)
-
-        self.verticalSpacer_61 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.verticalLayout_131.addItem(self.verticalSpacer_61)
+        self.verticalLayout_46.addLayout(self.pasteSoundBtns)
 
 
-        self.verticalLayout_141.addWidget(self.internalOptionsPageContent)
+        self.verticalLayout_131.addWidget(self.pasteSoundContent)
+
+        self.notifyPastesContent = QWidget(self.internalOptionsPageContent)
+        self.notifyPastesContent.setObjectName(u"notifyPastesContent")
+        sizePolicy6.setHeightForWidth(self.notifyPastesContent.sizePolicy().hasHeightForWidth())
+        self.notifyPastesContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_47 = QVBoxLayout(self.notifyPastesContent)
+        self.verticalLayout_47.setObjectName(u"verticalLayout_47")
+        self.verticalLayout_47.setContentsMargins(0, 0, 0, 0)
+        self.label_35 = QLabel(self.notifyPastesContent)
+        self.label_35.setObjectName(u"label_35")
+
+        self.verticalLayout_47.addWidget(self.label_35)
+
+        self.notifyPastesBtns = QHBoxLayout()
+        self.notifyPastesBtns.setObjectName(u"notifyPastesBtns")
+
+        self.verticalLayout_47.addLayout(self.notifyPastesBtns)
+
+
+        self.verticalLayout_131.addWidget(self.notifyPastesContent)
+
+
+        self.verticalLayout_93.addWidget(self.internalOptionsPageContent)
+
+        self.internalOptionsScrollArea.setWidget(self.scrollAreaWidgetContents3)
+
+        self.verticalLayout_141.addWidget(self.internalOptionsScrollArea)
 
         self.pages.addWidget(self.internalOptionsPage)
         self.daemonsPage = QWidget()
@@ -3330,9 +3897,9 @@ class Ui_Nugget(object):
 
         self.verticalLayout_132.addWidget(self.nanoTimeKitChk)
 
-        self.verticalSpacer_62 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer_61 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.verticalLayout_132.addItem(self.verticalSpacer_62)
+        self.verticalLayout_132.addItem(self.verticalSpacer_61)
 
 
         self.verticalLayout_142.addWidget(self.daemonsPageContent)
@@ -3411,11 +3978,8 @@ class Ui_Nugget(object):
 
         self.pbPagePicker = QWidget(self.posterboardPage)
         self.pbPagePicker.setObjectName(u"pbPagePicker")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.pbPagePicker.sizePolicy().hasHeightForWidth())
-        self.pbPagePicker.setSizePolicy(sizePolicy5)
+        sizePolicy6.setHeightForWidth(self.pbPagePicker.sizePolicy().hasHeightForWidth())
+        self.pbPagePicker.setSizePolicy(sizePolicy6)
         self.pbPagePicker.setMinimumSize(QSize(0, 30))
         self.pbPagePicker.setMaximumSize(QSize(16777215, 35))
         self.pbPagePicker.setStyleSheet(u"QToolButton {\n"
@@ -3427,11 +3991,11 @@ class Ui_Nugget(object):
         self.horizontalLayout_14.setContentsMargins(-1, 0, -1, 0)
         self.tendiesPageBtn = QToolButton(self.pbPagePicker)
         self.tendiesPageBtn.setObjectName(u"tendiesPageBtn")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Expanding)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.tendiesPageBtn.sizePolicy().hasHeightForWidth())
-        self.tendiesPageBtn.setSizePolicy(sizePolicy6)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Expanding)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.tendiesPageBtn.sizePolicy().hasHeightForWidth())
+        self.tendiesPageBtn.setSizePolicy(sizePolicy7)
         self.tendiesPageBtn.setMinimumSize(QSize(0, 25))
         icon25 = QIcon()
         icon25.addFile(u":/icon/file-earmark-zip.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
@@ -3524,11 +4088,11 @@ class Ui_Nugget(object):
 
         self.pbFilesList = QWidget(self.pbTendiesPage)
         self.pbFilesList.setObjectName(u"pbFilesList")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.pbFilesList.sizePolicy().hasHeightForWidth())
-        self.pbFilesList.setSizePolicy(sizePolicy7)
+        sizePolicy8 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(0)
+        sizePolicy8.setHeightForWidth(self.pbFilesList.sizePolicy().hasHeightForWidth())
+        self.pbFilesList.setSizePolicy(sizePolicy8)
         self.pbFilesList.setMinimumSize(QSize(200, 35))
 
         self.verticalLayout_38.addWidget(self.pbFilesList)
@@ -3570,8 +4134,8 @@ class Ui_Nugget(object):
 
         self.pbTemplatesList = QWidget(self.pbTemplatesPage)
         self.pbTemplatesList.setObjectName(u"pbTemplatesList")
-        sizePolicy7.setHeightForWidth(self.pbTemplatesList.sizePolicy().hasHeightForWidth())
-        self.pbTemplatesList.setSizePolicy(sizePolicy7)
+        sizePolicy8.setHeightForWidth(self.pbTemplatesList.sizePolicy().hasHeightForWidth())
+        self.pbTemplatesList.setSizePolicy(sizePolicy8)
         self.pbTemplatesList.setMinimumSize(QSize(200, 35))
 
         self.verticalLayout_381.addWidget(self.pbTemplatesList)
@@ -3786,8 +4350,8 @@ class Ui_Nugget(object):
 
         self.templatesList = QWidget(self.templatesPage)
         self.templatesList.setObjectName(u"templatesList")
-        sizePolicy7.setHeightForWidth(self.templatesList.sizePolicy().hasHeightForWidth())
-        self.templatesList.setSizePolicy(sizePolicy7)
+        sizePolicy8.setHeightForWidth(self.templatesList.sizePolicy().hasHeightForWidth())
+        self.templatesList.setSizePolicy(sizePolicy8)
         self.templatesList.setMinimumSize(QSize(200, 35))
 
         self.verticalLayout_382.addWidget(self.templatesList)
@@ -3981,9 +4545,9 @@ class Ui_Nugget(object):
 
         self.verticalLayout_133.addWidget(self.resChangerContent)
 
-        self.verticalSpacer_63 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer_62 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.verticalLayout_133.addItem(self.verticalSpacer_63)
+        self.verticalLayout_133.addItem(self.verticalSpacer_62)
 
 
         self.verticalLayout_145.addWidget(self.advancedOptionsPageContent)
@@ -4145,9 +4709,9 @@ class Ui_Nugget(object):
         self.pages.addWidget(self.miscOptionsPage)
         self.applyPage = QWidget()
         self.applyPage.setObjectName(u"applyPage")
-        self.verticalLayout_61 = QVBoxLayout(self.applyPage)
-        self.verticalLayout_61.setObjectName(u"verticalLayout_61")
-        self.verticalLayout_61.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_62 = QVBoxLayout(self.applyPage)
+        self.verticalLayout_62.setObjectName(u"verticalLayout_62")
+        self.verticalLayout_62.setContentsMargins(0, 0, 0, 0)
         self.verticalWidget3 = QWidget(self.applyPage)
         self.verticalWidget3.setObjectName(u"verticalWidget3")
         self.verticalLayout_241 = QVBoxLayout(self.verticalWidget3)
@@ -4306,7 +4870,7 @@ class Ui_Nugget(object):
         self.verticalLayout_241.addWidget(self.horizontalWidget11)
 
 
-        self.verticalLayout_61.addWidget(self.verticalWidget3)
+        self.verticalLayout_62.addWidget(self.verticalWidget3)
 
         self.pages.addWidget(self.applyPage)
         self.settingsPage = QWidget()
@@ -4370,7 +4934,24 @@ class Ui_Nugget(object):
 
         self.verticalLayout_101.addWidget(self.line_111)
 
-        self.settingsPageContent = QWidget(self.settingsPage)
+        self.settingsScrollArea = QScrollArea(self.settingsPage)
+        self.settingsScrollArea.setObjectName(u"settingsScrollArea")
+        self.settingsScrollArea.setFrameShape(QFrame.NoFrame)
+        self.settingsScrollArea.setFrameShadow(QFrame.Plain)
+        self.settingsScrollArea.setLineWidth(0)
+        self.settingsScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.settingsScrollArea.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.scrollAreaWidgetContents4 = QWidget()
+        self.scrollAreaWidgetContents4.setObjectName(u"scrollAreaWidgetContents4")
+        self.scrollAreaWidgetContents4.setGeometry(QRect(0, 0, 650, 800))
+        sizePolicy5.setHeightForWidth(self.scrollAreaWidgetContents4.sizePolicy().hasHeightForWidth())
+        self.scrollAreaWidgetContents4.setSizePolicy(sizePolicy5)
+        self.scrollAreaWidgetContents4.setMinimumSize(QSize(650, 500))
+        self.scrollAreaWidgetContents4.setMaximumSize(QSize(650, 2000))
+        self.verticalLayout_94 = QVBoxLayout(self.scrollAreaWidgetContents4)
+        self.verticalLayout_94.setObjectName(u"verticalLayout_94")
+        self.verticalLayout_94.setContentsMargins(0, 0, 0, 0)
+        self.settingsPageContent = QWidget(self.scrollAreaWidgetContents4)
         self.settingsPageContent.setObjectName(u"settingsPageContent")
         self.settingsPageContent.setEnabled(True)
         self.settingsPageContent.setMaximumSize(QSize(650, 16777215))
@@ -4458,6 +5039,57 @@ class Ui_Nugget(object):
 
         self._21.addWidget(self.disableTendiesLimitChk)
 
+        self.bookrestoreWidget = QWidget(self.settingsPageContent)
+        self.bookrestoreWidget.setObjectName(u"bookrestoreWidget")
+        self.verticalLayout_621 = QVBoxLayout(self.bookrestoreWidget)
+        self.verticalLayout_621.setObjectName(u"verticalLayout_621")
+        self.verticalLayout_621.setContentsMargins(0, 0, 0, 0)
+        self.line_6 = QFrame(self.bookrestoreWidget)
+        self.line_6.setObjectName(u"line_6")
+        self.line_6.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_6.setFrameShadow(QFrame.Plain)
+        self.line_6.setFrameShape(QFrame.Shape.HLine)
+
+        self.verticalLayout_621.addWidget(self.line_6)
+
+        self.horizontalLayout_22 = QHBoxLayout()
+        self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
+        self.horizontalLayout_22.setContentsMargins(-1, -1, -1, 10)
+        self.label_50 = QLabel(self.bookrestoreWidget)
+        self.label_50.setObjectName(u"label_50")
+
+        self.horizontalLayout_22.addWidget(self.label_50)
+
+        self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_22.addItem(self.horizontalSpacer_11)
+
+        self.brTransferModeDrp = QComboBox(self.bookrestoreWidget)
+        self.brTransferModeDrp.addItem("")
+        self.brTransferModeDrp.addItem("")
+        self.brTransferModeDrp.setObjectName(u"brTransferModeDrp")
+        self.brTransferModeDrp.setMinimumSize(QSize(175, 0))
+
+        self.horizontalLayout_22.addWidget(self.brTransferModeDrp)
+
+
+        self.verticalLayout_621.addLayout(self.horizontalLayout_22)
+
+        self.label_49 = QLabel(self.bookrestoreWidget)
+        self.label_49.setObjectName(u"label_49")
+
+        self.verticalLayout_621.addWidget(self.label_49)
+
+        self.booksContainerUUIDTxt = QLineEdit(self.bookrestoreWidget)
+        self.booksContainerUUIDTxt.setObjectName(u"booksContainerUUIDTxt")
+
+        self.verticalLayout_621.addWidget(self.booksContainerUUIDTxt)
+
+
+        self._21.addWidget(self.bookrestoreWidget)
+
         self.line_24 = QFrame(self.settingsPageContent)
         self.line_24.setObjectName(u"line_24")
         self.line_24.setStyleSheet(u"QFrame {\n"
@@ -4533,12 +5165,16 @@ class Ui_Nugget(object):
 
         self._21.addLayout(self.horizontalLayout_3211)
 
-        self.verticalSpacer_51 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self._21.addItem(self.verticalSpacer_51)
+        self._21.addItem(self.verticalSpacer_5)
 
 
-        self.verticalLayout_101.addWidget(self.settingsPageContent)
+        self.verticalLayout_94.addWidget(self.settingsPageContent)
+
+        self.settingsScrollArea.setWidget(self.scrollAreaWidgetContents4)
+
+        self.verticalLayout_101.addWidget(self.settingsScrollArea)
 
         self.pages.addWidget(self.settingsPage)
 
@@ -4559,6 +5195,7 @@ class Ui_Nugget(object):
         self.dynamicIslandDrp.setCurrentIndex(0)
         self.spoofedModelDrp.setCurrentIndex(0)
         self.pTypeDrp.setCurrentIndex(0)
+        self.brTransferModeDrp.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(Nugget)
@@ -4643,7 +5280,7 @@ class Ui_Nugget(object):
 #endif // QT_CONFIG(tooltip)
         self.parallaxChk.setText(QCoreApplication.translate("Nugget", u"Disable Wallpaper Parallax", None))
         self.stageManagerChk.setText(QCoreApplication.translate("Nugget", u"Enable Stage Manager Supported", None))
-        self.enableMedusaChk.setText(QCoreApplication.translate("Nugget", u"Enable Medusa (iPad Multitasking)", None))
+        self.enableiPadOSChk.setText(QCoreApplication.translate("Nugget", u"Enable iPadOS", None))
         self.ipadAppsChk.setText(QCoreApplication.translate("Nugget", u"Allow iPad Apps on iPhone", None))
 #if QT_CONFIG(tooltip)
         self.shutterChk.setToolTip(QCoreApplication.translate("Nugget", u"Sets the device's region to LL/A to bypass certain region restrictions like the forced shutter sound.", None))
@@ -4680,7 +5317,7 @@ class Ui_Nugget(object):
         self.addGestaltKeyBtn.setText(QCoreApplication.translate("Nugget", u"  Add Key", None))
         self.label_12.setText(QCoreApplication.translate("Nugget", u"Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know\n"
 "what you are doing.", None))
-        self.internalOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Feature Flags", None))
+        self.featureFlagsLbl.setText(QCoreApplication.translate("Nugget", u"Feature Flags", None))
 #if QT_CONFIG(tooltip)
         self.clockAnimChk.setToolTip(QCoreApplication.translate("Nugget", u"Enables an animation when the lock screen clock changes time or style.", None))
 #endif // QT_CONFIG(tooltip)
@@ -4732,26 +5369,27 @@ class Ui_Nugget(object):
         self.spoofedModelDrp.setItemText(4, QCoreApplication.translate("Nugget", u"iPhone 16 Plus (iPhone17,4)", None))
         self.spoofedModelDrp.setItemText(5, QCoreApplication.translate("Nugget", u"iPhone 16 Pro (iPhone17,1)", None))
         self.spoofedModelDrp.setItemText(6, QCoreApplication.translate("Nugget", u"iPhone 16 Pro Max (iPhone17,2)", None))
-        self.spoofedModelDrp.setItemText(7, QCoreApplication.translate("Nugget", u"iPad Mini (A17 Pro) (W) (iPad16,1)", None))
-        self.spoofedModelDrp.setItemText(8, QCoreApplication.translate("Nugget", u"iPad Mini (A17 Pro) (C) (iPad16,2)", None))
-        self.spoofedModelDrp.setItemText(9, QCoreApplication.translate("Nugget", u"iPad Pro (13-inch) (M4) (W) (iPad16,5)", None))
-        self.spoofedModelDrp.setItemText(10, QCoreApplication.translate("Nugget", u"iPad Pro (13-inch) (M4) (C) (iPad16,6)", None))
-        self.spoofedModelDrp.setItemText(11, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M4) (W) (iPad16,3)", None))
-        self.spoofedModelDrp.setItemText(12, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M4) (C) (iPad16,4)", None))
-        self.spoofedModelDrp.setItemText(13, QCoreApplication.translate("Nugget", u"iPad Pro (12.9-inch) (M2) (W) (iPad14,5)", None))
-        self.spoofedModelDrp.setItemText(14, QCoreApplication.translate("Nugget", u"iPad Pro (12.9-inch) (M2) (C) (iPad14,6)", None))
-        self.spoofedModelDrp.setItemText(15, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M2) (W) (iPad14,3)", None))
-        self.spoofedModelDrp.setItemText(16, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M2) (C) (iPad14,4)", None))
-        self.spoofedModelDrp.setItemText(17, QCoreApplication.translate("Nugget", u"iPad Air (13-inch) (M2) (W) (iPad14,10)", None))
-        self.spoofedModelDrp.setItemText(18, QCoreApplication.translate("Nugget", u"iPad Air (13-inch) (M2) (C) (iPad14,11)", None))
-        self.spoofedModelDrp.setItemText(19, QCoreApplication.translate("Nugget", u"iPad Air (11-inch) (M2) (W) (iPad14,8)", None))
-        self.spoofedModelDrp.setItemText(20, QCoreApplication.translate("Nugget", u"iPad Air (11-inch) (M2) (C) (iPad14,9)", None))
-        self.spoofedModelDrp.setItemText(21, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M1) (W) (iPad13,4)", None))
-        self.spoofedModelDrp.setItemText(22, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M1) (C) (iPad13,5)", None))
-        self.spoofedModelDrp.setItemText(23, QCoreApplication.translate("Nugget", u"iPad Pro (12.9-inch) (M1) (W) (iPad13,8)", None))
-        self.spoofedModelDrp.setItemText(24, QCoreApplication.translate("Nugget", u"iPad Pro (12.9-inch) (M1) (C) (iPad13,9)", None))
-        self.spoofedModelDrp.setItemText(25, QCoreApplication.translate("Nugget", u"iPad Air (M1) (W) (iPad13,16)", None))
-        self.spoofedModelDrp.setItemText(26, QCoreApplication.translate("Nugget", u"iPad Air (M1) (C) (iPad13,17)", None))
+        self.spoofedModelDrp.setItemText(7, QCoreApplication.translate("Nugget", u"iPhone 17 (iPhone18,3)", None))
+        self.spoofedModelDrp.setItemText(8, QCoreApplication.translate("Nugget", u"iPad Mini (A17 Pro) (W) (iPad16,1)", None))
+        self.spoofedModelDrp.setItemText(9, QCoreApplication.translate("Nugget", u"iPad Mini (A17 Pro) (C) (iPad16,2)", None))
+        self.spoofedModelDrp.setItemText(10, QCoreApplication.translate("Nugget", u"iPad Pro (13-inch) (M4) (W) (iPad16,5)", None))
+        self.spoofedModelDrp.setItemText(11, QCoreApplication.translate("Nugget", u"iPad Pro (13-inch) (M4) (C) (iPad16,6)", None))
+        self.spoofedModelDrp.setItemText(12, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M4) (W) (iPad16,3)", None))
+        self.spoofedModelDrp.setItemText(13, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M4) (C) (iPad16,4)", None))
+        self.spoofedModelDrp.setItemText(14, QCoreApplication.translate("Nugget", u"iPad Pro (12.9-inch) (M2) (W) (iPad14,5)", None))
+        self.spoofedModelDrp.setItemText(15, QCoreApplication.translate("Nugget", u"iPad Pro (12.9-inch) (M2) (C) (iPad14,6)", None))
+        self.spoofedModelDrp.setItemText(16, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M2) (W) (iPad14,3)", None))
+        self.spoofedModelDrp.setItemText(17, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M2) (C) (iPad14,4)", None))
+        self.spoofedModelDrp.setItemText(18, QCoreApplication.translate("Nugget", u"iPad Air (13-inch) (M2) (W) (iPad14,10)", None))
+        self.spoofedModelDrp.setItemText(19, QCoreApplication.translate("Nugget", u"iPad Air (13-inch) (M2) (C) (iPad14,11)", None))
+        self.spoofedModelDrp.setItemText(20, QCoreApplication.translate("Nugget", u"iPad Air (11-inch) (M2) (W) (iPad14,8)", None))
+        self.spoofedModelDrp.setItemText(21, QCoreApplication.translate("Nugget", u"iPad Air (11-inch) (M2) (C) (iPad14,9)", None))
+        self.spoofedModelDrp.setItemText(22, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M1) (W) (iPad13,4)", None))
+        self.spoofedModelDrp.setItemText(23, QCoreApplication.translate("Nugget", u"iPad Pro (11-inch) (M1) (C) (iPad13,5)", None))
+        self.spoofedModelDrp.setItemText(24, QCoreApplication.translate("Nugget", u"iPad Pro (12.9-inch) (M1) (W) (iPad13,8)", None))
+        self.spoofedModelDrp.setItemText(25, QCoreApplication.translate("Nugget", u"iPad Pro (12.9-inch) (M1) (C) (iPad13,9)", None))
+        self.spoofedModelDrp.setItemText(26, QCoreApplication.translate("Nugget", u"iPad Air (M1) (W) (iPad13,16)", None))
+        self.spoofedModelDrp.setItemText(27, QCoreApplication.translate("Nugget", u"iPad Air (M1) (C) (iPad13,17)", None))
 
         self.spoofedModelDrp.setCurrentText(QCoreApplication.translate("Nugget", u"Original", None))
 #if QT_CONFIG(tooltip)
@@ -4897,51 +5535,54 @@ class Ui_Nugget(object):
         self.footnoteLbl.setText(QCoreApplication.translate("Nugget", u"Lock Screen Footnote Text", None))
         self.footnoteTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Footnote Text", None))
         self.lockScreenAutoLockLabel.setText(QCoreApplication.translate("Nugget", u"Auto\u2011Lock (Lock Screen)", None))
-        self.disableLockRespringChk.setText(QCoreApplication.translate("Nugget", u"Disable Lock After Respring", None))
-        self.disableDimmingChk.setText(QCoreApplication.translate("Nugget", u"Disable Screen Dimming While Charging", None))
-        self.disableBatteryAlertsChk.setText(QCoreApplication.translate("Nugget", u"Disable Low Battery Alerts", None))
-        self.hideACPowerChk.setText(QCoreApplication.translate("Nugget", u"Hide AC Power on Lock Screen", None))
+        self.label_46.setText(QCoreApplication.translate("Nugget", u"Disable AirDrop Time Limit for Everyone Option", None))
+        self.label_36.setText(QCoreApplication.translate("Nugget", u"Disable Lock After Respring", None))
+        self.label_37.setText(QCoreApplication.translate("Nugget", u"Disable Screen Dimming While Charging", None))
+        self.label_38.setText(QCoreApplication.translate("Nugget", u"Disable Low Battery Alerts", None))
+        self.label_39.setText(QCoreApplication.translate("Nugget", u"Hide AC Power on Lock Screen", None))
 #if QT_CONFIG(tooltip)
-        self.disableCrumbChk.setToolTip(QCoreApplication.translate("Nugget", u"Removes '< PreviousAppName' glyph in Status Bar when being forwarded to another app.", None))
+        self.disableCrumbContent.setToolTip(QCoreApplication.translate("Nugget", u"Removes '< PreviousAppName' glyph in Status Bar when being forwarded to another app.", None))
 #endif // QT_CONFIG(tooltip)
-        self.disableCrumbChk.setText(QCoreApplication.translate("Nugget", u"Disable Breadcrumbs", None))
+        self.label_40.setText(QCoreApplication.translate("Nugget", u"Disable Breadcrumbs", None))
 #if QT_CONFIG(tooltip)
-        self.enableSupervisionTextChk.setToolTip(QCoreApplication.translate("Nugget", u"Shows info about the device supervision status and organization at the bottom of the lock screen.", None))
+        self.supervisionTextContent.setToolTip(QCoreApplication.translate("Nugget", u"Shows info about the device supervision status and organization at the bottom of the lock screen.", None))
 #endif // QT_CONFIG(tooltip)
-        self.enableSupervisionTextChk.setText(QCoreApplication.translate("Nugget", u"Show Supervision Text on Lock Screen", None))
-        self.showApertureInSnapshotsChk.setText(QCoreApplication.translate("Nugget", u"Show Dynamic Island in Screenshots", None))
-        self.enableAirPlayChk.setText(QCoreApplication.translate("Nugget", u"Enable AirPlay support for Stage Manager", None))
-        self.authEngUICheck.setText(QCoreApplication.translate("Nugget", u"Show Red/Green Authentication Line on Lock Screen", None))
-        self.floatingTabBarChk.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar", None))
-        self.internalOptionsLbl1.setText(QCoreApplication.translate("Nugget", u"Internal Options", None))
-        self.disableSolariumChk.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass", None))
+        self.label_41.setText(QCoreApplication.translate("Nugget", u"Show Supervision Text on Lock Screen", None))
+        self.label_42.setText(QCoreApplication.translate("Nugget", u"Show Dynamic Island in Screenshots", None))
+        self.label_43.setText(QCoreApplication.translate("Nugget", u"Enable AirPlay support for Stage Manager", None))
+        self.label_44.setText(QCoreApplication.translate("Nugget", u"Show Red/Green Authentication Line on Lock Screen", None))
+        self.label_45.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar", None))
+        self.internalOptionsLbl.setText(QCoreApplication.translate("Nugget", u"Internal Options", None))
+        self.label_3.setText(QCoreApplication.translate("Nugget", u"Force Solarium Fallback", None))
 #if QT_CONFIG(tooltip)
-        self.ignoreSolariumAppBuildChk.setToolTip(QCoreApplication.translate("Nugget", u"Enables liquid glass on apps regardless of whether or not it has been updated to include it", None))
+        self.ignoreSolariumAppBuildContent.setToolTip(QCoreApplication.translate("Nugget", u"Enables liquid glass on apps regardless of whether or not it has been updated to include it", None))
 #endif // QT_CONFIG(tooltip)
-        self.ignoreSolariumAppBuildChk.setText(QCoreApplication.translate("Nugget", u"Ignore Liquid Glass App Build Check", None))
-        self.buildVersionChk.setText(QCoreApplication.translate("Nugget", u"Show Build Version in Status Bar", None))
-        self.RTLChk.setText(QCoreApplication.translate("Nugget", u"Force Right-to-Left Layout", None))
-        self.LTRChk.setText(QCoreApplication.translate("Nugget", u"Force Left-to-Right Layout", None))
+        self.label_11.setText(QCoreApplication.translate("Nugget", u"Ignore Liquid Glass App Build Check", None))
+        self.label_47.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass on LS Clock", None))
+        self.label_48.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass on Dock", None))
+        self.label_7.setText(QCoreApplication.translate("Nugget", u"Show Build Version in Status Bar", None))
+        self.label_13.setText(QCoreApplication.translate("Nugget", u"Force Right-to-Left Layout", None))
+        self.label_14.setText(QCoreApplication.translate("Nugget", u"Force Left-to-Right Layout", None))
 #if QT_CONFIG(tooltip)
-        self.sbIconVisibilityChk.setToolTip(QCoreApplication.translate("Nugget", u"Shows hidden apps like Field Test and Continuity on the home screen", None))
+        self.sbIconVisibilityContent.setToolTip(QCoreApplication.translate("Nugget", u"Shows hidden apps like Field Test and Continuity on the home screen", None))
 #endif // QT_CONFIG(tooltip)
-        self.sbIconVisibilityChk.setText(QCoreApplication.translate("Nugget", u"Show Hidden Icons on Home Screen", None))
+        self.label_22.setText(QCoreApplication.translate("Nugget", u"Show Hidden Icons on Home Screen", None))
 #if QT_CONFIG(tooltip)
-        self.keyFlickChk.setToolTip(QCoreApplication.translate("Nugget", u"Enables the iPad-style keyboard keyflicks on iPhones", None))
+        self.keyFlickContent.setToolTip(QCoreApplication.translate("Nugget", u"Enables the iPad-style keyboard keyflicks on iPhones", None))
 #endif // QT_CONFIG(tooltip)
-        self.keyFlickChk.setText(QCoreApplication.translate("Nugget", u"Enable Keyboard Character Flick", None))
-        self.metalHUDChk.setText(QCoreApplication.translate("Nugget", u"Enable Metal HUD Debug", None))
-        self.iMessageChk.setText(QCoreApplication.translate("Nugget", u"Enable iMessage Debugging", None))
-        self.IDSChk.setText(QCoreApplication.translate("Nugget", u"Enable Continuity Debugging", None))
-        self.VCChk.setText(QCoreApplication.translate("Nugget", u"Enable FaceTime Debugging", None))
-        self.accessoryDevChk.setText(QCoreApplication.translate("Nugget", u"Show Accessory Developer Settings", None))
-        self.appStoreChk.setText(QCoreApplication.translate("Nugget", u"Enable App Store Debug Gesture", None))
-        self.notesChk.setText(QCoreApplication.translate("Nugget", u"Enable Notes Debug Mode", None))
-        self.showTouchesChk.setText(QCoreApplication.translate("Nugget", u"Show Touches With Debug Info", None))
-        self.hideRespringChk.setText(QCoreApplication.translate("Nugget", u"Hide Respring Icon", None))
-        self.enableWakeVibrateChk.setText(QCoreApplication.translate("Nugget", u"Vibrate on Raise-to-Wake", None))
-        self.pasteSoundChk.setText(QCoreApplication.translate("Nugget", u"Play Sound on Paste", None))
-        self.notifyPastesChk.setText(QCoreApplication.translate("Nugget", u"Show Notifications for System Pastes", None))
+        self.label_23.setText(QCoreApplication.translate("Nugget", u"Keyboard Character Flick", None))
+        self.label_24.setText(QCoreApplication.translate("Nugget", u"Metal HUD Debug", None))
+        self.label_25.setText(QCoreApplication.translate("Nugget", u"iMessage Debugging", None))
+        self.label_26.setText(QCoreApplication.translate("Nugget", u"Continuity Debugging", None))
+        self.label_27.setText(QCoreApplication.translate("Nugget", u"FaceTime Debugging", None))
+        self.label_28.setText(QCoreApplication.translate("Nugget", u"Show Accessory Developer Settings", None))
+        self.label_29.setText(QCoreApplication.translate("Nugget", u"App Store Debug Gesture", None))
+        self.label_30.setText(QCoreApplication.translate("Nugget", u"Notes Debug Mode", None))
+        self.label_31.setText(QCoreApplication.translate("Nugget", u"Show Touches With Debug Info", None))
+        self.label_32.setText(QCoreApplication.translate("Nugget", u"Hide Respring Icon", None))
+        self.label_33.setText(QCoreApplication.translate("Nugget", u"Vibrate on Raise-to-Wake", None))
+        self.label_34.setText(QCoreApplication.translate("Nugget", u"Play Sound on Paste", None))
+        self.label_35.setText(QCoreApplication.translate("Nugget", u"Show Notifications for System Pastes", None))
         self.daemonsLbl.setText(QCoreApplication.translate("Nugget", u"Daemons", None))
         self.modifyDaemonsChk.setText(QCoreApplication.translate("Nugget", u"Modify", None))
         self.regularDomainsLbl.setText(QCoreApplication.translate("Nugget", u"Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have\n"
@@ -5108,6 +5749,16 @@ class Ui_Nugget(object):
 "DO NOT unplug your device during restores.", None))
 #endif // QT_CONFIG(tooltip)
         self.disableTendiesLimitChk.setText(QCoreApplication.translate("Nugget", u"Disable Tendies Limit", None))
+        self.label_50.setText(QCoreApplication.translate("Nugget", u"BookRestore File Transfer Method", None))
+        self.brTransferModeDrp.setItemText(0, QCoreApplication.translate("Nugget", u"   LocalHost", None))
+        self.brTransferModeDrp.setItemText(1, QCoreApplication.translate("Nugget", u"   On-Device (Slower)", None))
+
+        self.label_49.setText(QCoreApplication.translate("Nugget", u"Books Container UUID", None))
+#if QT_CONFIG(tooltip)
+        self.booksContainerUUIDTxt.setToolTip(QCoreApplication.translate("Nugget", u"Enter your books container UUID if you know it.\n"
+"It will be automatically found if this is left blank.", None))
+#endif // QT_CONFIG(tooltip)
+        self.booksContainerUUIDTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Enter Books Container UUID", None))
 #if QT_CONFIG(tooltip)
         self.line_24.setToolTip("")
 #endif // QT_CONFIG(tooltip)

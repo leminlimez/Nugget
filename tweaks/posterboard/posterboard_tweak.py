@@ -140,19 +140,18 @@ class PosterboardTweak(Tweak):
                 if name == "container":
                     self.recursive_add(files_to_restore, os.path.join(curr_path, folder), restore_path="/", isAdding=True)
                     return
-                elif name == "descriptor" or name == "descriptors" or name == "ordered-descriptor" or name == "ordered-descriptors":
+                elif "descriptor" in name:
+                    # get the extension
+                    if "video" in name or "photos" in name:
+                        ext = "com.apple.PhotosUIPrivate.PhotosPosterProvider"
+                    elif "mercury" in name:
+                        ext = "com.apple.MercuryPoster"
+                    else:
+                        ext = "com.apple.WallpaperKit.CollectionsPoster"
                     self.recursive_add(
                         files_to_restore,
                         os.path.join(curr_path, folder),
-                        restore_path=f"/Library/Application Support/PRBPosterExtensionDataStore/{self.structure_version}/Extensions/com.apple.WallpaperKit.CollectionsPoster/descriptors",
-                        isAdding=True,
-                        randomizeUUID=True
-                    )
-                elif name == "video-descriptor" or name == "video-descriptors":
-                    self.recursive_add(
-                        files_to_restore,
-                        os.path.join(curr_path, folder),
-                        restore_path="/Library/Application Support/PRBPosterExtensionDataStore/61/Extensions/com.apple.PhotosUIPrivate.PhotosPosterProvider/descriptors",
+                        restore_path=f"/Library/Application Support/PRBPosterExtensionDataStore/{self.structure_version}/Extensions/{ext}/descriptors",
                         isAdding=True,
                         randomizeUUID=True
                     )

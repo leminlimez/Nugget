@@ -7,6 +7,7 @@ from PySide6.QtCore import QCoreApplication, QLocale
 from tweaks.tweak_loader import load_rdar_fix
 from tweaks.tweaks import tweaks
 from controllers.video_handler import set_ignore_frame_limit
+from restore.bookrestore import BookRestoreFileTransferMethod
 
 available_languages = {
     "English": "en",
@@ -56,6 +57,9 @@ class SettingsPage(Page):
         self.ui.ignorePBFrameLimitChk.toggled.connect(self.on_ignorePBFrameLimitChk_toggled)
         self.ui.disableTendiesLimitChk.toggled.connect(self.on_disableTendiesLimitChk_toggled)
 
+        self.ui.brTransferModeDrp.activated.connect(self.on_brTransferModeDrp_activated)
+        self.ui.booksContainerUUIDTxt.textEdited.connect(self.on_booksContainerUUIDTxt_textEdited)
+
         self.ui.trustStoreChk.toggled.connect(self.on_trustStoreChk_toggled)
         self.ui.skipSetupChk.toggled.connect(self.on_skipSetupChk_toggled)
         self.ui.supervisionChk.toggled.connect(self.on_supervisionChk_toggled)
@@ -92,24 +96,17 @@ class SettingsPage(Page):
         self.window.device_manager.allow_risky_tweaks = checked
         # save the setting
         self.window.settings.setValue("show_risky_tweaks", checked)
-        # toggle the button visibility
+        # toggle the button visibilities
+        self.ui.advancedPageBtn.setVisible(checked)
+        self.ui.ignorePBFrameLimitChk.setVisible(checked)
+        self.ui.disableTendiesLimitChk.setVisible(checked)
+        self.ui.atwakeupChk.setVisible(checked)
+        try:
+            self.ui.resetPBDrp.removeItem(4)
+        except:
+            pass
         if checked:
-            self.ui.advancedPageBtn.show()
-            self.ui.ignorePBFrameLimitChk.show()
-            self.ui.disableTendiesLimitChk.show()
-            try:
-                self.ui.resetPBDrp.removeItem(4)
-            except:
-                pass
             self.ui.resetPBDrp.addItem("PB Extensions")
-        else:
-            self.ui.advancedPageBtn.hide()
-            self.ui.ignorePBFrameLimitChk.hide()
-            self.ui.disableTendiesLimitChk.hide()
-            try:
-                self.ui.resetPBDrp.removeItem(4)
-            except:
-                pass
     def on_ignorePBFrameLimitChk_toggled(self, checked: bool):
         set_ignore_frame_limit(checked)
         # save the setting
@@ -150,6 +147,15 @@ class SettingsPage(Page):
         self.window.device_manager.supervised = checked
         # save the setting
         self.window.settings.setValue("supervised", checked)
+
+    # BookRestore Options
+    def on_booksContainerUUIDTxt_textEdited(self, text: str):
+        self.window.device_manager.current_device_books_container_uuid_callback(text)
+    def on_brTransferModeDrp_activated(self, index: int):
+        new_mode = BookRestoreFileTransferMethod(index)
+        self.window.device_manager.bookrestore_transfer_mode = new_mode
+        # save the setting
+        self.window.settings.setValue("bookrestore_transfer_mode", index)
 
     # Device Options
     def on_resetPairBtn_clicked(self):

@@ -1,5 +1,4 @@
 from PySide6 import QtCore, QtWidgets
-from enum import Enum
 import plistlib
 
 from qt.ui_mainwindow import Ui_Nugget
@@ -14,12 +13,13 @@ from devicemanagement.device_manager import DeviceManager
 
 from gui.dialogs import GestaltDialog, UpdateAppDialog
 from gui.pages.reset_dialog import ResetDialog
-from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThread
+from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThread, set_sudo_pwd, set_sudo_complete, get_sudo_pwd
 from gui.pages.pages_list import Page
+from restore.bookrestore import BookRestoreFileTransferMethod
 
-from tweaks.tweaks import tweaks
+from tweaks.tweaks import tweaks, TweakID
 
-App_Version = "6.2.3"
+App_Version = "7.0"
 App_Build = 0
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -240,20 +240,21 @@ class MainWindow(QtWidgets.QMainWindow):
                 "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk), ("1.0", self.ui.regularDomainsLbl)],
                 "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
                 "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk],
-                "26.0": [self.ui.disableSolariumChk, self.ui.ignoreSolariumAppBuildChk]
+                "26.0": [self.ui.liquidGlassOptionsContent]
             }
             MaxTweakVersions = {
                 "17.7": [self.ui.euEnablerContent],
                 "18.0": [self.ui.photosChk, self.ui.aiChk],
-                "19.0": [self.ui.resChangerContent, self.ui.metalHUDChk]
+                "19.0": [self.ui.resChangerContent, self.ui.metalHUDContent]
             }
 
             try:
                 self.ui.dynamicIslandDrp.removeItem(6)
                 self.ui.dynamicIslandDrp.removeItem(5)
+                self.ui.dynamicIslandDrp.removeItem(5)
             except:
                 pass
-            if "RdarFix" in tweaks:
+            if TweakID.RdarFix in tweaks:
                 self.pages[Page.Gestalt].set_rdar_fix_label()
             device_ver = Version(self.device_manager.data_singleton.current_device.version)
             patched: bool = self.device_manager.get_current_device_patched()
@@ -293,6 +294,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 # show the other dynamic island options
                 self.ui.dynamicIslandDrp.addItem("2622 (iPhone 16 Pro Dynamic Island)")
                 self.ui.dynamicIslandDrp.addItem("2868 (iPhone 16 Pro Max Dynamic Island)")
+                if device_ver >= Version("26.0"):
+                    self.ui.dynamicIslandDrp.addItem("2736 (iPhone Air Dynamic Island)")
             # eligibility page button
             if not patched and device_ver >= Version("17.4") and (device_ver <= Version("17.7") or device_ver >= Version("18.1")):
                 self.ui.euEnablerPageBtn.show()
@@ -304,9 +307,11 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.advancedPageBtn.show()
             else:
                 self.ui.advancedPageBtn.hide()
+            # toggle AtWakeUp checkbox with risky tweaks
+            self.ui.atwakeupChk.setVisible(self.device_manager.allow_risky_tweaks)
             
             # hide the ai content if not on
-            if device_ver >= Version("18.1") and (not 'AIGestalt' in tweaks or not tweaks["AIGestalt"].enabled):
+            if device_ver >= Version("18.1") and (not TweakID.AIGestalt in tweaks or not tweaks[TweakID.AIGestalt].enabled):
                 self.ui.aiEnablerContent.hide()
             if device_ver < Version("18.2"):
                 self.pages[Page.Gestalt].setup_spoofedModelDrp_models()
@@ -315,28 +320,38 @@ class MainWindow(QtWidgets.QMainWindow):
             is_iphone = self.device_manager.get_current_device_model().startswith("iPhone")
             if not is_iphone:
                 # force looping
-                tweaks["PosterBoard"].loop_video = True
-            is_looping = tweaks["PosterBoard"].loop_video
+                tweaks[TweakID.PosterBoard].loop_video = True
+            is_looping = tweaks[TweakID.PosterBoard].loop_video
             self.ui.pbVideoThumbLbl.setVisible(is_iphone and not is_looping)
             self.ui.chooseThumbBtn.setVisible(is_iphone and not is_looping)
             self.ui.caVideoChk.setVisible(is_iphone)
-            self.ui.exportPBVideoBtn.setVisible(is_looping and tweaks["PosterBoard"].videoFile != None)
+            self.ui.exportPBVideoBtn.setVisible(is_looping and tweaks[TweakID.PosterBoard].videoFile != None)
             # show status bar date on ipads
             self.ui.dateChk.setVisible(not is_iphone)
             self.ui.dateTxt.setVisible(not is_iphone)
             # show floating tab bar on ipads and keyflicks on phones
-            self.ui.floatingTabBarChk.setVisible(not is_iphone)
-            self.ui.keyFlickChk.setVisible(is_iphone and device_ver < Version("26.1"))
+            self.ui.floatingTabBarContent.setVisible(not is_iphone)
+            self.ui.keyFlickContent.setVisible(is_iphone and device_ver < Version("26.1"))
+            # iPadOS stuff
+            self.ui.enableiPadOSChk.setVisible(is_iphone)
+            self.ui.stageManagerChk.setVisible(not is_iphone)
+
+            # bookrestore stuff
+            if self.device_manager.data_singleton.current_device.has_bookrestore():
+                self.ui.bookrestoreWidget.show()
+                self.ui.booksContainerUUIDTxt.setText(self.device_manager.data_singleton.current_device.books_container_uuid)
+            else:
+                self.ui.bookrestoreWidget.hide()
 
             # show the PB if initial load is true
             if self.initial_load:
                 self.initial_load = False
-                if len(tweaks["PosterBoard"].tendies) > 0:
+                if len(tweaks[TweakID.PosterBoard].tendies) > 0:
                     self.pages[Page.Posterboard].load()
                     self.ui.pages.setCurrentIndex(Page.Posterboard.value)
                     self.ui.posterboardPageBtn.setChecked(True)
                     self.ui.homePageBtn.setChecked(False)
-                elif len(tweaks["Templates"].templates) > 0:
+                elif len(tweaks[TweakID.Templates].templates) > 0:
                     self.pages[Page.Templates].load()
                     self.ui.pages.setCurrentIndex(Page.Templates.value)
                     self.ui.templatePageBtn.setChecked(True)
@@ -359,6 +374,7 @@ class MainWindow(QtWidgets.QMainWindow):
             disable_tendies_limit = self.settings.value("disable_tendies_limit", False, type=bool)
             show_all_spoofable = self.settings.value("show_all_spoofable_models", False, type=bool)
             restore_truststore = self.settings.value("restore_truststore", False, type=bool)
+            br_transfer_mode = self.settings.value("bookrestore_transfer_mode", 0, type=int)
             skip_setup = self.settings.value("skip_setup", True, type=bool)
             supervised = self.settings.value("supervised", False, type=bool)
             organization_name = self.settings.value("organization_name", "", type=str)
@@ -370,6 +386,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.disableTendiesLimitChk.setChecked(disable_tendies_limit)
             self.ui.showAllSpoofableChk.setChecked(show_all_spoofable)
             self.ui.trustStoreChk.setChecked(restore_truststore)
+            self.ui.brTransferModeDrp.setCurrentIndex(br_transfer_mode)
             self.ui.skipSetupChk.setChecked(skip_setup)
             self.ui.supervisionChk.setChecked(supervised)
             self.ui.supervisionOrganization.setText(organization_name)
@@ -395,6 +412,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.device_manager.show_all_spoofable_models = show_all_spoofable
             self.device_manager.disable_tendies_limit = disable_tendies_limit
             self.device_manager.restore_truststore = restore_truststore
+            self.device_manager.bookrestore_transfer_mode = BookRestoreFileTransferMethod(br_transfer_mode)
             self.device_manager.skip_setup = skip_setup
             self.device_manager.supervised = supervised
             self.device_manager.organization_name = organization_name
@@ -486,9 +504,9 @@ class MainWindow(QtWidgets.QMainWindow):
                 detailsBox.exec()
                 return
             if (
-                not "qNNddlUK+B/YlooNoymwgA" in gestalt_plist["CacheExtra"]
+                not "CacheVersion" in gestalt_plist
                 or not "0+nc/Udy4WNG8S+Q7a/s1A" in gestalt_plist["CacheExtra"]
-                or gestalt_plist["CacheExtra"]["qNNddlUK+B/YlooNoymwgA"] != self.device_manager.data_singleton.current_device.version
+                or gestalt_plist["CacheVersion"] != self.device_manager.data_singleton.current_device.build
                 or gestalt_plist["CacheExtra"]["0+nc/Udy4WNG8S+Q7a/s1A"] != self.device_manager.data_singleton.current_device.model
             ):
                 dialog = GestaltDialog(
@@ -526,7 +544,15 @@ class MainWindow(QtWidgets.QMainWindow):
             self.worker_thread.finished.connect(self.finish_apply_thread)
             self.worker_thread.finished.connect(self.worker_thread.deleteLater)
             self.worker_thread.start()
-    def alert_message(self, alert: ApplyAlertMessage, log_to_console: bool = True):
+    def alert_message(self, alert: ApplyAlertMessage | None, log_to_console: bool = True):
+        if alert is None:
+            # do sudo dialog input
+            get_sudo_pwd() # clear if it is already there
+            pwd, ok = QtWidgets.QInputDialog.getText(None, "Enter Sudo Password", "Enter Your Computer's Password:", QtWidgets.QLineEdit.Password, "")
+            if ok and pwd:
+                set_sudo_pwd(pwd)
+            set_sudo_complete(True)
+            return
         if log_to_console:
             print(alert.txt)
         detailsBox = QtWidgets.QMessageBox()

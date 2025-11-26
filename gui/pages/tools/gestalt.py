@@ -4,7 +4,7 @@ from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
 from tweaks.tweak_loader import load_mobilegestalt
-from tweaks.tweaks import tweaks
+from tweaks.tweaks import tweaks, TweakID
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks, ValueTypeStrings
 
 class GestaltPage(Page):
@@ -25,7 +25,7 @@ class GestaltPage(Page):
         self.ui.iphone16SettingsChk.clicked.connect(self.on_iphone16SettingsChk_clicked)
         self.ui.parallaxChk.clicked.connect(self.on_parallaxChk_clicked)
         self.ui.stageManagerChk.clicked.connect(self.on_stageManagerChk_clicked)
-        self.ui.enableMedusaChk.clicked.connect(self.on_enableMedusaChk_clicked)
+        self.ui.enableiPadOSChk.clicked.connect(self.on_enableiPadOSChk_clicked)
         self.ui.ipadAppsChk.clicked.connect(self.on_ipadAppsChk_clicked)
         self.ui.shutterChk.clicked.connect(self.on_shutterChk_clicked)
         self.ui.findMyFriendsChk.clicked.connect(self.on_findMyFriendsChk_clicked)
@@ -54,7 +54,7 @@ class GestaltPage(Page):
                 pass
         # indexes 1-6 for iPhones, 7-(len(values) - 1) for iPads
         # TODO: Make this get fetched from the gui on app startup
-        spoof_drp_options = ["iPhone 15 Pro (iPhone16,1)", "iPhone 15 Pro Max (iPhone16,2)", "iPhone 16 (iPhone17,3)", "iPhone 16 Plus (iPhone17,4)", "iPhone 16 Pro (iPhone17,1)", "iPhone 16 Pro Max (iPhone17,2)", "iPad Mini (A17 Pro) (W) (iPad16,1)", "iPad Mini (A17 Pro) (C) (iPad16,2)", "iPad Pro (13-inch) (M4) (W) (iPad16,5)", "iPad Pro (13-inch) (M4) (C) (iPad16,6)", "iPad Pro (11-inch) (M4) (W) (iPad16,3)", "iPad Pro (11-inch) (M4) (C) (iPad16,4)", "iPad Pro (12.9-inch) (M2) (W) (iPad14,5)", "iPad Pro (12.9-inch) (M2) (C) (iPad14,6)", "iPad Pro (11-inch) (M2) (W) (iPad14,3)", "iPad Pro (11-inch) (M2) (C) (iPad14,4)", "iPad Air (13-inch) (M2) (W) (iPad14,10)", "iPad Air (13-inch) (M2) (C) (iPad14,11)", "iPad Air (11-inch) (M2) (W) (iPad14,8)", "iPad Air (11-inch) (M2) (C) (iPad14,9)", "iPad Pro (11-inch) (M1) (W) (iPad13,4)", "iPad Pro (11-inch) (M1) (C) (iPad13,5)", "iPad Pro (12.9-inch) (M1) (W) (iPad13,8)", "iPad Pro (12.9-inch) (M1) (C) (iPad13,9)", "iPad Air (M1) (W) (iPad13,16)", "iPad Air (M1) (C) (iPad13,17)"]
+        spoof_drp_options = ["iPhone 15 Pro (iPhone16,1)", "iPhone 15 Pro Max (iPhone16,2)", "iPhone 16 (iPhone17,3)", "iPhone 16 Plus (iPhone17,4)", "iPhone 16 Pro (iPhone17,1)", "iPhone 16 Pro Max (iPhone17,2)", "iPhone 17 (iPhone18,3)", "iPad Mini (A17 Pro) (W) (iPad16,1)", "iPad Mini (A17 Pro) (C) (iPad16,2)", "iPad Pro (13-inch) (M4) (W) (iPad16,5)", "iPad Pro (13-inch) (M4) (C) (iPad16,6)", "iPad Pro (11-inch) (M4) (W) (iPad16,3)", "iPad Pro (11-inch) (M4) (C) (iPad16,4)", "iPad Pro (12.9-inch) (M2) (W) (iPad14,5)", "iPad Pro (12.9-inch) (M2) (C) (iPad14,6)", "iPad Pro (11-inch) (M2) (W) (iPad14,3)", "iPad Pro (11-inch) (M2) (C) (iPad14,4)", "iPad Air (13-inch) (M2) (W) (iPad14,10)", "iPad Air (13-inch) (M2) (C) (iPad14,11)", "iPad Air (11-inch) (M2) (W) (iPad14,8)", "iPad Air (11-inch) (M2) (C) (iPad14,9)", "iPad Pro (11-inch) (M1) (W) (iPad13,4)", "iPad Pro (11-inch) (M1) (C) (iPad13,5)", "iPad Pro (12.9-inch) (M1) (W) (iPad13,8)", "iPad Pro (12.9-inch) (M1) (C) (iPad13,9)", "iPad Air (M1) (W) (iPad13,16)", "iPad Air (M1) (C) (iPad13,17)"]
         if self.window.device_manager.show_all_spoofable_models or self.window.device_manager.get_current_device_model().startswith("iPhone"):
             # re-enable iPhone spoof models
             self.ui.spoofedModelDrp.addItems(spoof_drp_options[:6])
@@ -64,7 +64,7 @@ class GestaltPage(Page):
 
     ## ACTIONS
     def set_rdar_fix_label(self):
-        rdar_title = tweaks["RdarFix"].get_rdar_title()
+        rdar_title = tweaks[TweakID.RdarFix].get_rdar_title()
         if rdar_title == "hide":
             self.ui.rdarFixChk.hide()
         else:
@@ -74,64 +74,65 @@ class GestaltPage(Page):
     
     def on_dynamicIslandDrp_activated(self, index: int):
         if index == 0:
-            tweaks["DynamicIsland"].set_enabled(False)
-            tweaks["RdarFix"].set_di_type(-1)
+            tweaks[TweakID.DynamicIsland].set_enabled(False)
+            tweaks[TweakID.RdarFix].set_di_type(-1)
         else:
             # disable X gestures on devices other than iPhone SEs
             # the lazy way, better option would be to remove it from the menu but I didn't want to rework all that
             model = self.window.device_manager.get_current_device_model()
             if index != 1 or (model == "iPhone12,8" or model == "iPhone14,6"):
-                tweaks["DynamicIsland"].set_selected_option(index - 1)
+                tweaks[TweakID.DynamicIsland].set_selected_option(index - 1)
             else:
-                tweaks["DynamicIsland"].set_enabled(False)
-            tweaks["RdarFix"].set_di_type(tweaks["DynamicIsland"].value[tweaks["DynamicIsland"].get_selected_option()])
+                tweaks[TweakID.DynamicIsland].set_enabled(False)
+            tweaks[TweakID.RdarFix].set_di_type(tweaks[TweakID.DynamicIsland].value[tweaks[TweakID.DynamicIsland].get_selected_option()])
         self.set_rdar_fix_label()
     def on_rdarFixChk_clicked(self, checked: bool):
-        tweaks["RdarFix"].set_enabled(checked)
+        tweaks[TweakID.RdarFix].set_enabled(checked)
 
     def on_modelNameChk_clicked(self, checked: bool):
-        tweaks["ModelName"].set_enabled(checked)
+        tweaks[TweakID.ModelName].set_enabled(checked)
     def on_modelNameTxt_textEdited(self, text: str):
-        tweaks["ModelName"].set_value(text, toggle_enabled=False)
+        tweaks[TweakID.ModelName].set_value(text, toggle_enabled=False)
 
     def on_bootChimeChk_clicked(self, checked: bool):
-        tweaks["BootChime"].set_enabled(checked)
+        tweaks[TweakID.BootChime].set_enabled(checked)
     def on_chargeLimitChk_clicked(self, checked: bool):
-        tweaks["ChargeLimit"].set_enabled(checked)
+        tweaks[TweakID.ChargeLimit].set_enabled(checked)
     def on_tapToWakeChk_clicked(self, checked: bool):
-        tweaks["TapToWake"].set_enabled(checked)
+        tweaks[TweakID.TapToWake].set_enabled(checked)
     def on_iphone16SettingsChk_clicked(self, checked: bool):
-        tweaks["CameraButton"].set_enabled(checked)
+        tweaks[TweakID.CameraButton].set_enabled(checked)
     def on_parallaxChk_clicked(self, checked: bool):
-        tweaks["Parallax"].set_enabled(checked)
+        tweaks[TweakID.Parallax].set_enabled(checked)
 
     def on_stageManagerChk_clicked(self, checked: bool):
-        tweaks["StageManager"].set_enabled(checked)
-    def on_enableMedusaChk_clicked(self, checked: bool):
-        tweaks["Medusa"].set_enabled(checked)
+        tweaks[TweakID.StageManager].set_enabled(checked)
+    def on_enableiPadOSChk_clicked(self, checked: bool):
+        tweaks[TweakID.iPadOS].set_enabled(checked)
+        tweaks[TweakID.iPadOSCacheData].set_enabled(checked)
     def on_ipadAppsChk_clicked(self, checked: bool):
-        tweaks["iPadApps"].set_enabled(checked)
+        tweaks[TweakID.iPadApps].set_enabled(checked)
     def on_shutterChk_clicked(self, checked: bool):
         # TODO: allow the user to select the region
-        tweaks["Shutter"].set_enabled(checked)
+        tweaks[TweakID.Shutter].set_enabled(checked)
     def on_findMyFriendsChk_clicked(self, checked: bool):
-        tweaks["FindMyFriends"].set_enabled(checked)
+        tweaks[TweakID.FindMyFriends].set_enabled(checked)
     def on_pencilChk_clicked(self, checked: bool):
-        tweaks["Pencil"].set_enabled(checked)
+        tweaks[TweakID.Pencil].set_enabled(checked)
     def on_actionButtonChk_clicked(self, checked: bool):
-        tweaks["ActionButton"].set_enabled(checked)
+        tweaks[TweakID.ActionButton].set_enabled(checked)
 
     def on_internalInstallChk_clicked(self, checked: bool):
-        tweaks["InternalInstall"].set_enabled(checked)
+        tweaks[TweakID.InternalInstall].set_enabled(checked)
     def on_internalStorageChk_clicked(self, checked: bool):
-        tweaks["InternalStorage"].set_enabled(checked)
+        tweaks[TweakID.InternalStorage].set_enabled(checked)
 
     def on_collisionSOSChk_clicked(self, checked: bool):
-        tweaks["CollisionSOS"].set_enabled(checked)
+        tweaks[TweakID.CollisionSOS].set_enabled(checked)
     def on_aodChk_clicked(self, checked: bool):
-        tweaks["AOD"].set_enabled(checked)
+        tweaks[TweakID.AOD].set_enabled(checked)
     def on_aodVibrancyChk_clicked(self, checked: bool):
-        tweaks["AODVibrancy"].set_enabled(checked)
+        tweaks[TweakID.AODVibrancy].set_enabled(checked)
 
     def update_custom_gestalt_value_type(self, id, idx, valueField: QtWidgets.QLineEdit):
         new_str = CustomGestaltTweaks.set_tweak_value_type(id, idx)

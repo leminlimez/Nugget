@@ -1,56 +1,57 @@
-from .tweaks import tweaks
-from .tweak_classes import MobileGestaltTweak, MobileGestaltMultiTweak, MobileGestaltPickerTweak, RdarFixTweak, FeatureFlagTweak, BasicPlistTweak, FileLocation, AdvancedPlistTweak, NullifyFileTweak
+from .tweaks import tweaks, TweakID
+from .tweak_classes import MobileGestaltTweak, MobileGestaltMultiTweak, MobileGestaltPickerTweak, MobileGestaltCacheDataTweak, RdarFixTweak, FeatureFlagTweak, BasicPlistTweak, FileLocation, AdvancedPlistTweak, NullifyFileTweak
 from .eligibility_tweak import EligibilityTweak, AITweak
 from devicemanagement.constants import Device, Version
 
 def get_mobilegestalt_tweaks() -> dict:
     return {
-        "DynamicIsland": MobileGestaltPickerTweak("oPeik/9e8lQWMszEjbPzng", subkey="ArtworkDeviceSubType", values=[2436, 2556, 2796, 2976, 2622, 2868]),
-        "ModelName": MobileGestaltTweak("oPeik/9e8lQWMszEjbPzng", subkey="ArtworkDeviceProductDescription", value=""),
-        "BootChime": MobileGestaltTweak("QHxt+hGLaBPbQJbXiUJX3w"),
-        "ChargeLimit": MobileGestaltTweak("37NVydb//GP/GrhuTN+exg"),
-        "CollisionSOS": MobileGestaltTweak("HCzWusHQwZDea6nNhaKndw"),
-        "TapToWake": MobileGestaltTweak("yZf3GTRMGTuwSV/lD7Cagw"),
-        "CameraButton": MobileGestaltMultiTweak({"CwvKxM2cEogD3p+HYgaW0Q": 1, "oOV1jhJbdV3AddkcCg0AEA": 1}),
-        "Parallax": MobileGestaltTweak("UIParallaxCapability", value=0),
-        "StageManager": MobileGestaltTweak("qeaj75wk3HF4DwQ8qbIi7g", value=1),
-        "Medusa": MobileGestaltMultiTweak({"mG0AnH/Vy1veoqoLRAIgTA": 1, "UCG5MkVahJxG1YULbbd5Bg": 1, "ZYqko/XM5zD3XBfN5RmaXA": 1, "nVh/gwNpy7Jv1NOk00CMrw": 1, "uKc7FPnEO++lVhHWHFlGbQ": 1}),
-        "iPadApps": MobileGestaltTweak("9MZ5AdH43csAUajl/dU+IQ", value=[1, 2]),
-        "Shutter": MobileGestaltMultiTweak({"h63QSdBCiT/z0WU6rdQv6Q": "US", "zHeENZu+wbg7PUprwNwBWg": "LL/A"}),
-        "FindMyFriends": MobileGestaltTweak("Y2Y67z0Nq/XdDXgW2EeaVg"),
-        "Pencil": MobileGestaltTweak("yhHcB0iH0d1XzPO/CFd3ow"),
-        "ActionButton": MobileGestaltTweak("cT44WE1EohiwRzhsZ8xEsw"),
-        "InternalStorage": MobileGestaltTweak("LBJfwOEzExRxzlAnSuI7eg"),
-        "InternalInstall": MobileGestaltTweak("EqrsVvjcYDdxHBiQmGhAWw"),
-        "AOD": MobileGestaltMultiTweak(
+        TweakID.DynamicIsland: MobileGestaltPickerTweak("oPeik/9e8lQWMszEjbPzng", subkey="ArtworkDeviceSubType", values=[2436, 2556, 2796, 2976, 2622, 2868, 2736]),
+        TweakID.ModelName: MobileGestaltTweak("oPeik/9e8lQWMszEjbPzng", subkey="ArtworkDeviceProductDescription", value=""),
+        TweakID.BootChime: MobileGestaltTweak("QHxt+hGLaBPbQJbXiUJX3w"),
+        TweakID.ChargeLimit: MobileGestaltTweak("37NVydb//GP/GrhuTN+exg"),
+        TweakID.CollisionSOS: MobileGestaltTweak("HCzWusHQwZDea6nNhaKndw"),
+        TweakID.TapToWake: MobileGestaltTweak("yZf3GTRMGTuwSV/lD7Cagw"),
+        TweakID.CameraButton: MobileGestaltMultiTweak({"CwvKxM2cEogD3p+HYgaW0Q": 1, "oOV1jhJbdV3AddkcCg0AEA": 1}),
+        TweakID.Parallax: MobileGestaltTweak("UIParallaxCapability", value=0),
+        TweakID.StageManager: MobileGestaltTweak("qeaj75wk3HF4DwQ8qbIi7g", value=1),
+        TweakID.iPadOS: MobileGestaltMultiTweak({"mG0AnH/Vy1veoqoLRAIgTA": 1, "UCG5MkVahJxG1YULbbd5Bg": 1, "ZYqko/XM5zD3XBfN5RmaXA": 1, "nVh/gwNpy7Jv1NOk00CMrw": 1, "uKc7FPnEO++lVhHWHFlGbQ": 1}),
+        TweakID.iPadOSCacheData: MobileGestaltCacheDataTweak(slice_start=1616, slice_length=200),
+        TweakID.iPadApps: MobileGestaltTweak("9MZ5AdH43csAUajl/dU+IQ", value=[1, 2]),
+        TweakID.Shutter: MobileGestaltMultiTweak({"h63QSdBCiT/z0WU6rdQv6Q": "US", "zHeENZu+wbg7PUprwNwBWg": "LL/A"}),
+        TweakID.FindMyFriends: MobileGestaltTweak("Y2Y67z0Nq/XdDXgW2EeaVg"),
+        TweakID.Pencil: MobileGestaltTweak("yhHcB0iH0d1XzPO/CFd3ow"),
+        TweakID.ActionButton: MobileGestaltTweak("cT44WE1EohiwRzhsZ8xEsw"),
+        TweakID.InternalStorage: MobileGestaltTweak("LBJfwOEzExRxzlAnSuI7eg"),
+        TweakID.InternalInstall: MobileGestaltTweak("EqrsVvjcYDdxHBiQmGhAWw"),
+        TweakID.AOD: MobileGestaltMultiTweak(
                                 {"2OOJf1VhaM7NxfRok3HbWQ": 1, "j8/Omm6s1lsmTDFsXjsBfA": 1}),
-        "AODVibrancy": MobileGestaltTweak("ykpu7qyhqFweVMKtxNylWA")
+        TweakID.AODVibrancy: MobileGestaltTweak("ykpu7qyhqFweVMKtxNylWA")
     }
 
 def load_rdar_fix(dev: Device):
-    if "RdarFix" in tweaks:
+    if TweakID.RdarFix in tweaks:
         return
-    tweaks.update({"RdarFix": RdarFixTweak()})
+    tweaks.update({TweakID.RdarFix: RdarFixTweak()})
     if dev != None:
         # load settings
-        tweaks["RdarFix"].get_rdar_mode(dev.model)
+        tweaks[TweakID.RdarFix].get_rdar_mode(dev.model)
 
 def load_mobilegestalt(dev: Device):
     load_rdar_fix(dev)
-    if "DynamicIsland" in tweaks:
+    if TweakID.DynamicIsland in tweaks:
         return
     additional_tweaks = get_mobilegestalt_tweaks()
     # add to tweaks
     tweaks.update(additional_tweaks)
 
 def load_eligibility(dev: Device):
-    if "AIGestalt" in tweaks:
+    if TweakID.AIGestalt in tweaks:
         return
     additional_tweaks = {
-        "EUEnabler": EligibilityTweak(),
-        "AIEligibility": AITweak(),
-        "AIGestalt": MobileGestaltTweak("A62OafQ85EJAiiqKn4agtg"),
-        "SpoofModel": MobileGestaltPickerTweak("h9jDsbgj7xIVeIQ8S3/X3Q", values=[
+        TweakID.EUEnabler: EligibilityTweak(),
+        TweakID.AIEligibility: AITweak(),
+        TweakID.AIGestalt: MobileGestaltTweak("A62OafQ85EJAiiqKn4agtg"),
+        TweakID.SpoofModel: MobileGestaltPickerTweak("h9jDsbgj7xIVeIQ8S3/X3Q", values=[
             # Default
             "Placeholder", # 0 | Original
 
@@ -61,36 +62,37 @@ def load_eligibility(dev: Device):
             "iPhone17,4", # 4 | iPhone 16 Plus
             "iPhone17,1", # 5 | iPhone 16 Pro
             "iPhone17,2", # 6 | iPhone 16 Pro Max
+            "iPhone18,3", # 7 | iPhone 17
 
             # A17 Pro iPads
-            "iPad16,1", # 7 | iPad Mini (A17 Pro) (W)
-            "iPad16,2", # 8 | iPad Mini (A17 Pro) (C)
+            "iPad16,1", # 8 | iPad Mini (A17 Pro) (W)
+            "iPad16,2", # 9 | iPad Mini (A17 Pro) (C)
         
             # M4 iPads
-            "iPad16,5", # 9 | iPad Pro (13-inch) (M4) (W)
-            "iPad16,6", # 10 | iPad Pro (13-inch) (M4) (C)
-            "iPad16,3", # 11 | iPad Pro (11-inch) (M4) (W)
-            "iPad16,4", # 12 | iPad Pro (11-inch) (M4) (C)
+            "iPad16,5", # 10 | iPad Pro (13-inch) (M4) (W)
+            "iPad16,6", # 11 | iPad Pro (13-inch) (M4) (C)
+            "iPad16,3", # 12 | iPad Pro (11-inch) (M4) (W)
+            "iPad16,4", # 13 | iPad Pro (11-inch) (M4) (C)
 
             # M2 iPads
-            "iPad14,5", # 13 | iPad Pro (12.9-inch) (M2) (W)
-            "iPad14,6", # 14 | iPad Pro (12.9-inch) (M2) (C)
-            "iPad14,3", # 15 | iPad Pro (11-inch) (M2) (W)
-            "iPad14,4", # 16 | iPad Pro (11-inch) (M2) (C)
-            "iPad14,10", # 17 | iPad Air (13-inch) (M2) (W)
-            "iPad14,11", # 18 | iPad Air (13-inch) (M2) (C)
-            "iPad14,8", # 19 | iPad Air (11-inch) (M2) (W)
-            "iPad14,9", # 20 | iPad Air (11-inch) (M2) (C)
+            "iPad14,5", # 14 | iPad Pro (12.9-inch) (M2) (W)
+            "iPad14,6", # 15 | iPad Pro (12.9-inch) (M2) (C)
+            "iPad14,3", # 16 | iPad Pro (11-inch) (M2) (W)
+            "iPad14,4", # 17 | iPad Pro (11-inch) (M2) (C)
+            "iPad14,10", # 18 | iPad Air (13-inch) (M2) (W)
+            "iPad14,11", # 19 | iPad Air (13-inch) (M2) (C)
+            "iPad14,8", # 20 | iPad Air (11-inch) (M2) (W)
+            "iPad14,9", # 21 | iPad Air (11-inch) (M2) (C)
 
             # M1 iPads
-            "iPad13,4", # 21 | iPad Pro (11-inch) (M1) (W)
-            "iPad13,5", # 22 | iPad Pro (11-inch) (M1) (C)
-            "iPad13,8", # 23 | iPad Pro (12.9-inch) (M1) (W)
-            "iPad13,9", # 24 | iPad Pro (12.9-inch) (M1) (C)
-            "iPad13,16", # 25 | iPad Air (M1) (W)
-            "iPad13,17", # 26 | iPad Air (M1) (C)
+            "iPad13,4", # 22 | iPad Pro (11-inch) (M1) (W)
+            "iPad13,5", # 23 | iPad Pro (11-inch) (M1) (C)
+            "iPad13,8", # 24 | iPad Pro (12.9-inch) (M1) (W)
+            "iPad13,9", # 25 | iPad Pro (12.9-inch) (M1) (C)
+            "iPad13,16", # 26 | iPad Air (M1) (W)
+            "iPad13,17", # 27 | iPad Air (M1) (C)
         ]),
-        "SpoofHardware": MobileGestaltPickerTweak("oYicEKzVTz4/CxxE05pEgQ", values=[
+        TweakID.SpoofHardware: MobileGestaltPickerTweak("oYicEKzVTz4/CxxE05pEgQ", values=[
             # Default
             "Placeholder", # 0 | Original
 
@@ -101,36 +103,37 @@ def load_eligibility(dev: Device):
             "D48AP", # 4 | iPhone 16 Plus
             "D93AP", # 5 | iPhone 16 Pro
             "D94AP", # 6 | iPhone 16 Pro Max
+            "V57AP", # 7 | iPhone 17
 
             # A17 Pro iPads
-            "J410AP", # 7 | iPad Mini (A17 Pro) (W)
-            "J411AP", # 8 | iPad Mini (A17 Pro) (C)
+            "J410AP", # 8 | iPad Mini (A17 Pro) (W)
+            "J411AP", # 9 | iPad Mini (A17 Pro) (C)
         
             # M4 iPads
-            "J720AP", # 9 | iPad Pro (13-inch) (M4) (W)
-            "J721AP", # 10 | iPad Pro (13-inch) (M4) (C)
-            "J717AP", # 11 | iPad Pro (11-inch) (M4) (W)
-            "J718AP", # 12 | iPad Pro (11-inch) (M4) (C)
+            "J720AP", # 10 | iPad Pro (13-inch) (M4) (W)
+            "J721AP", # 11 | iPad Pro (13-inch) (M4) (C)
+            "J717AP", # 12 | iPad Pro (11-inch) (M4) (W)
+            "J718AP", # 13 | iPad Pro (11-inch) (M4) (C)
 
             # M2 iPads
-            "J620AP", # 13 | iPad Pro (12.9-inch) (M2) (W)
-            "J621AP", # 14 | iPad Pro (12.9-inch) (M2) (C)
-            "J617AP", # 15 | iPad Pro (11-inch) (M2) (W)
-            "J618AP", # 16 | iPad Pro (11-inch) (M2) (C)
-            "J537AP", # 17 | iPad Air (13-inch) (M2) (W)
-            "J538AP", # 18 | iPad Air (13-inch) (M2) (C)
-            "J507AP", # 19 | iPad Air (11-inch) (M2) (W)
-            "J508AP", # 20 | iPad Air (11-inch) (M2) (C)
+            "J620AP", # 14 | iPad Pro (12.9-inch) (M2) (W)
+            "J621AP", # 15 | iPad Pro (12.9-inch) (M2) (C)
+            "J617AP", # 16 | iPad Pro (11-inch) (M2) (W)
+            "J618AP", # 17 | iPad Pro (11-inch) (M2) (C)
+            "J537AP", # 18 | iPad Air (13-inch) (M2) (W)
+            "J538AP", # 19 | iPad Air (13-inch) (M2) (C)
+            "J507AP", # 20 | iPad Air (11-inch) (M2) (W)
+            "J508AP", # 21 | iPad Air (11-inch) (M2) (C)
 
             # M1 iPads
-            "J517AP", # 21 | iPad Pro (11-inch) (M1) (W)
-            "J517xAP", # 22 | iPad Pro (11-inch) (M1) (C)
-            "J522AP", # 23 | iPad Pro (12.9-inch) (M1) (W)
-            "J522xAP", # 24 | iPad Pro (12.9-inch) (M1) (C)
-            "J407AP", # 25 | iPad Air (M1) (W)
-            "J408AP", # 26 | iPad Air (M1) (C)
+            "J517AP", # 22 | iPad Pro (11-inch) (M1) (W)
+            "J517xAP", # 23 | iPad Pro (11-inch) (M1) (C)
+            "J522AP", # 24 | iPad Pro (12.9-inch) (M1) (W)
+            "J522xAP", # 25 | iPad Pro (12.9-inch) (M1) (C)
+            "J407AP", # 26 | iPad Air (M1) (W)
+            "J408AP", # 27 | iPad Air (M1) (C)
         ]),
-        "SpoofCPU": MobileGestaltPickerTweak("5pYKlGnYYBzGvAlIU8RjEQ", values=[
+        TweakID.SpoofCPU: MobileGestaltPickerTweak("5pYKlGnYYBzGvAlIU8RjEQ", values=[
             # Default
             "Placeholder", # 0 | Original
 
@@ -141,192 +144,204 @@ def load_eligibility(dev: Device):
             "t8140", # 4 | iPhone 16 Plus
             "t8140", # 5 | iPhone 16 Pro
             "t8140", # 6 | iPhone 16 Pro Max
+            "t8150", # 7 | iPhone 17
 
             # A17 Pro iPads
-            "t8130", # 7 | iPad Mini (A17 Pro) (W)
-            "t8130", # 8 | iPad Mini (A17 Pro) (C)
+            "t8130", # 8 | iPad Mini (A17 Pro) (W)
+            "t8130", # 9 | iPad Mini (A17 Pro) (C)
         
             # M4 iPads
-            "t8182", # 9 | iPad Pro (13-inch) (M4) (W)
-            "t8182", # 10 | iPad Pro (13-inch) (M4) (C)
-            "t8182", # 11 | iPad Pro (11-inch) (M4) (W)
-            "t8182", # 12 | iPad Pro (11-inch) (M4) (C)
+            "t8182", # 10 | iPad Pro (13-inch) (M4) (W)
+            "t8182", # 11 | iPad Pro (13-inch) (M4) (C)
+            "t8182", # 12 | iPad Pro (11-inch) (M4) (W)
+            "t8182", # 13 | iPad Pro (11-inch) (M4) (C)
 
             # M2 iPads
-            "t8112", # 13 | iPad Pro (12.9-inch) (M2) (W)
-            "t8112", # 14 | iPad Pro (12.9-inch) (M2) (C)
-            "t8112", # 15 | iPad Pro (11-inch) (M2) (W)
-            "t8112", # 16 | iPad Pro (11-inch) (M2) (C)
-            "t8112", # 17 | iPad Air (13-inch) (M2) (W)
-            "t8112", # 18 | iPad Air (13-inch) (M2) (C)
-            "t8112", # 19 | iPad Air (11-inch) (M2) (W)
-            "t8112", # 20 | iPad Air (11-inch) (M2) (C)
+            "t8112", # 14 | iPad Pro (12.9-inch) (M2) (W)
+            "t8112", # 15 | iPad Pro (12.9-inch) (M2) (C)
+            "t8112", # 16 | iPad Pro (11-inch) (M2) (W)
+            "t8112", # 17 | iPad Pro (11-inch) (M2) (C)
+            "t8112", # 18 | iPad Air (13-inch) (M2) (W)
+            "t8112", # 19 | iPad Air (13-inch) (M2) (C)
+            "t8112", # 20 | iPad Air (11-inch) (M2) (W)
+            "t8112", # 21 | iPad Air (11-inch) (M2) (C)
 
             # M1 iPads
-            "t8103", # 21 | iPad Pro (11-inch) (M1) (W)
-            "t8103", # 22 | iPad Pro (11-inch) (M1) (C)
-            "t8103", # 23 | iPad Pro (12.9-inch) (M1) (W)
-            "t8103", # 24 | iPad Pro (12.9-inch) (M1) (C)
-            "t8103", # 25 | iPad Air (M1) (W)
-            "t8103", # 26 | iPad Air (M1) (C)
+            "t8103", # 22 | iPad Pro (11-inch) (M1) (W)
+            "t8103", # 23 | iPad Pro (11-inch) (M1) (C)
+            "t8103", # 24 | iPad Pro (12.9-inch) (M1) (W)
+            "t8103", # 25 | iPad Pro (12.9-inch) (M1) (C)
+            "t8103", # 26 | iPad Air (M1) (W)
+            "t8103", # 27 | iPad Air (M1) (C)
         ])
     }
     # load settings
     if dev != None:
-        additional_tweaks["SpoofModel"].value[0] = dev.model
-        additional_tweaks["SpoofHardware"].value[0] = dev.hardware
-        additional_tweaks["SpoofCPU"].value[0] = dev.cpu
+        additional_tweaks[TweakID.SpoofModel].value[0] = dev.model
+        additional_tweaks[TweakID.SpoofHardware].value[0] = dev.hardware
+        additional_tweaks[TweakID.SpoofCPU].value[0] = dev.cpu
     # add to tweaks
     tweaks.update(additional_tweaks)
 
 def load_featureflags():
-    if "ClockAnim" in tweaks:
+    if TweakID.ClockAnim in tweaks:
         return
     additional_tweaks = {
-        "ClockAnim": FeatureFlagTweak(flag_category='SpringBoard',
+        TweakID.ClockAnim: FeatureFlagTweak(flag_category='SpringBoard',
                      flag_names=['SwiftUITimeAnimation']),
-        "Lockscreen": FeatureFlagTweak(flag_category="SpringBoard",
+        TweakID.Lockscreen: FeatureFlagTweak(flag_category="SpringBoard",
                         flag_names=['AutobahnQuickSwitchTransition', 'SlipSwitch', 'PosterEditorKashida']),
-        "PhotoUI": FeatureFlagTweak(flag_category='Photos', flag_names=['Lemonade'], is_list=False, inverted=True),
-        "AI": FeatureFlagTweak(flag_category='SpringBoard', flag_names=['Domino', 'SuperDomino'])
+        TweakID.PhotoUI: FeatureFlagTweak(flag_category='Photos', flag_names=['Lemonade'], is_list=False, inverted=True),
+        TweakID.AI: FeatureFlagTweak(flag_category='SpringBoard', flag_names=['Domino', 'SuperDomino'])
     }
     tweaks.update(additional_tweaks)
 
 def load_springboard():
-    if "LockScreenFootnote" in tweaks:
+    if TweakID.LockScreenFootnote in tweaks:
         return
     additional_tweaks = {
-        "LockScreenFootnote": BasicPlistTweak(
+        TweakID.LockScreenFootnote: BasicPlistTweak(
             FileLocation.footnote,
             key="LockScreenFootnote", value=""
         ),
-        "SBDontLockAfterCrash": BasicPlistTweak(
+        TweakID.AirDropDisableTimeLimit: BasicPlistTweak(
+            FileLocation.airdrop,
+            "OverrideTimeLimitEveryoneMode"
+        ),
+        TweakID.SBDontLockAfterCrash: BasicPlistTweak(
             FileLocation.springboard,
             "SBDontLockAfterCrash"
         ),
-        "SBDontDimOrLockOnAC": BasicPlistTweak(
+        TweakID.SBDontDimOrLockOnAC: BasicPlistTweak(
             FileLocation.springboard,
             "SBDontDimOrLockOnAC"
         ),
-        "SBHideLowPowerAlerts": BasicPlistTweak(
+        TweakID.SBHideLowPowerAlerts: BasicPlistTweak(
             FileLocation.springboard,
             "SBHideLowPowerAlerts"
         ),
-        "SBHideACPower": BasicPlistTweak(
+        TweakID.SBHideACPower: BasicPlistTweak(
             FileLocation.springboard,
             "SBHideACPower"
         ),
-        "SBNeverBreadcrumb": BasicPlistTweak(
+        TweakID.SBNeverBreadcrumb: BasicPlistTweak(
             FileLocation.springboard,
             "SBNeverBreadcrumb"
         ),
-        "SBShowSupervisionTextOnLockScreen": BasicPlistTweak(
+        TweakID.SBShowSupervisionTextOnLockScreen: BasicPlistTweak(
             FileLocation.springboard,
             "SBShowSupervisionTextOnLockScreen"
         ),
-        "AirplaySupport": BasicPlistTweak(
+        TweakID.AirplaySupport: BasicPlistTweak(
             FileLocation.springboard,
             "SBExtendedDisplayOverrideSupportForAirPlayAndDontFileRadars"
         ),
-        "SBMinimumLockscreenIdleTime": BasicPlistTweak(
+        TweakID.SBMinimumLockscreenIdleTime: BasicPlistTweak(
             FileLocation.springboard,
             key="SBMinimumLockscreenIdleTime",
             value=5
         ),
-        "SBAlwaysShowSystemApertureInSnapshots": BasicPlistTweak(
+        TweakID.SBAlwaysShowSystemApertureInSnapshots: BasicPlistTweak(
             FileLocation.springboard,
             "SBAlwaysShowSystemApertureInSnapshots"
         ),
-        "SBShowAuthenticationEngineeringUI": BasicPlistTweak(
+        TweakID.SBShowAuthenticationEngineeringUI: BasicPlistTweak(
             FileLocation.springboard,
             "SBShowAuthenticationEngineeringUI"
         ),
-        "UseFloatingTabBar": AdvancedPlistTweak(
+        TweakID.UseFloatingTabBar: BasicPlistTweak(
             FileLocation.uikit,
-            {
-             "UseFloatingTabBar": False
-            },
+            key="UseFloatingTabBar",
+            value=False
         )
     }
     tweaks.update(additional_tweaks)
 
 def load_internal():
-    if "RTL" in tweaks:
+    if TweakID.RTL in tweaks:
         return
     additional_tweaks = {
-        "DisableSolarium": BasicPlistTweak(
+        TweakID.ForceSolariumFallback: BasicPlistTweak(
             FileLocation.globalPreferences,
-            "com.apple.SwiftUI.DisableSolarium"
+            "SolariumForceFallback"
         ),
-        "IgnoreSolariumLinkedOnCheck": BasicPlistTweak(
+        TweakID.IgnoreSolariumLinkedOnCheck: BasicPlistTweak(
             FileLocation.globalPreferences,
             "com.apple.SwiftUI.IgnoreSolariumLinkedOnCheck"
         ),
-        "SBBuildNumber": BasicPlistTweak(
+        TweakID.NoLiquidClock: BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "SBDisallowGlassTime"
+        ),
+        TweakID.NoLiquidDock: BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "SBDisableGlassDock"
+        ),
+        TweakID.SBBuildNumber: BasicPlistTweak(
             FileLocation.globalPreferences,
             "UIStatusBarShowBuildVersion"
         ),
-        "RTL": BasicPlistTweak(
+        TweakID.RTL: BasicPlistTweak(
             FileLocation.globalPreferences,
             "NSForceRightToLeftWritingDirection"
         ),
-        "LTR": BasicPlistTweak(
+        TweakID.LTR: BasicPlistTweak(
             FileLocation.globalPreferences,
             "NSForceLeftToRightWritingDirection"
         ),
-        "SBIconVisibility": BasicPlistTweak(
+        TweakID.SBIconVisibility: BasicPlistTweak(
             FileLocation.globalPreferences,
             "SBIconVisibility"
         ),
-        "MetalForceHudEnabled": BasicPlistTweak(
+        TweakID.MetalForceHudEnabled: BasicPlistTweak(
             FileLocation.globalPreferences,
             "MetalForceHudEnabled"
         ),
-        "iMessageDiagnosticsEnabled": BasicPlistTweak(
+        TweakID.iMessageDiagnosticsEnabled: BasicPlistTweak(
             FileLocation.globalPreferences,
             "iMessageDiagnosticsEnabled"
         ),
-        "IDSDiagnosticsEnabled": BasicPlistTweak(
+        TweakID.IDSDiagnosticsEnabled: BasicPlistTweak(
             FileLocation.globalPreferences,
             "IDSDiagnosticsEnabled"
         ),
-        "VCDiagnosticsEnabled": BasicPlistTweak(
+        TweakID.VCDiagnosticsEnabled: BasicPlistTweak(
             FileLocation.globalPreferences,
             "VCDiagnosticsEnabled"
         ),
-        "AccessoryDeveloperEnabled": BasicPlistTweak(
+        TweakID.AccessoryDeveloperEnabled: BasicPlistTweak(
             FileLocation.globalPreferences,
             "AccessoryDeveloperEnabled"
         ),
-        "KeyFlick": BasicPlistTweak(
+        TweakID.KeyFlick: BasicPlistTweak(
             FileLocation.globalPreferences,
             "GesturesEnabled"
         ),
-        "AppStoreDebug": BasicPlistTweak(
+        TweakID.AppStoreDebug: BasicPlistTweak(
             FileLocation.appStore,
             "debugGestureEnabled"
         ),
-        "NotesDebugMode": BasicPlistTweak(
+        TweakID.NotesDebugMode: BasicPlistTweak(
             FileLocation.notes,
             "DebugModeEnabled"
         ),
-        "BKDigitizerVisualizeTouches": BasicPlistTweak(
+        TweakID.BKDigitizerVisualizeTouches: BasicPlistTweak(
             FileLocation.backboardd,
             "BKDigitizerVisualizeTouches"
         ),
-        "BKHideAppleLogoOnLaunch": BasicPlistTweak(
+        TweakID.BKHideAppleLogoOnLaunch: BasicPlistTweak(
             FileLocation.backboardd,
             "BKHideAppleLogoOnLaunch"
         ),
-        "EnableWakeGestureHaptic": BasicPlistTweak(
+        TweakID.EnableWakeGestureHaptic: BasicPlistTweak(
             FileLocation.coreMotion,
             "EnableWakeGestureHaptic"
         ),
-        "PlaySoundOnPaste": BasicPlistTweak(
+        TweakID.PlaySoundOnPaste: BasicPlistTweak(
             FileLocation.pasteboard,
             "PlaySoundOnPaste"
         ),
-        "AnnounceAllPastes": BasicPlistTweak(
+        TweakID.AnnounceAllPastes: BasicPlistTweak(
             FileLocation.pasteboard,
             "AnnounceAllPastes"
         )
@@ -334,10 +349,10 @@ def load_internal():
     tweaks.update(additional_tweaks)
 
 def load_risky():
-    if "CustomResolution" in tweaks:
+    if TweakID.CustomResolution in tweaks:
         return
     additional_tweaks = {
-        "DisableOTAFile": AdvancedPlistTweak(
+        TweakID.DisableOTAFile: AdvancedPlistTweak(
             FileLocation.ota,
             {
                 "MobileAssetServerURL-com.apple.MobileAsset.MobileSoftwareUpdate.UpdateBrain": "https://mesu.apple.com/assets/tvOS16DeveloperSeed",
@@ -349,7 +364,7 @@ def load_risky():
                 "MobileAssetAssetAudience": "65254ac3-f331-4c19-8559-cbe22f5bc1a6"
             }, is_risky=True
         ),
-        "CustomResolution": AdvancedPlistTweak(
+        TweakID.CustomResolution: AdvancedPlistTweak(
             FileLocation.resolution,
             {}, # empty as to not cause issues when only 1 value is inputted
             is_risky=True
@@ -358,10 +373,10 @@ def load_risky():
     tweaks.update(additional_tweaks)
 
 def load_daemons():
-    if "Daemons" in tweaks:
+    if TweakID.Daemons in tweaks:
         return
     additional_tweaks = {
-        "Daemons": AdvancedPlistTweak(
+        TweakID.Daemons: AdvancedPlistTweak(
             FileLocation.disabledDaemons,
             {
                 "com.apple.magicswitchd.companion": True,
@@ -373,7 +388,7 @@ def load_daemons():
             },
             owner=0, group=0
         ),
-        "ClearScreenTimeAgentPlist": NullifyFileTweak(FileLocation.screentime),
+        TweakID.ClearScreenTimeAgentPlist: NullifyFileTweak(FileLocation.screentime),
     }
     tweaks.update(additional_tweaks)
 

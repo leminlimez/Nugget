@@ -2,7 +2,7 @@ from ..page import Page
 from qt.ui_mainwindow import Ui_Nugget
 
 from tweaks.tweak_loader import load_springboard
-from tweaks.tweaks import tweaks
+from tweaks.tweaks import tweaks, TweakID
 
 class SpringboardPage(Page):
     def __init__(self, ui: Ui_Nugget):
@@ -11,44 +11,27 @@ class SpringboardPage(Page):
 
     def load_page(self):
         self.ui.footnoteTxt.textEdited.connect(self.on_footnoteTxt_textEdited)
-        self.ui.disableLockRespringChk.toggled.connect(self.on_disableLockRespringChk_clicked)
-        self.ui.disableDimmingChk.toggled.connect(self.on_disableDimmingChk_clicked)
-        self.ui.disableBatteryAlertsChk.toggled.connect(self.on_disableBatteryAlertsChk_clicked)
-        self.ui.hideACPowerChk.toggled.connect(self.on_hideACPowerChk_clicked)
-        self.ui.disableCrumbChk.toggled.connect(self.on_disableCrumbChk_clicked)
-        self.ui.enableSupervisionTextChk.toggled.connect(self.on_enableSupervisionTextChk_clicked)
-        self.ui.enableAirPlayChk.toggled.connect(self.on_enableAirPlayChk_clicked)
         self.ui.lockScreenAutoLockSlider.valueChanged.connect(self.on_lockScreenAutoLockSlider_valueChanged)
-        self.ui.showApertureInSnapshotsChk.toggled.connect(self.on_showApertureInSnapshotsChk_clicked)
-        self.ui.authEngUICheck.toggled.connect(self.on_authEngUICheck_clicked)
-        self.ui.floatingTabBarChk.toggled.connect(self.on_floatingTabBarChk_clicked)
+
+        # create the radio buttons
+        self.createRadioBtns(key=TweakID.AirDropDisableTimeLimit, container=self.ui.airdropTimeLimitBtns)
+        self.createRadioBtns(key=TweakID.SBDontLockAfterCrash, container=self.ui.disableLockRespringBtns)
+        self.createRadioBtns(key=TweakID.SBDontDimOrLockOnAC, container=self.ui.disableDimmingBtns)
+        self.createRadioBtns(key=TweakID.SBHideLowPowerAlerts, container=self.ui.lowBatteryAlertsBtns)
+        self.createRadioBtns(key=TweakID.SBHideACPower, container=self.ui.hideACPowerBtns)
+        self.createRadioBtns(key=TweakID.SBNeverBreadcrumb, container=self.ui.disableCrumbBtns)
+        self.createRadioBtns(key=TweakID.SBShowSupervisionTextOnLockScreen, container=self.ui.supervisionTextBtns)
+        self.createRadioBtns(key=TweakID.AirplaySupport, container=self.ui.enableAirPlayBtns)
+        self.createRadioBtns(key=TweakID.SBAlwaysShowSystemApertureInSnapshots, container=self.ui.showDIInScreenshotsBtns)
+
+        self.createRadioBtns(key=TweakID.SBShowAuthenticationEngineeringUI, container=self.ui.authEngUIBtns)
+        self.createRadioBtns(key=TweakID.UseFloatingTabBar, container=self.ui.floatingTabBarBtns, invert_values=True)
         
         load_springboard()
 
     ## ACTIONS
     def on_footnoteTxt_textEdited(self, text: str):
-        tweaks["LockScreenFootnote"].set_value(text, toggle_enabled=True)
-    def on_disableLockRespringChk_clicked(self, checked: bool):
-        tweaks["SBDontLockAfterCrash"].set_enabled(checked)
-    def on_disableDimmingChk_clicked(self, checked: bool):
-        tweaks["SBDontDimOrLockOnAC"].set_enabled(checked)
-    def on_disableBatteryAlertsChk_clicked(self, checked: bool):
-        tweaks["SBHideLowPowerAlerts"].set_enabled(checked)
-    def on_disableCrumbChk_clicked(self, checked: bool):
-        tweaks["SBNeverBreadcrumb"].set_enabled(checked)
-    def on_enableSupervisionTextChk_clicked(self, checked: bool):
-        tweaks["SBShowSupervisionTextOnLockScreen"].set_enabled(checked)
-    def on_enableAirPlayChk_clicked(self, checked: bool):
-        tweaks["AirplaySupport"].set_enabled(checked)
-    def on_hideACPowerChk_clicked(self, checked: bool):
-        tweaks["SBHideACPower"].set_enabled(checked)
+        tweaks[TweakID.LockScreenFootnote].set_value(text, toggle_enabled=True)
     def on_lockScreenAutoLockSlider_valueChanged(self, value: int):
         self.ui.lockScreenAutoLockValueLabel.setText(f'{value}s')
-        tweaks["SBMinimumLockscreenIdleTime"].set_value(value, toggle_enabled=True)
-    def on_showApertureInSnapshotsChk_clicked(self, checked: bool):
-        tweaks["SBAlwaysShowSystemApertureInSnapshots"].set_enabled(checked)
-
-    def on_authEngUICheck_clicked(self, checked: bool):
-        tweaks["SBShowAuthenticationEngineeringUI"].set_enabled(checked)
-    def on_floatingTabBarChk_clicked(self, checked: bool):
-        tweaks["UseFloatingTabBar"].set_enabled(checked)
+        tweaks[TweakID.SBMinimumLockscreenIdleTime].set_value(value, toggle_enabled=True)

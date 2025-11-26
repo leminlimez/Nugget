@@ -1,4 +1,5 @@
 from devicemanagement.constants import Version
+from .tweak_names import TweakID
 from .tweak_classes import MobileGestaltTweak, MobileGestaltMultiTweak, MobileGestaltPickerTweak, FeatureFlagTweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak
 from .eligibility_tweak import EligibilityTweak, AITweak
 from .posterboard.posterboard_tweak import PosterboardTweak
@@ -8,11 +9,11 @@ from .basic_plist_locations import FileLocation
     
 tweaks = {
     ## PosterBoard
-    "PosterBoard": PosterboardTweak(),
+    TweakID.PosterBoard: PosterboardTweak(),
 
     ## Templates
-    "Templates": TemplatesTweak(),
+    TweakID.Templates: TemplatesTweak(),
 
     ## Status Bar
-    "StatusBar": StatusBarTweak()
+    TweakID.StatusBar: StatusBarTweak()
 }

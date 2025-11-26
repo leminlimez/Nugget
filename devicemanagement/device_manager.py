@@ -1,6 +1,7 @@
 import traceback
 import plistlib
 from tempfile import TemporaryDirectory
+from typing import Optional
 import os.path
 from pathlib import Path
 
@@ -15,7 +16,7 @@ from pymobiledevice3 import usbmux
 from pymobiledevice3.ca import create_keybag_file
 from pymobiledevice3.services.mobile_config import MobileConfigService
 from pymobiledevice3.lockdown import create_using_usbmux
-from pymobiledevice3.exceptions import MuxException, PasswordRequiredError, ConnectionTerminatedError
+from pymobiledevice3.exceptions import MuxException, PasswordRequiredError, ConnectionTerminatedError, AccessDeniedError, InvalidServiceError
 from pymobiledevice3.services.installation_proxy import InstallationProxyService
 from pymobiledevice3.services.house_arrest import HouseArrestService
 
@@ -29,13 +30,14 @@ from controllers.files_handler import get_bundle_files
 
 from exceptions.nugget_exception import NuggetException
 
-from tweaks.tweaks import tweaks, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak, StatusBarTweak
+from tweaks.tweaks import tweaks, TweakID, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak, StatusBarTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.posterboard.posterboard_tweak import PosterboardTweak
 from tweaks.posterboard.template_options.templates_tweak import TemplatesTweak
 from tweaks.basic_plist_locations import FileLocation
 
 from restore.restore import restore_files, FileToRestore
+from restore.bookrestore import perform_bookrestore, BookRestoreFileTransferMethod
 from restore.mbdb import _FileMode
 
 def show_error_msg(txt: str, title: str = "Error!", icon = QMessageBox.Critical, detailed_txt: str = None):
@@ -68,7 +70,7 @@ def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list
     elif "Encrypted Backup MDM" in str(e):
         return ApplyAlertMessage(QCoreApplication.tr("Nugget cannot be used on this device. Click Show Details for more info."),
                        detailed_txt=QCoreApplication.tr("Your device is managed and MDM backup encryption is on. This must be turned off in order for Nugget to work. Please do not use Nugget on your school/work device!"))
-    elif "SessionInactive" in str(e):
+    elif "SessionInactive" in str(e) or "ConnectionAbortedError" in str(e):
         return ApplyAlertMessage(QCoreApplication.tr("The session was terminated. Refresh the device list and try again."))
     elif "PasswordRequiredError" in str(e):
         return ApplyAlertMessage(QCoreApplication.tr("Device is password protected! You must trust the computer on your device."),
@@ -77,8 +79,13 @@ def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list
         files_str: str = get_files_list_str(files_list)
         return ApplyAlertMessage(QCoreApplication.tr("Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info."),
                                  detailed_txt=files_str + "TRACEBACK:\n\n" + str(traceback.format_exc()))
+    elif isinstance(e, AccessDeniedError):
+        return ApplyAlertMessage(QCoreApplication.tr("You must run the application as an administer to use BookRestore tweaks."), detailed_txt="Try running the program with sudo.")
+    elif isinstance(e, InvalidServiceError):
+        return ApplyAlertMessage(QCoreApplication.tr("You must enable developer mode on your device. You can do it in the Settings app."),
+                                 detailed_txt=QCoreApplication.tr("BookRestore tweaks require developer mode to apply. You can enable this at the bottom of the Settings app on your iPhone or iPad."))
     elif isinstance(e, NuggetException):
-        return ApplyAlertMessage(str(e))
+        return ApplyAlertMessage(str(e), detailed_txt=e.detailed_text)
     else:
         files_str: str = get_files_list_str(files_list)
         return ApplyAlertMessage(type(e).__name__ + ": " + repr(e), detailed_txt=files_str + "TRACEBACK:\n\n" + str(traceback.format_exc()))
@@ -92,18 +99,22 @@ class DeviceManager:
 
         # preferences
         # TODO: Move to its own class
+        self.settings = None
         self.apply_over_wifi = False
         self.auto_reboot = True
         self.allow_risky_tweaks = False
         self.show_all_spoofable_models = False
         self.disable_tendies_limit = False
         self.restore_truststore = False
+        self.bookrestore_transfer_mode = BookRestoreFileTransferMethod.LocalHost
         self.skip_setup = True
         self.supervised = False
         self.organization_name = ""
     
     def get_devices(self, settings: QSettings, show_alert=lambda x: None):
         self.devices.clear()
+        if self.settings == None:
+            self.settings = settings
         # handle errors when failing to get connected devices
         try:
             connected_devices = usbmux.list_devices()
@@ -129,6 +140,7 @@ class DeviceManager:
                         product_type = settings.value(device.serial + "_model", "", type=str)
                         hardware_type = settings.value(device.serial + "_hardware", "", type=str)
                         cpu_type = settings.value(device.serial + "_cpu", "", type=str)
+                        books_uuid = settings.value(device.serial + "_books_container_uuid", "", type=str)
                         if product_type == "":
                             # save the new product type
                             settings.setValue(device.serial + "_model", model)
@@ -147,7 +159,7 @@ class DeviceManager:
                     except:
                         show_alert(ApplyAlertMessage(txt=QCoreApplication.tr("Click \"Show Details\" for the traceback."), detailed_txt=str(traceback.format_exc())))
                     dev = Device(
-                            uuid=device.serial,
+                            udid=device.serial,
                             usb=device.is_usb,
                             name=vals['DeviceName'],
                             version=vals['ProductVersion'],
@@ -156,10 +168,11 @@ class DeviceManager:
                             hardware=hardware,
                             cpu=cpu,
                             locale=ld.locale,
+                            books_container_uuid=books_uuid,
                             ld=ld
                         )
-                    if "RdarFix" in tweaks:
-                        tweaks["RdarFix"].get_rdar_mode(model)
+                    if TweakID.RdarFix in tweaks:
+                        tweaks[TweakID.RdarFix].get_rdar_mode(model)
                     self.devices.append(dev)
                 except PasswordRequiredError as e:
                     show_alert(ApplyAlertMessage(txt=QCoreApplication.tr("Device is password protected! You must trust the computer on your device.\n\nUnlock your device. On the popup, click \"Trust\", enter your password, then try again.")))
@@ -184,10 +197,10 @@ class DeviceManager:
             self.data_singleton.device_available = False
             self.data_singleton.gestalt_path = None
             self.current_device_index = 0
-            if "SpoofModel" in tweaks:
-                tweaks["SpoofModel"].value[0] = "Placeholder"
-                tweaks["SpoofHardware"].value[0] = "Placeholder"
-                tweaks["SpoofCPU"].value[0] = "Placeholder"
+            if TweakID.SpoofModel in tweaks:
+                tweaks[TweakID.SpoofModel].value[0] = "Placeholder"
+                tweaks[TweakID.SpoofHardware].value[0] = "Placeholder"
+                tweaks[TweakID.SpoofCPU].value[0] = "Placeholder"
         else:
             self.data_singleton.current_device = self.devices[index]
             if Version(self.devices[index].version) < Version("17.0"):
@@ -195,10 +208,10 @@ class DeviceManager:
                 self.data_singleton.gestalt_path = None
             else:
                 self.data_singleton.device_available = True
-                if "SpoofModel" in tweaks:
-                    tweaks["SpoofModel"].value[0] = self.data_singleton.current_device.model
-                    tweaks["SpoofHardware"].value[0] = self.data_singleton.current_device.hardware
-                    tweaks["SpoofCPU"].value[0] = self.data_singleton.current_device.cpu
+                if TweakID.SpoofModel in tweaks:
+                    tweaks[TweakID.SpoofModel].value[0] = self.data_singleton.current_device.model
+                    tweaks[TweakID.SpoofHardware].value[0] = self.data_singleton.current_device.hardware
+                    tweaks[TweakID.SpoofCPU].value[0] = self.data_singleton.current_device.cpu
             self.current_device_index = index
         
     def get_current_device_name(self) -> str:
@@ -223,7 +236,7 @@ class DeviceManager:
         if self.data_singleton.current_device == None:
             return ""
         else:
-            return self.data_singleton.current_device.uuid
+            return self.data_singleton.current_device.udid
         
     def get_current_device_model(self) -> str:
         if self.data_singleton.current_device == None:
@@ -237,11 +250,25 @@ class DeviceManager:
         else:
             return self.data_singleton.current_device.supported()
     
+    def get_current_device_uses_bookrestore(self) -> bool:
+        if self.data_singleton.current_device == None:
+            return False
+        else:
+            return self.data_singleton.current_device.has_bookrestore()
+    
     def get_current_device_patched(self) -> bool:
         if self.data_singleton.current_device == None:
             return True
         else:
             return self.data_singleton.current_device.is_exploit_fully_patched()
+        
+    def current_device_books_container_uuid_callback(self, uuid: Optional[str]=None) -> Optional[str | None]:
+        # if there is no argument, return the existing uuid
+        if uuid is None:
+            return self.data_singleton.current_device.books_container_uuid
+        self.data_singleton.current_device.books_container_uuid = uuid
+        # save it to settings
+        self.settings.setValue(self.data_singleton.current_device.udid + "_books_container_uuid", uuid)
         
     def get_app_hashes(self, bundle_ids: list[str]) -> dict:
         apps = InstallationProxyService(lockdown=self.data_singleton.current_device.ld).get_apps(application_type="Any", calculate_sizes=False)
@@ -371,6 +398,7 @@ class DeviceManager:
                     'OSShowcase',
                     'SafetyAndHandling',
                     'Tips',
+                    "AgeBasedSafetySettings",
                 ]
             cloud_config_plist["AllowPairing"] = True
             cloud_config_plist["ConfigurationWasApplied"] = True
@@ -414,9 +442,9 @@ class DeviceManager:
                 domain="ManagedPreferencesDomain"
             ))
 
-    def get_domain_for_path(self, path: str, owner: int = 501, uses_domains: bool = False) -> str:
+    def get_domain_for_path(self, path: str, owner: int = 501, use_bookrestore: bool = False) -> str:
         # returns Domain: str?, Path: str
-        if self.get_current_device_supported() and not path.startswith("/var/mobile/") and not owner == 0:# and not uses_domains:
+        if ((self.get_current_device_supported() and not path.startswith("/var/mobile/")) or (self.get_current_device_uses_bookrestore() and use_bookrestore)) and not owner == 0:# and not uses_domains:
             # don't do anything on sparserestore versions
             return path, ""
         fully_patched = self.get_current_device_patched()
@@ -450,7 +478,7 @@ class DeviceManager:
     
     def concat_file(self, contents: str, path: str, files_to_restore: list[FileToRestore], owner: int = 501, group: int = 501, uses_domains: bool = False):
         # TODO: try using inodes here instead
-        file_path, domain = self.get_domain_for_path(path, owner=owner, uses_domains=uses_domains)
+        file_path, domain = self.get_domain_for_path(path, owner=owner, use_bookrestore=uses_domains)
         files_to_restore.append(FileToRestore(
             contents=contents,
             restore_path=file_path,
@@ -483,6 +511,7 @@ class DeviceManager:
             basic_plists_ownership: dict = {}
             files_data: dict = {}
             uses_domains: bool = False
+            use_bookrestore: bool = False
             # create the restore file list
             files_to_restore: list[FileToRestore] = [
             ]
@@ -511,11 +540,13 @@ class DeviceManager:
                     tweak.apply_tweak(
                         files_to_restore=files_to_restore,
                         output_dir=fix_windows_path(tmp_dirs[len(tmp_dirs)-1].name),
-                        templates=tweaks["Templates"].templates,
+                        templates=tweaks[TweakID.Templates].templates,
                         version=self.get_current_device_version(), update_label=update_label
                     )
                     if tweak.uses_domains():
                         uses_domains = True
+                    else:
+                        use_bookrestore = True
                 elif isinstance(tweak, StatusBarTweak):
                     tweak.apply_tweak(files_to_restore=files_to_restore)
                     if tweak.enabled:
@@ -523,6 +554,8 @@ class DeviceManager:
                 else:
                     if gestalt_plist != None:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
+                        if tweak.enabled:
+                            use_bookrestore = True
                     elif tweak.enabled:
                         # no mobilegestalt file provided but applying mga tweaks, give warning
                         show_alert(ApplyAlertMessage(txt=QCoreApplication.tr("No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.")))
@@ -544,12 +577,12 @@ class DeviceManager:
                     path="/var/preferences/FeatureFlags/Global.plist",
                     files_to_restore=files_to_restore
                 )
-            self.add_skip_setup(files_to_restore, uses_domains)
-            if gestalt_data != None:
+            self.add_skip_setup(files_to_restore, uses_domains and not use_bookrestore)
+            if gestalt_data != None and use_bookrestore:
                 self.concat_file(
                     contents=gestalt_data,
                     path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
-                    files_to_restore=files_to_restore, uses_domains=uses_domains
+                    files_to_restore=files_to_restore, uses_domains=True
                 )
             if eligibility_files:
                 new_eligibility_files: dict[FileToRestore] = []
@@ -579,7 +612,7 @@ class DeviceManager:
                     contents=plistlib.dumps(plist),
                     path=location.value,
                     files_to_restore=files_to_restore,
-                    owner=ownership, group=ownership
+                    owner=ownership, group=ownership, uses_domains=use_bookrestore
                 )
             for location, data in files_data.items():
                 if isinstance(data, NullifyFileTweak):
@@ -626,13 +659,17 @@ class DeviceManager:
             self.do_not_unplug = ""
             if self.data_singleton.current_device.connected_via_usb:
                 self.do_not_unplug = "\n" + QCoreApplication.tr("DO NOT UNPLUG")
-            update_label(QCoreApplication.tr("Preparing to restore...") + self.do_not_unplug)
-            restore_files(
-                files=files_to_restore, reboot=self.auto_reboot,
-                lockdown_client=self.data_singleton.current_device.ld,
-                progress_callback=self.progress_callback
-            )
-            msg = QCoreApplication.tr("Your device will now restart.\n\nRemember to turn Find My back on!")
+            if use_bookrestore and not self.data_singleton.current_device.has_partial_sparserestore():
+                update_label(QCoreApplication.tr("Creating connection to device...") + self.do_not_unplug)
+                perform_bookrestore(files=files_to_restore, lockdown_client=self.data_singleton.current_device.ld, current_device_books_uuid_callback=self.current_device_books_container_uuid_callback, progress_callback=self.update_label, transfer_mode=self.bookrestore_transfer_mode)
+            else:
+                update_label(QCoreApplication.tr("Preparing to restore...") + self.do_not_unplug)
+                restore_files(
+                    files=files_to_restore, reboot=self.auto_reboot,
+                    lockdown_client=self.data_singleton.current_device.ld,
+                    progress_callback=self.progress_callback
+                )
+            msg = ""#QCoreApplication.tr("Your device will now restart.\n\nRemember to turn Find My back on!")
             if not self.auto_reboot:
                 msg = QCoreApplication.tr("Please restart your device to see changes.")
             final_alert = ApplyAlertMessage(txt=QCoreApplication.tr("All done! ") + msg, title=QCoreApplication.tr("Success!"), icon=QMessageBox.Information)
@@ -658,16 +695,19 @@ class DeviceManager:
             update_label(QCoreApplication.tr("Generating backup..."))
             files_to_null: list[str] = []
             uses_domains = False
+            use_bookrestore = False
 
             # use if-statements instead of match (switch) statements for compatibility with Python 3.9
             for page in reset_pages:
                 if page == Page.Gestalt:
                     ## MOBILE GESTALT
                     # remove the saved device model, hardware, and cpu
-                    settings.setValue(self.data_singleton.current_device.uuid + "_model", "")
-                    settings.setValue(self.data_singleton.current_device.uuid + "_hardware", "")
-                    settings.setValue(self.data_singleton.current_device.uuid + "_cpu", "")
+                    settings.setValue(self.data_singleton.current_device.udid + "_model", "")
+                    settings.setValue(self.data_singleton.current_device.udid + "_hardware", "")
+                    settings.setValue(self.data_singleton.current_device.udid + "_cpu", "")
                     files_to_null.append("/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist")
+                    if self.get_current_device_uses_bookrestore():
+                        use_bookrestore = True
                 elif page == Page.FeatureFlags:
                     ## FEATURE FLAGS
                     files_to_null.append("/var/preferences/FeatureFlags/Global.plist")
@@ -717,23 +757,29 @@ class DeviceManager:
                 self.concat_file(
                     contents=b"",
                     path=file_path,
-                    files_to_restore=files_to_restore
+                    files_to_restore=files_to_restore, uses_domains=use_bookrestore
                 )
             
-            self.add_skip_setup(files_to_restore, uses_domains)
+            if not use_bookrestore:
+                self.add_skip_setup(files_to_restore, uses_domains)
 
             # restore to the device
             self.update_label = update_label
             self.do_not_unplug = ""
             if self.data_singleton.current_device.connected_via_usb:
                 self.do_not_unplug = f"\n{QCoreApplication.tr('DO NOT UNPLUG')}"
-            update_label(f"{QCoreApplication.tr('Preparing to restore...')}{self.do_not_unplug}")
-            restore_files(
-                files=files_to_restore, reboot=self.auto_reboot,
-                lockdown_client=self.data_singleton.current_device.ld,
-                progress_callback=self.progress_callback
-            )
-            msg = QCoreApplication.tr("Your device will now restart.\n\nRemember to turn Find My back on!")
+            if use_bookrestore and not self.data_singleton.current_device.has_partial_sparserestore():
+                update_label(QCoreApplication.tr("Creating connection to device...") + self.do_not_unplug)
+                perform_bookrestore(files=files_to_restore, lockdown_client=self.data_singleton.current_device.ld, current_device_books_uuid_callback=self.current_device_books_container_uuid_callback, progress_callback=self.update_label, transfer_mode=self.bookrestore_transfer_mode)
+                msg = "Success!"
+            else:
+                update_label(f"{QCoreApplication.tr('Preparing to restore...')}{self.do_not_unplug}")
+                restore_files(
+                    files=files_to_restore, reboot=self.auto_reboot,
+                    lockdown_client=self.data_singleton.current_device.ld,
+                    progress_callback=self.progress_callback
+                )
+                msg = QCoreApplication.tr("Your device will now restart.\n\nRemember to turn Find My back on!")
             if not self.auto_reboot:
                 msg = QCoreApplication.tr("Please restart your device to see changes.")
             final_alert = ApplyAlertMessage(txt=QCoreApplication.tr("All done! ") + msg, title=QCoreApplication.tr("Success!"), icon=QMessageBox.Information)

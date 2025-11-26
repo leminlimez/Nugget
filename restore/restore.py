@@ -2,8 +2,10 @@ from . import backup, perform_restore
 from .mbdb import _FileMode
 from pymobiledevice3.lockdown import LockdownClient
 from pymobiledevice3.services.installation_proxy import InstallationProxyService
+from pymobiledevice3.exceptions import ConnectionTerminatedError
 import os
 import plistlib
+import ssl
 
 class FileToRestore:
     def __init__(self,
@@ -19,7 +21,7 @@ class FileToRestore:
         self.mode = mode
 
 def concat_exploit_file(file: FileToRestore, files_list: list[FileToRestore], last_domain: str) -> str:
-    base_path = ""#"/var/backup"
+    base_path = ""
     # set it to work in the separate volumes (prevents a bootloop)
     if file.restore_path.startswith("/var/mobile/"):
         # required on iOS 17.0+ since /var/mobile is on a separate partition
@@ -102,9 +104,12 @@ def merge_duplicates(original_files: list[FileToRestore]) -> list[FileToRestore]
             file_loc = "-"
         else:
             file_loc = file.domain + '-'
-        file_loc += file.restore_path
+        restore_path = file.restore_path
+        if file.restore_path.startswith('/'):
+            restore_path = restore_path.removeprefix('/')
+        file_loc += restore_path
         if file_loc in existing_locations:
-            if not file.restore_path.endswith('.plist'):
+            if not restore_path.endswith('.plist'):
                 print(f'cannot merge duplicate file, ignoring {file_loc}')
                 continue
             # merge the data (plist files only)
@@ -164,10 +169,21 @@ def restore_files(files: list[FileToRestore], reboot: bool = False, lockdown_cli
     for fi in files_list:
         print(f"{fi.domain}, {fi.path}")
 
-    perform_restore(backup=back, reboot=reboot, lockdown_client=lockdown_client, progress_callback=progress_callback)
+    try:
+        perform_restore(backup=back, reboot=reboot, lockdown_client=lockdown_client, progress_callback=progress_callback)
+    except (ConnectionTerminatedError, ssl.SSLEOFError, ConnectionAbortedError, ConnectionResetError):
+        # These errors usually mean the device rebooted successfully before acknowledging the restore.
+        # We catch them and treat the process as successful.
+        print("Device disconnected during restore - this is expected as the device reboots.")
+        
+        if progress_callback:
+            progress_callback(100)
+            
+    except Exception as e:
+        # If it's a different error, we still want to see it
+        raise e
 
 
-# DEPRECIATED
 def restore_file(fp: str, restore_path: str, restore_name: str, reboot: bool = False, lockdown_client: LockdownClient = None):
     # open the file and read the contents
     contents = open(fp, "rb").read()
@@ -197,15 +213,10 @@ def restore_file(fp: str, restore_path: str, restore_name: str, reboot: bool = F
                 contents=contents#b"",
                 # inode=0
             ),
-        # backup.ConcreteFile(
-        #         "",
-        #         "SysContainerDomain-../../../../../../../../var/.backup.i/var/root/Library/Preferences/temp",
-        #         owner=501,
-        #         group=501,
-        #         contents=b"",
-        #     ),  # Break the hard link
             backup.ConcreteFile("", "SysContainerDomain-../../../../../../../.." + "/crash_on_purpose", contents=b""),
     ])
 
-    
-    perform_restore(backup=back, reboot=reboot, lockdown_client=lockdown_client)
+    try:
+        perform_restore(backup=back, reboot=reboot, lockdown_client=lockdown_client)
+    except (ConnectionTerminatedError, ssl.SSLEOFError, ConnectionAbortedError, ConnectionResetError):
+        pass
