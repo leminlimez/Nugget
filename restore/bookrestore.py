@@ -21,6 +21,7 @@ from gui.apply_worker import get_sudo_pwd, get_sudo_complete
 from controllers.files_handler import get_bundle_files
 from pymobiledevice3.lockdown import LockdownClient
 from pymobiledevice3.services.afc import AfcService
+from pymobiledevice3.services.amfi import AmfiService
 from pymobiledevice3.remote.remote_service_discovery import RemoteServiceDiscoveryService
 from pymobiledevice3.services.dvt.dvt_secure_socket_proxy import DvtSecureSocketProxyService
 from pymobiledevice3.services.dvt.instruments.process_control import ProcessControl
@@ -419,6 +420,11 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
 def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownClient,
                         current_device_books_uuid_callback = lambda x: None, progress_callback = lambda x: None,
                         transfer_mode: BookRestoreFileTransferMethod = BookRestoreFileTransferMethod.LocalHost):
+    if not lockdown_client.developer_mode_status:
+        # enable developer mode
+        progress_callback("Enabling Developer Mode...")
+        AmfiService(lockdown=lockdown_client).enable_developer_mode()
+        raise NuggetException("Developer Mode Enabled. Please refresh the device list after reboot and apply again.")
     if os.name == 'nt':
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     asyncio.run(create_connection_context(files, lockdown_client, current_device_books_uuid_callback, progress_callback, transfer_mode))

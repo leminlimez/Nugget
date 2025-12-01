@@ -167,7 +167,7 @@ python3 main_app.py
 > Depending on your system configuration, use either `python/pip` or `python3/pip3`.
 
 ## Getting the File
-On iOS 18.1.1 and below, you may need to get the mobilegestalt file that is specific to your device. To do that, follow these steps:
+On iOS 26.1 and below, you may need to get the mobilegestalt file that is specific to your device. To do that, follow these steps:
 1. Install the [Shortcuts][ShortcutsApp] app from the iOS app store.
 2. Download this shortcut: [Save MobileGestalt][MobilegestaltShortcut]
 3. Save the file and share it to your computer.
@@ -192,17 +192,18 @@ pyside6-lrelease translations/Nugget_{language code}.ts -qm translations/Nugget_
 
 The application itself can be compiled by running `compile.py`.
 
-## Sparserestore Info
+## Sparserestore/BookRestore Info
 This uses the sparserestore exploit to write to files outside of the intended restore location, like mobilegestalt. Read the [Getting the File](#getting-the-file) section to learn how to get your mobilegestalt file.
 
-Sparserestore works on all versions iOS 17.0-18.1.1. There is partial support for iOS 18.2 developer beta 3 and newer not using any exploits.
+Sparserestore works on all versions iOS 17.0-18.1.1.
+
+BookRestore works on all versions iOS 18.2-26.1.
 
 > [!NOTE]
-> **Mobilegestalt and AI Enabler tweaks are not supported on iOS 18.2+.** It will never be supported, do not make issues asking for when it is supported.
+> **Mobilegestalt and AI Enabler tweaks are not supported on iOS 26.2+.** It will never be supported, do not make issues asking for when it is supported.
 
 ## Read More
 If you would like to read more about the inner workings of the exploit and iOS restore system, I made a write up which you can read [here][ReadMoreGist].
-For clarity, up to iOS 18.2 developer beta 2 (public beta 1) is fully supported by Nugget. I said iOS 18.1.1 because mentioning the betas confused people.
 
 ## Arbitrary Star Graph
 <a href="https://www.star-history.com/#leminlimez/Nugget&Date">
@@ -216,6 +217,7 @@ For clarity, up to iOS 18.2 developer beta 2 (public beta 1) is fully supported 
 ## Credits
 - Translations crowdsourced using [POEditor][POEditorJoin]. Thank you everyone who assisted in the translation effort!
 - [JJTech][JJTechGitHub] for Sparserestore/[TrollRestore][TrollStoreGitHub]
+- [Duy Tran][DuyGitHub] and [Huy Nguyen][HuyTwitter] for BookRestore/[bl_sbx][bl_sbxGitHub]
 - [PosterRestore][PosterRestoreDiscord] for their help with PosterBoard
   - Special thanks to [dootskyre][dootskyreX], [Middo][MiddoX], [dulark][dularkGitHub], forcequitOS, and pingubow for their work on this. It would not have been possible without them!
   - Thanks to [Snoolie for aar handling][python-aar-stuffGitHub]!
@@ -235,7 +237,7 @@ For clarity, up to iOS 18.2 developer beta 2 (public beta 1) is fully supported 
 [usbmuxdGitHub]: https://github.com/libimobiledevice/usbmuxd
 [libimobiledeviceGitHub]: https://github.com/libimobiledevice/libimobiledevice
 [ShortcutsApp]: https://apps.apple.com/us/app/shortcuts/id915249334
-[MobilegestaltShortcut]: https://www.icloud.com/shortcuts/d6f0a136ddda4714a80750512911c53b
+[MobilegestaltShortcut]: https://www.icloud.com/shortcuts/66bd3c822a0145b98d46cd1c9077e6e5
 [ReadMoreGist]: https://gist.github.com/leminlimez/c602c067349140fe979410ef69d39c28
 
 [POEditorJoin]: https://poeditor.com/join/project/UTqpVSE2UD
@@ -256,3 +258,6 @@ For clarity, up to iOS 18.2 developer beta 2 (public beta 1) is fully supported 
 [PySide6Doc]: https://doc.qt.io/qtforpython-6/
 [python-aar-stuffGitHub]: https://github.com/0xilis/python-aar-stuff
 [AIEligibilityGist]: https://gist.github.com/f1shy-dev/23b4a78dc283edd30ae2b2e6429129b5
+[bl_sbxGitHub]: https://github.com/khanhduytran0/bl_sbx/tree/main
+[DuyGitHub]: https://github.com/khanhduytran0
+[HuyTwitter]: https://x.com/Little_34306
