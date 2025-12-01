@@ -3,6 +3,10 @@ from enum import Enum
 class FileLocation(Enum):
     # Mobile Gestalt
     resolution = "/var/Managed Preferences/mobile/com.apple.iokit.IOMobileGraphicsFamily.plist"
+    mga = "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist"
+
+    # Feature Flags
+    featureflags = "/var/preferences/FeatureFlags/Global.plist"
     
     # Springboard Options
     springboard = "/var/Managed Preferences/mobile/com.apple.springboard.plist"

@@ -444,7 +444,7 @@ class DeviceManager:
 
     def get_domain_for_path(self, path: str, owner: int = 501, use_bookrestore: bool = False) -> str:
         # returns Domain: str?, Path: str
-        if ((self.get_current_device_supported() and not path.startswith("/var/mobile/")) or (self.get_current_device_uses_bookrestore() and use_bookrestore)) and not owner == 0:# and not uses_domains:
+        if ((self.get_current_device_supported() and not path.startswith("/var/mobile/")) or (self.get_current_device_uses_bookrestore() and use_bookrestore)) and not owner == 0:
             # don't do anything on sparserestore versions
             return path, ""
         fully_patched = self.get_current_device_patched()
@@ -476,9 +476,9 @@ class DeviceManager:
                 return new_path, new_domain
         return path, ""
     
-    def concat_file(self, contents: str, path: str, files_to_restore: list[FileToRestore], owner: int = 501, group: int = 501, uses_domains: bool = False):
+    def concat_file(self, contents: str, path: str, files_to_restore: list[FileToRestore], owner: int = 501, group: int = 501, use_bookrestore: bool = False):
         # TODO: try using inodes here instead
-        file_path, domain = self.get_domain_for_path(path, owner=owner, use_bookrestore=uses_domains)
+        file_path, domain = self.get_domain_for_path(path, owner=owner, use_bookrestore=use_bookrestore)
         files_to_restore.append(FileToRestore(
             contents=contents,
             restore_path=file_path,
@@ -529,7 +529,7 @@ class DeviceManager:
                 elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak) or isinstance(tweak, AdvancedPlistTweak):
                     basic_plists = tweak.apply_tweak(basic_plists, self.allow_risky_tweaks)
                     basic_plists_ownership[tweak.file_location] = tweak.owner
-                    if tweak.enabled and tweak.owner == 0:
+                    if tweak.enabled and isinstance(tweak, RdarFixTweak) and Version(self.get_current_device_version()) >= Version("26.0"):
                         uses_domains = True
                 elif isinstance(tweak, NullifyFileTweak):
                     tweak.apply_tweak(files_data)
@@ -574,15 +574,15 @@ class DeviceManager:
             if len(flag_plist) > 0:
                 self.concat_file(
                     contents=plistlib.dumps(flag_plist),
-                    path="/var/preferences/FeatureFlags/Global.plist",
+                    path=FileLocation.featureflags.value,
                     files_to_restore=files_to_restore
                 )
             self.add_skip_setup(files_to_restore, uses_domains and not use_bookrestore)
             if gestalt_data != None and use_bookrestore:
                 self.concat_file(
                     contents=gestalt_data,
-                    path="/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist",
-                    files_to_restore=files_to_restore, uses_domains=True
+                    path=FileLocation.mga.value,
+                    files_to_restore=files_to_restore, use_bookrestore=True
                 )
             if eligibility_files:
                 new_eligibility_files: dict[FileToRestore] = []
@@ -592,7 +592,7 @@ class DeviceManager:
                         self.concat_file(
                             contents=file.contents,
                             path=file.restore_path,
-                            files_to_restore=new_eligibility_files
+                            files_to_restore=new_eligibility_files, use_bookrestore=use_bookrestore
                         )
                 else:
                     new_eligibility_files = eligibility_files
@@ -601,7 +601,7 @@ class DeviceManager:
                 self.concat_file(
                     contents=ai_file.contents,
                     path=ai_file.restore_path,
-                    files_to_restore=files_to_restore
+                    files_to_restore=files_to_restore, use_bookrestore=use_bookrestore
                 )
             for location, plist in basic_plists.items():
                 if location in basic_plists_ownership:
@@ -612,7 +612,7 @@ class DeviceManager:
                     contents=plistlib.dumps(plist),
                     path=location.value,
                     files_to_restore=files_to_restore,
-                    owner=ownership, group=ownership, uses_domains=use_bookrestore
+                    owner=ownership, group=ownership, use_bookrestore=use_bookrestore
                 )
             for location, data in files_data.items():
                 if isinstance(data, NullifyFileTweak):
@@ -623,7 +623,7 @@ class DeviceManager:
                     contents=data,
                     path=location.value,
                     files_to_restore=files_to_restore,
-                    owner=ownership, group=ownership
+                    owner=ownership, group=ownership, use_bookrestore=use_bookrestore
                 )
 
             # Restore Mobileconfig Profiles
@@ -705,12 +705,12 @@ class DeviceManager:
                     settings.setValue(self.data_singleton.current_device.udid + "_model", "")
                     settings.setValue(self.data_singleton.current_device.udid + "_hardware", "")
                     settings.setValue(self.data_singleton.current_device.udid + "_cpu", "")
-                    files_to_null.append("/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist")
+                    files_to_null.append(FileLocation.mga.value)
                     if self.get_current_device_uses_bookrestore():
                         use_bookrestore = True
                 elif page == Page.FeatureFlags:
                     ## FEATURE FLAGS
-                    files_to_null.append("/var/preferences/FeatureFlags/Global.plist")
+                    files_to_null.append(FileLocation.featureflags.value)
                 elif page == Page.StatusBar:
                     ## STATUS BAR
                     files_to_restore.append(FileToRestore(
@@ -739,6 +739,8 @@ class DeviceManager:
                 elif page == Page.RiskyTweaks:
                     ## RESOLUTION MODIFICATIONS
                     files_to_null.append(FileLocation.resolution.value)
+                    if Version(self.get_current_device_version()) >= Version("26.0"):
+                        use_bookrestore = True
                 elif page == Page.Springboard:
                     ## SPRINGBOARD
                     files_to_null.append(FileLocation.springboard.value)
@@ -757,7 +759,8 @@ class DeviceManager:
                 self.concat_file(
                     contents=b"",
                     path=file_path,
-                    files_to_restore=files_to_restore, uses_domains=use_bookrestore
+                    files_to_restore=files_to_restore,
+                    use_bookrestore=use_bookrestore
                 )
             
             if not use_bookrestore:
