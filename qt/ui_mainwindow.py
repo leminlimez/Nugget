@@ -5070,9 +5070,32 @@ class Ui_Nugget(object):
 
         self.verticalLayout_621.addWidget(self.line_6)
 
+        self.horizontalLayout_23 = QHBoxLayout()
+        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
+        self.horizontalLayout_23.setContentsMargins(-1, -1, -1, 0)
+        self.label_511 = QLabel(self.bookrestoreWidget)
+        self.label_511.setObjectName(u"label_511")
+
+        self.horizontalLayout_23.addWidget(self.label_511)
+
+        self.horizontalSpacer_13 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_23.addItem(self.horizontalSpacer_13)
+
+        self.brApplyModeDrp = QComboBox(self.bookrestoreWidget)
+        self.brApplyModeDrp.addItem(u"   AFC*")
+        self.brApplyModeDrp.addItem("")
+        self.brApplyModeDrp.setObjectName(u"brApplyModeDrp")
+        self.brApplyModeDrp.setMinimumSize(QSize(125, 0))
+
+        self.horizontalLayout_23.addWidget(self.brApplyModeDrp)
+
+
+        self.verticalLayout_621.addLayout(self.horizontalLayout_23)
+
         self.horizontalLayout_22 = QHBoxLayout()
         self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
-        self.horizontalLayout_22.setContentsMargins(-1, -1, -1, 10)
+        self.horizontalLayout_22.setContentsMargins(-1, -1, -1, 0)
         self.label_50 = QLabel(self.bookrestoreWidget)
         self.label_50.setObjectName(u"label_50")
 
@@ -5102,6 +5125,11 @@ class Ui_Nugget(object):
         self.booksContainerUUIDTxt.setObjectName(u"booksContainerUUIDTxt")
 
         self.verticalLayout_621.addWidget(self.booksContainerUUIDTxt)
+
+        self.label_52 = QLabel(self.bookrestoreWidget)
+        self.label_52.setObjectName(u"label_52")
+
+        self.verticalLayout_621.addWidget(self.label_52)
 
 
         self._21.addWidget(self.bookrestoreWidget)
@@ -5767,6 +5795,9 @@ class Ui_Nugget(object):
 "DO NOT unplug your device during restores.", None))
 #endif // QT_CONFIG(tooltip)
         self.disableTendiesLimitChk.setText(QCoreApplication.translate("Nugget", u"Disable Tendies Limit", None))
+        self.label_511.setText(QCoreApplication.translate("Nugget", u"BookRestore Apply Method", None))
+        self.brApplyModeDrp.setItemText(1, QCoreApplication.translate("Nugget", u"   Restore", None))
+
         self.label_50.setText(QCoreApplication.translate("Nugget", u"BookRestore File Transfer Method", None))
         self.brTransferModeDrp.setItemText(0, QCoreApplication.translate("Nugget", u"   LocalHost", None))
         self.brTransferModeDrp.setItemText(1, QCoreApplication.translate("Nugget", u"   On-Device (Slower)", None))
@@ -5777,6 +5808,7 @@ class Ui_Nugget(object):
 "It will be automatically found if this is left blank.", None))
 #endif // QT_CONFIG(tooltip)
         self.booksContainerUUIDTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Enter Books Container UUID", None))
+        self.label_52.setText(QCoreApplication.translate("Nugget", u"* Developer Mode/Administrator permissions required for these options.", None))
 #if QT_CONFIG(tooltip)
         self.line_24.setToolTip("")
 #endif // QT_CONFIG(tooltip)

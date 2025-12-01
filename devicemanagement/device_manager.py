@@ -37,7 +37,7 @@ from tweaks.posterboard.template_options.templates_tweak import TemplatesTweak
 from tweaks.basic_plist_locations import FileLocation
 
 from restore.restore import restore_files, FileToRestore
-from restore.bookrestore import perform_bookrestore, BookRestoreFileTransferMethod
+from restore.bookrestore import perform_bookrestore, BookRestoreFileTransferMethod, BookRestoreApplyMethod
 from restore.mbdb import _FileMode
 
 def show_error_msg(txt: str, title: str = "Error!", icon = QMessageBox.Critical, detailed_txt: str = None):
@@ -106,6 +106,7 @@ class DeviceManager:
         self.show_all_spoofable_models = False
         self.disable_tendies_limit = False
         self.restore_truststore = False
+        self.bookrestore_apply_mode = BookRestoreApplyMethod.AFC
         self.bookrestore_transfer_mode = BookRestoreFileTransferMethod.LocalHost
         self.skip_setup = True
         self.supervised = False

@@ -28,6 +28,10 @@ from pymobiledevice3.services.dvt.instruments.process_control import ProcessCont
 from pymobiledevice3.services.os_trace import OsTraceService
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
+class BookRestoreApplyMethod(Enum):
+    AFC = 0
+    Restore = 1
+
 class BookRestoreFileTransferMethod(Enum):
     LocalHost = 0
     OnDevice = 1

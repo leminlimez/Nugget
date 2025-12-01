@@ -7,7 +7,7 @@ from PySide6.QtCore import QCoreApplication, QLocale
 from tweaks.tweak_loader import load_rdar_fix
 from tweaks.tweaks import tweaks
 from controllers.video_handler import set_ignore_frame_limit
-from restore.bookrestore import BookRestoreFileTransferMethod
+from restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreApplyMethod
 
 available_languages = {
     "English": "en",
@@ -57,6 +57,7 @@ class SettingsPage(Page):
         self.ui.ignorePBFrameLimitChk.toggled.connect(self.on_ignorePBFrameLimitChk_toggled)
         self.ui.disableTendiesLimitChk.toggled.connect(self.on_disableTendiesLimitChk_toggled)
 
+        self.ui.brApplyModeDrp.activated.connect(self.on_brApplyModeDrp_activated)
         self.ui.brTransferModeDrp.activated.connect(self.on_brTransferModeDrp_activated)
         self.ui.booksContainerUUIDTxt.textEdited.connect(self.on_booksContainerUUIDTxt_textEdited)
 
@@ -156,6 +157,11 @@ class SettingsPage(Page):
         self.window.device_manager.bookrestore_transfer_mode = new_mode
         # save the setting
         self.window.settings.setValue("bookrestore_transfer_mode", index)
+    def on_brApplyModeDrp_activated(self, index: int):
+        new_mode = BookRestoreApplyMethod(index)
+        self.window.device_manager.bookrestore_apply_mode = new_mode
+        # save the setting
+        self.window.settings.setValue("bookrestore_apply_mode", index)
 
     # Device Options
     def on_resetPairBtn_clicked(self):

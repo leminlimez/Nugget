@@ -9664,9 +9664,56 @@ DO NOT unplug your device during restores.</string>
                          </widget>
                         </item>
                         <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_23">
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QLabel" name="label_51">
+                            <property name="text">
+                             <string>BookRestore Apply Method</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <spacer name="horizontalSpacer_13">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>40</width>
+                              <height>20</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
+                          <item>
+                           <widget class="QComboBox" name="brApplyModeDrp">
+                            <property name="minimumSize">
+                             <size>
+                              <width>125</width>
+                              <height>0</height>
+                             </size>
+                            </property>
+                            <item>
+                             <property name="text">
+                              <string notr="true">   AFC*</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>   Restore</string>
+                             </property>
+                            </item>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
                          <layout class="QHBoxLayout" name="horizontalLayout_22">
                           <property name="bottomMargin">
-                           <number>10</number>
+                           <number>0</number>
                           </property>
                           <item>
                            <widget class="QLabel" name="label_50">
@@ -9728,6 +9775,13 @@ It will be automatically found if this is left blank.</string>
                           </property>
                           <property name="placeholderText">
                            <string>Enter Books Container UUID</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_52">
+                          <property name="text">
+                           <string>* Developer Mode/Administrator permissions required for these options.</string>
                           </property>
                          </widget>
                         </item>
