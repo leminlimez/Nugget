@@ -1586,6 +1586,27 @@ QToolButton:pressed {
                      </widget>
                     </item>
                     <item>
+                     <widget class="QToolButton" name="duyBtn">
+                      <property name="styleSheet">
+                       <string notr="true">QToolButton {
+	border-radius: 0px;
+	background: none;
+	border: 1px solid #3b3b3b;
+	border-left: none;
+}
+
+QToolButton:pressed {
+    background-color: #535353;
+    color: #FFFFFF;
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Duy Tran
+bl_sbx</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
                      <widget class="QToolButton" name="jjtechBtn">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
