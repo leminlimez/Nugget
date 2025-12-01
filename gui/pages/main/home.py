@@ -31,6 +31,7 @@ class HomePage(Page):
         self.ui.mikasaBtn.clicked.connect(self.on_mikasaBtn_clicked)
 
         self.ui.libiBtn.clicked.connect(self.on_libiBtn_clicked)
+        self.ui.duyBtn.clicked.connect(self.on_duyBtn_clicked)
         self.ui.jjtechBtn.clicked.connect(self.on_jjtechBtn_clicked)
         self.ui.qtBtn.clicked.connect(self.on_qtBtn_clicked)
         self.ui.translatorsBtn.clicked.connect(self.on_translatorsBtn_clicked)
@@ -96,6 +97,8 @@ class HomePage(Page):
         webbrowser.open_new_tab("https://github.com/doronz88/pymobiledevice3")
     def on_jjtechBtn_clicked(self):
         webbrowser.open_new_tab("https://github.com/JJTech0130/TrollRestore")
+    def on_duyBtn_clicked(self):
+        webbrowser.open_new_tab("https://github.com/khanhduytran0/bl_sbx")
     def on_qtBtn_clicked(self):
         webbrowser.open_new_tab("https://www.qt.io/product/development-tools")
     def on_translatorsBtn_clicked(self):

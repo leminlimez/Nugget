@@ -19,7 +19,7 @@ from restore.bookrestore import BookRestoreFileTransferMethod
 
 from tweaks.tweaks import tweaks, TweakID
 
-App_Version = "7.0"
+App_Version = "7.0.1"
 App_Build = 0
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -172,6 +172,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
             self.ui.sidebarDiv2.hide()
             self.ui.applyPageBtn.hide()
+            self.ui.jjtechBtn.hide()
+            self.ui.duyBtn.show()
 
             self.ui.resetPairBtn.hide()
             self.ui.pocketPosterHelperBtn.hide()
@@ -337,6 +339,9 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.stageManagerChk.setVisible(not is_iphone)
 
             # bookrestore stuff
+            has_sparserestore = self.device_manager.data_singleton.current_device.has_partial_sparserestore()
+            self.ui.duyBtn.setVisible(not has_sparserestore)
+            self.ui.jjtechBtn.setVisible(has_sparserestore)
             if self.device_manager.data_singleton.current_device.has_bookrestore():
                 self.ui.bookrestoreWidget.show()
                 self.ui.booksContainerUUIDTxt.setText(self.device_manager.data_singleton.current_device.books_container_uuid)
