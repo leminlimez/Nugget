@@ -306,7 +306,16 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
             media_folder = file_name
             if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
                 # use the local file method for mga and local server for everything else
-                if file.restore_path.endswith("MobileGestalt.plist"):
+                if file.restore_path.startswith("/var/mobile") or file.restore_path.startswith("/private/var/mobile"):
+                    zassetpath = file.restore_path
+                    zplistpath = zassetpath
+                    zdownloadid = zassetpath
+                    zurl = f'{server_prefix}/{file_name}'
+                    # copy file to the server
+                    server_path = os.path.join(server_folder, file_name)
+                    with open(server_path, 'wb') as temp_write:
+                        temp_write.write(file.contents)
+                else:
                     zurl = 'https://www.google.com/robots.txt'
                     if len(file.contents) > 0:
                         zdownloadid = '../../../../../..'
@@ -322,15 +331,6 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
                         zdownloadid += file.restore_path
                     else:
                         zdownloadid += f'/{file.restore_path}'
-                else:
-                    zassetpath = file.restore_path
-                    zplistpath = zassetpath
-                    zdownloadid = zassetpath
-                    zurl = f'{server_prefix}/{file_name}'
-                    # copy file to the server
-                    server_path = os.path.join(server_folder, file_name)
-                    with open(server_path, 'wb') as temp_write:
-                        temp_write.write(file.contents)
                 z_id += 1
                 dl_cursor.execute(f"""
                 INSERT INTO ZBLDOWNLOADINFO (Z_PK, Z_ENT, Z_OPT, ZACCOUNTIDENTIFIER, ZCLEANUPPENDING, ZFAMILYACCOUNTIDENTIFIER, ZISAUTOMATICDOWNLOAD, ZISLOCALCACHESERVER, ZNUMBEROFBYTESTOHASH, ZPERSISTENTIDENTIFIER, ZPUBLICATIONVERSION, ZSIZE, ZSTATE, ZSTOREIDENTIFIER, ZLASTSTATECHANGETIME, ZSTARTTIME, ZASSETPATH, ZBUYPARAMETERS, ZCANCELDOWNLOADURL, ZCLIENTIDENTIFIER, ZCOLLECTIONARTISTNAME, ZCOLLECTIONTITLE, ZDOWNLOADID, ZGENRE, ZKIND, ZPLISTPATH, ZSUBTITLE, ZTHUMBNAILIMAGEURL, ZTITLE, ZTRANSACTIONIDENTIFIER, ZURL, ZFILEATTRIBUTES)
