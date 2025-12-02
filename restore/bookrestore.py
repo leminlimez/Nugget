@@ -158,7 +158,7 @@ async def create_connection_context(files: list[FileToRestore], service_provider
     if available_address:
         try:
             if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-                create_server_folder()
+                server_folder = create_server_folder()
             _run_async_rsd_connection(available_address["address"], available_address["port"], files, current_device_uuid_callback, progress_callback, transfer_mode)
             cleanup_server_folder()
         except:
@@ -359,7 +359,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
 
         # Update the download db
         if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-            z_id = generate_bldbmanager(files, temp_dl_manager, afc)
+            z_id = generate_bldbmanager(files, temp_dl_manager, afc, server_prefix=server_prefix)
         else:
             for file in files:
                 if not file.domain == "" and not file.domain == None:
