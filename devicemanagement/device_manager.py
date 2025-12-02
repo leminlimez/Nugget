@@ -530,7 +530,7 @@ class DeviceManager:
                     basic_plists = tweak.apply_tweak(basic_plists, self.allow_risky_tweaks)
                     basic_plists_ownership[tweak.file_location] = tweak.owner
                     if tweak.enabled and isinstance(tweak, RdarFixTweak) and Version(self.get_current_device_version()) >= Version("26.0"):
-                        uses_domains = True
+                        use_bookrestore = True
                 elif isinstance(tweak, NullifyFileTweak):
                     tweak.apply_tweak(files_data)
                     if tweak.enabled and tweak.file_location.value.startswith("/var/mobile/"):
@@ -545,7 +545,7 @@ class DeviceManager:
                     )
                     if tweak.uses_domains():
                         uses_domains = True
-                    else:
+                    elif not tweak.is_empty():
                         use_bookrestore = True
                 elif isinstance(tweak, StatusBarTweak):
                     tweak.apply_tweak(files_to_restore=files_to_restore)
