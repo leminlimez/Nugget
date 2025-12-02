@@ -34,6 +34,9 @@ class PosterboardTweak(Tweak):
 
     def uses_domains(self):
         return (len(self.tendies) > 0 or self.videoFile != None or len(self.resetModes) > 0)
+    
+    def is_empty(self) -> bool:
+        return not self.uses_domains()
 
     def verify_tendie(self, new_tendie: TendieFile, is_template: bool = False) -> bool:
         if new_tendie.descriptor_cnt + self.get_descriptor_count() <= 10:

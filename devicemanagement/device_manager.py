@@ -83,7 +83,7 @@ def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list
         return ApplyAlertMessage(QCoreApplication.tr("You must run the application as an administer to use BookRestore tweaks."), detailed_txt="Try running the program with sudo.")
     elif isinstance(e, InvalidServiceError):
         return ApplyAlertMessage(QCoreApplication.tr("You must enable developer mode on your device. You can do it in the Settings app."),
-                                 detailed_txt=QCoreApplication.tr("BookRestore tweaks require developer mode to apply. You can enable this at the bottom of the Settings app on your iPhone or iPad."))
+                                 detailed_txt=QCoreApplication.tr("BookRestore tweaks with the AFC method require developer mode to apply.\n\nYou can enable this at the bottom of Settings > Privacy & Security > Developer Mode on your iPhone or iPad."))
     elif isinstance(e, NuggetException):
         return ApplyAlertMessage(str(e), detailed_txt=e.detailed_text)
     else:
@@ -530,7 +530,7 @@ class DeviceManager:
                     basic_plists = tweak.apply_tweak(basic_plists, self.allow_risky_tweaks)
                     basic_plists_ownership[tweak.file_location] = tweak.owner
                     if tweak.enabled and isinstance(tweak, RdarFixTweak) and Version(self.get_current_device_version()) >= Version("26.0"):
-                        uses_domains = True
+                        use_bookrestore = True
                 elif isinstance(tweak, NullifyFileTweak):
                     tweak.apply_tweak(files_data)
                     if tweak.enabled and tweak.file_location.value.startswith("/var/mobile/"):
@@ -545,7 +545,7 @@ class DeviceManager:
                     )
                     if tweak.uses_domains():
                         uses_domains = True
-                    else:
+                    elif not tweak.is_empty():
                         use_bookrestore = True
                 elif isinstance(tweak, StatusBarTweak):
                     tweak.apply_tweak(files_to_restore=files_to_restore)

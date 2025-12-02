@@ -23,6 +23,9 @@ class TemplatesTweak(Tweak):
                 return True
         return False
 
+    def is_empty(self) -> bool:
+        return len(self.templates) == 0
+
     def add_template(self, file: str, version: str = None):
         try:
             new_template = TemplateFile(path=file, device_version=version)

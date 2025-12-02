@@ -19,7 +19,7 @@ from restore.bookrestore import BookRestoreFileTransferMethod
 
 from tweaks.tweaks import tweaks, TweakID
 
-App_Version = "7.0.1"
+App_Version = "7.0.2"
 App_Build = 0
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -149,6 +149,11 @@ class MainWindow(QtWidgets.QMainWindow):
         # clear the picker
         self.ui.devicePicker.clear()
         self.ui.restoreProgressBar.hide()
+        self.pages[Page.Settings].set_risky_options_visible(
+            visible=self.device_manager.allow_risky_tweaks,
+            device_connected=(len(self.device_manager.devices) > 0)
+        )
+
         if len(self.device_manager.devices) == 0:
             self.ui.devicePicker.setEnabled(False)
             self.ui.devicePicker.addItem(self.noneText)
@@ -199,19 +204,6 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.templatesPageBtn.show()
             self.ui.posterboardPageBtn.show()
             self.ui.miscOptionsBtn.show()
-
-            if self.device_manager.allow_risky_tweaks:
-                try:
-                    self.ui.resetPBDrp.removeItem(4)
-                except:
-                    pass
-                self.ui.resetPBDrp.addItem("PB Extensions", "PB Extensions")
-            else:
-                self.ui.advancedPageBtn.hide()
-                try:
-                    self.ui.resetPBDrp.removeItem(4)
-                except:
-                    pass
             
             self.ui.sidebarDiv2.show()
             self.ui.applyPageBtn.show()
@@ -309,8 +301,6 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.advancedPageBtn.show()
             else:
                 self.ui.advancedPageBtn.hide()
-            # toggle AtWakeUp checkbox with risky tweaks
-            self.ui.atwakeupChk.setVisible(self.device_manager.allow_risky_tweaks)
             
             # hide the ai content if not on
             if device_ver >= Version("18.1") and (not TweakID.AIGestalt in tweaks or not tweaks[TweakID.AIGestalt].enabled):
@@ -401,14 +391,6 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.skipSetupOnLbl.show()
             else:
                 self.ui.skipSetupOnLbl.hide()
-
-            # hide/show the frame limit
-            if risky_tweaks:
-                self.ui.ignorePBFrameLimitChk.show()
-                self.ui.disableTendiesLimitChk.show()
-            else:
-                self.ui.ignorePBFrameLimitChk.hide()
-                self.ui.disableTendiesLimitChk.hide()
 
             self.device_manager.apply_over_wifi = apply_over_wifi
             self.device_manager.auto_reboot = auto_reboot
