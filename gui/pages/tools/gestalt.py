@@ -128,7 +128,7 @@ class GestaltPage(Page):
         tweaks[TweakID.InternalInstall].set_enabled(checked)
     def on_internalStorageChk_clicked(self, checked: bool):
         tweaks[TweakID.InternalStorage].set_enabled(checked)
-    def on_on_srdChk_clicked(self, checked: bool):
+    def on_srdChk_clicked(self, checked: bool):
         tweaks[TweakID.SRD].set_enabled(checked)
 
     def on_collisionSOSChk_clicked(self, checked: bool):
