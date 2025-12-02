@@ -235,9 +235,9 @@ def generate_bldbmanager(files: list[FileToRestore], out_file: str, afc: AfcServ
         print(len(attr_data))
     z_id = 0
     # create NuggetPayload folder
-    nugget_media_folder = "NuggetPayload"
-    if not afc.exists(nugget_media_folder):
-        afc.makedirs(nugget_media_folder)
+    # nugget_media_folder = "NuggetPayload"
+    # if not afc.exists(nugget_media_folder):
+    #     afc.makedirs(nugget_media_folder)
     for file in files:
         if not file.domain == "" and not file.domain == None:
             continue
@@ -259,7 +259,7 @@ def generate_bldbmanager(files: list[FileToRestore], out_file: str, afc: AfcServ
             if len(file.contents) > 0:
                 zdownloadid = '../../../../../..'
                 zassetpath = f'{file.restore_path}.zassetpath'
-                media_folder = f'{nugget_media_folder}/{file_name}'
+                media_folder = file_name#f'{nugget_media_folder}/{file_name}'
                 zplistpath = f'/var/mobile/Media/{media_folder}'
                 afc.set_file_contents(media_folder, file.contents)
             else:

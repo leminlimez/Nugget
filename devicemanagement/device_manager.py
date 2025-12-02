@@ -517,16 +517,11 @@ class DeviceManager:
                     db_path = os.path.join(server_folder, "tmp.BLDatabaseManager.sqlite")
                     generate_bldbmanager(files_to_restore, db_path, afc, server_prefix)
                 # remove the files that dont have a domain from files
-                print("OLD:")
-                for file in files_to_restore:
-                    print(f"domian: {file.domain}, path: {file.restore_path}")
                 files_to_restore = [file for file in files_to_restore if (file.domain != "" and file.domain != None)]
-                print("\nNEW:")
-                for file in files_to_restore:
-                    print(f"domian: {file.domain}, path: {file.restore_path}")
                 # Add the dbs to the files to restore
                 db_restore_path = "Documents/BLDatabaseManager/BLDatabaseManager.sqlite"
                 db_restore_domain = "SysSharedContainerDomain-systemgroup.com.apple.media.shared.books"
+                print(db_path)
                 files_to_restore.append(FileToRestore(
                     contents=None, restore_path=db_restore_path,
                     contents_path=db_path,
@@ -573,8 +568,6 @@ class DeviceManager:
             msg = QCoreApplication.tr("Your device will now restart.\n\nRemember to turn Find My back on!")
             if not self.auto_reboot:
                 msg = QCoreApplication.tr("Please restart your device to see changes.")
-            if restore_bookrestore:
-                msg = msg + "\n\nPlease unlock your device to finish. DO NOT close Nugget."
         return ApplyAlertMessage(txt=QCoreApplication.tr("All done! ") + msg, title=QCoreApplication.tr("Success!"), icon=QMessageBox.Information)
     def progress_callback(self, progress: int):
         if self.update_label == None:
