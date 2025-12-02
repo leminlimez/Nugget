@@ -25,6 +25,7 @@ class TweakID(Enum):
     ActionButton = auto()
     InternalStorage = auto()
     InternalInstall = auto()
+    SRD = auto()
     AOD = auto()
     AODVibrancy = auto()
     RdarFix = auto()

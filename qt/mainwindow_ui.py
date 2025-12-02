@@ -1213,6 +1213,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_8.addWidget(self.internalStorageChk)
 
+        self.srdChk = QCheckBox(self.gestaltPageContent)
+        self.srdChk.setObjectName(u"srdChk")
+
+        self.verticalLayout_8.addWidget(self.srdChk)
+
         self.line_10 = QFrame(self.gestaltPageContent)
         self.line_10.setObjectName(u"line_10")
         self.line_10.setStyleSheet(u"QFrame {\n"
@@ -5347,6 +5352,7 @@ class Ui_Nugget(object):
 "Note: OTA updates will be broken until this is disabled.", None))
 #endif // QT_CONFIG(tooltip)
         self.internalStorageChk.setText(QCoreApplication.translate("Nugget", u"Enable Internal Storage (WARNING: risky for some devices, mainly iPads)", None))
+        self.srdChk.setText(QCoreApplication.translate("Nugget", u"Enable Security Research Device Mode", None))
 #if QT_CONFIG(tooltip)
         self.collisionSOSChk.setToolTip(QCoreApplication.translate("Nugget", u"Shows collision detection in the SOS page in Settings.", None))
 #endif // QT_CONFIG(tooltip)

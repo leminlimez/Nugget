@@ -34,6 +34,8 @@ class GestaltPage(Page):
 
         self.ui.internalInstallChk.clicked.connect(self.on_internalInstallChk_clicked)
         self.ui.internalStorageChk.clicked.connect(self.on_internalStorageChk_clicked)
+        self.ui.srdChk.clicked.connect(self.on_srdChk_clicked)
+
         self.ui.collisionSOSChk.clicked.connect(self.on_collisionSOSChk_clicked)
         self.ui.aodChk.clicked.connect(self.on_aodChk_clicked)
         self.ui.aodVibrancyChk.clicked.connect(self.on_aodVibrancyChk_clicked)
@@ -126,6 +128,8 @@ class GestaltPage(Page):
         tweaks[TweakID.InternalInstall].set_enabled(checked)
     def on_internalStorageChk_clicked(self, checked: bool):
         tweaks[TweakID.InternalStorage].set_enabled(checked)
+    def on_on_srdChk_clicked(self, checked: bool):
+        tweaks[TweakID.SRD].set_enabled(checked)
 
     def on_collisionSOSChk_clicked(self, checked: bool):
         tweaks[TweakID.CollisionSOS].set_enabled(checked)

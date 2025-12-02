@@ -2177,6 +2177,13 @@ Note: OTA updates will be broken until this is disabled.</string>
                       </widget>
                      </item>
                      <item>
+                      <widget class="QCheckBox" name="srdChk">
+                       <property name="text">
+                        <string>Enable Security Research Device Mode</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
                       <widget class="Line" name="line_10">
                        <property name="styleSheet">
                         <string notr="true">QFrame {
