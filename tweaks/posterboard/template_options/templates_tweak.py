@@ -22,6 +22,9 @@ class TemplatesTweak(Tweak):
             if not template.domain.startswith("Sparserestore-"):
                 return True
         return False
+    
+    def is_empty(self) -> bool:
+        return len(self.templates) == 0
 
     def add_template(self, file: str, version: str = None):
         try:
