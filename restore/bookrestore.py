@@ -241,18 +241,23 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         """)
         if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
             bldb_server_prefix = f"http://{ip}:{port}/tmp.BLDatabaseManager.sqlite"
-            cursor.execute(f"""
-            UPDATE asset
-            SET url = CASE
-                WHEN url LIKE '%/BLDatabaseManager.sqlite'
-                    THEN '{bldb_server_prefix}'
-                WHEN url LIKE '%/BLDatabaseManager.sqlite-shm'
-                    THEN '{bldb_server_prefix}-shm'
-                WHEN url LIKE '%/BLDatabaseManager.sqlite-wal'
-                    THEN '{bldb_server_prefix}-wal'
-            END
-            WHERE url LIKE '%/BLDatabaseManager.sqlite%'
-            """)
+        else:
+            bldb_server_prefix = "https://github.com/leminlimez/Nugget/raw/refs/heads/main/.on_device_remote_files/BLDatabaseManager-mga"
+            if any(file.restore_path.endswith("com.apple.iokit.IOMobileGraphicsFamily.plist") for file in files):
+                bldb_server_prefix += "+iokit"
+            bldb_server_prefix += ".sqlite"
+        cursor.execute(f"""
+        UPDATE asset
+        SET url = CASE
+            WHEN url LIKE '%/BLDatabaseManager.sqlite'
+                THEN '{bldb_server_prefix}'
+            WHEN url LIKE '%/BLDatabaseManager.sqlite-shm'
+                THEN '{bldb_server_prefix}-shm'
+            WHEN url LIKE '%/BLDatabaseManager.sqlite-wal'
+                THEN '{bldb_server_prefix}-wal'
+        END
+        WHERE url LIKE '%/BLDatabaseManager.sqlite%'
+        """)
         connection.commit()
 
         procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
