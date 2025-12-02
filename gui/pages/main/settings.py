@@ -1,4 +1,5 @@
 from ..page import Page
+from ..pages_list import Page as PageItem
 from qt.ui_mainwindow import Ui_Nugget
 
 from PySide6.QtWidgets import QMessageBox
@@ -126,7 +127,7 @@ class SettingsPage(Page):
         # save the setting
         self.window.settings.setValue("show_all_spoofable_models", checked)
         # refresh the list of spoofable models
-        self.window.setup_spoofedModelDrp_models()
+        self.window.pages[PageItem.Gestalt].setup_spoofedModelDrp_models()
     def on_autoRebootChk_toggled(self, checked: bool):
         self.window.device_manager.auto_reboot = checked
         # save the setting
