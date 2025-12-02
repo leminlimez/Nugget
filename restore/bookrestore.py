@@ -399,8 +399,9 @@ def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownCli
     if not lockdown_client.developer_mode_status:
         # enable developer mode
         progress_callback("Enabling Developer Mode...")
-        AmfiService(lockdown=lockdown_client).enable_developer_mode()
-        raise NuggetException("Developer Mode Enabled. Please refresh the device list after reboot and apply again.")
+        AmfiService(lockdown=lockdown_client).reveal_developer_mode_option_in_ui()
+        raise NuggetException("You must enable developer mode on your device. You can do it in the Settings app.\n\nClick \"Show Details\" for more information.",
+                              detailed_text="BookRestore tweaks with the AFC method require developer mode to apply.\n\nYou can enable this at the bottom of Settings > Privacy & Security > Developer Mode on your iPhone or iPad.")
     if os.name == 'nt':
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     asyncio.run(create_connection_context(files, lockdown_client, current_device_books_uuid_callback, progress_callback, transfer_mode))
