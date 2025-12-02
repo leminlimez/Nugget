@@ -64,6 +64,7 @@ class MainWindow(QtWidgets.QMainWindow):
             Page.StatusBar: Pages.StatusBar(ui=self.ui),
             Page.Springboard: Pages.Springboard(ui=self.ui),
             Page.InternalOptions: Pages.Internal(ui=self.ui),
+            Page.LiquidGlass: Pages.LiquidGlass(ui=self.ui),
             Page.Daemons: Pages.Daemons(ui=self.ui),
             Page.Templates: Pages.Templates(window=self, ui=self.ui),
             Page.RiskyTweaks: Pages.Risky(ui=self.ui),
@@ -92,6 +93,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.statusBarPageBtn.clicked.connect(self.on_statusBarPageBtn_clicked)
         self.ui.springboardOptionsPageBtn.clicked.connect(self.on_springboardOptionsPageBtn_clicked)
         self.ui.internalOptionsPageBtn.clicked.connect(self.on_internalOptionsPageBtn_clicked)
+        self.ui.liquidGlassPageBtn.clicked.connect(self.on_liquidGlassPageBtn_clicked)
         self.ui.daemonsPageBtn.clicked.connect(self.on_daemonsPageBtn_clicked)
         self.ui.posterboardPageBtn.clicked.connect(self.on_posterboardPageBtn_clicked)
         self.ui.templatesPageBtn.clicked.connect(self.on_templatesPageBtn_clicked)
@@ -234,12 +236,13 @@ class MainWindow(QtWidgets.QMainWindow):
                 "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk), ("1.0", self.ui.regularDomainsLbl)],
                 "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
                 "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk],
-                "26.0": [self.ui.liquidGlassOptionsContent]
+                "26.0": [self.ui.liquidGlassPageBtn]
             }
             MaxTweakVersions = {
                 "17.7": [self.ui.euEnablerContent],
                 "18.0": [self.ui.photosChk, self.ui.aiChk],
-                "19.0": [self.ui.resChangerContent, self.ui.metalHUDContent]
+                "19.0": [self.ui.resChangerContent, self.ui.metalHUDContent],
+                "26.0.1": [self.ui.disableSolariumContent]
             }
 
             try:
@@ -443,6 +446,10 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_internalOptionsPageBtn_clicked(self):
         self.pages[Page.InternalOptions].load()
         self.ui.pages.setCurrentIndex(Page.InternalOptions.value)
+
+    def on_liquidGlassPageBtn_clicked(self):
+        self.pages[Page.LiquidGlass].load()
+        self.ui.pages.setCurrentIndex(Page.LiquidGlass.value)
 
     def on_daemonsPageBtn_clicked(self):
         self.pages[Page.Daemons].load()

@@ -60,10 +60,6 @@ class TweakID(Enum):
     UseFloatingTabBar = auto()
 
     # internal
-    ForceSolariumFallback = auto()
-    IgnoreSolariumLinkedOnCheck = auto()
-    NoLiquidClock = auto()
-    NoLiquidDock = auto()
     SBBuildNumber = auto()
     RTL = auto()
     LTR = auto()
@@ -81,6 +77,16 @@ class TweakID(Enum):
     EnableWakeGestureHaptic = auto()
     PlaySoundOnPaste = auto()
     AnnounceAllPastes = auto()
+
+    # liquid glass
+    ForceSolariumFallback = auto()
+    DisableSolarium = auto()
+    IgnoreSolariumLinkedOnCheck = auto()
+    NoLiquidClock = auto()
+    NoLiquidDock = auto()
+    DisableSpecularMotion = auto()
+    DisableOuterRefraction = auto()
+    DisableSolariumHDR = auto()
 
     # risky
     DisableOTAFile = auto()

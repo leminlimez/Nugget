@@ -262,22 +262,6 @@ def load_internal():
     if TweakID.RTL in tweaks:
         return
     additional_tweaks = {
-        TweakID.ForceSolariumFallback: BasicPlistTweak(
-            FileLocation.globalPreferences,
-            "SolariumForceFallback"
-        ),
-        TweakID.IgnoreSolariumLinkedOnCheck: BasicPlistTweak(
-            FileLocation.globalPreferences,
-            "com.apple.SwiftUI.IgnoreSolariumLinkedOnCheck"
-        ),
-        TweakID.NoLiquidClock: BasicPlistTweak(
-            FileLocation.globalPreferences,
-            "SBDisallowGlassTime"
-        ),
-        TweakID.NoLiquidDock: BasicPlistTweak(
-            FileLocation.globalPreferences,
-            "SBDisableGlassDock"
-        ),
         TweakID.SBBuildNumber: BasicPlistTweak(
             FileLocation.globalPreferences,
             "UIStatusBarShowBuildVersion"
@@ -345,6 +329,46 @@ def load_internal():
         TweakID.AnnounceAllPastes: BasicPlistTweak(
             FileLocation.pasteboard,
             "AnnounceAllPastes"
+        )
+    }
+    tweaks.update(additional_tweaks)
+
+def load_liquidglass():
+    if TweakID.DisableSolarium in tweaks:
+        return
+    additional_tweaks = {
+        TweakID.ForceSolariumFallback: BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "SolariumForceFallback"
+        ),
+        TweakID.DisableSolarium: BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "com.apple.SwiftUI.DisableSolarium"
+        ),
+        TweakID.IgnoreSolariumLinkedOnCheck: BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "com.apple.SwiftUI.IgnoreSolariumLinkedOnCheck"
+        ),
+        TweakID.NoLiquidClock: BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "SBDisallowGlassTime"
+        ),
+        TweakID.NoLiquidDock: BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "SBDisableGlassDock"
+        ),
+        TweakID.DisableSpecularMotion: BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "SBDisableSpecularEverywhereUsingLSSAssertion"
+        ),
+        TweakID.DisableOuterRefraction: BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "SolariumDisableOuterRefraction"
+        ),
+        TweakID.DisableSolariumHDR: BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "SolariumAllowHDR",
+            value=False
         )
     }
     tweaks.update(additional_tweaks)

@@ -11,11 +11,6 @@ class InternalPage(Page):
 
     def load_page(self):
         # Create the radio buttons where needed
-        self.createRadioBtns(key=TweakID.ForceSolariumFallback, container=self.ui.disableSolariumBtns)
-        self.createRadioBtns(key=TweakID.IgnoreSolariumLinkedOnCheck, container=self.ui.ignoreSolariumAppBuildBtns)
-        self.createRadioBtns(key=TweakID.NoLiquidClock, container=self.ui.noLiquidClockBtns)
-        self.createRadioBtns(key=TweakID.NoLiquidDock, container=self.ui.noLiquidDockBtns)
-
         self.createRadioBtns(key=TweakID.SBBuildNumber, container=self.ui.buildVersionBtns)
         self.createRadioBtns(key=TweakID.RTL, container=self.ui.RTLBtns)
         self.createRadioBtns(key=TweakID.LTR, container=self.ui.LTRBtns)
