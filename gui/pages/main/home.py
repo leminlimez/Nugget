@@ -60,7 +60,7 @@ class HomePage(Page):
                 self.show_version_text(version=ver, build=build)
         else:
             self.show_uuid = True
-            uuid = self.window.device_manager.get_current_device_uuid()
+            uuid = self.window.device_manager.get_current_device_udid()
             if uuid != "":
                 self.ui.phoneVersionLbl.setText(f"<a style=\"text-decoration:none; color: white\" href=\"#\">{uuid}</a>")
 
