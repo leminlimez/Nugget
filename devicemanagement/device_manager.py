@@ -87,7 +87,7 @@ def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list
         return ApplyAlertMessage(QCoreApplication.tr("You must run the application as an administer to use BookRestore tweaks."), detailed_txt="Try running the program with sudo.")
     elif isinstance(e, InvalidServiceError):
         return ApplyAlertMessage(QCoreApplication.tr("You must enable developer mode on your device. You can do it in the Settings app."),
-                                 detailed_txt=QCoreApplication.tr("BookRestore tweaks require developer mode to apply. You can enable this at the bottom of the Settings app on your iPhone or iPad."))
+                                 detailed_txt=QCoreApplication.tr("BookRestore tweaks with the AFC method require developer mode to apply.\n\nYou can enable this at the bottom of Settings > Privacy & Security > Developer Mode on your iPhone or iPad."))
     elif isinstance(e, NuggetException):
         return ApplyAlertMessage(str(e), detailed_txt=e.detailed_text)
     else:

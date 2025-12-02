@@ -83,6 +83,21 @@ class SettingsPage(Page):
             idx = 0
         self.ui.langDrp.setCurrentIndex(idx)
 
+    # Toggle the risky options visibility
+    def set_risky_options_visible(self, visible: bool, device_connected: bool=True):
+        if device_connected:
+            self.ui.advancedPageBtn.setVisible(visible)
+        self.ui.ignorePBFrameLimitChk.setVisible(visible)
+        self.ui.disableTendiesLimitChk.setVisible(visible)
+        self.ui.atwakeupChk.setVisible(visible)
+        self.ui.enableiPadOSChk.setVisible(visible)
+        try:
+            self.ui.resetPBDrp.removeItem(4)
+        except:
+            pass
+        if visible:
+            self.ui.resetPBDrp.addItem("PB Extensions")
+
     ## ACTIONS
     def on_langDrp_activated(self, index: int):
         new_lang = self.lang_indexes[index]
@@ -97,17 +112,7 @@ class SettingsPage(Page):
         self.window.device_manager.allow_risky_tweaks = checked
         # save the setting
         self.window.settings.setValue("show_risky_tweaks", checked)
-        # toggle the button visibilities
-        self.ui.advancedPageBtn.setVisible(checked)
-        self.ui.ignorePBFrameLimitChk.setVisible(checked)
-        self.ui.disableTendiesLimitChk.setVisible(checked)
-        self.ui.atwakeupChk.setVisible(checked)
-        try:
-            self.ui.resetPBDrp.removeItem(4)
-        except:
-            pass
-        if checked:
-            self.ui.resetPBDrp.addItem("PB Extensions")
+        self.set_risky_options_visible(checked)
     def on_ignorePBFrameLimitChk_toggled(self, checked: bool):
         set_ignore_frame_limit(checked)
         # save the setting
