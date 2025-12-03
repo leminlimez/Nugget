@@ -304,6 +304,18 @@ def load_internal():
             FileLocation.globalPreferences,
             "GesturesEnabled"
         ),
+        TweakID.DisableSecondsHand: BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "SBDisableClockIconSecondsHand"
+        ),
+        TweakID.DisableSearchingWebsites: BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "SBSearchDisabledDomains"
+        ),
+        TweakID.ShowButtonHints: BasicPlistTweak(
+            FileLocation.globalPreferences,
+            "SBHardwareButtonHintDropletsAlwaysVisibleInSnapshots"
+        ),
         TweakID.AppStoreDebug: BasicPlistTweak(
             FileLocation.appStore,
             "debugGestureEnabled"

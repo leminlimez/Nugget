@@ -72,6 +72,11 @@ class TweakID(Enum):
     VCDiagnosticsEnabled = auto()
     AccessoryDeveloperEnabled = auto()
     KeyFlick = auto()
+
+    DisableSecondsHand = auto()
+    DisableSearchingWebsites = auto()
+    ShowButtonHints = auto()
+
     AppStoreDebug = auto()
     NotesDebugMode = auto()
     BKDigitizerVisualizeTouches = auto()

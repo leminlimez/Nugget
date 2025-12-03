@@ -17,6 +17,10 @@ class InternalPage(Page):
         self.createRadioBtns(key=TweakID.SBIconVisibility, container=self.ui.sbIconVisibilityBtns)
         self.createRadioBtns(key=TweakID.KeyFlick, container=self.ui.keyFlickBtns)
 
+        self.createRadioBtns(key=TweakID.DisableSecondsHand, container=self.ui.disableSecondsHandBtns)
+        self.createRadioBtns(key=TweakID.DisableSearchingWebsites, container=self.ui.searchDisabledDomainsBtns)
+        self.createRadioBtns(key=TweakID.ShowButtonHints, container=self.ui.hintsVisibleBtns)
+
         self.createRadioBtns(key=TweakID.MetalForceHudEnabled, container=self.ui.metalHUDBtns)
         self.createRadioBtns(key=TweakID.iMessageDiagnosticsEnabled, container=self.ui.iMessageBtns)
         self.createRadioBtns(key=TweakID.IDSDiagnosticsEnabled, container=self.ui.IDSBtns)

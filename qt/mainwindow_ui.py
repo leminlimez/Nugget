@@ -3345,6 +3345,76 @@ class Ui_Nugget(object):
 
         self.verticalLayout_131.addWidget(self.keyFlickContent)
 
+        self.line_3 = QFrame(self.internalOptionsPageContent)
+        self.line_3.setObjectName(u"line_3")
+        self.line_3.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_3.setFrameShadow(QFrame.Plain)
+        self.line_3.setFrameShape(QFrame.Shape.HLine)
+
+        self.verticalLayout_131.addWidget(self.line_3)
+
+        self.disableSecondsHandContent = QWidget(self.internalOptionsPageContent)
+        self.disableSecondsHandContent.setObjectName(u"disableSecondsHandContent")
+        sizePolicy6.setHeightForWidth(self.disableSecondsHandContent.sizePolicy().hasHeightForWidth())
+        self.disableSecondsHandContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_68 = QVBoxLayout(self.disableSecondsHandContent)
+        self.verticalLayout_68.setObjectName(u"verticalLayout_68")
+        self.verticalLayout_68.setContentsMargins(0, 0, 0, 0)
+        self.label_59 = QLabel(self.disableSecondsHandContent)
+        self.label_59.setObjectName(u"label_59")
+
+        self.verticalLayout_68.addWidget(self.label_59)
+
+        self.disableSecondsHandBtns = QHBoxLayout()
+        self.disableSecondsHandBtns.setObjectName(u"disableSecondsHandBtns")
+
+        self.verticalLayout_68.addLayout(self.disableSecondsHandBtns)
+
+
+        self.verticalLayout_131.addWidget(self.disableSecondsHandContent)
+
+        self.searchDisabledDomainsContent = QWidget(self.internalOptionsPageContent)
+        self.searchDisabledDomainsContent.setObjectName(u"searchDisabledDomainsContent")
+        sizePolicy6.setHeightForWidth(self.searchDisabledDomainsContent.sizePolicy().hasHeightForWidth())
+        self.searchDisabledDomainsContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_66 = QVBoxLayout(self.searchDisabledDomainsContent)
+        self.verticalLayout_66.setObjectName(u"verticalLayout_66")
+        self.verticalLayout_66.setContentsMargins(0, 0, 0, 0)
+        self.label_57 = QLabel(self.searchDisabledDomainsContent)
+        self.label_57.setObjectName(u"label_57")
+
+        self.verticalLayout_66.addWidget(self.label_57)
+
+        self.searchDisabledDomainsBtns = QHBoxLayout()
+        self.searchDisabledDomainsBtns.setObjectName(u"searchDisabledDomainsBtns")
+
+        self.verticalLayout_66.addLayout(self.searchDisabledDomainsBtns)
+
+
+        self.verticalLayout_131.addWidget(self.searchDisabledDomainsContent)
+
+        self.hintsVisibleContent = QWidget(self.internalOptionsPageContent)
+        self.hintsVisibleContent.setObjectName(u"hintsVisibleContent")
+        sizePolicy6.setHeightForWidth(self.hintsVisibleContent.sizePolicy().hasHeightForWidth())
+        self.hintsVisibleContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_67 = QVBoxLayout(self.hintsVisibleContent)
+        self.verticalLayout_67.setObjectName(u"verticalLayout_67")
+        self.verticalLayout_67.setContentsMargins(0, 0, 0, 0)
+        self.label_58 = QLabel(self.hintsVisibleContent)
+        self.label_58.setObjectName(u"label_58")
+
+        self.verticalLayout_67.addWidget(self.label_58)
+
+        self.hintsVisibleBtns = QHBoxLayout()
+        self.hintsVisibleBtns.setObjectName(u"hintsVisibleBtns")
+
+        self.verticalLayout_67.addLayout(self.hintsVisibleBtns)
+
+
+        self.verticalLayout_131.addWidget(self.hintsVisibleContent)
+
         self.div1 = QFrame(self.internalOptionsPageContent)
         self.div1.setObjectName(u"div1")
         self.div1.setEnabled(False)
@@ -5793,6 +5863,9 @@ class Ui_Nugget(object):
         self.keyFlickContent.setToolTip(QCoreApplication.translate("Nugget", u"Enables the iPad-style keyboard keyflicks on iPhones", None))
 #endif // QT_CONFIG(tooltip)
         self.label_23.setText(QCoreApplication.translate("Nugget", u"Keyboard Character Flick", None))
+        self.label_59.setText(QCoreApplication.translate("Nugget", u"Disable Clock Icon Seconds Hand", None))
+        self.label_57.setText(QCoreApplication.translate("Nugget", u"Disable Spotlight Searching in Websites", None))
+        self.label_58.setText(QCoreApplication.translate("Nugget", u"Show Hardware Button Hints in Screenshots", None))
         self.label_24.setText(QCoreApplication.translate("Nugget", u"Metal HUD Debug", None))
         self.label_25.setText(QCoreApplication.translate("Nugget", u"iMessage Debugging", None))
         self.label_26.setText(QCoreApplication.translate("Nugget", u"Continuity Debugging", None))
