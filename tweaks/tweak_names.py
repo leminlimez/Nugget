@@ -28,6 +28,8 @@ class TweakID(Enum):
     SRD = auto()
     AOD = auto()
     AODVibrancy = auto()
+    EnableLGLPM = auto()
+    DisableLGLPM = auto()
     RdarFix = auto()
 
     # eligibility

@@ -1148,6 +1148,16 @@ class Ui_Nugget(object):
 
         self.verticalLayout_8.addWidget(self.parallaxChk)
 
+        self.enableLGLPMChk = QCheckBox(self.gestaltPageContent)
+        self.enableLGLPMChk.setObjectName(u"enableLGLPMChk")
+
+        self.verticalLayout_8.addWidget(self.enableLGLPMChk)
+
+        self.disableLGLPMChk = QCheckBox(self.gestaltPageContent)
+        self.disableLGLPMChk.setObjectName(u"disableLGLPMChk")
+
+        self.verticalLayout_8.addWidget(self.disableLGLPMChk)
+
         self.line_7 = QFrame(self.gestaltPageContent)
         self.line_7.setObjectName(u"line_7")
         self.line_7.setStyleSheet(u"QFrame {\n"
@@ -5495,6 +5505,8 @@ class Ui_Nugget(object):
         self.parallaxChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables the motion of the wallpaper.", None))
 #endif // QT_CONFIG(tooltip)
         self.parallaxChk.setText(QCoreApplication.translate("Nugget", u"Disable Wallpaper Parallax", None))
+        self.enableLGLPMChk.setText(QCoreApplication.translate("Nugget", u"Enable Liquid Glass Low Performance Mode", None))
+        self.disableLGLPMChk.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass Low Performance Mode", None))
         self.stageManagerChk.setText(QCoreApplication.translate("Nugget", u"Enable Stage Manager Supported", None))
         self.enableiPadOSChk.setText(QCoreApplication.translate("Nugget", u"Enable iPadOS", None))
         self.ipadAppsChk.setText(QCoreApplication.translate("Nugget", u"Allow iPad Apps on iPhone", None))

@@ -32,6 +32,9 @@ class GestaltPage(Page):
         self.ui.pencilChk.clicked.connect(self.on_pencilChk_clicked)
         self.ui.actionButtonChk.clicked.connect(self.on_actionButtonChk_clicked)
 
+        self.ui.enableLGLPMChk.clicked.connect(self.on_enableLGLPMChk_clicked)
+        self.ui.disableLGLPMChk.clicked.connect(self.on_disableLGLPMChk_clicked)
+
         self.ui.internalInstallChk.clicked.connect(self.on_internalInstallChk_clicked)
         self.ui.internalStorageChk.clicked.connect(self.on_internalStorageChk_clicked)
         self.ui.srdChk.clicked.connect(self.on_srdChk_clicked)
@@ -106,6 +109,11 @@ class GestaltPage(Page):
         tweaks[TweakID.CameraButton].set_enabled(checked)
     def on_parallaxChk_clicked(self, checked: bool):
         tweaks[TweakID.Parallax].set_enabled(checked)
+
+    def on_enableLGLPMChk_clicked(self, checked: bool):
+        tweaks[TweakID.EnableLGLPM].set_enabled(checked)
+    def on_disableLGLPMChk_clicked(self, checked: bool):
+        tweaks[TweakID.DisableLGLPM].set_enabled(checked)
 
     def on_stageManagerChk_clicked(self, checked: bool):
         tweaks[TweakID.StageManager].set_enabled(checked)

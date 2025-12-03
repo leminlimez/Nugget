@@ -20,7 +20,7 @@ from restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreApplyM
 from tweaks.tweaks import tweaks, TweakID
 
 App_Version = "7.1"
-App_Build = 4
+App_Build = 5
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager, translator: Translator):
@@ -330,6 +330,12 @@ class MainWindow(QtWidgets.QMainWindow):
             # iPadOS stuff
             self.ui.enableiPadOSChk.setVisible(is_iphone)
             self.ui.stageManagerChk.setVisible(not is_iphone)
+            # liquid glass low performance mode stuff
+            supports_lg = device_ver >= Version("26.0")
+            # show the disable toggle on iPhone 12s and below (iPhone13,*)
+            is_lglpm = self.device_manager.get_current_device_model().removeprefix("iPhone") < "14"
+            self.ui.enableLGLPMChk.setVisible(supports_lg and not is_lglpm)
+            self.ui.disableLGLPMChk.setVisible(supports_lg and is_lglpm)
 
             # bookrestore stuff
             has_sparserestore = self.device_manager.data_singleton.current_device.has_partial_sparserestore()

@@ -2071,6 +2071,20 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                       </widget>
                      </item>
                      <item>
+                      <widget class="QCheckBox" name="enableLGLPMChk">
+                       <property name="text">
+                        <string>Enable Liquid Glass Low Performance Mode</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="disableLGLPMChk">
+                       <property name="text">
+                        <string>Disable Liquid Glass Low Performance Mode</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
                       <widget class="Line" name="line_7">
                        <property name="styleSheet">
                         <string notr="true">QFrame {
