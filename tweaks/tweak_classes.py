@@ -277,14 +277,16 @@ class MobileGestaltCacheDataTweak(Tweak):
             offset_name = "Right" if side_offset == roffset else "Left"
             # check valid values
             if data[side_offset] not in ('1', '3'):
+                err_msg: str = QCoreApplication.tr("Value at %SIDE offset is not 1 or 3.")
                 raise NuggetException(
-                    failed_str + QCoreApplication.tr("Value at %SIDE offset is not 1 or 3.").replace("%SIDE", offset_name.lower())
+                    failed_str + err_msg.replace("%SIDE", offset_name.lower())
                     + f'\nValue[{side_offset}] = {data[side_offset]}, Data Length: {len(data)}'
                 )
             # check neighboring values
             if data[side_offset - 1] != '0' or data[side_offset + 1] != 0:
+                err_msg: str = QCoreApplication.tr("Values of %SIDE offset neighbors are not 0.")
                 raise NuggetException(
-                    failed_str + QCoreApplication.tr("Values of %SIDE offset neighbors are not 0.").replace("%SIDE", offset_name.lower())
+                    failed_str + err_msg.replace("%SIDE", offset_name.lower())
                     + f'\nValue[{side_offset-1}] = {data[side_offset - 1]}, Value[{side_offset+1}] = {data[side_offset + 1]}, Data Length: {len(data)}'
                 )
         # values between left and start of offset
