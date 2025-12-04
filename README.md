@@ -237,7 +237,7 @@ If you would like to read more about the inner workings of the exploit and iOS r
 [usbmuxdGitHub]: https://github.com/libimobiledevice/usbmuxd
 [libimobiledeviceGitHub]: https://github.com/libimobiledevice/libimobiledevice
 [ShortcutsApp]: https://apps.apple.com/us/app/shortcuts/id915249334
-[MobilegestaltShortcut]: https://www.icloud.com/shortcuts/66bd3c822a0145b98d46cd1c9077e6e5
+[MobilegestaltShortcut]: https://routinehub.co/shortcut/23246/
 [ReadMoreGist]: https://gist.github.com/leminlimez/c602c067349140fe979410ef69d39c28
 
 [POEditorJoin]: https://poeditor.com/join/project/UTqpVSE2UD
