@@ -5298,7 +5298,7 @@ class Ui_Nugget(object):
 #endif // QT_CONFIG(tooltip)
         self.parallaxChk.setText(QCoreApplication.translate("Nugget", u"Disable Wallpaper Parallax", None))
         self.stageManagerChk.setText(QCoreApplication.translate("Nugget", u"Enable Stage Manager Supported", None))
-        self.enableiPadOSChk.setText(QCoreApplication.translate("Nugget", u"Enable iPadOS", None))
+        self.enableiPadOSChk.setText(QCoreApplication.translate("Nugget", u"Enable iPadOS (WARNING: risky, use with caution)", None))
         self.ipadAppsChk.setText(QCoreApplication.translate("Nugget", u"Allow iPad Apps on iPhone", None))
 #if QT_CONFIG(tooltip)
         self.shutterChk.setToolTip(QCoreApplication.translate("Nugget", u"Sets the device's region to LL/A to bypass certain region restrictions like the forced shutter sound.", None))

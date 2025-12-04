@@ -2095,7 +2095,7 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                      <item>
                       <widget class="QCheckBox" name="enableiPadOSChk">
                        <property name="text">
-                        <string>Enable iPadOS</string>
+                        <string>Enable iPadOS (WARNING: risky, use with caution)</string>
                        </property>
                       </widget>
                      </item>
