@@ -736,7 +736,6 @@ class DeviceManager:
                 ))
 
             # restore to the device
-            print(use_bookrestore)
             final_alert = self.start_restore(files_to_restore, use_bookrestore, update_label)
             update_label(QCoreApplication.tr("Success!"))
         except Exception as e:
