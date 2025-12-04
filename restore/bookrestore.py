@@ -311,8 +311,9 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
     
     temp_dir = tempfile.gettempdir()
     temp_db_path = os.path.join(temp_dir, f"nugget_db_{uuid}.sqlite")
-    temp_dl_manager = os.path.join(server_folder, f"tmp.BLDatabaseManager.sqlite")
-    remove_db_files(temp_dl_manager)
+    if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
+        temp_dl_manager = os.path.join(server_folder, f"tmp.BLDatabaseManager.sqlite")
+        remove_db_files(temp_dl_manager)
 
     try:
         shutil.copyfile(sqlite_path, temp_db_path)
