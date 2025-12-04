@@ -129,7 +129,7 @@ class RdarFixTweak(BasicPlistTweak):
             return other_tweaks
         if self.di_type == -1:
             # revert the fix
-            other_tweaks[self.file_location] = {}
+            other_tweaks[self.file_location] = {"nugget": 0} # data needed for revert to actually work
         elif self.mode == 1:
             # iPhone XR, XS, and 11
             plist = {
