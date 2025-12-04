@@ -558,9 +558,8 @@ class DeviceManager:
                             use_bookrestore = True
                     elif tweak.enabled:
                         # no mobilegestalt file provided but applying mga tweaks, give warning
-                        show_alert(ApplyAlertMessage(txt=QCoreApplication.tr("No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.")))
                         update_label("Failed.")
-                        return
+                        raise NuggetException(QCoreApplication.tr("No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks."))
             # set the custom gestalt keys
             if gestalt_plist != None:
                 gestalt_plist = CustomGestaltTweaks.apply_tweaks(gestalt_plist)
