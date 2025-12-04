@@ -447,7 +447,7 @@ class DeviceManager:
         if ((self.get_current_device_supported() and not path.startswith("/var/mobile/")) or (self.get_current_device_uses_bookrestore() and use_bookrestore)) and not owner == 0:
             # don't do anything on sparserestore versions
             return path, ""
-        fully_patched = self.get_current_device_patched()
+        fully_patched = not self.data_singleton.current_device.has_partial_sparserestore()
         # just make the Sys Containers to use the regular way (won't work for mga)
         sysSharedContainer = "SysSharedContainerDomain-"
         sysContainer = "SysContainerDomain-"
