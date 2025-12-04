@@ -176,7 +176,7 @@ On iOS 26.1 and below, you may need to get the mobilegestalt file that is specif
 ## Building
 To compile `mainwindow.ui` for Python, run the following command:
 ```py
-pyside6-uic qt/mainwindow.ui -o qt/ui_mainwindow.py
+pyside6-uic qt/mainwindow.ui -o qt/mainwindow_ui.py
 ```
 
 To compile the resources file for Python, run the following command:

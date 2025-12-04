@@ -1,5 +1,5 @@
 from ..page import Page
-from qt.ui_mainwindow import Ui_Nugget
+from qt.mainwindow_ui import Ui_Nugget
 
 from tweaks.tweak_loader import load_daemons
 from tweaks.tweaks import tweaks, TweakID

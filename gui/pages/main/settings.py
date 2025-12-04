@@ -1,6 +1,6 @@
 from ..page import Page
 from ..pages_list import Page as PageItem
-from qt.ui_mainwindow import Ui_Nugget
+from qt.mainwindow_ui import Ui_Nugget
 
 from PySide6.QtWidgets import QMessageBox
 from PySide6.QtCore import QCoreApplication, QLocale

@@ -1,7 +1,7 @@
 from PySide6 import QtCore, QtWidgets
 import plistlib
 
-from qt.ui_mainwindow import Ui_Nugget
+from qt.mainwindow_ui import Ui_Nugget
 import gui.pages as Pages
 
 from controllers.web_request_handler import is_update_available

@@ -2,7 +2,7 @@ import webbrowser
 from PySide6.QtCore import QCoreApplication
 
 from ..page import Page
-from qt.ui_mainwindow import Ui_Nugget
+from qt.mainwindow_ui import Ui_Nugget
 
 from devicemanagement.constants import Version
 

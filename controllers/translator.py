@@ -4,7 +4,7 @@ import sys
 from PySide6.QtCore import QTranslator, QLibraryInfo, QLocale, QSettings
 from PySide6.QtWidgets import QApplication
 
-from qt.ui_mainwindow import Ui_Nugget
+from qt.mainwindow_ui import Ui_Nugget
 
 class Translator:
     def __init__(self, app: QApplication, settings: QSettings):

@@ -8,7 +8,7 @@ from shutil import make_archive, rmtree
 from PySide6 import QtCore, QtWidgets, QtGui
 
 from ..page import Page
-from qt.ui_mainwindow import Ui_Nugget
+from qt.mainwindow_ui import Ui_Nugget
 from gui.dialogs import PBHelpDialog
 from gui.custom_qt_elements.multicombobox import MultiComboBox
 
