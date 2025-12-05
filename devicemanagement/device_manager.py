@@ -267,7 +267,7 @@ class DeviceManager:
             return self.data_singleton.current_device.books_container_uuid
         self.data_singleton.current_device.books_container_uuid = uuid
         # save it to settings
-        self.settings.setValue(self.data_singleton.current_device.udid + "_books_container_uuid", uuid)
+        self.pref_manager.settings.setValue(self.data_singleton.current_device.udid + "_books_container_uuid", uuid)
         
     def get_app_hashes(self, bundle_ids: list[str]) -> dict:
         apps = InstallationProxyService(lockdown=self.data_singleton.current_device.ld).get_apps(application_type="Any", calculate_sizes=False)
