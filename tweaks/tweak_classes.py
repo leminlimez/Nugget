@@ -289,10 +289,6 @@ class MobileGestaltCacheDataTweak(Tweak):
                     failed_str + err_msg.replace("%SIDE", offset_name.lower())
                     + f'\nValue[{side_offset-1}] = {data[side_offset - 1]}, Value[{side_offset+1}] = {data[side_offset + 1]}, Data Length: {len(data)}'
                 )
-        # values between left and start of offset
-        if offset - loffset > 1:
-            if any(c != "0" for c in data[loffset+1 : offset]):
-                raise NuggetException(failed_str + QCoreApplication.tr("Non-zero value found between left offset and start"))
 
         # Set the value of the left offset to 3 to enable iPadOS
         data_list = list(data)
