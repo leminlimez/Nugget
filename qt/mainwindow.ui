@@ -6959,7 +6959,7 @@ QComboBox QAbstractItemView::item:hover {
                    </property>
                    <property name="icon">
                     <iconset resource="../resources.qrc">
-                     <normaloff>:/icon/questionmark.circle.svg</normaloff>:/icon/questionmark.circle.svg</iconset>
+                     <normaloff>:/icon/liquid-glass.svg</normaloff>:/icon/liquid-glass.svg</iconset>
                    </property>
                   </widget>
                  </item>
@@ -9369,7 +9369,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                       </property>
                       <property name="icon">
                        <iconset resource="../resources.qrc">
-                        <normaloff>:/icon/questionmark.circle.svg</normaloff>:/icon/questionmark.circle.svg</iconset>
+                        <normaloff>:/icon/liquid-glass.svg</normaloff>:/icon/liquid-glass.svg</iconset>
                       </property>
                       <property name="checkable">
                        <bool>false</bool>
