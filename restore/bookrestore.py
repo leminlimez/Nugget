@@ -96,7 +96,7 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
                 elif 'admin' in error:
                     raise NuggetException("Admin privileges required.", detailed_text=error)
                 else:
-                    raise NuggetException("Tunnel Error:", detailed_text=error)
+                    raise NuggetException("Error Creating Tunnel.\n\nIf this continues, try setting \"BookRestore Apply Method\" to \"Restore\" in Nugget's settings.", detailed_text=error)
             break
     
     if rsd_val is None:
