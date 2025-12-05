@@ -283,7 +283,7 @@ class MobileGestaltCacheDataTweak(Tweak):
                     + f'\nValue[{side_offset}] = {data[side_offset]}, Data Length: {len(data)}'
                 )
             # check neighboring values
-            if data[side_offset - 1] != '0' or data[side_offset + 1] != 0:
+            if data[side_offset - 1] != '0' or data[side_offset + 1] != '0':
                 err_msg: str = QCoreApplication.tr("Values of %SIDE offset neighbors are not 0.")
                 raise NuggetException(
                     failed_str + err_msg.replace("%SIDE", offset_name.lower())
