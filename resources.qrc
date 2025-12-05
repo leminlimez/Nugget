@@ -46,6 +46,7 @@
         <file>icon/ellipsis.svg</file>
         <file>icon/translate.svg</file>
         <file>icon/liquid-glass.svg</file>
+        <file>icon/lock.svg</file>
     </qresource>
     <qresource prefix="/translations">
         <file>translations/Nugget_en.qm</file>

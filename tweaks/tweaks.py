@@ -5,6 +5,7 @@ from .eligibility_tweak import EligibilityTweak, AITweak
 from .posterboard.posterboard_tweak import PosterboardTweak
 from .posterboard.template_options.templates_tweak import TemplatesTweak
 from .status_bar.status_bar_tweak import StatusBarTweak
+from .passcode_theme_tweak import PasscodeThemeTweak
 from .basic_plist_locations import FileLocation
     
 tweaks = {
@@ -15,5 +16,8 @@ tweaks = {
     TweakID.Templates: TemplatesTweak(),
 
     ## Status Bar
-    TweakID.StatusBar: StatusBarTweak()
+    TweakID.StatusBar: StatusBarTweak(),
+
+    ## Passcode Theme
+    TweakID.Passcode: PasscodeThemeTweak()
 }

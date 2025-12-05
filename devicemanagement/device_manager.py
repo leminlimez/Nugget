@@ -33,7 +33,7 @@ from controllers.files_handler import get_bundle_files
 
 from exceptions.nugget_exception import NuggetException
 
-from tweaks.tweaks import tweaks, TweakID, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak, StatusBarTweak
+from tweaks.tweaks import tweaks, TweakID, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak, StatusBarTweak, PasscodeThemeTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.posterboard.posterboard_tweak import PosterboardTweak
 from tweaks.posterboard.template_options.templates_tweak import TemplatesTweak
@@ -601,6 +601,12 @@ class DeviceManager:
                 tweak = tweaks[tweak_name]
                 if isinstance(tweak, FeatureFlagTweak):
                     flag_plist = tweak.apply_tweak(flag_plist)
+                elif isinstance(tweak, PasscodeThemeTweak):
+                    # must use bookrestore
+                    passcode_files = tweak.apply_tweak()
+                    if passcode_files is not None and len(passcode_files) > 0:
+                        files_to_restore.extend(passcode_files)
+                        use_bookrestore = True
                 elif isinstance(tweak, EligibilityTweak):
                     eligibility_files = tweak.apply_tweak()
                 elif isinstance(tweak, AITweak):

@@ -19,8 +19,8 @@ from restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreApplyM
 
 from tweaks.tweaks import tweaks, TweakID
 
-App_Version = "7.1"
-App_Build = 7
+App_Version = "7.2"
+App_Build = 1
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager, translator: Translator):
@@ -48,6 +48,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.internalOptionsPageBtn.hide()
         self.ui.daemonsPageBtn.hide()
         self.ui.templatesPageBtn.hide()
+        self.ui.passcodePageBtn.hide()
         self.ui.advancedPageBtn.hide()
         self.ui.miscOptionsBtn.hide()
         self.ui.applyPageBtn.hide()
@@ -67,6 +68,7 @@ class MainWindow(QtWidgets.QMainWindow):
             Page.LiquidGlass: Pages.LiquidGlass(ui=self.ui),
             Page.Daemons: Pages.Daemons(ui=self.ui),
             Page.Templates: Pages.Templates(window=self, ui=self.ui),
+            Page.Passcode: Pages.Passcode(window=self, ui=self.ui),
             Page.RiskyTweaks: Pages.Risky(ui=self.ui),
             Page.Settings: Pages.Settings(window=self, ui=self.ui)
         }
@@ -97,6 +99,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.daemonsPageBtn.clicked.connect(self.on_daemonsPageBtn_clicked)
         self.ui.posterboardPageBtn.clicked.connect(self.on_posterboardPageBtn_clicked)
         self.ui.templatesPageBtn.clicked.connect(self.on_templatesPageBtn_clicked)
+        self.ui.passcodePageBtn.clicked.connect(self.on_passcodePageBtn_clicked)
         self.ui.advancedPageBtn.clicked.connect(self.on_advancedPageBtn_clicked)
         self.ui.miscOptionsBtn.clicked.connect(self.on_miscOptionsBtn_clicked)
         self.ui.applyPageBtn.clicked.connect(self.on_applyPageBtn_clicked)
@@ -173,6 +176,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.internalOptionsPageBtn.hide()
             self.ui.daemonsPageBtn.hide()
             self.ui.templatesPageBtn.hide()
+            self.ui.passcodePageBtn.hide()
             self.ui.posterboardPageBtn.hide()
             self.ui.advancedPageBtn.hide()
             self.ui.miscOptionsBtn.hide()
@@ -204,6 +208,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.internalOptionsPageBtn.show()
             self.ui.daemonsPageBtn.show()
             self.ui.templatesPageBtn.show()
+            self.ui.passcodePageBtn.show()
             self.ui.posterboardPageBtn.show()
             self.ui.miscOptionsBtn.show()
             
@@ -216,6 +221,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.springboardOptionsPageContent.setDisabled(False)
             self.ui.internalOptionsPageContent.setDisabled(False)
             self.ui.advancedOptionsPageContent.setDisabled(False)
+            self.ui.liquidGlassPageContent.setDisabled(False)
             self.ui.pbPages.setDisabled(False)
 
             self.ui.resetPairBtn.show()
@@ -477,6 +483,10 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_templatesPageBtn_clicked(self):
         self.pages[Page.Templates].load()
         self.ui.pages.setCurrentIndex(Page.Templates.value)
+
+    def on_passcodePageBtn_clicked(self):
+        self.pages[Page.Passcode].load()
+        self.ui.pages.setCurrentIndex(Page.Passcode.value)
 
     def on_advancedPageBtn_clicked(self):
         self.pages[Page.RiskyTweaks].load()
