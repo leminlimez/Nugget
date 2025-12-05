@@ -106,11 +106,11 @@ class SettingsPage(Page):
             self.window.translator.set_new_language(new_lang, restart=True)
 
     def on_allowWifiApplyingChk_toggled(self, checked: bool):
-        self.window.device_manager.apply_over_wifi = checked
+        self.window.device_manager.pref_manager.apply_over_wifi = checked
         # save the setting
         self.window.settings.setValue("apply_over_wifi", checked)
     def on_showRiskyChk_toggled(self, checked: bool):
-        self.window.device_manager.allow_risky_tweaks = checked
+        self.window.device_manager.pref_manager.allow_risky_tweaks = checked
         # save the setting
         self.window.settings.setValue("show_risky_tweaks", checked)
         self.set_risky_options_visible(checked)
@@ -119,27 +119,27 @@ class SettingsPage(Page):
         # save the setting
         self.window.settings.setValue("ignore_pb_frame_limit", checked)
     def on_disableTendiesLimitChk_toggled(self, checked: bool):
-        self.window.device_manager.disable_tendies_limit = checked
+        self.window.device_manager.pref_manager.disable_tendies_limit = checked
         # save the setting
         self.window.settings.setValue("disable_tendies_limit", checked)
     def on_showAllSpoofableChk_toggled(self, checked: bool):
-        self.window.device_manager.show_all_spoofable_models = checked
+        self.window.device_manager.pref_manager.show_all_spoofable_models = checked
         # save the setting
         self.window.settings.setValue("show_all_spoofable_models", checked)
         # refresh the list of spoofable models
         self.window.pages[PageItem.Gestalt].setup_spoofedModelDrp_models()
     def on_autoRebootChk_toggled(self, checked: bool):
-        self.window.device_manager.auto_reboot = checked
+        self.window.device_manager.pref_manager.auto_reboot = checked
         # save the setting
         self.window.settings.setValue("auto_reboot", checked)
 
     def on_trustStoreChk_toggled(self, checked: bool):
-        self.window.device_manager.restore_truststore = checked
+        self.window.device_manager.pref_manager.restore_truststore = checked
         # save the setting
         self.window.settings.setValue("restore_truststore", checked)
 
     def on_skipSetupChk_toggled(self, checked: bool):
-        self.window.device_manager.skip_setup = checked
+        self.window.device_manager.pref_manager.skip_setup = checked
         # save the setting
         self.window.settings.setValue("skip_setup", checked)
         # hide/show the warning label
@@ -148,10 +148,10 @@ class SettingsPage(Page):
         else:
             self.ui.skipSetupOnLbl.hide()
     def on_supervisionOrgTxt_textEdited(self, text: str):
-        self.window.device_manager.organization_name = text
+        self.window.device_manager.pref_manager.organization_name = text
         self.window.settings.setValue("organization_name", text)
     def on_supervisionChk_toggled(self, checked: bool):
-        self.window.device_manager.supervised = checked
+        self.window.device_manager.pref_manager.supervised = checked
         # save the setting
         self.window.settings.setValue("supervised", checked)
 
@@ -160,12 +160,12 @@ class SettingsPage(Page):
         self.window.device_manager.current_device_books_container_uuid_callback(text)
     def on_brTransferModeDrp_activated(self, index: int):
         new_mode = BookRestoreFileTransferMethod(index)
-        self.window.device_manager.bookrestore_transfer_mode = new_mode
+        self.window.device_manager.pref_manager.bookrestore_transfer_mode = new_mode
         # save the setting
         self.window.settings.setValue("bookrestore_transfer_mode", index)
     def on_brApplyModeDrp_activated(self, index: int):
         new_mode = BookRestoreApplyMethod(index)
-        self.window.device_manager.bookrestore_apply_mode = new_mode
+        self.window.device_manager.pref_manager.bookrestore_apply_mode = new_mode
         # save the setting
         self.window.settings.setValue("bookrestore_apply_mode", index)
 

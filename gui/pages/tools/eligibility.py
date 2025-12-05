@@ -59,7 +59,7 @@ class EligibilityPage(Page):
     
     def on_spoofedModelDrp_activated(self, index: int):
         idx_to_apply = index
-        if not self.window.device_manager.show_all_spoofable_models and not self.window.device_manager.get_current_device_model().startswith("iPhone"):
+        if not self.window.device_manager.pref_manager.show_all_spoofable_models and not self.window.device_manager.get_current_device_model().startswith("iPhone"):
             # offset the index for ipads
             idx_to_apply += 6
         tweaks[TweakID.SpoofModel].set_selected_option(idx_to_apply, is_enabled=(index != 0))
