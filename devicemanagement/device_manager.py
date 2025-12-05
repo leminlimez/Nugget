@@ -411,11 +411,11 @@ class DeviceManager:
                 if self.pref_manager.organization_name != None and self.pref_manager.organization_name != "":
                     with TemporaryDirectory() as temp_dir:
                         keybag_file = Path(temp_dir) / 'keybag'
-                        create_keybag_file(keybag_file, self.organization_name)
+                        create_keybag_file(keybag_file, self.pref_manager.organization_name)
                         cer = x509.load_pem_x509_certificate(keybag_file.read_bytes())
                         public_key = cer.public_bytes(Encoding.DER)
                         # make sure the mdm is removable
-                        cloud_config_plist["OrganizationName"] = self.organization_name
+                        cloud_config_plist["OrganizationName"] = self.pref_manager.organization_name
                         cloud_config_plist['OrganizationMagic'] = str(uuid4())
                         cloud_config_plist['IsMDMUnremovable'] = False
                         cloud_config_plist['SupervisorHostCertificates'] = [public_key]
@@ -536,7 +536,7 @@ class DeviceManager:
         if not restore_bookrestore or self.pref_manager.bookrestore_apply_mode == BookRestoreApplyMethod.Restore:
             update_label(QCoreApplication.tr("Preparing to restore...") + self.do_not_unplug)
             restore_files(
-                files=files_to_restore, reboot=self.auto_reboot,
+                files=files_to_restore, reboot=self.pref_manager.auto_reboot,
                 lockdown_client=self.data_singleton.current_device.ld,
                 progress_callback=self.progress_callback
             )
