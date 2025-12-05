@@ -7,6 +7,7 @@ from restore.restore import FileToRestore
 class PasscodeThemeTweak(Tweak):
     def __init__(self):
         super().__init__(key=None, value=None)
+        self.language_code = 'en'
 
     def import_passthm(self, path: str) -> bool:
         # returns whether or not it was valid
@@ -27,6 +28,11 @@ class PasscodeThemeTweak(Tweak):
             self.value = final_path
             self.enabled = success
             return success
+        
+    def get_name_for_file(self, path: str) -> str:
+        # format: [language code]-[number]-[letters]--white.png
+        components = os.path.basename(path).split('-')
+        return f'{self.language_code}-{components[1]}-{components[2]}--white.png'
 
     def apply_tweak(self) -> list[FileToRestore]:
         if not self.enabled or self.value == None or self.value == "":
@@ -40,7 +46,7 @@ class PasscodeThemeTweak(Tweak):
                     # add it (assume it is a passcode key for now)
                     files.append(FileToRestore(
                         contents=archive.read(path),
-                        restore_path=f"/var/mobile/Library/Caches/TelephonyUI-10/{os.path.basename(path)}",
+                        restore_path=f"/var/mobile/Library/Caches/TelephonyUI-10/{self.get_name_for_file(path)}",
                         domain=None
                     ))
         return files
