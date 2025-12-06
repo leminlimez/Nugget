@@ -4681,6 +4681,13 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_206.addItem(self.horizontalSpacer_76)
 
+        self.discoverPassthmBtn = QToolButton(self.horizontalWidget_55)
+        self.discoverPassthmBtn.setObjectName(u"discoverPassthmBtn")
+        self.discoverPassthmBtn.setIcon(icon25)
+        self.discoverPassthmBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+
+        self.horizontalLayout_206.addWidget(self.discoverPassthmBtn)
+
 
         self.verticalLayout_146.addWidget(self.horizontalWidget_55)
 
@@ -6142,6 +6149,7 @@ class Ui_Nugget(object):
 #endif // QT_CONFIG(tooltip)
         self.importTemplatesBtn.setText(QCoreApplication.translate("Nugget", u"  Import Templates (.batter)", None))
         self.passcodeThemesLbl.setText(QCoreApplication.translate("Nugget", u"Passcode Themes", None))
+        self.discoverPassthmBtn.setText(QCoreApplication.translate("Nugget", u"   Discover Themes", None))
         self.label_60.setText(QCoreApplication.translate("Nugget", u"Selected passthm file:", None))
         self.selectedPassthmLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
         self.label_61.setText(QCoreApplication.translate("Nugget", u"Size of Keys", None))

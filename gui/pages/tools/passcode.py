@@ -1,3 +1,5 @@
+import webbrowser
+
 from ..page import Page
 from qt.mainwindow_ui import Ui_Nugget
 from PySide6 import QtWidgets
@@ -13,6 +15,7 @@ class PasscodePage(Page):
     def load_page(self):
         self.ui.importPassthmBtn.clicked.connect(self.on_importPassthmBtn_clicked)
         self.ui.keySizeDrp.activated.connect(self.on_keySizeDrp_activated)
+        self.ui.discoverPassthmBtn.clicked.connect(self.on_discoverPassthmBtn_clicked)
 
     def on_keySizeDrp_activated(self, index: int):
         tweaks[TweakID.Passcode].big_keys = (index == 0)
@@ -24,3 +27,6 @@ class PasscodePage(Page):
             self.ui.selectedPassthmLbl.setText(selected_file)
         else:
             self.ui.selectedPassthmLbl.setText(self.window.noneText)
+
+    def on_discoverPassthmBtn_clicked(self):
+        webbrowser.open_new_tab("https://cowabun.ga/wallpapers?section=passtheme")

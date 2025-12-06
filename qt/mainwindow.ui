@@ -8821,6 +8821,20 @@ QComboBox QAbstractItemView::item:hover {
                    </property>
                   </spacer>
                  </item>
+                 <item>
+                  <widget class="QToolButton" name="discoverPassthmBtn">
+                   <property name="text">
+                    <string>   Discover Themes</string>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="../resources.qrc">
+                     <normaloff>:/icon/globe.svg</normaloff>:/icon/globe.svg</iconset>
+                   </property>
+                   <property name="toolButtonStyle">
+                    <enum>Qt::ToolButtonTextBesideIcon</enum>
+                   </property>
+                  </widget>
+                 </item>
                 </layout>
                </widget>
               </item>
