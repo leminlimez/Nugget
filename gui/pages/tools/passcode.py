@@ -12,6 +12,10 @@ class PasscodePage(Page):
 
     def load_page(self):
         self.ui.importPassthmBtn.clicked.connect(self.on_importPassthmBtn_clicked)
+        self.ui.keySizeDrp.activated.connect(self.on_keySizeDrp_activated)
+
+    def on_keySizeDrp_activated(self, index: int):
+        tweaks[TweakID.Passcode].big_keys = (index == 0)
 
     def on_importPassthmBtn_clicked(self):
         selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self.window, "Select Passcode Theme Files", "", "Zip Files (*.passthm)", options=QtWidgets.QFileDialog.ReadOnly)

@@ -4710,6 +4710,31 @@ class Ui_Nugget(object):
 
         self.verticalLayout_146.addWidget(self.selectedPassthmLbl)
 
+        self.horizontalLayout_26 = QHBoxLayout()
+        self.horizontalLayout_26.setObjectName(u"horizontalLayout_26")
+        self.horizontalLayout_26.setContentsMargins(190, -1, 190, 0)
+        self.label_61 = QLabel(self.passcodeThemesPage)
+        self.label_61.setObjectName(u"label_61")
+
+        self.horizontalLayout_26.addWidget(self.label_61)
+
+        self.horizontalSpacer_17 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_26.addItem(self.horizontalSpacer_17)
+
+        self.keySizeDrp = QComboBox(self.passcodeThemesPage)
+        self.keySizeDrp.addItem("")
+        self.keySizeDrp.addItem("")
+        self.keySizeDrp.setObjectName(u"keySizeDrp")
+        sizePolicy6.setHeightForWidth(self.keySizeDrp.sizePolicy().hasHeightForWidth())
+        self.keySizeDrp.setSizePolicy(sizePolicy6)
+        self.keySizeDrp.setMinimumSize(QSize(75, 0))
+
+        self.horizontalLayout_26.addWidget(self.keySizeDrp)
+
+
+        self.verticalLayout_146.addLayout(self.horizontalLayout_26)
+
         self.verticalLayout_383 = QVBoxLayout()
         self.verticalLayout_383.setObjectName(u"verticalLayout_383")
         self.verticalLayout_383.setContentsMargins(-1, 0, -1, 0)
@@ -6119,6 +6144,10 @@ class Ui_Nugget(object):
         self.passcodeThemesLbl.setText(QCoreApplication.translate("Nugget", u"Passcode Themes", None))
         self.label_60.setText(QCoreApplication.translate("Nugget", u"Selected passthm file:", None))
         self.selectedPassthmLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
+        self.label_61.setText(QCoreApplication.translate("Nugget", u"Size of Keys", None))
+        self.keySizeDrp.setItemText(0, QCoreApplication.translate("Nugget", u"   Big", None))
+        self.keySizeDrp.setItemText(1, QCoreApplication.translate("Nugget", u"   Small", None))
+
 #if QT_CONFIG(tooltip)
         self.importPassthmBtn.setToolTip(QCoreApplication.translate("Nugget", u"Select a wallpaper file with the .tendies extension.", None))
 #endif // QT_CONFIG(tooltip)
