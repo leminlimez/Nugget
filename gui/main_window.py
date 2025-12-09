@@ -20,7 +20,7 @@ from restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreApplyM
 from tweaks.tweaks import tweaks, TweakID
 
 App_Version = "7.2"
-App_Build = 1
+App_Build = 2
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager, translator: Translator):
@@ -355,6 +355,11 @@ class MainWindow(QtWidgets.QMainWindow):
             has_sparserestore = self.device_manager.data_singleton.current_device.has_partial_sparserestore()
             self.ui.duyBtn.setVisible(not has_sparserestore)
             self.ui.jjtechBtn.setVisible(has_sparserestore)
+            keys_lang_code = self.device_manager.data_singleton.current_device.locale
+            if keys_lang_code == 'en_US':
+                keys_lang_code = 'en'
+            tweaks[TweakID.Passcode].language_code = keys_lang_code
+            self.ui.passthmLanguageCodeTxt.setText(keys_lang_code)
             if self.device_manager.data_singleton.current_device.has_bookrestore():
                 self.ui.bookrestoreWidget.show()
                 self.ui.booksContainerUUIDTxt.setText(self.device_manager.data_singleton.current_device.books_container_uuid)

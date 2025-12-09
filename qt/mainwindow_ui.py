@@ -4705,18 +4705,6 @@ class Ui_Nugget(object):
 
         self.verticalLayout_146.addItem(self.verticalSpacer_13)
 
-        self.label_60 = QLabel(self.passcodeThemesPage)
-        self.label_60.setObjectName(u"label_60")
-        self.label_60.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_146.addWidget(self.label_60)
-
-        self.selectedPassthmLbl = QLabel(self.passcodeThemesPage)
-        self.selectedPassthmLbl.setObjectName(u"selectedPassthmLbl")
-        self.selectedPassthmLbl.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_146.addWidget(self.selectedPassthmLbl)
-
         self.horizontalLayout_26 = QHBoxLayout()
         self.horizontalLayout_26.setObjectName(u"horizontalLayout_26")
         self.horizontalLayout_26.setContentsMargins(190, -1, 190, 0)
@@ -4735,12 +4723,40 @@ class Ui_Nugget(object):
         self.keySizeDrp.setObjectName(u"keySizeDrp")
         sizePolicy6.setHeightForWidth(self.keySizeDrp.sizePolicy().hasHeightForWidth())
         self.keySizeDrp.setSizePolicy(sizePolicy6)
-        self.keySizeDrp.setMinimumSize(QSize(75, 0))
+        self.keySizeDrp.setMinimumSize(QSize(100, 0))
 
         self.horizontalLayout_26.addWidget(self.keySizeDrp)
 
 
         self.verticalLayout_146.addLayout(self.horizontalLayout_26)
+
+        self.verticalLayout_69 = QVBoxLayout()
+        self.verticalLayout_69.setObjectName(u"verticalLayout_69")
+        self.verticalLayout_69.setContentsMargins(-1, -1, -1, 0)
+        self.label_62 = QLabel(self.passcodeThemesPage)
+        self.label_62.setObjectName(u"label_62")
+
+        self.verticalLayout_69.addWidget(self.label_62)
+
+        self.passthmLanguageCodeTxt = QLineEdit(self.passcodeThemesPage)
+        self.passthmLanguageCodeTxt.setObjectName(u"passthmLanguageCodeTxt")
+
+        self.verticalLayout_69.addWidget(self.passthmLanguageCodeTxt)
+
+
+        self.verticalLayout_146.addLayout(self.verticalLayout_69)
+
+        self.label_60 = QLabel(self.passcodeThemesPage)
+        self.label_60.setObjectName(u"label_60")
+        self.label_60.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_146.addWidget(self.label_60)
+
+        self.selectedPassthmLbl = QLabel(self.passcodeThemesPage)
+        self.selectedPassthmLbl.setObjectName(u"selectedPassthmLbl")
+        self.selectedPassthmLbl.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_146.addWidget(self.selectedPassthmLbl)
 
         self.verticalLayout_383 = QVBoxLayout()
         self.verticalLayout_383.setObjectName(u"verticalLayout_383")
@@ -6150,12 +6166,14 @@ class Ui_Nugget(object):
         self.importTemplatesBtn.setText(QCoreApplication.translate("Nugget", u"  Import Templates (.batter)", None))
         self.passcodeThemesLbl.setText(QCoreApplication.translate("Nugget", u"Passcode Themes", None))
         self.discoverPassthmBtn.setText(QCoreApplication.translate("Nugget", u"   Discover Themes", None))
-        self.label_60.setText(QCoreApplication.translate("Nugget", u"Selected passthm file:", None))
-        self.selectedPassthmLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
         self.label_61.setText(QCoreApplication.translate("Nugget", u"Size of Keys", None))
         self.keySizeDrp.setItemText(0, QCoreApplication.translate("Nugget", u"   Big", None))
         self.keySizeDrp.setItemText(1, QCoreApplication.translate("Nugget", u"   Small", None))
 
+        self.label_62.setText(QCoreApplication.translate("Nugget", u"Language Code", None))
+        self.passthmLanguageCodeTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Language Code", None))
+        self.label_60.setText(QCoreApplication.translate("Nugget", u"Selected passthm file:", None))
+        self.selectedPassthmLbl.setText(QCoreApplication.translate("Nugget", u"None", None))
 #if QT_CONFIG(tooltip)
         self.importPassthmBtn.setToolTip(QCoreApplication.translate("Nugget", u"Select a wallpaper file with the .tendies extension.", None))
 #endif // QT_CONFIG(tooltip)
