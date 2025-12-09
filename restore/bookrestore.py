@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from enum import Enum
 import asyncio
-import concurrent.futures
 import functools
 import os
 import posixpath
@@ -16,7 +15,7 @@ import sys
 import tempfile
 import threading
 import time
-import uuid
+import uuid as uuid_mod
 import atexit
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from typing import Callable, Optional
@@ -116,6 +115,12 @@ def get_lan_ip() -> str:
     return "127.0.0.1"
 
 
+class _QuietHTTPRequestHandler(SimpleHTTPRequestHandler):
+    # SimpleHTTPRequestHandler is noisy; Nugget doesn't need request logs.
+    def log_message(self, format, *args):  # noqa: N802
+        return
+
+
 class _TempHTTPServer:
     """
     A tiny HTTP server (threaded) used to serve BLDatabaseManager sqlite files to the device.
@@ -128,7 +133,7 @@ class _TempHTTPServer:
         self.thread: Optional[threading.Thread] = None
 
     def start(self) -> tuple[str, int]:
-        handler = functools.partial(SimpleHTTPRequestHandler, directory=self.directory)
+        handler = functools.partial(_QuietHTTPRequestHandler, directory=self.directory)
         self.httpd = HTTPServer((self.bind_host, self.port), handler)
         self.port = self.httpd.server_port
         ip = get_lan_ip()
@@ -164,18 +169,74 @@ def _terminate_process(proc: subprocess.Popen):
             pass
 
 
+def _parse_tunnel_output(lines: list[str]) -> Optional[tuple[str, int]]:
+    """
+    Parse pymobiledevice3 tunnel output in multiple known formats.
+    Returns (address, port) if found.
+    """
+    addr = None
+    port = None
+
+    # Common "script-mode" output in Nugget: "<addr> <port>"
+    direct_re = re.compile(r"^(?P<addr>\S+)\s+(?P<port>\d+)\s*$")
+
+    # Non script-mode output often includes "RSD Address:" and "RSD Port:"
+    rsd_addr_re = re.compile(r"RSD\s+Address:\s*(?P<addr>\S+)")
+    rsd_port_re = re.compile(r"RSD\s+Port:\s*(?P<port>\d+)")
+    rsd_flag_re = re.compile(r"--rsd\s+(?P<addr>\S+)\s+(?P<port>\d+)")
+
+    for raw in lines:
+        line = (raw or "").strip()
+        if not line:
+            continue
+
+        m = direct_re.match(line)
+        if m:
+            return m.group("addr"), int(m.group("port"))
+
+        m = rsd_flag_re.search(line)
+        if m:
+            return m.group("addr"), int(m.group("port"))
+
+        m = rsd_addr_re.search(line)
+        if m:
+            addr = m.group("addr").strip() or addr
+
+        m = rsd_port_re.search(line)
+        if m:
+            try:
+                port = int(m.group("port"))
+            except Exception:
+                pass
+
+        if addr and port:
+            return addr, port
+
+    return None
+
+
 async def create_tunnel(udid: str, progress_callback: Callable[[str], None] = lambda x: None):
     """
     Starts a pymobiledevice3 lockdown tunnel and returns {"address": ..., "port": ...}.
 
-    Reliability improvements:
-    - Avoids shell=True and password echo piping
+    Reliability improvements vs the original Nugget script:
+    - Avoids shell=True and sudo password piping hacks
     - Uses executor to avoid blocking the event loop while reading stdout
     - More robust parsing + timeouts
     """
-    base_args = [sys.executable, "-m", "pymobiledevice3", "lockdown", "start-tunnel", "--script-mode", "--udid", udid]
+    base_args = [
+        sys.executable,
+        "-m",
+        "pymobiledevice3",
+        "lockdown",
+        "start-tunnel",
+        "--script-mode",
+        "--udid",
+        udid,
+    ]
 
     stdin = None
+    pwd = None
     if os.name != "nt":
         if hasattr(os, "geteuid") and os.geteuid() != 0:
             progress_callback("sudo_pwd")
@@ -187,10 +248,6 @@ async def create_tunnel(udid: str, progress_callback: Callable[[str], None] = la
             # sudo reads password from stdin when -S is set
             base_args = ["sudo", "-S"] + base_args
             stdin = subprocess.PIPE
-        else:
-            pwd = None
-    else:
-        pwd = None
 
     try:
         tunnel_process = subprocess.Popen(
@@ -216,11 +273,10 @@ async def create_tunnel(udid: str, progress_callback: Callable[[str], None] = la
             # best-effort scrub
             pwd = None
 
-    rsd_val = None
     start = time.time()
-    pattern = re.compile(r"^(?P<addr>\S+)\s+(?P<port>\d+)\s*$")
-
+    recent_lines: list[str] = []
     loop = asyncio.get_running_loop()
+
     while True:
         if time.time() - start > TUNNEL_START_TIMEOUT_S:
             _terminate_process(tunnel_process)
@@ -234,13 +290,20 @@ async def create_tunnel(udid: str, progress_callback: Callable[[str], None] = la
                 detailed_text=err.strip() or None,
             )
 
+        # read one stdout line without blocking loop
         line = await loop.run_in_executor(None, tunnel_process.stdout.readline)  # type: ignore[arg-type]
         if line:
-            line = line.strip()
-            m = pattern.match(line)
-            if m:
-                rsd_val = (m.group("addr"), int(m.group("port")))
-                break
+            recent_lines.append(line)
+            # cap buffer
+            if len(recent_lines) > 50:
+                recent_lines = recent_lines[-50:]
+
+            parsed = _parse_tunnel_output(recent_lines[-10:])
+            if parsed:
+                address, port = parsed
+                print(f"Successfully created tunnel: {address} {port}")
+                return {"address": address, "port": port}
+
         else:
             # No output. Check for exit.
             if tunnel_process.poll() is not None:
@@ -250,16 +313,13 @@ async def create_tunnel(udid: str, progress_callback: Callable[[str], None] = la
                     error = ""
                 error = (error or "").strip()
                 if error:
-                    if "connected" in error.lower():
+                    low = error.lower()
+                    if "connected" in low or "no device" in low:
                         raise NuggetException("Device not connected.", detailed_text=error)
-                    if "admin" in error.lower() or "permission" in error.lower() or "sudo" in error.lower():
+                    if "admin" in low or "permission" in low or "sudo" in low:
                         raise NuggetException("Admin privileges required.", detailed_text=error)
                     raise NuggetException("Tunnel Error.", detailed_text=error)
                 raise NuggetException("Tunnel process ended without returning connection details.")
-
-    address, port = rsd_val
-    print(f"Successfully created tunnel: {address} {port}")
-    return {"address": address, "port": port}
 
 
 async def create_connection_context(
@@ -273,40 +333,37 @@ async def create_connection_context(
     if not available_address:
         raise NuggetException("An error occurred getting tunnel address...")
 
-    _run_async_rsd_connection(
-        available_address["address"],
-        available_address["port"],
-        files,
-        current_device_uuid_callback,
-        progress_callback,
-        transfer_mode,
-    )
+    addr = available_address["address"]
+    port = available_address["port"]
 
+    last_err: Optional[Exception] = None
+    for i in range(RSD_CONNECT_RETRIES):
+        try:
+            async with RemoteServiceDiscoveryService((addr, port)) as rsd:
+                loop = asyncio.get_running_loop()
 
-def _run_async_rsd_connection(address, port, files, current_device_uuid_callback, progress, transfer_mode):
-    async def async_connection():
-        for i in range(RSD_CONNECT_RETRIES):
-            try:
-                async with RemoteServiceDiscoveryService((address, port)) as rsd:
-                    loop = asyncio.get_running_loop()
+                def run_blocking():
+                    with DvtSecureSocketProxyService(rsd) as dvt:
+                        apply_bookrestore_files(
+                            files,
+                            rsd,
+                            dvt,
+                            current_device_uuid_callback,
+                            progress_callback,
+                            transfer_mode,
+                        )
 
-                    def run_blocking_callback():
-                        with DvtSecureSocketProxyService(rsd) as dvt:
-                            apply_bookrestore_files(files, rsd, dvt, current_device_uuid_callback, progress, transfer_mode)
+                await loop.run_in_executor(None, run_blocking)
+                return
+        except OSError as e:
+            last_err = e
+            if isinstance(e, PermissionError) or getattr(e, "errno", None) == 13:
+                raise
+            print(f"Connection attempt {i + 1}/{RSD_CONNECT_RETRIES} failed: {e}")
+            await asyncio.sleep(RSD_CONNECT_RETRY_SLEEP_S)
 
-                    await loop.run_in_executor(None, run_blocking_callback)
-                    return  # success
-
-            except OSError as e:
-                # Permission errors won't be fixed by retrying.
-                if isinstance(e, PermissionError) or getattr(e, "errno", None) == 13:
-                    raise
-                print(f"Connection attempt {i+1}/{RSD_CONNECT_RETRIES} failed: {e}")
-                if i == RSD_CONNECT_RETRIES - 1:
-                    raise
-                await asyncio.sleep(RSD_CONNECT_RETRY_SLEEP_S)
-
-    _run_coro_blocking(async_connection())
+    if last_err:
+        raise last_err
 
 
 def remove_db_files(db_path: str):
@@ -388,7 +445,6 @@ def _launch_app(pc: ProcessControl, bundle_id: str):
         raise NuggetException(f"Error launching {bundle_id}", detailed_text=repr(e))
 
 
-
 def _get_ios_version(lockdown_client: LockdownClient) -> str:
     """
     Best-effort iOS version lookup for populating metadata fields.
@@ -401,7 +457,6 @@ def _get_ios_version(lockdown_client: LockdownClient) -> str:
         except Exception:
             pass
     try:
-        # pymobiledevice3 LockdownClient typically supports get_value(domain, key)
         v = lockdown_client.get_value(None, "ProductVersion")
         if isinstance(v, str) and v:
             return v
@@ -415,7 +470,10 @@ def _get_pid_by_name(lockdown_client: LockdownClient, name: str) -> Optional[int
         procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload") or {}
     except Exception:
         return None
-    return next((pid for pid, p in procs.items() if p.get("ProcessName") == name), None)
+    try:
+        return next((pid for pid, p in procs.items() if (p or {}).get("ProcessName") == name), None)
+    except Exception:
+        return None
 
 
 def _wait_for_syslog(
@@ -423,6 +481,10 @@ def _wait_for_syslog(
     predicate: Callable[[object], bool],
     timeout_s: int,
 ):
+    """
+    Best-effort syslog wait. Note: if syslog stream itself blocks without yielding,
+    the timeout may not be exact (this mirrors upstream behavior).
+    """
     deadline = time.time() + timeout_s
     for entry in OsTraceService(lockdown=lockdown_client).syslog():
         if time.time() > deadline:
@@ -444,12 +506,11 @@ def apply_bookrestore_files(
     transfer_mode: BookRestoreFileTransferMethod = BookRestoreFileTransferMethod.LocalHost,
 ):
     """
-    Apply BookRestore payload.
-
-    This function is mostly the same logic, but with:
-    - safer cleanup (http server, firewall rules, sqlite connections)
+    Apply BookRestore payload with reliability tweaks:
+    - safer cleanup (HTTP server, firewall rules, temp files)
     - guards around None PIDs / callbacks
-    - timeouts & better syslog parsing
+    - less brittle syslog parsing for the itunesstored stage
+    - fixes a common bug: do NOT shadow the uuid module (container_uuid instead)
     """
     br_files = get_bundle_files("files/bookrestore")
     if not os.path.exists(br_files):
@@ -472,9 +533,9 @@ def apply_bookrestore_files(
 
     try:
         # Get Container UUID
-        uuid = (_safe_call(current_device_uuid_callback) or "")
-        uuid = uuid.strip() if isinstance(uuid, str) else ""
-        if len(uuid) < 10:
+        container_uuid = (_safe_call(current_device_uuid_callback) or "")
+        container_uuid = container_uuid.strip() if isinstance(container_uuid, str) else ""
+        if len(container_uuid) < 10:
             # Ensure Books is launched, then watch syslog for the BLDownloads path.
             try:
                 _launch_app(pc, "com.apple.iBooks")
@@ -484,22 +545,23 @@ def apply_bookrestore_files(
             progress_callback("Please open Books app and download a book to continue.")
 
             def _uuid_pred(entry):
-                return (
-                    posixpath.basename(getattr(entry, "filename", "") or "") == "bookassetd"
-                    and "/Documents/BLDownloads/" in (getattr(entry, "message", "") or "")
-                )
+                fname = posixpath.basename(getattr(entry, "filename", "") or "")
+                msg = getattr(entry, "message", "") or ""
+                return fname == "bookassetd" and "/Documents/BLDownloads/" in msg
 
             hit = _wait_for_syslog(lockdown_client, _uuid_pred, UUID_DISCOVERY_TIMEOUT_S)
             if not hit:
-                raise NuggetException("Timed out waiting to discover the Books container UUID. Try downloading any book in Books and retry.")
+                raise NuggetException(
+                    "Timed out waiting to discover the Books container UUID. Try downloading any book in Books and retry."
+                )
 
             msg = getattr(hit, "message", "") or ""
             try:
-                uuid = msg.split("/var/containers/Shared/SystemGroup/")[1].split("/Documents/BLDownloads")[0]
+                container_uuid = msg.split("/var/containers/Shared/SystemGroup/")[1].split("/Documents/BLDownloads")[0]
             except Exception:
                 raise NuggetException("Failed to parse Books container UUID from syslog.", detailed_text=msg)
 
-            _safe_call(current_device_uuid_callback, uuid)
+            _safe_call(current_device_uuid_callback, container_uuid)
 
         sqlite_path = os.path.join(br_files, "downloads.28.sqlitedb")
         dl_manager_src = os.path.join(br_files, "BLDatabaseManager.sqlite")
@@ -512,13 +574,17 @@ def apply_bookrestore_files(
         if transfer_mode == BookRestoreFileTransferMethod.LocalHost and not os.path.exists(file_attr_path):
             raise NuggetException("Missing zfileattributes.plist.", detailed_text=file_attr_path)
 
-        bldb_local_prefix = f"/private/var/containers/Shared/SystemGroup/{uuid}/Documents/BLDatabaseManager/BLDatabaseManager.sqlite"
+        bldb_local_prefix = f"/private/var/containers/Shared/SystemGroup/{container_uuid}/Documents/BLDatabaseManager/BLDatabaseManager.sqlite"
 
         # Use a unique temp folder per run to avoid collisions.
-        run_tmp_dir = tempfile.mkdtemp(prefix=f"nugget_bookrestore_{uuid}_")
+        run_tmp_dir = tempfile.mkdtemp(prefix=f"nugget_bookrestore_{container_uuid}_")
         temp_db_path = os.path.join(run_tmp_dir, "downloads.28.sqlitedb")
-        temp_dl_manager = os.path.join(br_files, "tmp.BLDatabaseManager.sqlite")  # must live in served directory
+
+        # Must live inside served directory for LocalHost mode (http server path)
+        temp_dl_manager = os.path.join(br_files, "tmp.BLDatabaseManager.sqlite")
         remove_db_files(temp_dl_manager)
+
+        expected_overwrites = 0
 
         try:
             shutil.copyfile(sqlite_path, temp_db_path)
@@ -543,8 +609,11 @@ def apply_bookrestore_files(
                 if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
                     bldb_server_prefix = f"http://{ip}:{port}/tmp.BLDatabaseManager.sqlite"
                 else:
-                    bldb_server_prefix = "https://github.com/leminlimez/Nugget/raw/refs/heads/main/.on_device_remote_files/BLDatabaseManager-mga"
-                    if any(f.restore_path.endswith("com.apple.iokit.IOMobileGraphicsFamily.plist") for f in files):
+                    # On-device mode uses upstream-hosted sqlite. Keep Nugget logic.
+                    bldb_server_prefix = (
+                        "https://github.com/leminlimez/Nugget/raw/refs/heads/main/.on_device_remote_files/BLDatabaseManager-mga"
+                    )
+                    if any(getattr(f, "restore_path", "").endswith("com.apple.iokit.IOMobileGraphicsFamily.plist") for f in files):
                         bldb_server_prefix += "+iokit"
                     bldb_server_prefix += ".sqlite"
 
@@ -575,7 +644,6 @@ def apply_bookrestore_files(
 
             # Update the BLDatabaseManager download db (LocalHost mode only).
             z_id = 0
-            expected_overwrites = 0
             if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
                 shutil.copyfile(dl_manager_src, temp_dl_manager)
                 with sqlite3.connect(temp_dl_manager) as dl_conn:
@@ -591,7 +659,6 @@ def apply_bookrestore_files(
                         if not afc.exists(nugget_media_folder):
                             afc.makedirs(nugget_media_folder)
                     except Exception:
-                        # best-effort
                         pass
 
                     insert_sql = """
@@ -618,23 +685,25 @@ def apply_bookrestore_files(
                     buy_params = (
                         "productType=PUB&price=0&salableAdamId=765107106&pricingParameters=PLUS&pg=default"
                         "&mtApp=com.apple.iBooks"
-                        f"&mtEventTime={int(time.time()*1000)}"
+                        f"&mtEventTime={int(time.time() * 1000)}"
                         f"&mtOsVersion={_get_ios_version(lockdown_client) or '0.0'}"
                         "&mtPageId=SearchIncrementalTopResults&mtPageType=Search&mtPageContext=search"
                         "&mtTopic=xp_amp_bookstore"
-                        f"&mtRequestId={uuid.uuid4()}"
+                        f"&mtRequestId={uuid_mod.uuid4()}"
                     )
                     cancel_url = "https://p19-buy.itunes.apple.com/WebObjects/MZFastFinance.woa/wa/songDownloadDone?download-id=J19N_PUB_190099164604738&cancel=1"
                     client_id = "4GG2695MJK.com.apple.iBooks"
 
                     for f in files:
-                        if f.domain not in ("", None):
+                        if getattr(f, "domain", None) not in ("", None):
                             continue
 
-                        _, file_name = os.path.split(f.restore_path)
-                        media_folder = file_name
+                        _, file_name = os.path.split(getattr(f, "restore_path", ""))
+                        if not file_name:
+                            continue
 
-                        if len(getattr(f, "contents", b"") or b"") > 0:
+                        contents = getattr(f, "contents", b"") or b""
+                        if len(contents) > 0:
                             backpath = "../../../../../.."
                             zassetpath = f"{f.restore_path}.zassetpath"
                         else:
@@ -669,7 +738,7 @@ def apply_bookrestore_files(
 
                         # Upload payload file into Media (AFC root is /var/mobile/Media).
                         try:
-                            afc.set_file_contents(media_folder, f.contents)
+                            afc.set_file_contents(media_folder, contents)
                         except Exception as e:
                             raise NuggetException("Failed to upload payload file via AFC.", detailed_text=repr(e))
 
@@ -683,7 +752,6 @@ def apply_bookrestore_files(
                     with open(local_path, "rb") as fp:
                         afc.set_file_contents(remote_path, fp.read())
                 except Exception:
-                    # best-effort; failures will surface later anyway
                     pass
 
             # Ensure Downloads folder exists (best-effort)
@@ -751,7 +819,7 @@ def apply_bookrestore_files(
                 if transfer_mode != BookRestoreFileTransferMethod.LocalHost:
                     # on-device mode doesn't have a reliable count
                     break
-                if num_replaced >= expected_overwrites:
+                if expected_overwrites and num_replaced >= expected_overwrites:
                     break
 
         # Respring
@@ -791,10 +859,17 @@ def perform_bookrestore(
             ),
         )
 
+    # Must be set before creating an event loop (Windows quirk).
     if os.name == "nt":
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
     # Use safe runner (works even if called from a GUI with an existing event loop).
     _run_coro_blocking(
-        create_connection_context(files, lockdown_client, current_device_books_uuid_callback, progress_callback, transfer_mode)
+        create_connection_context(
+            files,
+            lockdown_client,
+            current_device_books_uuid_callback,
+            progress_callback,
+            transfer_mode,
+        )
     )
