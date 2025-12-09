@@ -85,7 +85,7 @@ def show_apply_error(e: Exception, update_label=lambda x: None, files_list: list
         return ApplyAlertMessage(QCoreApplication.tr("Device failed in sending files. The file list is possibly corrupted or has duplicates. Click Show Details for more info."),
                                  detailed_txt=files_str + "TRACEBACK:\n\n" + str(traceback.format_exc()))
     elif isinstance(e, AccessDeniedError):
-        return ApplyAlertMessage(QCoreApplication.tr("You must run the application as an administer to use BookRestore tweaks."), detailed_txt="Try running the program with sudo.")
+        return ApplyAlertMessage(QCoreApplication.tr("You must run the application as an administrator to use BookRestore tweaks."), detailed_txt="Try running the program with sudo.")
     elif isinstance(e, InvalidServiceError):
         return ApplyAlertMessage(QCoreApplication.tr("You must enable developer mode on your device. You can do it in the Settings app."),
                                  detailed_txt=QCoreApplication.tr("BookRestore tweaks with the AFC method require developer mode to apply.\n\nYou can enable this at the bottom of Settings > Privacy & Security > Developer Mode on your iPhone or iPad."))
