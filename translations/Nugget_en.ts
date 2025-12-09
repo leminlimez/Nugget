@@ -1960,11 +1960,6 @@ or you&apos;ve reached the maximum amount of wallpapers (15) and have to wipe th
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="88"/>
-        <source>You must run the application as an administer to use BookRestore tweaks.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../devicemanagement/device_manager.py" line="90"/>
         <source>You must enable developer mode on your device. You can do it in the Settings app.</source>
         <translation type="unfinished"></translation>
@@ -2077,6 +2072,11 @@ Unlock your device. On the popup, click &quot;Trust&quot;, enter your password, 
     <message>
         <location filename="../devicemanagement/device_manager.py" line="493"/>
         <source>DO NOT UNPLUG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../devicemanagement/device_manager.py" line="88"/>
+        <source>You must run the application as an administrator to use BookRestore tweaks.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2264,11 +2264,6 @@ Open up its settings and tap &quot;Detect&quot;.</source>
     <message>
         <location filename="../tweaks/tweak_classes.py" line="287"/>
         <source>Values of %SIDE offset neighbors are not 0.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../tweaks/tweak_classes.py" line="295"/>
-        <source>Non-zero value found between left offset and start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
