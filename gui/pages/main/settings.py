@@ -1,3 +1,5 @@
+import os
+
 from ..page import Page
 from ..pages_list import Page as PageItem
 from qt.mainwindow_ui import Ui_Nugget
@@ -49,6 +51,7 @@ class SettingsPage(Page):
         self.window = window
         self.ui = ui
         self.lang_indexes = []
+        self.toggle_UAC_btn(self.window.device_manager.pref_manager.bookrestore_apply_mode == BookRestoreApplyMethod.AFC)
 
     def load_page(self):
         self.ui.allowWifiApplyingChk.toggled.connect(self.on_allowWifiApplyingChk_toggled)
@@ -84,6 +87,14 @@ class SettingsPage(Page):
         except:
             idx = 0
         self.ui.langDrp.setCurrentIndex(idx)
+
+    # Toggle the UAC info
+    def toggle_UAC_btn(self, visible: bool):
+        if os.name != 'nt':
+            self.ui.restartUACContent.hide()
+            return
+        import pyuac
+        self.ui.restartUACBtn.setVisible(visible and not pyuac.isUserAdmin())
 
     # Toggle the risky options visibility
     def set_risky_options_visible(self, visible: bool, device_connected: bool=True):
@@ -181,6 +192,7 @@ class SettingsPage(Page):
     def on_brApplyModeDrp_activated(self, index: int):
         new_mode = BookRestoreApplyMethod(index)
         self.window.device_manager.pref_manager.bookrestore_apply_mode = new_mode
+        self.toggle_UAC_btn(new_mode == BookRestoreApplyMethod.AFC)
         # save the setting
         self.window.settings.setValue("bookrestore_apply_mode", index)
 

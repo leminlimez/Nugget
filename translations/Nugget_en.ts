@@ -913,7 +913,7 @@ Please be careful!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="9745"/>
+        <location filename="../qt/mainwindow.ui" line="9773"/>
         <source>Remove Tweaks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1720,165 +1720,175 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="9580"/>
-        <source>Current gestalt file location:</source>
+        <location filename="../qt/mainwindow.ui" line="9572"/>
+        <source>Administrator permission is required to apply tweaks with AFC.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qt/mainwindow.ui" line="9579"/>
+        <source> Restart as Admin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qt/mainwindow.ui" line="9608"/>
+        <source>Current gestalt file location:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qt/mainwindow.ui" line="9636"/>
         <source>  Choose Gestalt File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="9639"/>
+        <location filename="../qt/mainwindow.ui" line="9667"/>
         <source>  Apply Changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="9656"/>
+        <location filename="../qt/mainwindow.ui" line="9684"/>
         <source>Ready!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="9694"/>
+        <location filename="../qt/mainwindow.ui" line="9722"/>
         <source>Note: Skip Setup is currently turned on.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="9849"/>
+        <location filename="../qt/mainwindow.ui" line="9877"/>
         <source>Nugget Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10046"/>
+        <location filename="../qt/mainwindow.ui" line="10074"/>
         <source>App Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10086"/>
+        <location filename="../qt/mainwindow.ui" line="10114"/>
         <source>Allow Applying Over WiFi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10096"/>
+        <location filename="../qt/mainwindow.ui" line="10124"/>
         <source>Auto Reboot After Applying</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10106"/>
+        <location filename="../qt/mainwindow.ui" line="10134"/>
         <source>Show Risky Tweak Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10113"/>
+        <location filename="../qt/mainwindow.ui" line="10141"/>
         <source>Show models for other device types in the AI device spoofing tab.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10122"/>
+        <location filename="../qt/mainwindow.ui" line="10150"/>
         <source>Show All Spoofable Models</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10129"/>
+        <location filename="../qt/mainwindow.ui" line="10157"/>
         <source>Ignore Posterboard Frame Limit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10136"/>
+        <location filename="../qt/mainwindow.ui" line="10164"/>
         <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10141"/>
+        <location filename="../qt/mainwindow.ui" line="10169"/>
         <source>Disable Tendies Limit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10183"/>
+        <location filename="../qt/mainwindow.ui" line="10211"/>
         <source>BookRestore Apply Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10215"/>
+        <location filename="../qt/mainwindow.ui" line="10243"/>
         <source>   Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10230"/>
+        <location filename="../qt/mainwindow.ui" line="10258"/>
         <source>BookRestore File Transfer Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10260"/>
+        <location filename="../qt/mainwindow.ui" line="10288"/>
         <source>   LocalHost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10265"/>
+        <location filename="../qt/mainwindow.ui" line="10293"/>
         <source>   On-Device (Slower)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10275"/>
+        <location filename="../qt/mainwindow.ui" line="10303"/>
         <source>Books Container UUID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10282"/>
+        <location filename="../qt/mainwindow.ui" line="10310"/>
         <source>Enter your books container UUID if you know it.
 It will be automatically found if this is left blank.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10286"/>
+        <location filename="../qt/mainwindow.ui" line="10314"/>
         <source>Enter Books Container UUID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10293"/>
+        <location filename="../qt/mainwindow.ui" line="10321"/>
         <source>* Developer Mode/Administrator permissions required for these options.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10321"/>
+        <location filename="../qt/mainwindow.ui" line="10349"/>
         <source>Restores the SSL config that does something idk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10324"/>
+        <location filename="../qt/mainwindow.ui" line="10352"/>
         <source>Restore TrustStore (SSL Configuration Profiles)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10334"/>
+        <location filename="../qt/mainwindow.ui" line="10362"/>
         <source>Skip Setup * (non-exploit files only)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10347"/>
+        <location filename="../qt/mainwindow.ui" line="10375"/>
         <source>Enable Supervision * (requires Skip Setup)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10357"/>
+        <location filename="../qt/mainwindow.ui" line="10385"/>
         <source>Enter Organization Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10380"/>
+        <location filename="../qt/mainwindow.ui" line="10408"/>
         <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10407"/>
+        <location filename="../qt/mainwindow.ui" line="10435"/>
         <source>Reset Device Pairing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt/mainwindow.ui" line="10421"/>
+        <location filename="../qt/mainwindow.ui" line="10449"/>
         <source>Pocket Poster Helper</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1997,85 +2007,85 @@ You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; D
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="172"/>
+        <location filename="../devicemanagement/device_manager.py" line="170"/>
         <source>Device is password protected! You must trust the computer on your device.
 
 Unlock your device. On the popup, click &quot;Trust&quot;, enter your password, then try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="176"/>
+        <location filename="../devicemanagement/device_manager.py" line="174"/>
         <source>If you keep receiving this error, try using a different cable or port.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="218"/>
+        <location filename="../devicemanagement/device_manager.py" line="216"/>
         <source>No Device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="310"/>
+        <location filename="../devicemanagement/device_manager.py" line="308"/>
         <source>Pairing Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="310"/>
+        <location filename="../devicemanagement/device_manager.py" line="308"/>
         <source>Your device&apos;s pairing was successfully reset. Refresh the device list before applying.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="497"/>
+        <location filename="../devicemanagement/device_manager.py" line="495"/>
         <source>Creating connection to device...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="500"/>
+        <location filename="../devicemanagement/device_manager.py" line="498"/>
         <source>Generating BookRestore database...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="545"/>
+        <location filename="../devicemanagement/device_manager.py" line="543"/>
         <source>Waiting for device to reconnect...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="545"/>
+        <location filename="../devicemanagement/device_manager.py" line="543"/>
         <source>Please complete the setup on your device.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="557"/>
+        <location filename="../devicemanagement/device_manager.py" line="555"/>
         <source>Waiting for changes to apply...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="559"/>
+        <location filename="../devicemanagement/device_manager.py" line="557"/>
         <source>Rebooting to apply changes...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="572"/>
+        <location filename="../devicemanagement/device_manager.py" line="570"/>
         <source>Restoring to device...{0}{1}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="577"/>
+        <location filename="../devicemanagement/device_manager.py" line="575"/>
         <source>Applying changes to files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="641"/>
+        <location filename="../devicemanagement/device_manager.py" line="639"/>
         <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="651"/>
-        <location filename="../devicemanagement/device_manager.py" line="757"/>
+        <location filename="../devicemanagement/device_manager.py" line="649"/>
+        <location filename="../devicemanagement/device_manager.py" line="755"/>
         <source>Generating backup...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="493"/>
+        <location filename="../devicemanagement/device_manager.py" line="491"/>
         <source>DO NOT UNPLUG</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2085,31 +2095,31 @@ Unlock your device. On the popup, click &quot;Trust&quot;, enter your password, 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="537"/>
+        <location filename="../devicemanagement/device_manager.py" line="535"/>
         <source>Preparing to restore...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="562"/>
+        <location filename="../devicemanagement/device_manager.py" line="560"/>
         <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="564"/>
+        <location filename="../devicemanagement/device_manager.py" line="562"/>
         <source>Please restart your device to see changes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="565"/>
+        <location filename="../devicemanagement/device_manager.py" line="563"/>
         <source>All done! </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../devicemanagement/device_manager.py" line="565"/>
-        <location filename="../devicemanagement/device_manager.py" line="737"/>
-        <location filename="../devicemanagement/device_manager.py" line="833"/>
+        <location filename="../devicemanagement/device_manager.py" line="563"/>
+        <location filename="../devicemanagement/device_manager.py" line="735"/>
+        <location filename="../devicemanagement/device_manager.py" line="831"/>
         <source>Success!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2134,30 +2144,30 @@ Remember to turn Find My back on!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="184"/>
-        <location filename="../gui/pages/main/settings.py" line="194"/>
+        <location filename="../gui/pages/main/settings.py" line="199"/>
+        <location filename="../gui/pages/main/settings.py" line="209"/>
         <source>PosterBoard App Hash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="184"/>
+        <location filename="../gui/pages/main/settings.py" line="199"/>
         <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap &quot;Detect&quot;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="187"/>
+        <location filename="../gui/pages/main/settings.py" line="202"/>
         <source>Copy it and paste it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="191"/>
+        <location filename="../gui/pages/main/settings.py" line="206"/>
         <source>It has been copied. Paste it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="194"/>
+        <location filename="../gui/pages/main/settings.py" line="209"/>
         <source>Your hash is:
 {0}
 

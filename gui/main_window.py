@@ -1,5 +1,6 @@
 from PySide6 import QtCore, QtWidgets
 import plistlib
+import os
 
 from qt.mainwindow_ui import Ui_Nugget
 import gui.pages as Pages
@@ -20,7 +21,7 @@ from restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreApplyM
 from tweaks.tweaks import tweaks, TweakID
 
 App_Version = "7.1"
-App_Build = 9
+App_Build = 10
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager, translator: Translator):
@@ -104,6 +105,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         ## APPLY PAGE ACTIONS
         self.ui.applyTweaksBtn.clicked.connect(self.on_applyPageBtn_clicked)
+        self.ui.restartUACBtn.clicked.connect(self.on_restartUACBtn_clicked)
         self.ui.removeTweaksBtn.clicked.connect(self.on_removeTweaksBtn_clicked)
         self.ui.chooseGestaltBtn.clicked.connect(self.on_chooseGestaltBtn_clicked)
 
@@ -539,6 +541,12 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_removeTweaksBtn_clicked(self):
         dialog = ResetDialog(device_manager=self.device_manager, apply_reset=self.apply_changes)
         dialog.exec()
+    def on_restartUACBtn_clicked(self):
+        if os.name != 'nt':
+            return
+        import pyuac
+        pyuac.runAsAdmin()
+        QtCore.QCoreApplication.quit()
 
     @QtCore.Slot()
     def on_applyTweaksBtn_clicked(self):

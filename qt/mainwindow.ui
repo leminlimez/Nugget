@@ -9562,6 +9562,34 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                   </widget>
                  </item>
                  <item>
+                  <layout class="QHBoxLayout" name="restartUACContent">
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="label_60">
+                     <property name="text">
+                      <string>Administrator permission is required to apply tweaks with AFC.</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QToolButton" name="restartUACBtn">
+                     <property name="text">
+                      <string> Restart as Admin</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="../resources.qrc">
+                       <normaloff>:/icon/arrow-clockwise.svg</normaloff>:/icon/arrow-clockwise.svg</iconset>
+                     </property>
+                     <property name="toolButtonStyle">
+                      <enum>Qt::ToolButtonTextBesideIcon</enum>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
                   <spacer name="verticalSpacer_10">
                    <property name="orientation">
                     <enum>Qt::Vertical</enum>
