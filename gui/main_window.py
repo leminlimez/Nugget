@@ -236,6 +236,7 @@ class MainWindow(QtWidgets.QMainWindow):
             visible=self.device_manager.pref_manager.allow_risky_tweaks,
             device_connected=(len(self.device_manager.devices) > 0)
         )
+        self.pages[Page.Settings].toggle_UAC_btn(self.device_manager.pref_manager.bookrestore_apply_mode == BookRestoreApplyMethod.AFC and self.device_manager.get_current_device_uses_bookrestore())
         if len(self.device_manager.devices) > 0:
             self.device_manager.set_current_device(index=index)
             self.update_mga_label()

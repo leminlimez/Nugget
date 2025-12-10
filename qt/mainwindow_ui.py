@@ -5060,10 +5060,10 @@ class Ui_Nugget(object):
         self.restartUACContent = QHBoxLayout()
         self.restartUACContent.setObjectName(u"restartUACContent")
         self.restartUACContent.setContentsMargins(-1, -1, -1, 0)
-        self.label_60 = QLabel(self.verticalWidget3)
-        self.label_60.setObjectName(u"label_60")
+        self.restartUACLbl = QLabel(self.verticalWidget3)
+        self.restartUACLbl.setObjectName(u"restartUACLbl")
 
-        self.restartUACContent.addWidget(self.label_60)
+        self.restartUACContent.addWidget(self.restartUACLbl)
 
         self.restartUACBtn = QToolButton(self.verticalWidget3)
         self.restartUACBtn.setObjectName(u"restartUACBtn")
@@ -6065,7 +6065,7 @@ class Ui_Nugget(object):
         self.liquidGlassPageBtn.setText(QCoreApplication.translate("Nugget", u"Liquid Glass", None))
         self.statusBarLbl_51.setText(QCoreApplication.translate("Nugget", u"Apply", None))
         self.label_161.setText("")
-        self.label_60.setText(QCoreApplication.translate("Nugget", u"Administrator permission is required to apply tweaks with AFC.", None))
+        self.restartUACLbl.setText(QCoreApplication.translate("Nugget", u"Administrator permission is required to apply tweaks with AFC.", None))
         self.restartUACBtn.setText(QCoreApplication.translate("Nugget", u" Restart as Admin", None))
         self.gestaltLocationTitleLbl.setText(QCoreApplication.translate("Nugget", u"Current gestalt file location:", None))
         self.chooseGestaltBtn.setText(QCoreApplication.translate("Nugget", u"  Choose Gestalt File", None))

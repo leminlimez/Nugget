@@ -91,10 +91,13 @@ class SettingsPage(Page):
     # Toggle the UAC info
     def toggle_UAC_btn(self, visible: bool):
         if os.name != 'nt':
-            self.ui.restartUACContent.hide()
+            self.ui.restartUACLbl.hide()
+            self.ui.restartUACBtn.hide()
             return
         import pyuac
-        self.ui.restartUACBtn.setVisible(visible and not pyuac.isUserAdmin())
+        show_btn = visible and not pyuac.isUserAdmin()
+        self.ui.restartUACLbl.setVisible(show_btn)
+        self.ui.restartUACBtn.setVisible(show_btn)
 
     # Toggle the risky options visibility
     def set_risky_options_visible(self, visible: bool, device_connected: bool=True):
@@ -192,7 +195,8 @@ class SettingsPage(Page):
     def on_brApplyModeDrp_activated(self, index: int):
         new_mode = BookRestoreApplyMethod(index)
         self.window.device_manager.pref_manager.bookrestore_apply_mode = new_mode
-        self.toggle_UAC_btn(new_mode == BookRestoreApplyMethod.AFC)
+        show_btn = new_mode == BookRestoreApplyMethod.AFC and self.window.device_manager.get_current_device_uses_bookrestore()
+        self.toggle_UAC_btn(show_btn)
         # save the setting
         self.window.settings.setValue("bookrestore_apply_mode", index)
 

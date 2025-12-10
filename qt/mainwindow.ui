@@ -9567,7 +9567,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     <number>0</number>
                    </property>
                    <item>
-                    <widget class="QLabel" name="label_60">
+                    <widget class="QLabel" name="restartUACLbl">
                      <property name="text">
                       <string>Administrator permission is required to apply tweaks with AFC.</string>
                      </property>
