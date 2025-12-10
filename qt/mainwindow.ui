@@ -2100,6 +2100,13 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                       </widget>
                      </item>
                      <item>
+                      <widget class="QCheckBox" name="ipadAppsChk">
+                       <property name="text">
+                        <string>Allow iPad Apps on iPhone</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
                       <widget class="QCheckBox" name="stageManagerChk">
                        <property name="text">
                         <string>Enable Stage Manager Supported</string>
@@ -2114,9 +2121,24 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="ipadAppsChk">
+                      <widget class="QLabel" name="ipadOSAlphaWarningLbl">
                        <property name="text">
-                        <string>Allow iPad Apps on iPhone</string>
+                        <string>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="Line" name="line_14">
+                       <property name="styleSheet">
+                        <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Plain</enum>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
                        </property>
                       </widget>
                      </item>

@@ -91,7 +91,12 @@ class SettingsPage(Page):
         self.ui.ignorePBFrameLimitChk.setVisible(visible)
         self.ui.disableTendiesLimitChk.setVisible(visible)
         self.ui.atwakeupChk.setVisible(visible)
-        self.ui.enableiPadOSChk.setVisible(visible)
+        if device_connected:
+            show_ipados = visible and self.window.device_manager.get_current_device_model().startswith("iPhone")
+        else:
+            show_ipados = False
+        self.ui.enableiPadOSChk.setVisible(show_ipados)
+        self.ui.ipadOSAlphaWarningLbl.setVisible(show_ipados)
         try:
             self.ui.resetPBDrp.removeItem(4)
         except:

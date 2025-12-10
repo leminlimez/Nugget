@@ -1168,6 +1168,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_8.addWidget(self.line_7)
 
+        self.ipadAppsChk = QCheckBox(self.gestaltPageContent)
+        self.ipadAppsChk.setObjectName(u"ipadAppsChk")
+
+        self.verticalLayout_8.addWidget(self.ipadAppsChk)
+
         self.stageManagerChk = QCheckBox(self.gestaltPageContent)
         self.stageManagerChk.setObjectName(u"stageManagerChk")
 
@@ -1178,10 +1183,20 @@ class Ui_Nugget(object):
 
         self.verticalLayout_8.addWidget(self.enableiPadOSChk)
 
-        self.ipadAppsChk = QCheckBox(self.gestaltPageContent)
-        self.ipadAppsChk.setObjectName(u"ipadAppsChk")
+        self.ipadOSAlphaWarningLbl = QLabel(self.gestaltPageContent)
+        self.ipadOSAlphaWarningLbl.setObjectName(u"ipadOSAlphaWarningLbl")
 
-        self.verticalLayout_8.addWidget(self.ipadAppsChk)
+        self.verticalLayout_8.addWidget(self.ipadOSAlphaWarningLbl)
+
+        self.line_14 = QFrame(self.gestaltPageContent)
+        self.line_14.setObjectName(u"line_14")
+        self.line_14.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_14.setFrameShadow(QFrame.Plain)
+        self.line_14.setFrameShape(QFrame.Shape.HLine)
+
+        self.verticalLayout_8.addWidget(self.line_14)
 
         self.shutterChk = QCheckBox(self.gestaltPageContent)
         self.shutterChk.setObjectName(u"shutterChk")
@@ -5579,9 +5594,10 @@ class Ui_Nugget(object):
         self.parallaxChk.setText(QCoreApplication.translate("Nugget", u"Disable Wallpaper Parallax", None))
         self.enableLGLPMChk.setText(QCoreApplication.translate("Nugget", u"Enable Liquid Glass Low Performance Mode", None))
         self.disableLGLPMChk.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass Low Performance Mode", None))
+        self.ipadAppsChk.setText(QCoreApplication.translate("Nugget", u"Allow iPad Apps on iPhone", None))
         self.stageManagerChk.setText(QCoreApplication.translate("Nugget", u"Enable Stage Manager Supported", None))
         self.enableiPadOSChk.setText(QCoreApplication.translate("Nugget", u"Enable iPadOS (WARNING: risky, use with caution)", None))
-        self.ipadAppsChk.setText(QCoreApplication.translate("Nugget", u"Allow iPad Apps on iPhone", None))
+        self.ipadOSAlphaWarningLbl.setText(QCoreApplication.translate("Nugget", u"WARNING: Do not enable iPadOS if you use an alphanumeric passcode.", None))
 #if QT_CONFIG(tooltip)
         self.shutterChk.setToolTip(QCoreApplication.translate("Nugget", u"Sets the device's region to LL/A to bypass certain region restrictions like the forced shutter sound.", None))
 #endif // QT_CONFIG(tooltip)

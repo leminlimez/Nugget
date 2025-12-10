@@ -20,7 +20,7 @@ from restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreApplyM
 from tweaks.tweaks import tweaks, TweakID
 
 App_Version = "7.1"
-App_Build = 8
+App_Build = 9
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager, translator: Translator):
@@ -151,10 +151,6 @@ class MainWindow(QtWidgets.QMainWindow):
         # clear the picker
         self.ui.devicePicker.clear()
         self.ui.restoreProgressBar.hide()
-        self.pages[Page.Settings].set_risky_options_visible(
-            visible=self.device_manager.pref_manager.allow_risky_tweaks,
-            device_connected=(len(self.device_manager.devices) > 0)
-        )
 
         if len(self.device_manager.devices) == 0:
             self.ui.devicePicker.setEnabled(False)
@@ -234,6 +230,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def change_selected_device(self, index):
         self.ui.showAllSpoofableChk.hide()
+        self.pages[Page.Settings].set_risky_options_visible(
+            visible=self.device_manager.pref_manager.allow_risky_tweaks,
+            device_connected=(len(self.device_manager.devices) > 0)
+        )
         if len(self.device_manager.devices) > 0:
             self.device_manager.set_current_device(index=index)
             self.update_mga_label()
@@ -336,7 +336,6 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.floatingTabBarContent.setVisible(not is_iphone)
             self.ui.keyFlickContent.setVisible(is_iphone and device_ver < Version("26.1"))
             # iPadOS stuff
-            self.ui.enableiPadOSChk.setVisible(is_iphone)
             self.ui.stageManagerChk.setVisible(not is_iphone)
             # liquid glass low performance mode stuff
             supports_lg = device_ver >= Version("26.0")
