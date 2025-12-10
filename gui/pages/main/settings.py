@@ -8,6 +8,7 @@ from PySide6.QtCore import QCoreApplication, QLocale
 from tweaks.tweak_loader import load_rdar_fix
 from tweaks.tweaks import tweaks
 from controllers.video_handler import set_ignore_frame_limit
+from devicemanagement.constants import Version
 from restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreApplyMethod
 
 available_languages = {
@@ -93,10 +94,19 @@ class SettingsPage(Page):
         self.ui.atwakeupChk.setVisible(visible)
         if device_connected:
             show_ipados = visible and self.window.device_manager.get_current_device_model().startswith("iPhone")
+            # eligibility page button
+            patched: bool = self.window.device_manager.get_current_device_patched()
+            device_ver = Version(self.window.device_manager.data_singleton.current_device.version)
+            if not patched and device_ver >= Version("17.4") and (device_ver <= Version("17.7") or device_ver >= Version("18.1")):
+                show_eu = device_ver < Version("18.3") or visible
+            else:
+                show_eu = False
         else:
             show_ipados = False
+            show_eu = False
         self.ui.enableiPadOSChk.setVisible(show_ipados)
         self.ui.ipadOSAlphaWarningLbl.setVisible(show_ipados)
+        self.ui.euEnablerPageBtn.setVisible(show_eu)
         try:
             self.ui.resetPBDrp.removeItem(4)
         except:

@@ -302,12 +302,6 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.dynamicIslandDrp.addItem("2868 (iPhone 16 Pro Max Dynamic Island)")
                 if device_ver >= Version("26.0"):
                     self.ui.dynamicIslandDrp.addItem("2736 (iPhone Air Dynamic Island)")
-            # eligibility page button
-            if not patched and device_ver >= Version("17.4") and (device_ver <= Version("17.7") or device_ver >= Version("18.1")):
-                self.ui.euEnablerPageBtn.show()
-            else:
-                self.ui.euEnablerPageBtn.hide()
-
             # hide risky/advanced page on iOS 26
             if self.device_manager.pref_manager.allow_risky_tweaks and device_ver < Version("19.0"):
                 self.ui.advancedPageBtn.show()
