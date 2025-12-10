@@ -261,6 +261,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 pass
             if TweakID.RdarFix in tweaks:
                 self.pages[Page.Gestalt].set_rdar_fix_label()
+                tweaks[TweakID.RdarFix].get_rdar_mode(self.device_manager.data_singleton.current_device.model)
             device_ver = Version(self.device_manager.data_singleton.current_device.version)
             patched: bool = self.device_manager.get_current_device_patched()
             # toggle option visibility for the minimum versions

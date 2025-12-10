@@ -165,8 +165,6 @@ class DeviceManager:
                             books_container_uuid=books_uuid,
                             ld=ld
                         )
-                    if TweakID.RdarFix in tweaks:
-                        tweaks[TweakID.RdarFix].get_rdar_mode(model)
                     self.devices.append(dev)
                 except PasswordRequiredError as e:
                     show_alert(ApplyAlertMessage(txt=QCoreApplication.tr("Device is password protected! You must trust the computer on your device.\n\nUnlock your device. On the popup, click \"Trust\", enter your password, then try again.")))
