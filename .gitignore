@@ -11,3 +11,4 @@ __pycache__
 .create_build.sh
 /.vscode
 *.dll
+resources_rc.py

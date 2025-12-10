@@ -6,5 +6,5 @@ source ../.env/bin/activate
 for i in *.ts; do
     [ -f "$i" ] || break
     fnoext="${i%.*}.qm"
-    pyside6-lrelease "$i" "$fnoext"
+    pyside6-lrelease "$i" -qm "$fnoext"
 done
