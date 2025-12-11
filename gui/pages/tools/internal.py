@@ -1,5 +1,5 @@
 from ..page import Page
-from qt.ui_mainwindow import Ui_Nugget
+from qt.mainwindow_ui import Ui_Nugget
 
 from tweaks.tweak_loader import load_internal
 from tweaks.tweaks import TweakID
@@ -11,16 +11,15 @@ class InternalPage(Page):
 
     def load_page(self):
         # Create the radio buttons where needed
-        self.createRadioBtns(key=TweakID.ForceSolariumFallback, container=self.ui.disableSolariumBtns)
-        self.createRadioBtns(key=TweakID.IgnoreSolariumLinkedOnCheck, container=self.ui.ignoreSolariumAppBuildBtns)
-        self.createRadioBtns(key=TweakID.NoLiquidClock, container=self.ui.noLiquidClockBtns)
-        self.createRadioBtns(key=TweakID.NoLiquidDock, container=self.ui.noLiquidDockBtns)
-
         self.createRadioBtns(key=TweakID.SBBuildNumber, container=self.ui.buildVersionBtns)
         self.createRadioBtns(key=TweakID.RTL, container=self.ui.RTLBtns)
         self.createRadioBtns(key=TweakID.LTR, container=self.ui.LTRBtns)
         self.createRadioBtns(key=TweakID.SBIconVisibility, container=self.ui.sbIconVisibilityBtns)
         self.createRadioBtns(key=TweakID.KeyFlick, container=self.ui.keyFlickBtns)
+
+        self.createRadioBtns(key=TweakID.DisableSecondsHand, container=self.ui.disableSecondsHandBtns)
+        self.createRadioBtns(key=TweakID.DisableSearchingWebsites, container=self.ui.searchDisabledDomainsBtns)
+        self.createRadioBtns(key=TweakID.ShowButtonHints, container=self.ui.hintsVisibleBtns)
 
         self.createRadioBtns(key=TweakID.MetalForceHudEnabled, container=self.ui.metalHUDBtns)
         self.createRadioBtns(key=TweakID.iMessageDiagnosticsEnabled, container=self.ui.iMessageBtns)

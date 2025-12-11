@@ -1,5 +1,5 @@
 from ..page import Page
-from qt.ui_mainwindow import Ui_Nugget
+from qt.mainwindow_ui import Ui_Nugget
 
 from tweaks.tweaks import tweaks, TweakID
 from tweaks.status_bar.status_setter import StatusBarItem

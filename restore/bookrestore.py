@@ -28,12 +28,20 @@ from pymobiledevice3.services.dvt.instruments.process_control import ProcessCont
 from pymobiledevice3.services.os_trace import OsTraceService
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
+class BookRestoreApplyMethod(Enum):
+    AFC = 0
+    Restore = 1
+
 class BookRestoreFileTransferMethod(Enum):
     LocalHost = 0
     OnDevice = 1
 
 # Global Vars
 info_queue = queue.Queue()
+server_folder = None
+old_dir = None
+br_files = get_bundle_files("files/bookrestore")
+dl_connection = None
 
 def get_lan_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -88,7 +96,7 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
                 elif 'admin' in error:
                     raise NuggetException("Admin privileges required.", detailed_text=error)
                 else:
-                    raise NuggetException("Tunnel Error:", detailed_text=error)
+                    raise NuggetException("Error Creating Tunnel.\n\nIf this continues, try setting \"BookRestore Apply Method\" to \"Restore\" in Nugget's settings.", detailed_text=error)
             break
     
     if rsd_val is None:
@@ -105,19 +113,56 @@ async def create_tunnel(udid, progress_callback = lambda x: None):
     
     return {"address": address, "port": port}
 
+def create_local_server() -> str:
+    # start a local http server and return the server prefix
+    http_thread = threading.Thread(target=start_http_server, daemon=True)
+    http_thread.start()
+    ip, port = info_queue.get()
+    prefix = f"http://{ip}:{port}"
+    print(f"Hosting temporary http server on: {prefix}/")
+
+    firewall_rule_name = f"Nugget_Temp_{port}"
+    if os.name == 'nt':
+        try:
+            subprocess.run(
+                f'netsh advfirewall firewall add rule name="{firewall_rule_name}" dir=in action=allow protocol=TCP localport={port}',
+                shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+            )
+        except Exception as e:
+            print(f"Warning: Could not add firewall rule: {e}")
+    return prefix
+
+def create_server_folder():
+    global server_folder
+    global old_dir
+    old_dir = os.getcwd()
+    server_folder = tempfile.mkdtemp()
+    os.chdir(os.path.abspath(server_folder))
+    return server_folder
+def cleanup_server_folder():
+    global server_folder
+    global old_dir
+    try:
+        shutil.rmtree(server_folder)
+    except:
+        pass
+    server_folder = None
+    if old_dir is not None:
+        os.chdir(old_dir)
+
 async def create_connection_context(files: list[FileToRestore], service_provider: LockdownClient,
                                     current_device_uuid_callback = lambda x: None, progress_callback = lambda x: None,
                                     transfer_mode = BookRestoreFileTransferMethod.LocalHost):
+    global server_folder
     available_address = await create_tunnel(service_provider.udid, progress_callback)
     if available_address:
-        old_dir = os.getcwd()
         try:
             if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-                os.chdir(os.path.abspath(get_bundle_files("files/bookrestore")))
+                server_folder = create_server_folder()
             _run_async_rsd_connection(available_address["address"], available_address["port"], files, current_device_uuid_callback, progress_callback, transfer_mode)
-            os.chdir(old_dir)
+            cleanup_server_folder()
         except:
-            os.chdir(old_dir)
+            cleanup_server_folder()
             raise
     else:
         raise NuggetException("An error occurred getting tunnels addresses...")
@@ -169,25 +214,76 @@ def remove_db_files(db_path):
             except:
                 pass
 
+def close_dl_connection():
+    global dl_connection
+    if dl_connection != None:
+        dl_connection.close()
+        dl_connection = None
+
+def generate_bldbmanager(files: list[FileToRestore], out_file: str, afc: AfcService, server_prefix: str):
+    global dl_connection
+    dl_manager = os.path.join(br_files, "BLDatabaseManager.sqlite")
+    shutil.copyfile(dl_manager, out_file)
+    dl_connection = sqlite3.connect(out_file)
+    dl_cursor = dl_connection.cursor()
+    # make sure to clear the rows so it doesn't error
+    dl_cursor.execute("DELETE FROM ZBLDOWNLOADINFO")
+    file_attr_path = os.path.join(br_files, "zfileattributes.plist")
+    attr_data = None
+    with open(file_attr_path, 'rb') as attr_file:
+        attr_data = attr_file.read()
+        print(len(attr_data))
+    z_id = 0
+    # create NuggetPayload folder
+    # nugget_media_folder = "NuggetPayload"
+    # if not afc.exists(nugget_media_folder):
+    #     afc.makedirs(nugget_media_folder)
+    for file in files:
+        if not file.domain == "" and not file.domain == None:
+            continue
+        path, file_name = os.path.split(file.restore_path)
+        print(f"including {file.restore_path}")
+        media_folder = file_name
+        # use the local file method for mga and local server for everything else
+        if file.restore_path.startswith("/var/mobile") or file.restore_path.startswith("/private/var/mobile"):
+            zassetpath = file.restore_path
+            zplistpath = zassetpath
+            zdownloadid = zassetpath
+            zurl = f'{server_prefix}/{file_name}'
+            # copy file to the server
+            server_path = os.path.join(server_folder, file_name)
+            with open(server_path, 'wb') as temp_write:
+                temp_write.write(file.contents)
+        else:
+            zurl = 'https://www.google.com/robots.txt'
+            if len(file.contents) > 0:
+                zdownloadid = '../../../../../..'
+                zassetpath = f'{file.restore_path}.zassetpath'
+                media_folder = file_name#f'{nugget_media_folder}/{file_name}'
+                zplistpath = f'/var/mobile/Media/{media_folder}'
+                afc.set_file_contents(media_folder, file.contents)
+            else:
+                zdownloadid = ""
+                zassetpath = file.restore_path
+                zplistpath = file.restore_path
+            if path.startswith('/'):
+                zdownloadid += file.restore_path
+            else:
+                zdownloadid += f'/{file.restore_path}'
+        z_id += 1
+        dl_cursor.execute(f"""
+        INSERT INTO ZBLDOWNLOADINFO (Z_PK, Z_ENT, Z_OPT, ZACCOUNTIDENTIFIER, ZCLEANUPPENDING, ZFAMILYACCOUNTIDENTIFIER, ZISAUTOMATICDOWNLOAD, ZISLOCALCACHESERVER, ZNUMBEROFBYTESTOHASH, ZPERSISTENTIDENTIFIER, ZPUBLICATIONVERSION, ZSIZE, ZSTATE, ZSTOREIDENTIFIER, ZLASTSTATECHANGETIME, ZSTARTTIME, ZASSETPATH, ZBUYPARAMETERS, ZCANCELDOWNLOADURL, ZCLIENTIDENTIFIER, ZCOLLECTIONARTISTNAME, ZCOLLECTIONTITLE, ZDOWNLOADID, ZGENRE, ZKIND, ZPLISTPATH, ZSUBTITLE, ZTHUMBNAILIMAGEURL, ZTITLE, ZTRANSACTIONIDENTIFIER, ZURL, ZFILEATTRIBUTES)
+        VALUES ({z_id}, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 765107108, 767991550.119197, 767991353.245275, '{zassetpath}', 'productType=PUB&price=0&salableAdamId=765107106&pricingParameters=PLUS&pg=default&mtApp=com.apple.iBooks&mtEventTime=1746298553233&mtOsVersion=18.4.1&mtPageId=SearchIncrementalTopResults&mtPageType=Search&mtPageContext=search&mtTopic=xp_amp_bookstore&mtRequestId=35276ff6-5c8b-4136-894e-b6d8fc7677b3', 'https://p19-buy.itunes.apple.com/WebObjects/MZFastFinance.woa/wa/songDownloadDone?download-id=J19N_PUB_190099164604738&cancel=1', '4GG2695MJK.com.apple.iBooks', 'idk', '{file_name} file', '{zdownloadid}', 'Contemporary Romance', 'ebook', '{zplistpath}', 'Cartas de Amor a la Luna', 'https://is1-ssl.mzstatic.com/image/thumb/Publication126/v4/3d/b6/0a/3db60a65-b1a5-51c3-b306-c58870663fd3/Portada.jpg/200x200bb.jpg', 'Cartas de Amor a la Luna', 'J19N_PUB_190099164604738', '{zurl}', (?));
+        """, (sqlite3.Binary(attr_data),))
+    dl_connection.commit()
+    # return the number of files in the thing
+    return z_id
+
 def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: LockdownClient, dvt: DvtSecureSocketProxyService,
                             current_device_uuid_callback = lambda x: None, progress_callback = lambda x: None,
                             transfer_mode: BookRestoreFileTransferMethod = BookRestoreFileTransferMethod.LocalHost):
     if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-        # start a local http server
-        http_thread = threading.Thread(target=start_http_server, daemon=True)
-        http_thread.start()
-        ip, port = info_queue.get()
-        print(f"Hosting temporary http server on: http://{ip}:{port}/")
-    
-        firewall_rule_name = f"Nugget_Temp_{port}"
-        if os.name == 'nt':
-            try:
-                subprocess.run(
-                    f'netsh advfirewall firewall add rule name="{firewall_rule_name}" dir=in action=allow protocol=TCP localport={port}',
-                    shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
-                )
-            except Exception as e:
-                print(f"Warning: Could not add firewall rule: {e}")
+        server_prefix = create_local_server()
 
     afc = AfcService(lockdown=lockdown_client)
     pc = ProcessControl(dvt)
@@ -209,18 +305,15 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
             current_device_uuid_callback(uuid)
             break
     
-    br_files = get_bundle_files("files/bookrestore")
-    if not os.path.exists(br_files):
-        br_files = get_bundle_files("")
     sqlite_path = os.path.join(br_files, "downloads.28.sqlitedb")
-    dl_manager = os.path.join(br_files, "BLDatabaseManager.sqlite")
     
     bldb_local_prefix = f"/private/var/containers/Shared/SystemGroup/{uuid}/Documents/BLDatabaseManager/BLDatabaseManager.sqlite"
     
     temp_dir = tempfile.gettempdir()
     temp_db_path = os.path.join(temp_dir, f"nugget_db_{uuid}.sqlite")
-    temp_dl_manager = os.path.join(br_files, f"tmp.BLDatabaseManager.sqlite")
-    remove_db_files(temp_dl_manager)
+    if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
+        temp_dl_manager = os.path.join(server_folder, f"tmp.BLDatabaseManager.sqlite")
+        remove_db_files(temp_dl_manager)
 
     try:
         shutil.copyfile(sqlite_path, temp_db_path)
@@ -240,7 +333,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         WHERE local_path LIKE '/private/var/containers/Shared/SystemGroup/%/Documents/BLDatabaseManager/BLDatabaseManager.sqlite%'
         """)
         if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-            bldb_server_prefix = f"http://{ip}:{port}/tmp.BLDatabaseManager.sqlite"
+            bldb_server_prefix = f"{server_prefix}/tmp.BLDatabaseManager.sqlite"
         else:
             bldb_server_prefix = "https://github.com/leminlimez/Nugget/raw/refs/heads/main/.on_device_remote_files/BLDatabaseManager-mga"
             if any(file.restore_path.endswith("com.apple.iokit.IOMobileGraphicsFamily.plist") for file in files):
@@ -272,51 +365,15 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
 
         # Update the download db
         if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-            shutil.copyfile(dl_manager, temp_dl_manager)
-            dl_connection = sqlite3.connect(temp_dl_manager)
-            dl_cursor = dl_connection.cursor()
-            # make sure to clear the rows so it doesn't error
-            dl_cursor.execute("DELETE FROM ZBLDOWNLOADINFO")
-            file_attr_path = os.path.join(br_files, "zfileattributes.plist")
-            attr_data = None
-            with open(file_attr_path, 'rb') as attr_file:
-                attr_data = attr_file.read()
-                print(len(attr_data))
-            z_id = 0
-            # create NuggetPayload folder
-            nugget_media_folder = "NuggetPayload"
-            if not afc.exists(nugget_media_folder):
-                afc.makedirs(nugget_media_folder)
-        for file in files:
-            if not file.domain == "" and not file.domain == None:
-                continue
-            path, file_name = os.path.split(file.restore_path)
-            print(f"including {file.restore_path}")
-            media_folder = file_name
-            if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-                if len(file.contents) > 0:
-                    backpath = '../../../../../..'
-                    zassetpath = f'{file.restore_path}.zassetpath'
-                else:
-                    backpath = ""
-                    zassetpath = file.restore_path
-                if path.startswith('/'):
-                    backpath += file.restore_path
-                else:
-                    backpath += f'/{file.restore_path}'
-                z_id += 1
-                media_folder = f'{nugget_media_folder}/{file_name}'
-                media_file_path = f'/var/mobile/Media/{media_folder}'
-                # only use the extension for /var files
-                # zassetpath = file.restore_path
-                # if not file.restore_path.startswith("/var/mobile"):
-                dl_cursor.execute(f"""
-                INSERT INTO ZBLDOWNLOADINFO (Z_PK, Z_ENT, Z_OPT, ZACCOUNTIDENTIFIER, ZCLEANUPPENDING, ZFAMILYACCOUNTIDENTIFIER, ZISAUTOMATICDOWNLOAD, ZISLOCALCACHESERVER, ZNUMBEROFBYTESTOHASH, ZPERSISTENTIDENTIFIER, ZPUBLICATIONVERSION, ZSIZE, ZSTATE, ZSTOREIDENTIFIER, ZLASTSTATECHANGETIME, ZSTARTTIME, ZASSETPATH, ZBUYPARAMETERS, ZCANCELDOWNLOADURL, ZCLIENTIDENTIFIER, ZCOLLECTIONARTISTNAME, ZCOLLECTIONTITLE, ZDOWNLOADID, ZGENRE, ZKIND, ZPLISTPATH, ZSUBTITLE, ZTHUMBNAILIMAGEURL, ZTITLE, ZTRANSACTIONIDENTIFIER, ZURL, ZFILEATTRIBUTES)
-                VALUES ({z_id}, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 765107108, 767991550.119197, 767991353.245275, '{zassetpath}', 'productType=PUB&price=0&salableAdamId=765107106&pricingParameters=PLUS&pg=default&mtApp=com.apple.iBooks&mtEventTime=1746298553233&mtOsVersion=18.4.1&mtPageId=SearchIncrementalTopResults&mtPageType=Search&mtPageContext=search&mtTopic=xp_amp_bookstore&mtRequestId=35276ff6-5c8b-4136-894e-b6d8fc7677b3', 'https://p19-buy.itunes.apple.com/WebObjects/MZFastFinance.woa/wa/songDownloadDone?download-id=J19N_PUB_190099164604738&cancel=1', '4GG2695MJK.com.apple.iBooks', 'idk', '{file_name} file', '{backpath}', 'Contemporary Romance', 'ebook', '{media_file_path}', 'Cartas de Amor a la Luna', 'https://is1-ssl.mzstatic.com/image/thumb/Publication126/v4/3d/b6/0a/3db60a65-b1a5-51c3-b306-c58870663fd3/Portada.jpg/200x200bb.jpg', 'Cartas de Amor a la Luna', 'J19N_PUB_190099164604738', 'https://www.google.com/robots.txt', (?));
-                """, (sqlite3.Binary(attr_data),))
-            afc.set_file_contents(media_folder, file.contents)
-        if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-            dl_connection.commit()
+            z_id = generate_bldbmanager(files, temp_dl_manager, afc, server_prefix=server_prefix)
+        else:
+            for file in files:
+                if not file.domain == "" and not file.domain == None:
+                    continue
+                _, file_name = os.path.split(file.restore_path)
+                print(f"including {file.restore_path}")
+                media_folder = file_name
+                afc.set_file_contents(media_folder, file.contents)
         
         def fast_upload(local_path, remote_path):
             content = b''
@@ -390,7 +447,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
             # raise Exception("Timed out waiting for file, please try again.")
     pc.kill(pid_bookassetd)
     if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-        dl_connection.close()
+        close_dl_connection()
         remove_db_files(temp_dl_manager)
         
     progress_callback("Respringing")

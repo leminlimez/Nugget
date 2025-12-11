@@ -1,7 +1,8 @@
 from PySide6 import QtCore, QtWidgets
 import plistlib
+import os
 
-from qt.ui_mainwindow import Ui_Nugget
+from qt.mainwindow_ui import Ui_Nugget
 import gui.pages as Pages
 
 from controllers.web_request_handler import is_update_available
@@ -15,11 +16,11 @@ from gui.dialogs import GestaltDialog, UpdateAppDialog
 from gui.pages.reset_dialog import ResetDialog
 from gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThread, set_sudo_pwd, set_sudo_complete, get_sudo_pwd
 from gui.pages.pages_list import Page
-from restore.bookrestore import BookRestoreFileTransferMethod
+from restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreApplyMethod
 
 from tweaks.tweaks import tweaks, TweakID
 
-App_Version = "7.0.3"
+App_Version = "7.1"
 App_Build = 0
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -64,6 +65,7 @@ class MainWindow(QtWidgets.QMainWindow):
             Page.StatusBar: Pages.StatusBar(ui=self.ui),
             Page.Springboard: Pages.Springboard(ui=self.ui),
             Page.InternalOptions: Pages.Internal(ui=self.ui),
+            Page.LiquidGlass: Pages.LiquidGlass(ui=self.ui),
             Page.Daemons: Pages.Daemons(ui=self.ui),
             Page.Templates: Pages.Templates(window=self, ui=self.ui),
             Page.RiskyTweaks: Pages.Risky(ui=self.ui),
@@ -92,6 +94,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.statusBarPageBtn.clicked.connect(self.on_statusBarPageBtn_clicked)
         self.ui.springboardOptionsPageBtn.clicked.connect(self.on_springboardOptionsPageBtn_clicked)
         self.ui.internalOptionsPageBtn.clicked.connect(self.on_internalOptionsPageBtn_clicked)
+        self.ui.liquidGlassPageBtn.clicked.connect(self.on_liquidGlassPageBtn_clicked)
         self.ui.daemonsPageBtn.clicked.connect(self.on_daemonsPageBtn_clicked)
         self.ui.posterboardPageBtn.clicked.connect(self.on_posterboardPageBtn_clicked)
         self.ui.templatesPageBtn.clicked.connect(self.on_templatesPageBtn_clicked)
@@ -102,6 +105,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         ## APPLY PAGE ACTIONS
         self.ui.applyTweaksBtn.clicked.connect(self.on_applyPageBtn_clicked)
+        self.ui.restartUACBtn.clicked.connect(self.on_restartUACBtn_clicked)
         self.ui.removeTweaksBtn.clicked.connect(self.on_removeTweaksBtn_clicked)
         self.ui.chooseGestaltBtn.clicked.connect(self.on_chooseGestaltBtn_clicked)
 
@@ -149,10 +153,6 @@ class MainWindow(QtWidgets.QMainWindow):
         # clear the picker
         self.ui.devicePicker.clear()
         self.ui.restoreProgressBar.hide()
-        self.pages[Page.Settings].set_risky_options_visible(
-            visible=self.device_manager.allow_risky_tweaks,
-            device_connected=(len(self.device_manager.devices) > 0)
-        )
 
         if len(self.device_manager.devices) == 0:
             self.ui.devicePicker.setEnabled(False)
@@ -188,7 +188,7 @@ class MainWindow(QtWidgets.QMainWindow):
             # populate the ComboBox with device names
             for device in self.device_manager.devices:
                 tag = ""
-                if self.device_manager.apply_over_wifi:
+                if self.device_manager.pref_manager.apply_over_wifi:
                     if device.connected_via_usb:
                         tag = " (@ USB)"
                     else:
@@ -223,10 +223,23 @@ class MainWindow(QtWidgets.QMainWindow):
         # update the selected device
         self.ui.devicePicker.setCurrentIndex(0)
 
+    def update_mga_label(self):
+        selected_file = self.device_manager.data_singleton.gestalt_path
+        if selected_file == None:
+            self.ui.gestaltLocationLbl.setText(self.noneText)
+        else:
+            self.ui.gestaltLocationLbl.setText(selected_file)
+
     def change_selected_device(self, index):
         self.ui.showAllSpoofableChk.hide()
+        self.pages[Page.Settings].set_risky_options_visible(
+            visible=self.device_manager.pref_manager.allow_risky_tweaks,
+            device_connected=(len(self.device_manager.devices) > 0)
+        )
+        self.pages[Page.Settings].toggle_UAC_btn(self.device_manager.pref_manager.bookrestore_apply_mode == BookRestoreApplyMethod.AFC and self.device_manager.get_current_device_uses_bookrestore())
         if len(self.device_manager.devices) > 0:
             self.device_manager.set_current_device(index=index)
+            self.update_mga_label()
             # hide options that are for newer versions
             # remove the new dynamic island options
             MinTweakVersions = {
@@ -234,12 +247,13 @@ class MainWindow(QtWidgets.QMainWindow):
                 "exploit": [("18.0", self.ui.featureFlagsPageBtn), ("18.1", self.ui.eligFileChk), ("1.0", self.ui.regularDomainsLbl)],
                 "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
                 "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk],
-                "26.0": [self.ui.liquidGlassOptionsContent]
+                "26.0": [self.ui.liquidGlassPageBtn]
             }
             MaxTweakVersions = {
                 "17.7": [self.ui.euEnablerContent],
                 "18.0": [self.ui.photosChk, self.ui.aiChk],
-                "19.0": [self.ui.resChangerContent, self.ui.metalHUDContent]
+                "19.0": [self.ui.resChangerContent, self.ui.metalHUDContent],
+                "26.0.1": [self.ui.disableSolariumContent]
             }
 
             try:
@@ -250,6 +264,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 pass
             if TweakID.RdarFix in tweaks:
                 self.pages[Page.Gestalt].set_rdar_fix_label()
+                tweaks[TweakID.RdarFix].get_rdar_mode(self.device_manager.data_singleton.current_device.model)
             device_ver = Version(self.device_manager.data_singleton.current_device.version)
             patched: bool = self.device_manager.get_current_device_patched()
             # toggle option visibility for the minimum versions
@@ -290,14 +305,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.dynamicIslandDrp.addItem("2868 (iPhone 16 Pro Max Dynamic Island)")
                 if device_ver >= Version("26.0"):
                     self.ui.dynamicIslandDrp.addItem("2736 (iPhone Air Dynamic Island)")
-            # eligibility page button
-            if not patched and device_ver >= Version("17.4") and (device_ver <= Version("17.7") or device_ver >= Version("18.1")):
-                self.ui.euEnablerPageBtn.show()
-            else:
-                self.ui.euEnablerPageBtn.hide()
-
             # hide risky/advanced page on iOS 26
-            if self.device_manager.allow_risky_tweaks and device_ver < Version("19.0"):
+            if self.device_manager.pref_manager.allow_risky_tweaks and device_ver < Version("19.0"):
                 self.ui.advancedPageBtn.show()
             else:
                 self.ui.advancedPageBtn.hide()
@@ -325,8 +334,13 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.floatingTabBarContent.setVisible(not is_iphone)
             self.ui.keyFlickContent.setVisible(is_iphone and device_ver < Version("26.1"))
             # iPadOS stuff
-            self.ui.enableiPadOSChk.setVisible(is_iphone)
             self.ui.stageManagerChk.setVisible(not is_iphone)
+            # liquid glass low performance mode stuff
+            supports_lg = device_ver >= Version("26.0")
+            # show the disable toggle on iPhone 12s and below (iPhone13,*)
+            is_lglpm = self.device_manager.get_current_device_model().removeprefix("iPhone") < "14"
+            self.ui.enableLGLPMChk.setVisible(supports_lg and not is_lglpm)
+            self.ui.disableLGLPMChk.setVisible(supports_lg and is_lglpm)
 
             # bookrestore stuff
             has_sparserestore = self.device_manager.data_singleton.current_device.has_partial_sparserestore()
@@ -353,6 +367,7 @@ class MainWindow(QtWidgets.QMainWindow):
                     self.ui.homePageBtn.setChecked(False)
         else:
             self.device_manager.set_current_device(index=None)
+            self.update_mga_label()
 
         # update the interface
         self.updateInterfaceForNewDevice()
@@ -369,7 +384,10 @@ class MainWindow(QtWidgets.QMainWindow):
             disable_tendies_limit = self.settings.value("disable_tendies_limit", False, type=bool)
             show_all_spoofable = self.settings.value("show_all_spoofable_models", False, type=bool)
             restore_truststore = self.settings.value("restore_truststore", False, type=bool)
+
+            br_apply_mode = self.settings.value("bookrestore_apply_mode", 0, type=int)
             br_transfer_mode = self.settings.value("bookrestore_transfer_mode", 0, type=int)
+
             skip_setup = self.settings.value("skip_setup", True, type=bool)
             supervised = self.settings.value("supervised", False, type=bool)
             organization_name = self.settings.value("organization_name", "", type=str)
@@ -381,7 +399,10 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.disableTendiesLimitChk.setChecked(disable_tendies_limit)
             self.ui.showAllSpoofableChk.setChecked(show_all_spoofable)
             self.ui.trustStoreChk.setChecked(restore_truststore)
+            
+            self.ui.brApplyModeDrp.setCurrentIndex(br_apply_mode)
             self.ui.brTransferModeDrp.setCurrentIndex(br_transfer_mode)
+
             self.ui.skipSetupChk.setChecked(skip_setup)
             self.ui.supervisionChk.setChecked(supervised)
             self.ui.supervisionOrganization.setText(organization_name)
@@ -392,17 +413,18 @@ class MainWindow(QtWidgets.QMainWindow):
             else:
                 self.ui.skipSetupOnLbl.hide()
 
-            self.device_manager.apply_over_wifi = apply_over_wifi
-            self.device_manager.auto_reboot = auto_reboot
-            self.device_manager.allow_risky_tweaks = risky_tweaks
+            self.device_manager.pref_manager.apply_over_wifi = apply_over_wifi
+            self.device_manager.pref_manager.auto_reboot = auto_reboot
+            self.device_manager.pref_manager.allow_risky_tweaks = risky_tweaks
             video_handler.set_ignore_frame_limit(ignore_frame_limit)
-            self.device_manager.show_all_spoofable_models = show_all_spoofable
-            self.device_manager.disable_tendies_limit = disable_tendies_limit
-            self.device_manager.restore_truststore = restore_truststore
-            self.device_manager.bookrestore_transfer_mode = BookRestoreFileTransferMethod(br_transfer_mode)
-            self.device_manager.skip_setup = skip_setup
-            self.device_manager.supervised = supervised
-            self.device_manager.organization_name = organization_name
+            self.device_manager.pref_manager.show_all_spoofable_models = show_all_spoofable
+            self.device_manager.pref_manager.disable_tendies_limit = disable_tendies_limit
+            self.device_manager.pref_manager.restore_truststore = restore_truststore
+            self.device_manager.pref_manager.bookrestore_apply_mode = BookRestoreApplyMethod(br_apply_mode)
+            self.device_manager.pref_manager.bookrestore_transfer_mode = BookRestoreFileTransferMethod(br_transfer_mode)
+            self.device_manager.pref_manager.skip_setup = skip_setup
+            self.device_manager.pref_manager.supervised = supervised
+            self.device_manager.pref_manager.organization_name = organization_name
         except:
             pass
     
@@ -436,6 +458,10 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_internalOptionsPageBtn_clicked(self):
         self.pages[Page.InternalOptions].load()
         self.ui.pages.setCurrentIndex(Page.InternalOptions.value)
+
+    def on_liquidGlassPageBtn_clicked(self):
+        self.pages[Page.LiquidGlass].load()
+        self.ui.pages.setCurrentIndex(Page.LiquidGlass.value)
 
     def on_daemonsPageBtn_clicked(self):
         self.pages[Page.Daemons].load()
@@ -475,7 +501,7 @@ class MainWindow(QtWidgets.QMainWindow):
         selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Select Mobile Gestalt File", "", "Plist Files (*.plist)", options=QtWidgets.QFileDialog.ReadOnly)
         if selected_file == "" or selected_file == None:
             self.device_manager.data_singleton.gestalt_path = None
-            self.ui.gestaltLocationLbl.setText(self.noneText)
+            self.update_mga_label()
             # show the warning labels
             self.ui.mgaWarningLbl.show()
             self.ui.mgaWarningLbl2.show()
@@ -490,11 +516,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 detailsBox.setText("The file is not a mobile gestalt file!")
                 detailsBox.exec()
                 return
-            if (
-                not "CacheVersion" in gestalt_plist
-                or not "0+nc/Udy4WNG8S+Q7a/s1A" in gestalt_plist["CacheExtra"]
-                or gestalt_plist["CacheVersion"] != self.device_manager.data_singleton.current_device.build
-                or gestalt_plist["CacheExtra"]["0+nc/Udy4WNG8S+Q7a/s1A"] != self.device_manager.data_singleton.current_device.model
+            if not self.device_manager.pref_manager.is_valid_mga_plist(
+                gestalt_plist,
+                self.device_manager.data_singleton.current_device.build,
+                self.device_manager.data_singleton.current_device.model
             ):
                 dialog = GestaltDialog(
                         device_manager=self.device_manager,
@@ -504,7 +529,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 dialog.exec()
             else:
                 self.device_manager.data_singleton.gestalt_path = selected_file
-                self.ui.gestaltLocationLbl.setText(selected_file)
+                self.update_mga_label()
+                self.device_manager.pref_manager.save_mga_file(selected_file, self.device_manager.get_current_device_udid())
             # hide the warning labels
             self.ui.mgaWarningLbl.hide()
             self.ui.mgaWarningLbl2.hide()
@@ -516,6 +542,12 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_removeTweaksBtn_clicked(self):
         dialog = ResetDialog(device_manager=self.device_manager, apply_reset=self.apply_changes)
         dialog.exec()
+    def on_restartUACBtn_clicked(self):
+        if os.name != 'nt':
+            return
+        import pyuac
+        pyuac.runAsAdmin()
+        QtCore.QCoreApplication.quit()
 
     @QtCore.Slot()
     def on_applyTweaksBtn_clicked(self):

@@ -5,7 +5,7 @@ import os
 import uuid
 
 from ..page import Page
-from qt.ui_mainwindow import Ui_Nugget
+from qt.mainwindow_ui import Ui_Nugget
 
 from tweaks.tweaks import tweaks, TweakID
 

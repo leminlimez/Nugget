@@ -1,9 +1,8 @@
 import re
 
-from enum import Enum
 from PySide6.QtCore import QCoreApplication
 
-from devicemanagement.constants import Version
+from exceptions.nugget_exception import NuggetException
 from .basic_plist_locations import FileLocation
 
 class Tweak:
@@ -243,8 +242,9 @@ class MobileGestaltCacheDataTweak(Tweak):
         if not self.enabled:
             return plist
         data = bytes(plist["CacheData"]).hex().lower()
+        failed_str = QCoreApplication.tr("Failed to enable iPadOS:") + "\n"
         if len(data) <= self.slice_start:
-            raise Exception("CacheData is too short!")
+            raise NuggetException(failed_str + QCoreApplication.tr("CacheData is too short!"))
         # skip the padding and get the last 2 bytes for every instance to find the offset
         pattern = re.compile(r"0+(?:5555)*([0-9a-f]{4})")
         offset = None
@@ -256,11 +256,39 @@ class MobileGestaltCacheDataTweak(Tweak):
                 break
         
         # Error handling
+        # Thanks Huy for the extra checks
         if offset is None:
-            raise Exception("Pattern not found")
-        # Get the extrema offset
+            raise NuggetException(failed_str + QCoreApplication.tr("Pattern not found in CacheData."))
+        # Check the extrema offsets
+        roffset = offset + 13
         loffset = offset - 67 # real
-        # TODO: Finish error handling checks
+        if roffset >= len(data) - 1 or roffset - 1 < 0:
+            raise NuggetException(
+                failed_str + QCoreApplication.tr("Right offset out of range.")
+                + f'\nRight Offset: {roffset}, Data Length: {len(data)}'
+            )
+        if loffset <= 0 or loffset + 1 >= len(data):
+            raise NuggetException(
+                failed_str + QCoreApplication.tr("Left offset out of range.")
+                + f'\nLeft Offset: {loffset}, Data Length: {len(data)}'
+            )
+        
+        for side_offset in [roffset, loffset]:
+            offset_name = "Right" if side_offset == roffset else "Left"
+            # check valid values
+            if data[side_offset] not in ('1', '3'):
+                err_msg: str = QCoreApplication.tr("Value at %SIDE offset is not 1 or 3.")
+                raise NuggetException(
+                    failed_str + err_msg.replace("%SIDE", offset_name.lower())
+                    + f'\nValue[{side_offset}] = {data[side_offset]}, Data Length: {len(data)}'
+                )
+            # check neighboring values
+            if data[side_offset - 1] != '0' or data[side_offset + 1] != '0':
+                err_msg: str = QCoreApplication.tr("Values of %SIDE offset neighbors are not 0.")
+                raise NuggetException(
+                    failed_str + err_msg.replace("%SIDE", offset_name.lower())
+                    + f'\nValue[{side_offset-1}] = {data[side_offset - 1]}, Value[{side_offset+1}] = {data[side_offset + 1]}, Data Length: {len(data)}'
+                )
 
         # Set the value of the left offset to 3 to enable iPadOS
         data_list = list(data)

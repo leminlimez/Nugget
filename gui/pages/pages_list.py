@@ -10,13 +10,14 @@ class Page(Enum):
     StatusBar = 4
     Springboard = 5
     InternalOptions = 6
-    Daemons = 7
-    Posterboard = 8
-    Templates = 9
-    RiskyTweaks = 10
-    MiscOptions = 11
-    Apply = 12
-    Settings = 13
+    LiquidGlass = 7
+    Daemons = 8
+    Posterboard = 9
+    Templates = 10
+    RiskyTweaks = 11
+    MiscOptions = 12
+    Apply = 13
+    Settings = 14
 
     def getPageName(self) -> str:
         name_map = [
@@ -27,6 +28,7 @@ class Page(Enum):
             "Status Bar",
             "Springboard",
             "Internal",
+            "Liquid Glass",
             "Daemons",
             "PosterBoard",
             "Templates",

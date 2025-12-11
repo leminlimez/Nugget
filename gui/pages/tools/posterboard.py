@@ -8,7 +8,7 @@ from shutil import make_archive, rmtree
 from PySide6 import QtCore, QtWidgets, QtGui
 
 from ..page import Page
-from qt.ui_mainwindow import Ui_Nugget
+from qt.mainwindow_ui import Ui_Nugget
 from gui.dialogs import PBHelpDialog
 from gui.custom_qt_elements.multicombobox import MultiComboBox
 
@@ -203,7 +203,7 @@ class PosterboardPage(Page, QtCore.QObject):
         if selected_files != None and len(selected_files) > 0:
             # user selected files, add them
             for file in selected_files:
-                if not self.window.device_manager.disable_tendies_limit and len(tweaks[TweakID.PosterBoard].tendies) >= 3:
+                if not self.window.device_manager.pref_manager.disable_tendies_limit and len(tweaks[TweakID.PosterBoard].tendies) >= 3:
                     # alert that there are too many tendies
                     detailsBox = QtWidgets.QMessageBox()
                     detailsBox.setIcon(QtWidgets.QMessageBox.Critical)

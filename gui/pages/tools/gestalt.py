@@ -1,7 +1,7 @@
 from PySide6 import QtCore, QtWidgets, QtGui
 
 from ..page import Page
-from qt.ui_mainwindow import Ui_Nugget
+from qt.mainwindow_ui import Ui_Nugget
 
 from tweaks.tweak_loader import load_mobilegestalt
 from tweaks.tweaks import tweaks, TweakID
@@ -32,8 +32,13 @@ class GestaltPage(Page):
         self.ui.pencilChk.clicked.connect(self.on_pencilChk_clicked)
         self.ui.actionButtonChk.clicked.connect(self.on_actionButtonChk_clicked)
 
+        self.ui.enableLGLPMChk.clicked.connect(self.on_enableLGLPMChk_clicked)
+        self.ui.disableLGLPMChk.clicked.connect(self.on_disableLGLPMChk_clicked)
+
         self.ui.internalInstallChk.clicked.connect(self.on_internalInstallChk_clicked)
         self.ui.internalStorageChk.clicked.connect(self.on_internalStorageChk_clicked)
+        self.ui.srdChk.clicked.connect(self.on_srdChk_clicked)
+
         self.ui.collisionSOSChk.clicked.connect(self.on_collisionSOSChk_clicked)
         self.ui.aodChk.clicked.connect(self.on_aodChk_clicked)
         self.ui.aodVibrancyChk.clicked.connect(self.on_aodVibrancyChk_clicked)
@@ -52,15 +57,15 @@ class GestaltPage(Page):
                 self.ui.spoofedModelDrp.removeItem(1)
             except:
                 pass
-        # indexes 1-6 for iPhones, 7-(len(values) - 1) for iPads
+        # indexes 1-7 for iPhones, 8-(len(values) - 1) for iPads
         # TODO: Make this get fetched from the gui on app startup
         spoof_drp_options = ["iPhone 15 Pro (iPhone16,1)", "iPhone 15 Pro Max (iPhone16,2)", "iPhone 16 (iPhone17,3)", "iPhone 16 Plus (iPhone17,4)", "iPhone 16 Pro (iPhone17,1)", "iPhone 16 Pro Max (iPhone17,2)", "iPhone 17 (iPhone18,3)", "iPad Mini (A17 Pro) (W) (iPad16,1)", "iPad Mini (A17 Pro) (C) (iPad16,2)", "iPad Pro (13-inch) (M4) (W) (iPad16,5)", "iPad Pro (13-inch) (M4) (C) (iPad16,6)", "iPad Pro (11-inch) (M4) (W) (iPad16,3)", "iPad Pro (11-inch) (M4) (C) (iPad16,4)", "iPad Pro (12.9-inch) (M2) (W) (iPad14,5)", "iPad Pro (12.9-inch) (M2) (C) (iPad14,6)", "iPad Pro (11-inch) (M2) (W) (iPad14,3)", "iPad Pro (11-inch) (M2) (C) (iPad14,4)", "iPad Air (13-inch) (M2) (W) (iPad14,10)", "iPad Air (13-inch) (M2) (C) (iPad14,11)", "iPad Air (11-inch) (M2) (W) (iPad14,8)", "iPad Air (11-inch) (M2) (C) (iPad14,9)", "iPad Pro (11-inch) (M1) (W) (iPad13,4)", "iPad Pro (11-inch) (M1) (C) (iPad13,5)", "iPad Pro (12.9-inch) (M1) (W) (iPad13,8)", "iPad Pro (12.9-inch) (M1) (C) (iPad13,9)", "iPad Air (M1) (W) (iPad13,16)", "iPad Air (M1) (C) (iPad13,17)"]
-        if self.window.device_manager.show_all_spoofable_models or self.window.device_manager.get_current_device_model().startswith("iPhone"):
+        if self.window.device_manager.pref_manager.show_all_spoofable_models or self.window.device_manager.get_current_device_model().startswith("iPhone"):
             # re-enable iPhone spoof models
-            self.ui.spoofedModelDrp.addItems(spoof_drp_options[:6])
-        if self.window.device_manager.show_all_spoofable_models or self.window.device_manager.get_current_device_model().startswith("iPad"):
+            self.ui.spoofedModelDrp.addItems(spoof_drp_options[:7])
+        if self.window.device_manager.pref_manager.show_all_spoofable_models or self.window.device_manager.get_current_device_model().startswith("iPad"):
             # re-enable iPad spoof models
-            self.ui.spoofedModelDrp.addItems(spoof_drp_options[6:])
+            self.ui.spoofedModelDrp.addItems(spoof_drp_options[7:])
 
     ## ACTIONS
     def set_rdar_fix_label(self):
@@ -105,6 +110,11 @@ class GestaltPage(Page):
     def on_parallaxChk_clicked(self, checked: bool):
         tweaks[TweakID.Parallax].set_enabled(checked)
 
+    def on_enableLGLPMChk_clicked(self, checked: bool):
+        tweaks[TweakID.EnableLGLPM].set_enabled(checked)
+    def on_disableLGLPMChk_clicked(self, checked: bool):
+        tweaks[TweakID.DisableLGLPM].set_enabled(checked)
+
     def on_stageManagerChk_clicked(self, checked: bool):
         tweaks[TweakID.StageManager].set_enabled(checked)
     def on_enableiPadOSChk_clicked(self, checked: bool):
@@ -126,6 +136,8 @@ class GestaltPage(Page):
         tweaks[TweakID.InternalInstall].set_enabled(checked)
     def on_internalStorageChk_clicked(self, checked: bool):
         tweaks[TweakID.InternalStorage].set_enabled(checked)
+    def on_srdChk_clicked(self, checked: bool):
+        tweaks[TweakID.SRD].set_enabled(checked)
 
     def on_collisionSOSChk_clicked(self, checked: bool):
         tweaks[TweakID.CollisionSOS].set_enabled(checked)

@@ -25,8 +25,11 @@ class TweakID(Enum):
     ActionButton = auto()
     InternalStorage = auto()
     InternalInstall = auto()
+    SRD = auto()
     AOD = auto()
     AODVibrancy = auto()
+    EnableLGLPM = auto()
+    DisableLGLPM = auto()
     RdarFix = auto()
 
     # eligibility
@@ -59,10 +62,6 @@ class TweakID(Enum):
     UseFloatingTabBar = auto()
 
     # internal
-    ForceSolariumFallback = auto()
-    IgnoreSolariumLinkedOnCheck = auto()
-    NoLiquidClock = auto()
-    NoLiquidDock = auto()
     SBBuildNumber = auto()
     RTL = auto()
     LTR = auto()
@@ -73,6 +72,11 @@ class TweakID(Enum):
     VCDiagnosticsEnabled = auto()
     AccessoryDeveloperEnabled = auto()
     KeyFlick = auto()
+
+    DisableSecondsHand = auto()
+    DisableSearchingWebsites = auto()
+    ShowButtonHints = auto()
+
     AppStoreDebug = auto()
     NotesDebugMode = auto()
     BKDigitizerVisualizeTouches = auto()
@@ -80,6 +84,16 @@ class TweakID(Enum):
     EnableWakeGestureHaptic = auto()
     PlaySoundOnPaste = auto()
     AnnounceAllPastes = auto()
+
+    # liquid glass
+    ForceSolariumFallback = auto()
+    DisableSolarium = auto()
+    IgnoreSolariumLinkedOnCheck = auto()
+    NoLiquidClock = auto()
+    NoLiquidDock = auto()
+    DisableSpecularMotion = auto()
+    DisableOuterRefraction = auto()
+    DisableSolariumHDR = auto()
 
     # risky
     DisableOTAFile = auto()
