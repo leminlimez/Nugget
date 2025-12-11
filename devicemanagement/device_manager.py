@@ -640,6 +640,8 @@ class DeviceManager:
             # set the custom gestalt keys
             if gestalt_plist != None:
                 gestalt_plist = CustomGestaltTweaks.apply_tweaks(gestalt_plist)
+                if len(CustomGestaltTweaks.custom_tweaks) > 0:
+                    use_bookrestore = True
             
             gestalt_data = None
             if gestalt_plist != None:
