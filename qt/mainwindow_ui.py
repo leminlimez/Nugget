@@ -1183,6 +1183,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_8.addWidget(self.line_7)
 
+        self.ipadAppsChk = QCheckBox(self.gestaltPageContent)
+        self.ipadAppsChk.setObjectName(u"ipadAppsChk")
+
+        self.verticalLayout_8.addWidget(self.ipadAppsChk)
+
         self.stageManagerChk = QCheckBox(self.gestaltPageContent)
         self.stageManagerChk.setObjectName(u"stageManagerChk")
 
@@ -1193,10 +1198,20 @@ class Ui_Nugget(object):
 
         self.verticalLayout_8.addWidget(self.enableiPadOSChk)
 
-        self.ipadAppsChk = QCheckBox(self.gestaltPageContent)
-        self.ipadAppsChk.setObjectName(u"ipadAppsChk")
+        self.ipadOSAlphaWarningLbl = QLabel(self.gestaltPageContent)
+        self.ipadOSAlphaWarningLbl.setObjectName(u"ipadOSAlphaWarningLbl")
 
-        self.verticalLayout_8.addWidget(self.ipadAppsChk)
+        self.verticalLayout_8.addWidget(self.ipadOSAlphaWarningLbl)
+
+        self.line_14 = QFrame(self.gestaltPageContent)
+        self.line_14.setObjectName(u"line_14")
+        self.line_14.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_14.setFrameShadow(QFrame.Plain)
+        self.line_14.setFrameShape(QFrame.Shape.HLine)
+
+        self.verticalLayout_8.addWidget(self.line_14)
 
         self.shutterChk = QCheckBox(self.gestaltPageContent)
         self.shutterChk.setObjectName(u"shutterChk")
@@ -5208,6 +5223,24 @@ class Ui_Nugget(object):
 
         self.verticalLayout_241.addWidget(self.line_51)
 
+        self.restartUACContent = QHBoxLayout()
+        self.restartUACContent.setObjectName(u"restartUACContent")
+        self.restartUACContent.setContentsMargins(-1, -1, -1, 0)
+        self.restartUACLbl = QLabel(self.verticalWidget3)
+        self.restartUACLbl.setObjectName(u"restartUACLbl")
+
+        self.restartUACContent.addWidget(self.restartUACLbl)
+
+        self.restartUACBtn = QToolButton(self.verticalWidget3)
+        self.restartUACBtn.setObjectName(u"restartUACBtn")
+        self.restartUACBtn.setIcon(icon1)
+        self.restartUACBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+
+        self.restartUACContent.addWidget(self.restartUACBtn)
+
+
+        self.verticalLayout_241.addLayout(self.restartUACContent)
+
         self.verticalSpacer_101 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_241.addItem(self.verticalSpacer_101)
@@ -5746,9 +5779,10 @@ class Ui_Nugget(object):
         self.parallaxChk.setText(QCoreApplication.translate("Nugget", u"Disable Wallpaper Parallax", None))
         self.enableLGLPMChk.setText(QCoreApplication.translate("Nugget", u"Enable Liquid Glass Low Performance Mode", None))
         self.disableLGLPMChk.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass Low Performance Mode", None))
+        self.ipadAppsChk.setText(QCoreApplication.translate("Nugget", u"Allow iPad Apps on iPhone", None))
         self.stageManagerChk.setText(QCoreApplication.translate("Nugget", u"Enable Stage Manager Supported", None))
         self.enableiPadOSChk.setText(QCoreApplication.translate("Nugget", u"Enable iPadOS (WARNING: risky, use with caution)", None))
-        self.ipadAppsChk.setText(QCoreApplication.translate("Nugget", u"Allow iPad Apps on iPhone", None))
+        self.ipadOSAlphaWarningLbl.setText(QCoreApplication.translate("Nugget", u"WARNING: Do not enable iPadOS if you use an alphanumeric passcode.", None))
 #if QT_CONFIG(tooltip)
         self.shutterChk.setToolTip(QCoreApplication.translate("Nugget", u"Sets the device's region to LL/A to bypass certain region restrictions like the forced shutter sound.", None))
 #endif // QT_CONFIG(tooltip)
@@ -6212,6 +6246,8 @@ class Ui_Nugget(object):
         self.liquidGlassPageBtn.setText(QCoreApplication.translate("Nugget", u"Liquid Glass", None))
         self.statusBarLbl_51.setText(QCoreApplication.translate("Nugget", u"Apply", None))
         self.label_161.setText("")
+        self.restartUACLbl.setText(QCoreApplication.translate("Nugget", u"Administrator permission is required to apply tweaks with AFC.", None))
+        self.restartUACBtn.setText(QCoreApplication.translate("Nugget", u" Restart as Admin", None))
         self.gestaltLocationTitleLbl.setText(QCoreApplication.translate("Nugget", u"Current gestalt file location:", None))
         self.chooseGestaltBtn.setText(QCoreApplication.translate("Nugget", u"  Choose Gestalt File", None))
         self.applyTweaksBtn.setText(QCoreApplication.translate("Nugget", u"  Apply Changes", None))

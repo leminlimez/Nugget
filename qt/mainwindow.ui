@@ -2132,6 +2132,13 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                       </widget>
                      </item>
                      <item>
+                      <widget class="QCheckBox" name="ipadAppsChk">
+                       <property name="text">
+                        <string>Allow iPad Apps on iPhone</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
                       <widget class="QCheckBox" name="stageManagerChk">
                        <property name="text">
                         <string>Enable Stage Manager Supported</string>
@@ -2146,9 +2153,24 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="ipadAppsChk">
+                      <widget class="QLabel" name="ipadOSAlphaWarningLbl">
                        <property name="text">
-                        <string>Allow iPad Apps on iPhone</string>
+                        <string>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="Line" name="line_14">
+                       <property name="styleSheet">
+                        <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Plain</enum>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
                        </property>
                       </widget>
                      </item>
@@ -9894,6 +9916,34 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     <enum>Qt::Horizontal</enum>
                    </property>
                   </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="restartUACContent">
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="restartUACLbl">
+                     <property name="text">
+                      <string>Administrator permission is required to apply tweaks with AFC.</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QToolButton" name="restartUACBtn">
+                     <property name="text">
+                      <string> Restart as Admin</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="../resources.qrc">
+                       <normaloff>:/icon/arrow-clockwise.svg</normaloff>:/icon/arrow-clockwise.svg</iconset>
+                     </property>
+                     <property name="toolButtonStyle">
+                      <enum>Qt::ToolButtonTextBesideIcon</enum>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </item>
                  <item>
                   <spacer name="verticalSpacer_10">

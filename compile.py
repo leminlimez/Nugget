@@ -42,8 +42,6 @@ if platform == "darwin":
         print("[!] Codesign skipped: compile_config not found")
 
 elif os.name == 'nt':
-    args.append('--uac-admin')
-    
     args.append('--version-file=version.txt')
     args.append('--add-binary=status_setter_windows.exe;.')
     args.append('--add-data=nugget.ico;.')

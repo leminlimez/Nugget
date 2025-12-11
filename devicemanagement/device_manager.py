@@ -165,9 +165,6 @@ class DeviceManager:
                             books_container_uuid=books_uuid,
                             ld=ld
                         )
-                    if TweakID.RdarFix in tweaks:
-                        tweaks[TweakID.RdarFix].get_rdar_mode(model)
-                    tweaks[TweakID.Passcode].language_code = ld.locale.split('_')[0]
                     self.devices.append(dev)
                 except PasswordRequiredError as e:
                     show_alert(ApplyAlertMessage(txt=QCoreApplication.tr("Device is password protected! You must trust the computer on your device.\n\nUnlock your device. On the popup, click \"Trust\", enter your password, then try again.")))
@@ -444,7 +441,7 @@ class DeviceManager:
 
     def get_domain_for_path(self, path: str, owner: int = 501, use_bookrestore: bool = False) -> str:
         # returns Domain: str?, Path: str
-        if ((self.get_current_device_supported() and not path.startswith("/var/mobile/")) or (self.get_current_device_uses_bookrestore() and use_bookrestore)) and not owner == 0:
+        if ((self.get_current_device_supported() and not path.startswith("/var/mobile/")) or (not self.data_singleton.current_device.has_partial_sparserestore() and self.get_current_device_uses_bookrestore() and use_bookrestore)) and not owner == 0:
             # don't do anything on sparserestore versions
             return path, ""
         fully_patched = not self.data_singleton.current_device.has_partial_sparserestore()
@@ -649,6 +646,8 @@ class DeviceManager:
             # set the custom gestalt keys
             if gestalt_plist != None:
                 gestalt_plist = CustomGestaltTweaks.apply_tweaks(gestalt_plist)
+                if len(CustomGestaltTweaks.custom_tweaks) > 0:
+                    use_bookrestore = True
             
             gestalt_data = None
             if gestalt_plist != None:

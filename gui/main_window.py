@@ -1,5 +1,6 @@
 from PySide6 import QtCore, QtWidgets
 import plistlib
+import os
 
 from qt.mainwindow_ui import Ui_Nugget
 import gui.pages as Pages
@@ -107,6 +108,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         ## APPLY PAGE ACTIONS
         self.ui.applyTweaksBtn.clicked.connect(self.on_applyPageBtn_clicked)
+        self.ui.restartUACBtn.clicked.connect(self.on_restartUACBtn_clicked)
         self.ui.removeTweaksBtn.clicked.connect(self.on_removeTweaksBtn_clicked)
         self.ui.chooseGestaltBtn.clicked.connect(self.on_chooseGestaltBtn_clicked)
 
@@ -154,10 +156,6 @@ class MainWindow(QtWidgets.QMainWindow):
         # clear the picker
         self.ui.devicePicker.clear()
         self.ui.restoreProgressBar.hide()
-        self.pages[Page.Settings].set_risky_options_visible(
-            visible=self.device_manager.pref_manager.allow_risky_tweaks,
-            device_connected=(len(self.device_manager.devices) > 0)
-        )
 
         if len(self.device_manager.devices) == 0:
             self.ui.devicePicker.setEnabled(False)
@@ -240,6 +238,11 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def change_selected_device(self, index):
         self.ui.showAllSpoofableChk.hide()
+        self.pages[Page.Settings].set_risky_options_visible(
+            visible=self.device_manager.pref_manager.allow_risky_tweaks,
+            device_connected=(len(self.device_manager.devices) > 0)
+        )
+        self.pages[Page.Settings].toggle_UAC_btn(self.device_manager.pref_manager.bookrestore_apply_mode == BookRestoreApplyMethod.AFC and self.device_manager.get_current_device_uses_bookrestore())
         if len(self.device_manager.devices) > 0:
             self.device_manager.set_current_device(index=index)
             self.update_mga_label()
@@ -267,6 +270,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 pass
             if TweakID.RdarFix in tweaks:
                 self.pages[Page.Gestalt].set_rdar_fix_label()
+                tweaks[TweakID.RdarFix].get_rdar_mode(self.device_manager.data_singleton.current_device.model)
             device_ver = Version(self.device_manager.data_singleton.current_device.version)
             patched: bool = self.device_manager.get_current_device_patched()
             # toggle option visibility for the minimum versions
@@ -307,12 +311,6 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.dynamicIslandDrp.addItem("2868 (iPhone 16 Pro Max Dynamic Island)")
                 if device_ver >= Version("26.0"):
                     self.ui.dynamicIslandDrp.addItem("2736 (iPhone Air Dynamic Island)")
-            # eligibility page button
-            if not patched and device_ver >= Version("17.4") and (device_ver <= Version("17.7") or device_ver >= Version("18.1")):
-                self.ui.euEnablerPageBtn.show()
-            else:
-                self.ui.euEnablerPageBtn.hide()
-
             # hide risky/advanced page on iOS 26
             if self.device_manager.pref_manager.allow_risky_tweaks and device_ver < Version("19.0"):
                 self.ui.advancedPageBtn.show()
@@ -342,7 +340,6 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.floatingTabBarContent.setVisible(not is_iphone)
             self.ui.keyFlickContent.setVisible(is_iphone and device_ver < Version("26.1"))
             # iPadOS stuff
-            self.ui.enableiPadOSChk.setVisible(is_iphone)
             self.ui.stageManagerChk.setVisible(not is_iphone)
             # liquid glass low performance mode stuff
             supports_lg = device_ver >= Version("26.0")
@@ -560,6 +557,12 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_removeTweaksBtn_clicked(self):
         dialog = ResetDialog(device_manager=self.device_manager, apply_reset=self.apply_changes)
         dialog.exec()
+    def on_restartUACBtn_clicked(self):
+        if os.name != 'nt':
+            return
+        import pyuac
+        pyuac.runAsAdmin()
+        QtCore.QCoreApplication.quit()
 
     @QtCore.Slot()
     def on_applyTweaksBtn_clicked(self):

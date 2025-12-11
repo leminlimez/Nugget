@@ -7,7 +7,7 @@
       <location filename="../gui/dialogs.py" line="25"/>
       <source>The gestalt file looks like it was made for a different device.
 Are you sure you want to use this one?</source>
-      <translation>Данный файл gestalt по видимому не предназначен для данного устройства. Вы уверены что хотите использовать его?</translation>
+      <translation>Данный MobileGestalt файл по видимому не предназначен для данного устройства. Вы уверены что хотите использовать его?</translation>
     </message>
   </context>
   <context>
@@ -149,7 +149,7 @@ Sparserestore</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1823"/>
-      <location filename="../qt/mainwindow.ui" line="2888"/>
+      <location filename="../qt/mainwindow.ui" line="2910"/>
       <source>! You will need a MobileGestalt file for this feature. Please select it in the Apply page !</source>
       <translation>! Для этой функции вам нужен файл MobileGestalt. Пожалуйста, выберите его во вкладке "Применить" !</translation>
     </message>
@@ -258,42 +258,42 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
       <translation>Отключить параллакс обоев</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2105"/>
+      <location filename="../qt/mainwindow.ui" line="2112"/>
       <source>Enable Stage Manager Supported</source>
       <translation>Включить поддержку Stage Manager</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2119"/>
+      <location filename="../qt/mainwindow.ui" line="2105"/>
       <source>Allow iPad Apps on iPhone</source>
       <translation>Разрешить приложения iPad на iPhone</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2126"/>
+      <location filename="../qt/mainwindow.ui" line="2148"/>
       <source>Sets the device's region to LL/A to bypass certain region restrictions like the forced shutter sound.</source>
       <translation>Устанавливает регион устройства на LL/A, чтобы обойти региональные ограничения, а-ля принудительный звук затвора.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2129"/>
+      <location filename="../qt/mainwindow.ui" line="2151"/>
       <source>Disable Region Restrictions (ie. Shutter Sound)</source>
       <translation>Отключить региональные ограничения (например. звук затвора)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2136"/>
+      <location filename="../qt/mainwindow.ui" line="2158"/>
       <source>Enable Find My Friends</source>
       <translation>Включить «Найти друзей»</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2143"/>
+      <location filename="../qt/mainwindow.ui" line="2165"/>
       <source>Enable Apple Pencil Settings Tab</source>
       <translation>Включить вкладку «Настройки Apple Pencil»</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2150"/>
+      <location filename="../qt/mainwindow.ui" line="2172"/>
       <source>Enable Action Button Settings Tab</source>
       <translation>Включить вкладку «Настройки кнопок действий»</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2172"/>
+      <location filename="../qt/mainwindow.ui" line="2194"/>
       <source>Use the Metal HUD in any app. Enable Metal HUD through Springboard Options.
 
 Note: OTA updates will be broken until this is disabled.</source>
@@ -302,12 +302,12 @@ Note: OTA updates will be broken until this is disabled.</source>
 Примечание: обновления не будут работать, пока включено.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2177"/>
+      <location filename="../qt/mainwindow.ui" line="2199"/>
       <source>Set as Apple Internal Install (ie Metal HUD in any app)</source>
       <translation>Установить как внутреннюю установку Apple (т. е. показывать Metal HUD в любом приложении)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2184"/>
+      <location filename="../qt/mainwindow.ui" line="2206"/>
       <source>Shows internal files in storage settings.
 
 Note: OTA updates will be broken until this is disabled.</source>
@@ -316,86 +316,86 @@ Note: OTA updates will be broken until this is disabled.</source>
 Примечание: обновления OTA не будут работать, пока включено.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2189"/>
+      <location filename="../qt/mainwindow.ui" line="2211"/>
       <source>Enable Internal Storage (WARNING: risky for some devices, mainly iPads)</source>
       <translation>Включить внутреннюю память (ВНИМАНИЕ: рискованно для некоторых устройств, в основном iPad)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2218"/>
+      <location filename="../qt/mainwindow.ui" line="2240"/>
       <source>Shows collision detection in the SOS page in Settings.</source>
       <translation>Отображает обнаружение столкновений на странице SOS в настройках.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2221"/>
+      <location filename="../qt/mainwindow.ui" line="2243"/>
       <source>Enable Collision SOS</source>
       <translation>Включить SOS при столкновении</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2228"/>
+      <location filename="../qt/mainwindow.ui" line="2250"/>
       <source>Enable AOD on unsupported devices. May cause burn in, use with caution.</source>
       <translation>Включить AOD на неподдерживаемых устройствах. Может вызвать выгорание экрана, используйте с осторожностью.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2231"/>
+      <location filename="../qt/mainwindow.ui" line="2253"/>
       <source>Enable Always On Display</source>
       <translation>Включить функцию «Всегда на экране»</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2238"/>
+      <location filename="../qt/mainwindow.ui" line="2260"/>
       <source>Enable this if something is wonky when using the above toggle.</source>
       <translation>Включите, если при использовании переключателя выше возникают проблемы.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2241"/>
+      <location filename="../qt/mainwindow.ui" line="2263"/>
       <source>Enable AOD Vibrancy</source>
       <translation>Включить яркость AOD</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2271"/>
+      <location filename="../qt/mainwindow.ui" line="2293"/>
       <source>Custom Gestalt Keys</source>
       <translation>Пользовательские ключи Gestalt</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2281"/>
+      <location filename="../qt/mainwindow.ui" line="2303"/>
       <source>  Add Key</source>
       <translation>  Добавить ключ</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2300"/>
+      <location filename="../qt/mainwindow.ui" line="2322"/>
       <source>Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know
 what you are doing.</source>
       <translation>Предупреждение: Неправильное использование этой функции может привести к невозможности загрузить iOS и потере данных. 
 Используйте только в том случае, если вы знаете, что делаете.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2433"/>
+      <location filename="../qt/mainwindow.ui" line="2455"/>
       <source>Feature Flags</source>
       <translation>Функции особенности</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2508"/>
+      <location filename="../qt/mainwindow.ui" line="2530"/>
       <source>Enables an animation when the lock screen clock changes time or style.</source>
       <translation>Включает анимацию при изменении времени или стиля часов на экране блокировки.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2511"/>
+      <location filename="../qt/mainwindow.ui" line="2533"/>
       <source>Enable Lockscreen Clock Animation</source>
       <translation>Включить анимацию часов на экране блокировки</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2518"/>
+      <location filename="../qt/mainwindow.ui" line="2540"/>
       <source>Enables a button to duplicate the lock screen page in edit mode.
 Enables quickly switching lock screens by holding down and swiping.</source>
       <translation>Включает кнопку для дублирования страницы экрана блокировки в режиме редактирования.
 Включает быстрое переключение экранов блокировки путем удержания и пролистывания.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2522"/>
+      <location filename="../qt/mainwindow.ui" line="2544"/>
       <source>Enable Duplicate Lockscreen Button and Lockscreen Quickswitch</source>
       <translation>Включить кнопку дублирования экрана блокировки и быстрое переключение экрана блокировки</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2547"/>
+      <location filename="../qt/mainwindow.ui" line="2569"/>
       <source>Revert the photos app to the iOS 17 style.
 
 Does not work on iOS 18.0 RC.</source>
@@ -404,12 +404,12 @@ Does not work on iOS 18.0 RC.</source>
 Не работает на iOS 18.0 RC.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2552"/>
+      <location filename="../qt/mainwindow.ui" line="2574"/>
       <source>Enable Old Photo UI</source>
       <translation>Включить интерфейс старых фотографий</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2559"/>
+      <location filename="../qt/mainwindow.ui" line="2581"/>
       <source>Enable the new Siri UI.
 
 Only works on iOS 18.0 beta 1-2.</source>
@@ -418,67 +418,67 @@ Only works on iOS 18.0 beta 1-2.</source>
 Работает только на iOS 18.0 beta 1-2.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2564"/>
+      <location filename="../qt/mainwindow.ui" line="2586"/>
       <source>Enable Apple Intelligence</source>
       <translation>Включить Apple Intelligence</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2665"/>
+      <location filename="../qt/mainwindow.ui" line="2687"/>
       <source>Eligibility Tweaks</source>
       <translation>Твики Приемлемости</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2779"/>
+      <location filename="../qt/mainwindow.ui" line="2801"/>
       <source>Enable EU Enabler</source>
       <translation>Включить EU Enabler</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2786"/>
+      <location filename="../qt/mainwindow.ui" line="2808"/>
       <source>Method Type</source>
       <translation>Тип метода</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2834"/>
+      <location filename="../qt/mainwindow.ui" line="2856"/>
       <source>Method 1</source>
       <translation>Метод 1</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2839"/>
+      <location filename="../qt/mainwindow.ui" line="2861"/>
       <source>Method 2</source>
       <translation>Метод 2</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2847"/>
+      <location filename="../qt/mainwindow.ui" line="2869"/>
       <source>Region Code (Should be 2 letters)</source>
       <translation>Код региона (должен состоять из 2 букв)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2854"/>
+      <location filename="../qt/mainwindow.ui" line="2876"/>
       <source>Region Code (Default: US)</source>
       <translation>Код региона (По умолчанию: US)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2895"/>
+      <location filename="../qt/mainwindow.ui" line="2917"/>
       <source>Enable Apple Intelligence (for Unsupported Devices)</source>
       <translation>Включить Apple Intelligence (для неподдерживаемых устройств)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2917"/>
+      <location filename="../qt/mainwindow.ui" line="2939"/>
       <source>Enable Eligibility File</source>
       <translation>Включить файл приемлемости</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2924"/>
+      <location filename="../qt/mainwindow.ui" line="2946"/>
       <source>Language Code (not needed for English)</source>
       <translation>Код языка (не требуется для английского языка)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2931"/>
+      <location filename="../qt/mainwindow.ui" line="2953"/>
       <source>Language Code (i.e. en)</source>
       <translation>Код языка (например, en)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2965"/>
+      <location filename="../qt/mainwindow.ui" line="2987"/>
       <source>In order to download the AI models, you must spoof your device model. However, this may break 
 Face ID until you revert back. 
 
@@ -497,671 +497,671 @@ Face ID, пока вы не вернетесь к исходной модели.
 Будьте осторожны!</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2986"/>
+      <location filename="../qt/mainwindow.ui" line="3008"/>
       <source>Spoofed Device Model</source>
       <translation>Поддельная модель устройства</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3033"/>
-      <location filename="../qt/mainwindow.ui" line="3040"/>
+      <location filename="../qt/mainwindow.ui" line="3055"/>
+      <location filename="../qt/mainwindow.ui" line="3062"/>
       <source>Original</source>
       <translation>Оригинал</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3045"/>
+      <location filename="../qt/mainwindow.ui" line="3067"/>
       <source>iPhone 15 Pro (iPhone16,1)</source>
       <translation>iPhone 15 Pro (iPhone16,1)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3050"/>
+      <location filename="../qt/mainwindow.ui" line="3072"/>
       <source>iPhone 15 Pro Max (iPhone16,2)</source>
       <translation>iPhone 15 Pro Max (iPhone16,2)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3055"/>
+      <location filename="../qt/mainwindow.ui" line="3077"/>
       <source>iPhone 16 (iPhone17,3)</source>
       <translation>iPhone 16 (iPhone17,3)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3060"/>
+      <location filename="../qt/mainwindow.ui" line="3082"/>
       <source>iPhone 16 Plus (iPhone17,4)</source>
       <translation>iPhone 16 Plus (iPhone17,4)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3065"/>
+      <location filename="../qt/mainwindow.ui" line="3087"/>
       <source>iPhone 16 Pro (iPhone17,1)</source>
       <translation>iPhone 16 Pro (iPhone17,1)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3070"/>
+      <location filename="../qt/mainwindow.ui" line="3092"/>
       <source>iPhone 16 Pro Max (iPhone17,2)</source>
       <translation>iPhone 16 Pro Max (iPhone17,2)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3080"/>
+      <location filename="../qt/mainwindow.ui" line="3102"/>
       <source>iPad Mini (A17 Pro) (W) (iPad16,1)</source>
       <translation>iPad Mini (A17 Pro) (W) (iPad16,1)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3085"/>
+      <location filename="../qt/mainwindow.ui" line="3107"/>
       <source>iPad Mini (A17 Pro) (C) (iPad16,2)</source>
       <translation>iPad Mini (A17 Pro) (C) (iPad16,2)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3090"/>
+      <location filename="../qt/mainwindow.ui" line="3112"/>
       <source>iPad Pro (13-inch) (M4) (W) (iPad16,5)</source>
       <translation>iPad Pro (13-inch) (M4) (W) (iPad16,5)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3095"/>
+      <location filename="../qt/mainwindow.ui" line="3117"/>
       <source>iPad Pro (13-inch) (M4) (C) (iPad16,6)</source>
       <translation>iPad Pro (13-inch) (M4) (C) (iPad16,6)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3100"/>
+      <location filename="../qt/mainwindow.ui" line="3122"/>
       <source>iPad Pro (11-inch) (M4) (W) (iPad16,3)</source>
       <translation>iPad Pro (11-inch) (M4) (W) (iPad16,3)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3105"/>
+      <location filename="../qt/mainwindow.ui" line="3127"/>
       <source>iPad Pro (11-inch) (M4) (C) (iPad16,4)</source>
       <translation>iPad Pro (11-inch) (M4) (C) (iPad16,4)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3110"/>
+      <location filename="../qt/mainwindow.ui" line="3132"/>
       <source>iPad Pro (12.9-inch) (M2) (W) (iPad14,5)</source>
       <translation>iPad Pro (12.9-inch) (M2) (W) (iPad14,5)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3115"/>
+      <location filename="../qt/mainwindow.ui" line="3137"/>
       <source>iPad Pro (12.9-inch) (M2) (C) (iPad14,6)</source>
       <translation>iPad Pro (12.9-inch) (M2) (C) (iPad14,6)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3120"/>
+      <location filename="../qt/mainwindow.ui" line="3142"/>
       <source>iPad Pro (11-inch) (M2) (W) (iPad14,3)</source>
       <translation>iPad Pro (11-inch) (M2) (W) (iPad14,3)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3125"/>
+      <location filename="../qt/mainwindow.ui" line="3147"/>
       <source>iPad Pro (11-inch) (M2) (C) (iPad14,4)</source>
       <translation>iPad Pro (11-inch) (M2) (C) (iPad14,4)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3130"/>
+      <location filename="../qt/mainwindow.ui" line="3152"/>
       <source>iPad Air (13-inch) (M2) (W) (iPad14,10)</source>
       <translation>iPad Air (13-inch) (M2) (W) (iPad14,10)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3135"/>
+      <location filename="../qt/mainwindow.ui" line="3157"/>
       <source>iPad Air (13-inch) (M2) (C) (iPad14,11)</source>
       <translation>iPad Air (13-inch) (M2) (C) (iPad14,11)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3140"/>
+      <location filename="../qt/mainwindow.ui" line="3162"/>
       <source>iPad Air (11-inch) (M2) (W) (iPad14,8)</source>
       <translation>iPad Air (11-inch) (M2) (W) (iPad14,8)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3145"/>
+      <location filename="../qt/mainwindow.ui" line="3167"/>
       <source>iPad Air (11-inch) (M2) (C) (iPad14,9)</source>
       <translation>iPad Air (11-inch) (M2) (C) (iPad14,9)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3150"/>
+      <location filename="../qt/mainwindow.ui" line="3172"/>
       <source>iPad Pro (11-inch) (M1) (W) (iPad13,4)</source>
       <translation>iPad Pro (11-inch) (M1) (W) (iPad13,4)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3155"/>
+      <location filename="../qt/mainwindow.ui" line="3177"/>
       <source>iPad Pro (11-inch) (M1) (C) (iPad13,5)</source>
       <translation>iPad Pro (11-inch) (M1) (C) (iPad13,5)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3160"/>
+      <location filename="../qt/mainwindow.ui" line="3182"/>
       <source>iPad Pro (12.9-inch) (M1) (W) (iPad13,8)</source>
       <translation>iPad Pro (12.9-inch) (M1) (W) (iPad13,8)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3165"/>
+      <location filename="../qt/mainwindow.ui" line="3187"/>
       <source>iPad Pro (12.9-inch) (M1) (C) (iPad13,9)</source>
       <translation>iPad Pro (12.9-inch) (M1) (C) (iPad13,9)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3170"/>
+      <location filename="../qt/mainwindow.ui" line="3192"/>
       <source>iPad Air (M1) (W) (iPad13,16)</source>
       <translation>iPad Air (M1) (W) (iPad13,16)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3175"/>
+      <location filename="../qt/mainwindow.ui" line="3197"/>
       <source>iPad Air (M1) (C) (iPad13,17)</source>
       <translation>iPad Air (M1) (C) (iPad13,17)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3183"/>
+      <location filename="../qt/mainwindow.ui" line="3205"/>
       <source>Spoofs the device hardware model (ie D83AP)</source>
       <translation>Подделывает модель железа устройства (а-ля D83AP)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3186"/>
+      <location filename="../qt/mainwindow.ui" line="3208"/>
       <source>Spoof Hardware Model</source>
       <translation>Подделать код модели</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3196"/>
+      <location filename="../qt/mainwindow.ui" line="3218"/>
       <source>Spoofs the device CPU model (ie t8130)</source>
       <translation>Подделывает модель процессора устройства (например, t8130)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3199"/>
+      <location filename="../qt/mainwindow.ui" line="3221"/>
       <source>Spoof CPU Model</source>
       <translation>Подделать модель процессора</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3304"/>
+      <location filename="../qt/mainwindow.ui" line="3326"/>
       <source>Status Bar</source>
       <translation>Строка состояния</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3311"/>
-      <location filename="../qt/mainwindow.ui" line="7504"/>
+      <location filename="../qt/mainwindow.ui" line="3333"/>
+      <location filename="../qt/mainwindow.ui" line="7526"/>
       <source>Modify</source>
       <translation>Изменить</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3418"/>
+      <location filename="../qt/mainwindow.ui" line="3440"/>
       <source>Primary Cellular</source>
       <translation>Основной SIM</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3449"/>
-      <location filename="../qt/mainwindow.ui" line="3755"/>
-      <location filename="../qt/mainwindow.ui" line="4264"/>
-      <location filename="../qt/mainwindow.ui" line="4329"/>
-      <location filename="../qt/mainwindow.ui" line="4394"/>
-      <location filename="../qt/mainwindow.ui" line="4466"/>
-      <location filename="../qt/mainwindow.ui" line="4531"/>
-      <location filename="../qt/mainwindow.ui" line="4596"/>
-      <location filename="../qt/mainwindow.ui" line="4661"/>
-      <location filename="../qt/mainwindow.ui" line="4726"/>
-      <location filename="../qt/mainwindow.ui" line="4791"/>
-      <location filename="../qt/mainwindow.ui" line="4856"/>
-      <location filename="../qt/mainwindow.ui" line="4921"/>
-      <location filename="../qt/mainwindow.ui" line="4986"/>
-      <location filename="../qt/mainwindow.ui" line="5051"/>
-      <location filename="../qt/mainwindow.ui" line="5116"/>
+      <location filename="../qt/mainwindow.ui" line="3471"/>
+      <location filename="../qt/mainwindow.ui" line="3777"/>
+      <location filename="../qt/mainwindow.ui" line="4286"/>
+      <location filename="../qt/mainwindow.ui" line="4351"/>
+      <location filename="../qt/mainwindow.ui" line="4416"/>
+      <location filename="../qt/mainwindow.ui" line="4488"/>
+      <location filename="../qt/mainwindow.ui" line="4553"/>
+      <location filename="../qt/mainwindow.ui" line="4618"/>
+      <location filename="../qt/mainwindow.ui" line="4683"/>
+      <location filename="../qt/mainwindow.ui" line="4748"/>
+      <location filename="../qt/mainwindow.ui" line="4813"/>
+      <location filename="../qt/mainwindow.ui" line="4878"/>
+      <location filename="../qt/mainwindow.ui" line="4943"/>
+      <location filename="../qt/mainwindow.ui" line="5008"/>
+      <location filename="../qt/mainwindow.ui" line="5073"/>
+      <location filename="../qt/mainwindow.ui" line="5138"/>
       <source>Default</source>
       <translation>По умолчанию</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3459"/>
-      <location filename="../qt/mainwindow.ui" line="3765"/>
+      <location filename="../qt/mainwindow.ui" line="3481"/>
+      <location filename="../qt/mainwindow.ui" line="3787"/>
       <source>Force Show</source>
       <translation>Принудительное отображение</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3466"/>
-      <location filename="../qt/mainwindow.ui" line="3772"/>
+      <location filename="../qt/mainwindow.ui" line="3488"/>
+      <location filename="../qt/mainwindow.ui" line="3794"/>
       <source>Force Hide</source>
       <translation>Принудительное скрытие</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3489"/>
-      <location filename="../qt/mainwindow.ui" line="3795"/>
+      <location filename="../qt/mainwindow.ui" line="3511"/>
+      <location filename="../qt/mainwindow.ui" line="3817"/>
       <source>Change Carrier Text</source>
       <translation>Изменить название оператора</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3496"/>
-      <location filename="../qt/mainwindow.ui" line="3802"/>
+      <location filename="../qt/mainwindow.ui" line="3518"/>
+      <location filename="../qt/mainwindow.ui" line="3824"/>
       <source>Carrier Text</source>
       <translation>Текст оператора</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3503"/>
-      <location filename="../qt/mainwindow.ui" line="3809"/>
+      <location filename="../qt/mainwindow.ui" line="3525"/>
+      <location filename="../qt/mainwindow.ui" line="3831"/>
       <source>Change Service Badge Text</source>
       <translation>Изменить текст значка службы</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3510"/>
-      <location filename="../qt/mainwindow.ui" line="3816"/>
+      <location filename="../qt/mainwindow.ui" line="3532"/>
+      <location filename="../qt/mainwindow.ui" line="3838"/>
       <source>Service Badge Text</source>
       <translation>Текст значка службы</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3517"/>
-      <location filename="../qt/mainwindow.ui" line="3823"/>
+      <location filename="../qt/mainwindow.ui" line="3539"/>
+      <location filename="../qt/mainwindow.ui" line="3845"/>
       <source>Change Data Network Type</source>
       <translation>Изменить тип сети передачи данных</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3577"/>
-      <location filename="../qt/mainwindow.ui" line="3880"/>
+      <location filename="../qt/mainwindow.ui" line="3599"/>
+      <location filename="../qt/mainwindow.ui" line="3902"/>
       <source>GPRS</source>
       <translation>GPRS</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3582"/>
-      <location filename="../qt/mainwindow.ui" line="3885"/>
+      <location filename="../qt/mainwindow.ui" line="3604"/>
+      <location filename="../qt/mainwindow.ui" line="3907"/>
       <source>EDGE</source>
       <translation>EDGE</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3587"/>
-      <location filename="../qt/mainwindow.ui" line="3890"/>
+      <location filename="../qt/mainwindow.ui" line="3609"/>
+      <location filename="../qt/mainwindow.ui" line="3912"/>
       <source>3G</source>
       <translation>3G</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3592"/>
-      <location filename="../qt/mainwindow.ui" line="3895"/>
+      <location filename="../qt/mainwindow.ui" line="3614"/>
+      <location filename="../qt/mainwindow.ui" line="3917"/>
       <source>4G</source>
       <translation>4G</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3597"/>
-      <location filename="../qt/mainwindow.ui" line="3900"/>
+      <location filename="../qt/mainwindow.ui" line="3619"/>
+      <location filename="../qt/mainwindow.ui" line="3922"/>
       <source>LTE</source>
       <translation>LTE</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3602"/>
-      <location filename="../qt/mainwindow.ui" line="3905"/>
+      <location filename="../qt/mainwindow.ui" line="3624"/>
+      <location filename="../qt/mainwindow.ui" line="3927"/>
       <source>Wi-Fi</source>
       <translation>Wi-Fi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3607"/>
-      <location filename="../qt/mainwindow.ui" line="3910"/>
+      <location filename="../qt/mainwindow.ui" line="3629"/>
+      <location filename="../qt/mainwindow.ui" line="3932"/>
       <source>Personal Hotspot</source>
       <translation>Точка доступа</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3915"/>
+      <location filename="../qt/mainwindow.ui" line="3937"/>
       <source>1x</source>
       <translation>1x</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3617"/>
-      <location filename="../qt/mainwindow.ui" line="3920"/>
+      <location filename="../qt/mainwindow.ui" line="3639"/>
+      <location filename="../qt/mainwindow.ui" line="3942"/>
       <source>5Gᴇ</source>
       <translation>5Gᴇ</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3622"/>
-      <location filename="../qt/mainwindow.ui" line="3925"/>
+      <location filename="../qt/mainwindow.ui" line="3644"/>
+      <location filename="../qt/mainwindow.ui" line="3947"/>
       <source>LTE-A</source>
       <translation>LTE-A</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3627"/>
-      <location filename="../qt/mainwindow.ui" line="3930"/>
+      <location filename="../qt/mainwindow.ui" line="3649"/>
+      <location filename="../qt/mainwindow.ui" line="3952"/>
       <source>LTE+</source>
       <translation>LTE+</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3632"/>
-      <location filename="../qt/mainwindow.ui" line="3935"/>
+      <location filename="../qt/mainwindow.ui" line="3654"/>
+      <location filename="../qt/mainwindow.ui" line="3957"/>
       <source>5G</source>
       <translation>5G</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3637"/>
-      <location filename="../qt/mainwindow.ui" line="3940"/>
+      <location filename="../qt/mainwindow.ui" line="3659"/>
+      <location filename="../qt/mainwindow.ui" line="3962"/>
       <source>5G+</source>
       <translation>5G+</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3642"/>
-      <location filename="../qt/mainwindow.ui" line="3945"/>
+      <location filename="../qt/mainwindow.ui" line="3664"/>
+      <location filename="../qt/mainwindow.ui" line="3967"/>
       <source>5GUW</source>
       <translation>5GUW</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3647"/>
-      <location filename="../qt/mainwindow.ui" line="3950"/>
+      <location filename="../qt/mainwindow.ui" line="3669"/>
+      <location filename="../qt/mainwindow.ui" line="3972"/>
       <source>5GUC</source>
       <translation>5GUC</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3655"/>
-      <location filename="../qt/mainwindow.ui" line="3958"/>
+      <location filename="../qt/mainwindow.ui" line="3677"/>
+      <location filename="../qt/mainwindow.ui" line="3980"/>
       <source>Change Signal Strength</source>
       <translation>Изменить силу сигнала</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3689"/>
-      <location filename="../qt/mainwindow.ui" line="3986"/>
-      <location filename="../qt/mainwindow.ui" line="4177"/>
+      <location filename="../qt/mainwindow.ui" line="3711"/>
+      <location filename="../qt/mainwindow.ui" line="4008"/>
+      <location filename="../qt/mainwindow.ui" line="4199"/>
       <source>0 Bars</source>
       <translation>0 Состояний</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3730"/>
+      <location filename="../qt/mainwindow.ui" line="3752"/>
       <source>Secondary Cellular</source>
       <translation>Вторичный SIM</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4027"/>
+      <location filename="../qt/mainwindow.ui" line="4049"/>
       <source>Change Status Bar Time Text*</source>
       <translation>Изменить текст времени в строке состояния*</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4034"/>
+      <location filename="../qt/mainwindow.ui" line="4056"/>
       <source>Status Bar Time Text</source>
       <translation>Текст времени в строке состояния</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4055"/>
+      <location filename="../qt/mainwindow.ui" line="4077"/>
       <source>Change Breadcrumb Text</source>
       <translation>Изменить текст Боковушки</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4062"/>
+      <location filename="../qt/mainwindow.ui" line="4084"/>
       <source>Breadcrumb Text</source>
       <translation>Текст Боковушки</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4069"/>
+      <location filename="../qt/mainwindow.ui" line="4091"/>
       <source>Change Battery Detail Text</source>
       <translation>Изменить текст сведений об аккумуляторе</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4076"/>
+      <location filename="../qt/mainwindow.ui" line="4098"/>
       <source>Battery Detail Text</source>
       <translation>Текст информации батареи</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4083"/>
+      <location filename="../qt/mainwindow.ui" line="4105"/>
       <source>Change Battery Icon Capacity</source>
       <translation>Изменить емкость значка аккумулятора</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4111"/>
+      <location filename="../qt/mainwindow.ui" line="4133"/>
       <source>0%</source>
       <translation>0%</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4149"/>
+      <location filename="../qt/mainwindow.ui" line="4171"/>
       <source>Change Wi-Fi Signal Strength</source>
       <translation>Изменить силу сигнала Wi-Fi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4203"/>
+      <location filename="../qt/mainwindow.ui" line="4225"/>
       <source>Show Numeric Wi-Fi Strength</source>
       <translation>Показать числовую силу сигнала Wi-Fi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4210"/>
+      <location filename="../qt/mainwindow.ui" line="4232"/>
       <source>Show Numeric Cellular Strength</source>
       <translation>Показать числовую силу сотовой связи</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4217"/>
+      <location filename="../qt/mainwindow.ui" line="4239"/>
       <source>*When set to blank on notched devices, this will display the carrier name.</source>
       <translation>*Если на устройствах с «челкой» этот параметр пустой, будет отображаться имя оператора.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4239"/>
+      <location filename="../qt/mainwindow.ui" line="4261"/>
       <source>Focus Mode Icon</source>
       <translation>Значок режима фокусировки</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4274"/>
-      <location filename="../qt/mainwindow.ui" line="4339"/>
-      <location filename="../qt/mainwindow.ui" line="4404"/>
-      <location filename="../qt/mainwindow.ui" line="4476"/>
-      <location filename="../qt/mainwindow.ui" line="4541"/>
-      <location filename="../qt/mainwindow.ui" line="4606"/>
-      <location filename="../qt/mainwindow.ui" line="4671"/>
-      <location filename="../qt/mainwindow.ui" line="4736"/>
-      <location filename="../qt/mainwindow.ui" line="4801"/>
-      <location filename="../qt/mainwindow.ui" line="4866"/>
-      <location filename="../qt/mainwindow.ui" line="4931"/>
-      <location filename="../qt/mainwindow.ui" line="4996"/>
-      <location filename="../qt/mainwindow.ui" line="5061"/>
-      <location filename="../qt/mainwindow.ui" line="5126"/>
+      <location filename="../qt/mainwindow.ui" line="4296"/>
+      <location filename="../qt/mainwindow.ui" line="4361"/>
+      <location filename="../qt/mainwindow.ui" line="4426"/>
+      <location filename="../qt/mainwindow.ui" line="4498"/>
+      <location filename="../qt/mainwindow.ui" line="4563"/>
+      <location filename="../qt/mainwindow.ui" line="4628"/>
+      <location filename="../qt/mainwindow.ui" line="4693"/>
+      <location filename="../qt/mainwindow.ui" line="4758"/>
+      <location filename="../qt/mainwindow.ui" line="4823"/>
+      <location filename="../qt/mainwindow.ui" line="4888"/>
+      <location filename="../qt/mainwindow.ui" line="4953"/>
+      <location filename="../qt/mainwindow.ui" line="5018"/>
+      <location filename="../qt/mainwindow.ui" line="5083"/>
+      <location filename="../qt/mainwindow.ui" line="5148"/>
       <source>Always Show</source>
       <translation>Показать</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4281"/>
-      <location filename="../qt/mainwindow.ui" line="4346"/>
-      <location filename="../qt/mainwindow.ui" line="4411"/>
-      <location filename="../qt/mainwindow.ui" line="4483"/>
-      <location filename="../qt/mainwindow.ui" line="4548"/>
-      <location filename="../qt/mainwindow.ui" line="4613"/>
-      <location filename="../qt/mainwindow.ui" line="4678"/>
-      <location filename="../qt/mainwindow.ui" line="4743"/>
-      <location filename="../qt/mainwindow.ui" line="4808"/>
-      <location filename="../qt/mainwindow.ui" line="4873"/>
-      <location filename="../qt/mainwindow.ui" line="4938"/>
-      <location filename="../qt/mainwindow.ui" line="5003"/>
-      <location filename="../qt/mainwindow.ui" line="5068"/>
-      <location filename="../qt/mainwindow.ui" line="5133"/>
+      <location filename="../qt/mainwindow.ui" line="4303"/>
+      <location filename="../qt/mainwindow.ui" line="4368"/>
+      <location filename="../qt/mainwindow.ui" line="4433"/>
+      <location filename="../qt/mainwindow.ui" line="4505"/>
+      <location filename="../qt/mainwindow.ui" line="4570"/>
+      <location filename="../qt/mainwindow.ui" line="4635"/>
+      <location filename="../qt/mainwindow.ui" line="4700"/>
+      <location filename="../qt/mainwindow.ui" line="4765"/>
+      <location filename="../qt/mainwindow.ui" line="4830"/>
+      <location filename="../qt/mainwindow.ui" line="4895"/>
+      <location filename="../qt/mainwindow.ui" line="4960"/>
+      <location filename="../qt/mainwindow.ui" line="5025"/>
+      <location filename="../qt/mainwindow.ui" line="5090"/>
+      <location filename="../qt/mainwindow.ui" line="5155"/>
       <source>Always Hide</source>
       <translation>Скрыть</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4304"/>
+      <location filename="../qt/mainwindow.ui" line="4326"/>
       <source>Airplane Mode</source>
       <translation>Режим «В самолете»</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4369"/>
+      <location filename="../qt/mainwindow.ui" line="4391"/>
       <source>Wi-Fi Icon</source>
       <translation>Значок Wi-Fi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4434"/>
+      <location filename="../qt/mainwindow.ui" line="4456"/>
       <source>^Will also hide cellular data indicator.</source>
       <translation>^Также скроет индикатор сотовых данных.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4441"/>
+      <location filename="../qt/mainwindow.ui" line="4463"/>
       <source>Battery Icon</source>
       <translation>Значок батареи</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4506"/>
+      <location filename="../qt/mainwindow.ui" line="4528"/>
       <source>Bluetooth Icon</source>
       <translation>Значок Bluetooth</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4571"/>
+      <location filename="../qt/mainwindow.ui" line="4593"/>
       <source>Alarm Icon</source>
       <translation>Значок будильника</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4636"/>
+      <location filename="../qt/mainwindow.ui" line="4658"/>
       <source>Location Icon</source>
       <translation>Значок геолокации</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4701"/>
+      <location filename="../qt/mainwindow.ui" line="4723"/>
       <source>Rotation Lock Icon</source>
       <translation>Значок блокировки поворота</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4766"/>
+      <location filename="../qt/mainwindow.ui" line="4788"/>
       <source>AirPlay Icon</source>
       <translation>Значок AirPlay</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4831"/>
+      <location filename="../qt/mainwindow.ui" line="4853"/>
       <source>CarPlay Icon</source>
       <translation>Значок CarPlay</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4896"/>
+      <location filename="../qt/mainwindow.ui" line="4918"/>
       <source>VPN Icon</source>
       <translation>Значок VPN</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4961"/>
+      <location filename="../qt/mainwindow.ui" line="4983"/>
       <source>Classroom Icon</source>
       <translation>Значок класса</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5026"/>
+      <location filename="../qt/mainwindow.ui" line="5048"/>
       <source>Liquid Detection Warning Icon</source>
       <translation>Значок предупреждения об обнаружении жидкости</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5091"/>
+      <location filename="../qt/mainwindow.ui" line="5113"/>
       <source>Voice Control Icon</source>
       <translation>Значок голосового управления</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5156"/>
+      <location filename="../qt/mainwindow.ui" line="5178"/>
       <source>Force enables everything</source>
       <translation>Принудительно включает всё</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5159"/>
+      <location filename="../qt/mainwindow.ui" line="5181"/>
       <source>Silly Mode</source>
       <translation>Беззвучный режим</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5264"/>
+      <location filename="../qt/mainwindow.ui" line="5286"/>
       <source>Springboard Options</source>
       <translation>Настройки Springboard</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5408"/>
+      <location filename="../qt/mainwindow.ui" line="5430"/>
       <source>Lock Screen Footnote Text</source>
       <translation>Текст на экране блокировки</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5415"/>
+      <location filename="../qt/mainwindow.ui" line="5437"/>
       <source>Footnote Text</source>
       <translation>Текст снизу</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5580"/>
+      <location filename="../qt/mainwindow.ui" line="5602"/>
       <source>Disable Lock After Respring</source>
       <translation>Отключить блокировку после перезапуска</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5614"/>
+      <location filename="../qt/mainwindow.ui" line="5636"/>
       <source>Disable Screen Dimming While Charging</source>
       <translation>Отключить затемнение экрана во время зарядки</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5648"/>
+      <location filename="../qt/mainwindow.ui" line="5670"/>
       <source>Disable Low Battery Alerts</source>
       <translation>Отключить оповещения о низком заряде батареи</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5701"/>
+      <location filename="../qt/mainwindow.ui" line="5723"/>
       <source>Removes '&lt; PreviousAppName' glyph in Status Bar when being forwarded to another app.</source>
       <translation>Удаляет «&lt; ПредыдущееПриложение» в строке состояния при переходе в другое приложение.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5719"/>
+      <location filename="../qt/mainwindow.ui" line="5741"/>
       <source>Disable Breadcrumbs</source>
       <translation>Отключить боковушки</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5738"/>
+      <location filename="../qt/mainwindow.ui" line="5760"/>
       <source>Shows info about the device supervision status and organization at the bottom of the lock screen.</source>
       <translation>Отображает информацию о состоянии контроля устройства и организации в нижней части экрана блокировки.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5756"/>
+      <location filename="../qt/mainwindow.ui" line="5778"/>
       <source>Show Supervision Text on Lock Screen</source>
       <translation>Показывать текст Supervision на экране блокировки</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5824"/>
+      <location filename="../qt/mainwindow.ui" line="5846"/>
       <source>Enable AirPlay support for Stage Manager</source>
       <translation>Включить поддержку AirPlay для Stage Manager</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6012"/>
+      <location filename="../qt/mainwindow.ui" line="6034"/>
       <source>Internal Options</source>
       <translation>Внутренние опции</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6165"/>
+      <location filename="../qt/mainwindow.ui" line="6187"/>
       <source>Show Build Version in Status Bar</source>
       <translation>Показывать версию сборки в строке состояния</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6199"/>
+      <location filename="../qt/mainwindow.ui" line="6221"/>
       <source>Force Right-to-Left Layout</source>
       <translation>Принудительная компоновка справа налево</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6744"/>
+      <location filename="../qt/mainwindow.ui" line="6766"/>
       <source>Show Touches With Debug Info</source>
       <translation>Показать касания с отладочной информацией</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6778"/>
+      <location filename="../qt/mainwindow.ui" line="6800"/>
       <source>Hide Respring Icon</source>
       <translation>Скрыть значок респринга</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6812"/>
+      <location filename="../qt/mainwindow.ui" line="6834"/>
       <source>Vibrate on Raise-to-Wake</source>
       <translation>Вибрация при поднятии для пробуждения</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6861"/>
+      <location filename="../qt/mainwindow.ui" line="6883"/>
       <source>Play Sound on Paste</source>
       <translation>Воспроизвести звук при вставке</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6895"/>
+      <location filename="../qt/mainwindow.ui" line="6917"/>
       <source>Show Notifications for System Pastes</source>
       <translation>Показывать уведомления о вставках системы</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7497"/>
-      <location filename="../qt/mainwindow.ui" line="9287"/>
+      <location filename="../qt/mainwindow.ui" line="7519"/>
+      <location filename="../qt/mainwindow.ui" line="9309"/>
       <source>Daemons</source>
       <translation>Даемоны</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7545"/>
+      <location filename="../qt/mainwindow.ui" line="7567"/>
       <source>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
 it enabled.</source>
       <translation>Примечание: даже в версиях Sparserestore используются обычные домены. Если у вас включена функция «Пропустить настройку», она будет применена.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7571"/>
+      <location filename="../qt/mainwindow.ui" line="7593"/>
       <source>Stops over-the-air updates to prevent auto-downloads.</source>
       <translation>Останавливает обновления для предотвращения автоматической загрузки.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7574"/>
+      <location filename="../qt/mainwindow.ui" line="7596"/>
       <source>Disable OTA</source>
       <translation>Отключить OTA</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7581"/>
+      <location filename="../qt/mainwindow.ui" line="7603"/>
       <source>Disables usage tracking for improved privacy.</source>
       <translation>Отключает отслеживание использования для повышения конфиденциальности.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7584"/>
+      <location filename="../qt/mainwindow.ui" line="7606"/>
       <source>Disable UsageTrackingAgent</source>
       <translation>Отключить UsageTrackingAgent</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7591"/>
+      <location filename="../qt/mainwindow.ui" line="7613"/>
       <source>Disables Screen Time monitoring features.</source>
       <translation>Отключает функции мониторинга экранного времени.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7594"/>
+      <location filename="../qt/mainwindow.ui" line="7616"/>
       <source>Disable Screen Time Agent</source>
       <translation>Отключить экранное время</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7601"/>
+      <location filename="../qt/mainwindow.ui" line="7623"/>
       <source>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
 
 To work properly, also disable the daemon using the toggle above.</source>
@@ -1170,217 +1170,217 @@ To work properly, also disable the daemon using the toggle above.</source>
 Для правильной работы также отключите функцию выше.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7606"/>
+      <location filename="../qt/mainwindow.ui" line="7628"/>
       <source>Clear ScreenTimeAgent.plist file</source>
       <translation>Очистить файл ScreenTimeAgent.plist</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7613"/>
+      <location filename="../qt/mainwindow.ui" line="7635"/>
       <source>Stops logs, dumps, and crash reports collection.</source>
       <translation>Останавливает сбор журналов, дампов и отчетов о крашах.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7616"/>
+      <location filename="../qt/mainwindow.ui" line="7638"/>
       <source>Disable Logs, Dumps, and Crash Reports</source>
       <translation>Отключить журналы, дампы и отчеты об ошибках</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7633"/>
+      <location filename="../qt/mainwindow.ui" line="7655"/>
       <source>Disables pinging to sleeping bluetooth devices for improved battery life.</source>
       <translation>Отключает пинг спящих устройств Bluetooth для увеличения времени работы от батареи.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7636"/>
+      <location filename="../qt/mainwindow.ui" line="7658"/>
       <source>Disable ATWAKEUP</source>
       <translation>Отключить ATWAKEUP</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7658"/>
+      <location filename="../qt/mainwindow.ui" line="7680"/>
       <source>Turns off Game Center background services.</source>
       <translation>Отключает фоновые службы Game Center.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7661"/>
+      <location filename="../qt/mainwindow.ui" line="7683"/>
       <source>Disable Game Center</source>
       <translation>Отключить Game Center</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7668"/>
+      <location filename="../qt/mainwindow.ui" line="7690"/>
       <source>Disables the Tips service and notifications.</source>
       <translation>Отключает службу и уведомления от "Советов".</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7671"/>
+      <location filename="../qt/mainwindow.ui" line="7693"/>
       <source>Disable Tips Services</source>
       <translation>Отключить службу "Советы"</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7678"/>
+      <location filename="../qt/mainwindow.ui" line="7700"/>
       <source>Disables the Virtual Private Network service.</source>
       <translation>Отключает службу виртуальной частной сети.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7681"/>
+      <location filename="../qt/mainwindow.ui" line="7703"/>
       <source>Disable VPN Service</source>
       <translation>Отключить службу VPN</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7688"/>
+      <location filename="../qt/mainwindow.ui" line="7710"/>
       <source>Disables the service that deals with errors with WiFi networks with Chinese characters in the name.</source>
       <translation>Отключает службу, которая обрабатывает ошибки с сетями WiFi, имеющими в названии китайские иероглифы.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7691"/>
+      <location filename="../qt/mainwindow.ui" line="7713"/>
       <source>Disable Chinese WLAN Service</source>
       <translation>Отключить китайскую службу WLAN</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7698"/>
+      <location filename="../qt/mainwindow.ui" line="7720"/>
       <source>Disables HealthKit services used by the health app.</source>
       <translation>Отключает службы HealthKit, используемые приложением «Здоровье».</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7701"/>
+      <location filename="../qt/mainwindow.ui" line="7723"/>
       <source>Disable HealthKit</source>
       <translation>Отключить HealthKit</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7723"/>
+      <location filename="../qt/mainwindow.ui" line="7745"/>
       <source>Disable AirPrint</source>
       <translation>Отключить AirPrint</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7730"/>
+      <location filename="../qt/mainwindow.ui" line="7752"/>
       <source>Disable Assistive Touch</source>
       <translation>Отключить функцию «Assistive Touch»</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7737"/>
+      <location filename="../qt/mainwindow.ui" line="7759"/>
       <source>Disable iCloud</source>
       <translation>Отключить iCloud</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7744"/>
+      <location filename="../qt/mainwindow.ui" line="7766"/>
       <source>Disable Internet Tethering (Hotspot)</source>
       <translation>Отключить интернет-модем (Режим модема)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7751"/>
+      <location filename="../qt/mainwindow.ui" line="7773"/>
       <source>Disable Passbook</source>
       <translation>Отключить Passbook</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7758"/>
+      <location filename="../qt/mainwindow.ui" line="7780"/>
       <source>Disable Spotlight</source>
       <translation>Отключить Spotlight</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7765"/>
+      <location filename="../qt/mainwindow.ui" line="7787"/>
       <source>Disable Voice Control</source>
       <translation>Отключить голосовое управление</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7873"/>
+      <location filename="../qt/mainwindow.ui" line="7895"/>
       <source>Posterboard</source>
       <translation>Posterboard</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7912"/>
+      <location filename="../qt/mainwindow.ui" line="7934"/>
       <source>   Discover Wallpapers</source>
       <translation>   Скачать обои</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8003"/>
+      <location filename="../qt/mainwindow.ui" line="8025"/>
       <source>  Tendies</source>
       <translation>  Tendies</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8023"/>
+      <location filename="../qt/mainwindow.ui" line="8045"/>
       <source>   Templates</source>
       <translation>   Шаблоны</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8046"/>
+      <location filename="../qt/mainwindow.ui" line="8068"/>
       <source>   Video</source>
       <translation>   Видео</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8076"/>
+      <location filename="../qt/mainwindow.ui" line="8098"/>
       <source>Clear Action:</source>
       <translation>Сбросить:</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8132"/>
-      <location filename="../qt/mainwindow.ui" line="8219"/>
-      <location filename="../qt/mainwindow.ui" line="8617"/>
+      <location filename="../qt/mainwindow.ui" line="8154"/>
+      <location filename="../qt/mainwindow.ui" line="8241"/>
+      <location filename="../qt/mainwindow.ui" line="8639"/>
       <source>Select a wallpaper file with the .tendies extension.</source>
       <translation>Выберите файл обоев с расширением .tendies.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8138"/>
+      <location filename="../qt/mainwindow.ui" line="8160"/>
       <source>  Import Files (.tendies)</source>
       <translation>  Импорт файлов (.tendies)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8225"/>
-      <location filename="../qt/mainwindow.ui" line="8623"/>
+      <location filename="../qt/mainwindow.ui" line="8247"/>
+      <location filename="../qt/mainwindow.ui" line="8645"/>
       <source>  Import Templates (.batter)</source>
       <translation>  Импорт шаблонов (.batter)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8282"/>
+      <location filename="../qt/mainwindow.ui" line="8304"/>
       <source>Uses the CoreAnimation file to play the video (300 fps limit)
 Will show up in Collections</source>
       <translation>Использует файл CoreAnimation для воспроизведения видео (ограничение 300 FPS)
 Будет отображаться в коллекциях</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8286"/>
+      <location filename="../qt/mainwindow.ui" line="8308"/>
       <source>Loop (use CoreAnimation method)</source>
       <translation>Цикл (используйте метод CoreAnimation)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8296"/>
+      <location filename="../qt/mainwindow.ui" line="8318"/>
       <source>Reverse on Loop</source>
       <translation>Обратная перемотка на цикле</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8303"/>
+      <location filename="../qt/mainwindow.ui" line="8325"/>
       <source>Make Foreground (hides clock)</source>
       <translation>Включить эффект глубины (скрыть часы)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8376"/>
+      <location filename="../qt/mainwindow.ui" line="8398"/>
       <source>Choose a photo for the wallpaper to freeze on when finished (.heic files only)</source>
       <translation>Выберите фотографию, которая будет отображаться в качестве обоев после завершения (ТОЛЬКО .heic)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8379"/>
+      <location filename="../qt/mainwindow.ui" line="8401"/>
       <source>Choose Freeze Frame (.HEIC)</source>
       <translation>Выбрать стоп-кадр (.HEIC)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8386"/>
+      <location filename="../qt/mainwindow.ui" line="8408"/>
       <source>Choose a video file for the wallpaper (.mov or .mp4)</source>
       <translation>Выберите видеофайл для обоев (.mov или .mp4)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8389"/>
+      <location filename="../qt/mainwindow.ui" line="8411"/>
       <source>Choose Video</source>
       <translation>Выбрать видео</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8534"/>
+      <location filename="../qt/mainwindow.ui" line="8556"/>
       <source>Templates</source>
       <translation>Шаблоны</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8756"/>
+      <location filename="../qt/mainwindow.ui" line="8778"/>
       <source>Risky Options</source>
       <translation>Рискованные настройки</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8831"/>
+      <location filename="../qt/mainwindow.ui" line="8853"/>
       <source>Disclaimer:
 
 The options on this page may be unsafe for your device. Use these options at your own risk. Changing
@@ -1395,17 +1395,17 @@ Nugget is not responsible if you mess up your device, especially with resolution
 Nugget не несет ответственности, если вы повредите свое устройство, особенно с помощью средства изменения разрешения.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8858"/>
+      <location filename="../qt/mainwindow.ui" line="8880"/>
       <source>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</source>
       <translation>Использует метод файла. Рекомендованно выключать даемон в табе даемонах.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8861"/>
+      <location filename="../qt/mainwindow.ui" line="8883"/>
       <source>Disable OTA Updates (file)</source>
       <translation>Отключить обновления OTA (файл)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8868"/>
+      <location filename="../qt/mainwindow.ui" line="8890"/>
       <source>Disables temperature monitoring daemon to reduce system checks.
 
 Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified" in Settings.</source>
@@ -1414,127 +1414,127 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
 Предупреждение: Выключение приведет к ошибке аккумулятора - "Неизвестная деталь" в Настройках.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8873"/>
+      <location filename="../qt/mainwindow.ui" line="8895"/>
       <source>Disable thermalmonitord</source>
       <translation>Отключить thermalmonitord</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8895"/>
+      <location filename="../qt/mainwindow.ui" line="8917"/>
       <source>Set a custom device screen resolution.</source>
       <translation>Установите пользовательское разрешение экрана устройства.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8898"/>
+      <location filename="../qt/mainwindow.ui" line="8920"/>
       <source>Set a Custom Device Resolution</source>
       <translation>Установить пользовательское разрешение устройства</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8926"/>
+      <location filename="../qt/mainwindow.ui" line="8948"/>
       <source>Height:</source>
       <translation>Высота:</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8941"/>
+      <location filename="../qt/mainwindow.ui" line="8963"/>
       <source>Resolution Height</source>
       <translation>Разрешение по высоте</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8982"/>
+      <location filename="../qt/mainwindow.ui" line="9004"/>
       <source>Width:</source>
       <translation>Ширина:</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8999"/>
+      <location filename="../qt/mainwindow.ui" line="9021"/>
       <source>Resolution Width</source>
       <translation>Разрешение по ширине</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9139"/>
+      <location filename="../qt/mainwindow.ui" line="9161"/>
       <source>Miscellaneous Options</source>
       <translation>Прочие Опции</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9249"/>
+      <location filename="../qt/mainwindow.ui" line="9271"/>
       <source>Springboard</source>
       <translation>Springboard</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9316"/>
+      <location filename="../qt/mainwindow.ui" line="9338"/>
       <source>Internal</source>
       <translation>Внутренний</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9345"/>
+      <location filename="../qt/mainwindow.ui" line="9367"/>
       <source>Risky</source>
       <translation>Рискованно</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9497"/>
+      <location filename="../qt/mainwindow.ui" line="9519"/>
       <source>Apply</source>
       <translation>Применить</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9558"/>
+      <location filename="../qt/mainwindow.ui" line="9608"/>
       <source>Current gestalt file location:</source>
-      <translation>Текущее расположение файла gestalt:</translation>
+      <translation>Текущее расположение файла MobileGestalt:</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9586"/>
+      <location filename="../qt/mainwindow.ui" line="9636"/>
       <source>  Choose Gestalt File</source>
       <translation>  Выберите файл gestalt</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9617"/>
+      <location filename="../qt/mainwindow.ui" line="9667"/>
       <source>  Apply Changes</source>
       <translation>  Применить изменения</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9634"/>
+      <location filename="../qt/mainwindow.ui" line="9684"/>
       <source>Ready!</source>
       <translation>Готово!</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9672"/>
+      <location filename="../qt/mainwindow.ui" line="9722"/>
       <source>Note: Skip Setup is currently turned on.</source>
       <translation>Примечание: в настоящее время включена функция «Пропустить настройку».</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9827"/>
+      <location filename="../qt/mainwindow.ui" line="9877"/>
       <source>Nugget Settings</source>
       <translation>Настройки Nugget</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10064"/>
+      <location filename="../qt/mainwindow.ui" line="10114"/>
       <source>Allow Applying Over WiFi</source>
       <translation>Разрешить применение через WiFi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10074"/>
+      <location filename="../qt/mainwindow.ui" line="10124"/>
       <source>Auto Reboot After Applying</source>
       <translation>Автоматическая перезагрузка после применения</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10084"/>
+      <location filename="../qt/mainwindow.ui" line="10134"/>
       <source>Show Risky Tweak Options</source>
       <translation>Показать рискованные настройки</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10091"/>
+      <location filename="../qt/mainwindow.ui" line="10141"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
       <translation>Показать модели для других типов устройств на вкладке « AI device spoofing».</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10100"/>
+      <location filename="../qt/mainwindow.ui" line="10150"/>
       <source>Show All Spoofable Models</source>
       <translation>Показать все поддельные модели</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10107"/>
+      <location filename="../qt/mainwindow.ui" line="10157"/>
       <source>Ignore Posterboard Frame Limit</source>
       <translation>Игнорировать ограничение Posterboard</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10114"/>
+      <location filename="../qt/mainwindow.ui" line="10164"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
@@ -1543,47 +1543,47 @@ DO NOT unplug your device during restores.</source>
 НЕ отключайте устройство во время восстановления.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10119"/>
+      <location filename="../qt/mainwindow.ui" line="10169"/>
       <source>Disable Tendies Limit</source>
       <translation>Отключить ограничение Tendies</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10299"/>
+      <location filename="../qt/mainwindow.ui" line="10349"/>
       <source>Restores the SSL config that does something idk</source>
       <translation>Восстанавливает конфигурацию SSL, которая делает хз че</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10302"/>
+      <location filename="../qt/mainwindow.ui" line="10352"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
       <translation>Восстановить хранилище доверенных сертификатов (профили конфигурации SSL)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10312"/>
+      <location filename="../qt/mainwindow.ui" line="10362"/>
       <source>Skip Setup * (non-exploit files only)</source>
       <translation>Пропустить настройку * (только для файлов, не содержащих эксплойты)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10325"/>
+      <location filename="../qt/mainwindow.ui" line="10375"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
       <translation>Включить Supervision * (потребуется Skip Setup)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10335"/>
+      <location filename="../qt/mainwindow.ui" line="10385"/>
       <source>Enter Organization Name</source>
       <translation>Введите название организации</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10358"/>
+      <location filename="../qt/mainwindow.ui" line="10408"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
       <translation>* Примечание: пропуск настройки может вызвать проблемы с профилями конфигурации. Отключите эту функцию, если это необходимо.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10385"/>
+      <location filename="../qt/mainwindow.ui" line="10435"/>
       <source>Reset Device Pairing</source>
       <translation>Сброс сопряжения устройств</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10399"/>
+      <location filename="../qt/mainwindow.ui" line="10449"/>
       <source>Pocket Poster Helper</source>
       <translation>Помощник по Pocket Poster</translation>
     </message>
@@ -1592,7 +1592,7 @@ DO NOT unplug your device during restores.</source>
       <location filename="../qt/mainwindow.ui" line="1205"/>
       <location filename="../qt/mainwindow.ui" line="1229"/>
       <location filename="../qt/mainwindow.ui" line="1254"/>
-      <location filename="../qt/mainwindow.ui" line="7938"/>
+      <location filename="../qt/mainwindow.ui" line="7960"/>
       <source>...</source>
       <translation>...</translation>
     </message>
@@ -1608,223 +1608,224 @@ DO NOT unplug your device during restores.</source>
       <translation>Переводчики</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4041"/>
+      <location filename="../qt/mainwindow.ui" line="4063"/>
       <source>Change Status Bar Date Text</source>
       <translation>Изменить текст даты в строке состояния</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4048"/>
+      <location filename="../qt/mainwindow.ui" line="4070"/>
       <source>Status Bar Date Text</source>
       <translation>Текст даты в строке состояния</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10024"/>
+      <location filename="../qt/mainwindow.ui" line="10074"/>
       <source>App Language</source>
       <translation>Язык приложения</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8409"/>
+      <location filename="../qt/mainwindow.ui" line="8431"/>
       <source>   Export as .tendies</source>
       <translation>   Экспортировать как .tendies</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9723"/>
+      <location filename="../qt/mainwindow.ui" line="9773"/>
       <source>Remove Tweaks</source>
       <translation>Убрать Твики</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5458"/>
+      <location filename="../qt/mainwindow.ui" line="5480"/>
       <source>Auto‑Lock (Lock Screen)</source>
       <translation>Автоблокировка (Экран Блокировки)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5682"/>
+      <location filename="../qt/mainwindow.ui" line="5704"/>
       <source>Hide AC Power on Lock Screen</source>
       <translation>Скрыть AC Power на экране блокировки</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5790"/>
+      <location filename="../qt/mainwindow.ui" line="5812"/>
       <source>Show Dynamic Island in Screenshots</source>
       <translation>Показывать Dynamic Island в Скриншотах</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5873"/>
+      <location filename="../qt/mainwindow.ui" line="5895"/>
       <source>Show Red/Green Authentication Line on Lock Screen</source>
       <translation>Показывать Красную/Зеленую линию аутентификации на экране блокировки</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5914"/>
+      <location filename="../qt/mainwindow.ui" line="5936"/>
       <source>Disable Floating Tab Bar</source>
       <translation>Отключить плавающую панель вкладок</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6233"/>
+      <location filename="../qt/mainwindow.ui" line="6255"/>
       <source>Force Left-to-Right Layout</source>
       <translation>Принудительное выравнивание слева направо</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6252"/>
+      <location filename="../qt/mainwindow.ui" line="6274"/>
       <source>Shows hidden apps like Field Test and Continuity on the home screen</source>
       <translation>Показывает Спрятанные приложения такие как Field Test и Continuity на рабочем столе</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6270"/>
+      <location filename="../qt/mainwindow.ui" line="6292"/>
       <source>Show Hidden Icons on Home Screen</source>
       <translation>Показывать скрытые иконки на рабочем столе</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6289"/>
+      <location filename="../qt/mainwindow.ui" line="6311"/>
       <source>Enables the iPad-style keyboard keyflicks on iPhones</source>
       <translation>Включает клавиатуру iPad-Style keyflicks на Айфонах</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6612"/>
+      <location filename="../qt/mainwindow.ui" line="6634"/>
       <source>Show Accessory Developer Settings</source>
       <translation>Показать настройки разработчика аксессуаров</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7623"/>
+      <location filename="../qt/mainwindow.ui" line="7645"/>
       <source>Disables tools that monitor and test hardware or system behavior for faults and performance issues.</source>
       <translation>Отключает инструменты, которые отслеживают и тестируют поведение оборудования или системы на предмет неисправностей и проблем с производительностью.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7626"/>
+      <location filename="../qt/mainwindow.ui" line="7648"/>
       <source>Disable System Diagnostics</source>
       <translation>Отключает системные диагностики</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7772"/>
+      <location filename="../qt/mainwindow.ui" line="7794"/>
       <source>Disable NanoTimeKit (Apple Watch Face Sync)</source>
       <translation>Отключить NanoTimeKit (синхронизация циферблата Apple Watch)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8310"/>
+      <location filename="../qt/mainwindow.ui" line="8332"/>
       <source>Frame Calculation Mode</source>
       <translation>Режим расчета кадров</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8361"/>
+      <location filename="../qt/mainwindow.ui" line="8383"/>
       <source>Linear</source>
       <translation>Линейный</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8366"/>
+      <location filename="../qt/mainwindow.ui" line="8388"/>
       <source>Discrete</source>
       <translation>Дискретный</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7186"/>
+      <location filename="../qt/mainwindow.ui" line="7208"/>
       <source>Disable Liquid Glass</source>
       <translation>Выключить Liquid Glass</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7205"/>
+      <location filename="../qt/mainwindow.ui" line="7227"/>
       <source>Enables liquid glass on apps regardless of whether or not it has been updated to include it</source>
       <translation>Включает Liquid Glass в приложениях, где оно не предусмотрено</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7223"/>
+      <location filename="../qt/mainwindow.ui" line="7245"/>
       <source>Ignore Liquid Glass App Build Check</source>
       <translation>Игнорировать проверку сборки приложения Liquid Glass</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2196"/>
+      <location filename="../qt/mainwindow.ui" line="2218"/>
       <source>Enable Security Research Device Mode</source>
       <translation>Включить режим Security Research Device</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3075"/>
+      <location filename="../qt/mainwindow.ui" line="3097"/>
       <source>iPhone 17 (iPhone18,3)</source>
       <translation>iPhone 17 (iPhone18,3)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5546"/>
+      <location filename="../qt/mainwindow.ui" line="5568"/>
       <source>Disable AirDrop Time Limit for Everyone Option</source>
       <translation>Отключить лимитирование функции AirDrop «для всех»</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6307"/>
+      <location filename="../qt/mainwindow.ui" line="6329"/>
       <source>Keyboard Character Flick</source>
       <translation>Щелчок Клавиатуры</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6356"/>
+      <location filename="../qt/mainwindow.ui" line="6378"/>
       <source>Disable Clock Icon Seconds Hand</source>
       <translation>Отключить секундную стрелку на иконке часов</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6390"/>
+      <location filename="../qt/mainwindow.ui" line="6412"/>
       <source>Disable Spotlight Searching in Websites</source>
       <translation>Отключить Spotlight-Поиск на веб-сайтах</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6424"/>
+      <location filename="../qt/mainwindow.ui" line="6446"/>
       <source>Show Hardware Button Hints in Screenshots</source>
       <translation>Показать подсказки по аппаратным кнопкам на скриншоте</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6476"/>
+      <location filename="../qt/mainwindow.ui" line="6498"/>
       <source>Metal HUD Debug</source>
       <translation>Отладка Metal HUD</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6510"/>
+      <location filename="../qt/mainwindow.ui" line="6532"/>
       <source>iMessage Debugging</source>
       <translation>Отладка iMessage</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6544"/>
+      <location filename="../qt/mainwindow.ui" line="6566"/>
       <source>Continuity Debugging</source>
       <translation>Отладка Continuity</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6578"/>
+      <location filename="../qt/mainwindow.ui" line="6600"/>
       <source>FaceTime Debugging</source>
       <translation>Отладка FaceTime</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6661"/>
+      <location filename="../qt/mainwindow.ui" line="6683"/>
       <source>App Store Debug Gesture</source>
       <translation>Отладочные жесты в App Store</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6695"/>
+      <location filename="../qt/mainwindow.ui" line="6717"/>
       <source>Notes Debug Mode</source>
       <translation>Режим отладки в Notes</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="6993"/>
-      <location filename="../qt/mainwindow.ui" line="9368"/>
+      <location filename="../qt/mainwindow.ui" line="7015"/>
+      <location filename="../qt/mainwindow.ui" line="9390"/>
       <source>Liquid Glass</source>
-      <translation>Жидкое стекло</translation>
+      <translation>Жидкое 
+стекло</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7152"/>
+      <location filename="../qt/mainwindow.ui" line="7174"/>
       <source>Force Solarium Fallback</source>
       <translation>Принудить Solarium Fallback</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7263"/>
+      <location filename="../qt/mainwindow.ui" line="7285"/>
       <source>Disable Liquid Glass on LS Clock</source>
       <translation>Отключить Жидкое Стекло на часах экрана блокировки</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7297"/>
+      <location filename="../qt/mainwindow.ui" line="7319"/>
       <source>Disable Liquid Glass on Dock</source>
       <translation>Отключить Жидкое Стекло на панели управления на главном экране</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7331"/>
+      <location filename="../qt/mainwindow.ui" line="7353"/>
       <source>Disable Specular Motion</source>
       <translation>Отключить Зеркальное Движение</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7365"/>
+      <location filename="../qt/mainwindow.ui" line="7387"/>
       <source>Disable Outer Refraction</source>
       <translation>Отключить Внешнее преломление</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7399"/>
+      <location filename="../qt/mainwindow.ui" line="7421"/>
       <source>Disable Solarium HDR</source>
       <translation>Отключить Solarium HDR</translation>
     </message>
@@ -1846,55 +1847,70 @@ bl_sbx</translation>
       <translation>Отключить низкую производительность жидкого стекла</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2112"/>
+      <location filename="../qt/mainwindow.ui" line="2119"/>
       <source>Enable iPadOS (WARNING: risky, use with caution)</source>
       <translation>Включить iPadOS (ПРЕДУПРЕЖДЕНИЕ: рискованно, использовать с осторожностью)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10161"/>
+      <location filename="../qt/mainwindow.ui" line="10211"/>
       <source>BookRestore Apply Method</source>
       <translation>Метод применения BookRestore</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10193"/>
+      <location filename="../qt/mainwindow.ui" line="10243"/>
       <source>   Restore</source>
       <translation>   Восстановить</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10208"/>
+      <location filename="../qt/mainwindow.ui" line="10258"/>
       <source>BookRestore File Transfer Method</source>
       <translation>Метод переноса файла BookRestore</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10238"/>
+      <location filename="../qt/mainwindow.ui" line="10288"/>
       <source>   LocalHost</source>
       <translation>   Локальный хост</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10243"/>
+      <location filename="../qt/mainwindow.ui" line="10293"/>
       <source>   On-Device (Slower)</source>
       <translation>   На устройстве (Медленно)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10253"/>
+      <location filename="../qt/mainwindow.ui" line="10303"/>
       <source>Books Container UUID</source>
       <translation>UUID Контейнера книг</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10260"/>
+      <location filename="../qt/mainwindow.ui" line="10310"/>
       <source>Enter your books container UUID if you know it.
 It will be automatically found if this is left blank.</source>
       <translation>Введите свой UUID контейнера книг, если вы знаете его. Он будет автоматически найден если оставить это поле пустым.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10264"/>
+      <location filename="../qt/mainwindow.ui" line="10314"/>
       <source>Enter Books Container UUID</source>
       <translation>Введите UUID контейнера книг</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10271"/>
+      <location filename="../qt/mainwindow.ui" line="10321"/>
       <source>* Developer Mode/Administrator permissions required for these options.</source>
       <translation>* Режим разработчика/Разрешения администратора необходимы для этих параметров.</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="2126"/>
+      <source>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</source>
+      <translation>ПРЕДУПРЕЖДЕНИЕ: Не включайте iPadOS, если у вас включен пароль с буквами.</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="9572"/>
+      <source>Administrator permission is required to apply tweaks with AFC.</source>
+      <translation>Для применения твиков с помощью AFC требуются права администратора.</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="9579"/>
+      <source> Restart as Admin</source>
+      <translation>Перезапустить от имени администратора</translation>
     </message>
   </context>
   <context>
@@ -1942,13 +1958,13 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
       <translation>Пожалуйста, подключите устройство.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="184"/>
-      <location filename="../gui/pages/main/settings.py" line="194"/>
+      <location filename="../gui/pages/main/settings.py" line="199"/>
+      <location filename="../gui/pages/main/settings.py" line="209"/>
       <source>PosterBoard App Hash</source>
       <translation>Хэш приложения PosterBoard</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="184"/>
+      <location filename="../gui/pages/main/settings.py" line="199"/>
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
@@ -1957,17 +1973,17 @@ Open up its settings and tap "Detect".</source>
 Откройте его настройки и нажмите «Обнаружить».</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="187"/>
+      <location filename="../gui/pages/main/settings.py" line="202"/>
       <source>Copy it and paste it</source>
       <translation>Скопируйте и вставьте</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="191"/>
+      <location filename="../gui/pages/main/settings.py" line="206"/>
       <source>It has been copied. Paste it</source>
       <translation>Оно было скопировано. Вставьте его</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="194"/>
+      <location filename="../gui/pages/main/settings.py" line="209"/>
       <source>Your hash is:
 {0}
 
@@ -2043,7 +2059,7 @@ Open up its settings and tap "Detect".</source>
       <translation>Нажмите «Показать детали» для просмотра трассировки.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="172"/>
+      <location filename="../devicemanagement/device_manager.py" line="170"/>
       <source>Device is password protected! You must trust the computer on your device.
 
 Unlock your device. On the popup, click "Trust", enter your password, then try again.</source>
@@ -2052,27 +2068,27 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
 Разблокируйте устройство. Во всплывающем окне нажмите «Доверять», введите пароль, а затем повторите попытку.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="176"/>
+      <location filename="../devicemanagement/device_manager.py" line="174"/>
       <source>If you keep receiving this error, try using a different cable or port.</source>
       <translation>Если эта ошибка продолжает появляться, попробуйте использовать другой кабель или порт.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="310"/>
+      <location filename="../devicemanagement/device_manager.py" line="308"/>
       <source>Pairing Reset</source>
       <translation>Сброс сопряжения</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="310"/>
+      <location filename="../devicemanagement/device_manager.py" line="308"/>
       <source>Your device's pairing was successfully reset. Refresh the device list before applying.</source>
       <translation>Сопряжение вашего устройства было успешно сброшено. Обновите список устройств перед применением.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="641"/>
+      <location filename="../devicemanagement/device_manager.py" line="639"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
       <translation>Файл mobilegestalt не предоставлен! Выберите файл, чтобы применить настройки mobilegestalt.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="562"/>
+      <location filename="../devicemanagement/device_manager.py" line="560"/>
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
@@ -2081,19 +2097,19 @@ Remember to turn Find My back on!</source>
 Не забудьте снова включить функцию «Найти iPhone»!</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="564"/>
+      <location filename="../devicemanagement/device_manager.py" line="562"/>
       <source>Please restart your device to see changes.</source>
       <translation>Пожалуйста, перезагрузите устройство, чтобы увидеть изменения.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="565"/>
+      <location filename="../devicemanagement/device_manager.py" line="563"/>
       <source>All done! </source>
       <translation>Все готово! </translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="565"/>
-      <location filename="../devicemanagement/device_manager.py" line="737"/>
-      <location filename="../devicemanagement/device_manager.py" line="833"/>
+      <location filename="../devicemanagement/device_manager.py" line="563"/>
+      <location filename="../devicemanagement/device_manager.py" line="735"/>
+      <location filename="../devicemanagement/device_manager.py" line="831"/>
       <source>Success!</source>
       <translation>Успешно!</translation>
     </message>
@@ -2140,17 +2156,17 @@ Remember to turn Find My back on!</source>
       <translation>Не получилось загрузить шаблон</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="218"/>
+      <location filename="../devicemanagement/device_manager.py" line="216"/>
       <source>No Device</source>
       <translation>Нет устройств</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="572"/>
+      <location filename="../devicemanagement/device_manager.py" line="570"/>
       <source>Restoring to device...{0}{1}</source>
       <translation>Восстановление на устройстве…{0}{1}</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="577"/>
+      <location filename="../devicemanagement/device_manager.py" line="575"/>
       <source>Applying changes to files...</source>
       <translation>Применяется изменение файлов…</translation>
     </message>
@@ -2205,18 +2221,18 @@ Remember to turn Find My back on!</source>
       <translation>Создаем {0}…</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="651"/>
-      <location filename="../devicemanagement/device_manager.py" line="757"/>
+      <location filename="../devicemanagement/device_manager.py" line="649"/>
+      <location filename="../devicemanagement/device_manager.py" line="755"/>
       <source>Generating backup...</source>
       <translation>Создание резервной копии...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="493"/>
+      <location filename="../devicemanagement/device_manager.py" line="491"/>
       <source>DO NOT UNPLUG</source>
       <translation>НЕ ОТКЛЮЧАЙТЕ УСТРОЙСТВО</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="537"/>
+      <location filename="../devicemanagement/device_manager.py" line="535"/>
       <source>Preparing to restore...</source>
       <translation>Подготовка к восстановлению...</translation>
     </message>
@@ -2235,32 +2251,32 @@ You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; D
 Вы можете включить это внизу настроек &gt; Конфиденциальность и безопасность &gt; Режим разработчика на вашем iPhone или iPad.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="497"/>
+      <location filename="../devicemanagement/device_manager.py" line="495"/>
       <source>Creating connection to device...</source>
       <translation>Создаем соединение с устройством…</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="500"/>
+      <location filename="../devicemanagement/device_manager.py" line="498"/>
       <source>Generating BookRestore database...</source>
       <translation>Создаем базу данных BookRestore…</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="545"/>
+      <location filename="../devicemanagement/device_manager.py" line="543"/>
       <source>Waiting for device to reconnect...</source>
       <translation>Ожидание повторного подключения устройства.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="545"/>
+      <location filename="../devicemanagement/device_manager.py" line="543"/>
       <source>Please complete the setup on your device.</source>
       <translation>Пожалуйста, завершите настройку (сет-ап) на вашем устройстве.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="557"/>
+      <location filename="../devicemanagement/device_manager.py" line="555"/>
       <source>Waiting for changes to apply...</source>
       <translation>Ждем применения изменений…</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="559"/>
+      <location filename="../devicemanagement/device_manager.py" line="557"/>
       <source>Rebooting to apply changes...</source>
       <translation>Перезапускаем для применения изменений…</translation>
     </message>
@@ -2298,11 +2314,6 @@ You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; D
       <location filename="../tweaks/tweak_classes.py" line="287"/>
       <source>Values of %SIDE offset neighbors are not 0.</source>
       <translation>Значения соседей с смещением %SIDE не равны 0.</translation>
-    </message>
-    <message>
-      <location filename="../tweaks/tweak_classes.py" line="295"/>
-      <source>Non-zero value found between left offset and start</source>
-      <translation>Не нулевые значения найдены между левым смещением и стартом</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="88"/>

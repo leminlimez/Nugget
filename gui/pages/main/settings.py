@@ -1,3 +1,5 @@
+import os
+
 from ..page import Page
 from ..pages_list import Page as PageItem
 from qt.mainwindow_ui import Ui_Nugget
@@ -8,6 +10,7 @@ from PySide6.QtCore import QCoreApplication, QLocale
 from tweaks.tweak_loader import load_rdar_fix
 from tweaks.tweaks import tweaks
 from controllers.video_handler import set_ignore_frame_limit
+from devicemanagement.constants import Version
 from restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreApplyMethod
 
 available_languages = {
@@ -48,6 +51,7 @@ class SettingsPage(Page):
         self.window = window
         self.ui = ui
         self.lang_indexes = []
+        self.toggle_UAC_btn(self.window.device_manager.pref_manager.bookrestore_apply_mode == BookRestoreApplyMethod.AFC)
 
     def load_page(self):
         self.ui.allowWifiApplyingChk.toggled.connect(self.on_allowWifiApplyingChk_toggled)
@@ -84,6 +88,17 @@ class SettingsPage(Page):
             idx = 0
         self.ui.langDrp.setCurrentIndex(idx)
 
+    # Toggle the UAC info
+    def toggle_UAC_btn(self, visible: bool):
+        if os.name != 'nt':
+            self.ui.restartUACLbl.hide()
+            self.ui.restartUACBtn.hide()
+            return
+        import pyuac
+        show_btn = visible and not pyuac.isUserAdmin()
+        self.ui.restartUACLbl.setVisible(show_btn)
+        self.ui.restartUACBtn.setVisible(show_btn)
+
     # Toggle the risky options visibility
     def set_risky_options_visible(self, visible: bool, device_connected: bool=True):
         if device_connected:
@@ -91,7 +106,21 @@ class SettingsPage(Page):
         self.ui.ignorePBFrameLimitChk.setVisible(visible)
         self.ui.disableTendiesLimitChk.setVisible(visible)
         self.ui.atwakeupChk.setVisible(visible)
-        self.ui.enableiPadOSChk.setVisible(visible)
+        if device_connected:
+            show_ipados = visible and self.window.device_manager.get_current_device_model().startswith("iPhone")
+            # eligibility page button
+            patched: bool = self.window.device_manager.get_current_device_patched()
+            device_ver = Version(self.window.device_manager.data_singleton.current_device.version)
+            if not patched and device_ver >= Version("17.4") and (device_ver <= Version("17.7") or device_ver >= Version("18.1")):
+                show_eu = device_ver < Version("18.3") or visible
+            else:
+                show_eu = False
+        else:
+            show_ipados = False
+            show_eu = False
+        self.ui.enableiPadOSChk.setVisible(show_ipados)
+        self.ui.ipadOSAlphaWarningLbl.setVisible(show_ipados)
+        self.ui.euEnablerPageBtn.setVisible(show_eu)
         try:
             self.ui.resetPBDrp.removeItem(4)
         except:
@@ -166,6 +195,8 @@ class SettingsPage(Page):
     def on_brApplyModeDrp_activated(self, index: int):
         new_mode = BookRestoreApplyMethod(index)
         self.window.device_manager.pref_manager.bookrestore_apply_mode = new_mode
+        show_btn = new_mode == BookRestoreApplyMethod.AFC and self.window.device_manager.get_current_device_uses_bookrestore()
+        self.toggle_UAC_btn(show_btn)
         # save the setting
         self.window.settings.setValue("bookrestore_apply_mode", index)
 
