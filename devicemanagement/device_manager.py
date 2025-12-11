@@ -441,7 +441,7 @@ class DeviceManager:
 
     def get_domain_for_path(self, path: str, owner: int = 501, use_bookrestore: bool = False) -> str:
         # returns Domain: str?, Path: str
-        if ((self.get_current_device_supported() and not path.startswith("/var/mobile/")) or (self.get_current_device_uses_bookrestore() and use_bookrestore)) and not owner == 0:
+        if ((self.get_current_device_supported() and not path.startswith("/var/mobile/")) or (not self.data_singleton.current_device.has_partial_sparserestore() and self.get_current_device_uses_bookrestore() and use_bookrestore)) and not owner == 0:
             # don't do anything on sparserestore versions
             return path, ""
         fully_patched = not self.data_singleton.current_device.has_partial_sparserestore()
