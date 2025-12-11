@@ -1472,67 +1472,67 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
       <translation>適用</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9580"/>
+      <location filename="../qt/mainwindow.ui" line="9608"/>
       <source>Current gestalt file location:</source>
       <translation>現在のGestaltファイルの場所：</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9608"/>
+      <location filename="../qt/mainwindow.ui" line="9636"/>
       <source>  Choose Gestalt File</source>
       <translation>  Gestaltファイルを選択</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9639"/>
+      <location filename="../qt/mainwindow.ui" line="9667"/>
       <source>  Apply Changes</source>
       <translation>  変更を適用</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9656"/>
+      <location filename="../qt/mainwindow.ui" line="9684"/>
       <source>Ready!</source>
       <translation>準備済み！</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9694"/>
+      <location filename="../qt/mainwindow.ui" line="9722"/>
       <source>Note: Skip Setup is currently turned on.</source>
       <translation>注：現在、セットアップをスキップはオンになっています。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9849"/>
+      <location filename="../qt/mainwindow.ui" line="9877"/>
       <source>Nugget Settings</source>
       <translation>Nugget 設定</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10086"/>
+      <location filename="../qt/mainwindow.ui" line="10114"/>
       <source>Allow Applying Over WiFi</source>
       <translation>Wi-Fi経由での適用を許可</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10096"/>
+      <location filename="../qt/mainwindow.ui" line="10124"/>
       <source>Auto Reboot After Applying</source>
       <translation>適用後の自動再起動</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10106"/>
+      <location filename="../qt/mainwindow.ui" line="10134"/>
       <source>Show Risky Tweak Options</source>
       <translation>危険な微調整オプションを表示する</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10113"/>
+      <location filename="../qt/mainwindow.ui" line="10141"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
       <translation>AIデバイス偽装タブに他のデバイスタイプのモデルを表示する。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10122"/>
+      <location filename="../qt/mainwindow.ui" line="10150"/>
       <source>Show All Spoofable Models</source>
       <translation>すべての偽装可能モデルを表示</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10129"/>
+      <location filename="../qt/mainwindow.ui" line="10157"/>
       <source>Ignore Posterboard Frame Limit</source>
       <translation>ポスターボード枠の制限を無視する</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10136"/>
+      <location filename="../qt/mainwindow.ui" line="10164"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
@@ -1541,47 +1541,47 @@ DO NOT unplug your device during restores.</source>
 復元中はデバイスのプラグを抜かないでください。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10141"/>
+      <location filename="../qt/mainwindow.ui" line="10169"/>
       <source>Disable Tendies Limit</source>
       <translation>Tendiesの制限を無効</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10321"/>
+      <location filename="../qt/mainwindow.ui" line="10349"/>
       <source>Restores the SSL config that does something idk</source>
       <translation>SSLの設定を復元する。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10324"/>
+      <location filename="../qt/mainwindow.ui" line="10352"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
       <translation>TrustStore（SSL構成プロファイル）の復元</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10334"/>
+      <location filename="../qt/mainwindow.ui" line="10362"/>
       <source>Skip Setup * (non-exploit files only)</source>
       <translation>セットアップをスキップ * (エクスプロイト以外のファイルのみ)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10347"/>
+      <location filename="../qt/mainwindow.ui" line="10375"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
       <translation>監視モードの有効化 * (セットアップのスキップが必要)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10357"/>
+      <location filename="../qt/mainwindow.ui" line="10385"/>
       <source>Enter Organization Name</source>
       <translation>組織名を入力</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10380"/>
+      <location filename="../qt/mainwindow.ui" line="10408"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
       <translation>* 注意：セットアップをスキップは構成プロファイルで問題を引き起こす可能性があります。必要な場合はオフにしてください。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10407"/>
+      <location filename="../qt/mainwindow.ui" line="10435"/>
       <source>Reset Device Pairing</source>
       <translation>デバイスのペアリングをリセットする</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10421"/>
+      <location filename="../qt/mainwindow.ui" line="10449"/>
       <source>Pocket Poster Helper</source>
       <translation>Pocket Poster Helper</translation>
     </message>
@@ -1616,7 +1616,7 @@ DO NOT unplug your device during restores.</source>
       <translation>ステータスバーの日付テキスト</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10046"/>
+      <location filename="../qt/mainwindow.ui" line="10074"/>
       <source>App Language</source>
       <translation>アプリ言語</translation>
     </message>
@@ -1626,7 +1626,7 @@ DO NOT unplug your device during restores.</source>
       <translation>   .tendiesとしてエクスポート</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9745"/>
+      <location filename="../qt/mainwindow.ui" line="9773"/>
       <source>Remove Tweaks</source>
       <translation>Tweakを削除</translation>
     </message>
@@ -1849,49 +1849,49 @@ bl_sbx</translation>
       <translation>iPadOS を有効にする (警告: 危険ですので、注意して使用してください)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10183"/>
+      <location filename="../qt/mainwindow.ui" line="10211"/>
       <source>BookRestore Apply Method</source>
       <translation>BookRestore 適用方法</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10215"/>
+      <location filename="../qt/mainwindow.ui" line="10243"/>
       <source>   Restore</source>
       <translation>   復元</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10230"/>
+      <location filename="../qt/mainwindow.ui" line="10258"/>
       <source>BookRestore File Transfer Method</source>
       <translation>BookRestoreファイル転送方法</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10260"/>
+      <location filename="../qt/mainwindow.ui" line="10288"/>
       <source>   LocalHost</source>
       <translation>   Localhost</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10265"/>
+      <location filename="../qt/mainwindow.ui" line="10293"/>
       <source>   On-Device (Slower)</source>
       <translation>   デバイス上(遅い)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10275"/>
+      <location filename="../qt/mainwindow.ui" line="10303"/>
       <source>Books Container UUID</source>
       <translation>ブックコンテナーUUID</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10282"/>
+      <location filename="../qt/mainwindow.ui" line="10310"/>
       <source>Enter your books container UUID if you know it.
 It will be automatically found if this is left blank.</source>
       <translation>ブックコンテナUUIDを知っている場合は入力してください。
 これを空白のままにしておくと、自動的に見つかります。</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10286"/>
+      <location filename="../qt/mainwindow.ui" line="10314"/>
       <source>Enter Books Container UUID</source>
       <translation>ブックコンテナUUIDを入力</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10293"/>
+      <location filename="../qt/mainwindow.ui" line="10321"/>
       <source>* Developer Mode/Administrator permissions required for these options.</source>
       <translation>これらのオプションには、開発者モード/管理者権限が必要です。</translation>
     </message>
@@ -1899,6 +1899,16 @@ It will be automatically found if this is left blank.</source>
       <location filename="../qt/mainwindow.ui" line="2126"/>
       <source>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</source>
       <translation>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="9572"/>
+      <source>Administrator permission is required to apply tweaks with AFC.</source>
+      <translation></translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="9579"/>
+      <source> Restart as Admin</source>
+      <translation></translation>
     </message>
   </context>
   <context>
@@ -1946,13 +1956,13 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
       <translation>デバイスを接続してください。</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="184"/>
-      <location filename="../gui/pages/main/settings.py" line="194"/>
+      <location filename="../gui/pages/main/settings.py" line="199"/>
+      <location filename="../gui/pages/main/settings.py" line="209"/>
       <source>PosterBoard App Hash</source>
       <translation>Posterboard アプリハッシュ</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="184"/>
+      <location filename="../gui/pages/main/settings.py" line="199"/>
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
@@ -1961,17 +1971,17 @@ Open up its settings and tap "Detect".</source>
 設定を開き、「検出」をタップしてください。</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="187"/>
+      <location filename="../gui/pages/main/settings.py" line="202"/>
       <source>Copy it and paste it</source>
       <translation>コピーして貼り付ける</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="191"/>
+      <location filename="../gui/pages/main/settings.py" line="206"/>
       <source>It has been copied. Paste it</source>
       <translation>コピーされました。貼り付けてください</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="194"/>
+      <location filename="../gui/pages/main/settings.py" line="209"/>
       <source>Your hash is:
 {0}
 
@@ -2047,7 +2057,7 @@ Open up its settings and tap "Detect".</source>
       <translation>トレースバックの "詳細を表示"をクリックします。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="172"/>
+      <location filename="../devicemanagement/device_manager.py" line="170"/>
       <source>Device is password protected! You must trust the computer on your device.
 
 Unlock your device. On the popup, click "Trust", enter your password, then try again.</source>
@@ -2056,27 +2066,27 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
 デバイスのロックを解除します。その後、ポップアップで「信頼」をクリックし、パスワードを入力してから、もう一度試してください。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="176"/>
+      <location filename="../devicemanagement/device_manager.py" line="174"/>
       <source>If you keep receiving this error, try using a different cable or port.</source>
       <translation>このエラーが表示され続ける場合は、別のケーブルまたはポートを試してください。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="310"/>
+      <location filename="../devicemanagement/device_manager.py" line="308"/>
       <source>Pairing Reset</source>
       <translation>ペアリングリセット</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="310"/>
+      <location filename="../devicemanagement/device_manager.py" line="308"/>
       <source>Your device's pairing was successfully reset. Refresh the device list before applying.</source>
       <translation>デバイスのペアリングが正常にリセットされました。適用する前にデバイスリストを更新してください。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="641"/>
+      <location filename="../devicemanagement/device_manager.py" line="639"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
       <translation>mobilegestaltファイルが提供されていません！mobilegestaltの調整を適用するには、ファイルを選択してください。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="562"/>
+      <location filename="../devicemanagement/device_manager.py" line="560"/>
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
@@ -2085,19 +2095,19 @@ Remember to turn Find My back on!</source>
 探すをオンにすることを忘れないでください！</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="564"/>
+      <location filename="../devicemanagement/device_manager.py" line="562"/>
       <source>Please restart your device to see changes.</source>
       <translation>変更を確認するには、デバイスを再起動してください。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="565"/>
+      <location filename="../devicemanagement/device_manager.py" line="563"/>
       <source>All done! </source>
       <translation>すべて完了</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="565"/>
-      <location filename="../devicemanagement/device_manager.py" line="737"/>
-      <location filename="../devicemanagement/device_manager.py" line="833"/>
+      <location filename="../devicemanagement/device_manager.py" line="563"/>
+      <location filename="../devicemanagement/device_manager.py" line="735"/>
+      <location filename="../devicemanagement/device_manager.py" line="831"/>
       <source>Success!</source>
       <translation>成功</translation>
     </message>
@@ -2144,17 +2154,17 @@ Remember to turn Find My back on!</source>
       <translation>テンプレートのロードに失敗しました</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="218"/>
+      <location filename="../devicemanagement/device_manager.py" line="216"/>
       <source>No Device</source>
       <translation>デバイスなし</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="572"/>
+      <location filename="../devicemanagement/device_manager.py" line="570"/>
       <source>Restoring to device...{0}{1}</source>
       <translation>デバイスへの復元中...{0}{1}</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="577"/>
+      <location filename="../devicemanagement/device_manager.py" line="575"/>
       <source>Applying changes to files...</source>
       <translation>ファイルに変更を適用中...</translation>
     </message>
@@ -2209,18 +2219,18 @@ Remember to turn Find My back on!</source>
       <translation>{0}の作成中...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="651"/>
-      <location filename="../devicemanagement/device_manager.py" line="757"/>
+      <location filename="../devicemanagement/device_manager.py" line="649"/>
+      <location filename="../devicemanagement/device_manager.py" line="755"/>
       <source>Generating backup...</source>
       <translation>バックアップの生成中...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="493"/>
+      <location filename="../devicemanagement/device_manager.py" line="491"/>
       <source>DO NOT UNPLUG</source>
       <translation>プラグを外さないでください</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="537"/>
+      <location filename="../devicemanagement/device_manager.py" line="535"/>
       <source>Preparing to restore...</source>
       <translation>復元の準備中...</translation>
     </message>
@@ -2239,32 +2249,32 @@ You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; D
 iPhone または iPad の「設定」&gt;「プライバシーとセキュリティ」&gt;「開発者モード」で開発者モードを有効にできます。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="497"/>
+      <location filename="../devicemanagement/device_manager.py" line="495"/>
       <source>Creating connection to device...</source>
       <translation>デバイスへの接続を確立中...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="500"/>
+      <location filename="../devicemanagement/device_manager.py" line="498"/>
       <source>Generating BookRestore database...</source>
       <translation>BookRestoreデータベースの生成中...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="545"/>
+      <location filename="../devicemanagement/device_manager.py" line="543"/>
       <source>Waiting for device to reconnect...</source>
       <translation>デバイスが再接続されるのを待っています...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="545"/>
+      <location filename="../devicemanagement/device_manager.py" line="543"/>
       <source>Please complete the setup on your device.</source>
       <translation>デバイスでセットアップを完了してください。</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="557"/>
+      <location filename="../devicemanagement/device_manager.py" line="555"/>
       <source>Waiting for changes to apply...</source>
       <translation>変更が適用されるまで待機しています…</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="559"/>
+      <location filename="../devicemanagement/device_manager.py" line="557"/>
       <source>Rebooting to apply changes...</source>
       <translation>変更を適用するために再起動中...</translation>
     </message>

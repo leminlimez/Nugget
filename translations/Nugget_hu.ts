@@ -1475,67 +1475,67 @@ Figyelmeztetés; Ezt ha letiltod, akkor az Akkumulátor beállításokban azt fo
       <translation>Alkalmazás</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9580"/>
+      <location filename="../qt/mainwindow.ui" line="9608"/>
       <source>Current gestalt file location:</source>
       <translation>Gestalt fájl jelenlegi helyisége</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9608"/>
+      <location filename="../qt/mainwindow.ui" line="9636"/>
       <source>  Choose Gestalt File</source>
       <translation>  Gestalt fájl kiválasztása</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9639"/>
+      <location filename="../qt/mainwindow.ui" line="9667"/>
       <source>  Apply Changes</source>
       <translation>  Változtatások alkalmazása</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9656"/>
+      <location filename="../qt/mainwindow.ui" line="9684"/>
       <source>Ready!</source>
       <translation>Készen áll!</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9694"/>
+      <location filename="../qt/mainwindow.ui" line="9722"/>
       <source>Note: Skip Setup is currently turned on.</source>
       <translation>Megjegyzés: Setup kihagyása be van kapcsolva.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9849"/>
+      <location filename="../qt/mainwindow.ui" line="9877"/>
       <source>Nugget Settings</source>
       <translation>Nugget beállítások</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10086"/>
+      <location filename="../qt/mainwindow.ui" line="10114"/>
       <source>Allow Applying Over WiFi</source>
       <translation>Alkalmazás a Wi-Fi-n keresztül</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10096"/>
+      <location filename="../qt/mainwindow.ui" line="10124"/>
       <source>Auto Reboot After Applying</source>
       <translation>Automatikus újraindítás alkalmazás után</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10106"/>
+      <location filename="../qt/mainwindow.ui" line="10134"/>
       <source>Show Risky Tweak Options</source>
       <translation>Kockázatos módosítások opciók mutatása</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10113"/>
+      <location filename="../qt/mainwindow.ui" line="10141"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
       <translation>További modellek mutatása az AI eszköz spoofing oldalon.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10122"/>
+      <location filename="../qt/mainwindow.ui" line="10150"/>
       <source>Show All Spoofable Models</source>
       <translation>Mutassa az összes Spoofolható modellt</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10129"/>
+      <location filename="../qt/mainwindow.ui" line="10157"/>
       <source>Ignore Posterboard Frame Limit</source>
       <translation>Posterboard fps limit ignorálása</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10136"/>
+      <location filename="../qt/mainwindow.ui" line="10164"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
@@ -1544,47 +1544,47 @@ DO NOT unplug your device during restores.</source>
 NE húzd ki az eszközödet a visszaállítás alatt.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10141"/>
+      <location filename="../qt/mainwindow.ui" line="10169"/>
       <source>Disable Tendies Limit</source>
       <translation>Tendies limit letiltása</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10321"/>
+      <location filename="../qt/mainwindow.ui" line="10349"/>
       <source>Restores the SSL config that does something idk</source>
       <translation>Visszaállítja az SSL configot ami csinál valamit nemtom</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10324"/>
+      <location filename="../qt/mainwindow.ui" line="10352"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
       <translation>TrustStore visszaállítása (SSL Config profil)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10334"/>
+      <location filename="../qt/mainwindow.ui" line="10362"/>
       <source>Skip Setup * (non-exploit files only)</source>
       <translation>Skip Setup * (nem exploitos fájlok csak)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10347"/>
+      <location filename="../qt/mainwindow.ui" line="10375"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
       <translation>Eszközkezelés engedélyezése * (kell skip setup hozzá)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10357"/>
+      <location filename="../qt/mainwindow.ui" line="10385"/>
       <source>Enter Organization Name</source>
       <translation>Írd be az Organizáció nevét</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10380"/>
+      <location filename="../qt/mainwindow.ui" line="10408"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
       <translation>* Megjegyzés: Setup kihagyása problémákat okozhat config profilokkal. Kapcsold ki ha kell az.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10407"/>
+      <location filename="../qt/mainwindow.ui" line="10435"/>
       <source>Reset Device Pairing</source>
       <translation>Eszköz párosítás visszaállítása</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10421"/>
+      <location filename="../qt/mainwindow.ui" line="10449"/>
       <source>Pocket Poster Helper</source>
       <translation>Pocket Poster segítő</translation>
     </message>
@@ -1619,7 +1619,7 @@ NE húzd ki az eszközödet a visszaállítás alatt.</translation>
       <translation>Státusz sor dátum</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10046"/>
+      <location filename="../qt/mainwindow.ui" line="10074"/>
       <source>App Language</source>
       <translation>App nyelve</translation>
     </message>
@@ -1629,7 +1629,7 @@ NE húzd ki az eszközödet a visszaállítás alatt.</translation>
       <translation>   .tendies-ként exportálás</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9745"/>
+      <location filename="../qt/mainwindow.ui" line="9773"/>
       <source>Remove Tweaks</source>
       <translation>Tweakek eltávolítása</translation>
     </message>
@@ -1852,49 +1852,49 @@ bl_sbx</translation>
       <translation>Enable iPadOS (WARNING: risky, use with caution)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10183"/>
+      <location filename="../qt/mainwindow.ui" line="10211"/>
       <source>BookRestore Apply Method</source>
       <translation>BookRestore Apply Method</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10215"/>
+      <location filename="../qt/mainwindow.ui" line="10243"/>
       <source>   Restore</source>
       <translation>   Visszaállítás</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10230"/>
+      <location filename="../qt/mainwindow.ui" line="10258"/>
       <source>BookRestore File Transfer Method</source>
       <translation>BookRestore fájlátviteli módszer</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10260"/>
+      <location filename="../qt/mainwindow.ui" line="10288"/>
       <source>   LocalHost</source>
       <translation>   Localhost</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10265"/>
+      <location filename="../qt/mainwindow.ui" line="10293"/>
       <source>   On-Device (Slower)</source>
       <translation>   eszközön (lassabb)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10275"/>
+      <location filename="../qt/mainwindow.ui" line="10303"/>
       <source>Books Container UUID</source>
       <translation>Könyvek Container UUID</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10282"/>
+      <location filename="../qt/mainwindow.ui" line="10310"/>
       <source>Enter your books container UUID if you know it.
 It will be automatically found if this is left blank.</source>
       <translation>Adja meg a Books konténer UUID-ját, ha ismert.
 Ha üresen hagyja, a rendszer automatikusan megkeresi.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10286"/>
+      <location filename="../qt/mainwindow.ui" line="10314"/>
       <source>Enter Books Container UUID</source>
       <translation>Adja meg a Books konténer UUID-ját</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10293"/>
+      <location filename="../qt/mainwindow.ui" line="10321"/>
       <source>* Developer Mode/Administrator permissions required for these options.</source>
       <translation>* Ezekhez az opciókhoz Fejlesztői mód / rendszergazdai jogosultság szükséges.</translation>
     </message>
@@ -1902,6 +1902,16 @@ Ha üresen hagyja, a rendszer automatikusan megkeresi.</translation>
       <location filename="../qt/mainwindow.ui" line="2126"/>
       <source>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</source>
       <translation>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="9572"/>
+      <source>Administrator permission is required to apply tweaks with AFC.</source>
+      <translation></translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="9579"/>
+      <source> Restart as Admin</source>
+      <translation></translation>
     </message>
   </context>
   <context>
@@ -1949,13 +1959,13 @@ vagy elérted a háttérképek maximális számát (15), és törölnöd kell ő
       <translation>Kérlek csatlakoztass egy eszközt.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="184"/>
-      <location filename="../gui/pages/main/settings.py" line="194"/>
+      <location filename="../gui/pages/main/settings.py" line="199"/>
+      <location filename="../gui/pages/main/settings.py" line="209"/>
       <source>PosterBoard App Hash</source>
       <translation>PosterBoard App Hash</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="184"/>
+      <location filename="../gui/pages/main/settings.py" line="199"/>
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
@@ -1964,17 +1974,17 @@ Open up its settings and tap "Detect".</source>
 Nyisd meg a beállításait és nyomj a "Detect" gombra.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="187"/>
+      <location filename="../gui/pages/main/settings.py" line="202"/>
       <source>Copy it and paste it</source>
       <translation>Másold ki és illeszd be</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="191"/>
+      <location filename="../gui/pages/main/settings.py" line="206"/>
       <source>It has been copied. Paste it</source>
       <translation>Ki lett másolva. Illeszd be</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="194"/>
+      <location filename="../gui/pages/main/settings.py" line="209"/>
       <source>Your hash is:
 {0}
 
@@ -2050,7 +2060,7 @@ Nyisd meg a beállításait és nyomj a "Detect" gombra.</translation>
       <translation>Kattints a "Részletek megjelenítése"-re a visszakövetéshez.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="172"/>
+      <location filename="../devicemanagement/device_manager.py" line="170"/>
       <source>Device is password protected! You must trust the computer on your device.
 
 Unlock your device. On the popup, click "Trust", enter your password, then try again.</source>
@@ -2059,27 +2069,27 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
 Oldd fel az eszközödet. Az ablakon, kattints a "Megbízható" gombra, írd be a jelszavadat, és próbálkozz újra.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="176"/>
+      <location filename="../devicemanagement/device_manager.py" line="174"/>
       <source>If you keep receiving this error, try using a different cable or port.</source>
       <translation>Ha ezt a hibát folyton megkapod, akkor használj egy másik kábelt vagy másik portot.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="310"/>
+      <location filename="../devicemanagement/device_manager.py" line="308"/>
       <source>Pairing Reset</source>
       <translation>Párosítás visszaállítása</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="310"/>
+      <location filename="../devicemanagement/device_manager.py" line="308"/>
       <source>Your device's pairing was successfully reset. Refresh the device list before applying.</source>
       <translation>Az eszköz párosítása sikeresen vissza lett állítva. Frissítse az eszközök listáját az alkalmazás előtt.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="641"/>
+      <location filename="../devicemanagement/device_manager.py" line="639"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
       <translation>Nem adtál meg MobileGestalt fájlt! Kérlek válaszd ki a a fájlt hogy alkalmazhassad a MobileGestalt módósításokat.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="562"/>
+      <location filename="../devicemanagement/device_manager.py" line="560"/>
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
@@ -2088,19 +2098,19 @@ Remember to turn Find My back on!</source>
 Emlékezz arra, hogy kapcsold vissza a Lokátort!</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="564"/>
+      <location filename="../devicemanagement/device_manager.py" line="562"/>
       <source>Please restart your device to see changes.</source>
       <translation>A változások alkalmazásához indítsd újra az eszközödet.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="565"/>
+      <location filename="../devicemanagement/device_manager.py" line="563"/>
       <source>All done! </source>
       <translation>Kész! </translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="565"/>
-      <location filename="../devicemanagement/device_manager.py" line="737"/>
-      <location filename="../devicemanagement/device_manager.py" line="833"/>
+      <location filename="../devicemanagement/device_manager.py" line="563"/>
+      <location filename="../devicemanagement/device_manager.py" line="735"/>
+      <location filename="../devicemanagement/device_manager.py" line="831"/>
       <source>Success!</source>
       <translation>Siker!</translation>
     </message>
@@ -2147,17 +2157,17 @@ Emlékezz arra, hogy kapcsold vissza a Lokátort!</translation>
       <translation>Nem sikerült betölteni a sablont</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="218"/>
+      <location filename="../devicemanagement/device_manager.py" line="216"/>
       <source>No Device</source>
       <translation>Nincs eszköz</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="572"/>
+      <location filename="../devicemanagement/device_manager.py" line="570"/>
       <source>Restoring to device...{0}{1}</source>
       <translation>Eszközre visszaállítás...{0}{1}</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="577"/>
+      <location filename="../devicemanagement/device_manager.py" line="575"/>
       <source>Applying changes to files...</source>
       <translation>Változtatások alkalmazása a fájlokra</translation>
     </message>
@@ -2212,18 +2222,18 @@ Emlékezz arra, hogy kapcsold vissza a Lokátort!</translation>
       <translation>{0} készítése...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="651"/>
-      <location filename="../devicemanagement/device_manager.py" line="757"/>
+      <location filename="../devicemanagement/device_manager.py" line="649"/>
+      <location filename="../devicemanagement/device_manager.py" line="755"/>
       <source>Generating backup...</source>
       <translation>Biztonsági mentés készítése</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="493"/>
+      <location filename="../devicemanagement/device_manager.py" line="491"/>
       <source>DO NOT UNPLUG</source>
       <translation>NE HÚZZA KI</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="537"/>
+      <location filename="../devicemanagement/device_manager.py" line="535"/>
       <source>Preparing to restore...</source>
       <translation>Visszaállításra felkészítés...</translation>
     </message>
@@ -2242,32 +2252,32 @@ You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; D
 Ezt az iPhone vagy iPad készülékén a Beállítások &gt; Adatvédelem és biztonság &gt; Fejlesztői mód menüpont alján engedélyezheti.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="497"/>
+      <location filename="../devicemanagement/device_manager.py" line="495"/>
       <source>Creating connection to device...</source>
       <translation>Kapcsolódás az eszközhöz...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="500"/>
+      <location filename="../devicemanagement/device_manager.py" line="498"/>
       <source>Generating BookRestore database...</source>
       <translation>BookRestore adatbázis létrehozása…</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="545"/>
+      <location filename="../devicemanagement/device_manager.py" line="543"/>
       <source>Waiting for device to reconnect...</source>
       <translation>Várakozás az eszköz újracsatlakozására…</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="545"/>
+      <location filename="../devicemanagement/device_manager.py" line="543"/>
       <source>Please complete the setup on your device.</source>
       <translation>Kérjük, fejezze be a beállítást az eszközén.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="557"/>
+      <location filename="../devicemanagement/device_manager.py" line="555"/>
       <source>Waiting for changes to apply...</source>
       <translation>Waiting for changes to apply…</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="559"/>
+      <location filename="../devicemanagement/device_manager.py" line="557"/>
       <source>Rebooting to apply changes...</source>
       <translation>Rebooting to apply changes…</translation>
     </message>

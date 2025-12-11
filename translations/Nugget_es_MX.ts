@@ -1478,67 +1478,67 @@ Advertencia: Desactivar esto puede causar que la batería muestre "Parte Descono
       <translation>Aplicar</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9580"/>
+      <location filename="../qt/mainwindow.ui" line="9608"/>
       <source>Current gestalt file location:</source>
       <translation>Ubicación del Archivo Gestalt:</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9608"/>
+      <location filename="../qt/mainwindow.ui" line="9636"/>
       <source>  Choose Gestalt File</source>
       <translation>  Elegir Archivo Gestalt</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9639"/>
+      <location filename="../qt/mainwindow.ui" line="9667"/>
       <source>  Apply Changes</source>
       <translation>  Aplicar Cambios</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9656"/>
+      <location filename="../qt/mainwindow.ui" line="9684"/>
       <source>Ready!</source>
       <translation>Listo!</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9694"/>
+      <location filename="../qt/mainwindow.ui" line="9722"/>
       <source>Note: Skip Setup is currently turned on.</source>
       <translation>Nota: Saltar Setup está Activado.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9849"/>
+      <location filename="../qt/mainwindow.ui" line="9877"/>
       <source>Nugget Settings</source>
       <translation>Configuraciones de Nugget</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10086"/>
+      <location filename="../qt/mainwindow.ui" line="10114"/>
       <source>Allow Applying Over WiFi</source>
       <translation>Permitir Aplicar sobre Wi-Fi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10096"/>
+      <location filename="../qt/mainwindow.ui" line="10124"/>
       <source>Auto Reboot After Applying</source>
       <translation>Auto Reiniciar después de Aplicar</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10106"/>
+      <location filename="../qt/mainwindow.ui" line="10134"/>
       <source>Show Risky Tweak Options</source>
       <translation>Mostrar Opciones de Tweak Peligrosas</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10113"/>
+      <location filename="../qt/mainwindow.ui" line="10141"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
       <translation>Mostrar modelos para otros tipos de dispositivos en la pestaña de falsificación de dispositivos IA.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10122"/>
+      <location filename="../qt/mainwindow.ui" line="10150"/>
       <source>Show All Spoofable Models</source>
       <translation>Mostrar todos los modelos falsificantes</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10129"/>
+      <location filename="../qt/mainwindow.ui" line="10157"/>
       <source>Ignore Posterboard Frame Limit</source>
       <translation>Ignorar el Límite de Cuadros de PosterBoard</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10136"/>
+      <location filename="../qt/mainwindow.ui" line="10164"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
@@ -1547,47 +1547,47 @@ DO NOT unplug your device during restores.</source>
 NO desconecte su dispositivo durante las restauraciones.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10141"/>
+      <location filename="../qt/mainwindow.ui" line="10169"/>
       <source>Disable Tendies Limit</source>
       <translation>Desactivar límite de tendies</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10321"/>
+      <location filename="../qt/mainwindow.ui" line="10349"/>
       <source>Restores the SSL config that does something idk</source>
       <translation>Restaura la configuración SSL que hace algo nose xd</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10324"/>
+      <location filename="../qt/mainwindow.ui" line="10352"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
       <translation>Restaurar TrustStore (Perfiles de Configuración SSL)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10334"/>
+      <location filename="../qt/mainwindow.ui" line="10362"/>
       <source>Skip Setup * (non-exploit files only)</source>
       <translation>Saltar Setup * (solo archivos sin-exploit)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10347"/>
+      <location filename="../qt/mainwindow.ui" line="10375"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
       <translation>Habilitar Supervisión * (Requiere Saltar Setup)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10357"/>
+      <location filename="../qt/mainwindow.ui" line="10385"/>
       <source>Enter Organization Name</source>
       <translation>Ingresar Nombre de Organización</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10380"/>
+      <location filename="../qt/mainwindow.ui" line="10408"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
       <translation>* Nota: Saltar Setup puede causar problemas con los perfiles de configuración. Desactívelo si lo necesita.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10407"/>
+      <location filename="../qt/mainwindow.ui" line="10435"/>
       <source>Reset Device Pairing</source>
       <translation>Reiniciar Emparejamiento de Dispositivo</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10421"/>
+      <location filename="../qt/mainwindow.ui" line="10449"/>
       <source>Pocket Poster Helper</source>
       <translation>Ayudante de Pocket Poster</translation>
     </message>
@@ -1622,7 +1622,7 @@ NO desconecte su dispositivo durante las restauraciones.</translation>
       <translation>Texto de Fecha de la Barra de Estado</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10046"/>
+      <location filename="../qt/mainwindow.ui" line="10074"/>
       <source>App Language</source>
       <translation>Idioma de la App</translation>
     </message>
@@ -1632,7 +1632,7 @@ NO desconecte su dispositivo durante las restauraciones.</translation>
       <translation>   Exportar como .tendies</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9745"/>
+      <location filename="../qt/mainwindow.ui" line="9773"/>
       <source>Remove Tweaks</source>
       <translation>Quitar Tweaks</translation>
     </message>
@@ -1670,11 +1670,6 @@ NO desconecte su dispositivo durante las restauraciones.</translation>
       <location filename="../qt/mainwindow.ui" line="6274"/>
       <source>Shows hidden apps like Field Test and Continuity on the home screen</source>
       <translation>Muestra aplicaciones ocultas como Prueba de campo y Continuidad en la Pantalla de Inicio </translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="6292"/>
-      <source>Show Hidden Icons on Home Screen</source>
-      <translation type="unfinished">Mostrar Iconos Ocultos en la Pantalla de Inicio</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6311"/>
@@ -1855,49 +1850,49 @@ bl_sbx</translation>
       <translation>Habilitar iPadOS (ADVERTENCIA: Peligroso, utilizarse con precaución)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10183"/>
+      <location filename="../qt/mainwindow.ui" line="10211"/>
       <source>BookRestore Apply Method</source>
       <translation>BookRestore Apply Method</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10215"/>
+      <location filename="../qt/mainwindow.ui" line="10243"/>
       <source>   Restore</source>
       <translation>   Restaurar</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10230"/>
+      <location filename="../qt/mainwindow.ui" line="10258"/>
       <source>BookRestore File Transfer Method</source>
       <translation>Metodo de Transferencia de Archivos de BookRestore</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10260"/>
+      <location filename="../qt/mainwindow.ui" line="10288"/>
       <source>   LocalHost</source>
       <translation>   LocalHost</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10265"/>
+      <location filename="../qt/mainwindow.ui" line="10293"/>
       <source>   On-Device (Slower)</source>
       <translation>   En Dispositivo (Lento)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10275"/>
+      <location filename="../qt/mainwindow.ui" line="10303"/>
       <source>Books Container UUID</source>
       <translation>Books Container UUID</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10282"/>
+      <location filename="../qt/mainwindow.ui" line="10310"/>
       <source>Enter your books container UUID if you know it.
 It will be automatically found if this is left blank.</source>
       <translation>Enter your books container UUID if you know it.
 It will be automatically found if this is left blank.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10286"/>
+      <location filename="../qt/mainwindow.ui" line="10314"/>
       <source>Enter Books Container UUID</source>
       <translation>Enter Books Container UUID</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10293"/>
+      <location filename="../qt/mainwindow.ui" line="10321"/>
       <source>* Developer Mode/Administrator permissions required for these options.</source>
       <translation>* Modo de Desarrollador/Permisos de Administrador son requeridos para estas opciones.</translation>
     </message>
@@ -1905,6 +1900,16 @@ It will be automatically found if this is left blank.</translation>
       <location filename="../qt/mainwindow.ui" line="2126"/>
       <source>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</source>
       <translation>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="9572"/>
+      <source>Administrator permission is required to apply tweaks with AFC.</source>
+      <translation></translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="9579"/>
+      <source> Restart as Admin</source>
+      <translation></translation>
     </message>
   </context>
   <context>
@@ -1952,13 +1957,13 @@ o ha llegado al limite máximo de Fondos de Pantalla (15) y tendra que limpiarlo
       <translation>Por favor conecte un dispositivo.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="184"/>
-      <location filename="../gui/pages/main/settings.py" line="194"/>
+      <location filename="../gui/pages/main/settings.py" line="199"/>
+      <location filename="../gui/pages/main/settings.py" line="209"/>
       <source>PosterBoard App Hash</source>
       <translation>Hash de la App PosterBoard</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="184"/>
+      <location filename="../gui/pages/main/settings.py" line="199"/>
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
@@ -1967,17 +1972,17 @@ Open up its settings and tap "Detect".</source>
 Abra sus Configuraciones y haga clic en "Detectar".</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="187"/>
+      <location filename="../gui/pages/main/settings.py" line="202"/>
       <source>Copy it and paste it</source>
       <translation>Copie y péguelo</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="191"/>
+      <location filename="../gui/pages/main/settings.py" line="206"/>
       <source>It has been copied. Paste it</source>
       <translation>Ha sido copiado. Péguelo</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="194"/>
+      <location filename="../gui/pages/main/settings.py" line="209"/>
       <source>Your hash is:
 {0}
 
@@ -2053,7 +2058,7 @@ Abra sus Configuraciones y haga clic en "Detectar".</translation>
       <translation>Haga clic en  "Mostrar Detalles" para el Rastreo.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="172"/>
+      <location filename="../devicemanagement/device_manager.py" line="170"/>
       <source>Device is password protected! You must trust the computer on your device.
 
 Unlock your device. On the popup, click "Trust", enter your password, then try again.</source>
@@ -2062,27 +2067,27 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
 Desbloquee el dispositivo. En la ventana haga clic en "Confiar", Ingrese su contraseña y vuelva a intentarlo.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="176"/>
+      <location filename="../devicemanagement/device_manager.py" line="174"/>
       <source>If you keep receiving this error, try using a different cable or port.</source>
       <translation>Si el problema persiste, intente usar un cable o puerto diferente.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="310"/>
+      <location filename="../devicemanagement/device_manager.py" line="308"/>
       <source>Pairing Reset</source>
       <translation>Reiniciar Emparejamiento</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="310"/>
+      <location filename="../devicemanagement/device_manager.py" line="308"/>
       <source>Your device's pairing was successfully reset. Refresh the device list before applying.</source>
       <translation>El Emparejamiento del dispositivos ha sido reiniciado correctamente. Refresque la lista de dispositivos antes de aplicar.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="641"/>
+      <location filename="../devicemanagement/device_manager.py" line="639"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
       <translation>Ningún archivo mobilegestalt fue proporcionado! Por favor seleccione su archivo para aplicar los tweaks mobilegestalt.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="562"/>
+      <location filename="../devicemanagement/device_manager.py" line="560"/>
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
@@ -2091,19 +2096,19 @@ Remember to turn Find My back on!</source>
 Recuerde activar Find My de nuevo!</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="564"/>
+      <location filename="../devicemanagement/device_manager.py" line="562"/>
       <source>Please restart your device to see changes.</source>
       <translation>Por favor reinicie su dispositivo para ver los cambios.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="565"/>
+      <location filename="../devicemanagement/device_manager.py" line="563"/>
       <source>All done! </source>
       <translation>Todo Listo! </translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="565"/>
-      <location filename="../devicemanagement/device_manager.py" line="737"/>
-      <location filename="../devicemanagement/device_manager.py" line="833"/>
+      <location filename="../devicemanagement/device_manager.py" line="563"/>
+      <location filename="../devicemanagement/device_manager.py" line="735"/>
+      <location filename="../devicemanagement/device_manager.py" line="831"/>
       <source>Success!</source>
       <translation>Hecho!</translation>
     </message>
@@ -2150,17 +2155,17 @@ Recuerde activar Find My de nuevo!</translation>
       <translation>Error al cargar plantilla</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="218"/>
+      <location filename="../devicemanagement/device_manager.py" line="216"/>
       <source>No Device</source>
       <translation>Sin Dispositivo</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="572"/>
+      <location filename="../devicemanagement/device_manager.py" line="570"/>
       <source>Restoring to device...{0}{1}</source>
       <translation>Restaurando al dispositivo...{0}{1}</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="577"/>
+      <location filename="../devicemanagement/device_manager.py" line="575"/>
       <source>Applying changes to files...</source>
       <translation>Aplicando cambios a los Archivos...</translation>
     </message>
@@ -2215,18 +2220,18 @@ Recuerde activar Find My de nuevo!</translation>
       <translation>Creando {0}...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="651"/>
-      <location filename="../devicemanagement/device_manager.py" line="757"/>
+      <location filename="../devicemanagement/device_manager.py" line="649"/>
+      <location filename="../devicemanagement/device_manager.py" line="755"/>
       <source>Generating backup...</source>
       <translation>Generando Respaldo...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="493"/>
+      <location filename="../devicemanagement/device_manager.py" line="491"/>
       <source>DO NOT UNPLUG</source>
       <translation>NO DESCONECTE</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="537"/>
+      <location filename="../devicemanagement/device_manager.py" line="535"/>
       <source>Preparing to restore...</source>
       <translation>Preparando para restaurar...</translation>
     </message>
@@ -2245,32 +2250,32 @@ You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; D
 You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; Developer Mode on your iPhone or iPad.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="497"/>
+      <location filename="../devicemanagement/device_manager.py" line="495"/>
       <source>Creating connection to device...</source>
       <translation>Creando Conexion al Dispositivo...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="500"/>
+      <location filename="../devicemanagement/device_manager.py" line="498"/>
       <source>Generating BookRestore database...</source>
       <translation>Generando Base de Datos de BookRestore...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="545"/>
+      <location filename="../devicemanagement/device_manager.py" line="543"/>
       <source>Waiting for device to reconnect...</source>
       <translation>Esperando al dispositivo para reconectarse…</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="545"/>
+      <location filename="../devicemanagement/device_manager.py" line="543"/>
       <source>Please complete the setup on your device.</source>
       <translation>Porfavor complete la configuración en su dispositivo.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="557"/>
+      <location filename="../devicemanagement/device_manager.py" line="555"/>
       <source>Waiting for changes to apply...</source>
       <translation>Esperando a los cambios para aplicar…</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="559"/>
+      <location filename="../devicemanagement/device_manager.py" line="557"/>
       <source>Rebooting to apply changes...</source>
       <translation>Reiniciando para aplicar cambios...</translation>
     </message>

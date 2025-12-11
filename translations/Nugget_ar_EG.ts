@@ -19,11 +19,6 @@ Are you sure you want to use this one?</source>
       <translation>    الصفحة الرئيسية</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="465"/>
-      <source>    Posterboard</source>
-      <translation type="unfinished">    خلفية متحركة</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="494"/>
       <source>     Mobile Gestalt</source>
       <translation>     موبايل Gestalt</translation>
@@ -37,11 +32,6 @@ Are you sure you want to use this one?</source>
       <location filename="../qt/mainwindow.ui" line="567"/>
       <source>    Eligibility</source>
       <translation>    التوافق</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="596"/>
-      <source>    Status Bar</source>
-      <translation type="unfinished">    شريط الحالة</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="628"/>
@@ -74,16 +64,6 @@ Are you sure you want to use this one?</source>
       <translation> حط نجمة على الGitHub</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="1178"/>
-      <source>  LeminLimez</source>
-      <translation type="unfinished">  ليمين ليميز</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="1295"/>
-      <source>Main Developer</source>
-      <translation type="unfinished">المبرمج الرئيسي</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="1369"/>
       <source>With Help From</source>
       <translation>مع المسعدة من</translation>
@@ -92,13 +72,6 @@ Are you sure you want to use this one?</source>
       <location filename="../qt/mainwindow.ui" line="1391"/>
       <source>dootskyre, dulark, forcequitOS, pengubow, Middo, and SerStars</source>
       <translation>دوتسكيرِ، دولارك، فورسكويتاواس، بينجوباو، ميدو، و سيرستارس</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="1407"/>
-      <source>PosterRestore Team
-Posterboard</source>
-      <translation type="unfinished">فريق استرداد نظام الخلفية
-خلفية متحركة</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1428"/>
@@ -154,39 +127,9 @@ Sparseاسترجاع</translation>
       <translation>! هتحتاج ملف موبايل Gestalt لالخصية ديه. لوسمحت اختاروا في صفحة التطبيق !</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="1896"/>
-      <source>Device Subtype Preset</source>
-      <translation type="unfinished"> إعداد مسبقلنوع الجهاز الفرعي</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="1967"/>
       <source>2436 (iPhone X Gestures for SE phones)</source>
       <translation>٢٤٣٦ (إيمائه آيفون X لأيفون SE)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="1972"/>
-      <source>2556 (iPhone 14 Pro Dynamic Island)</source>
-      <translation type="unfinished">٢٥٥٦ (الجزيرة الديناميكية لآيفون ١٤ برو)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="1977"/>
-      <source>2796 (iPhone 14 Pro Max Dynamic Island)</source>
-      <translation type="unfinished">٢٧٩٦ (الجزيرة الديناميكية لآيفون ١٤ برو ماكس)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="1982"/>
-      <source>2976 (iPhone 15 Pro Max Dynamic Island)</source>
-      <translation type="unfinished">٢٩٧٦ (الجزيرة الديناميكية لآيفون ١٥ برو ماكس)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="1987"/>
-      <source>2622 (iPhone 16 Pro Dynamic Island)</source>
-      <translation type="unfinished">٢٦٢٢ (الجزيرة الديناميكية لآيفون ١٦ برو)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="1992"/>
-      <source>2868 (iPhone 16 Pro Max Dynamic Island)</source>
-      <translation type="unfinished">٢٨٦٨ (الجزيرة الديناميكية لآيفون ١٦ برو ماكس)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2000"/>
@@ -202,11 +145,6 @@ Sparseاسترجاع</translation>
       <location filename="../qt/mainwindow.ui" line="2013"/>
       <source>Change Device Model Name</source>
       <translation>غير أسم نموذج الجهاز</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="2020"/>
-      <source>Model Name</source>
-      <translation type="unfinished">أسم النموذج</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2027"/>
@@ -231,11 +169,6 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
       <location filename="../qt/mainwindow.ui" line="2042"/>
       <source>Enable Charge Limit</source>
       <translation>تشغيل حد الشحن</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="2049"/>
-      <source>Enable Tap to Wake (for iPhone SEs)</source>
-      <translation type="unfinished">تشغيل دوس عشان تقوم الموبايل (لآيفون SEs)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2056"/>
@@ -263,34 +196,19 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
       <translation>تفعيل متعدد المهام مدعوم</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2105"/>
-      <source>Allow iPad Apps on iPhone</source>
-      <translation type="unfinished">سماح استخدام تطبيقات الايباد على الآيفون</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="2148"/>
       <source>Sets the device's region to LL/A to bypass certain region restrictions like the forced shutter sound.</source>
-      <translation>بيحط منطقت الجهاز لLL/A لتجاوز  بعض قيود المناطق زي صوت التقات الكاميرا الإجباري.</translation>
+      <translation>بيحط منطقت الجهاز لLL/A لتجاوز  بعض قيود المناطق زي صوت أخدان صورة بالكاميرا الإجباري.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2151"/>
       <source>Disable Region Restrictions (ie. Shutter Sound)</source>
-      <translation>إطفاء قيود المنطقة (زي. صوت التقات الكاميرا)</translation>
+      <translation>إطفاء قيود المنطقة (زي. صوت أخدان صورة بالكاميرا)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2158"/>
       <source>Enable Find My Friends</source>
       <translation>تشغيل البحث عن الأصحاب</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="2165"/>
-      <source>Enable Apple Pencil Settings Tab</source>
-      <translation type="unfinished">تشغيل قسم قلم ابل في تطبيق الإعدادات</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="2172"/>
-      <source>Enable Action Button Settings Tab</source>
-      <translation type="unfinished">تشغيل زرار الأفعال في تطبيق الإعدادات</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2194"/>
@@ -300,25 +218,6 @@ Note: OTA updates will be broken until this is disabled.</source>
       <translation>استعمال وجهة الحديد في أي وكل التطبيقات. تشغيل وجهة الحديد من خلال إعدادات Springboard.
 
 ملحظة: تحديثات الجهاز مش هتشتغل وتكون بيزة لحد اما تطفي الخاصية ديه.</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="2199"/>
-      <source>Set as Apple Internal Install (ie Metal HUD in any app)</source>
-      <translation type="unfinished">تعيين كتنزيل تطبيقات ابل الداخلية (زي وجهة الحديد في أي تطبيق)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="2206"/>
-      <source>Shows internal files in storage settings.
-
-Note: OTA updates will be broken until this is disabled.</source>
-      <translation type="unfinished">بيظهر الملفات الداخلية في قسم المساحة في تطبيق الإعدادات.
-
-ملحظة: تحديثات الجهاز مش هتشتغل وتبقا بيزة لحد اما الخصية ديه تطفي.</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="2211"/>
-      <source>Enable Internal Storage (WARNING: risky for some devices, mainly iPads)</source>
-      <translation type="unfinished">تشغيل مساحة داخلية (تحذير: خطر لبعض الأجهزة الاكترونية، رأيسيًا الأيبادات)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2240"/>
@@ -331,41 +230,9 @@ Note: OTA updates will be broken until this is disabled.</source>
       <translation>تشغيل التصادم في SOS</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2250"/>
-      <source>Enable AOD on unsupported devices. May cause burn in, use with caution.</source>
-      <translation type="unfinished">تشغيل ‘الشاشة ديمن مش بتتقفل’ على اجهزة مش مدعومة. ممكن يسبب ضرر للشاشة، استخدموا بحذر.</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="2253"/>
-      <source>Enable Always On Display</source>
-      <translation type="unfinished">تشغيل ‘الشاشة ديمن مش بتتقفل’</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="2260"/>
       <source>Enable this if something is wonky when using the above toggle.</source>
       <translation>شغل ده لو في حاجة مش معدولة لما بتستخدم الزرار الي فوق.</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="2263"/>
-      <source>Enable AOD Vibrancy</source>
-      <translation type="unfinished">تشغيل هزهزة ‘الشاشة ديمن مش بتتقفل’</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="2293"/>
-      <source>Custom Gestalt Keys</source>
-      <translation type="unfinished">مفاتيح الGestalt المميزة</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="2303"/>
-      <source>  Add Key</source>
-      <translation type="unfinished">  حط مفتاح</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="2322"/>
-      <source>Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know
-what you are doing.</source>
-      <translation type="unfinished">تحذير: استخدام الميزة ديه بأسلوب غلط هيعمل إعادة تشغيل مستمرة وخسارة بياناتك. استخدم الميزة ديه بس لو إنت عارف
- إنت بتعمل إيه.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2455"/>
@@ -404,20 +271,6 @@ Does not work on iOS 18.0 RC.</source>
 ده مش بيشتغل على نسخة الRC من IOS ١٨.٠.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2574"/>
-      <source>Enable Old Photo UI</source>
-      <translation type="unfinished">تشغيل شكل الصور القديمة</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="2581"/>
-      <source>Enable the new Siri UI.
-
-Only works on iOS 18.0 beta 1-2.</source>
-      <translation type="unfinished">تشغيل شكل سيري الجديد.
-
-بيشتغل بس على نسختين ١ و٢ من نسخة iOS ١٨.٠ التجريبية.</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="2586"/>
       <source>Enable Apple Intelligence</source>
       <translation>تشغيل ذكاء ابل الاصطناعي</translation>
@@ -443,11 +296,6 @@ Only works on iOS 18.0 beta 1-2.</source>
       <translation>الطريقة ١</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="2861"/>
-      <source>Method 2</source>
-      <translation type="unfinished">الطريقة ٢</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="2869"/>
       <source>Region Code (Should be 2 letters)</source>
       <translation>رمز المنطقة (المفرود يكون حرفين)</translation>
@@ -471,31 +319,6 @@ Only works on iOS 18.0 beta 1-2.</source>
       <location filename="../qt/mainwindow.ui" line="2946"/>
       <source>Language Code (not needed for English)</source>
       <translation>شفرة اللغة (مش محتاجوا للأنجليزي)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="2953"/>
-      <source>Language Code (i.e. en)</source>
-      <translation type="unfinished">شفرة اللغة (زي الإنجليزي)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="2987"/>
-      <source>In order to download the AI models, you must spoof your device model. However, this may break 
-Face ID until you revert back. 
-
-WARNING: Do not go to the Apple Intelligence menu in the Settings app after unspoofing.
-
-Entering the menu on your original device model will cause a re-download and may require a full
-restore to fix. Furthermore, if you switch between model groups, like spoofing from the iPhone 16s
-to the iPhone 15 Pro series, a re-download may also occur. 
-Please be careful!</source>
-      <translation type="unfinished">لتنزيل نموذج الذكاء الاصطناعي،
- لازم تنتحل صفة جهاز تاني.
-لكن دوت ممكن يبوظ ID الوش لحد اما ترجع الجهاز زي ما كان.
-
-تحذير: مترحش لقيمة ذكاء اصطناعي ابل في تطبيق الإعدادات بعد اما ترجع الجهاز زي ما كان.
-
-دخول القيمة على جهازك اما رجعتوا هيعيد تنزيل النموذج وهيحتاج اعادة تنزيل الIOS لتصليحوا.  علاوة على كدة، لو بدلت مبين اكتر من نموذج واحد، زي التغير من الآيفون ١٦s لآيفون ١٥، اعادة تنزيل ممكن تحصل.
-مفا لوسمحت خليك حذر!</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3008"/>
@@ -539,129 +362,9 @@ Please be careful!</source>
       <translation>آيفون ١٦ برو ماكس (آيفون١٧،٢)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3102"/>
-      <source>iPad Mini (A17 Pro) (W) (iPad16,1)</source>
-      <translation type="unfinished">ايباد صغير (A17 برو) (W) (ايباد١٦،١)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3107"/>
-      <source>iPad Mini (A17 Pro) (C) (iPad16,2)</source>
-      <translation type="unfinished">ايباد صغير (A17 برو) (C) (ايباد١٦،٢)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3112"/>
-      <source>iPad Pro (13-inch) (M4) (W) (iPad16,5)</source>
-      <translation type="unfinished">ايباد برو (١٣ بوصة) (M4) (W) (ايباد١٦،٥)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3117"/>
-      <source>iPad Pro (13-inch) (M4) (C) (iPad16,6)</source>
-      <translation type="unfinished">ايباد برو (١٣ بوصة) (M4) (C) (ايباد١٦،٦)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3122"/>
-      <source>iPad Pro (11-inch) (M4) (W) (iPad16,3)</source>
-      <translation type="unfinished">ايباد برو (١١ بوصة) (M4) (W) (ايباد١٦،٣)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3127"/>
-      <source>iPad Pro (11-inch) (M4) (C) (iPad16,4)</source>
-      <translation type="unfinished">ايباد برو (١١ بوصة) (M4) (C) (ايباد١٦،٤)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3132"/>
-      <source>iPad Pro (12.9-inch) (M2) (W) (iPad14,5)</source>
-      <translation type="unfinished">ايباد برو (١٢.٩ بوصة) (M2) (W) (ايباد١٤،٥)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3137"/>
-      <source>iPad Pro (12.9-inch) (M2) (C) (iPad14,6)</source>
-      <translation type="unfinished">ايباد برو (١٢.٩ بوصة) (M2) (C) (ايباد١٤،٦)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3142"/>
-      <source>iPad Pro (11-inch) (M2) (W) (iPad14,3)</source>
-      <translation type="unfinished">ايباد برو (١١ بوصة) (M2) (W) (ايباد١٤،٣)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3147"/>
-      <source>iPad Pro (11-inch) (M2) (C) (iPad14,4)</source>
-      <translation type="unfinished">ايباد برو (١١ بوصة) (M2) (C) (ايباد١٤،٤)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3152"/>
-      <source>iPad Air (13-inch) (M2) (W) (iPad14,10)</source>
-      <translation type="unfinished">ايباد هوى (١٣ بوصة) (M2) (W) (ايباد١٤،١٠)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3157"/>
-      <source>iPad Air (13-inch) (M2) (C) (iPad14,11)</source>
-      <translation type="unfinished">ايباد هوى (١٣ بوصة) (M2) (C) (ايباد١٤،١١)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3162"/>
-      <source>iPad Air (11-inch) (M2) (W) (iPad14,8)</source>
-      <translation type="unfinished">ايباد هوى (١١ بوصة) (M2) (W) (ايباد١٤،٨)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3167"/>
-      <source>iPad Air (11-inch) (M2) (C) (iPad14,9)</source>
-      <translation type="unfinished">ايباد هوى (١١ بوصة) (M2) (C) (ايباد١٤،٩)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3172"/>
-      <source>iPad Pro (11-inch) (M1) (W) (iPad13,4)</source>
-      <translation type="unfinished">ايباد برو (١١ بوصة) (M1) (W) (ايباد١٣،٤)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3177"/>
-      <source>iPad Pro (11-inch) (M1) (C) (iPad13,5)</source>
-      <translation type="unfinished">ايباد برو (١١ بوصة) (M1) (C) (ايباد١٣،٥)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3182"/>
-      <source>iPad Pro (12.9-inch) (M1) (W) (iPad13,8)</source>
-      <translation type="unfinished">ايباد برو (١٢.٩ بوصة) (M1) (W) (ايباد١٣،٨)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3187"/>
-      <source>iPad Pro (12.9-inch) (M1) (C) (iPad13,9)</source>
-      <translation type="unfinished">ايباد برو (١٢.٩ بوصة) (M1) (C) (ايباد١٣،٩)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3192"/>
-      <source>iPad Air (M1) (W) (iPad13,16)</source>
-      <translation type="unfinished">ايباد هوى (M1) (W) (ايباد١٣،١٦)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3197"/>
-      <source>iPad Air (M1) (C) (iPad13,17)</source>
-      <translation type="unfinished">ايباد هوى (M1) (C) (ايباد١٣،١٧)</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="3205"/>
       <source>Spoofs the device hardware model (ie D83AP)</source>
       <translation>نموذج انتحال قطع الجهاز (مثل D83AP)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3208"/>
-      <source>Spoof Hardware Model</source>
-      <translation type="unfinished">نموذج انتحال قطع الجهاز</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3218"/>
-      <source>Spoofs the device CPU model (ie t8130)</source>
-      <translation type="unfinished">نموذج انتحال وحدة المعلجة المركزية (مثل t8130)</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3221"/>
-      <source>Spoof CPU Model</source>
-      <translation type="unfinished">نموذج انتحال وحدة المعلجة المركزية</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3326"/>
-      <source>Status Bar</source>
-      <translation type="unfinished">شريط الحالة</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3333"/>
@@ -693,18 +396,6 @@ Please be careful!</source>
       <location filename="../qt/mainwindow.ui" line="5138"/>
       <source>Default</source>
       <translation>طبيعي</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3481"/>
-      <location filename="../qt/mainwindow.ui" line="3787"/>
-      <source>Force Show</source>
-      <translation type="unfinished">اجبار العرض</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3488"/>
-      <location filename="../qt/mainwindow.ui" line="3794"/>
-      <source>Force Hide</source>
-      <translation type="unfinished">اجبار الاختباء</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3511"/>
@@ -767,18 +458,6 @@ Please be careful!</source>
       <translation>LTE</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3624"/>
-      <location filename="../qt/mainwindow.ui" line="3927"/>
-      <source>Wi-Fi</source>
-      <translation type="unfinished">إنترنت</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="3629"/>
-      <location filename="../qt/mainwindow.ui" line="3932"/>
-      <source>Personal Hotspot</source>
-      <translation type="unfinished">نقطة الاتصال الشخصية</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="3937"/>
       <source>1x</source>
       <translation>1x</translation>
@@ -832,13 +511,6 @@ Please be careful!</source>
       <translation>تغيير قوة الشبكة</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="3711"/>
-      <location filename="../qt/mainwindow.ui" line="4008"/>
-      <location filename="../qt/mainwindow.ui" line="4199"/>
-      <source>0 Bars</source>
-      <translation type="unfinished">لا شرائط</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="3752"/>
       <source>Secondary Cellular</source>
       <translation>الخلوي الثاني</translation>
@@ -849,29 +521,9 @@ Please be careful!</source>
       <translation>تغيير كتابة وقت شريط الحالة*</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4056"/>
-      <source>Status Bar Time Text</source>
-      <translation type="unfinished">تغيير كتابة وقت شريط الحالة</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="4077"/>
-      <source>Change Breadcrumb Text</source>
-      <translation type="unfinished">تغيير كتابة فتافيت العيش</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="4084"/>
       <source>Breadcrumb Text</source>
       <translation>فتافيت العيش</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="4091"/>
-      <source>Change Battery Detail Text</source>
-      <translation type="unfinished">تغيير كتابة تفاصيل البطارية</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="4098"/>
-      <source>Battery Detail Text</source>
-      <translation type="unfinished">كتابة تفاصيل البطرية</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4105"/>
@@ -902,11 +554,6 @@ Please be careful!</source>
       <location filename="../qt/mainwindow.ui" line="4239"/>
       <source>*When set to blank on notched devices, this will display the carrier name.</source>
       <translation>*لما بيتحط على اجهزة بشق، دوة هيبين إسم الناقل.</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="4261"/>
-      <source>Focus Mode Icon</source>
-      <translation type="unfinished">ايكونة وضع التركيز</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4296"/>
@@ -950,29 +597,9 @@ Please be careful!</source>
       <translation>وضع الطيران</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4391"/>
-      <source>Wi-Fi Icon</source>
-      <translation type="unfinished">ايكونة الوايفاي</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="4456"/>
       <source>^Will also hide cellular data indicator.</source>
       <translation>^ده بردوا هيخبي مؤشرة بيانات الخلوي.</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="4463"/>
-      <source>Battery Icon</source>
-      <translation type="unfinished">ايكونة البطرية</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="4528"/>
-      <source>Bluetooth Icon</source>
-      <translation type="unfinished">ايكونة البلوتوث</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="4593"/>
-      <source>Alarm Icon</source>
-      <translation type="unfinished">ايكونة الإنذار</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4658"/>
@@ -983,16 +610,6 @@ Please be careful!</source>
       <location filename="../qt/mainwindow.ui" line="4723"/>
       <source>Rotation Lock Icon</source>
       <translation>ايكونة تدوير القفل</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="4788"/>
-      <source>AirPlay Icon</source>
-      <translation type="unfinished">ايكونة ايربلاي</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="4853"/>
-      <source>CarPlay Icon</source>
-      <translation type="unfinished">ايكونة كاربلاي</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4918"/>
@@ -1010,49 +627,9 @@ Please be careful!</source>
       <translation>ايكونة تحذير كشف السوائل</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5113"/>
-      <source>Voice Control Icon</source>
-      <translation type="unfinished">ايكونة التحكم الصوتي</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="5178"/>
       <source>Force enables everything</source>
       <translation>اجبار تشغيل كل شيء</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="5181"/>
-      <source>Silly Mode</source>
-      <translation type="unfinished">الوضع السخيف</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="5286"/>
-      <source>Springboard Options</source>
-      <translation type="unfinished">خيارات الSpringboard</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="5430"/>
-      <source>Lock Screen Footnote Text</source>
-      <translation type="unfinished">نص الملاحظة السفلية في شاشة القفل</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="5437"/>
-      <source>Footnote Text</source>
-      <translation type="unfinished">نص الملاحظة السفلية</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="5602"/>
-      <source>Disable Lock After Respring</source>
-      <translation type="unfinished">إلغاء تعطيل القفل بعد اعادة تشغيل سريعة</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="5636"/>
-      <source>Disable Screen Dimming While Charging</source>
-      <translation type="unfinished">إلغاء توطية اضاءة الشاشة والموبايل بيشحن</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="5670"/>
-      <source>Disable Low Battery Alerts</source>
-      <translation type="unfinished">الغاء تنبيهات البطرية الواطية</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5723"/>
@@ -1070,19 +647,9 @@ Please be careful!</source>
       <translation>بيبين معلومات على حالة الإشراف وتنظيم الجهاز من تحت ششة القفل.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5778"/>
-      <source>Show Supervision Text on Lock Screen</source>
-      <translation type="unfinished">تبيين كتابة الإشراف من تحت شاشة القفل</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="5846"/>
       <source>Enable AirPlay support for Stage Manager</source>
       <translation>تشغيل دعم الايربلاي في تنظيم التطبيقات</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="6034"/>
-      <source>Internal Options</source>
-      <translation type="unfinished">الاختيارات الداخلية</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6187"/>
@@ -1093,16 +660,6 @@ Please be careful!</source>
       <location filename="../qt/mainwindow.ui" line="6221"/>
       <source>Force Right-to-Left Layout</source>
       <translation>اجبار تحول تخطيط الموبايل إلى يمين لشمال من شمال ليمين</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="6766"/>
-      <source>Show Touches With Debug Info</source>
-      <translation type="unfinished">بيين اللمسات مع بيانات التصحيح</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="6800"/>
-      <source>Hide Respring Icon</source>
-      <translation type="unfinished">داري رمز اعادة التشغيل</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6834"/>
@@ -1158,20 +715,6 @@ it enabled.</source>
       <translation>توقف مميزات تتبع وقت استخدام الجهاز.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7616"/>
-      <source>Disable Screen Time Agent</source>
-      <translation type="unfinished">توقيف عامل تتبع وقت استخدام الجهاز</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="7623"/>
-      <source>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
-
-To work properly, also disable the daemon using the toggle above.</source>
-      <translation type="unfinished">مسح ملف تفضيلات العامل بتاع التتبع لوقت استخدام الجهاز لتوقيف تأمين التطبيق معمول من iCloud.
-
-عشان تشتغل صح، إبطل الdaemon باستخدام الزرار اللي فوق بردوا.</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="7628"/>
       <source>Clear ScreenTimeAgent.plist file</source>
       <translation>شيل ملف ScreenTimeAgent.plist</translation>
@@ -1180,11 +723,6 @@ To work properly, also disable the daemon using the toggle above.</source>
       <location filename="../qt/mainwindow.ui" line="7635"/>
       <source>Stops logs, dumps, and crash reports collection.</source>
       <translation>بيوقف تسجيلات، مقالب، و جمع تقارير الاحتطام.</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="7638"/>
-      <source>Disable Logs, Dumps, and Crash Reports</source>
-      <translation type="unfinished">توقيف تسجيلات، مقالب، و تقارير الاحتطام</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7655"/>
@@ -1232,24 +770,9 @@ To work properly, also disable the daemon using the toggle above.</source>
       <translation>ده بيطفي الخدمة اللي بتتعامل مع أسامي شبكات الواي فاي اللي فيه حروف صيني.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7713"/>
-      <source>Disable Chinese WLAN Service</source>
-      <translation type="unfinished">طفي خدمة الشبكة اللاسلكية الصينية</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="7720"/>
-      <source>Disables HealthKit services used by the health app.</source>
-      <translation type="unfinished">ديه بتطفي خدمات العدة الصحية اللي بتستخدم في تطبيق الصحة بتاع ابل.</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="7723"/>
       <source>Disable HealthKit</source>
       <translation>اطفي العدة الصحية</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="7745"/>
-      <source>Disable AirPrint</source>
-      <translation type="unfinished">طفي الطباعة بجودة عالية من خلال النت</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7752"/>
@@ -1476,67 +999,67 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
       <translation>Apply</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9580"/>
+      <location filename="../qt/mainwindow.ui" line="9608"/>
       <source>Current gestalt file location:</source>
       <translation>Current gestalt file location:</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9608"/>
+      <location filename="../qt/mainwindow.ui" line="9636"/>
       <source>  Choose Gestalt File</source>
       <translation>  Choose Gestalt File</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9639"/>
+      <location filename="../qt/mainwindow.ui" line="9667"/>
       <source>  Apply Changes</source>
       <translation>  Apply Changes</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9656"/>
+      <location filename="../qt/mainwindow.ui" line="9684"/>
       <source>Ready!</source>
       <translation>Ready!</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9694"/>
+      <location filename="../qt/mainwindow.ui" line="9722"/>
       <source>Note: Skip Setup is currently turned on.</source>
       <translation>Note: Skip Setup is currently turned on.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9849"/>
+      <location filename="../qt/mainwindow.ui" line="9877"/>
       <source>Nugget Settings</source>
       <translation>Nugget Settings</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10086"/>
+      <location filename="../qt/mainwindow.ui" line="10114"/>
       <source>Allow Applying Over WiFi</source>
       <translation>Allow Applying Over WiFi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10096"/>
+      <location filename="../qt/mainwindow.ui" line="10124"/>
       <source>Auto Reboot After Applying</source>
       <translation>Auto Reboot After Applying</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10106"/>
+      <location filename="../qt/mainwindow.ui" line="10134"/>
       <source>Show Risky Tweak Options</source>
       <translation>Show Risky Tweak Options</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10113"/>
+      <location filename="../qt/mainwindow.ui" line="10141"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
       <translation>Show models for other device types in the AI device spoofing tab.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10122"/>
+      <location filename="../qt/mainwindow.ui" line="10150"/>
       <source>Show All Spoofable Models</source>
       <translation>Show All Spoofable Models</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10129"/>
+      <location filename="../qt/mainwindow.ui" line="10157"/>
       <source>Ignore Posterboard Frame Limit</source>
       <translation>Ignore Posterboard Frame Limit</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10136"/>
+      <location filename="../qt/mainwindow.ui" line="10164"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
@@ -1545,47 +1068,47 @@ DO NOT unplug your device during restores.</source>
 DO NOT unplug your device during restores.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10141"/>
+      <location filename="../qt/mainwindow.ui" line="10169"/>
       <source>Disable Tendies Limit</source>
       <translation>Disable Tendies Limit</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10321"/>
+      <location filename="../qt/mainwindow.ui" line="10349"/>
       <source>Restores the SSL config that does something idk</source>
       <translation>Restores the SSL config that does something idk</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10324"/>
+      <location filename="../qt/mainwindow.ui" line="10352"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
       <translation>Restore TrustStore (SSL Configuration Profiles)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10334"/>
+      <location filename="../qt/mainwindow.ui" line="10362"/>
       <source>Skip Setup * (non-exploit files only)</source>
       <translation>Skip Setup * (non-exploit files only)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10347"/>
+      <location filename="../qt/mainwindow.ui" line="10375"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
       <translation>Enable Supervision * (requires Skip Setup)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10357"/>
+      <location filename="../qt/mainwindow.ui" line="10385"/>
       <source>Enter Organization Name</source>
       <translation>Enter Organization Name</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10380"/>
+      <location filename="../qt/mainwindow.ui" line="10408"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
       <translation>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10407"/>
+      <location filename="../qt/mainwindow.ui" line="10435"/>
       <source>Reset Device Pairing</source>
       <translation>Reset Device Pairing</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10421"/>
+      <location filename="../qt/mainwindow.ui" line="10449"/>
       <source>Pocket Poster Helper</source>
       <translation>Pocket Poster Helper</translation>
     </message>
@@ -1620,7 +1143,7 @@ DO NOT unplug your device during restores.</translation>
       <translation>Status Bar Date Text</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10046"/>
+      <location filename="../qt/mainwindow.ui" line="10074"/>
       <source>App Language</source>
       <translation>App Language</translation>
     </message>
@@ -1630,7 +1153,7 @@ DO NOT unplug your device during restores.</translation>
       <translation>   Export as .tendies</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9745"/>
+      <location filename="../qt/mainwindow.ui" line="9773"/>
       <source>Remove Tweaks</source>
       <translation>Remove Tweaks</translation>
     </message>
@@ -1853,49 +1376,49 @@ bl_sbx</translation>
       <translation>Enable iPadOS (WARNING: risky, use with caution)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10183"/>
+      <location filename="../qt/mainwindow.ui" line="10211"/>
       <source>BookRestore Apply Method</source>
       <translation>BookRestore Apply Method</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10215"/>
+      <location filename="../qt/mainwindow.ui" line="10243"/>
       <source>   Restore</source>
       <translation>   Restore</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10230"/>
+      <location filename="../qt/mainwindow.ui" line="10258"/>
       <source>BookRestore File Transfer Method</source>
       <translation>BookRestore File Transfer Method</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10260"/>
+      <location filename="../qt/mainwindow.ui" line="10288"/>
       <source>   LocalHost</source>
       <translation>   LocalHost</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10265"/>
+      <location filename="../qt/mainwindow.ui" line="10293"/>
       <source>   On-Device (Slower)</source>
       <translation>   On-Device (Slower)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10275"/>
+      <location filename="../qt/mainwindow.ui" line="10303"/>
       <source>Books Container UUID</source>
       <translation>Books Container UUID</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10282"/>
+      <location filename="../qt/mainwindow.ui" line="10310"/>
       <source>Enter your books container UUID if you know it.
 It will be automatically found if this is left blank.</source>
       <translation>Enter your books container UUID if you know it.
 It will be automatically found if this is left blank.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10286"/>
+      <location filename="../qt/mainwindow.ui" line="10314"/>
       <source>Enter Books Container UUID</source>
       <translation>Enter Books Container UUID</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10293"/>
+      <location filename="../qt/mainwindow.ui" line="10321"/>
       <source>* Developer Mode/Administrator permissions required for these options.</source>
       <translation>* Developer Mode/Administrator permissions required for these options.</translation>
     </message>
@@ -1903,6 +1426,16 @@ It will be automatically found if this is left blank.</translation>
       <location filename="../qt/mainwindow.ui" line="2126"/>
       <source>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</source>
       <translation>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="9572"/>
+      <source>Administrator permission is required to apply tweaks with AFC.</source>
+      <translation></translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="9579"/>
+      <source> Restart as Admin</source>
+      <translation></translation>
     </message>
   </context>
   <context>
@@ -1950,13 +1483,13 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
       <translation>Please connect a device.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="184"/>
-      <location filename="../gui/pages/main/settings.py" line="194"/>
+      <location filename="../gui/pages/main/settings.py" line="199"/>
+      <location filename="../gui/pages/main/settings.py" line="209"/>
       <source>PosterBoard App Hash</source>
       <translation>PosterBoard App Hash</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="184"/>
+      <location filename="../gui/pages/main/settings.py" line="199"/>
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
@@ -1965,17 +1498,17 @@ Open up its settings and tap "Detect".</source>
 Open up its settings and tap "Detect".</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="187"/>
+      <location filename="../gui/pages/main/settings.py" line="202"/>
       <source>Copy it and paste it</source>
       <translation>Copy it and paste it</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="191"/>
+      <location filename="../gui/pages/main/settings.py" line="206"/>
       <source>It has been copied. Paste it</source>
       <translation>It has been copied. Paste it</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="194"/>
+      <location filename="../gui/pages/main/settings.py" line="209"/>
       <source>Your hash is:
 {0}
 
@@ -2051,7 +1584,7 @@ Open up its settings and tap "Detect".</translation>
       <translation>Click "Show Details" for the traceback.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="172"/>
+      <location filename="../devicemanagement/device_manager.py" line="170"/>
       <source>Device is password protected! You must trust the computer on your device.
 
 Unlock your device. On the popup, click "Trust", enter your password, then try again.</source>
@@ -2060,27 +1593,27 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
 Unlock your device. On the popup, click "Trust", enter your password, then try again.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="176"/>
+      <location filename="../devicemanagement/device_manager.py" line="174"/>
       <source>If you keep receiving this error, try using a different cable or port.</source>
       <translation>If you keep receiving this error, try using a different cable or port.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="310"/>
+      <location filename="../devicemanagement/device_manager.py" line="308"/>
       <source>Pairing Reset</source>
       <translation>Pairing Reset</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="310"/>
+      <location filename="../devicemanagement/device_manager.py" line="308"/>
       <source>Your device's pairing was successfully reset. Refresh the device list before applying.</source>
       <translation>Your device's pairing was successfully reset. Refresh the device list before applying.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="641"/>
+      <location filename="../devicemanagement/device_manager.py" line="639"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
       <translation>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="562"/>
+      <location filename="../devicemanagement/device_manager.py" line="560"/>
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
@@ -2089,19 +1622,19 @@ Remember to turn Find My back on!</source>
 Remember to turn Find My back on!</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="564"/>
+      <location filename="../devicemanagement/device_manager.py" line="562"/>
       <source>Please restart your device to see changes.</source>
       <translation>Please restart your device to see changes.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="565"/>
+      <location filename="../devicemanagement/device_manager.py" line="563"/>
       <source>All done! </source>
       <translation>All done! </translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="565"/>
-      <location filename="../devicemanagement/device_manager.py" line="737"/>
-      <location filename="../devicemanagement/device_manager.py" line="833"/>
+      <location filename="../devicemanagement/device_manager.py" line="563"/>
+      <location filename="../devicemanagement/device_manager.py" line="735"/>
+      <location filename="../devicemanagement/device_manager.py" line="831"/>
       <source>Success!</source>
       <translation>Success!</translation>
     </message>
@@ -2148,17 +1681,17 @@ Remember to turn Find My back on!</translation>
       <translation>Failed to load template</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="218"/>
+      <location filename="../devicemanagement/device_manager.py" line="216"/>
       <source>No Device</source>
       <translation>No Device</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="572"/>
+      <location filename="../devicemanagement/device_manager.py" line="570"/>
       <source>Restoring to device...{0}{1}</source>
       <translation>Restoring to device...{0}{1}</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="577"/>
+      <location filename="../devicemanagement/device_manager.py" line="575"/>
       <source>Applying changes to files...</source>
       <translation>Applying changes to files...</translation>
     </message>
@@ -2213,18 +1746,18 @@ Remember to turn Find My back on!</translation>
       <translation>Creating {0}...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="651"/>
-      <location filename="../devicemanagement/device_manager.py" line="757"/>
+      <location filename="../devicemanagement/device_manager.py" line="649"/>
+      <location filename="../devicemanagement/device_manager.py" line="755"/>
       <source>Generating backup...</source>
       <translation>Generating backup…</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="493"/>
+      <location filename="../devicemanagement/device_manager.py" line="491"/>
       <source>DO NOT UNPLUG</source>
       <translation>DO NOT UNPLUG</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="537"/>
+      <location filename="../devicemanagement/device_manager.py" line="535"/>
       <source>Preparing to restore...</source>
       <translation>Preparing to restore…</translation>
     </message>
@@ -2243,32 +1776,32 @@ You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; D
 You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; Developer Mode on your iPhone or iPad.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="497"/>
+      <location filename="../devicemanagement/device_manager.py" line="495"/>
       <source>Creating connection to device...</source>
       <translation>Creating connection to device…</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="500"/>
+      <location filename="../devicemanagement/device_manager.py" line="498"/>
       <source>Generating BookRestore database...</source>
       <translation>Generating BookRestore database…</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="545"/>
+      <location filename="../devicemanagement/device_manager.py" line="543"/>
       <source>Waiting for device to reconnect...</source>
       <translation>Waiting for device to reconnct…</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="545"/>
+      <location filename="../devicemanagement/device_manager.py" line="543"/>
       <source>Please complete the setup on your device.</source>
       <translation>Please complete the setup on your device.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="557"/>
+      <location filename="../devicemanagement/device_manager.py" line="555"/>
       <source>Waiting for changes to apply...</source>
       <translation>Waiting for changes to apply…</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="559"/>
+      <location filename="../devicemanagement/device_manager.py" line="557"/>
       <source>Rebooting to apply changes...</source>
       <translation>Rebooting to apply changes…</translation>
     </message>
@@ -2426,29 +1959,6 @@ No selected file for required option</translation>
       <location filename="../gui/pages/tools/posterboard.py" line="34"/>
       <source>Gallery Cache</source>
       <translation>Gallery Cache</translation>
-    </message>
-  </context>
-  <context>
-    <name>MainWindow</name>
-    <message>
-      <location filename="../gui/main_window.py" line="144"/>
-      <source>Warning: You are on iOS 26 beta.
-
-This has been known to cause problems and potentially lead to bootloops.
-
-Use at your own risk!</source>
-      <translation type="unfinished">تحذير: انت على النسخة التجريبية من iOS ٢٦.
-
-النسخة ديه يعرف أنها تسبب مشاكل وممكن تسبب
- لأغلاق وفتح الجهاز من غير مي بطل.
-
-
-استخدم بحذر! </translation>
-    </message>
-    <message>
-      <location filename="../gui/main_window.py" line="33"/>
-      <source>None</source>
-      <translation type="unfinished">مفيش جهاز متوصل</translation>
     </message>
   </context>
 </TS>

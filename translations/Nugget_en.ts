@@ -13,12 +13,12 @@ Are you sure you want to use this one?</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../gui/main_window.py" line="33"/>
+        <location filename="../gui/main_window.py" line="34"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/main_window.py" line="144"/>
+        <location filename="../gui/main_window.py" line="146"/>
         <source>Warning: You are on iOS 26 beta.
 
 This has been known to cause problems and potentially lead to bootloops.
@@ -2144,30 +2144,30 @@ Remember to turn Find My back on!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="199"/>
-        <location filename="../gui/pages/main/settings.py" line="209"/>
+        <location filename="../gui/pages/main/settings.py" line="215"/>
+        <location filename="../gui/pages/main/settings.py" line="225"/>
         <source>PosterBoard App Hash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="199"/>
+        <location filename="../gui/pages/main/settings.py" line="215"/>
         <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap &quot;Detect&quot;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="202"/>
+        <location filename="../gui/pages/main/settings.py" line="218"/>
         <source>Copy it and paste it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="206"/>
+        <location filename="../gui/pages/main/settings.py" line="222"/>
         <source>It has been copied. Paste it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/pages/main/settings.py" line="209"/>
+        <location filename="../gui/pages/main/settings.py" line="225"/>
         <source>Your hash is:
 {0}
 

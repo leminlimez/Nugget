@@ -29,16 +29,6 @@ Are you sure you want to use this one?</source>
       <translation>Mobile Gestalt</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="538"/>
-      <source>    Feature Flags</source>
-      <translation type="unfinished">الأعلام المميزة</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="567"/>
-      <source>    Eligibility</source>
-      <translation type="unfinished">الاستحقاق</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="596"/>
       <source>    Status Bar</source>
       <translation>شريط الحالة</translation>
@@ -47,11 +37,6 @@ Are you sure you want to use this one?</source>
       <location filename="../qt/mainwindow.ui" line="628"/>
       <source>    Templates</source>
       <translation>القوالب</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="657"/>
-      <source>    Miscellaneous</source>
-      <translation type="unfinished">متنوعة</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="701"/>
@@ -367,11 +352,6 @@ Note: OTA updates will be broken until this is disabled.</source>
       <source>Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know
 what you are doing.</source>
       <translation>تحذير: استخدام هذه الميزة بشكل خطأ قد يؤدي إلى إعادة تشغيل مستمرة و فقدان بيانات. فقط استخدم اذا كنت تعرف ماتفعل.</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="2455"/>
-      <source>Feature Flags</source>
-      <translation type="unfinished">الأعلام المميزة</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2530"/>
@@ -895,24 +875,9 @@ Please be careful!</source>
       <translation>تغيير قوة إشارة Wi-Fi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="4225"/>
-      <source>Show Numeric Wi-Fi Strength</source>
-      <translation type="unfinished">إظهار قوة الإشارة Wi-Fi الرقمية</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="4232"/>
       <source>Show Numeric Cellular Strength</source>
       <translation>إظهار قوة الإشارة الخلوية الرقمية</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="4239"/>
-      <source>*When set to blank on notched devices, this will display the carrier name.</source>
-      <translation type="unfinished">*عند ضبطه على فارغ على الأجهزة المقطوعة، سيعرض اسم الناقل.</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="4261"/>
-      <source>Focus Mode Icon</source>
-      <translation type="unfinished">أيقونة وضع التركيز</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4296"/>
@@ -1026,19 +991,9 @@ Please be careful!</source>
       <translation>يقوم بتفعيل جميع الإعدادات إجباريًا</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="5181"/>
-      <source>Silly Mode</source>
-      <translation type="unfinished">الوضع الغريب</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="5286"/>
       <source>Springboard Options</source>
       <translation>خيارات Springboard</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="5430"/>
-      <source>Lock Screen Footnote Text</source>
-      <translation type="unfinished">نص الملاحظة السفلية في شاشة القفل</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5437"/>
@@ -1064,11 +1019,6 @@ Please be careful!</source>
       <location filename="../qt/mainwindow.ui" line="5723"/>
       <source>Removes '&lt; PreviousAppName' glyph in Status Bar when being forwarded to another app.</source>
       <translation>يقوم بإزالة رمز '&lt; PreviousAppName&gt;' من شريط الحالة عند التحويل إلى تطبيق آخر.</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="5741"/>
-      <source>Disable Breadcrumbs</source>
-      <translation type="unfinished">تعطيل علامات التتبع</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="5760"/>
@@ -1126,12 +1076,6 @@ Please be careful!</source>
       <translation>إظهار إشعارات للنسخ واللصق في النظام</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7519"/>
-      <location filename="../qt/mainwindow.ui" line="9309"/>
-      <source>Daemons</source>
-      <translation type="unfinished">الخدمات</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="7567"/>
       <source>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
 it enabled.</source>
@@ -1167,15 +1111,6 @@ it enabled.</source>
       <location filename="../qt/mainwindow.ui" line="7616"/>
       <source>Disable Screen Time Agent</source>
       <translation>Disable Screen Time Agent</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="7623"/>
-      <source>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
-
-To work properly, also disable the daemon using the toggle above.</source>
-      <translation type="unfinished">حذف ملف تفضيلات وكيل وقت الشاشة لمنع قفل التطبيق عبر iCloud.
-لضمان العمل بشكل صحيح، قم أيضًا بإيقاف الخدمة باستخدام الزر أعلاه.
-</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7628"/>
@@ -1480,67 +1415,67 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
       <translation>تطبيق</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9580"/>
+      <location filename="../qt/mainwindow.ui" line="9608"/>
       <source>Current gestalt file location:</source>
       <translation>موقع ملف gestalt الحالي:</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9608"/>
+      <location filename="../qt/mainwindow.ui" line="9636"/>
       <source>  Choose Gestalt File</source>
       <translation>  اختر ملف gestalt</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9639"/>
+      <location filename="../qt/mainwindow.ui" line="9667"/>
       <source>  Apply Changes</source>
       <translation>  تطبيق التغييرات</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9656"/>
+      <location filename="../qt/mainwindow.ui" line="9684"/>
       <source>Ready!</source>
       <translation>جاهز!</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9694"/>
+      <location filename="../qt/mainwindow.ui" line="9722"/>
       <source>Note: Skip Setup is currently turned on.</source>
       <translation>ملاحظة: تخطي الإعداد قيد التشغيل حالياً.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9849"/>
+      <location filename="../qt/mainwindow.ui" line="9877"/>
       <source>Nugget Settings</source>
       <translation>إعدادات Nugget</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10086"/>
+      <location filename="../qt/mainwindow.ui" line="10114"/>
       <source>Allow Applying Over WiFi</source>
       <translation>السماح بتنفيذ التغييرات عبر WiFi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10096"/>
+      <location filename="../qt/mainwindow.ui" line="10124"/>
       <source>Auto Reboot After Applying</source>
       <translation>إعادة التشغيل التلقائي بعد التطبيق</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10106"/>
+      <location filename="../qt/mainwindow.ui" line="10134"/>
       <source>Show Risky Tweak Options</source>
       <translation>إظهار خيارات التعديل المحفوفة بالمخاطر</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10113"/>
+      <location filename="../qt/mainwindow.ui" line="10141"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
       <translation>عرض نماذج لأجهزة أخرى في علامة تبويب التظاهر بالأجهزة AI</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10122"/>
+      <location filename="../qt/mainwindow.ui" line="10150"/>
       <source>Show All Spoofable Models</source>
       <translation>عرض جميع النماذج القابلة للتزييف</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10129"/>
+      <location filename="../qt/mainwindow.ui" line="10157"/>
       <source>Ignore Posterboard Frame Limit</source>
       <translation>تجاهل حد إطار Posterboard</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10136"/>
+      <location filename="../qt/mainwindow.ui" line="10164"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
@@ -1548,47 +1483,47 @@ DO NOT unplug your device during restores.</source>
 لا تفصل جهازك أثناء عمليات الاستعادة.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10141"/>
+      <location filename="../qt/mainwindow.ui" line="10169"/>
       <source>Disable Tendies Limit</source>
       <translation>تعطيل حد  Tendies</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10321"/>
+      <location filename="../qt/mainwindow.ui" line="10349"/>
       <source>Restores the SSL config that does something idk</source>
       <translation>يستعيد تكوين SSL الذي يقوم بشيء لا أعرفه</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10324"/>
+      <location filename="../qt/mainwindow.ui" line="10352"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
       <translation>استعادة TrustStore (ملفات تعريف تكوين SSL)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10334"/>
+      <location filename="../qt/mainwindow.ui" line="10362"/>
       <source>Skip Setup * (non-exploit files only)</source>
       <translation>تخطي الإعداد* (الملفات غير المستغلة فقط)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10347"/>
+      <location filename="../qt/mainwindow.ui" line="10375"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
       <translation>تمكين الإشراف * (يتطلب تخطي الإعداد)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10357"/>
+      <location filename="../qt/mainwindow.ui" line="10385"/>
       <source>Enter Organization Name</source>
       <translation>أدخل اسم المؤسسة</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10380"/>
+      <location filename="../qt/mainwindow.ui" line="10408"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
       <translation>* ملاحظة: قد يتسبب تخطي الإعداد في حدوث مشكلات في ملفات تعريف التكوين. قم بإيقاف تشغيله إذا كنت بحاجة إلى ذلك.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10407"/>
+      <location filename="../qt/mainwindow.ui" line="10435"/>
       <source>Reset Device Pairing</source>
       <translation>إعادة تعيين إقران الجهاز</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10421"/>
+      <location filename="../qt/mainwindow.ui" line="10449"/>
       <source>Pocket Poster Helper</source>
       <translation>مساعد Pocket Poster</translation>
     </message>
@@ -1623,7 +1558,7 @@ DO NOT unplug your device during restores.</source>
       <translation>نص التاريخ في شريط الحالة</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10046"/>
+      <location filename="../qt/mainwindow.ui" line="10074"/>
       <source>App Language</source>
       <translation>لغة التطبيق</translation>
     </message>
@@ -1633,7 +1568,7 @@ DO NOT unplug your device during restores.</source>
       <translation>استخراج ك tendies.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9745"/>
+      <location filename="../qt/mainwindow.ui" line="9773"/>
       <source>Remove Tweaks</source>
       <translation>ازالة التعديلات</translation>
     </message>
@@ -1858,48 +1793,48 @@ bl_sbx</translation>
       <translation>تمكين نظام iPadOS (تحذير: محفوف بالمخاطر، استخدمه بحذر)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10183"/>
+      <location filename="../qt/mainwindow.ui" line="10211"/>
       <source>BookRestore Apply Method</source>
       <translation>طريقة تطبيق BookRestore,</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10215"/>
+      <location filename="../qt/mainwindow.ui" line="10243"/>
       <source>   Restore</source>
       <translation>استعادة</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10230"/>
+      <location filename="../qt/mainwindow.ui" line="10258"/>
       <source>BookRestore File Transfer Method</source>
       <translation>طريقة نقل ملفات BookRestore,</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10260"/>
+      <location filename="../qt/mainwindow.ui" line="10288"/>
       <source>   LocalHost</source>
       <translation>مضيف محلي</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10265"/>
+      <location filename="../qt/mainwindow.ui" line="10293"/>
       <source>   On-Device (Slower)</source>
       <translation>على الجهاز (أبطأ)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10275"/>
+      <location filename="../qt/mainwindow.ui" line="10303"/>
       <source>Books Container UUID</source>
       <translation>حاوية الكتب UUID,</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10282"/>
+      <location filename="../qt/mainwindow.ui" line="10310"/>
       <source>Enter your books container UUID if you know it.
 It will be automatically found if this is left blank.</source>
       <translation>أدخل معرف UUID حاوية كتبك إذا كنت تعرفه.  سيتم العثور عليه تلقائيًا إذا تُرك فارغًا.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10286"/>
+      <location filename="../qt/mainwindow.ui" line="10314"/>
       <source>Enter Books Container UUID</source>
       <translation>ادخل معرف UUID لحاوية كتبك</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10293"/>
+      <location filename="../qt/mainwindow.ui" line="10321"/>
       <source>* Developer Mode/Administrator permissions required for these options.</source>
       <translation>تتطلب هذه الخيارات أدوات وضع المطور/المسؤول.</translation>
     </message>
@@ -1907,6 +1842,16 @@ It will be automatically found if this is left blank.</source>
       <location filename="../qt/mainwindow.ui" line="2126"/>
       <source>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</source>
       <translation>تحذير: لا تشغل نظام iPadOS إذا كنت تستخدم رمز مرور أبجدي رقمي. ( alphanumeric )</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="9572"/>
+      <source>Administrator permission is required to apply tweaks with AFC.</source>
+      <translation></translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="9579"/>
+      <source> Restart as Admin</source>
+      <translation></translation>
     </message>
   </context>
   <context>
@@ -1952,13 +1897,13 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
       <translation>يرجى توصيل جهاز.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="184"/>
-      <location filename="../gui/pages/main/settings.py" line="194"/>
+      <location filename="../gui/pages/main/settings.py" line="199"/>
+      <location filename="../gui/pages/main/settings.py" line="209"/>
       <source>PosterBoard App Hash</source>
       <translation>تجزئة تطبيق PosterBoard App Hash</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="184"/>
+      <location filename="../gui/pages/main/settings.py" line="199"/>
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
@@ -1967,17 +1912,17 @@ Open up its settings and tap "Detect".</source>
 افتح إعداداته وانقر على "تحقق".</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="187"/>
+      <location filename="../gui/pages/main/settings.py" line="202"/>
       <source>Copy it and paste it</source>
       <translation>انسخه والصقه</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="191"/>
+      <location filename="../gui/pages/main/settings.py" line="206"/>
       <source>It has been copied. Paste it</source>
       <translation>تم نسخه. الصقه</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="194"/>
+      <location filename="../gui/pages/main/settings.py" line="209"/>
       <source>Your hash is:
 {0}
 
@@ -2053,7 +1998,7 @@ Open up its settings and tap "Detect".</source>
       <translation>انقر على "عرض التفاصيل" للحصول على التفاصيل.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="172"/>
+      <location filename="../devicemanagement/device_manager.py" line="170"/>
       <source>Device is password protected! You must trust the computer on your device.
 
 Unlock your device. On the popup, click "Trust", enter your password, then try again.</source>
@@ -2062,27 +2007,27 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
 افتح قفل جهازك. في النافذة المنبثقة، انقر فوق "ثقة"، وأدخل كلمة المرور الخاصة بك، ثم حاول مرة أخرى.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="176"/>
+      <location filename="../devicemanagement/device_manager.py" line="174"/>
       <source>If you keep receiving this error, try using a different cable or port.</source>
       <translation>إذا استمر تلقي هذا الخطأ، حاول استخدام كابل أو منفذ مختلف.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="310"/>
+      <location filename="../devicemanagement/device_manager.py" line="308"/>
       <source>Pairing Reset</source>
       <translation>إعادة تعيين الاقتران</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="310"/>
+      <location filename="../devicemanagement/device_manager.py" line="308"/>
       <source>Your device's pairing was successfully reset. Refresh the device list before applying.</source>
       <translation>تمت إعادة تعيين اقتران جهازك بنجاح. قم بتحديث قائمة الأجهزة قبل التقديم.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="641"/>
+      <location filename="../devicemanagement/device_manager.py" line="639"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
       <translation>لا يوجد ملف mobilegestalt متوفر! الرجاء تحديد ملفك لتطبيق تعديلات mobilegestalt.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="562"/>
+      <location filename="../devicemanagement/device_manager.py" line="560"/>
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
@@ -2091,19 +2036,19 @@ Remember to turn Find My back on!</source>
 تذكر أن تقوم بتشغيل Find My!</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="564"/>
+      <location filename="../devicemanagement/device_manager.py" line="562"/>
       <source>Please restart your device to see changes.</source>
       <translation>يرجى إعادة تشغيل جهازك لرؤية التغييرات.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="565"/>
+      <location filename="../devicemanagement/device_manager.py" line="563"/>
       <source>All done! </source>
       <translation>تم الانتهاء!</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="565"/>
-      <location filename="../devicemanagement/device_manager.py" line="737"/>
-      <location filename="../devicemanagement/device_manager.py" line="833"/>
+      <location filename="../devicemanagement/device_manager.py" line="563"/>
+      <location filename="../devicemanagement/device_manager.py" line="735"/>
+      <location filename="../devicemanagement/device_manager.py" line="831"/>
       <source>Success!</source>
       <translation>نجاح!</translation>
     </message>
@@ -2150,17 +2095,17 @@ Remember to turn Find My back on!</source>
       <translation>فشل تحميل القالب</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="218"/>
+      <location filename="../devicemanagement/device_manager.py" line="216"/>
       <source>No Device</source>
       <translation>لا يوجد جهاز</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="572"/>
+      <location filename="../devicemanagement/device_manager.py" line="570"/>
       <source>Restoring to device...{0}{1}</source>
       <translation>استعادة الجهاز...{1}{0}</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="577"/>
+      <location filename="../devicemanagement/device_manager.py" line="575"/>
       <source>Applying changes to files...</source>
       <translation>جاري تطبيق التغييرات على الملفات...</translation>
     </message>
@@ -2215,18 +2160,18 @@ Remember to turn Find My back on!</source>
       <translation>إنشاء {0}...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="651"/>
-      <location filename="../devicemanagement/device_manager.py" line="757"/>
+      <location filename="../devicemanagement/device_manager.py" line="649"/>
+      <location filename="../devicemanagement/device_manager.py" line="755"/>
       <source>Generating backup...</source>
       <translation>جاري إنشاء نسخة احتياطية...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="493"/>
+      <location filename="../devicemanagement/device_manager.py" line="491"/>
       <source>DO NOT UNPLUG</source>
       <translation>لا تفصل</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="537"/>
+      <location filename="../devicemanagement/device_manager.py" line="535"/>
       <source>Preparing to restore...</source>
       <translation>الاستعداد للإستعادة...</translation>
     </message>
@@ -2245,32 +2190,32 @@ You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; D
 يمكنك تمكين هذا في أسفل الإعدادات&gt; الخصوصية والأمان&gt; وضع المطور على جهاز iPhone أو iPad.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="497"/>
+      <location filename="../devicemanagement/device_manager.py" line="495"/>
       <source>Creating connection to device...</source>
       <translation>إنشاء اتصال بالجهاز…</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="500"/>
+      <location filename="../devicemanagement/device_manager.py" line="498"/>
       <source>Generating BookRestore database...</source>
       <translation>إنشاء قاعدة بيانات BookRestore...,</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="545"/>
+      <location filename="../devicemanagement/device_manager.py" line="543"/>
       <source>Waiting for device to reconnect...</source>
       <translation>في انتظار إعادة توصيل الجهاز...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="545"/>
+      <location filename="../devicemanagement/device_manager.py" line="543"/>
       <source>Please complete the setup on your device.</source>
       <translation>يرجى إكمال الإعداد على جهازك.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="557"/>
+      <location filename="../devicemanagement/device_manager.py" line="555"/>
       <source>Waiting for changes to apply...</source>
       <translation>في انتظار تطبيق التغييرات...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="559"/>
+      <location filename="../devicemanagement/device_manager.py" line="557"/>
       <source>Rebooting to apply changes...</source>
       <translation>إعادة التشغيل لتطبيق التغييرات…</translation>
     </message>
@@ -2332,12 +2277,6 @@ This is for your safety. Please apply the rest separately.</source>
       <translation>لقد قمت بتحديد عدد كبير جداً من ملفات التريندز! الحد الأقصى هو 3.
 
 هذا من أجل سلامتك. يرجى تطبيق الباقي بشكل منفصل.</translation>
-    </message>
-    <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="219"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="236"/>
-      <source>You selected too many descriptors! The limit is 10.</source>
-      <translation type="unfinished">اخترت وصفات أكثر من الحد المسموح! الحد الأقصى هو 10.</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="38"/>

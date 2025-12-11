@@ -1117,12 +1117,6 @@ Lütfen dikkatli olun!</translation>
       <translation>Sistem Yapıştırmalarında Bildirim Göster</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="7519"/>
-      <location filename="../qt/mainwindow.ui" line="9309"/>
-      <source>Daemons</source>
-      <translation type="unfinished">Arka Plan Hizmetleri</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="7567"/>
       <source>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
 it enabled.</source>
@@ -1185,11 +1179,6 @@ Doğru çalışması için yukarıdaki geçişi kullanarak daemon'u devre dış�
       <location filename="../qt/mainwindow.ui" line="7655"/>
       <source>Disables pinging to sleeping bluetooth devices for improved battery life.</source>
       <translation>Pil ömrünü iyileştirmek için uyuyan Bluetooth cihazlarına ping gönderilmesini devre dışı bırakır.</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="7658"/>
-      <source>Disable ATWAKEUP</source>
-      <translation type="unfinished">ATWAKEUP'u Devre Dışı Bırak</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7680"/>
@@ -1396,11 +1385,6 @@ Nugget, cihazınızı bozmanız durumunda sorumlu değildir, özellikle çözün
       <translation>Dosya yöntemini kullanır. Bunun yerine, Daemonlar sekmesinde daemon'u devre dışı bırakmanız önerilir.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="8883"/>
-      <source>Disable OTA Updates (file)</source>
-      <translation type="unfinished">OTA Güncellemelerini Kapat (dosya yöntemiyle)</translation>
-    </message>
-    <message>
       <location filename="../qt/mainwindow.ui" line="8890"/>
       <source>Disables temperature monitoring daemon to reduce system checks.
 
@@ -1470,67 +1454,67 @@ Uyarı: Bu işlemi devre dışı bırakmak, bataryanın Ayarlar'da "Bilinmeyen P
       <translation>Uygula</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9580"/>
+      <location filename="../qt/mainwindow.ui" line="9608"/>
       <source>Current gestalt file location:</source>
       <translation>Şimdiki gestalt dosyası konumu:</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9608"/>
+      <location filename="../qt/mainwindow.ui" line="9636"/>
       <source>  Choose Gestalt File</source>
       <translation>  Gestalt Dosyası Seç</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9639"/>
+      <location filename="../qt/mainwindow.ui" line="9667"/>
       <source>  Apply Changes</source>
       <translation>  Değişiklikleri Uygula</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9656"/>
+      <location filename="../qt/mainwindow.ui" line="9684"/>
       <source>Ready!</source>
       <translation>Hazır!</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9694"/>
+      <location filename="../qt/mainwindow.ui" line="9722"/>
       <source>Note: Skip Setup is currently turned on.</source>
       <translation>Not: Kurulumu atla şu an açık.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9849"/>
+      <location filename="../qt/mainwindow.ui" line="9877"/>
       <source>Nugget Settings</source>
       <translation>Nugget Ayarları</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10086"/>
+      <location filename="../qt/mainwindow.ui" line="10114"/>
       <source>Allow Applying Over WiFi</source>
       <translation>WiFi Üzerinden Uygulamaya izin ver</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10096"/>
+      <location filename="../qt/mainwindow.ui" line="10124"/>
       <source>Auto Reboot After Applying</source>
       <translation>Uygulamadan Sonra Otomatik Yeniden Başlatma</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10106"/>
+      <location filename="../qt/mainwindow.ui" line="10134"/>
       <source>Show Risky Tweak Options</source>
       <translation>Riskli Özelleştirme Seçeneklerini Göster</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10113"/>
+      <location filename="../qt/mainwindow.ui" line="10141"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
       <translation>AI cihaz taklit sekmesinde farklı cihaz türlerine ait modelleri göster.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10122"/>
+      <location filename="../qt/mainwindow.ui" line="10150"/>
       <source>Show All Spoofable Models</source>
       <translation>Bütün taklit edilebilir Modelleri Göster</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10129"/>
+      <location filename="../qt/mainwindow.ui" line="10157"/>
       <source>Ignore Posterboard Frame Limit</source>
       <translation>Posterboard Kare Limitini Yoksay</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10136"/>
+      <location filename="../qt/mainwindow.ui" line="10164"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
@@ -1539,47 +1523,42 @@ DO NOT unplug your device during restores.</source>
 Geri yükleme sırasında cihaz bağlantısını asla kesmeyin.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10141"/>
+      <location filename="../qt/mainwindow.ui" line="10169"/>
       <source>Disable Tendies Limit</source>
       <translation>Tendies Sınırını Kapat</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10321"/>
-      <source>Restores the SSL config that does something idk</source>
-      <translation type="unfinished">SSL yapılandırmasını geri yükler.</translation>
-    </message>
-    <message>
-      <location filename="../qt/mainwindow.ui" line="10324"/>
+      <location filename="../qt/mainwindow.ui" line="10352"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
       <translation>TrustStore'u Geri Yükle (SSL Yapılandırma Profilleri)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10334"/>
+      <location filename="../qt/mainwindow.ui" line="10362"/>
       <source>Skip Setup * (non-exploit files only)</source>
       <translation>Kurulumu Atla * (sadece exploit içermeyen dosyalar)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10347"/>
+      <location filename="../qt/mainwindow.ui" line="10375"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
       <translation>Gözetimi aç  *(Kurulumu Atlamayı Gerektirir)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10357"/>
+      <location filename="../qt/mainwindow.ui" line="10385"/>
       <source>Enter Organization Name</source>
       <translation>Kuruluş İsmini Giriniz</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10380"/>
+      <location filename="../qt/mainwindow.ui" line="10408"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
       <translation>* Not: "Kurulumu Atla" özelliği, yapılandırma profilleriyle sorunlara yol açabilir. Eğer buna ihtiyacınız varsa, bu özelliği kapatın.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10407"/>
+      <location filename="../qt/mainwindow.ui" line="10435"/>
       <source>Reset Device Pairing</source>
       <translation>Cihaz Eşlemesini Sıfırla</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10421"/>
+      <location filename="../qt/mainwindow.ui" line="10449"/>
       <source>Pocket Poster Helper</source>
       <translation>Pocket Poster Yardımcısı</translation>
     </message>
@@ -1614,7 +1593,7 @@ Geri yükleme sırasında cihaz bağlantısını asla kesmeyin.</translation>
       <translation>Durum barı Tarih metni</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10046"/>
+      <location filename="../qt/mainwindow.ui" line="10074"/>
       <source>App Language</source>
       <translation>Uygulama dili</translation>
     </message>
@@ -1624,7 +1603,7 @@ Geri yükleme sırasında cihaz bağlantısını asla kesmeyin.</translation>
       <translation>   .tendies olarak dışarı çıkart</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="9745"/>
+      <location filename="../qt/mainwindow.ui" line="9773"/>
       <source>Remove Tweaks</source>
       <translation>Özellikleri kaldır</translation>
     </message>
@@ -1847,49 +1826,49 @@ bl_sbx</translation>
       <translation>iPadOS'i Etkinleştir (UYARI: Riskli, dikkatli kullanın)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10183"/>
+      <location filename="../qt/mainwindow.ui" line="10211"/>
       <source>BookRestore Apply Method</source>
       <translation>Bookrestore Uygulama Yöntemi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10215"/>
+      <location filename="../qt/mainwindow.ui" line="10243"/>
       <source>   Restore</source>
       <translation>   GeriYükleme</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10230"/>
+      <location filename="../qt/mainwindow.ui" line="10258"/>
       <source>BookRestore File Transfer Method</source>
       <translation>Bookrestore Dosya aktarma yöntemi</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10260"/>
+      <location filename="../qt/mainwindow.ui" line="10288"/>
       <source>   LocalHost</source>
       <translation>   LocalHost</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10265"/>
+      <location filename="../qt/mainwindow.ui" line="10293"/>
       <source>   On-Device (Slower)</source>
       <translation>   Cihaz-üstünde (Daha yavaş)</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10275"/>
+      <location filename="../qt/mainwindow.ui" line="10303"/>
       <source>Books Container UUID</source>
       <translation>Kitaplar UUID</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10282"/>
+      <location filename="../qt/mainwindow.ui" line="10310"/>
       <source>Enter your books container UUID if you know it.
 It will be automatically found if this is left blank.</source>
       <translation>Eğer biliyorsanız kitaplarınızın UUID'sini girin.
 Boş bırakılırsa otomatik olarak bulunacaktır.</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10286"/>
+      <location filename="../qt/mainwindow.ui" line="10314"/>
       <source>Enter Books Container UUID</source>
       <translation>Kitap Konteyneri UUID'sini girin</translation>
     </message>
     <message>
-      <location filename="../qt/mainwindow.ui" line="10293"/>
+      <location filename="../qt/mainwindow.ui" line="10321"/>
       <source>* Developer Mode/Administrator permissions required for these options.</source>
       <translation>* Bu seçenekler için Geliştirici Modu/Yönetici izinleri gereklidir.</translation>
     </message>
@@ -1897,6 +1876,16 @@ Boş bırakılırsa otomatik olarak bulunacaktır.</translation>
       <location filename="../qt/mainwindow.ui" line="2126"/>
       <source>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</source>
       <translation>UYARI: iPadOS'i Özel Alfasayısal parolanız varsa sakın etkinleştirmeyin.</translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="9572"/>
+      <source>Administrator permission is required to apply tweaks with AFC.</source>
+      <translation></translation>
+    </message>
+    <message>
+      <location filename="../qt/mainwindow.ui" line="9579"/>
+      <source> Restart as Admin</source>
+      <translation></translation>
     </message>
   </context>
   <context>
@@ -1943,13 +1932,13 @@ Eğer duvar kağıtları menüde görünmüyorsa, biraz beklemeniz gerekebilir, 
       <translation>Lütfen bir cihaz bağlayınız.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="184"/>
-      <location filename="../gui/pages/main/settings.py" line="194"/>
+      <location filename="../gui/pages/main/settings.py" line="199"/>
+      <location filename="../gui/pages/main/settings.py" line="209"/>
       <source>PosterBoard App Hash</source>
       <translation>PosterBoard uygulama Hash'i</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="184"/>
+      <location filename="../gui/pages/main/settings.py" line="199"/>
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
@@ -1958,17 +1947,17 @@ Open up its settings and tap "Detect".</source>
 Uygulamanın ayarlarını açın ve "Detect" seçeneğine tıklayın.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="187"/>
+      <location filename="../gui/pages/main/settings.py" line="202"/>
       <source>Copy it and paste it</source>
       <translation>Kopyalayın ve yapıştırın</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="191"/>
+      <location filename="../gui/pages/main/settings.py" line="206"/>
       <source>It has been copied. Paste it</source>
       <translation>Kopyalandı. Yapıştırın.</translation>
     </message>
     <message>
-      <location filename="../gui/pages/main/settings.py" line="194"/>
+      <location filename="../gui/pages/main/settings.py" line="209"/>
       <source>Your hash is:
 {0}
 
@@ -2044,7 +2033,7 @@ Uygulamanın ayarlarını açın ve "Detect" seçeneğine tıklayın.</translati
       <translation>Hata izini için "Detayları Göster" butonuna tıklayın.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="172"/>
+      <location filename="../devicemanagement/device_manager.py" line="170"/>
       <source>Device is password protected! You must trust the computer on your device.
 
 Unlock your device. On the popup, click "Trust", enter your password, then try again.</source>
@@ -2053,27 +2042,27 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
 Cihazınızı kilidini açın. Açılan pencerede "Güven"e tıklayın, şifrenizi girin ve ardından tekrar deneyin.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="176"/>
+      <location filename="../devicemanagement/device_manager.py" line="174"/>
       <source>If you keep receiving this error, try using a different cable or port.</source>
       <translation>Eğer Bu Hatayı Sürekli Olarak Alıyorsanız, başka bir kablo veya giriş deneyin.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="310"/>
+      <location filename="../devicemanagement/device_manager.py" line="308"/>
       <source>Pairing Reset</source>
       <translation>Eşlemeyi Sıfırla</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="310"/>
+      <location filename="../devicemanagement/device_manager.py" line="308"/>
       <source>Your device's pairing was successfully reset. Refresh the device list before applying.</source>
       <translation>Cihazınızın eşlemesi başarıyla sıfırlandı. Uygulamadan önce cihaz listesini yenileyin.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="641"/>
+      <location filename="../devicemanagement/device_manager.py" line="639"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
       <translation>Hiçbir mobilegestalt dosyası karşılanmadı! Lütfen mobilegestalt tweaklerini uygulamak için bir dosya karşılayın.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="562"/>
+      <location filename="../devicemanagement/device_manager.py" line="560"/>
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
@@ -2082,19 +2071,19 @@ Remember to turn Find My back on!</source>
 Cihazı Bul özelliğini tekrardan açmayı unutmayın!</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="564"/>
+      <location filename="../devicemanagement/device_manager.py" line="562"/>
       <source>Please restart your device to see changes.</source>
       <translation>Değişiklikleri görmek için lütfen cihazınızı yeniden başlatın.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="565"/>
+      <location filename="../devicemanagement/device_manager.py" line="563"/>
       <source>All done! </source>
       <translation>Hepsi bitti! </translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="565"/>
-      <location filename="../devicemanagement/device_manager.py" line="737"/>
-      <location filename="../devicemanagement/device_manager.py" line="833"/>
+      <location filename="../devicemanagement/device_manager.py" line="563"/>
+      <location filename="../devicemanagement/device_manager.py" line="735"/>
+      <location filename="../devicemanagement/device_manager.py" line="831"/>
       <source>Success!</source>
       <translation>Başarılı!</translation>
     </message>
@@ -2141,17 +2130,17 @@ Cihazı Bul özelliğini tekrardan açmayı unutmayın!</translation>
       <translation>Şablon yüklenemedi</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="218"/>
+      <location filename="../devicemanagement/device_manager.py" line="216"/>
       <source>No Device</source>
       <translation>Cihaz Yok</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="572"/>
+      <location filename="../devicemanagement/device_manager.py" line="570"/>
       <source>Restoring to device...{0}{1}</source>
       <translation>Cihaza geri yükleniyor...{0}{1}</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="577"/>
+      <location filename="../devicemanagement/device_manager.py" line="575"/>
       <source>Applying changes to files...</source>
       <translation>Dosyalarda değişiklikler uygulanıyor...</translation>
     </message>
@@ -2206,18 +2195,18 @@ Cihazı Bul özelliğini tekrardan açmayı unutmayın!</translation>
       <translation>Oluşturuluyor {0}...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="651"/>
-      <location filename="../devicemanagement/device_manager.py" line="757"/>
+      <location filename="../devicemanagement/device_manager.py" line="649"/>
+      <location filename="../devicemanagement/device_manager.py" line="755"/>
       <source>Generating backup...</source>
       <translation>Yedekleme Oluşturuluyor...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="493"/>
+      <location filename="../devicemanagement/device_manager.py" line="491"/>
       <source>DO NOT UNPLUG</source>
       <translation>SAKIN ÇIKARMAYIN</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="537"/>
+      <location filename="../devicemanagement/device_manager.py" line="535"/>
       <source>Preparing to restore...</source>
       <translation>Yeniden yüklemeye hazırlanıyor...</translation>
     </message>
@@ -2236,32 +2225,32 @@ You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; D
 Bunu iPhone veya iPad'inizde Ayarlar &gt; Gizlilik ve Güvenlik &gt; Geliştirici Modu'nun altından etkinleştirebilirsiniz.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="497"/>
+      <location filename="../devicemanagement/device_manager.py" line="495"/>
       <source>Creating connection to device...</source>
       <translation>Cihaza bağlantı oluşturuluyor...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="500"/>
+      <location filename="../devicemanagement/device_manager.py" line="498"/>
       <source>Generating BookRestore database...</source>
       <translation>BookRestore veritabanı oluşturuluyor...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="545"/>
+      <location filename="../devicemanagement/device_manager.py" line="543"/>
       <source>Waiting for device to reconnect...</source>
       <translation>Cihazın yeniden bağlanması bekleniyor...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="545"/>
+      <location filename="../devicemanagement/device_manager.py" line="543"/>
       <source>Please complete the setup on your device.</source>
       <translation>Lütfen cihazınızdaki kurulumu tamamlayın.</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="557"/>
+      <location filename="../devicemanagement/device_manager.py" line="555"/>
       <source>Waiting for changes to apply...</source>
       <translation>Değişikliklerin uygulanması bekleniyor...</translation>
     </message>
     <message>
-      <location filename="../devicemanagement/device_manager.py" line="559"/>
+      <location filename="../devicemanagement/device_manager.py" line="557"/>
       <source>Rebooting to apply changes...</source>
       <translation>Değişiklikleri uygulamak için yeniden başlatılıyor...</translation>
     </message>
@@ -2323,12 +2312,6 @@ This is for your safety. Please apply the rest separately.</source>
       <translation>Çok fazla tendies dosyası seçtiniz! Limit 3'tür.
 
 Bu, güvenliğiniz içindir. Kalan dosyaları ayrı ayrı uygulayın lütfen.</translation>
-    </message>
-    <message>
-      <location filename="../gui/pages/tools/posterboard.py" line="219"/>
-      <location filename="../gui/pages/tools/posterboard.py" line="236"/>
-      <source>You selected too many descriptors! The limit is 10.</source>
-      <translation type="unfinished">Çok fazla tanımlayıcı seçtiniz! Sınır 10'dur.</translation>
     </message>
     <message>
       <location filename="../gui/pages/tools/posterboard.py" line="38"/>
