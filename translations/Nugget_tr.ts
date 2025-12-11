@@ -1880,12 +1880,12 @@ Boş bırakılırsa otomatik olarak bulunacaktır.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="9572"/>
       <source>Administrator permission is required to apply tweaks with AFC.</source>
-      <translation></translation>
+      <translation>AFC ile eklenti uygulamak için yönetici izinleri gerekmektedir.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="9579"/>
       <source> Restart as Admin</source>
-      <translation></translation>
+      <translation>Yönetici olarak başlat</translation>
     </message>
   </context>
   <context>

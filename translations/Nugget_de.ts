@@ -1902,12 +1902,12 @@ Es wird automatisch gefunden wenn es leer bleibt.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="9572"/>
       <source>Administrator permission is required to apply tweaks with AFC.</source>
-      <translation></translation>
+      <translation>Administrator Berechtigung benötigt zum hinzufügen von tweaks mit AFC</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="9579"/>
       <source> Restart as Admin</source>
-      <translation></translation>
+      <translation>Neustart als Admin</translation>
     </message>
   </context>
   <context>

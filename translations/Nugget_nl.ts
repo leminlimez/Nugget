@@ -26,7 +26,7 @@ Weet je zeker dat je dit bestand wilt gebruiken?</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="494"/>
       <source>     Mobile Gestalt</source>
-      <translation>     Mobiele Gestalt</translation>
+      <translation>     Mobile Gestalt</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="538"/>
@@ -226,12 +226,12 @@ Na het aanzetten kan je de optie vinden in ‘toegankelijkheid’ instellingen.<
     <message>
       <location filename="../qt/mainwindow.ui" line="2039"/>
       <source>Shows the charge limit menu in Settings. Actual limiting may not be functional.</source>
-      <translation>Toont het laadlimietmenu in Instellingen. Het daadwerkelijke beperken werkt mogelijk niet.</translation>
+      <translation>Toont het oplaadlimietmenu in Instellingen. Het daadwerkelijke beperken werkt mogelijk niet.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2042"/>
       <source>Enable Charge Limit</source>
-      <translation>Zet de oplaad limit aan</translation>
+      <translation>Zet de oplaadlimiet aan</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2049"/>
@@ -241,7 +241,7 @@ Na het aanzetten kan je de optie vinden in ‘toegankelijkheid’ instellingen.<
     <message>
       <location filename="../qt/mainwindow.ui" line="2056"/>
       <source>Enables Camera Control menu in Settings app and allows for downloading A17 Pro-exclusive apps (when spoofed).</source>
-      <translation>Schakelt het Camera Control-menu in de Instellingen-app in en maakt het mogelijk om exclusieve apps voor A17 Pro te downloaden (wanneer gespoofd).</translation>
+      <translation>de Instellingen-app in en maakt het mogelijk om exclusieve apps voor A17 Pro te downloaden (Wanneer Gespoofd).</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2059"/>
@@ -251,7 +251,7 @@ Na het aanzetten kan je de optie vinden in ‘toegankelijkheid’ instellingen.<
     <message>
       <location filename="../qt/mainwindow.ui" line="2066"/>
       <source>Disables the motion of the wallpaper.</source>
-      <translation>Beweging van het achtergrondbeeld uitschakelen.</translation>
+      <translation>Schakelt beweging van de achtergrond uit.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2069"/>
@@ -339,7 +339,7 @@ Opmerking: OTA-updates werken niet totdat dit is uitgeschakeld.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="2253"/>
       <source>Enable Always On Display</source>
-      <translation>Always On Display inschakelen</translation>
+      <translation>Altijd Aan inschakelen</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2260"/>
@@ -435,7 +435,7 @@ Werkt alleen op iOS 18.0 beta 1-2.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="2808"/>
       <source>Method Type</source>
-      <translation>Methode Type</translation>
+      <translation>Soort Methode</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2856"/>
@@ -455,7 +455,7 @@ Werkt alleen op iOS 18.0 beta 1-2.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="2876"/>
       <source>Region Code (Default: US)</source>
-      <translation>Regiocode (Standaard: US)</translation>
+      <translation>Regiocode (Standaard: VS)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2917"/>
@@ -465,7 +465,7 @@ Werkt alleen op iOS 18.0 beta 1-2.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="2939"/>
       <source>Enable Eligibility File</source>
-      <translation>Eligibility-bestand inschakelen</translation>
+      <translation>Geschiktheids-bestand inschakelen</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2946"/>
@@ -506,7 +506,7 @@ Wees alsjeblieft voorzichtig!
       <location filename="../qt/mainwindow.ui" line="3055"/>
       <location filename="../qt/mainwindow.ui" line="3062"/>
       <source>Original</source>
-      <translation>Orgineel</translation>
+      <translation>Origineel</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3067"/>
@@ -728,7 +728,7 @@ Wees alsjeblieft voorzichtig!
       <location filename="../qt/mainwindow.ui" line="3532"/>
       <location filename="../qt/mainwindow.ui" line="3838"/>
       <source>Service Badge Text</source>
-      <translation>Servicetexte badge</translation>
+      <translation>Dienst Badge Tekst</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3539"/>
@@ -901,7 +901,7 @@ Wees alsjeblieft voorzichtig!
     <message>
       <location filename="../qt/mainwindow.ui" line="4239"/>
       <source>*When set to blank on notched devices, this will display the carrier name.</source>
-      <translation>Wanneer leeg gelaten op apparaten met een notch, wordt de carriernaam weergegeven.</translation>
+      <translation>Wanneer leeg gelaten op apparaten met een notch, wordt de providernaam weergegeven.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4261"/>
@@ -1906,12 +1906,12 @@ It will be automatically found if this is left blank.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="9572"/>
       <source>Administrator permission is required to apply tweaks with AFC.</source>
-      <translation></translation>
+      <translation>Administrator permission is required to apply tweaks with AFC.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="9579"/>
       <source> Restart as Admin</source>
-      <translation></translation>
+      <translation>Restart as Admin</translation>
     </message>
   </context>
   <context>

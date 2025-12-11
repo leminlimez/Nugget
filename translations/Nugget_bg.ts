@@ -1900,17 +1900,17 @@ It will be automatically found if this is left blank.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="2126"/>
       <source>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</source>
-      <translation>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</translation>
+      <translation>ПРЕДУПРЕЖДЕНИЕ: Не активирайте iPadOS, ако използвате буквено-цифров код за достъп.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="9572"/>
       <source>Administrator permission is required to apply tweaks with AFC.</source>
-      <translation></translation>
+      <translation>Необходимо е разрешение от администратор, за да се прилагат настройки с AFC.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="9579"/>
       <source> Restart as Admin</source>
-      <translation></translation>
+      <translation> Рестартиране като администратор</translation>
     </message>
   </context>
   <context>

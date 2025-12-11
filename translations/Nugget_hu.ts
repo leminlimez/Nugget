@@ -1906,12 +1906,12 @@ Ha üresen hagyja, a rendszer automatikusan megkeresi.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="9572"/>
       <source>Administrator permission is required to apply tweaks with AFC.</source>
-      <translation></translation>
+      <translation>Administrator permission is required to apply tweaks with AFC.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="9579"/>
       <source> Restart as Admin</source>
-      <translation></translation>
+      <translation>Restart as Admin</translation>
     </message>
   </context>
   <context>

@@ -1705,12 +1705,12 @@ DO NOT unplug your device during restores.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="8383"/>
       <source>Linear</source>
-      <translation>Linear</translation>
+      <translation>线性</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="8388"/>
       <source>Discrete</source>
-      <translation>Discrete</translation>
+      <translation>离散</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7208"/>
@@ -1745,7 +1745,7 @@ DO NOT unplug your device during restores.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="6329"/>
       <source>Keyboard Character Flick</source>
-      <translation>Keyboard Character Flick</translation>
+      <translation>键盘字符滑动输入</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6378"/>
@@ -1760,7 +1760,7 @@ DO NOT unplug your device during restores.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="6446"/>
       <source>Show Hardware Button Hints in Screenshots</source>
-      <translation>Show Hardware Button Hints in Screenshots</translation>
+      <translation>在截图中显示硬件按钮提示</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6498"/>
@@ -1801,12 +1801,12 @@ DO NOT unplug your device during restores.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="7174"/>
       <source>Force Solarium Fallback</source>
-      <translation>Force Solarium Fallback</translation>
+      <translation>强制使用 Solarium 备用方案</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7285"/>
       <source>Disable Liquid Glass on LS Clock</source>
-      <translation>Disable Liquid Glass on Lock Screen Clock</translation>
+      <translation>关闭锁屏时钟上的液态玻璃效果</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7319"/>
@@ -1816,17 +1816,17 @@ DO NOT unplug your device during restores.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="7353"/>
       <source>Disable Specular Motion</source>
-      <translation>Disable Specular Motion</translation>
+      <translation>禁用镜面动态效果</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7387"/>
       <source>Disable Outer Refraction</source>
-      <translation>Disable Outer Refraction</translation>
+      <translation>禁用外部折射效果</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7421"/>
       <source>Disable Solarium HDR</source>
-      <translation>Disable Solarium HDR</translation>
+      <translation>关闭 Solarium 的高动态范围（HDR）效果</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1604"/>
@@ -1878,14 +1878,14 @@ bl_sbx</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="10303"/>
       <source>Books Container UUID</source>
-      <translation>Books Container UUID</translation>
+      <translation>图书容器 UUID</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10310"/>
       <source>Enter your books container UUID if you know it.
 It will be automatically found if this is left blank.</source>
-      <translation>Enter your books container UUID if you know it.
-It will be automatically found if this is left blank.</translation>
+      <translation>如果你知道图书容器的 UUID，请输入。
+如果留空，将自动检测。</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10314"/>
@@ -1900,17 +1900,17 @@ It will be automatically found if this is left blank.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="2126"/>
       <source>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</source>
-      <translation>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</translation>
+      <translation>警告：如果你使用的是字母数字混合密码，请不要启用 iPadOS。</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="9572"/>
       <source>Administrator permission is required to apply tweaks with AFC.</source>
-      <translation></translation>
+      <translation>使用 AFC 应用调整需要管理员权限。</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="9579"/>
       <source> Restart as Admin</source>
-      <translation></translation>
+      <translation>以管理员身份重新启动</translation>
     </message>
   </context>
   <context>
@@ -2245,9 +2245,9 @@ Remember to turn Find My back on!</source>
       <source>BookRestore tweaks with the AFC method require developer mode to apply.
 
 You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; Developer Mode on your iPhone or iPad.</source>
-      <translation>BookRestore tweaks with the AFC method require developer mode to apply.
+      <translation>使用 AFC 方法的 BookRestore 调整需要启用开发者模式才能应用。
 
-You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; Developer Mode on your iPhone or iPad.</translation>
+你可以在 iPhone 或 iPad 的设置 &gt; 隐私与安全性 &gt; 开发者模式 页面底部启用此功能。</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="495"/>
@@ -2297,22 +2297,22 @@ You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; D
     <message>
       <location filename="../tweaks/tweak_classes.py" line="267"/>
       <source>Right offset out of range.</source>
-      <translation>Right offset out of range.</translation>
+      <translation>右偏移超出范围。</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="272"/>
       <source>Left offset out of range.</source>
-      <translation>Left offset out of range.</translation>
+      <translation>左偏移超出范围。</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="280"/>
       <source>Value at %SIDE offset is not 1 or 3.</source>
-      <translation>Value at %SIDE offset is not 1 or 3.</translation>
+      <translation>%SIDE 偏移处的值不是 1 或 3。</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="287"/>
       <source>Values of %SIDE offset neighbors are not 0.</source>
-      <translation>Values of %SIDE offset neighbors are not 0.</translation>
+      <translation>%SIDE 偏移附近的值不是 0。</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="88"/>

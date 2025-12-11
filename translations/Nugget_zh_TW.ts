@@ -1718,12 +1718,12 @@ DO NOT unplug your device during restores.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="7208"/>
       <source>Disable Liquid Glass</source>
-      <translation>Disable Liquid Glass</translation>
+      <translation>停用 Liquid Glass</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7227"/>
       <source>Enables liquid glass on apps regardless of whether or not it has been updated to include it</source>
-      <translation>Enables liquid glass on apps regardless of whether or not it has been updated to include it</translation>
+      <translation>在應用程式中啟用 Liquid Glass，不管它是否支援</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7245"/>
@@ -1743,22 +1743,22 @@ DO NOT unplug your device during restores.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="5568"/>
       <source>Disable AirDrop Time Limit for Everyone Option</source>
-      <translation>Disable AirDrop Time Limit for Everyone Option</translation>
+      <translation>停用向所有人 Airdrop 的時間限制</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6329"/>
       <source>Keyboard Character Flick</source>
-      <translation>Keyboard Character Flick</translation>
+      <translation>鍵盤滑動</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6378"/>
       <source>Disable Clock Icon Seconds Hand</source>
-      <translation>Disable Clock Icon Seconds Hand</translation>
+      <translation>停用時鐘圖標上的分針</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6412"/>
       <source>Disable Spotlight Searching in Websites</source>
-      <translation>Disable Spotlight Searching in Websites</translation>
+      <translation>停用在 Spotlight 中搜尋網站</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6446"/>
@@ -1773,7 +1773,7 @@ DO NOT unplug your device during restores.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="6532"/>
       <source>iMessage Debugging</source>
-      <translation>iMessage Debugging</translation>
+      <translation>iMessage 除錯</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6566"/>
@@ -1783,7 +1783,7 @@ DO NOT unplug your device during restores.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="6600"/>
       <source>FaceTime Debugging</source>
-      <translation>FaceTime Debugging</translation>
+      <translation>FaceTime 除錯</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6683"/>
@@ -1793,7 +1793,7 @@ DO NOT unplug your device during restores.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="6717"/>
       <source>Notes Debug Mode</source>
-      <translation>Notes Debug Mode</translation>
+      <translation>備忘錄除錯模式</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7015"/>
@@ -1809,12 +1809,12 @@ DO NOT unplug your device during restores.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="7285"/>
       <source>Disable Liquid Glass on LS Clock</source>
-      <translation>Disable Liquid Glass on Lock Screen Clock</translation>
+      <translation>停用鎖定畫面時鐘的 Liquid Glass</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7319"/>
       <source>Disable Liquid Glass on Dock</source>
-      <translation>Disable Liquid Glass on Dock</translation>
+      <translation>停用 Dock 上的 Liquid Glass</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7353"/>
@@ -1841,17 +1841,17 @@ bl_sbx</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="2076"/>
       <source>Enable Liquid Glass Low Performance Mode</source>
-      <translation>Enable Liquid Glass Low Performance Mode</translation>
+      <translation>在低耗電模式中啟用 Liquid Glass</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2083"/>
       <source>Disable Liquid Glass Low Performance Mode</source>
-      <translation>Disable Liquid Glass Low Performance Mode</translation>
+      <translation>在低耗電模式中停用 Liquid Glass</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2119"/>
       <source>Enable iPadOS (WARNING: risky, use with caution)</source>
-      <translation>Enable iPadOS (WARNING: risky, use with caution)</translation>
+      <translation>使用 iPadOS （警告：有風險，謹慎使用）</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10211"/>
@@ -1861,7 +1861,7 @@ bl_sbx</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="10243"/>
       <source>   Restore</source>
-      <translation>   Restore</translation>
+      <translation>   回復</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10258"/>
@@ -1898,7 +1898,7 @@ It will be automatically found if this is left blank.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="10321"/>
       <source>* Developer Mode/Administrator permissions required for these options.</source>
-      <translation>* Developer Mode/Administrator permissions required for these options.</translation>
+      <translation>* 需要開發者模式/管理員權限以更改這些選項</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2126"/>
@@ -1908,12 +1908,12 @@ It will be automatically found if this is left blank.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="9572"/>
       <source>Administrator permission is required to apply tweaks with AFC.</source>
-      <translation></translation>
+      <translation>Administrator permission is required to apply tweaks with AFC.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="9579"/>
       <source> Restart as Admin</source>
-      <translation></translation>
+      <translation> 以管理員身分重啟</translation>
     </message>
   </context>
   <context>
@@ -2243,7 +2243,7 @@ Remember to turn Find My back on!</source>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="90"/>
       <source>You must enable developer mode on your device. You can do it in the Settings app.</source>
-      <translation>You must enable developer mode on your device. You can do it in the Settings app.</translation>
+      <translation>你必須在設定中啟用開發者模式</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="91"/>
@@ -2257,7 +2257,7 @@ You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; D
     <message>
       <location filename="../devicemanagement/device_manager.py" line="495"/>
       <source>Creating connection to device...</source>
-      <translation>Creating connection to device…</translation>
+      <translation>正在和裝置建立連接...</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="498"/>
@@ -2267,7 +2267,7 @@ You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; D
     <message>
       <location filename="../devicemanagement/device_manager.py" line="543"/>
       <source>Waiting for device to reconnect...</source>
-      <translation>Waiting for device to reconnct…</translation>
+      <translation>等待裝置重新連接...</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="543"/>
@@ -2282,12 +2282,12 @@ You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; D
     <message>
       <location filename="../devicemanagement/device_manager.py" line="557"/>
       <source>Rebooting to apply changes...</source>
-      <translation>Rebooting to apply changes…</translation>
+      <translation>重啟以套用變更</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="245"/>
       <source>Failed to enable iPadOS:</source>
-      <translation>Failed to enable iPadOS</translation>
+      <translation>無法啟用 iPadOS</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="247"/>

@@ -1791,7 +1791,7 @@ Deshabilítalo si necesitas eso.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="6683"/>
       <source>App Store Debug Gesture</source>
-      <translation>App Store Debug Gesture</translation>
+      <translation>Gesto de depuración de App Store</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6717"/>
@@ -1817,22 +1817,22 @@ Deshabilítalo si necesitas eso.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="7319"/>
       <source>Disable Liquid Glass on Dock</source>
-      <translation>Disable Liquid Glass on Dock</translation>
+      <translation>Desactivar vidrio líquido en el Dock</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7353"/>
       <source>Disable Specular Motion</source>
-      <translation>Disable Specular Motion</translation>
+      <translation>Desactivar movimiento especular</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7387"/>
       <source>Disable Outer Refraction</source>
-      <translation>Disable Outer Refraction</translation>
+      <translation>Desactivar refracción exterior</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7421"/>
       <source>Disable Solarium HDR</source>
-      <translation>Disable Solarium HDR</translation>
+      <translation>Desactivar HDR de Solarium</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1604"/>
@@ -1844,42 +1844,42 @@ bl_sbx</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="2076"/>
       <source>Enable Liquid Glass Low Performance Mode</source>
-      <translation>Enable Liquid Glass Low Performance Mode</translation>
+      <translation>Activar modo de bajo rendimiento para vidrio líquido</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2083"/>
       <source>Disable Liquid Glass Low Performance Mode</source>
-      <translation>Disable Liquid Glass Low Performance Mode</translation>
+      <translation>Desactivar modo de bajo rendimiento para vidrio líquido</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2119"/>
       <source>Enable iPadOS (WARNING: risky, use with caution)</source>
-      <translation>Enable iPadOS (WARNING: risky, use with caution)</translation>
+      <translation>Activar iPadOS (ADVERTENCIA: arriesgado, úsalo con precaución)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10211"/>
       <source>BookRestore Apply Method</source>
-      <translation>BookRestore Apply Method</translation>
+      <translation>Método de aplicación de BookRestore</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10243"/>
       <source>   Restore</source>
-      <translation>   Restore</translation>
+      <translation>   Restaurar</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10258"/>
       <source>BookRestore File Transfer Method</source>
-      <translation>BookRestore File Transfer Method</translation>
+      <translation>Método de transferencia de archivos de BookRestore</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10288"/>
       <source>   LocalHost</source>
-      <translation>   LocalHost</translation>
+      <translation>   Servidor local</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10293"/>
       <source>   On-Device (Slower)</source>
-      <translation>   On-Device (Slower)</translation>
+      <translation>   En el dispositivo (más lento)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10303"/>
@@ -1900,7 +1900,7 @@ It will be automatically found if this is left blank.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="10321"/>
       <source>* Developer Mode/Administrator permissions required for these options.</source>
-      <translation>* Developer Mode/Administrator permissions required for these options.</translation>
+      <translation>Estas opciones requieren el modo desarrollador o permisos de administrador.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2126"/>
@@ -1910,12 +1910,12 @@ It will be automatically found if this is left blank.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="9572"/>
       <source>Administrator permission is required to apply tweaks with AFC.</source>
-      <translation></translation>
+      <translation>Administrator permission is required to apply tweaks with AFC.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="9579"/>
       <source> Restart as Admin</source>
-      <translation></translation>
+      <translation>Restart as Admin</translation>
     </message>
   </context>
   <context>
@@ -2243,7 +2243,7 @@ Remember to turn Find My back on!</source>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="90"/>
       <source>You must enable developer mode on your device. You can do it in the Settings app.</source>
-      <translation>You must enable developer mode on your device. You can do it in the Settings app.</translation>
+      <translation>Debes activar el modo desarrollador en tu dispositivo. Puedes hacerlo desde la app de Configuración.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="91"/>

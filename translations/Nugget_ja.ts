@@ -1898,17 +1898,17 @@ It will be automatically found if this is left blank.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="2126"/>
       <source>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</source>
-      <translation>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</translation>
+      <translation>警告：英数字パスコードを使っている場合は、iPadOS機能を有効にしないでください。</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="9572"/>
       <source>Administrator permission is required to apply tweaks with AFC.</source>
-      <translation></translation>
+      <translation>AFCで調整(tweak)を適用するには、管理者権限が必要です。</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="9579"/>
       <source> Restart as Admin</source>
-      <translation></translation>
+      <translation> 管理者として再起動</translation>
     </message>
   </context>
   <context>

@@ -1709,22 +1709,22 @@ KHÔNG ĐƯỢC rút dây cáp của thiết bị trong quá trình khôi phục
     <message>
       <location filename="../qt/mainwindow.ui" line="7208"/>
       <source>Disable Liquid Glass</source>
-      <translation>Disable Liquid Glass</translation>
+      <translation>Tắt hiệu ứng kính lỏng</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7227"/>
       <source>Enables liquid glass on apps regardless of whether or not it has been updated to include it</source>
-      <translation>Enables liquid glass on apps regardless of whether or not it has been updated to include it</translation>
+      <translation>Bật hiệu ứng kính lỏng cho các ứng dụng dù đã được cập nhật hỗ trợ hay chưa</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7245"/>
       <source>Ignore Liquid Glass App Build Check</source>
-      <translation>Ignore Liquid Glass App Build Check</translation>
+      <translation>Bỏ qua kiểm tra phiên bản ứng dụng có hỗ trợ kính lỏng hay không</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2218"/>
       <source>Enable Security Research Device Mode</source>
-      <translation>Enable Security Research Device Mode</translation>
+      <translation>Bật chế độ thiết bị nghiên cứu bảo mật</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3097"/>
@@ -1734,93 +1734,93 @@ KHÔNG ĐƯỢC rút dây cáp của thiết bị trong quá trình khôi phục
     <message>
       <location filename="../qt/mainwindow.ui" line="5568"/>
       <source>Disable AirDrop Time Limit for Everyone Option</source>
-      <translation>Disable AirDrop Time Limit for Everyone Option</translation>
+      <translation>Tắt giới hạn thời gian cho tùy chọn AirDrop với Mọi người</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6329"/>
       <source>Keyboard Character Flick</source>
-      <translation>Keyboard Character Flick</translation>
+      <translation>Vuốt ký tự trên bàn phím</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6378"/>
       <source>Disable Clock Icon Seconds Hand</source>
-      <translation>Disable Clock Icon Seconds Hand</translation>
+      <translation>Tắt kim giây trên biểu tượng đồng hồ</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6412"/>
       <source>Disable Spotlight Searching in Websites</source>
-      <translation>Disable Spotlight Searching in Websites</translation>
+      <translation>Tắt tính năng tìm kiếm trang web bằng Spotlight</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6446"/>
       <source>Show Hardware Button Hints in Screenshots</source>
-      <translation>Show Hardware Button Hints in Screenshots</translation>
+      <translation>Hiển thị gợi ý nút phần cứng trong ảnh chụp màn hình</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6498"/>
       <source>Metal HUD Debug</source>
-      <translation>Metal HUD Debug</translation>
+      <translation>Gỡ lỗi giao diện Metal HUD</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6532"/>
       <source>iMessage Debugging</source>
-      <translation>iMessage Debugging</translation>
+      <translation>Gỡ lỗi iMessage</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6566"/>
       <source>Continuity Debugging</source>
-      <translation>Continuity Debugging</translation>
+      <translation>Gỡ lỗi tính năng Liên tục (Continuity)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6600"/>
       <source>FaceTime Debugging</source>
-      <translation>FaceTime Debugging</translation>
+      <translation>Gỡ lỗi FaceTime</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6683"/>
       <source>App Store Debug Gesture</source>
-      <translation>App Store Debug Gesture</translation>
+      <translation>Cử chỉ gỡ lỗi App Store</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6717"/>
       <source>Notes Debug Mode</source>
-      <translation>Notes Debug Mode</translation>
+      <translation>Chế độ gỡ lỗi ứng dụng Ghi chú</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7015"/>
       <location filename="../qt/mainwindow.ui" line="9390"/>
       <source>Liquid Glass</source>
-      <translation>Liquid Glass</translation>
+      <translation>Kính lỏng</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7174"/>
       <source>Force Solarium Fallback</source>
-      <translation>Force Solarium Fallback</translation>
+      <translation>Buộc sử dụng chế độ dự phòng Solarium</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7285"/>
       <source>Disable Liquid Glass on LS Clock</source>
-      <translation>Disable Liquid Glass on Lock Screen Clock</translation>
+      <translation>Tắt hiệu ứng kính lỏng trên đồng hồ màn hình khóa</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7319"/>
       <source>Disable Liquid Glass on Dock</source>
-      <translation>Disable Liquid Glass on Dock</translation>
+      <translation>Tắt hiệu ứng kính lỏng trên thanh Dock</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7353"/>
       <source>Disable Specular Motion</source>
-      <translation>Disable Specular Motion</translation>
+      <translation>Tắt hiệu ứng chuyển động phản chiếu</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7387"/>
       <source>Disable Outer Refraction</source>
-      <translation>Disable Outer Refraction</translation>
+      <translation>Tắt hiệu ứng khúc xạ bên ngoài</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="7421"/>
       <source>Disable Solarium HDR</source>
-      <translation>Disable Solarium HDR</translation>
+      <translation>Tắt HDR cho Solarium</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="1604"/>
@@ -1832,79 +1832,79 @@ bl_sbx</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="2076"/>
       <source>Enable Liquid Glass Low Performance Mode</source>
-      <translation>Enable Liquid Glass Low Performance Mode</translation>
+      <translation>Bật chế độ hiệu năng thấp cho kính lỏng</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2083"/>
       <source>Disable Liquid Glass Low Performance Mode</source>
-      <translation>Disable Liquid Glass Low Performance Mode</translation>
+      <translation>Tắt chế độ hiệu năng thấp cho kính lỏng</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2119"/>
       <source>Enable iPadOS (WARNING: risky, use with caution)</source>
-      <translation>Enable iPadOS (WARNING: risky, use with caution)</translation>
+      <translation>Bật iPadOS (CẢNH BÁO: nguy hiểm, hãy cẩn thận khi sử dụng)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10211"/>
       <source>BookRestore Apply Method</source>
-      <translation>BookRestore Apply Method</translation>
+      <translation>Phương pháp áp dụng BookRestore</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10243"/>
       <source>   Restore</source>
-      <translation>   Restore</translation>
+      <translation>   Khôi phục</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10258"/>
       <source>BookRestore File Transfer Method</source>
-      <translation>BookRestore File Transfer Method</translation>
+      <translation>Phương pháp truyền tệp BookRestore</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10288"/>
       <source>   LocalHost</source>
-      <translation>   LocalHost</translation>
+      <translation>   Máy chủ cục bộ</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10293"/>
       <source>   On-Device (Slower)</source>
-      <translation>   On-Device (Slower)</translation>
+      <translation>   Trên thiết bị (Chậm hơn)</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10303"/>
       <source>Books Container UUID</source>
-      <translation>Books Container UUID</translation>
+      <translation>UUID vùng chứa sách</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10310"/>
       <source>Enter your books container UUID if you know it.
 It will be automatically found if this is left blank.</source>
-      <translation>Enter your books container UUID if you know it.
-It will be automatically found if this is left blank.</translation>
+      <translation>Nhập UUID vùng chứa sách nếu bạn biết.
+Nếu để trống, hệ thống sẽ tự động tìm kiếm.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10314"/>
       <source>Enter Books Container UUID</source>
-      <translation>Enter Books Container UUID</translation>
+      <translation>Nhập UUID vùng chứa sách</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="10321"/>
       <source>* Developer Mode/Administrator permissions required for these options.</source>
-      <translation>* Developer Mode/Administrator permissions required for these options.</translation>
+      <translation>Các tùy chọn này yêu cầu bật Chế độ Nhà phát triển hoặc có quyền Quản trị viên.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="2126"/>
       <source>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</source>
-      <translation>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</translation>
+      <translation>CẢNH BÁO: Không bật iPadOS nếu bạn đang sử dụng mật mã bao gồm cả chữ và số.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="9572"/>
       <source>Administrator permission is required to apply tweaks with AFC.</source>
-      <translation></translation>
+      <translation>Yêu cầu quyền quản trị viên để áp dụng các tinh chỉnh bằng phương pháp AFC.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="9579"/>
       <source> Restart as Admin</source>
-      <translation></translation>
+      <translation>Khởi động lại với quyền quản trị viên</translation>
     </message>
   </context>
   <context>
@@ -2233,86 +2233,86 @@ Nhớ bật Tìm iPhone lên nhé!</translation>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="90"/>
       <source>You must enable developer mode on your device. You can do it in the Settings app.</source>
-      <translation>You must enable developer mode on your device. You can do it in the Settings app.</translation>
+      <translation>Bạn phải bật Chế độ Nhà phát triển trên thiết bị của mình. Bạn có thể bật nó trong ứng dụng Cài đặt.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="91"/>
       <source>BookRestore tweaks with the AFC method require developer mode to apply.
 
 You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; Developer Mode on your iPhone or iPad.</source>
-      <translation>BookRestore tweaks with the AFC method require developer mode to apply.
+      <translation>Các tinh chỉnh BookRestore sử dụng phương pháp AFC yêu cầu bật Chế độ Nhà phát triển để áp dụng.
 
-You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; Developer Mode on your iPhone or iPad.</translation>
+Bạn có thể bật tính năng này ở cuối phần Cài đặt &gt; Quyền riêng tư &amp; Bảo mật &gt; Chế độ Nhà phát triển trên iPhone hoặc iPad của bạn.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="495"/>
       <source>Creating connection to device...</source>
-      <translation>Creating connection to device…</translation>
+      <translation>Đang tạo kết nối với thiết bị…</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="498"/>
       <source>Generating BookRestore database...</source>
-      <translation>Generating BookRestore database…</translation>
+      <translation>Đang tạo cơ sở dữ liệu BookRestore…</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="543"/>
       <source>Waiting for device to reconnect...</source>
-      <translation>Waiting for device to reconnct…</translation>
+      <translation>Đang chờ thiết bị kết nối lại…</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="543"/>
       <source>Please complete the setup on your device.</source>
-      <translation>Please complete the setup on your device.</translation>
+      <translation>Vui lòng hoàn tất thiết lập trên thiết bị của bạn.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="555"/>
       <source>Waiting for changes to apply...</source>
-      <translation>Waiting for changes to apply…</translation>
+      <translation>Đang chờ áp dụng các thay đổi…</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="557"/>
       <source>Rebooting to apply changes...</source>
-      <translation>Rebooting to apply changes…</translation>
+      <translation>Đang khởi động lại để áp dụng thay đổi…</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="245"/>
       <source>Failed to enable iPadOS:</source>
-      <translation>Failed to enable iPadOS</translation>
+      <translation>Không thể kích hoạt iPadOS</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="247"/>
       <source>CacheData is too short!</source>
-      <translation>CacheData is too short!</translation>
+      <translation>Dữ liệu bộ nhớ đệm quá ngắn!</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="261"/>
       <source>Pattern not found in CacheData.</source>
-      <translation>Pattern not found in CacheData.</translation>
+      <translation>Không tìm thấy mẫu trong dữ liệu bộ nhớ đệm.</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="267"/>
       <source>Right offset out of range.</source>
-      <translation>Right offset out of range.</translation>
+      <translation>Độ lệch bên phải vượt quá phạm vi.</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="272"/>
       <source>Left offset out of range.</source>
-      <translation>Left offset out of range.</translation>
+      <translation>Độ lệch bên trái vượt quá phạm vi.</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="280"/>
       <source>Value at %SIDE offset is not 1 or 3.</source>
-      <translation>Value at %SIDE offset is not 1 or 3.</translation>
+      <translation>Giá trị tại vị trí lệch %SIDE không phải là 1 hoặc 3.</translation>
     </message>
     <message>
       <location filename="../tweaks/tweak_classes.py" line="287"/>
       <source>Values of %SIDE offset neighbors are not 0.</source>
-      <translation>Values of %SIDE offset neighbors are not 0.</translation>
+      <translation>Các giá trị lân cận của vị trí lệch %SIDE không phải là 0.</translation>
     </message>
     <message>
       <location filename="../devicemanagement/device_manager.py" line="88"/>
       <source>You must run the application as an administrator to use BookRestore tweaks.</source>
-      <translation>You must run the application as an administrator to use BookRestore tweaks.</translation>
+      <translation>Bạn phải chạy ứng dụng với quyền quản trị viên để sử dụng các tinh chỉnh BookRestore.</translation>
     </message>
   </context>
   <context>

@@ -1545,7 +1545,7 @@ DO NOT unplug your device during restores.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="1558"/>
       <source>Translators</source>
-      <translation>المترجمون</translation>
+      <translation>المترمجين</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="4063"/>
@@ -1846,12 +1846,12 @@ It will be automatically found if this is left blank.</source>
     <message>
       <location filename="../qt/mainwindow.ui" line="9572"/>
       <source>Administrator permission is required to apply tweaks with AFC.</source>
-      <translation></translation>
+      <translation>يلزم الحصول على إذن المسؤول لتطبيق التعديلات باستخدام AFC.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="9579"/>
       <source> Restart as Admin</source>
-      <translation></translation>
+      <translation> أعد تشغيل الجهاز كمسؤول</translation>
     </message>
   </context>
   <context>

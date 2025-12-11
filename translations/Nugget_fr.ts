@@ -1730,7 +1730,7 @@ Ne débranchez pas votre appareil pendant les restaurations.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="2218"/>
       <source>Enable Security Research Device Mode</source>
-      <translation>Enable Security Research Device Mode</translation>
+      <translation>Activer le mode de l'appareil de recherche en sécurité</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="3097"/>
@@ -1740,17 +1740,17 @@ Ne débranchez pas votre appareil pendant les restaurations.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="5568"/>
       <source>Disable AirDrop Time Limit for Everyone Option</source>
-      <translation>Disable AirDrop Time Limit for Everyone Option</translation>
+      <translation>Désactiver la limite de temps AirDrop pour l'option Tout le monde</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6329"/>
       <source>Keyboard Character Flick</source>
-      <translation>Keyboard Character Flick</translation>
+      <translation>Saisie par balayage de caractère</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6378"/>
       <source>Disable Clock Icon Seconds Hand</source>
-      <translation>Disable Clock Icon Seconds Hand</translation>
+      <translation>Désactiver l'aiguille des secondes de l'icône de l'horloge</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="6412"/>
@@ -1905,12 +1905,12 @@ It will be automatically found if this is left blank.</translation>
     <message>
       <location filename="../qt/mainwindow.ui" line="9572"/>
       <source>Administrator permission is required to apply tweaks with AFC.</source>
-      <translation></translation>
+      <translation>Administrator permission is required to apply tweaks with AFC.</translation>
     </message>
     <message>
       <location filename="../qt/mainwindow.ui" line="9579"/>
       <source> Restart as Admin</source>
-      <translation></translation>
+      <translation>Restart as Admin</translation>
     </message>
   </context>
   <context>
