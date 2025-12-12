@@ -37,6 +37,8 @@ class TweakID(Enum):
     EUEnabler = auto()
     AIEligibility = auto()
     AIGestalt = auto()
+    AIFeatureFlags = auto()
+    AIFeatureFlagsUI = auto()
     SpoofModel = auto()
     SpoofHardware = auto()
     SpoofCPU = auto()

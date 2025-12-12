@@ -47,6 +47,8 @@ class EligibilityPage(Page):
 
     def on_eligFileChk_toggled(self, checked: bool):
         tweaks[TweakID.AIEligibility].set_enabled(checked)
+        tweaks[TweakID.AIFeatureFlags].set_enabled(checked)
+        tweaks[TweakID.AIFeatureFlagsUI].set_enabled(checked)
         if checked:
             self.ui.languageTxt.show()
             self.ui.languageLbl.show()

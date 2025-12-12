@@ -2789,8 +2789,8 @@ Only works on iOS 18.0 beta 1-2.</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>660</width>
-                   <height>573</height>
+                   <width>671</width>
+                   <height>577</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_37">
@@ -3002,21 +3002,36 @@ QComboBox QAbstractItemView::item:hover {
                          </widget>
                         </item>
                         <item>
-                         <widget class="QLabel" name="aiInfoLabel">
-                          <property name="sizePolicy">
-                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                           </sizepolicy>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>16777215</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>In order to download the AI models, you must spoof your device model. However, this may break 
+                         <widget class="QWidget" name="aiEnablerSpoofContent" native="true">
+                          <layout class="QVBoxLayout" name="verticalLayout_71">
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QLabel" name="aiInfoLabel">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>16777215</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="text">
+                              <string>In order to download the AI models, you must spoof your device model. However, this may break 
 Face ID until you revert back. 
 
 WARNING: Do not go to the Apple Intelligence menu in the Settings app after unspoofing.
@@ -3025,32 +3040,32 @@ Entering the menu on your original device model will cause a re-download and may
 restore to fix. Furthermore, if you switch between model groups, like spoofing from the iPhone 16s
 to the iPhone 15 Pro series, a re-download may also occur. 
 Please be careful!</string>
-                          </property>
-                          <property name="textFormat">
-                           <enum>Qt::AutoText</enum>
-                          </property>
-                          <property name="scaledContents">
-                           <bool>false</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QLabel" name="label_8">
-                          <property name="text">
-                           <string>Spoofed Device Model</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QComboBox" name="spoofedModelDrp">
-                          <property name="maximumSize">
-                           <size>
-                            <width>325</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true">QComboBox {
+                             </property>
+                             <property name="textFormat">
+                              <enum>Qt::AutoText</enum>
+                             </property>
+                             <property name="scaledContents">
+                              <bool>false</bool>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLabel" name="label_8">
+                             <property name="text">
+                              <string>Spoofed Device Model</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QComboBox" name="spoofedModelDrp">
+                             <property name="maximumSize">
+                              <size>
+                               <width>325</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">QComboBox {
 	background-color: #3b3b3b;
     border: none;
     color: #e8e8e8;
@@ -3082,179 +3097,182 @@ QComboBox QAbstractItemView::item:hover {
     background-color: #535353;
     color: #ffffff;
 }</string>
-                          </property>
-                          <property name="currentText">
-                           <string>Original</string>
-                          </property>
-                          <property name="currentIndex">
-                           <number>0</number>
-                          </property>
-                          <item>
-                           <property name="text">
-                            <string>Original</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPhone 15 Pro (iPhone16,1)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPhone 15 Pro Max (iPhone16,2)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPhone 16 (iPhone17,3)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPhone 16 Plus (iPhone17,4)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPhone 16 Pro (iPhone17,1)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPhone 16 Pro Max (iPhone17,2)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPhone 17 (iPhone18,3)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Mini (A17 Pro) (W) (iPad16,1)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Mini (A17 Pro) (C) (iPad16,2)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Pro (13-inch) (M4) (W) (iPad16,5)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Pro (13-inch) (M4) (C) (iPad16,6)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Pro (11-inch) (M4) (W) (iPad16,3)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Pro (11-inch) (M4) (C) (iPad16,4)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Pro (12.9-inch) (M2) (W) (iPad14,5)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Pro (12.9-inch) (M2) (C) (iPad14,6)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Pro (11-inch) (M2) (W) (iPad14,3)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Pro (11-inch) (M2) (C) (iPad14,4)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Air (13-inch) (M2) (W) (iPad14,10)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Air (13-inch) (M2) (C) (iPad14,11)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Air (11-inch) (M2) (W) (iPad14,8)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Air (11-inch) (M2) (C) (iPad14,9)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Pro (11-inch) (M1) (W) (iPad13,4)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Pro (11-inch) (M1) (C) (iPad13,5)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Pro (12.9-inch) (M1) (W) (iPad13,8)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Pro (12.9-inch) (M1) (C) (iPad13,9)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Air (M1) (W) (iPad13,16)</string>
-                           </property>
-                          </item>
-                          <item>
-                           <property name="text">
-                            <string>iPad Air (M1) (C) (iPad13,17)</string>
-                           </property>
-                          </item>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QCheckBox" name="spoofHardwareChk">
-                          <property name="toolTip">
-                           <string>Spoofs the device hardware model (ie D83AP)</string>
-                          </property>
-                          <property name="text">
-                           <string>Spoof Hardware Model</string>
-                          </property>
-                          <property name="checked">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QCheckBox" name="spoofCPUChk">
-                          <property name="toolTip">
-                           <string>Spoofs the device CPU model (ie t8130)</string>
-                          </property>
-                          <property name="text">
-                           <string>Spoof CPU Model</string>
-                          </property>
-                          <property name="checked">
-                           <bool>true</bool>
-                          </property>
+                             </property>
+                             <property name="currentText">
+                              <string>Original</string>
+                             </property>
+                             <property name="currentIndex">
+                              <number>0</number>
+                             </property>
+                             <item>
+                              <property name="text">
+                               <string>Original</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPhone 15 Pro (iPhone16,1)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPhone 15 Pro Max (iPhone16,2)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPhone 16 (iPhone17,3)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPhone 16 Plus (iPhone17,4)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPhone 16 Pro (iPhone17,1)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPhone 16 Pro Max (iPhone17,2)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPhone 17 (iPhone18,3)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Mini (A17 Pro) (W) (iPad16,1)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Mini (A17 Pro) (C) (iPad16,2)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Pro (13-inch) (M4) (W) (iPad16,5)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Pro (13-inch) (M4) (C) (iPad16,6)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Pro (11-inch) (M4) (W) (iPad16,3)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Pro (11-inch) (M4) (C) (iPad16,4)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Pro (12.9-inch) (M2) (W) (iPad14,5)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Pro (12.9-inch) (M2) (C) (iPad14,6)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Pro (11-inch) (M2) (W) (iPad14,3)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Pro (11-inch) (M2) (C) (iPad14,4)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Air (13-inch) (M2) (W) (iPad14,10)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Air (13-inch) (M2) (C) (iPad14,11)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Air (11-inch) (M2) (W) (iPad14,8)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Air (11-inch) (M2) (C) (iPad14,9)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Pro (11-inch) (M1) (W) (iPad13,4)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Pro (11-inch) (M1) (C) (iPad13,5)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Pro (12.9-inch) (M1) (W) (iPad13,8)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Pro (12.9-inch) (M1) (C) (iPad13,9)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Air (M1) (W) (iPad13,16)</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>iPad Air (M1) (C) (iPad13,17)</string>
+                              </property>
+                             </item>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QCheckBox" name="spoofHardwareChk">
+                             <property name="toolTip">
+                              <string>Spoofs the device hardware model (ie D83AP)</string>
+                             </property>
+                             <property name="text">
+                              <string>Spoof Hardware Model</string>
+                             </property>
+                             <property name="checked">
+                              <bool>true</bool>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QCheckBox" name="spoofCPUChk">
+                             <property name="toolTip">
+                              <string>Spoofs the device CPU model (ie t8130)</string>
+                             </property>
+                             <property name="text">
+                              <string>Spoof CPU Model</string>
+                             </property>
+                             <property name="checked">
+                              <bool>true</bool>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
                          </widget>
                         </item>
                        </layout>

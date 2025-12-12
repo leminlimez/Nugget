@@ -1531,7 +1531,7 @@ class Ui_Nugget(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 660, 573))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 671, 577))
         self.verticalLayout_37 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_37.setObjectName(u"verticalLayout_37")
         self.euEnablerPageContent = QWidget(self.scrollAreaWidgetContents_2)
@@ -1660,7 +1660,12 @@ class Ui_Nugget(object):
 
         self.verticalLayout_34.addWidget(self.line_21)
 
-        self.aiInfoLabel = QLabel(self.aiEnablerContent)
+        self.aiEnablerSpoofContent = QWidget(self.aiEnablerContent)
+        self.aiEnablerSpoofContent.setObjectName(u"aiEnablerSpoofContent")
+        self.verticalLayout_71 = QVBoxLayout(self.aiEnablerSpoofContent)
+        self.verticalLayout_71.setObjectName(u"verticalLayout_71")
+        self.verticalLayout_71.setContentsMargins(0, 0, 0, 0)
+        self.aiInfoLabel = QLabel(self.aiEnablerSpoofContent)
         self.aiInfoLabel.setObjectName(u"aiInfoLabel")
         sizePolicy1.setHeightForWidth(self.aiInfoLabel.sizePolicy().hasHeightForWidth())
         self.aiInfoLabel.setSizePolicy(sizePolicy1)
@@ -1668,14 +1673,14 @@ class Ui_Nugget(object):
         self.aiInfoLabel.setTextFormat(Qt.AutoText)
         self.aiInfoLabel.setScaledContents(False)
 
-        self.verticalLayout_34.addWidget(self.aiInfoLabel)
+        self.verticalLayout_71.addWidget(self.aiInfoLabel)
 
-        self.label_8 = QLabel(self.aiEnablerContent)
+        self.label_8 = QLabel(self.aiEnablerSpoofContent)
         self.label_8.setObjectName(u"label_8")
 
-        self.verticalLayout_34.addWidget(self.label_8)
+        self.verticalLayout_71.addWidget(self.label_8)
 
-        self.spoofedModelDrp = QComboBox(self.aiEnablerContent)
+        self.spoofedModelDrp = QComboBox(self.aiEnablerSpoofContent)
         self.spoofedModelDrp.addItem("")
         self.spoofedModelDrp.addItem("")
         self.spoofedModelDrp.addItem("")
@@ -1739,19 +1744,22 @@ class Ui_Nugget(object):
 "    color: #ffffff;\n"
 "}")
 
-        self.verticalLayout_34.addWidget(self.spoofedModelDrp)
+        self.verticalLayout_71.addWidget(self.spoofedModelDrp)
 
-        self.spoofHardwareChk = QCheckBox(self.aiEnablerContent)
+        self.spoofHardwareChk = QCheckBox(self.aiEnablerSpoofContent)
         self.spoofHardwareChk.setObjectName(u"spoofHardwareChk")
         self.spoofHardwareChk.setChecked(True)
 
-        self.verticalLayout_34.addWidget(self.spoofHardwareChk)
+        self.verticalLayout_71.addWidget(self.spoofHardwareChk)
 
-        self.spoofCPUChk = QCheckBox(self.aiEnablerContent)
+        self.spoofCPUChk = QCheckBox(self.aiEnablerSpoofContent)
         self.spoofCPUChk.setObjectName(u"spoofCPUChk")
         self.spoofCPUChk.setChecked(True)
 
-        self.verticalLayout_34.addWidget(self.spoofCPUChk)
+        self.verticalLayout_71.addWidget(self.spoofCPUChk)
+
+
+        self.verticalLayout_34.addWidget(self.aiEnablerSpoofContent)
 
 
         self.verticalLayout_16.addWidget(self.aiEnablerContent)
@@ -5387,19 +5395,19 @@ class Ui_Nugget(object):
 
         self.verticalWidget_31 = QWidget(self.horizontalWidget_41)
         self.verticalWidget_31.setObjectName(u"verticalWidget_31")
-        self.verticalLayout_71 = QVBoxLayout(self.verticalWidget_31)
-        self.verticalLayout_71.setSpacing(6)
-        self.verticalLayout_71.setObjectName(u"verticalLayout_71")
-        self.verticalLayout_71.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_72 = QVBoxLayout(self.verticalWidget_31)
+        self.verticalLayout_72.setSpacing(6)
+        self.verticalLayout_72.setObjectName(u"verticalLayout_72")
+        self.verticalLayout_72.setContentsMargins(0, 0, 0, 0)
         self.springboardOptionsLbl1 = QLabel(self.verticalWidget_31)
         self.springboardOptionsLbl1.setObjectName(u"springboardOptionsLbl1")
         self.springboardOptionsLbl1.setFont(font1)
 
-        self.verticalLayout_71.addWidget(self.springboardOptionsLbl1)
+        self.verticalLayout_72.addWidget(self.springboardOptionsLbl1)
 
         self.verticalSpacer_17 = QSpacerItem(20, 16, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
-        self.verticalLayout_71.addItem(self.verticalSpacer_17)
+        self.verticalLayout_72.addItem(self.verticalSpacer_17)
 
 
         self.horizontalLayout_131.addWidget(self.verticalWidget_31)

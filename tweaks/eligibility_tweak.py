@@ -100,12 +100,12 @@ class AITweak(Tweak):
                 "os_eligibility_answer_source_t": 1,
                 "os_eligibility_answer_t": 2,
                 "status": {
-                    "OS_ELIGIBILITY_INPUT_CHINA_CELLULAR": 2
+                    "OS_ELIGIBILITY_INPUT_CHINA_CELLULAR": 2,
                 }
             },
             "OS_ELIGIBILITY_DOMAIN_GREYMATTER": {
                 "context": {
-                    "OS_ELIGIBILITY_CONTEXT_ELIGIBLE_DEVICE_LANGUAGES": langs
+                    "OS_ELIGIBILITY_CONTEXT_ELIGIBLE_DEVICE_LANGUAGES": [langs]
                 },
                 "os_eligibility_answer_source_t": 1,
                 "os_eligibility_answer_t": 4,
@@ -115,7 +115,7 @@ class AITweak(Tweak):
                     "OS_ELIGIBILITY_INPUT_EXTERNAL_BOOT_DRIVE": 3,
                     "OS_ELIGIBILITY_INPUT_GENERATIVE_MODEL_SYSTEM": 3,
                     "OS_ELIGIBILITY_INPUT_SHARED_IPAD": 3,
-                    "OS_ELIGIBILITY_INPUT_SIRI_LANGUAGE": 3
+                    "OS_ELIGIBILITY_INPUT_SIRI_LANGUAGE": 3,
                 }
             }
         }

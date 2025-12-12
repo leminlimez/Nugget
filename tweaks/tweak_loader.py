@@ -54,6 +54,8 @@ def load_eligibility(dev: Device):
         TweakID.EUEnabler: EligibilityTweak(),
         TweakID.AIEligibility: AITweak(),
         TweakID.AIGestalt: MobileGestaltTweak("A62OafQ85EJAiiqKn4agtg"),
+        TweakID.AIFeatureFlags: FeatureFlagTweak(flag_category="Siri", flag_names=['sae_override', 'assistant_engine_override']),
+        TweakID.AIFeatureFlagsUI: FeatureFlagTweak(flag_category="SiriUI", flag_names=["sae"]),
         TweakID.SpoofModel: MobileGestaltPickerTweak("h9jDsbgj7xIVeIQ8S3/X3Q", values=[
             # Default
             "Placeholder", # 0 | Original
