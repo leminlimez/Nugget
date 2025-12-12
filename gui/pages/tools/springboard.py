@@ -23,6 +23,7 @@ class SpringboardPage(Page):
         self.createRadioBtns(key=TweakID.SBShowSupervisionTextOnLockScreen, container=self.ui.supervisionTextBtns)
         self.createRadioBtns(key=TweakID.AirplaySupport, container=self.ui.enableAirPlayBtns)
         self.createRadioBtns(key=TweakID.SBAlwaysShowSystemApertureInSnapshots, container=self.ui.showDIInScreenshotsBtns)
+        self.createRadioBtns(key=TweakID.HideDICompletely, container=self.ui.hideDICompletelyBtns)
 
         self.createRadioBtns(key=TweakID.SBShowAuthenticationEngineeringUI, container=self.ui.authEngUIBtns)
         self.createRadioBtns(key=TweakID.UseFloatingTabBar, container=self.ui.floatingTabBarBtns, invert_values=True)

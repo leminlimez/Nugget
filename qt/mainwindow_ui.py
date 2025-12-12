@@ -3104,6 +3104,26 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.showDIInScreenshotsContent)
 
+        self.hideDICompletelyContent = QWidget(self.springboardOptionsPageContent)
+        self.hideDICompletelyContent.setObjectName(u"hideDICompletelyContent")
+        sizePolicy6.setHeightForWidth(self.hideDICompletelyContent.sizePolicy().hasHeightForWidth())
+        self.hideDICompletelyContent.setSizePolicy(sizePolicy6)
+        self.verticalLayout_70 = QVBoxLayout(self.hideDICompletelyContent)
+        self.verticalLayout_70.setObjectName(u"verticalLayout_70")
+        self.verticalLayout_70.setContentsMargins(0, 0, 0, 0)
+        self.label_63 = QLabel(self.hideDICompletelyContent)
+        self.label_63.setObjectName(u"label_63")
+
+        self.verticalLayout_70.addWidget(self.label_63)
+
+        self.hideDICompletelyBtns = QHBoxLayout()
+        self.hideDICompletelyBtns.setObjectName(u"hideDICompletelyBtns")
+
+        self.verticalLayout_70.addLayout(self.hideDICompletelyBtns)
+
+
+        self._2.addWidget(self.hideDICompletelyContent)
+
         self.enableAirPlayContent = QWidget(self.springboardOptionsPageContent)
         self.enableAirPlayContent.setObjectName(u"enableAirPlayContent")
         sizePolicy6.setHeightForWidth(self.enableAirPlayContent.sizePolicy().hasHeightForWidth())
@@ -6051,6 +6071,7 @@ class Ui_Nugget(object):
 #endif // QT_CONFIG(tooltip)
         self.label_41.setText(QCoreApplication.translate("Nugget", u"Show Supervision Text on Lock Screen", None))
         self.label_42.setText(QCoreApplication.translate("Nugget", u"Show Dynamic Island in Screenshots", None))
+        self.label_63.setText(QCoreApplication.translate("Nugget", u"Hide Dynamic Island Completely", None))
         self.label_43.setText(QCoreApplication.translate("Nugget", u"Enable AirPlay support for Stage Manager", None))
         self.label_44.setText(QCoreApplication.translate("Nugget", u"Show Red/Green Authentication Line on Lock Screen", None))
         self.label_45.setText(QCoreApplication.translate("Nugget", u"Disable Floating Tab Bar", None))

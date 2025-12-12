@@ -59,6 +59,7 @@ class TweakID(Enum):
     AirplaySupport = auto()
     SBMinimumLockscreenIdleTime = auto()
     SBAlwaysShowSystemApertureInSnapshots = auto()
+    HideDICompletely = auto()
     SBShowAuthenticationEngineeringUI = auto()
     UseFloatingTabBar = auto()
 

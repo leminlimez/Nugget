@@ -248,6 +248,10 @@ def load_springboard():
             FileLocation.springboard,
             "SBAlwaysShowSystemApertureInSnapshots"
         ),
+        TweakID.HideDICompletely: BasicPlistTweak(
+            FileLocation.springboard,
+            "SBSuppressDynamicIslandCompletely"
+        ),
         TweakID.SBShowAuthenticationEngineeringUI: BasicPlistTweak(
             FileLocation.springboard,
             "SBShowAuthenticationEngineeringUI"
