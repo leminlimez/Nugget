@@ -3,10 +3,15 @@ from enum import Enum
 class FileLocation(Enum):
     # Mobile Gestalt
     resolution = "/var/Managed Preferences/mobile/com.apple.iokit.IOMobileGraphicsFamily.plist"
+    mga = "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist"
+
+    # Feature Flags
+    featureflags = "/var/preferences/FeatureFlags/Global.plist"
     
     # Springboard Options
     springboard = "/var/Managed Preferences/mobile/com.apple.springboard.plist"
     footnote = "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/SharedDeviceConfiguration.plist"
+    airdrop = "/var/Managed Preferences/mobile/com.apple.sharingd.plist"
     
     # Internal Options
     globalPreferences = "/var/Managed Preferences/mobile/.GlobalPreferences.plist"
@@ -15,10 +20,11 @@ class FileLocation(Enum):
     coreMotion = "/var/Managed Preferences/mobile/com.apple.CoreMotion.plist"
     pasteboard = "/var/Managed Preferences/mobile/com.apple.Pasteboard.plist"
     notes = "/var/Managed Preferences/mobile/com.apple.mobilenotes.plist"
+    uikit = "/var/Managed Preferences/mobile/com.apple.UIKit.plist"
 
-# support for older versions of python that cannot enumerate over enums
-FileLocationsList: list[FileLocation] = [
-    FileLocation.resolution,
-    FileLocation.springboard, FileLocation.footnote,
-    FileLocation.globalPreferences, FileLocation.appStore, FileLocation.backboardd, FileLocation.coreMotion, FileLocation.pasteboard, FileLocation.notes
-]
+    # Daemons
+    disabledDaemons = "/var/db/com.apple.xpc.launchd/disabled.plist"
+    screentime = "/var/mobile/Library/Preferences/ScreenTimeAgent.plist"
+
+    # Risky Options
+    ota = "/var/Managed Preferences/mobile/com.apple.MobileAsset.plist"

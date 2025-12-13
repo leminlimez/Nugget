@@ -1,77 +1,263 @@
+![Artboard][NuggetLogo]
+
 # Nugget
 Unlock your device's full potential!
 
-Sparserestore works on all versions iOS 17.0-17.7 and iOS 18.0-18.1 beta 4. There is partial support for iOS 17.7.1 and iOS 18.1 beta 5+.
+Customize your device with animated wallpapers, disable pesky daemons, and more!
 
-This uses the sparserestore exploit to write to files outside of the intended restore location, like mobilegestalt.
+Make sure you have installed the [requirements](#requirements) if you are on Windows or Linux.
 
-Note: I am not responsible if your device bootloops. Please back up your data before using!
+> [!NOTE]
+> Please back up your data before using this Project! Nugget may cause unforeseen problems, so it is better to be safe than sorry. We are not responsible for any damage done to your device.
 
 ## Features
+<details>
+<summary>iOS 17.0 - 26.0+</summary>
+
+- PosterBoard: Animated wallpapers and descriptors.
+  - Community wallpapers can be found [here][WallpapersWebsite]
+  - Converting videos to wallpapers
+  - Customizing community-made wallpapers via batter files
+  - See documentation on the structure of tendies and batter files in [documentation.md](documentation.md)
+- Templates: Custom Operations and file editing
+  - See documentation on the structure of batter files in [documentation.md](documentation.md)
+- Status Bar
+  - Change carrier name
+  - Change secondary carrier name
+  - Enable/Disable the primary or secondary carriers
+  - Change the number of WiFi/Cellular bars
+  - Change the battery capacity
+  - Change battery display detail
+  - Change time text
+  - Change date text (iPad only)
+  - Change breadcrumb text
+  - Show numeric WiFi/Cellular strength
+  - Hide or show many icons in the status bar
+- Springboard Options
+  - Set Lock Screen Footnote
+  - Set Lock Screen Idle Auto-Lock Time
+  - Disable Lock After Respring
+  - Disable Screen Dimming While Charging
+  - Disable Low Battery Alerts
+  - Hide AC Power on Lock Screen
+  - Show Supervision Text on Lock Screen
+  - Show Dynamic Island in Screenshots
+  - Enable AirPlay support for Stage Manager
+  - Show Red/Green Authentication Line on Lock Screen (See [this issue](https://github.com/leminlimez/Nugget/issues/656) for what it looks like)
+  - Disable Floating Tab Bar on iPads
+- Internal Options
+  - Disable Liquid Glass (iOS 26.0+)
+  - Ignore Liquid Glass App Build Check (iOS 26.0+)
+  - Enabling Key Flick (iPad-style keyboard) on iPhones (iOS 26.0-)
+  - Build Version in Status Bar
+  - Force Right to Left
+  - Show Hidden Icons on Home Screen
+  - Force Metal HUD Debug
+  - iMessage Diagnostics
+  - IDS Diagnostics
+  - VC Diagnostics
+  - App Store Debug Gesture
+  - Notes App Debug Mode
+  - Show Touches With Debug Info
+  - Hide Respring Icon
+  - Play Sound on Paste
+  - Show Notifications for System Pastes
+- Disable Daemons:
+  - OTAd
+  - UsageTrackingAgent
+  - Game Center
+  - Screen Time Agent
+  - Logs, Dumps, and Crash Reports
+  - ATWAKEUP
+  - Tipsd
+  - VPN
+  - Chinese WLAN service
+  - HealthKit
+  - AirPrint
+  - Assistive Touch
+  - iCloud
+  - Internet Tethering (aka Personal Hotspot)
+  - PassBook
+  - Spotlight
+  - Voice Control
+- Risky (Hidden) Options:
+  - Disable thermalmonitord
+</details>
+<details>
+<summary>iOS 17.0 - 18.1.1</summary>
+
 - Enable Dynamic Island on any device
 - Enable iPhone X gestures on iPhone SEs
 - Change Device Model Name (ie what shows in the Settings app)
 - Enable Boot Chime
 - Enable Charge Limit
 - Enable Tap to Wake on unsupported devices (ie iPhone SEs)
-- Enable iPhone 16 Settings
 - Enable Collision SOS
 - Enable Stage Manager
 - Disable the Wallpaper Parallax
 - Disable Region Restrictions (ie. Shutter Sound)
   - Note: This does not include enabling EU sideloading outside the EU. That will come later.
-- Enable AOD on any device
 - Show the Apple Pencil options in Settings app
 - Show the Action Button options in Settings app
 - Show Internal Storage info (Might cause problems on some devices, use at your own risk)
-- Enabling lock screen clock animation, lock screen page duplication button, and more!
-- Disabling the new iOS 18 Photos UI
-- EU Enabler
+- EU Enabler (iOS 17.6-)
+</details>
+<details>
+<summary>iOS 18.0 - 18.0.1</summary>
+
+- Feature Flags (iOS 18.1b4-):
+  - Enabling lock screen clock animation, lock screen page duplication button, and more!
+  - Disabling the new iOS 18 Photos UI (iOS 18.0 betas only, unknown which patched it)
+</details>
+<details>
+<summary>iOS 18.0 - 18.1.1</summary>
+
+- Enable iPhone 16 camera button page in the Settings app
+- Enable AOD & AOD Vibrancy on any device
+</details>
+<details>
+<summary>iOS 18.1 - 18.1.1</summary>
+
 - AI Enabler
-- Springboard Options (from Cowabunga Lite)
-- Internal Options (from Cowabunga Lite)
+- Device Spoofing
+</details>
 
-## Running the Program
-**Requirements:**
-- pymobiledevice3
-- Python 3.8 or newer
+## Requirements:
+<details>
+<summary>Windows</summary>
+  
+  - Either the [Apple Devices (from Microsoft Store)][AppleDevices] App or [iTunes (from Apple website)][iTunes]
+</details>
 
-- **Windows:**
-  - Either [Apple Devices (from Microsoft Store)](https://apps.microsoft.com/detail/9np83lwlpz9k%3Fhl%3Den-US%26gl%3DUS&ved=2ahUKEwjE-svo7qyJAxWTlYkEHQpbH3oQFnoECBoQAQ&usg=AOvVaw0rZTXCFmRaHAifkEEu9tMI) app or [iTunes (from Apple website)](https://support.apple.com/en-us/106372)
-- **Linux:**
-  - [usbmuxd](https://github.com/libimobiledevice/usbmuxd) and [libimobiledevice](https://github.com/libimobiledevice/libimobiledevice)
+<details>
+<summary>Linux</summary>
 
-Note: It is highly recommended to use a virtual environment:
+  - [usbmuxd][usbmuxdGitHub]
+  - [libimobiledevice][libimobiledeviceGitHub]
+</details>
+
+<details>
+<summary>For Running Python</summary>
+
+  - [pymobiledevice3][pymobiledevice3GitHub]
+  - [PySide6][PySide6Doc]
+  - Python 3.8 or newer
+</details>
+
+## Running the Python Program
+> [!NOTE]
+> It is highly recommended to use a virtual environment:
+> ```py
+> python3 -m venv .env # only needed once
+> ```
+macOS/Linux:
+```py
+source .env/bin/activate
 ```
-python3 -m venv .env # only needed once
-# macOS/Linux:  source .env/bin/activate
-# Windows:      .env/Scripts/activate.bat
+Windows:
+```py
+.env/Scripts/activate.bat
+```
+Install Packages:
+```py
 pip3 install -r requirements.txt # only needed once
 python3 main_app.py
 ```
-Note: It may be either `python`/`pip` or `python3`/`pip3` depending on your path.
-
-The CLI version can be ran with `python3 cli_app.py`.
+> [!NOTE]
+> Depending on your system configuration, use either `python/pip` or `python3/pip3`.
 
 ## Getting the File
-You need to get the mobilegestalt file that is specific to your device. To do that, follow these steps:
-1. Install the `Shortcuts` app from the iOS app store.
-2. Download this shortcut: https://www.icloud.com/shortcuts/d6f0a136ddda4714a80750512911c53b
+On iOS 26.1 and below, you may need to get the mobilegestalt file that is specific to your device. To do that, follow these steps:
+1. Install the [Shortcuts][ShortcutsApp] app from the iOS app store.
+2. Download this shortcut: [Save MobileGestalt][MobilegestaltShortcut]
 3. Save the file and share it to your computer.
 4. Place it in the same folder as the python file (or specify the path in the program)
 
 ## Building
 To compile `mainwindow.ui` for Python, run the following command:
-`pyside6-uic qt/mainwindow.ui -o qt/ui_mainwindow.py`
+```py
+pyside6-uic qt/mainwindow.ui -o qt/mainwindow_ui.py
+```
 
 To compile the resources file for Python, run the following command:
-`pyside6-rcc qt/resources.qrc -o resources_rc.py`
+```py
+pyside6-rcc resources.qrc -o resources_rc.py
+```
+
+To create and compile languages, you can use the following commands:
+```py
+pyside6-lupdate gui/main_window.py gui/pages/main/*.py gui/pages/tools/*.py gui/dialogs.py qt/mainwindow.ui devicemanagement/device_manager.py exceptions/*.py tweaks/*.py tweaks/posterboard/*.py tweaks/posterboard/template_options/*.py controllers/*.py -ts translations/Nugget_{language code}.ts # generate/update the language file
+pyside6-lrelease translations/Nugget_{language code}.ts -qm translations/Nugget_{language code}.qm # compile to binary
+```
 
 The application itself can be compiled by running `compile.py`.
 
-## Credits
-- [JJTech](https://github.com/JJTech0130) for Sparserestore/[TrollRestore](https://github.com/JJTech0130/TrollRestore)
-- [pymobiledevice3](https://github.com/doronz88/pymobiledevice3)
-- [disfordottie](https://x.com/disfordottie) for some global flag features
-- [sneakyf1shy](https://github.com/f1shy-dev) for [AI Enabler](https://gist.github.com/f1shy-dev/23b4a78dc283edd30ae2b2e6429129b5)
+## Sparserestore/BookRestore Info
+This uses the sparserestore exploit to write to files outside of the intended restore location, like mobilegestalt. Read the [Getting the File](#getting-the-file) section to learn how to get your mobilegestalt file.
 
+Sparserestore works on all versions iOS 17.0-18.1.1.
+
+BookRestore works on all versions iOS 18.2-26.1.
+
+> [!NOTE]
+> **Mobilegestalt and AI Enabler tweaks are not supported on iOS 26.2+.** It will never be supported, do not make issues asking for when it is supported.
+
+## Read More
+If you would like to read more about the inner workings of the exploit and iOS restore system, I made a write up which you can read [here][ReadMoreGist].
+
+## Arbitrary Star Graph
+<a href="https://www.star-history.com/#leminlimez/Nugget&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=leminlimez/Nugget&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=leminlimez/Nugget&type=Date" />
+    <img alt="Star History" src="https://api.star-history.com/svg?repos=leminlimez/Nugget&type=Date" />
+  </picture>
+</a>
+
+## Credits
+- Translations crowdsourced using [POEditor][POEditorJoin]. Thank you everyone who assisted in the translation effort!
+- [JJTech][JJTechGitHub] for Sparserestore/[TrollRestore][TrollStoreGitHub]
+- [Duy Tran][DuyGitHub] and [Huy Nguyen][HuyTwitter] for BookRestore/[bl_sbx][bl_sbxGitHub]
+- [PosterRestore][PosterRestoreDiscord] for their help with PosterBoard
+  - Special thanks to [dootskyre][dootskyreX], [Middo][MiddoX], [dulark][dularkGitHub], forcequitOS, and pingubow for their work on this. It would not have been possible without them!
+  - Thanks to [Snoolie for aar handling][python-aar-stuffGitHub]!
+  - Thanks to [SerStars][SerStarsX] for creating [the website][WallpapersWebsite]!
+- [disfordottie][disfordottieX] for some global flag features
+- [Mikasa-san][Mikasa-sanGitHub] for [Quiet Daemon][QuietDaemonGitHub]
+- [sneakyf1shy][sneakyf1shyGitHub] for [AI Eligibility][AIEligibilityGist] (iOS 18.1 beta 4 and below)
+- [lrdsnow][lrdsnowGitHub] for [EU Enabler][EUEnablerGitHub]
+- [pymobiledevice3][pymobiledevice3GitHub] for restoring and device algorithms.
+- [PySide6][PySide6Doc] for the GUI library.
+
+[NuggetLogo]: https://raw.githubusercontent.com/leminlimez/Nugget/refs/heads/main/credits/small_nugget.png
+[CowabungaLite]: https://github.com/leminlimez/CowabungaLite
+[WallpapersWebsite]: https://cowabun.ga/wallpapers
+[AppleDevices]: https://apps.microsoft.com/detail/9np83lwlpz9k
+[iTunes]: https://support.apple.com/en-us/106372
+[usbmuxdGitHub]: https://github.com/libimobiledevice/usbmuxd
+[libimobiledeviceGitHub]: https://github.com/libimobiledevice/libimobiledevice
+[ShortcutsApp]: https://apps.apple.com/us/app/shortcuts/id915249334
+[MobilegestaltShortcut]: https://www.icloud.com/shortcuts/66bd3c822a0145b98d46cd1c9077e6e5
+[ReadMoreGist]: https://gist.github.com/leminlimez/c602c067349140fe979410ef69d39c28
+
+[POEditorJoin]: https://poeditor.com/join/project/UTqpVSE2UD
+[JJTechGitHub]: https://github.com/JJTech0130
+[TrollStoreGitHub]: https://github.com/JJTech0130/TrollRestore
+[PosterRestoreDiscord]: https://discord.gg/gWtzTVhMvh
+[dootskyreX]: https://x.com/dootskyre
+[MiddoX]: https://x.com/MWRevamped
+[dularkGitHub]: https://github.com/dularkian
+[SerStarsX]: https://x.com/SerStars_lol
+[disfordottieX]: https://x.com/disfordottie
+[Mikasa-sanGitHub]: https://github.com/Mikasa-san
+[QuietDaemonGitHub]: https://github.com/Mikasa-san/QuietDaemon
+[sneakyf1shyGitHub]: https://github.com/f1shy-dev
+[lrdsnowGitHub]: https://github.com/Lrdsnow
+[EUEnablerGitHub]: https://github.com/Lrdsnow/EUEnabler
+[pymobiledevice3GitHub]: https://github.com/doronz88/pymobiledevice3
+[PySide6Doc]: https://doc.qt.io/qtforpython-6/
+[python-aar-stuffGitHub]: https://github.com/0xilis/python-aar-stuff
+[AIEligibilityGist]: https://gist.github.com/f1shy-dev/23b4a78dc283edd30ae2b2e6429129b5
+[bl_sbxGitHub]: https://github.com/khanhduytran0/bl_sbx/tree/main
+[DuyGitHub]: https://github.com/khanhduytran0
+[HuyTwitter]: https://x.com/Little_34306

@@ -45,7 +45,7 @@ class CustomGestaltTweaks:
     custom_tweaks: list[CustomGestaltTweak] = []
 
     def create_tweak(key: str="", value: str="1", value_type: ValueType = ValueType.Integer) -> int:
-        new_tweak = MobileGestaltTweak("", key, value=value)
+        new_tweak = MobileGestaltTweak(key, value=value)
         CustomGestaltTweaks.custom_tweaks.append(CustomGestaltTweak(new_tweak, value_type))
         # return the tweak id
         return len(CustomGestaltTweaks.custom_tweaks) - 1

@@ -1,3 +1,9 @@
 pymobiledevice3
-pyside6
+PySide6-Essentials; sys_platform != 'linux'
+PySide6; sys_platform == 'linux'
 PyInstaller
+ffmpeg
+ffmpeg-python
+opencv-python
+pyperclip
+pyuac; sys_platform == 'windows'

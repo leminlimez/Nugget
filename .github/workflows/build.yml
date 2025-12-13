@@ -3,34 +3,49 @@ name: Build Nugget
 on:
   workflow_dispatch:
     inputs:
-      release_version:
-        description: 'Which version is this release?'
-        required: true
+      build_for_macos_intel:
+        description: 'Build macOS Intel'
+        required: false
+        default: true
+        type: boolean
+      build_for_macos_arm:
+        description: 'Build macOS ARM'
+        required: false
+        default: true
+        type: boolean
+      build_for_windows:
+        description: 'Build Windows'
+        required: false
+        default: true
+        type: boolean
+      build_for_linux:
+        description: 'Build Linux'
+        required: false
+        default: true
+        type: boolean
 
 jobs:
   build-macos-intel:
-    runs-on: macos-13
+    if: ${{ github.event.inputs.build_for_macos_intel == 'true' }}
+    runs-on: macos-15-intel
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
       - name: Install dependencies
         run: |
-          python3 -m pip install --upgrade pip
+          python3 -m pip install -U pip
           pip install -r requirements.txt
 
-      - name: Build MacOS (Intel)
+      - name: Build macOS (Intel)
         run: python3 compile.py
 
       - name: Zip Nugget.app (Intel)
         run: |
           cd dist
-          zip -r "Nugget_macOS_intel.zip" Nugget.app
+          zip -r -y "Nugget_macOS_intel.zip" Nugget.app
 
       - name: Upload ZIP (Intel)
         uses: actions/upload-artifact@v4
@@ -39,28 +54,26 @@ jobs:
           path: dist/Nugget_macOS_intel.zip
 
   build-macos-arm:
+    if: ${{ github.event.inputs.build_for_macos_arm == 'true' }}
     runs-on: macos-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
       - name: Install dependencies
         run: |
-          python3 -m pip install --upgrade pip
+          python3 -m pip install -U pip
           pip install -r requirements.txt
 
-      - name: Build MacOS (ARM)
+      - name: Build macOS (ARM)
         run: python3 compile.py
 
       - name: Zip Nugget.app (ARM)
         run: |
           cd dist
-          zip -r "Nugget_macOS_arm.zip" Nugget.app
+          zip -r -y "Nugget_macOS_arm.zip" Nugget.app
 
       - name: Upload ZIP (ARM)
         uses: actions/upload-artifact@v4
@@ -69,31 +82,59 @@ jobs:
           path: dist/Nugget_macOS_arm.zip
 
   build-windows:
+    if: ${{ github.event.inputs.build_for_windows == 'true' }}
     runs-on: windows-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
+          python -m pip install -U pip
           pip install -r requirements.txt
 
       - name: Build Windows
         run: python compile.py
 
-      - name: Zip Nugget
+      - name: Zip Nugget (Windows)
         run: |
           cd dist
-          Compress-Archive -Path Nugget -DestinationPath "Nugget_Windows.zip"
+          Compress-Archive -Path Nugget -DestinationPath Nugget_Windows.zip
 
       - name: Upload ZIP (Windows)
         uses: actions/upload-artifact@v4
         with:
           name: Nugget_Windows
           path: dist/Nugget_Windows.zip
+
+  build-linux:
+    if: ${{ github.event.inputs.build_for_linux == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install -U pip
+          pip install -r requirements.txt
+
+      - name: Build Linux
+        run: python compile.py
+
+      - name: Tar Nugget (Linux)
+        run: |
+          cd dist
+          tar -cJf Nugget_Linux.tar.xz Nugget
+
+      - name: Upload TAR (Linux)
+        uses: actions/upload-artifact@v4
+        with:
+          name: Nugget_Linux
+          path: dist/Nugget_Linux.tar.xz

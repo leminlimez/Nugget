@@ -3,3 +3,11 @@ build
 com.apple.MobileGestalt.plist
 .DS_Store
 __pycache__
+*.spec
+/ffmpeg
+/dist
+/secrets_nugget
+.compile+codesign.sh
+.create_build.sh
+/.vscode
+*.dll
