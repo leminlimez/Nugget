@@ -28,7 +28,6 @@ class GestaltPage(Page):
         self.ui.enableiPadOSChk.clicked.connect(self.on_enableiPadOSChk_clicked)
         self.ui.ipadAppsChk.clicked.connect(self.on_ipadAppsChk_clicked)
         self.ui.shutterChk.clicked.connect(self.on_shutterChk_clicked)
-        self.ui.findMyFriendsChk.clicked.connect(self.on_findMyFriendsChk_clicked)
         self.ui.pencilChk.clicked.connect(self.on_pencilChk_clicked)
         self.ui.actionButtonChk.clicked.connect(self.on_actionButtonChk_clicked)
 
@@ -125,8 +124,6 @@ class GestaltPage(Page):
     def on_shutterChk_clicked(self, checked: bool):
         # TODO: allow the user to select the region
         tweaks[TweakID.Shutter].set_enabled(checked)
-    def on_findMyFriendsChk_clicked(self, checked: bool):
-        tweaks[TweakID.FindMyFriends].set_enabled(checked)
     def on_pencilChk_clicked(self, checked: bool):
         tweaks[TweakID.Pencil].set_enabled(checked)
     def on_actionButtonChk_clicked(self, checked: bool):

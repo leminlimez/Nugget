@@ -1203,11 +1203,6 @@ class Ui_Nugget(object):
 
         self.verticalLayout_8.addWidget(self.shutterChk)
 
-        self.findMyFriendsChk = QCheckBox(self.gestaltPageContent)
-        self.findMyFriendsChk.setObjectName(u"findMyFriendsChk")
-
-        self.verticalLayout_8.addWidget(self.findMyFriendsChk)
-
         self.pencilChk = QCheckBox(self.gestaltPageContent)
         self.pencilChk.setObjectName(u"pencilChk")
 
@@ -5620,7 +5615,6 @@ class Ui_Nugget(object):
         self.shutterChk.setToolTip(QCoreApplication.translate("Nugget", u"Sets the device's region to LL/A to bypass certain region restrictions like the forced shutter sound.", None))
 #endif // QT_CONFIG(tooltip)
         self.shutterChk.setText(QCoreApplication.translate("Nugget", u"Disable Region Restrictions (ie. Shutter Sound)", None))
-        self.findMyFriendsChk.setText(QCoreApplication.translate("Nugget", u"Enable Find My Friends", None))
         self.pencilChk.setText(QCoreApplication.translate("Nugget", u"Enable Apple Pencil Settings Tab", None))
         self.actionButtonChk.setText(QCoreApplication.translate("Nugget", u"Enable Action Button Settings Tab", None))
 #if QT_CONFIG(tooltip)
