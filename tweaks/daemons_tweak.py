@@ -5,14 +5,17 @@ class Daemon(Enum):
     OTA = [
         "com.apple.mobile.softwareupdated",
         "com.apple.OTATaskingAgent",
-        "com.apple.softwareupdateservicesd"
+        "com.apple.softwareupdateservicesd",
+        "com.apple.mobile.NRDUpdated"
     ]
     UsageTrackingAgent = ["com.apple.UsageTrackingAgent"]
     GameCenter = ["com.apple.gamed"]
     ScreenTime = [
         "com.apple.ScreenTimeAgent",
         "com.apple.homed",
-        "com.apple.familycircled"
+        "com.apple.familycircled",
+        "com.apple.familynotification",
+        "com.apple.asktod"
     ]
     CrashReports = [
         "com.apple.ReportCrash",
@@ -38,6 +41,7 @@ class Daemon(Enum):
         "com.apple.hangreporter",
         "com.apple.hangtracerd",
         "com.apple.spindump",
+        "com.apple.tailspind",
         "com.apple.rtcreportingd",
         "com.apple.syslogd",
         "com.apple.signpost.signpost_reporter",

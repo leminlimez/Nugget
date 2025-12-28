@@ -2185,13 +2185,6 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                       </widget>
                      </item>
                      <item>
-                      <widget class="QCheckBox" name="findMyFriendsChk">
-                       <property name="text">
-                        <string>Enable Find My Friends</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
                       <widget class="QCheckBox" name="pencilChk">
                        <property name="text">
                         <string>Enable Apple Pencil Settings Tab</string>
