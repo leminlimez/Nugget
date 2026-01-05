@@ -199,6 +199,11 @@ Sparserestore works on all versions iOS 17.0-18.1.1.
 
 BookRestore works on all versions iOS 18.2-26.1.
 
+## Troubleshooting on Stuck at BookRestore issue:
+1. Nugget > Settings
+2. Change BookRestore Apply Method from AFC* to Restore
+3. Problem should be gone now!
+
 > [!NOTE]
 > **Mobilegestalt and AI Enabler tweaks are not supported on iOS 26.2+.** It will never be supported, do not make issues asking for when it is supported.
 
