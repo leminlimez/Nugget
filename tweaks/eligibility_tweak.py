@@ -121,3 +121,23 @@ class AITweak(Tweak):
         }
 
         return FileToRestore(contents=plistlib.dumps(plist), restore_path="/var/db/eligibilityd/eligibility.plist")
+    
+class BookRestoreFileTweak(Tweak):
+    def __init__(self):
+        super().__init__(key=None, value=None)
+
+    def apply_tweak(self) -> list[FileToRestore]:
+        if not self.enabled:
+            return None
+        return [
+            FileToRestore(
+                contents=b"",
+                restore_path="/FeatureFlags/Placeholder",
+                domain="SystemPreferencesDomain"
+            ),
+            FileToRestore(
+                contents=b"",
+                restore_path="eligibilityd/Placeholder",
+                domain="DatabaseDomain"
+            )
+        ]

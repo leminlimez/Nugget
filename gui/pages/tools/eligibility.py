@@ -15,6 +15,7 @@ class EligibilityPage(Page):
         self.ui.methodChoiceDrp.activated.connect(self.on_methodChoiceDrp_activated)
         self.ui.regionCodeTxt.textEdited.connect(self.on_regionCodeTxt_textEdited)
 
+        self.ui.createEligFolderChk.toggled.connect(self.on_createEligFolderChk_toggled)
         self.ui.enableAIChk.toggled.connect(self.on_enableAIChk_toggled)
         self.ui.eligFileChk.toggled.connect(self.on_eligFileChk_toggled)
         self.ui.languageTxt.hide() # to be removed later
@@ -45,6 +46,9 @@ class EligibilityPage(Page):
         else:
             self.ui.aiEnablerContent.hide()
 
+    def on_createEligFolderChk_toggled(self, checked: bool):
+        tweaks[TweakID.CreateBRFolders].set_enabled(checked)
+        self.ui.createFFFolderChk.setChecked(checked)
     def on_eligFileChk_toggled(self, checked: bool):
         tweaks[TweakID.AIEligibility].set_enabled(checked)
         tweaks[TweakID.AIFeatureFlags].set_enabled(checked)

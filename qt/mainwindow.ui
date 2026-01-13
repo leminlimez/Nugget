@@ -2550,6 +2550,67 @@ what you are doing.</string>
                   <number>0</number>
                  </property>
                  <item>
+                  <widget class="QWidget" name="createFFFolderContent" native="true">
+                   <layout class="QVBoxLayout" name="verticalLayout_72">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QCheckBox" name="createFFFolderChk">
+                      <property name="text">
+                       <string>Create Feature Flags Folder</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_64">
+                      <property name="text">
+                       <string>^ Enable this if Feature Flag/Eligibility tweaks do not apply</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="Line" name="line_15">
+                      <property name="styleSheet">
+                       <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Plain</enum>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="solariumFFChk">
+                   <property name="text">
+                    <string>Disable Solarium (Liquid Glass) (Feature Flag Method)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="kioskModeChk">
+                   <property name="text">
+                    <string>Enable Kiosk Mode</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="clockAnimChk">
                    <property name="toolTip">
                     <string>Enables an animation when the lock screen clock changes time or style.</string>
@@ -2783,7 +2844,7 @@ Only works on iOS 18.0 beta 1-2.</string>
                    <x>0</x>
                    <y>0</y>
                    <width>671</width>
-                   <height>577</height>
+                   <height>628</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_37">
@@ -2958,6 +3019,38 @@ QComboBox QAbstractItemView::item:hover {
                         <property name="bottomMargin">
                          <number>5</number>
                         </property>
+                        <item>
+                         <widget class="QWidget" name="createEligFolderContent" native="true">
+                          <layout class="QVBoxLayout" name="verticalLayout_73">
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QCheckBox" name="createEligFolderChk">
+                             <property name="text">
+                              <string>Create Eligibility Folder</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLabel" name="label_65">
+                             <property name="text">
+                              <string>^ Enable this if Feature Flag/Eligibility tweaks do not apply</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
                         <item>
                          <widget class="QCheckBox" name="eligFileChk">
                           <property name="text">

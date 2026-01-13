@@ -10,6 +10,7 @@ class FeatureFlagsPage(Page):
         self.ui = ui
 
     def load_page(self):
+        self.ui.createFFFolderChk.toggled.connect(self.on_createFFFolderChk_toggled)
         self.ui.clockAnimChk.toggled.connect(self.on_clockAnimChk_toggled)
         self.ui.lockscreenChk.toggled.connect(self.on_lockscreenChk_clicked)
         self.ui.photosChk.toggled.connect(self.on_photosChk_clicked)
@@ -18,6 +19,10 @@ class FeatureFlagsPage(Page):
         load_featureflags()
 
     ## ACTIONS
+    def on_createFFFolderChk_toggled(self, checked: bool):
+        tweaks[TweakID.CreateBRFolders].set_checked(checked)
+        self.ui.createEligFolderChk.setChecked(checked)
+
     def on_clockAnimChk_toggled(self, checked: bool):
         tweaks[TweakID.ClockAnim].set_enabled(checked)
     def on_lockscreenChk_clicked(self, checked: bool):

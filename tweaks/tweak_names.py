@@ -6,6 +6,7 @@ class TweakID(Enum):
     Templates = auto()
     StatusBar = auto()
     Passcode = auto()
+    CreateBRFolders = auto()
 
     # mga
     DynamicIsland = auto()

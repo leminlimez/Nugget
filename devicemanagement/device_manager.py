@@ -33,7 +33,7 @@ from controllers.files_handler import get_bundle_files
 
 from exceptions.nugget_exception import NuggetException
 
-from tweaks.tweaks import tweaks, TweakID, FeatureFlagTweak, EligibilityTweak, AITweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak, StatusBarTweak, PasscodeThemeTweak
+from tweaks.tweaks import tweaks, TweakID, FeatureFlagTweak, EligibilityTweak, AITweak, BookRestoreFileTweak, BasicPlistTweak, AdvancedPlistTweak, RdarFixTweak, NullifyFileTweak, StatusBarTweak, PasscodeThemeTweak
 from tweaks.custom_gestalt_tweaks import CustomGestaltTweaks
 from tweaks.posterboard.posterboard_tweak import PosterboardTweak
 from tweaks.posterboard.template_options.templates_tweak import TemplatesTweak
@@ -634,6 +634,8 @@ class DeviceManager:
                     tweak.apply_tweak(files_to_restore=files_to_restore)
                     if tweak.enabled:
                         uses_domains = True
+                elif isinstance(tweak, BookRestoreFileTweak):
+                    continue
                 else:
                     if gestalt_plist != None:
                         gestalt_plist = tweak.apply_tweak(gestalt_plist)
@@ -737,6 +739,10 @@ class DeviceManager:
                     owner=501, group=501,
                     mode=_FileMode.S_IRUSR | _FileMode.S_IWUSR  | _FileMode.S_IRGRP | _FileMode.S_IWGRP | _FileMode.S_IROTH | _FileMode.S_IWOTH
                 ))
+
+            if tweaks[TweakID.CreateBRFolders].enabled == True:
+                use_bookrestore = False
+                files_to_restore.extend(tweaks[TweakID.CreateBRFolders].apply_tweak())
 
             # restore to the device
             final_alert = self.start_restore(files_to_restore, use_bookrestore, update_label)

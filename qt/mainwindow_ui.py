@@ -1418,6 +1418,44 @@ class Ui_Nugget(object):
         self.verticalLayout_13 = QVBoxLayout(self.featureFlagsPageContent)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.verticalLayout_13.setContentsMargins(0, 0, 0, 0)
+        self.createFFFolderContent = QWidget(self.featureFlagsPageContent)
+        self.createFFFolderContent.setObjectName(u"createFFFolderContent")
+        self.verticalLayout_72 = QVBoxLayout(self.createFFFolderContent)
+        self.verticalLayout_72.setObjectName(u"verticalLayout_72")
+        self.verticalLayout_72.setContentsMargins(0, 0, 0, 0)
+        self.createFFFolderChk = QCheckBox(self.createFFFolderContent)
+        self.createFFFolderChk.setObjectName(u"createFFFolderChk")
+
+        self.verticalLayout_72.addWidget(self.createFFFolderChk)
+
+        self.label_64 = QLabel(self.createFFFolderContent)
+        self.label_64.setObjectName(u"label_64")
+
+        self.verticalLayout_72.addWidget(self.label_64)
+
+        self.line_15 = QFrame(self.createFFFolderContent)
+        self.line_15.setObjectName(u"line_15")
+        self.line_15.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_15.setFrameShadow(QFrame.Plain)
+        self.line_15.setFrameShape(QFrame.Shape.HLine)
+
+        self.verticalLayout_72.addWidget(self.line_15)
+
+
+        self.verticalLayout_13.addWidget(self.createFFFolderContent)
+
+        self.solariumFFChk = QCheckBox(self.featureFlagsPageContent)
+        self.solariumFFChk.setObjectName(u"solariumFFChk")
+
+        self.verticalLayout_13.addWidget(self.solariumFFChk)
+
+        self.kioskModeChk = QCheckBox(self.featureFlagsPageContent)
+        self.kioskModeChk.setObjectName(u"kioskModeChk")
+
+        self.verticalLayout_13.addWidget(self.kioskModeChk)
+
         self.clockAnimChk = QCheckBox(self.featureFlagsPageContent)
         self.clockAnimChk.setObjectName(u"clockAnimChk")
 
@@ -1526,7 +1564,7 @@ class Ui_Nugget(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 671, 577))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 671, 628))
         self.verticalLayout_37 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_37.setObjectName(u"verticalLayout_37")
         self.euEnablerPageContent = QWidget(self.scrollAreaWidgetContents_2)
@@ -1630,6 +1668,24 @@ class Ui_Nugget(object):
         self.verticalLayout_34 = QVBoxLayout(self.aiEnablerContent)
         self.verticalLayout_34.setObjectName(u"verticalLayout_34")
         self.verticalLayout_34.setContentsMargins(0, 5, 0, 5)
+        self.createEligFolderContent = QWidget(self.aiEnablerContent)
+        self.createEligFolderContent.setObjectName(u"createEligFolderContent")
+        self.verticalLayout_73 = QVBoxLayout(self.createEligFolderContent)
+        self.verticalLayout_73.setObjectName(u"verticalLayout_73")
+        self.verticalLayout_73.setContentsMargins(0, 0, 0, 0)
+        self.createEligFolderChk = QCheckBox(self.createEligFolderContent)
+        self.createEligFolderChk.setObjectName(u"createEligFolderChk")
+
+        self.verticalLayout_73.addWidget(self.createEligFolderChk)
+
+        self.label_65 = QLabel(self.createEligFolderContent)
+        self.label_65.setObjectName(u"label_65")
+
+        self.verticalLayout_73.addWidget(self.label_65)
+
+
+        self.verticalLayout_34.addWidget(self.createEligFolderContent)
+
         self.eligFileChk = QCheckBox(self.aiEnablerContent)
         self.eligFileChk.setObjectName(u"eligFileChk")
 
@@ -5390,19 +5446,19 @@ class Ui_Nugget(object):
 
         self.verticalWidget_31 = QWidget(self.horizontalWidget_41)
         self.verticalWidget_31.setObjectName(u"verticalWidget_31")
-        self.verticalLayout_72 = QVBoxLayout(self.verticalWidget_31)
-        self.verticalLayout_72.setSpacing(6)
-        self.verticalLayout_72.setObjectName(u"verticalLayout_72")
-        self.verticalLayout_72.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_74 = QVBoxLayout(self.verticalWidget_31)
+        self.verticalLayout_74.setSpacing(6)
+        self.verticalLayout_74.setObjectName(u"verticalLayout_74")
+        self.verticalLayout_74.setContentsMargins(0, 0, 0, 0)
         self.springboardOptionsLbl1 = QLabel(self.verticalWidget_31)
         self.springboardOptionsLbl1.setObjectName(u"springboardOptionsLbl1")
         self.springboardOptionsLbl1.setFont(font1)
 
-        self.verticalLayout_72.addWidget(self.springboardOptionsLbl1)
+        self.verticalLayout_74.addWidget(self.springboardOptionsLbl1)
 
         self.verticalSpacer_17 = QSpacerItem(20, 16, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
-        self.verticalLayout_72.addItem(self.verticalSpacer_17)
+        self.verticalLayout_74.addItem(self.verticalSpacer_17)
 
 
         self.horizontalLayout_131.addWidget(self.verticalWidget_31)
@@ -5842,6 +5898,10 @@ class Ui_Nugget(object):
         self.label_12.setText(QCoreApplication.translate("Nugget", u"Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know\n"
 "what you are doing.", None))
         self.featureFlagsLbl.setText(QCoreApplication.translate("Nugget", u"Feature Flags", None))
+        self.createFFFolderChk.setText(QCoreApplication.translate("Nugget", u"Create Feature Flags Folder", None))
+        self.label_64.setText(QCoreApplication.translate("Nugget", u"^ Enable this if Feature Flag/Eligibility tweaks do not apply", None))
+        self.solariumFFChk.setText(QCoreApplication.translate("Nugget", u"Disable Solarium (Liquid Glass) (Feature Flag Method)", None))
+        self.kioskModeChk.setText(QCoreApplication.translate("Nugget", u"Enable Kiosk Mode", None))
 #if QT_CONFIG(tooltip)
         self.clockAnimChk.setToolTip(QCoreApplication.translate("Nugget", u"Enables an animation when the lock screen clock changes time or style.", None))
 #endif // QT_CONFIG(tooltip)
@@ -5873,6 +5933,8 @@ class Ui_Nugget(object):
         self.regionCodeTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Region Code (Default: US)", None))
         self.mgaWarningLbl2.setText(QCoreApplication.translate("Nugget", u"! You will need a MobileGestalt file for this feature. Please select it in the Apply page !", None))
         self.enableAIChk.setText(QCoreApplication.translate("Nugget", u"Enable Apple Intelligence (for Unsupported Devices)", None))
+        self.createEligFolderChk.setText(QCoreApplication.translate("Nugget", u"Create Eligibility Folder", None))
+        self.label_65.setText(QCoreApplication.translate("Nugget", u"^ Enable this if Feature Flag/Eligibility tweaks do not apply", None))
         self.eligFileChk.setText(QCoreApplication.translate("Nugget", u"Enable Eligibility File", None))
         self.languageLbl.setText(QCoreApplication.translate("Nugget", u"Language Code (not needed for English)", None))
         self.languageTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Language Code (i.e. en)", None))
