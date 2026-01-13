@@ -599,6 +599,8 @@ class DeviceManager:
                 tweak = tweaks[tweak_name]
                 if isinstance(tweak, FeatureFlagTweak):
                     flag_plist = tweak.apply_tweak(flag_plist)
+                    if tweak.enabled:
+                        use_bookrestore = True
                 elif isinstance(tweak, PasscodeThemeTweak):
                     # must use bookrestore
                     passcode_files = tweak.apply_tweak()

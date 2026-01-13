@@ -15,6 +15,8 @@ class FeatureFlagsPage(Page):
         self.ui.lockscreenChk.toggled.connect(self.on_lockscreenChk_clicked)
         self.ui.photosChk.toggled.connect(self.on_photosChk_clicked)
         self.ui.aiChk.toggled.connect(self.on_aiChk_clicked)
+        self.ui.kioskModeChk.toggled.connect(self.on_kioskModeChk_toggled)
+        self.ui.solariumFFChk.toggled.connect(self.on_solariumFFChk_toggled)
         
         load_featureflags()
 
@@ -32,3 +34,10 @@ class FeatureFlagsPage(Page):
         tweaks[TweakID.PhotoUI].set_enabled(checked)
     def on_aiChk_clicked(self, checked: bool):
         tweaks[TweakID.AI].set_enabled(checked)
+
+    def on_kioskModeChk_toggled(self, checked: bool):
+        tweaks[TweakID.KioskMode].set_enabled(checked)
+    def on_solariumFFChk_toggled(self, checked: bool):
+        tweaks[TweakID.SolariumFFSwiftUI].set_enabled(checked)
+        tweaks[TweakID.SolariumFFSpringBoard].set_enabled(checked)
+        tweaks[TweakID.SolariumFFIconServices].set_enabled(checked)

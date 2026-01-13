@@ -49,6 +49,10 @@ class TweakID(Enum):
     Lockscreen = auto()
     PhotoUI = auto()
     AI = auto()
+    SolariumFFSwiftUI = auto()
+    SolariumFFSpringBoard = auto()
+    SolariumFFIconServices = auto()
+    KioskMode = auto()
 
     # springboard
     LockScreenFootnote = auto()
