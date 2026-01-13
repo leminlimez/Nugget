@@ -100,7 +100,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.daemonsPageBtn.clicked.connect(self.on_daemonsPageBtn_clicked)
         self.ui.posterboardPageBtn.clicked.connect(self.on_posterboardPageBtn_clicked)
         self.ui.templatesPageBtn.clicked.connect(self.on_templatesPageBtn_clicked)
-        self.ui.passcodePageBtn.clicked.connect(self.on_passcodePageBtn_clicked)
         self.ui.advancedPageBtn.clicked.connect(self.on_advancedPageBtn_clicked)
         self.ui.miscOptionsBtn.clicked.connect(self.on_miscOptionsBtn_clicked)
         self.ui.applyPageBtn.clicked.connect(self.on_applyPageBtn_clicked)
@@ -206,7 +205,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.internalOptionsPageBtn.show()
             self.ui.daemonsPageBtn.show()
             self.ui.templatesPageBtn.show()
-            self.ui.passcodePageBtn.show()
+            self.ui.passcodePageBtn.hide()
             self.ui.posterboardPageBtn.show()
             self.ui.miscOptionsBtn.show()
             
