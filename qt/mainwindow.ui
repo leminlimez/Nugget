@@ -2611,6 +2611,20 @@ what you are doing.</string>
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="photosLGFFChk">
+                   <property name="text">
+                    <string>Disable Liquid Glass in Documents Camera</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="shareSheetLGFFChk">
+                   <property name="text">
+                    <string>Disable Liquid Glass in Share Sheet</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="kioskModeChk">
                    <property name="text">
                     <string>Enable Kiosk Mode</string>

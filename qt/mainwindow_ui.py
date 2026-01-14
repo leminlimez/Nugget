@@ -1456,6 +1456,16 @@ class Ui_Nugget(object):
 
         self.verticalLayout_13.addWidget(self.iconShimmerChk)
 
+        self.photosLGFFChk = QCheckBox(self.featureFlagsPageContent)
+        self.photosLGFFChk.setObjectName(u"photosLGFFChk")
+
+        self.verticalLayout_13.addWidget(self.photosLGFFChk)
+
+        self.shareSheetLGFFChk = QCheckBox(self.featureFlagsPageContent)
+        self.shareSheetLGFFChk.setObjectName(u"shareSheetLGFFChk")
+
+        self.verticalLayout_13.addWidget(self.shareSheetLGFFChk)
+
         self.kioskModeChk = QCheckBox(self.featureFlagsPageContent)
         self.kioskModeChk.setObjectName(u"kioskModeChk")
 
@@ -5907,6 +5917,8 @@ class Ui_Nugget(object):
         self.label_64.setText(QCoreApplication.translate("Nugget", u"^ Enable this if Feature Flag/Eligibility tweaks do not apply", None))
         self.solariumFFChk.setText(QCoreApplication.translate("Nugget", u"Disable Solarium (Liquid Glass) (Feature Flag Method)", None))
         self.iconShimmerChk.setText(QCoreApplication.translate("Nugget", u"Disable Icon Shimmer", None))
+        self.photosLGFFChk.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass in Documents Camera", None))
+        self.shareSheetLGFFChk.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass in Share Sheet", None))
         self.kioskModeChk.setText(QCoreApplication.translate("Nugget", u"Enable Kiosk Mode", None))
 #if QT_CONFIG(tooltip)
         self.clockAnimChk.setToolTip(QCoreApplication.translate("Nugget", u"Enables an animation when the lock screen clock changes time or style.", None))

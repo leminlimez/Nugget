@@ -52,6 +52,11 @@ class TweakID(Enum):
     SolariumFFSwiftUI = auto()
     SolariumFFSpringBoard = auto()
     SolariumFFIconServices = auto()
+    SolariumFFPhotos = auto()
+    SolariumFFDocumentCamera = auto()
+    SolariumFFAppleMediaServices = auto()
+    SolariumFFSharing = auto()
+    SolariumFFMail = auto()
     KioskMode = auto()
 
     # springboard
