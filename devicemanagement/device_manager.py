@@ -612,8 +612,12 @@ class DeviceManager:
                         use_bookrestore = True
                 elif isinstance(tweak, EligibilityTweak):
                     eligibility_files = tweak.apply_tweak()
+                    if tweak.enabled:
+                        use_bookrestore = True
                 elif isinstance(tweak, AITweak):
                     ai_file = tweak.apply_tweak()
+                    if tweak.enabled:
+                        use_bookrestore = True
                 elif isinstance(tweak, BasicPlistTweak) or isinstance(tweak, RdarFixTweak) or isinstance(tweak, AdvancedPlistTweak):
                     basic_plists = tweak.apply_tweak(basic_plists, self.pref_manager.allow_risky_tweaks)
                     basic_plists_ownership[tweak.file_location] = tweak.owner
