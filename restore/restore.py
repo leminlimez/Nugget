@@ -125,6 +125,21 @@ def merge_duplicates(original_files: list[FileToRestore]) -> list[FileToRestore]
             existing_locations[file_loc] = len(no_dupe_files) - 1
     return no_dupe_files
 
+def has_sparserestore_capability(lockdown_client: LockdownClient = None) -> bool:
+    if lockdown_client == None:
+        return True
+    ver = lockdown_client.product_version.split(".")
+    major = int(ver[0])
+    if major > 18:
+        return False
+    elif major < 18:
+        return True
+    # there is no iOS 18.0.2 and 18.0.1 works with sparserestore, so no need to check the patch number
+    minor = 0
+    if len(ver) > 1:
+        minor = int(ver[1])
+    return minor == 0
+
 # files is a list of FileToRestore objects
 def restore_files(files: list[FileToRestore], reboot: bool = False, lockdown_client: LockdownClient = None, progress_callback = lambda x: None):
     # create the files to be backed up
@@ -138,9 +153,12 @@ def restore_files(files: list[FileToRestore], reboot: bool = False, lockdown_cli
     last_domain = ""
     last_path = ""
     exploit_only = True
+    # extra check for system version to prevent sparserestore from restoring on iOS 18.1+
+    passed_version_check = has_sparserestore_capability(lockdown_client)
     for file in sorted_files:
         if file.domain == "" or file.domain == "z":
-            last_domain = concat_exploit_file(file, files_list, last_domain)
+            if passed_version_check:
+                last_domain = concat_exploit_file(file, files_list, last_domain)
         else:
             last_domain, last_path = concat_regular_file(file, files_list, last_domain, last_path)
             exploit_only = False
