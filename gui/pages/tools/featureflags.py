@@ -22,7 +22,7 @@ class FeatureFlagsPage(Page):
 
     ## ACTIONS
     def on_createFFFolderChk_toggled(self, checked: bool):
-        tweaks[TweakID.CreateBRFolders].set_checked(checked)
+        tweaks[TweakID.CreateBRFolders].set_enabled(checked)
         self.ui.createEligFolderChk.setChecked(checked)
 
     def on_clockAnimChk_toggled(self, checked: bool):
