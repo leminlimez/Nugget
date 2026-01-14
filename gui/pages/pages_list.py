@@ -46,7 +46,7 @@ def get_resettable_pages(device_manager) -> list[Page]:
     page_list: list[Page] = [Page.StatusBar, Page.Springboard, Page.InternalOptions, Page.Daemons]
 
     # add the exploit related pages
-    if device_ver >= Version("18.0") and device_manager.data_singleton.current_device.has_exploit():
+    if device_ver >= Version("18.0") and not device_manager.get_current_device_patched():
         page_list.insert(0, Page.FeatureFlags)
     if not device_manager.get_current_device_patched():
         page_list.insert(0, Page.Gestalt)

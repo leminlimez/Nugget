@@ -789,7 +789,20 @@ class DeviceManager:
                         use_bookrestore = True
                 elif page == Page.FeatureFlags:
                     ## FEATURE FLAGS
-                    files_to_null.append(FileLocation.featureflags.value)
+                    if self.get_current_device_uses_bookrestore():
+                        use_bookrestore = True
+                        self.concat_file(
+                            contents=plistlib.dumps({
+                                "Nugget": {
+                                    'Enabled': False
+                                }
+                            }),
+                            path=FileLocation.featureflags.value,
+                            files_to_restore=files_to_restore,
+                            use_bookrestore=use_bookrestore
+                        )
+                    else:
+                        files_to_null.append(FileLocation.featureflags.value)
                 elif page == Page.StatusBar:
                     ## STATUS BAR
                     files_to_restore.append(FileToRestore(
