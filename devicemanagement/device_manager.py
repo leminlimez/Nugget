@@ -484,7 +484,7 @@ class DeviceManager:
         ))
     
     ## APPLYING OR REMOVING TWEAKS AND RESTORING
-    def start_restore(self, files_to_restore: list[FileToRestore], use_bookrestore: bool, update_label=lambda x: None, skips_br_for_folders: bool=False):
+    def start_restore(self, files_to_restore: list[FileToRestore], use_bookrestore: bool, update_label=lambda x: None, skips_br_for_folders: bool=False, reboot_for_br: bool=False):
         # if skips_br_for_folders is True, the message will be added to the result letting them know that they can apply feature flags now
         self.update_label = update_label
         self.do_not_unplug = ""
@@ -494,7 +494,7 @@ class DeviceManager:
         if restore_bookrestore:
             if self.pref_manager.bookrestore_apply_mode == BookRestoreApplyMethod.AFC:
                 update_label(QCoreApplication.tr("Creating connection to device...") + self.do_not_unplug)
-                perform_bookrestore(files=files_to_restore, lockdown_client=self.data_singleton.current_device.ld, current_device_books_uuid_callback=self.current_device_books_container_uuid_callback, progress_callback=self.update_label, transfer_mode=self.pref_manager.bookrestore_transfer_mode)
+                perform_bookrestore(files=files_to_restore, lockdown_client=self.data_singleton.current_device.ld, current_device_books_uuid_callback=self.current_device_books_container_uuid_callback, progress_callback=self.update_label, transfer_mode=self.pref_manager.bookrestore_transfer_mode, do_full_reboot=reboot_for_br)
             else:
                 update_label(QCoreApplication.tr("Generating BookRestore database...") + self.do_not_unplug)
                 afc = AfcService(self.data_singleton.current_device.ld)
@@ -750,7 +750,7 @@ class DeviceManager:
                 files_to_restore.extend(tweaks[TweakID.CreateBRFolders].apply_tweak())
 
             # restore to the device
-            final_alert = self.start_restore(files_to_restore, use_bookrestore, update_label, skips_br_for_folders=tweaks[TweakID.CreateBRFolders].enabled)
+            final_alert = self.start_restore(files_to_restore, use_bookrestore, update_label, skips_br_for_folders=tweaks[TweakID.CreateBRFolders].enabled, reboot_for_br=(len(flag_plist) > 0))
             update_label(QCoreApplication.tr("Success!"))
         except Exception as e:
             final_alert = show_apply_error(e, update_label, files_list=files_to_restore)

@@ -16,6 +16,7 @@ import sys
 import tempfile
 
 from .restore import FileToRestore
+from . import reboot_device
 from exceptions.nugget_exception import NuggetException
 from gui.apply_worker import get_sudo_pwd, get_sudo_complete
 from controllers.files_handler import get_bundle_files
@@ -152,14 +153,15 @@ def cleanup_server_folder():
 
 async def create_connection_context(files: list[FileToRestore], service_provider: LockdownClient,
                                     current_device_uuid_callback = lambda x: None, progress_callback = lambda x: None,
-                                    transfer_mode = BookRestoreFileTransferMethod.LocalHost):
+                                    transfer_mode = BookRestoreFileTransferMethod.LocalHost,
+                                    do_full_reboot: bool = False):
     global server_folder
     available_address = await create_tunnel(service_provider.udid, progress_callback)
     if available_address:
         try:
             if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
                 server_folder = create_server_folder()
-            _run_async_rsd_connection(available_address["address"], available_address["port"], files, current_device_uuid_callback, progress_callback, transfer_mode)
+            _run_async_rsd_connection(available_address["address"], available_address["port"], files, current_device_uuid_callback, progress_callback, transfer_mode, do_full_reboot)
             cleanup_server_folder()
         except:
             cleanup_server_folder()
@@ -167,7 +169,7 @@ async def create_connection_context(files: list[FileToRestore], service_provider
     else:
         raise NuggetException("An error occurred getting tunnels addresses...")
 
-def _run_async_rsd_connection(address, port, files, current_device_uuid_callback, progress, transfer_mode):
+def _run_async_rsd_connection(address, port, files, current_device_uuid_callback, progress, transfer_mode, do_full_reboot):
     async def async_connection():
         max_retries = 10
         for i in range(max_retries):
@@ -177,7 +179,7 @@ def _run_async_rsd_connection(address, port, files, current_device_uuid_callback
                     
                     def run_blocking_callback():
                         with DvtSecureSocketProxyService(rsd) as dvt:
-                            apply_bookrestore_files(files, rsd, dvt, current_device_uuid_callback, progress, transfer_mode)
+                            apply_bookrestore_files(files, rsd, dvt, current_device_uuid_callback, progress, transfer_mode, do_full_reboot)
 
                     await loop.run_in_executor(None, run_blocking_callback)
                     return # Success
@@ -281,7 +283,8 @@ def generate_bldbmanager(files: list[FileToRestore], out_file: str, afc: AfcServ
 
 def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: LockdownClient, dvt: DvtSecureSocketProxyService,
                             current_device_uuid_callback = lambda x: None, progress_callback = lambda x: None,
-                            transfer_mode: BookRestoreFileTransferMethod = BookRestoreFileTransferMethod.LocalHost):
+                            transfer_mode: BookRestoreFileTransferMethod = BookRestoreFileTransferMethod.LocalHost,
+                            do_full_reboot: bool = False):
     if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
         server_prefix = create_local_server()
 
@@ -450,14 +453,19 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         close_dl_connection()
         remove_db_files(temp_dl_manager)
         
-    progress_callback("Respringing")
-    procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
-    pid = next((pid for pid, p in procs.items() if p['ProcessName'] == 'backboardd'), None)
-    pc.kill(pid)
+    if do_full_reboot:
+        progress_callback("Rebooting")
+        reboot_device(True, lockdown_client=lockdown_client)
+    else:
+        progress_callback("Respringing")
+        procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
+        pid = next((pid for pid, p in procs.items() if p['ProcessName'] == 'backboardd'), None)
+        pc.kill(pid)
 
 def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownClient,
                         current_device_books_uuid_callback = lambda x: None, progress_callback = lambda x: None,
-                        transfer_mode: BookRestoreFileTransferMethod = BookRestoreFileTransferMethod.LocalHost):
+                        transfer_mode: BookRestoreFileTransferMethod = BookRestoreFileTransferMethod.LocalHost,
+                        do_full_reboot: bool = False):
     if not lockdown_client.developer_mode_status:
         # enable developer mode
         progress_callback("Enabling Developer Mode...")
@@ -466,4 +474,4 @@ def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownCli
                               detailed_text="BookRestore tweaks with the AFC method require developer mode to apply.\n\nYou can enable this at the bottom of Settings > Privacy & Security > Developer Mode on your iPhone or iPad.")
     if os.name == 'nt':
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-    asyncio.run(create_connection_context(files, lockdown_client, current_device_books_uuid_callback, progress_callback, transfer_mode))
+    asyncio.run(create_connection_context(files, lockdown_client, current_device_books_uuid_callback, progress_callback, transfer_mode, do_full_reboot))
