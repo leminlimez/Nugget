@@ -484,7 +484,8 @@ class DeviceManager:
         ))
     
     ## APPLYING OR REMOVING TWEAKS AND RESTORING
-    def start_restore(self, files_to_restore: list[FileToRestore], use_bookrestore: bool, update_label=lambda x: None):
+    def start_restore(self, files_to_restore: list[FileToRestore], use_bookrestore: bool, update_label=lambda x: None, skips_br_for_folders: bool=False):
+        # if skips_br_for_folders is True, the message will be added to the result letting them know that they can apply feature flags now
         self.update_label = update_label
         self.do_not_unplug = ""
         if self.data_singleton.current_device.connected_via_usb:
@@ -560,6 +561,8 @@ class DeviceManager:
             msg = QCoreApplication.tr("Your device will now restart.\n\nRemember to turn Find My back on!")
             if not self.pref_manager.auto_reboot:
                 msg = QCoreApplication.tr("Please restart your device to see changes.")
+            if skips_br_for_folders:
+                msg += QCoreApplication.tr("\n\nYou should now be able to apply Feature Flags with BookRestore.")
         return ApplyAlertMessage(txt=QCoreApplication.tr("All done! ") + msg, title=QCoreApplication.tr("Success!"), icon=QMessageBox.Information)
     def progress_callback(self, progress: int):
         if self.update_label == None:
@@ -747,7 +750,7 @@ class DeviceManager:
                 files_to_restore.extend(tweaks[TweakID.CreateBRFolders].apply_tweak())
 
             # restore to the device
-            final_alert = self.start_restore(files_to_restore, use_bookrestore, update_label)
+            final_alert = self.start_restore(files_to_restore, use_bookrestore, update_label, skips_br_for_folders=tweaks[TweakID.CreateBRFolders].enabled)
             update_label(QCoreApplication.tr("Success!"))
         except Exception as e:
             final_alert = show_apply_error(e, update_label, files_list=files_to_restore)

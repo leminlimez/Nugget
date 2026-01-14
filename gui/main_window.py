@@ -594,6 +594,12 @@ class MainWindow(QtWidgets.QMainWindow):
         detailsBox.setText(alert.txt)
         if alert.detailed_txt != None:
             detailsBox.setDetailedText(alert.detailed_txt)
+        # hacky workaround to make changes from the apply thread after successfully applying
+        if alert.icon == QtWidgets.QMessageBox.Information:
+            if tweaks[TweakID.CreateBRFolders].enabled:
+                tweaks[TweakID.CreateBRFolders].set_enabled(False)
+                self.ui.createEligFolderChk.setChecked(False)
+                self.ui.createFFFolderChk.setChecked(False)
         detailsBox.exec()
 
     def finish_apply_thread(self):
