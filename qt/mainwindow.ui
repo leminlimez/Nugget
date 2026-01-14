@@ -2604,6 +2604,13 @@ what you are doing.</string>
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="iconShimmerChk">
+                   <property name="text">
+                    <string>Disable Icon Shimmer</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="kioskModeChk">
                    <property name="text">
                     <string>Enable Kiosk Mode</string>
