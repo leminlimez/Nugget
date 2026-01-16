@@ -248,6 +248,8 @@ def generate_bldbmanager(files: list[FileToRestore], out_file: str, afc: AfcServ
         media_folder = file_name
         # use the local file method for mga and local server for everything else
         if file.restore_path.startswith("/var/mobile") or file.restore_path.startswith("/private/var/mobile"):
+            if server_prefix is None:
+                continue
             zassetpath = file.restore_path
             zplistpath = zassetpath
             zdownloadid = zassetpath

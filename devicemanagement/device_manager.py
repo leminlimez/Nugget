@@ -493,22 +493,19 @@ class DeviceManager:
         restore_bookrestore = use_bookrestore and not self.data_singleton.current_device.has_partial_sparserestore()
         if restore_bookrestore:
             if self.pref_manager.bookrestore_apply_mode == BookRestoreApplyMethod.AFC:
+                # BookRestore AFC method (for both localhost and on-device)
                 update_label(QCoreApplication.tr("Creating connection to device...") + self.do_not_unplug)
                 perform_bookrestore(files=files_to_restore, lockdown_client=self.data_singleton.current_device.ld, current_device_books_uuid_callback=self.current_device_books_container_uuid_callback, progress_callback=self.update_label, transfer_mode=self.pref_manager.bookrestore_transfer_mode, do_full_reboot=reboot_for_br)
             else:
                 update_label(QCoreApplication.tr("Generating BookRestore database...") + self.do_not_unplug)
                 afc = AfcService(self.data_singleton.current_device.ld)
-                if self.pref_manager.bookrestore_transfer_mode == BookRestoreFileTransferMethod.OnDevice:
-                    # don't create a server, just add the file to the file list
-                    db_path = os.path.join(br_files, "BLDatabaseManager.sqlite")
-                    mga_file = [file for file in files_to_restore if file.restore_path.endswith("MobileGestalt.plist")][0]
-                    _, filename = os.path.split(mga_file.restore_path)
-                    afc.set_file_contents(filename, mga_file.contents)
-                else:
-                    server_folder = create_server_folder()
+                server_folder = create_server_folder()
+                if self.pref_manager.bookrestore_transfer_mode == BookRestoreFileTransferMethod.LocalHost:
                     server_prefix = create_local_server()
-                    db_path = os.path.join(server_folder, "tmp.BLDatabaseManager.sqlite")
-                    generate_bldbmanager(files_to_restore, db_path, afc, server_prefix)
+                else:
+                    server_prefix = None
+                db_path = os.path.join(server_folder, "tmp.BLDatabaseManager.sqlite")
+                generate_bldbmanager(files_to_restore, db_path, afc, server_prefix)
                 # remove the files that dont have a domain from files
                 files_to_restore = [file for file in files_to_restore if (file.domain != "" and file.domain != None)]
                 # Add the dbs to the files to restore
