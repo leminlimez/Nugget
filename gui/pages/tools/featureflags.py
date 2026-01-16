@@ -17,7 +17,6 @@ class FeatureFlagsPage(Page):
         self.ui.aiChk.toggled.connect(self.on_aiChk_clicked)
         self.ui.kioskModeChk.toggled.connect(self.on_kioskModeChk_toggled)
         self.ui.solariumFFChk.toggled.connect(self.on_solariumFFChk_toggled)
-        self.ui.iconShimmerChk.toggled.connect(self.on_iconShimmerChk_toggled)
         self.ui.photosLGFFChk.toggled.connect(self.on_photosLGFFChk_toggled)
         self.ui.shareSheetLGFFChk.toggled.connect(self.on_shareSheetLGFFChk_toggled)
         
@@ -43,7 +42,6 @@ class FeatureFlagsPage(Page):
     def on_solariumFFChk_toggled(self, checked: bool):
         tweaks[TweakID.SolariumFFSwiftUI].set_enabled(checked)
         tweaks[TweakID.SolariumFFSpringBoard].set_enabled(checked)
-    def on_iconShimmerChk_toggled(self, checked: bool):
         tweaks[TweakID.SolariumFFIconServices].set_enabled(checked)
     def on_photosLGFFChk_toggled(self, checked: bool):
         tweaks[TweakID.SolariumFFDocumentCamera].set_enabled(checked)

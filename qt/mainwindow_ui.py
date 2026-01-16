@@ -1455,11 +1455,6 @@ class Ui_Nugget(object):
 
         self.verticalLayout_13.addWidget(self.solariumFFChk)
 
-        self.iconShimmerChk = QCheckBox(self.featureFlagsPageContent)
-        self.iconShimmerChk.setObjectName(u"iconShimmerChk")
-
-        self.verticalLayout_13.addWidget(self.iconShimmerChk)
-
         self.photosLGFFChk = QCheckBox(self.featureFlagsPageContent)
         self.photosLGFFChk.setObjectName(u"photosLGFFChk")
 
@@ -5920,7 +5915,6 @@ class Ui_Nugget(object):
         self.createFFFolderChk.setText(QCoreApplication.translate("Nugget", u"Create Feature Flags Folder", None))
         self.label_64.setText(QCoreApplication.translate("Nugget", u"^ Enable this if Feature Flag/Eligibility tweaks do not apply", None))
         self.solariumFFChk.setText(QCoreApplication.translate("Nugget", u"Disable Solarium (Liquid Glass) (Feature Flag Method)", None))
-        self.iconShimmerChk.setText(QCoreApplication.translate("Nugget", u"Disable Icon Shimmer", None))
         self.photosLGFFChk.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass in Documents Camera", None))
         self.shareSheetLGFFChk.setText(QCoreApplication.translate("Nugget", u"Disable Liquid Glass in Share Sheet", None))
         self.kioskModeChk.setText(QCoreApplication.translate("Nugget", u"Enable Kiosk Mode", None))
