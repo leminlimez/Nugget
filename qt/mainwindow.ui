@@ -2011,11 +2011,6 @@ QComboBox QAbstractItemView::item:hover {
                        </item>
                        <item>
                         <property name="text">
-                         <string>2976 (iPhone 15 Pro Max Dynamic Island)</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
                          <string>2622 (iPhone 16 Pro Dynamic Island)</string>
                         </property>
                        </item>
