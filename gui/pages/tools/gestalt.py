@@ -16,6 +16,7 @@ class GestaltPage(Page):
     def load_page(self):
         self.ui.dynamicIslandDrp.activated.connect(self.on_dynamicIslandDrp_activated)
         self.ui.rdarFixChk.clicked.connect(self.on_rdarFixChk_clicked)
+        self.ui.supportsDIChk.clicked.connect(self.on_supportsDIChk_clicked)
         self.ui.modelNameChk.toggled.connect(self.on_modelNameChk_clicked)
         self.ui.modelNameTxt.textEdited.connect(self.on_modelNameTxt_textEdited)
 
@@ -92,6 +93,8 @@ class GestaltPage(Page):
         self.set_rdar_fix_label()
     def on_rdarFixChk_clicked(self, checked: bool):
         tweaks[TweakID.RdarFix].set_enabled(checked)
+    def on_supportsDIChk_clicked(self, checked: bool):
+        tweaks[TweakID.SupportsDynamicIsland].set_enabled(checked)
 
     def on_modelNameChk_clicked(self, checked: bool):
         tweaks[TweakID.ModelName].set_enabled(checked)

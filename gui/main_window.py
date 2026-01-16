@@ -250,6 +250,7 @@ class MainWindow(QtWidgets.QMainWindow):
             MinTweakVersions = {
                 "no_patch": [self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn, self.ui.gestaltLocationLbl, self.ui.gestaltLocationTitleLbl, self.ui.showAllSpoofableChk, self.ui.featureFlagsPageBtn],
                 "exploit": [("1.0", self.ui.regularDomainsLbl)],
+                "17.4": [self.ui.supportsDIChk],
                 "18.1": [self.ui.enableAIChk, self.ui.aiEnablerContent],
                 "18.0": [self.ui.aodChk, self.ui.aodVibrancyChk, self.ui.iphone16SettingsChk],
                 "26.0": [self.ui.liquidGlassPageBtn]

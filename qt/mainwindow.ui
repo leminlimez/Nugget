@@ -2037,6 +2037,13 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
+                      <widget class="QCheckBox" name="supportsDIChk">
+                       <property name="text">
+                        <string>Enable Dynamic Island (Alternate Method)</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
                       <widget class="QCheckBox" name="modelNameChk">
                        <property name="toolTip">
                         <string>Changes the model name in the 'About' page in the Settings app.</string>

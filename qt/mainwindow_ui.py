@@ -1128,6 +1128,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_8.addWidget(self.rdarFixChk)
 
+        self.supportsDIChk = QCheckBox(self.gestaltPageContent)
+        self.supportsDIChk.setObjectName(u"supportsDIChk")
+
+        self.verticalLayout_8.addWidget(self.supportsDIChk)
+
         self.modelNameChk = QCheckBox(self.gestaltPageContent)
         self.modelNameChk.setObjectName(u"modelNameChk")
 
@@ -5847,6 +5852,7 @@ class Ui_Nugget(object):
 #if QT_CONFIG(tooltip)
         self.rdarFixChk.setToolTip(QCoreApplication.translate("Nugget", u"Modifies the resolution to improve functionality of the changed device subtype. May cause weird visual bugs.", None))
 #endif // QT_CONFIG(tooltip)
+        self.supportsDIChk.setText(QCoreApplication.translate("Nugget", u"Enable Dynamic Island (Alternate Method)", None))
 #if QT_CONFIG(tooltip)
         self.modelNameChk.setToolTip(QCoreApplication.translate("Nugget", u"Changes the model name in the 'About' page in the Settings app.", None))
 #endif // QT_CONFIG(tooltip)

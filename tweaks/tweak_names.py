@@ -10,6 +10,7 @@ class TweakID(Enum):
 
     # mga
     DynamicIsland = auto()
+    SupportsDynamicIsland = auto()
     ModelName = auto()
     BootChime = auto()
     ChargeLimit = auto()
