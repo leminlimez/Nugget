@@ -21,7 +21,7 @@ from restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreApplyM
 from tweaks.tweaks import tweaks, TweakID
 
 App_Version = "7.2"
-App_Build = 5
+App_Build = 6
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager, translator: Translator):
@@ -265,7 +265,7 @@ class MainWindow(QtWidgets.QMainWindow):
             try:
                 self.ui.dynamicIslandDrp.removeItem(6)
                 self.ui.dynamicIslandDrp.removeItem(5)
-                self.ui.dynamicIslandDrp.removeItem(5)
+                self.ui.dynamicIslandDrp.removeItem(4)
             except:
                 pass
             if TweakID.RdarFix in tweaks:
