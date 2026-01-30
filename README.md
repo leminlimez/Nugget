@@ -172,18 +172,18 @@ On iOS 26.1 and below, you may need to get the mobilegestalt file that is specif
 ## Building
 To compile `mainwindow.ui` for Python, run the following command:
 ```py
-pyside6-uic qt/mainwindow.ui -o qt/mainwindow_ui.py
+pyside6-uic --from-imports src/qt/mainwindow.ui -o src/qt/mainwindow_ui.py
 ```
 
 To compile the resources file for Python, run the following command:
 ```py
-pyside6-rcc resources.qrc -o resources_rc.py
+pyside6-rcc src/resources.qrc -o src/resources_rc.py
 ```
 
 To create and compile languages, you can use the following commands:
 ```py
-pyside6-lupdate gui/main_window.py gui/pages/main/*.py gui/pages/tools/*.py gui/dialogs.py qt/mainwindow.ui devicemanagement/device_manager.py exceptions/*.py tweaks/*.py tweaks/posterboard/*.py tweaks/posterboard/template_options/*.py controllers/*.py -ts translations/Nugget_{language code}.ts # generate/update the language file
-pyside6-lrelease translations/Nugget_{language code}.ts -qm translations/Nugget_{language code}.qm # compile to binary
+pyside6-lupdate src/gui/main_window.py src/gui/pages/main/*.py src/gui/pages/tools/*.py src/gui/dialogs.py src/qt/mainwindow.ui src/devicemanagement/device_manager.py src/exceptions/*.py src/tweaks/*.py src/tweaks/posterboard/*.py src/tweaks/posterboard/template_options/*.py controllers/*.py -ts src/qt/translations/Nugget_{language code}.ts # generate/update the language file
+pyside6-lrelease src/qt/translations/Nugget_{language code}.ts -qm src/qt/translations/Nugget_{language code}.qm # compile to binary
 ```
 
 The application itself can be compiled by running `compile.py`.
