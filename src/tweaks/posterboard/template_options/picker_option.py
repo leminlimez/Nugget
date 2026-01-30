@@ -27,8 +27,8 @@ class PickerOption(TemplateOption):
     rename: bool = False # whether or not to rename the chosen files (allow_multiple_selection must be False)
     names: list[str] = [] # list of names to rename to
 
-    selection: int|list[str] = [] # chosen user selection
-    default_val: int|list[int] = [] # the default values
+    selection: list[str] = [] # chosen user selection (int or list of strings)
+    default_val: list[int] = [] # the default values (int or list of ints)
 
     def __init__(self, data: dict):
         super().__init__(data=data)
@@ -94,7 +94,7 @@ class PickerOption(TemplateOption):
                 if self.options[i].preview_lbl != None:
                     self.options[i].preview_lbl.setVisible(self.selection == i)
 
-    def onPickerUpdate(self, selection: int|list[str]):
+    def onPickerUpdate(self, selection):
         self.selection = selection
         self.update_preview()
 

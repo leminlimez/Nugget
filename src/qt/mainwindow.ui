@@ -880,7 +880,7 @@ QSlider::tick:horizontal {
                <number>0</number>
               </property>
               <item>
-               <widget class="QWidget" name="horizontalWidget" native="true">
+               <widget class="QWidget" name="horizontalWidget_13" native="true">
                 <layout class="QHBoxLayout" name="horizontalLayout">
                  <property name="spacing">
                   <number>10</number>
@@ -918,7 +918,7 @@ QSlider::tick:horizontal {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QWidget" name="verticalWidget" native="true">
+                  <widget class="QWidget" name="verticalWidget_15" native="true">
                    <layout class="QVBoxLayout" name="verticalLayout_3">
                     <property name="spacing">
                      <number>6</number>
@@ -999,7 +999,7 @@ QSlider::tick:horizontal {
                </widget>
               </item>
               <item>
-               <widget class="QWidget" name="horizontalWidget" native="true">
+               <widget class="QWidget" name="horizontalWidget_14" native="true">
                 <layout class="QHBoxLayout" name="horizontalLayout_27">
                  <property name="spacing">
                   <number>50</number>
@@ -1053,7 +1053,7 @@ QSlider::tick:horizontal {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QWidget" name="verticalWidget" native="true">
+                  <widget class="QWidget" name="verticalWidget_16" native="true">
                    <layout class="QVBoxLayout" name="verticalLayout_26">
                     <property name="leftMargin">
                      <number>0</number>
@@ -1191,7 +1191,7 @@ QSlider::tick:horizontal {
                </widget>
               </item>
               <item>
-               <widget class="QWidget" name="verticalWidget_2" native="true">
+               <widget class="QWidget" name="verticalWidget_6" native="true">
                 <layout class="QVBoxLayout" name="verticalLayout_25">
                  <property name="spacing">
                   <number>15</number>
@@ -1209,7 +1209,7 @@ QSlider::tick:horizontal {
                   <number>30</number>
                  </property>
                  <item>
-                  <widget class="QWidget" name="horizontalWidget" native="true">
+                  <widget class="QWidget" name="horizontalWidget_15" native="true">
                    <property name="enabled">
                     <bool>true</bool>
                    </property>
@@ -1415,7 +1415,7 @@ QToolButton:pressed {
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QWidget" name="horizontalWidget_2" native="true">
+                  <widget class="QWidget" name="horizontalWidget_16" native="true">
                    <layout class="QHBoxLayout" name="horizontalLayout_2">
                     <property name="spacing">
                      <number>0</number>
@@ -1841,7 +1841,7 @@ QToolButton:pressed {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QWidget" name="verticalWidget_2" native="true">
+                  <widget class="QWidget" name="verticalWidget_14" native="true">
                    <layout class="QVBoxLayout" name="verticalLayout_5">
                     <property name="spacing">
                      <number>6</number>
@@ -2568,7 +2568,7 @@ what you are doing.</string>
                <number>0</number>
               </property>
               <item>
-               <widget class="QWidget" name="horizontalWidget_5" native="true">
+               <widget class="QWidget" name="horizontalWidget_12" native="true">
                 <layout class="QHBoxLayout" name="horizontalLayout_20">
                  <property name="spacing">
                   <number>10</number>
@@ -2606,7 +2606,7 @@ what you are doing.</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QWidget" name="verticalWidget_4" native="true">
+                  <widget class="QWidget" name="verticalWidget_13" native="true">
                    <layout class="QVBoxLayout" name="verticalLayout_12">
                     <property name="spacing">
                      <number>6</number>
@@ -3798,7 +3798,7 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QWidget" name="horizontalWidget" native="true">
+                      <widget class="QWidget" name="horizontalWidget_21" native="true">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
                          <horstretch>0</horstretch>
@@ -4059,7 +4059,7 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QWidget" name="horizontalWidget" native="true">
+                      <widget class="QWidget" name="horizontalWidget_22" native="true">
                        <layout class="QHBoxLayout" name="horizontalLayout_9">
                         <property name="leftMargin">
                          <number>0</number>
@@ -4137,7 +4137,7 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QWidget" name="horizontalWidget" native="true">
+                      <widget class="QWidget" name="horizontalWidget_23" native="true">
                        <layout class="QHBoxLayout" name="horizontalLayout_8">
                         <property name="spacing">
                          <number>20</number>
@@ -4389,7 +4389,7 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QWidget" name="horizontalWidget" native="true">
+                      <widget class="QWidget" name="horizontalWidget_24" native="true">
                        <layout class="QHBoxLayout" name="horizontalLayout_10">
                         <property name="leftMargin">
                          <number>0</number>
@@ -4532,7 +4532,7 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QWidget" name="horizontalWidget" native="true">
+                      <widget class="QWidget" name="horizontalWidget_25" native="true">
                        <layout class="QHBoxLayout" name="horizontalLayout_11">
                         <property name="leftMargin">
                          <number>0</number>
@@ -4604,7 +4604,7 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QWidget" name="horizontalWidget" native="true">
+                      <widget class="QWidget" name="horizontalWidget_26" native="true">
                        <layout class="QHBoxLayout" name="horizontalLayout_12">
                         <property name="leftMargin">
                          <number>0</number>
@@ -6573,7 +6573,7 @@ QComboBox QAbstractItemView::item:hover {
                <number>0</number>
               </property>
               <item>
-               <widget class="QWidget" name="horizontalWidget_5" native="true">
+               <widget class="QWidget" name="horizontalWidget_17" native="true">
                 <layout class="QHBoxLayout" name="horizontalLayout_20">
                  <property name="spacing">
                   <number>10</number>
@@ -6611,7 +6611,7 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QWidget" name="verticalWidget_4" native="true">
+                  <widget class="QWidget" name="verticalWidget_17" native="true">
                    <layout class="QVBoxLayout" name="verticalLayout_12">
                     <property name="spacing">
                      <number>6</number>
@@ -7554,7 +7554,7 @@ QComboBox QAbstractItemView::item:hover {
                <number>0</number>
               </property>
               <item>
-               <widget class="QWidget" name="horizontalWidget_5" native="true">
+               <widget class="QWidget" name="horizontalWidget_18" native="true">
                 <layout class="QHBoxLayout" name="horizontalLayout_20">
                  <property name="spacing">
                   <number>10</number>
@@ -7592,7 +7592,7 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QWidget" name="verticalWidget_4" native="true">
+                  <widget class="QWidget" name="verticalWidget_18" native="true">
                    <layout class="QVBoxLayout" name="verticalLayout_12">
                     <property name="spacing">
                      <number>6</number>
@@ -8058,7 +8058,7 @@ QComboBox QAbstractItemView::item:hover {
                <number>0</number>
               </property>
               <item>
-               <widget class="QWidget" name="horizontalWidget_5" native="true">
+               <widget class="QWidget" name="horizontalWidget_11" native="true">
                 <layout class="QHBoxLayout" name="horizontalLayout_20">
                  <property name="spacing">
                   <number>10</number>
@@ -8096,7 +8096,7 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QWidget" name="verticalWidget_4" native="true">
+                  <widget class="QWidget" name="verticalWidget_9" native="true">
                    <layout class="QVBoxLayout" name="verticalLayout_12">
                     <property name="spacing">
                      <number>6</number>
@@ -9232,7 +9232,7 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QWidget" name="verticalWidget_4" native="true">
+                  <widget class="QWidget" name="verticalWidget_10" native="true">
                    <layout class="QVBoxLayout" name="verticalLayout_12">
                     <property name="spacing">
                      <number>6</number>
@@ -9419,7 +9419,7 @@ QComboBox QAbstractItemView::item:hover {
                <number>0</number>
               </property>
               <item>
-               <widget class="QWidget" name="horizontalWidget_5" native="true">
+               <widget class="QWidget" name="horizontalWidget_19" native="true">
                 <layout class="QHBoxLayout" name="horizontalLayout_20">
                  <property name="spacing">
                   <number>10</number>
@@ -9457,7 +9457,7 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QWidget" name="verticalWidget_4" native="true">
+                  <widget class="QWidget" name="verticalWidget_19" native="true">
                    <layout class="QVBoxLayout" name="verticalLayout_12">
                     <property name="spacing">
                      <number>6</number>
@@ -9743,7 +9743,7 @@ QComboBox QAbstractItemView::item:hover {
                <number>0</number>
               </property>
               <item>
-               <widget class="QWidget" name="horizontalWidget_5" native="true">
+               <widget class="QWidget" name="horizontalWidget_9" native="true">
                 <layout class="QHBoxLayout" name="horizontalLayout_20">
                  <property name="spacing">
                   <number>10</number>
@@ -9781,7 +9781,7 @@ QComboBox QAbstractItemView::item:hover {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QWidget" name="verticalWidget_4" native="true">
+                  <widget class="QWidget" name="verticalWidget_8" native="true">
                    <layout class="QVBoxLayout" name="verticalLayout_12">
                     <property name="spacing">
                      <number>6</number>
@@ -10499,7 +10499,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                <number>0</number>
               </property>
               <item>
-               <widget class="QWidget" name="verticalWidget" native="true">
+               <widget class="QWidget" name="verticalWidget_7" native="true">
                 <layout class="QVBoxLayout" name="verticalLayout_24">
                  <property name="leftMargin">
                   <number>0</number>
@@ -10546,7 +10546,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                      </widget>
                     </item>
                     <item>
-                     <widget class="QWidget" name="verticalWidget_11" native="true">
+                     <widget class="QWidget" name="verticalWidget_12" native="true">
                       <layout class="QVBoxLayout" name="verticalLayout_33">
                        <property name="spacing">
                         <number>6</number>
@@ -10709,7 +10709,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                   </layout>
                  </item>
                  <item>
-                  <widget class="QWidget" name="horizontalWidget" native="true">
+                  <widget class="QWidget" name="horizontalWidget_8" native="true">
                    <layout class="QHBoxLayout" name="horizontalLayout_17">
                     <property name="leftMargin">
                      <number>0</number>
@@ -10805,7 +10805,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QWidget" name="horizontalWidget" native="true">
+                  <widget class="QWidget" name="horizontalWidget_10" native="true">
                    <layout class="QHBoxLayout" name="horizontalLayout_25">
                     <property name="leftMargin">
                      <number>0</number>
@@ -10878,7 +10878,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                <number>0</number>
               </property>
               <item>
-               <widget class="QWidget" name="horizontalWidget_4" native="true">
+               <widget class="QWidget" name="horizontalWidget_20" native="true">
                 <layout class="QHBoxLayout" name="horizontalLayout_13">
                  <property name="spacing">
                   <number>10</number>
@@ -10916,7 +10916,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                   </widget>
                  </item>
                  <item>
-                  <widget class="QWidget" name="verticalWidget_3" native="true">
+                  <widget class="QWidget" name="verticalWidget_20" native="true">
                    <layout class="QVBoxLayout" name="verticalLayout_7">
                     <property name="spacing">
                      <number>6</number>

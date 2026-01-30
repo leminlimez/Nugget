@@ -7,7 +7,7 @@ from src.gui.pages.pages_list import Page
 # Global Vars
 sudo_pwd = None # reset this variable whenever it is used
 sudo_action_complete = False
-def get_sudo_pwd() -> str | None:
+def get_sudo_pwd() -> Optional[str]:
     pre_reset = sudo_pwd
     set_sudo_pwd(None)
     set_sudo_complete(False)
@@ -17,7 +17,7 @@ def get_sudo_complete() -> bool:
 def set_sudo_complete(isComplete: bool):
     global sudo_action_complete
     sudo_action_complete = isComplete
-def set_sudo_pwd(pwd: str | None):
+def set_sudo_pwd(pwd: Optional[str]):
     global sudo_pwd
     sudo_pwd = pwd
 

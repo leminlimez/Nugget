@@ -259,7 +259,7 @@ class DeviceManager:
         else:
             return self.data_singleton.current_device.is_exploit_fully_patched()
         
-    def current_device_books_container_uuid_callback(self, uuid: Optional[str]=None) -> Optional[str | None]:
+    def current_device_books_container_uuid_callback(self, uuid: Optional[str]=None) -> Optional[Optional[str]]:
         # if there is no argument, return the existing uuid
         if uuid is None:
             return self.data_singleton.current_device.books_container_uuid

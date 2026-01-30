@@ -1,6 +1,7 @@
 from PySide6 import QtCore, QtWidgets
 import plistlib
 import os
+from typing import Optional
 
 from src.qt.mainwindow_ui import Ui_Nugget
 import src.gui.pages as Pages
@@ -578,7 +579,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.worker_thread.finished.connect(self.finish_apply_thread)
             self.worker_thread.finished.connect(self.worker_thread.deleteLater)
             self.worker_thread.start()
-    def alert_message(self, alert: ApplyAlertMessage | None, log_to_console: bool = True):
+    def alert_message(self, alert: Optional[ApplyAlertMessage], log_to_console: bool = True):
         if alert is None:
             # do sudo dialog input
             get_sudo_pwd() # clear if it is already there

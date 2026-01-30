@@ -137,7 +137,7 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
 
   - [pymobiledevice3][pymobiledevice3GitHub]
   - [PySide6][PySide6Doc]
-  - Python 3.8 or newer
+  - Python 3.9 or newer
 </details>
 
 ## Running the Python Program
@@ -177,7 +177,7 @@ pyside6-uic --from-imports src/qt/mainwindow.ui -o src/qt/mainwindow_ui.py
 
 To compile the resources file for Python, run the following command:
 ```py
-pyside6-rcc src/resources.qrc -o src/resources_rc.py
+pyside6-rcc src/qt/resources.qrc -o src/qt/resources_rc.py
 ```
 
 To create and compile languages, you can use the following commands:
