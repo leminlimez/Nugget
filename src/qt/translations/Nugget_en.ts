@@ -30,465 +30,465 @@ Use at your own risk!</source>
 <context>
     <name>Nugget</name>
     <message>
-        <location filename="../mainwindow.ui" line="415"/>
+        <location filename="../mainwindow.ui" line="421"/>
         <source>    Home</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="465"/>
+        <location filename="../mainwindow.ui" line="474"/>
         <source>    Posterboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="494"/>
+        <location filename="../mainwindow.ui" line="506"/>
         <source>     Mobile Gestalt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="538"/>
+        <location filename="../mainwindow.ui" line="553"/>
         <source>    Feature Flags</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="567"/>
+        <location filename="../mainwindow.ui" line="585"/>
         <source>    Eligibility</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="596"/>
+        <location filename="../mainwindow.ui" line="617"/>
         <source>    Status Bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="628"/>
+        <location filename="../mainwindow.ui" line="652"/>
         <source>    Templates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="689"/>
+        <location filename="../mainwindow.ui" line="719"/>
         <source>    Miscellaneous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="733"/>
+        <location filename="../mainwindow.ui" line="766"/>
         <source>    Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="762"/>
+        <location filename="../mainwindow.ui" line="798"/>
         <source>    Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1005"/>
-        <location filename="../mainwindow.ui" line="1237"/>
-        <location filename="../mainwindow.ui" line="1261"/>
-        <location filename="../mainwindow.ui" line="1286"/>
-        <location filename="../mainwindow.ui" line="8146"/>
+        <location filename="../mainwindow.ui" line="1041"/>
+        <location filename="../mainwindow.ui" line="1282"/>
+        <location filename="../mainwindow.ui" line="1309"/>
+        <location filename="../mainwindow.ui" line="1337"/>
+        <location filename="../mainwindow.ui" line="8629"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1092"/>
+        <location filename="../mainwindow.ui" line="1131"/>
         <source>  Join the Discord</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1106"/>
+        <location filename="../mainwindow.ui" line="1148"/>
         <source> Star on Github</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1210"/>
+        <location filename="../mainwindow.ui" line="1252"/>
         <source>  LeminLimez</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1327"/>
+        <location filename="../mainwindow.ui" line="1378"/>
         <source>Main Developer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1401"/>
+        <location filename="../mainwindow.ui" line="1452"/>
         <source>With Help From</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1423"/>
+        <location filename="../mainwindow.ui" line="1477"/>
         <source>dootskyre, dulark, forcequitOS, pengubow, Middo, and SerStars</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1439"/>
+        <location filename="../mainwindow.ui" line="1493"/>
         <source>PosterRestore Team
 Posterboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1460"/>
+        <location filename="../mainwindow.ui" line="1517"/>
         <source>Snoolie
 .aar Handling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1493"/>
+        <location filename="../mainwindow.ui" line="1553"/>
         <source>disfordottie
 Feature Flags</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1527"/>
+        <location filename="../mainwindow.ui" line="1590"/>
         <source>Mikasa
 Quiet Daemon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1570"/>
+        <location filename="../mainwindow.ui" line="1633"/>
         <source>Additional Thanks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1616"/>
+        <location filename="../mainwindow.ui" line="1685"/>
         <source>pymobiledevice3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1663"/>
+        <location filename="../mainwindow.ui" line="1738"/>
         <source>JJTech
 Sparserestore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1691"/>
+        <location filename="../mainwindow.ui" line="1769"/>
         <source>Qt Creator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1704"/>
+        <location filename="../mainwindow.ui" line="1782"/>
         <source>Nugget GUI - Version %VERSION %BETATAG</source>
         <extracomment>Leave %VERSION %BETATAG the same</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1792"/>
+        <location filename="../mainwindow.ui" line="1870"/>
         <source>Mobile Gestalt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1855"/>
-        <location filename="../mainwindow.ui" line="3012"/>
+        <location filename="../mainwindow.ui" line="1933"/>
+        <location filename="../mainwindow.ui" line="3198"/>
         <source>! You will need a MobileGestalt file for this feature. Please select it in the Apply page !</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1928"/>
+        <location filename="../mainwindow.ui" line="2006"/>
         <source>Device Subtype Preset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1999"/>
+        <location filename="../mainwindow.ui" line="2080"/>
         <source>2436 (iPhone X Gestures for SE phones)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2004"/>
+        <location filename="../mainwindow.ui" line="2085"/>
         <source>2556 (iPhone 14 Pro Dynamic Island)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2009"/>
+        <location filename="../mainwindow.ui" line="2090"/>
         <source>2796 (iPhone 14 Pro Max Dynamic Island)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2014"/>
+        <location filename="../mainwindow.ui" line="2095"/>
         <source>2622 (iPhone 16 Pro Dynamic Island)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2019"/>
+        <location filename="../mainwindow.ui" line="2100"/>
         <source>2868 (iPhone 16 Pro Max Dynamic Island)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2027"/>
+        <location filename="../mainwindow.ui" line="2111"/>
         <source>Modifies the resolution to improve functionality of the changed device subtype. May cause weird visual bugs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2044"/>
+        <location filename="../mainwindow.ui" line="2134"/>
         <source>Changes the model name in the &apos;About&apos; page in the Settings app.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2047"/>
+        <location filename="../mainwindow.ui" line="2137"/>
         <source>Change Device Model Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2054"/>
+        <location filename="../mainwindow.ui" line="2144"/>
         <source>Model Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2061"/>
+        <location filename="../mainwindow.ui" line="2154"/>
         <source>Plays a sound when the device shuts down.
 
 After enabling, you can find the option to enable it in &apos;Accessibility&apos; settings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2066"/>
+        <location filename="../mainwindow.ui" line="2159"/>
         <source>Enable Boot Chime</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2073"/>
+        <location filename="../mainwindow.ui" line="2169"/>
         <source>Shows the charge limit menu in Settings. Actual limiting may not be functional.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2076"/>
+        <location filename="../mainwindow.ui" line="2172"/>
         <source>Enable Charge Limit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2083"/>
+        <location filename="../mainwindow.ui" line="2182"/>
         <source>Enable Tap to Wake (for iPhone SEs)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2090"/>
+        <location filename="../mainwindow.ui" line="2192"/>
         <source>Enables Camera Control menu in Settings app and allows for downloading A17 Pro-exclusive apps (when spoofed).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2093"/>
+        <location filename="../mainwindow.ui" line="2195"/>
         <source>Enable iPhone 16 Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2100"/>
+        <location filename="../mainwindow.ui" line="2205"/>
         <source>Disables the motion of the wallpaper.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2103"/>
+        <location filename="../mainwindow.ui" line="2208"/>
         <source>Disable Wallpaper Parallax</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2146"/>
+        <location filename="../mainwindow.ui" line="2263"/>
         <source>Enable Stage Manager Supported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2139"/>
+        <location filename="../mainwindow.ui" line="2253"/>
         <source>Allow iPad Apps on iPhone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2182"/>
+        <location filename="../mainwindow.ui" line="2308"/>
         <source>Sets the device&apos;s region to LL/A to bypass certain region restrictions like the forced shutter sound.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2185"/>
+        <location filename="../mainwindow.ui" line="2311"/>
         <source>Disable Region Restrictions (ie. Shutter Sound)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2192"/>
+        <location filename="../mainwindow.ui" line="2321"/>
         <source>Enable Apple Pencil Settings Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2199"/>
+        <location filename="../mainwindow.ui" line="2331"/>
         <source>Enable Action Button Settings Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2221"/>
+        <location filename="../mainwindow.ui" line="2356"/>
         <source>Use the Metal HUD in any app. Enable Metal HUD through Springboard Options.
 
 Note: OTA updates will be broken until this is disabled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2226"/>
+        <location filename="../mainwindow.ui" line="2361"/>
         <source>Set as Apple Internal Install (ie Metal HUD in any app)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2233"/>
+        <location filename="../mainwindow.ui" line="2371"/>
         <source>Shows internal files in storage settings.
 
 Note: OTA updates will be broken until this is disabled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2238"/>
+        <location filename="../mainwindow.ui" line="2376"/>
         <source>Enable Internal Storage (WARNING: risky for some devices, mainly iPads)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2245"/>
+        <location filename="../mainwindow.ui" line="2386"/>
         <source>Enable Security Research Device Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2267"/>
+        <location filename="../mainwindow.ui" line="2411"/>
         <source>Shows collision detection in the SOS page in Settings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2270"/>
+        <location filename="../mainwindow.ui" line="2414"/>
         <source>Enable Collision SOS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2277"/>
+        <location filename="../mainwindow.ui" line="2424"/>
         <source>Enable AOD on unsupported devices. May cause burn in, use with caution.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2280"/>
+        <location filename="../mainwindow.ui" line="2427"/>
         <source>Enable Always On Display</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2287"/>
+        <location filename="../mainwindow.ui" line="2437"/>
         <source>Enable this if something is wonky when using the above toggle.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2290"/>
+        <location filename="../mainwindow.ui" line="2440"/>
         <source>Enable AOD Vibrancy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2320"/>
+        <location filename="../mainwindow.ui" line="2470"/>
         <source>Custom Gestalt Keys</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2330"/>
+        <location filename="../mainwindow.ui" line="2483"/>
         <source>  Add Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2349"/>
+        <location filename="../mainwindow.ui" line="2502"/>
         <source>Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know
 what you are doing.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2482"/>
+        <location filename="../mainwindow.ui" line="2635"/>
         <source>Feature Flags</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2632"/>
+        <location filename="../mainwindow.ui" line="2803"/>
         <source>Enables an animation when the lock screen clock changes time or style.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2635"/>
+        <location filename="../mainwindow.ui" line="2806"/>
         <source>Enable Lockscreen Clock Animation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2642"/>
+        <location filename="../mainwindow.ui" line="2816"/>
         <source>Enables a button to duplicate the lock screen page in edit mode.
 Enables quickly switching lock screens by holding down and swiping.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2646"/>
+        <location filename="../mainwindow.ui" line="2820"/>
         <source>Enable Duplicate Lockscreen Button and Lockscreen Quickswitch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2671"/>
+        <location filename="../mainwindow.ui" line="2848"/>
         <source>Revert the photos app to the iOS 17 style.
 
 Does not work on iOS 18.0 RC.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2676"/>
+        <location filename="../mainwindow.ui" line="2853"/>
         <source>Enable Old Photo UI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2683"/>
+        <location filename="../mainwindow.ui" line="2863"/>
         <source>Enable the new Siri UI.
 
 Only works on iOS 18.0 beta 1-2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2688"/>
+        <location filename="../mainwindow.ui" line="2868"/>
         <source>Enable Apple Intelligence</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2789"/>
+        <location filename="../mainwindow.ui" line="2969"/>
         <source>Eligibility Tweaks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2903"/>
+        <location filename="../mainwindow.ui" line="3086"/>
         <source>Enable EU Enabler</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2910"/>
+        <location filename="../mainwindow.ui" line="3093"/>
         <source>Method Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2958"/>
+        <location filename="../mainwindow.ui" line="3144"/>
         <source>Method 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2963"/>
+        <location filename="../mainwindow.ui" line="3149"/>
         <source>Method 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2971"/>
+        <location filename="../mainwindow.ui" line="3157"/>
         <source>Region Code (Should be 2 letters)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2978"/>
+        <location filename="../mainwindow.ui" line="3164"/>
         <source>Region Code (Default: US)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3019"/>
+        <location filename="../mainwindow.ui" line="3208"/>
         <source>Enable Apple Intelligence (for Unsupported Devices)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3073"/>
+        <location filename="../mainwindow.ui" line="3268"/>
         <source>Enable Eligibility File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3080"/>
+        <location filename="../mainwindow.ui" line="3275"/>
         <source>Language Code (not needed for English)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3087"/>
+        <location filename="../mainwindow.ui" line="3282"/>
         <source>Language Code (i.e. en)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3136"/>
+        <location filename="../mainwindow.ui" line="3331"/>
         <source>In order to download the AI models, you must spoof your device model. However, this may break 
 Face ID until you revert back. 
 
@@ -501,1227 +501,1181 @@ Please be careful!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3157"/>
+        <location filename="../mainwindow.ui" line="3352"/>
         <source>Spoofed Device Model</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3204"/>
-        <location filename="../mainwindow.ui" line="3211"/>
+        <location filename="../mainwindow.ui" line="3402"/>
+        <location filename="../mainwindow.ui" line="3409"/>
         <source>Original</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3216"/>
+        <location filename="../mainwindow.ui" line="3414"/>
         <source>iPhone 15 Pro (iPhone16,1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3221"/>
+        <location filename="../mainwindow.ui" line="3419"/>
         <source>iPhone 15 Pro Max (iPhone16,2)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3226"/>
+        <location filename="../mainwindow.ui" line="3424"/>
         <source>iPhone 16 (iPhone17,3)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3231"/>
+        <location filename="../mainwindow.ui" line="3429"/>
         <source>iPhone 16 Plus (iPhone17,4)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3236"/>
+        <location filename="../mainwindow.ui" line="3434"/>
         <source>iPhone 16 Pro (iPhone17,1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3241"/>
+        <location filename="../mainwindow.ui" line="3439"/>
         <source>iPhone 16 Pro Max (iPhone17,2)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3246"/>
+        <location filename="../mainwindow.ui" line="3444"/>
         <source>iPhone 17 (iPhone18,3)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3251"/>
+        <location filename="../mainwindow.ui" line="3449"/>
         <source>iPad Mini (A17 Pro) (W) (iPad16,1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3256"/>
+        <location filename="../mainwindow.ui" line="3454"/>
         <source>iPad Mini (A17 Pro) (C) (iPad16,2)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3261"/>
+        <location filename="../mainwindow.ui" line="3459"/>
         <source>iPad Pro (13-inch) (M4) (W) (iPad16,5)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3266"/>
+        <location filename="../mainwindow.ui" line="3464"/>
         <source>iPad Pro (13-inch) (M4) (C) (iPad16,6)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3271"/>
+        <location filename="../mainwindow.ui" line="3469"/>
         <source>iPad Pro (11-inch) (M4) (W) (iPad16,3)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3276"/>
+        <location filename="../mainwindow.ui" line="3474"/>
         <source>iPad Pro (11-inch) (M4) (C) (iPad16,4)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3281"/>
+        <location filename="../mainwindow.ui" line="3479"/>
         <source>iPad Pro (12.9-inch) (M2) (W) (iPad14,5)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3286"/>
+        <location filename="../mainwindow.ui" line="3484"/>
         <source>iPad Pro (12.9-inch) (M2) (C) (iPad14,6)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3291"/>
+        <location filename="../mainwindow.ui" line="3489"/>
         <source>iPad Pro (11-inch) (M2) (W) (iPad14,3)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3296"/>
+        <location filename="../mainwindow.ui" line="3494"/>
         <source>iPad Pro (11-inch) (M2) (C) (iPad14,4)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3301"/>
+        <location filename="../mainwindow.ui" line="3499"/>
         <source>iPad Air (13-inch) (M2) (W) (iPad14,10)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3306"/>
+        <location filename="../mainwindow.ui" line="3504"/>
         <source>iPad Air (13-inch) (M2) (C) (iPad14,11)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3311"/>
+        <location filename="../mainwindow.ui" line="3509"/>
         <source>iPad Air (11-inch) (M2) (W) (iPad14,8)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3316"/>
+        <location filename="../mainwindow.ui" line="3514"/>
         <source>iPad Air (11-inch) (M2) (C) (iPad14,9)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3321"/>
+        <location filename="../mainwindow.ui" line="3519"/>
         <source>iPad Pro (11-inch) (M1) (W) (iPad13,4)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3326"/>
+        <location filename="../mainwindow.ui" line="3524"/>
         <source>iPad Pro (11-inch) (M1) (C) (iPad13,5)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3331"/>
+        <location filename="../mainwindow.ui" line="3529"/>
         <source>iPad Pro (12.9-inch) (M1) (W) (iPad13,8)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3336"/>
+        <location filename="../mainwindow.ui" line="3534"/>
         <source>iPad Pro (12.9-inch) (M1) (C) (iPad13,9)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3341"/>
+        <location filename="../mainwindow.ui" line="3539"/>
         <source>iPad Air (M1) (W) (iPad13,16)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3346"/>
+        <location filename="../mainwindow.ui" line="3544"/>
         <source>iPad Air (M1) (C) (iPad13,17)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3354"/>
+        <location filename="../mainwindow.ui" line="3555"/>
         <source>Spoofs the device hardware model (ie D83AP)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3357"/>
+        <location filename="../mainwindow.ui" line="3558"/>
         <source>Spoof Hardware Model</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3367"/>
+        <location filename="../mainwindow.ui" line="3571"/>
         <source>Spoofs the device CPU model (ie t8130)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3370"/>
+        <location filename="../mainwindow.ui" line="3574"/>
         <source>Spoof CPU Model</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3478"/>
+        <location filename="../mainwindow.ui" line="3682"/>
         <source>Status Bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3485"/>
-        <location filename="../mainwindow.ui" line="7712"/>
+        <location filename="../mainwindow.ui" line="3689"/>
+        <location filename="../mainwindow.ui" line="8132"/>
         <source>Modify</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3592"/>
+        <location filename="../mainwindow.ui" line="3796"/>
         <source>Primary Cellular</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3623"/>
-        <location filename="../mainwindow.ui" line="3929"/>
-        <location filename="../mainwindow.ui" line="4438"/>
-        <location filename="../mainwindow.ui" line="4503"/>
-        <location filename="../mainwindow.ui" line="4568"/>
-        <location filename="../mainwindow.ui" line="4640"/>
-        <location filename="../mainwindow.ui" line="4705"/>
-        <location filename="../mainwindow.ui" line="4770"/>
-        <location filename="../mainwindow.ui" line="4835"/>
-        <location filename="../mainwindow.ui" line="4900"/>
-        <location filename="../mainwindow.ui" line="4965"/>
-        <location filename="../mainwindow.ui" line="5030"/>
-        <location filename="../mainwindow.ui" line="5095"/>
-        <location filename="../mainwindow.ui" line="5160"/>
-        <location filename="../mainwindow.ui" line="5225"/>
-        <location filename="../mainwindow.ui" line="5290"/>
+        <location filename="../mainwindow.ui" line="3830"/>
+        <location filename="../mainwindow.ui" line="4163"/>
+        <location filename="../mainwindow.ui" line="4729"/>
+        <location filename="../mainwindow.ui" line="4803"/>
+        <location filename="../mainwindow.ui" line="4877"/>
+        <location filename="../mainwindow.ui" line="4958"/>
+        <location filename="../mainwindow.ui" line="5032"/>
+        <location filename="../mainwindow.ui" line="5106"/>
+        <location filename="../mainwindow.ui" line="5180"/>
+        <location filename="../mainwindow.ui" line="5254"/>
+        <location filename="../mainwindow.ui" line="5328"/>
+        <location filename="../mainwindow.ui" line="5402"/>
+        <location filename="../mainwindow.ui" line="5476"/>
+        <location filename="../mainwindow.ui" line="5550"/>
+        <location filename="../mainwindow.ui" line="5624"/>
+        <location filename="../mainwindow.ui" line="5698"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3633"/>
-        <location filename="../mainwindow.ui" line="3939"/>
+        <location filename="../mainwindow.ui" line="3843"/>
+        <location filename="../mainwindow.ui" line="4176"/>
         <source>Force Show</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3640"/>
-        <location filename="../mainwindow.ui" line="3946"/>
+        <location filename="../mainwindow.ui" line="3853"/>
+        <location filename="../mainwindow.ui" line="4186"/>
         <source>Force Hide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3663"/>
-        <location filename="../mainwindow.ui" line="3969"/>
+        <location filename="../mainwindow.ui" line="3879"/>
+        <location filename="../mainwindow.ui" line="4212"/>
         <source>Change Carrier Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3670"/>
-        <location filename="../mainwindow.ui" line="3976"/>
+        <location filename="../mainwindow.ui" line="3886"/>
+        <location filename="../mainwindow.ui" line="4219"/>
         <source>Carrier Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3677"/>
-        <location filename="../mainwindow.ui" line="3983"/>
+        <location filename="../mainwindow.ui" line="3896"/>
+        <location filename="../mainwindow.ui" line="4229"/>
         <source>Change Service Badge Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3684"/>
-        <location filename="../mainwindow.ui" line="3990"/>
+        <location filename="../mainwindow.ui" line="3903"/>
+        <location filename="../mainwindow.ui" line="4236"/>
         <source>Service Badge Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3691"/>
-        <location filename="../mainwindow.ui" line="3997"/>
+        <location filename="../mainwindow.ui" line="3913"/>
+        <location filename="../mainwindow.ui" line="4246"/>
         <source>Change Data Network Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3751"/>
-        <location filename="../mainwindow.ui" line="4054"/>
+        <location filename="../mainwindow.ui" line="3976"/>
+        <location filename="../mainwindow.ui" line="4306"/>
         <source>GPRS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3756"/>
-        <location filename="../mainwindow.ui" line="4059"/>
+        <location filename="../mainwindow.ui" line="3981"/>
+        <location filename="../mainwindow.ui" line="4311"/>
         <source>EDGE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3761"/>
-        <location filename="../mainwindow.ui" line="4064"/>
+        <location filename="../mainwindow.ui" line="3986"/>
+        <location filename="../mainwindow.ui" line="4316"/>
         <source>3G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3766"/>
-        <location filename="../mainwindow.ui" line="4069"/>
+        <location filename="../mainwindow.ui" line="3991"/>
+        <location filename="../mainwindow.ui" line="4321"/>
         <source>4G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3771"/>
-        <location filename="../mainwindow.ui" line="4074"/>
+        <location filename="../mainwindow.ui" line="3996"/>
+        <location filename="../mainwindow.ui" line="4326"/>
         <source>LTE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3776"/>
-        <location filename="../mainwindow.ui" line="4079"/>
+        <location filename="../mainwindow.ui" line="4001"/>
+        <location filename="../mainwindow.ui" line="4331"/>
         <source>Wi-Fi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3781"/>
-        <location filename="../mainwindow.ui" line="4084"/>
+        <location filename="../mainwindow.ui" line="4006"/>
+        <location filename="../mainwindow.ui" line="4336"/>
         <source>Personal Hotspot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4089"/>
+        <location filename="../mainwindow.ui" line="4341"/>
         <source>1x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5720"/>
+        <location filename="../mainwindow.ui" line="6140"/>
         <source>Disable AirDrop Time Limit for Everyone Option</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6515"/>
+        <location filename="../mainwindow.ui" line="6935"/>
         <source>Keyboard Character Flick</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6564"/>
+        <location filename="../mainwindow.ui" line="6984"/>
         <source>Disable Clock Icon Seconds Hand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6598"/>
+        <location filename="../mainwindow.ui" line="7018"/>
         <source>Disable Spotlight Searching in Websites</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6632"/>
+        <location filename="../mainwindow.ui" line="7052"/>
         <source>Show Hardware Button Hints in Screenshots</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6684"/>
+        <location filename="../mainwindow.ui" line="7104"/>
         <source>Metal HUD Debug</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6718"/>
+        <location filename="../mainwindow.ui" line="7138"/>
         <source>iMessage Debugging</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6752"/>
+        <location filename="../mainwindow.ui" line="7172"/>
         <source>Continuity Debugging</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6786"/>
+        <location filename="../mainwindow.ui" line="7206"/>
         <source>FaceTime Debugging</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6869"/>
+        <location filename="../mainwindow.ui" line="7289"/>
         <source>App Store Debug Gesture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6903"/>
+        <location filename="../mainwindow.ui" line="7323"/>
         <source>Notes Debug Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7201"/>
-        <location filename="../mainwindow.ui" line="9900"/>
+        <location filename="../mainwindow.ui" line="7621"/>
+        <location filename="../mainwindow.ui" line="10446"/>
         <source>Liquid Glass</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7360"/>
+        <location filename="../mainwindow.ui" line="7780"/>
         <source>Force Solarium Fallback</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7394"/>
+        <location filename="../mainwindow.ui" line="7814"/>
         <source>Disable Liquid Glass</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7413"/>
+        <location filename="../mainwindow.ui" line="7833"/>
         <source>Enables liquid glass on apps regardless of whether or not it has been updated to include it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7431"/>
+        <location filename="../mainwindow.ui" line="7851"/>
         <source>Ignore Liquid Glass App Build Check</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7471"/>
+        <location filename="../mainwindow.ui" line="7891"/>
         <source>Disable Liquid Glass on LS Clock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7505"/>
+        <location filename="../mainwindow.ui" line="7925"/>
         <source>Disable Liquid Glass on Dock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7539"/>
+        <location filename="../mainwindow.ui" line="7959"/>
         <source>Disable Specular Motion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7573"/>
+        <location filename="../mainwindow.ui" line="7993"/>
         <source>Disable Outer Refraction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7607"/>
+        <location filename="../mainwindow.ui" line="8027"/>
         <source>Disable Solarium HDR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8617"/>
+        <location filename="../mainwindow.ui" line="9136"/>
         <source>   Export as .tendies</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10283"/>
+        <location filename="../mainwindow.ui" line="10841"/>
         <source>Remove Tweaks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3791"/>
-        <location filename="../mainwindow.ui" line="4094"/>
+        <location filename="../mainwindow.ui" line="4016"/>
+        <location filename="../mainwindow.ui" line="4346"/>
         <source>5Gᴇ</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="660"/>
+        <location filename="../mainwindow.ui" line="687"/>
         <source>    Passcode Themes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1590"/>
+        <location filename="../mainwindow.ui" line="1656"/>
         <source>Translators</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1636"/>
+        <location filename="../mainwindow.ui" line="1708"/>
         <source>Duy Tran
 bl_sbx</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2037"/>
+        <location filename="../mainwindow.ui" line="2124"/>
         <source>Enable Dynamic Island (Alternate Method)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2110"/>
+        <location filename="../mainwindow.ui" line="2218"/>
         <source>Enable Liquid Glass Low Performance Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2117"/>
+        <location filename="../mainwindow.ui" line="2228"/>
         <source>Disable Liquid Glass Low Performance Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2153"/>
+        <location filename="../mainwindow.ui" line="2273"/>
         <source>Enable iPadOS (WARNING: risky, use with caution)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2160"/>
+        <location filename="../mainwindow.ui" line="2283"/>
         <source>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2572"/>
+        <location filename="../mainwindow.ui" line="2728"/>
         <source>Create Feature Flags Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2579"/>
-        <location filename="../mainwindow.ui" line="3063"/>
+        <location filename="../mainwindow.ui" line="2735"/>
+        <location filename="../mainwindow.ui" line="3255"/>
         <source>^ Enable this if Feature Flag/Eligibility tweaks do not apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2604"/>
+        <location filename="../mainwindow.ui" line="2763"/>
         <source>Disable Solarium (Liquid Glass) (Feature Flag Method)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2611"/>
+        <location filename="../mainwindow.ui" line="2773"/>
         <source>Disable Liquid Glass in Documents Camera</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2618"/>
+        <location filename="../mainwindow.ui" line="2783"/>
         <source>Disable Liquid Glass in Share Sheet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2625"/>
+        <location filename="../mainwindow.ui" line="2793"/>
         <source>Enable Kiosk Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3056"/>
+        <location filename="../mainwindow.ui" line="3248"/>
         <source>Create Eligibility Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3796"/>
-        <location filename="../mainwindow.ui" line="4099"/>
+        <location filename="../mainwindow.ui" line="4021"/>
+        <location filename="../mainwindow.ui" line="4351"/>
         <source>LTE-A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3801"/>
-        <location filename="../mainwindow.ui" line="4104"/>
+        <location filename="../mainwindow.ui" line="4026"/>
+        <location filename="../mainwindow.ui" line="4356"/>
         <source>LTE+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3806"/>
-        <location filename="../mainwindow.ui" line="4109"/>
+        <location filename="../mainwindow.ui" line="4031"/>
+        <location filename="../mainwindow.ui" line="4361"/>
         <source>5G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3811"/>
-        <location filename="../mainwindow.ui" line="4114"/>
+        <location filename="../mainwindow.ui" line="4036"/>
+        <location filename="../mainwindow.ui" line="4366"/>
         <source>5G+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3816"/>
-        <location filename="../mainwindow.ui" line="4119"/>
+        <location filename="../mainwindow.ui" line="4041"/>
+        <location filename="../mainwindow.ui" line="4371"/>
         <source>5GUW</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3821"/>
-        <location filename="../mainwindow.ui" line="4124"/>
+        <location filename="../mainwindow.ui" line="4046"/>
+        <location filename="../mainwindow.ui" line="4376"/>
         <source>5GUC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3829"/>
-        <location filename="../mainwindow.ui" line="4132"/>
+        <location filename="../mainwindow.ui" line="4057"/>
+        <location filename="../mainwindow.ui" line="4387"/>
         <source>Change Signal Strength</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3863"/>
-        <location filename="../mainwindow.ui" line="4160"/>
-        <location filename="../mainwindow.ui" line="4351"/>
+        <location filename="../mainwindow.ui" line="4091"/>
+        <location filename="../mainwindow.ui" line="4415"/>
+        <location filename="../mainwindow.ui" line="4630"/>
         <source>0 Bars</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="3904"/>
+        <location filename="../mainwindow.ui" line="4135"/>
         <source>Secondary Cellular</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4201"/>
+        <location filename="../mainwindow.ui" line="4462"/>
         <source>Change Status Bar Time Text*</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4208"/>
+        <location filename="../mainwindow.ui" line="4469"/>
         <source>Status Bar Time Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4215"/>
+        <location filename="../mainwindow.ui" line="4479"/>
         <source>Change Status Bar Date Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4222"/>
+        <location filename="../mainwindow.ui" line="4486"/>
         <source>Status Bar Date Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4229"/>
+        <location filename="../mainwindow.ui" line="4496"/>
         <source>Change Breadcrumb Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4236"/>
+        <location filename="../mainwindow.ui" line="4503"/>
         <source>Breadcrumb Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4243"/>
+        <location filename="../mainwindow.ui" line="4513"/>
         <source>Change Battery Detail Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4250"/>
+        <location filename="../mainwindow.ui" line="4520"/>
         <source>Battery Detail Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4257"/>
+        <location filename="../mainwindow.ui" line="4530"/>
         <source>Change Battery Icon Capacity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4285"/>
+        <location filename="../mainwindow.ui" line="4558"/>
         <source>0%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4323"/>
+        <location filename="../mainwindow.ui" line="4602"/>
         <source>Change Wi-Fi Signal Strength</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4377"/>
+        <location filename="../mainwindow.ui" line="4662"/>
         <source>Show Numeric Wi-Fi Strength</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4384"/>
+        <location filename="../mainwindow.ui" line="4672"/>
         <source>Show Numeric Cellular Strength</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4391"/>
+        <location filename="../mainwindow.ui" line="4679"/>
         <source>*When set to blank on notched devices, this will display the carrier name.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4413"/>
+        <location filename="../mainwindow.ui" line="4701"/>
         <source>Focus Mode Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4448"/>
-        <location filename="../mainwindow.ui" line="4513"/>
-        <location filename="../mainwindow.ui" line="4578"/>
-        <location filename="../mainwindow.ui" line="4650"/>
-        <location filename="../mainwindow.ui" line="4715"/>
-        <location filename="../mainwindow.ui" line="4780"/>
-        <location filename="../mainwindow.ui" line="4845"/>
-        <location filename="../mainwindow.ui" line="4910"/>
-        <location filename="../mainwindow.ui" line="4975"/>
-        <location filename="../mainwindow.ui" line="5040"/>
-        <location filename="../mainwindow.ui" line="5105"/>
-        <location filename="../mainwindow.ui" line="5170"/>
-        <location filename="../mainwindow.ui" line="5235"/>
-        <location filename="../mainwindow.ui" line="5300"/>
+        <location filename="../mainwindow.ui" line="4742"/>
+        <location filename="../mainwindow.ui" line="4816"/>
+        <location filename="../mainwindow.ui" line="4890"/>
+        <location filename="../mainwindow.ui" line="4971"/>
+        <location filename="../mainwindow.ui" line="5045"/>
+        <location filename="../mainwindow.ui" line="5119"/>
+        <location filename="../mainwindow.ui" line="5193"/>
+        <location filename="../mainwindow.ui" line="5267"/>
+        <location filename="../mainwindow.ui" line="5341"/>
+        <location filename="../mainwindow.ui" line="5415"/>
+        <location filename="../mainwindow.ui" line="5489"/>
+        <location filename="../mainwindow.ui" line="5563"/>
+        <location filename="../mainwindow.ui" line="5637"/>
+        <location filename="../mainwindow.ui" line="5711"/>
         <source>Always Show</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4455"/>
-        <location filename="../mainwindow.ui" line="4520"/>
-        <location filename="../mainwindow.ui" line="4585"/>
-        <location filename="../mainwindow.ui" line="4657"/>
-        <location filename="../mainwindow.ui" line="4722"/>
-        <location filename="../mainwindow.ui" line="4787"/>
-        <location filename="../mainwindow.ui" line="4852"/>
-        <location filename="../mainwindow.ui" line="4917"/>
-        <location filename="../mainwindow.ui" line="4982"/>
-        <location filename="../mainwindow.ui" line="5047"/>
-        <location filename="../mainwindow.ui" line="5112"/>
-        <location filename="../mainwindow.ui" line="5177"/>
-        <location filename="../mainwindow.ui" line="5242"/>
-        <location filename="../mainwindow.ui" line="5307"/>
+        <location filename="../mainwindow.ui" line="4752"/>
+        <location filename="../mainwindow.ui" line="4826"/>
+        <location filename="../mainwindow.ui" line="4900"/>
+        <location filename="../mainwindow.ui" line="4981"/>
+        <location filename="../mainwindow.ui" line="5055"/>
+        <location filename="../mainwindow.ui" line="5129"/>
+        <location filename="../mainwindow.ui" line="5203"/>
+        <location filename="../mainwindow.ui" line="5277"/>
+        <location filename="../mainwindow.ui" line="5351"/>
+        <location filename="../mainwindow.ui" line="5425"/>
+        <location filename="../mainwindow.ui" line="5499"/>
+        <location filename="../mainwindow.ui" line="5573"/>
+        <location filename="../mainwindow.ui" line="5647"/>
+        <location filename="../mainwindow.ui" line="5721"/>
         <source>Always Hide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4478"/>
+        <location filename="../mainwindow.ui" line="4775"/>
         <source>Airplane Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4543"/>
+        <location filename="../mainwindow.ui" line="4849"/>
         <source>Wi-Fi Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4608"/>
+        <location filename="../mainwindow.ui" line="4923"/>
         <source>^Will also hide cellular data indicator.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4615"/>
+        <location filename="../mainwindow.ui" line="4930"/>
         <source>Battery Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4680"/>
+        <location filename="../mainwindow.ui" line="5004"/>
         <source>Bluetooth Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4745"/>
+        <location filename="../mainwindow.ui" line="5078"/>
         <source>Alarm Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4810"/>
+        <location filename="../mainwindow.ui" line="5152"/>
         <source>Location Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4875"/>
+        <location filename="../mainwindow.ui" line="5226"/>
         <source>Rotation Lock Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4940"/>
+        <location filename="../mainwindow.ui" line="5300"/>
         <source>AirPlay Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5005"/>
+        <location filename="../mainwindow.ui" line="5374"/>
         <source>CarPlay Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5070"/>
+        <location filename="../mainwindow.ui" line="5448"/>
         <source>VPN Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5135"/>
+        <location filename="../mainwindow.ui" line="5522"/>
         <source>Classroom Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5200"/>
+        <location filename="../mainwindow.ui" line="5596"/>
         <source>Liquid Detection Warning Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5265"/>
+        <location filename="../mainwindow.ui" line="5670"/>
         <source>Voice Control Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5330"/>
+        <location filename="../mainwindow.ui" line="5747"/>
         <source>Force enables everything</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5333"/>
+        <location filename="../mainwindow.ui" line="5750"/>
         <source>Silly Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5438"/>
+        <location filename="../mainwindow.ui" line="5855"/>
         <source>Springboard Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5582"/>
+        <location filename="../mainwindow.ui" line="5999"/>
         <source>Lock Screen Footnote Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5589"/>
+        <location filename="../mainwindow.ui" line="6006"/>
         <source>Footnote Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5632"/>
+        <location filename="../mainwindow.ui" line="6049"/>
         <source>Auto‑Lock (Lock Screen)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5754"/>
+        <location filename="../mainwindow.ui" line="6174"/>
         <source>Disable Lock After Respring</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5788"/>
+        <location filename="../mainwindow.ui" line="6208"/>
         <source>Disable Screen Dimming While Charging</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5822"/>
+        <location filename="../mainwindow.ui" line="6242"/>
         <source>Disable Low Battery Alerts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5856"/>
+        <location filename="../mainwindow.ui" line="6276"/>
         <source>Hide AC Power on Lock Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5875"/>
+        <location filename="../mainwindow.ui" line="6295"/>
         <source>Removes &apos;&lt; PreviousAppName&apos; glyph in Status Bar when being forwarded to another app.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5893"/>
+        <location filename="../mainwindow.ui" line="6313"/>
         <source>Disable Breadcrumbs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5912"/>
+        <location filename="../mainwindow.ui" line="6332"/>
         <source>Shows info about the device supervision status and organization at the bottom of the lock screen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5930"/>
+        <location filename="../mainwindow.ui" line="6350"/>
         <source>Show Supervision Text on Lock Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5964"/>
+        <location filename="../mainwindow.ui" line="6384"/>
         <source>Show Dynamic Island in Screenshots</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5998"/>
+        <location filename="../mainwindow.ui" line="6418"/>
         <source>Hide Dynamic Island Completely</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6032"/>
+        <location filename="../mainwindow.ui" line="6452"/>
         <source>Enable AirPlay support for Stage Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6081"/>
+        <location filename="../mainwindow.ui" line="6501"/>
         <source>Show Red/Green Authentication Line on Lock Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6122"/>
+        <location filename="../mainwindow.ui" line="6542"/>
         <source>Disable Floating Tab Bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6220"/>
+        <location filename="../mainwindow.ui" line="6640"/>
         <source>Internal Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6373"/>
+        <location filename="../mainwindow.ui" line="6793"/>
         <source>Show Build Version in Status Bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6407"/>
+        <location filename="../mainwindow.ui" line="6827"/>
         <source>Force Right-to-Left Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6441"/>
+        <location filename="../mainwindow.ui" line="6861"/>
         <source>Force Left-to-Right Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6460"/>
+        <location filename="../mainwindow.ui" line="6880"/>
         <source>Shows hidden apps like Field Test and Continuity on the home screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6478"/>
+        <location filename="../mainwindow.ui" line="6898"/>
         <source>Show Hidden Icons on Home Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6497"/>
+        <location filename="../mainwindow.ui" line="6917"/>
         <source>Enables the iPad-style keyboard keyflicks on iPhones</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6820"/>
+        <location filename="../mainwindow.ui" line="7240"/>
         <source>Show Accessory Developer Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6952"/>
+        <location filename="../mainwindow.ui" line="7372"/>
         <source>Show Touches With Debug Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6986"/>
+        <location filename="../mainwindow.ui" line="7406"/>
         <source>Hide Respring Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7020"/>
+        <location filename="../mainwindow.ui" line="7440"/>
         <source>Vibrate on Raise-to-Wake</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7069"/>
+        <location filename="../mainwindow.ui" line="7489"/>
         <source>Play Sound on Paste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7103"/>
+        <location filename="../mainwindow.ui" line="7523"/>
         <source>Show Notifications for System Pastes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7705"/>
-        <location filename="../mainwindow.ui" line="9819"/>
+        <location filename="../mainwindow.ui" line="8125"/>
+        <location filename="../mainwindow.ui" line="10356"/>
         <source>Daemons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7753"/>
+        <location filename="../mainwindow.ui" line="8173"/>
         <source>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
 it enabled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7779"/>
+        <location filename="../mainwindow.ui" line="8202"/>
         <source>Stops over-the-air updates to prevent auto-downloads.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7782"/>
+        <location filename="../mainwindow.ui" line="8205"/>
         <source>Disable OTA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7789"/>
+        <location filename="../mainwindow.ui" line="8215"/>
         <source>Disables usage tracking for improved privacy.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7792"/>
+        <location filename="../mainwindow.ui" line="8218"/>
         <source>Disable UsageTrackingAgent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7799"/>
+        <location filename="../mainwindow.ui" line="8228"/>
         <source>Disables Screen Time monitoring features.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7802"/>
+        <location filename="../mainwindow.ui" line="8231"/>
         <source>Disable Screen Time Agent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7809"/>
+        <location filename="../mainwindow.ui" line="8241"/>
         <source>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
 
 To work properly, also disable the daemon using the toggle above.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7814"/>
+        <location filename="../mainwindow.ui" line="8246"/>
         <source>Clear ScreenTimeAgent.plist file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7821"/>
+        <location filename="../mainwindow.ui" line="8256"/>
         <source>Stops logs, dumps, and crash reports collection.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7824"/>
+        <location filename="../mainwindow.ui" line="8259"/>
         <source>Disable Logs, Dumps, and Crash Reports</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7831"/>
+        <location filename="../mainwindow.ui" line="8269"/>
         <source>Disables tools that monitor and test hardware or system behavior for faults and performance issues.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7834"/>
+        <location filename="../mainwindow.ui" line="8272"/>
         <source>Disable System Diagnostics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7841"/>
+        <location filename="../mainwindow.ui" line="8282"/>
         <source>Disables pinging to sleeping bluetooth devices for improved battery life.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7844"/>
+        <location filename="../mainwindow.ui" line="8285"/>
         <source>Disable ATWAKEUP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7866"/>
+        <location filename="../mainwindow.ui" line="8310"/>
         <source>Turns off Game Center background services.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7869"/>
+        <location filename="../mainwindow.ui" line="8313"/>
         <source>Disable Game Center</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7876"/>
+        <location filename="../mainwindow.ui" line="8323"/>
         <source>Disables the Tips service and notifications.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7879"/>
+        <location filename="../mainwindow.ui" line="8326"/>
         <source>Disable Tips Services</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7886"/>
+        <location filename="../mainwindow.ui" line="8336"/>
         <source>Disables the Virtual Private Network service.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7889"/>
+        <location filename="../mainwindow.ui" line="8339"/>
         <source>Disable VPN Service</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7896"/>
+        <location filename="../mainwindow.ui" line="8349"/>
         <source>Disables the service that deals with errors with WiFi networks with Chinese characters in the name.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7899"/>
+        <location filename="../mainwindow.ui" line="8352"/>
         <source>Disable Chinese WLAN Service</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7906"/>
+        <location filename="../mainwindow.ui" line="8362"/>
         <source>Disables HealthKit services used by the health app.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7909"/>
+        <location filename="../mainwindow.ui" line="8365"/>
         <source>Disable HealthKit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7931"/>
+        <location filename="../mainwindow.ui" line="8390"/>
         <source>Disable AirPrint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7938"/>
+        <location filename="../mainwindow.ui" line="8400"/>
         <source>Disable Assistive Touch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7945"/>
+        <location filename="../mainwindow.ui" line="8410"/>
         <source>Disable iCloud</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7952"/>
+        <location filename="../mainwindow.ui" line="8420"/>
         <source>Disable Internet Tethering (Hotspot)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7959"/>
+        <location filename="../mainwindow.ui" line="8430"/>
         <source>Disable Passbook</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7966"/>
+        <location filename="../mainwindow.ui" line="8440"/>
         <source>Disable Spotlight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7973"/>
+        <location filename="../mainwindow.ui" line="8450"/>
         <source>Disable Voice Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="7980"/>
+        <location filename="../mainwindow.ui" line="8460"/>
         <source>Disable NanoTimeKit (Apple Watch Face Sync)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8081"/>
+        <location filename="../mainwindow.ui" line="8561"/>
         <source>Posterboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8120"/>
+        <location filename="../mainwindow.ui" line="8603"/>
         <source>   Discover Wallpapers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8211"/>
+        <location filename="../mainwindow.ui" line="8697"/>
         <source>  Tendies</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8231"/>
+        <location filename="../mainwindow.ui" line="8720"/>
         <source>   Templates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8254"/>
+        <location filename="../mainwindow.ui" line="8746"/>
         <source>   Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8284"/>
+        <location filename="../mainwindow.ui" line="8776"/>
         <source>Clear Action:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8340"/>
-        <location filename="../mainwindow.ui" line="8427"/>
-        <location filename="../mainwindow.ui" line="8825"/>
-        <location filename="../mainwindow.ui" line="9164"/>
+        <location filename="../mainwindow.ui" line="8835"/>
+        <location filename="../mainwindow.ui" line="8925"/>
+        <location filename="../mainwindow.ui" line="9347"/>
+        <location filename="../mainwindow.ui" line="9686"/>
         <source>Select a wallpaper file with the .tendies extension.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8346"/>
+        <location filename="../mainwindow.ui" line="8841"/>
         <source>  Import Files (.tendies)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8433"/>
-        <location filename="../mainwindow.ui" line="8831"/>
+        <location filename="../mainwindow.ui" line="8931"/>
+        <location filename="../mainwindow.ui" line="9353"/>
         <source>  Import Templates (.batter)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8490"/>
+        <location filename="../mainwindow.ui" line="8991"/>
         <source>Uses the CoreAnimation file to play the video (300 fps limit)
 Will show up in Collections</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8494"/>
+        <location filename="../mainwindow.ui" line="8995"/>
         <source>Loop (use CoreAnimation method)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8504"/>
+        <location filename="../mainwindow.ui" line="9008"/>
         <source>Reverse on Loop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8511"/>
+        <location filename="../mainwindow.ui" line="9018"/>
         <source>Make Foreground (hides clock)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8518"/>
+        <location filename="../mainwindow.ui" line="9025"/>
         <source>Frame Calculation Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8569"/>
+        <location filename="../mainwindow.ui" line="9079"/>
         <source>Linear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8574"/>
+        <location filename="../mainwindow.ui" line="9084"/>
         <source>Discrete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8584"/>
+        <location filename="../mainwindow.ui" line="9097"/>
         <source>Choose a photo for the wallpaper to freeze on when finished (.heic files only)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8587"/>
+        <location filename="../mainwindow.ui" line="9100"/>
         <source>Choose Freeze Frame (.HEIC)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8594"/>
+        <location filename="../mainwindow.ui" line="9110"/>
         <source>Choose a video file for the wallpaper (.mov or .mp4)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8597"/>
+        <location filename="../mainwindow.ui" line="9113"/>
         <source>Choose Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8742"/>
+        <location filename="../mainwindow.ui" line="9261"/>
         <source>Templates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="8964"/>
-        <source>Passcode Themes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="9003"/>
-        <source>   Discover Themes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="9062"/>
-        <source>Size of Keys</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="9095"/>
-        <source>   Big</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="9100"/>
-        <source>   Small</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="9115"/>
-        <location filename="../mainwindow.ui" line="9122"/>
-        <source>Language Code</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="9131"/>
-        <source>Selected passthm file:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="9141"/>
-        <source>None</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="9170"/>
-        <source>  Import Passcode Theme (.passthm)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="9288"/>
+        <location filename="../mainwindow.ui" line="9810"/>
         <source>Risky Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="9363"/>
+        <location filename="../mainwindow.ui" line="9885"/>
         <source>Disclaimer:
 
 The options on this page may be unsafe for your device. Use these options at your own risk. Changing
@@ -1731,252 +1685,252 @@ Nugget is not responsible if you mess up your device, especially with resolution
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="9390"/>
+        <location filename="../mainwindow.ui" line="9915"/>
         <source>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="9393"/>
+        <location filename="../mainwindow.ui" line="9918"/>
         <source>Disable OTA Updates (file)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="9400"/>
+        <location filename="../mainwindow.ui" line="9928"/>
         <source>Disables temperature monitoring daemon to reduce system checks.
 
 Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &quot;Unverified&quot; in Settings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="9405"/>
+        <location filename="../mainwindow.ui" line="9933"/>
         <source>Disable thermalmonitord</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="9427"/>
+        <location filename="../mainwindow.ui" line="9958"/>
         <source>Set a custom device screen resolution.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="9430"/>
+        <location filename="../mainwindow.ui" line="9961"/>
         <source>Set a Custom Device Resolution</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="9458"/>
+        <location filename="../mainwindow.ui" line="9989"/>
         <source>Height:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="9473"/>
+        <location filename="../mainwindow.ui" line="10004"/>
         <source>Resolution Height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="9514"/>
+        <location filename="../mainwindow.ui" line="10045"/>
         <source>Width:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="9531"/>
+        <location filename="../mainwindow.ui" line="10062"/>
         <source>Resolution Width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="9671"/>
+        <location filename="../mainwindow.ui" line="10202"/>
         <source>Miscellaneous Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="9781"/>
+        <location filename="../mainwindow.ui" line="10315"/>
         <source>Springboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="9848"/>
+        <location filename="../mainwindow.ui" line="10388"/>
         <source>Internal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="9877"/>
+        <location filename="../mainwindow.ui" line="10420"/>
         <source>Risky</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10029"/>
+        <location filename="../mainwindow.ui" line="10575"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10082"/>
+        <location filename="../mainwindow.ui" line="10628"/>
         <source>Administrator permission is required to apply tweaks with AFC.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10089"/>
+        <location filename="../mainwindow.ui" line="10638"/>
         <source> Restart as Admin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10118"/>
+        <location filename="../mainwindow.ui" line="10667"/>
         <source>Current gestalt file location:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10146"/>
+        <location filename="../mainwindow.ui" line="10698"/>
         <source>  Choose Gestalt File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10177"/>
+        <location filename="../mainwindow.ui" line="10732"/>
         <source>  Apply Changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10194"/>
+        <location filename="../mainwindow.ui" line="10749"/>
         <source>Ready!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10232"/>
+        <location filename="../mainwindow.ui" line="10787"/>
         <source>Note: Skip Setup is currently turned on.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10387"/>
+        <location filename="../mainwindow.ui" line="10945"/>
         <source>Nugget Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10584"/>
+        <location filename="../mainwindow.ui" line="11142"/>
         <source>App Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10624"/>
+        <location filename="../mainwindow.ui" line="11188"/>
         <source>Allow Applying Over WiFi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10634"/>
+        <location filename="../mainwindow.ui" line="11201"/>
         <source>Auto Reboot After Applying</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10644"/>
+        <location filename="../mainwindow.ui" line="11214"/>
         <source>Show Risky Tweak Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10651"/>
+        <location filename="../mainwindow.ui" line="11224"/>
         <source>Show models for other device types in the AI device spoofing tab.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10660"/>
+        <location filename="../mainwindow.ui" line="11233"/>
         <source>Show All Spoofable Models</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10667"/>
+        <location filename="../mainwindow.ui" line="11243"/>
         <source>Ignore Posterboard Frame Limit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10674"/>
+        <location filename="../mainwindow.ui" line="11253"/>
         <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10679"/>
+        <location filename="../mainwindow.ui" line="11258"/>
         <source>Disable Tendies Limit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10721"/>
+        <location filename="../mainwindow.ui" line="11300"/>
         <source>BookRestore Apply Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10753"/>
+        <location filename="../mainwindow.ui" line="11335"/>
         <source>   Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10768"/>
+        <location filename="../mainwindow.ui" line="11350"/>
         <source>BookRestore File Transfer Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10798"/>
+        <location filename="../mainwindow.ui" line="11383"/>
         <source>   LocalHost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10803"/>
+        <location filename="../mainwindow.ui" line="11388"/>
         <source>   On-Device (Slower)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10813"/>
+        <location filename="../mainwindow.ui" line="11398"/>
         <source>Books Container UUID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10820"/>
+        <location filename="../mainwindow.ui" line="11405"/>
         <source>Enter your books container UUID if you know it.
 It will be automatically found if this is left blank.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10824"/>
+        <location filename="../mainwindow.ui" line="11409"/>
         <source>Enter Books Container UUID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10831"/>
+        <location filename="../mainwindow.ui" line="11416"/>
         <source>* Developer Mode/Administrator permissions required for these options.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10859"/>
+        <location filename="../mainwindow.ui" line="11447"/>
         <source>Restores the SSL config that does something idk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10862"/>
+        <location filename="../mainwindow.ui" line="11450"/>
         <source>Restore TrustStore (SSL Configuration Profiles)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10872"/>
+        <location filename="../mainwindow.ui" line="11463"/>
         <source>Skip Setup * (non-exploit files only)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10885"/>
+        <location filename="../mainwindow.ui" line="11479"/>
         <source>Enable Supervision * (requires Skip Setup)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10895"/>
+        <location filename="../mainwindow.ui" line="11489"/>
         <source>Enter Organization Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10918"/>
+        <location filename="../mainwindow.ui" line="11512"/>
         <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10945"/>
+        <location filename="../mainwindow.ui" line="11539"/>
         <source>Reset Device Pairing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="10959"/>
+        <location filename="../mainwindow.ui" line="11553"/>
         <source>Pocket Poster Helper</source>
         <translation type="unfinished"></translation>
     </message>

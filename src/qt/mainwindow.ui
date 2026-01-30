@@ -302,6 +302,9 @@ QSlider::tick:horizontal {
           </item>
           <item>
            <widget class="QToolButton" name="refreshBtn">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="styleSheet">
              <string notr="true">QToolButton {
 	border-radius: 0px;
@@ -411,6 +414,9 @@ QSlider::tick:horizontal {
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="text">
              <string>    Home</string>
             </property>
@@ -461,6 +467,9 @@ QSlider::tick:horizontal {
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="text">
              <string>    Posterboard</string>
             </property>
@@ -489,6 +498,9 @@ QSlider::tick:horizontal {
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="text">
              <string>     Mobile Gestalt</string>
@@ -534,6 +546,9 @@ QSlider::tick:horizontal {
               <pointsize>-1</pointsize>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="text">
              <string>    Feature Flags</string>
             </property>
@@ -563,6 +578,9 @@ QSlider::tick:horizontal {
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="text">
              <string>    Eligibility</string>
             </property>
@@ -591,6 +609,9 @@ QSlider::tick:horizontal {
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="text">
              <string>    Status Bar</string>
@@ -624,6 +645,9 @@ QSlider::tick:horizontal {
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="text">
              <string>    Templates</string>
             </property>
@@ -656,6 +680,9 @@ QSlider::tick:horizontal {
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="text">
              <string>    Passcode Themes</string>
             </property>
@@ -684,6 +711,9 @@ QSlider::tick:horizontal {
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="text">
              <string>    Miscellaneous</string>
@@ -729,6 +759,9 @@ QSlider::tick:horizontal {
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="text">
              <string>    Apply</string>
             </property>
@@ -757,6 +790,9 @@ QSlider::tick:horizontal {
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="text">
              <string>    Settings</string>
@@ -1088,6 +1124,9 @@ QSlider::tick:horizontal {
                       </property>
                       <item>
                        <widget class="QToolButton" name="discordBtn">
+                        <property name="cursor">
+                         <cursorShape>PointingHandCursor</cursorShape>
+                        </property>
                         <property name="text">
                          <string>  Join the Discord</string>
                         </property>
@@ -1102,6 +1141,9 @@ QSlider::tick:horizontal {
                       </item>
                       <item>
                        <widget class="QToolButton" name="starOnGithubBtn">
+                        <property name="cursor">
+                         <cursorShape>PointingHandCursor</cursorShape>
+                        </property>
                         <property name="text">
                          <string> Star on Github</string>
                         </property>
@@ -1220,6 +1262,9 @@ QSlider::tick:horizontal {
                     </item>
                     <item>
                      <widget class="QToolButton" name="leminTwitterBtn">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">QToolButton {
 	border-top-right-radius: 0px;
@@ -1244,6 +1289,9 @@ QToolButton:pressed {
                     </item>
                     <item>
                      <widget class="QToolButton" name="leminGithubBtn">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">QToolButton {
 	border-radius: 0px;
@@ -1268,6 +1316,9 @@ QToolButton:pressed {
                     </item>
                     <item>
                      <widget class="QToolButton" name="leminKoFiBtn">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">QToolButton {
 	border-top-left-radius: 0px;
@@ -1419,6 +1470,9 @@ QToolButton:pressed {
                         <height>37</height>
                        </size>
                       </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="toolTip">
                        <string>dootskyre, dulark, forcequitOS, pengubow, Middo, and SerStars</string>
                       </property>
@@ -1443,6 +1497,9 @@ Posterboard</string>
                     </item>
                     <item>
                      <widget class="QToolButton" name="snoolieBtn">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">QToolButton {
 	border-radius: 0px;
@@ -1476,6 +1533,9 @@ QToolButton:pressed {
                         <height>37</height>
                        </size>
                       </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">QToolButton {
 	border-radius: 0px;
@@ -1508,6 +1568,9 @@ Feature Flags</string>
                         <width>0</width>
                         <height>37</height>
                        </size>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
                       </property>
                       <property name="styleSheet">
                        <string notr="true">QToolButton {
@@ -1573,6 +1636,9 @@ Quiet Daemon</string>
                     </item>
                     <item>
                      <widget class="QToolButton" name="translatorsBtn">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">QToolButton {
 	border-top-right-radius: 0px;
@@ -1599,6 +1665,9 @@ QToolButton:pressed {
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">QToolButton {
 	border-radius: 0px;
@@ -1619,6 +1688,9 @@ QToolButton:pressed {
                     </item>
                     <item>
                      <widget class="QToolButton" name="duyBtn">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">QToolButton {
 	border-radius: 0px;
@@ -1646,6 +1718,9 @@ bl_sbx</string>
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">QToolButton {
 	border-radius: 0px;
@@ -1672,6 +1747,9 @@ Sparserestore</string>
                         <horstretch>0</horstretch>
                         <verstretch>0</verstretch>
                        </sizepolicy>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
                       </property>
                       <property name="styleSheet">
                        <string notr="true">QToolButton {
@@ -1943,6 +2021,9 @@ QToolButton:pressed {
                          <height>16777215</height>
                         </size>
                        </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="styleSheet">
                         <string notr="true">QComboBox {
 	background-color: #3b3b3b;
@@ -2023,6 +2104,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="rdarFixChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="toolTip">
                         <string>Modifies the resolution to improve functionality of the changed device subtype. May cause weird visual bugs.</string>
                        </property>
@@ -2033,6 +2117,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="supportsDIChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Enable Dynamic Island (Alternate Method)</string>
                        </property>
@@ -2040,6 +2127,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="modelNameChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="toolTip">
                         <string>Changes the model name in the 'About' page in the Settings app.</string>
                        </property>
@@ -2057,6 +2147,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="bootChimeChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="toolTip">
                         <string>Plays a sound when the device shuts down.
 
@@ -2069,6 +2162,9 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                      </item>
                      <item>
                       <widget class="QCheckBox" name="chargeLimitChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="toolTip">
                         <string>Shows the charge limit menu in Settings. Actual limiting may not be functional.</string>
                        </property>
@@ -2079,6 +2175,9 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                      </item>
                      <item>
                       <widget class="QCheckBox" name="tapToWakeChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Enable Tap to Wake (for iPhone SEs)</string>
                        </property>
@@ -2086,6 +2185,9 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                      </item>
                      <item>
                       <widget class="QCheckBox" name="iphone16SettingsChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="toolTip">
                         <string>Enables Camera Control menu in Settings app and allows for downloading A17 Pro-exclusive apps (when spoofed).</string>
                        </property>
@@ -2096,6 +2198,9 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                      </item>
                      <item>
                       <widget class="QCheckBox" name="parallaxChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="toolTip">
                         <string>Disables the motion of the wallpaper.</string>
                        </property>
@@ -2106,6 +2211,9 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                      </item>
                      <item>
                       <widget class="QCheckBox" name="enableLGLPMChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Enable Liquid Glass Low Performance Mode</string>
                        </property>
@@ -2113,6 +2221,9 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                      </item>
                      <item>
                       <widget class="QCheckBox" name="disableLGLPMChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Disable Liquid Glass Low Performance Mode</string>
                        </property>
@@ -2135,6 +2246,9 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                      </item>
                      <item>
                       <widget class="QCheckBox" name="ipadAppsChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Allow iPad Apps on iPhone</string>
                        </property>
@@ -2142,6 +2256,9 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                      </item>
                      <item>
                       <widget class="QCheckBox" name="stageManagerChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Enable Stage Manager Supported</string>
                        </property>
@@ -2149,6 +2266,9 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                      </item>
                      <item>
                       <widget class="QCheckBox" name="enableiPadOSChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Enable iPadOS (WARNING: risky, use with caution)</string>
                        </property>
@@ -2156,6 +2276,9 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                      </item>
                      <item>
                       <widget class="QLabel" name="ipadOSAlphaWarningLbl">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>WARNING: Do not enable iPadOS if you use an alphanumeric passcode.</string>
                        </property>
@@ -2178,6 +2301,9 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                      </item>
                      <item>
                       <widget class="QCheckBox" name="shutterChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="toolTip">
                         <string>Sets the device's region to LL/A to bypass certain region restrictions like the forced shutter sound.</string>
                        </property>
@@ -2188,6 +2314,9 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                      </item>
                      <item>
                       <widget class="QCheckBox" name="pencilChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Enable Apple Pencil Settings Tab</string>
                        </property>
@@ -2195,6 +2324,9 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                      </item>
                      <item>
                       <widget class="QCheckBox" name="actionButtonChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Enable Action Button Settings Tab</string>
                        </property>
@@ -2217,6 +2349,9 @@ After enabling, you can find the option to enable it in 'Accessibility' settings
                      </item>
                      <item>
                       <widget class="QCheckBox" name="internalInstallChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="toolTip">
                         <string>Use the Metal HUD in any app. Enable Metal HUD through Springboard Options.
 
@@ -2229,6 +2364,9 @@ Note: OTA updates will be broken until this is disabled.</string>
                      </item>
                      <item>
                       <widget class="QCheckBox" name="internalStorageChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="toolTip">
                         <string>Shows internal files in storage settings.
 
@@ -2241,6 +2379,9 @@ Note: OTA updates will be broken until this is disabled.</string>
                      </item>
                      <item>
                       <widget class="QCheckBox" name="srdChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Enable Security Research Device Mode</string>
                        </property>
@@ -2263,6 +2404,9 @@ Note: OTA updates will be broken until this is disabled.</string>
                      </item>
                      <item>
                       <widget class="QCheckBox" name="collisionSOSChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="toolTip">
                         <string>Shows collision detection in the SOS page in Settings.</string>
                        </property>
@@ -2273,6 +2417,9 @@ Note: OTA updates will be broken until this is disabled.</string>
                      </item>
                      <item>
                       <widget class="QCheckBox" name="aodChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="toolTip">
                         <string>Enable AOD on unsupported devices. May cause burn in, use with caution.</string>
                        </property>
@@ -2283,6 +2430,9 @@ Note: OTA updates will be broken until this is disabled.</string>
                      </item>
                      <item>
                       <widget class="QCheckBox" name="aodVibrancyChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="toolTip">
                         <string>Enable this if something is wonky when using the above toggle.</string>
                        </property>
@@ -2325,6 +2475,9 @@ Note: OTA updates will be broken until this is disabled.</string>
                         <widget class="QToolButton" name="addGestaltKeyBtn">
                          <property name="enabled">
                           <bool>true</bool>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
                          </property>
                          <property name="text">
                           <string>  Add Key</string>
@@ -2568,6 +2721,9 @@ what you are doing.</string>
                     </property>
                     <item>
                      <widget class="QCheckBox" name="createFFFolderChk">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="text">
                        <string>Create Feature Flags Folder</string>
                       </property>
@@ -2600,6 +2756,9 @@ what you are doing.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="solariumFFChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>Disable Solarium (Liquid Glass) (Feature Flag Method)</string>
                    </property>
@@ -2607,6 +2766,9 @@ what you are doing.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="photosLGFFChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>Disable Liquid Glass in Documents Camera</string>
                    </property>
@@ -2614,6 +2776,9 @@ what you are doing.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="shareSheetLGFFChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>Disable Liquid Glass in Share Sheet</string>
                    </property>
@@ -2621,6 +2786,9 @@ what you are doing.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="kioskModeChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>Enable Kiosk Mode</string>
                    </property>
@@ -2628,6 +2796,9 @@ what you are doing.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="clockAnimChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Enables an animation when the lock screen clock changes time or style.</string>
                    </property>
@@ -2638,6 +2809,9 @@ what you are doing.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="lockscreenChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Enables a button to duplicate the lock screen page in edit mode.
 Enables quickly switching lock screens by holding down and swiping.</string>
@@ -2667,6 +2841,9 @@ Enables quickly switching lock screens by holding down and swiping.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="photosChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Revert the photos app to the iOS 17 style.
 
@@ -2679,6 +2856,9 @@ Does not work on iOS 18.0 RC.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="aiChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Enable the new Siri UI.
 
@@ -2899,6 +3079,9 @@ Only works on iOS 18.0 beta 1-2.</string>
                         </property>
                         <item>
                          <widget class="QCheckBox" name="euEnablerEnabledChk">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Enable EU Enabler</string>
                           </property>
@@ -2918,6 +3101,9 @@ Only works on iOS 18.0 beta 1-2.</string>
                             <width>150</width>
                             <height>16777215</height>
                            </size>
+                          </property>
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
                           </property>
                           <property name="styleSheet">
                            <string notr="true">QComboBox {
@@ -3015,6 +3201,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="enableAIChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Enable Apple Intelligence (for Unsupported Devices)</string>
                        </property>
@@ -3052,6 +3241,9 @@ QComboBox QAbstractItemView::item:hover {
                            </property>
                            <item>
                             <widget class="QCheckBox" name="createEligFolderChk">
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
                              <property name="text">
                               <string>Create Eligibility Folder</string>
                              </property>
@@ -3069,6 +3261,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QCheckBox" name="eligFileChk">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Enable Eligibility File</string>
                           </property>
@@ -3165,6 +3360,9 @@ Please be careful!</string>
                                <width>325</width>
                                <height>16777215</height>
                               </size>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">QComboBox {
@@ -3350,6 +3548,9 @@ QComboBox QAbstractItemView::item:hover {
                            </item>
                            <item>
                             <widget class="QCheckBox" name="spoofHardwareChk">
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
                              <property name="toolTip">
                               <string>Spoofs the device hardware model (ie D83AP)</string>
                              </property>
@@ -3363,6 +3564,9 @@ QComboBox QAbstractItemView::item:hover {
                            </item>
                            <item>
                             <widget class="QCheckBox" name="spoofCPUChk">
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
                              <property name="toolTip">
                               <string>Spoofs the device CPU model (ie t8130)</string>
                              </property>
@@ -3619,6 +3823,9 @@ QComboBox QAbstractItemView::item:hover {
                         </property>
                         <item>
                          <widget class="QRadioButton" name="pDefaultRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Default</string>
                           </property>
@@ -3629,6 +3836,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="pShowRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Force Show</string>
                           </property>
@@ -3636,6 +3846,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="pHideRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Force Hide</string>
                           </property>
@@ -3659,6 +3872,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="pCarrierChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Change Carrier Text</string>
                        </property>
@@ -3673,6 +3889,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="pBadgeChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Change Service Badge Text</string>
                        </property>
@@ -3687,6 +3906,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="pTypeChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Change Data Network Type</string>
                        </property>
@@ -3705,6 +3927,9 @@ QComboBox QAbstractItemView::item:hover {
                          <width>150</width>
                          <height>16777215</height>
                         </size>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">QComboBox {
@@ -3825,6 +4050,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="pStrengthChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Change Signal Strength</string>
                        </property>
@@ -3866,6 +4094,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QSlider" name="pStrengthSld">
+                          <property name="cursor">
+                           <cursorShape>OpenHandCursor</cursorShape>
+                          </property>
                           <property name="maximum">
                            <number>4</number>
                           </property>
@@ -3925,6 +4156,9 @@ QComboBox QAbstractItemView::item:hover {
                         </property>
                         <item>
                          <widget class="QRadioButton" name="sDefaultRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Default</string>
                           </property>
@@ -3935,6 +4169,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="sShowRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Force Show</string>
                           </property>
@@ -3942,6 +4179,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="sHideRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Force Hide</string>
                           </property>
@@ -3965,6 +4205,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="sCarrierChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Change Carrier Text</string>
                        </property>
@@ -3979,6 +4222,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="sBadgeChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Change Service Badge Text</string>
                        </property>
@@ -3993,6 +4239,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="sTypeChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Change Data Network Type</string>
                        </property>
@@ -4011,6 +4260,9 @@ QComboBox QAbstractItemView::item:hover {
                          <width>150</width>
                          <height>16777215</height>
                         </size>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">QComboBox {
@@ -4128,6 +4380,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="sStrengthChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Change Signal Strength</string>
                        </property>
@@ -4163,6 +4418,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QSlider" name="sStrengthSld">
+                          <property name="cursor">
+                           <cursorShape>OpenHandCursor</cursorShape>
+                          </property>
                           <property name="maximum">
                            <number>4</number>
                           </property>
@@ -4197,6 +4455,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="timeChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Change Status Bar Time Text*</string>
                        </property>
@@ -4211,6 +4472,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="dateChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Change Status Bar Date Text</string>
                        </property>
@@ -4225,6 +4489,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="breadcrumbChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Change Breadcrumb Text</string>
                        </property>
@@ -4239,6 +4506,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="batteryDetailChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Change Battery Detail Text</string>
                        </property>
@@ -4253,6 +4523,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="batteryCapacityChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Change Battery Icon Capacity</string>
                        </property>
@@ -4288,6 +4561,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QSlider" name="batteryCapacitySld">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="maximum">
                            <number>100</number>
                           </property>
@@ -4319,6 +4595,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="wifiStrengthChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Change Wi-Fi Signal Strength</string>
                        </property>
@@ -4354,6 +4633,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QSlider" name="wifiStrengthSld">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="maximum">
                            <number>3</number>
                           </property>
@@ -4373,6 +4655,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="numericWifiChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Show Numeric Wi-Fi Strength</string>
                        </property>
@@ -4380,6 +4665,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="numericCellChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Show Numeric Cellular Strength</string>
                        </property>
@@ -4434,6 +4722,9 @@ QComboBox QAbstractItemView::item:hover {
                         </property>
                         <item>
                          <widget class="QRadioButton" name="dndDefaultRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Default</string>
                           </property>
@@ -4444,6 +4735,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="dndShowRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Show</string>
                           </property>
@@ -4451,6 +4745,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="dndHideRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Hide</string>
                           </property>
@@ -4499,6 +4796,9 @@ QComboBox QAbstractItemView::item:hover {
                         </property>
                         <item>
                          <widget class="QRadioButton" name="airplaneDefaultRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Default</string>
                           </property>
@@ -4509,6 +4809,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="airplaneShowRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Show</string>
                           </property>
@@ -4516,6 +4819,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="airplaneHideRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Hide</string>
                           </property>
@@ -4564,6 +4870,9 @@ QComboBox QAbstractItemView::item:hover {
                         </property>
                         <item>
                          <widget class="QRadioButton" name="wifiDefaultRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Default</string>
                           </property>
@@ -4574,6 +4883,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="wifiShowRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Show</string>
                           </property>
@@ -4581,6 +4893,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="wifiHideRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Hide</string>
                           </property>
@@ -4636,6 +4951,9 @@ QComboBox QAbstractItemView::item:hover {
                         </property>
                         <item>
                          <widget class="QRadioButton" name="batteryDefaultRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Default</string>
                           </property>
@@ -4646,6 +4964,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="batteryShowRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Show</string>
                           </property>
@@ -4653,6 +4974,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="batteryHideRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Hide</string>
                           </property>
@@ -4701,6 +5025,9 @@ QComboBox QAbstractItemView::item:hover {
                         </property>
                         <item>
                          <widget class="QRadioButton" name="bluetoothDefaultRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Default</string>
                           </property>
@@ -4711,6 +5038,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="bluetoothShowRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Show</string>
                           </property>
@@ -4718,6 +5048,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="bluetoothHideRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Hide</string>
                           </property>
@@ -4766,6 +5099,9 @@ QComboBox QAbstractItemView::item:hover {
                         </property>
                         <item>
                          <widget class="QRadioButton" name="alarmDefaultRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Default</string>
                           </property>
@@ -4776,6 +5112,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="alarmShowRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Show</string>
                           </property>
@@ -4783,6 +5122,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="alarmHideRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Hide</string>
                           </property>
@@ -4831,6 +5173,9 @@ QComboBox QAbstractItemView::item:hover {
                         </property>
                         <item>
                          <widget class="QRadioButton" name="locationDefaultRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Default</string>
                           </property>
@@ -4841,6 +5186,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="locationShowRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Show</string>
                           </property>
@@ -4848,6 +5196,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="locationHideRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Hide</string>
                           </property>
@@ -4896,6 +5247,9 @@ QComboBox QAbstractItemView::item:hover {
                         </property>
                         <item>
                          <widget class="QRadioButton" name="rotationDefaultRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Default</string>
                           </property>
@@ -4906,6 +5260,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="rotationShowRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Show</string>
                           </property>
@@ -4913,6 +5270,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="rotationHideRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Hide</string>
                           </property>
@@ -4961,6 +5321,9 @@ QComboBox QAbstractItemView::item:hover {
                         </property>
                         <item>
                          <widget class="QRadioButton" name="airplayDefaultRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Default</string>
                           </property>
@@ -4971,6 +5334,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="airplayShowRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Show</string>
                           </property>
@@ -4978,6 +5344,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="airplayHideRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Hide</string>
                           </property>
@@ -5026,6 +5395,9 @@ QComboBox QAbstractItemView::item:hover {
                         </property>
                         <item>
                          <widget class="QRadioButton" name="carplayDefaultRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Default</string>
                           </property>
@@ -5036,6 +5408,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="carplayShowRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Show</string>
                           </property>
@@ -5043,6 +5418,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="carplayHideRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Hide</string>
                           </property>
@@ -5091,6 +5469,9 @@ QComboBox QAbstractItemView::item:hover {
                         </property>
                         <item>
                          <widget class="QRadioButton" name="vpnDefaultRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Default</string>
                           </property>
@@ -5101,6 +5482,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="vpnShowRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Show</string>
                           </property>
@@ -5108,6 +5492,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="vpnHideRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Hide</string>
                           </property>
@@ -5156,6 +5543,9 @@ QComboBox QAbstractItemView::item:hover {
                         </property>
                         <item>
                          <widget class="QRadioButton" name="studentDefaultRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Default</string>
                           </property>
@@ -5166,6 +5556,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="studentShowRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Show</string>
                           </property>
@@ -5173,6 +5566,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="studentHideRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Hide</string>
                           </property>
@@ -5221,6 +5617,9 @@ QComboBox QAbstractItemView::item:hover {
                         </property>
                         <item>
                          <widget class="QRadioButton" name="waterDefaultRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Default</string>
                           </property>
@@ -5231,6 +5630,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="waterShowRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Show</string>
                           </property>
@@ -5238,6 +5640,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="waterHideRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Hide</string>
                           </property>
@@ -5286,6 +5691,9 @@ QComboBox QAbstractItemView::item:hover {
                         </property>
                         <item>
                          <widget class="QRadioButton" name="vcDefaultRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Default</string>
                           </property>
@@ -5296,6 +5704,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="vcShowRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Show</string>
                           </property>
@@ -5303,6 +5714,9 @@ QComboBox QAbstractItemView::item:hover {
                         </item>
                         <item>
                          <widget class="QRadioButton" name="vcHideRdo">
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                           <property name="text">
                            <string>Always Hide</string>
                           </property>
@@ -5326,6 +5740,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QCheckBox" name="sillyModeChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="toolTip">
                         <string>Force enables everything</string>
                        </property>
@@ -5664,6 +6081,9 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QSlider" name="lockScreenAutoLockSlider">
+                       <property name="cursor">
+                        <cursorShape>OpenHandCursor</cursorShape>
+                       </property>
                        <property name="minimum">
                         <number>5</number>
                        </property>
@@ -7775,6 +8195,9 @@ it enabled.</string>
                  </property>
                  <item>
                   <widget class="QCheckBox" name="otadChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Stops over-the-air updates to prevent auto-downloads.</string>
                    </property>
@@ -7785,6 +8208,9 @@ it enabled.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="usageTrackingAgentChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Disables usage tracking for improved privacy.</string>
                    </property>
@@ -7795,6 +8221,9 @@ it enabled.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="screenTimeChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Disables Screen Time monitoring features.</string>
                    </property>
@@ -7805,6 +8234,9 @@ it enabled.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="clearScreenTimeAgentChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
 
@@ -7817,6 +8249,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="crashReportsChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Stops logs, dumps, and crash reports collection.</string>
                    </property>
@@ -7827,6 +8262,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="diagnosticsChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Disables tools that monitor and test hardware or system behavior for faults and performance issues.</string>
                    </property>
@@ -7837,6 +8275,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="atwakeupChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Disables pinging to sleeping bluetooth devices for improved battery life.</string>
                    </property>
@@ -7862,6 +8303,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="gameCenterChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Turns off Game Center background services.</string>
                    </property>
@@ -7872,6 +8316,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="tipsChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Disables the Tips service and notifications.</string>
                    </property>
@@ -7882,6 +8329,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="vpndChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Disables the Virtual Private Network service.</string>
                    </property>
@@ -7892,6 +8342,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="wapicChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Disables the service that deals with errors with WiFi networks with Chinese characters in the name.</string>
                    </property>
@@ -7902,6 +8355,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="healthdChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Disables HealthKit services used by the health app.</string>
                    </property>
@@ -7927,6 +8383,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="airprintChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>Disable AirPrint</string>
                    </property>
@@ -7934,6 +8393,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="assistiveTouchChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>Disable Assistive Touch</string>
                    </property>
@@ -7941,6 +8403,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="icloudChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>Disable iCloud</string>
                    </property>
@@ -7948,6 +8413,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="hotspotChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>Disable Internet Tethering (Hotspot)</string>
                    </property>
@@ -7955,6 +8423,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="passbookChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>Disable Passbook</string>
                    </property>
@@ -7962,6 +8433,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="spotlightChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>Disable Spotlight</string>
                    </property>
@@ -7969,6 +8443,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="voiceControlChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>Disable Voice Control</string>
                    </property>
@@ -7976,6 +8453,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QCheckBox" name="nanoTimeKitChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>Disable NanoTimeKit (Apple Watch Face Sync)</string>
                    </property>
@@ -8116,6 +8596,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QToolButton" name="findPBBtn">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>   Discover Wallpapers</string>
                    </property>
@@ -8207,6 +8690,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                      <height>25</height>
                     </size>
                    </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>  Tendies</string>
                    </property>
@@ -8227,6 +8713,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  </item>
                  <item>
                   <widget class="QToolButton" name="templatePageBtn">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>   Templates</string>
                    </property>
@@ -8249,6 +8738,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                      <width>0</width>
                      <height>25</height>
                     </size>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="text">
                     <string>   Video</string>
@@ -8336,6 +8828,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                     </item>
                     <item>
                      <widget class="QToolButton" name="importTendiesBtn">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="toolTip">
                        <string>Select a wallpaper file with the .tendies extension.</string>
                       </property>
@@ -8423,6 +8918,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                     </item>
                     <item>
                      <widget class="QToolButton" name="importTemplateBtn">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="toolTip">
                        <string>Select a wallpaper file with the .tendies extension.</string>
                       </property>
@@ -8486,6 +8984,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                  <layout class="QVBoxLayout" name="verticalLayout_39">
                   <item>
                    <widget class="QCheckBox" name="caVideoChk">
+                    <property name="cursor">
+                     <cursorShape>PointingHandCursor</cursorShape>
+                    </property>
                     <property name="toolTip">
                      <string>Uses the CoreAnimation file to play the video (300 fps limit)
 Will show up in Collections</string>
@@ -8500,6 +9001,9 @@ Will show up in Collections</string>
                   </item>
                   <item>
                    <widget class="QCheckBox" name="reverseLoopChk">
+                    <property name="cursor">
+                     <cursorShape>PointingHandCursor</cursorShape>
+                    </property>
                     <property name="text">
                      <string>Reverse on Loop</string>
                     </property>
@@ -8507,6 +9011,9 @@ Will show up in Collections</string>
                   </item>
                   <item>
                    <widget class="QCheckBox" name="useForegroundChk">
+                    <property name="cursor">
+                     <cursorShape>PointingHandCursor</cursorShape>
+                    </property>
                     <property name="text">
                      <string>Make Foreground (hides clock)</string>
                     </property>
@@ -8526,6 +9033,9 @@ Will show up in Collections</string>
                       <width>325</width>
                       <height>16777215</height>
                      </size>
+                    </property>
+                    <property name="cursor">
+                     <cursorShape>PointingHandCursor</cursorShape>
                     </property>
                     <property name="toolTip">
                      <string/>
@@ -8580,6 +9090,9 @@ QComboBox QAbstractItemView::item:hover {
                    <layout class="QHBoxLayout" name="horizontalLayout_30">
                     <item>
                      <widget class="QToolButton" name="chooseThumbBtn">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="toolTip">
                        <string>Choose a photo for the wallpaper to freeze on when finished (.heic files only)</string>
                       </property>
@@ -8590,6 +9103,9 @@ QComboBox QAbstractItemView::item:hover {
                     </item>
                     <item>
                      <widget class="QToolButton" name="chooseVideoBtn">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="toolTip">
                        <string>Choose a video file for the wallpaper (.mov or .mp4)</string>
                       </property>
@@ -8613,6 +9129,9 @@ QComboBox QAbstractItemView::item:hover {
                     </item>
                     <item>
                      <widget class="QToolButton" name="exportPBVideoBtn">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="text">
                        <string>   Export as .tendies</string>
                       </property>
@@ -8821,6 +9340,9 @@ QComboBox QAbstractItemView::item:hover {
                   </item>
                   <item>
                    <widget class="QToolButton" name="importTemplatesBtn">
+                    <property name="cursor">
+                     <cursorShape>PointingHandCursor</cursorShape>
+                    </property>
                     <property name="toolTip">
                      <string>Select a wallpaper file with the .tendies extension.</string>
                     </property>
@@ -8961,7 +9483,7 @@ QComboBox QAbstractItemView::item:hover {
                        </font>
                       </property>
                       <property name="text">
-                       <string>Passcode Themes</string>
+                       <string notr="true">Passcode Themes</string>
                       </property>
                      </widget>
                     </item>
@@ -9000,7 +9522,7 @@ QComboBox QAbstractItemView::item:hover {
                  <item>
                   <widget class="QToolButton" name="discoverPassthmBtn">
                    <property name="text">
-                    <string>   Discover Themes</string>
+                    <string notr="true">   Discover Themes</string>
                    </property>
                    <property name="icon">
                     <iconset resource="resources.qrc">
@@ -9059,7 +9581,7 @@ QComboBox QAbstractItemView::item:hover {
                 <item>
                  <widget class="QLabel" name="label_61">
                   <property name="text">
-                   <string>Size of Keys</string>
+                   <string notr="true">Size of Keys</string>
                   </property>
                  </widget>
                 </item>
@@ -9092,12 +9614,12 @@ QComboBox QAbstractItemView::item:hover {
                   </property>
                   <item>
                    <property name="text">
-                    <string>   Big</string>
+                    <string notr="true">   Big</string>
                    </property>
                   </item>
                   <item>
                    <property name="text">
-                    <string>   Small</string>
+                    <string notr="true">   Small</string>
                    </property>
                   </item>
                  </widget>
@@ -9112,14 +9634,14 @@ QComboBox QAbstractItemView::item:hover {
                 <item>
                  <widget class="QLabel" name="label_62">
                   <property name="text">
-                   <string>Language Code</string>
+                   <string notr="true">Language Code</string>
                   </property>
                  </widget>
                 </item>
                 <item>
                  <widget class="QLineEdit" name="passthmLanguageCodeTxt">
                   <property name="placeholderText">
-                   <string>Language Code</string>
+                   <string notr="true">Language Code</string>
                   </property>
                  </widget>
                 </item>
@@ -9128,7 +9650,7 @@ QComboBox QAbstractItemView::item:hover {
               <item>
                <widget class="QLabel" name="label_60">
                 <property name="text">
-                 <string>Selected passthm file:</string>
+                 <string notr="true">Selected passthm file:</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -9138,7 +9660,7 @@ QComboBox QAbstractItemView::item:hover {
               <item>
                <widget class="QLabel" name="selectedPassthmLbl">
                 <property name="text">
-                 <string>None</string>
+                 <string notr="true">None</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -9167,7 +9689,7 @@ QComboBox QAbstractItemView::item:hover {
                      <enum>Qt::RightToLeft</enum>
                     </property>
                     <property name="text">
-                     <string>  Import Passcode Theme (.passthm)</string>
+                     <string notr="true">  Import Passcode Theme (.passthm)</string>
                     </property>
                     <property name="icon">
                      <iconset resource="resources.qrc">
@@ -9386,6 +9908,9 @@ Nugget is not responsible if you mess up your device, especially with resolution
                  </item>
                  <item>
                   <widget class="QCheckBox" name="disableOTAChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</string>
                    </property>
@@ -9396,6 +9921,9 @@ Nugget is not responsible if you mess up your device, especially with resolution
                  </item>
                  <item>
                   <widget class="QCheckBox" name="thermalmonitordChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Disables temperature monitoring daemon to reduce system checks.
 
@@ -9423,6 +9951,9 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                  </item>
                  <item>
                   <widget class="QCheckBox" name="enableResolutionChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>Set a custom device screen resolution.</string>
                    </property>
@@ -9777,6 +10308,9 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                         <height>96</height>
                        </size>
                       </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="text">
                        <string>Springboard</string>
                       </property>
@@ -9815,6 +10349,9 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="text">
                        <string>Daemons</string>
                       </property>
@@ -9843,6 +10380,9 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                         <horstretch>0</horstretch>
                         <verstretch>0</verstretch>
                        </sizepolicy>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
                       </property>
                       <property name="text">
                        <string>Internal</string>
@@ -9873,6 +10413,9 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="text">
                        <string>Risky</string>
                       </property>
@@ -9896,6 +10439,9 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     </item>
                     <item row="1" column="2">
                      <widget class="QToolButton" name="liquidGlassPageBtn">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="text">
                        <string>Liquid Glass</string>
                       </property>
@@ -10085,6 +10631,9 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                    </item>
                    <item>
                     <widget class="QToolButton" name="restartUACBtn">
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
                      <property name="text">
                       <string> Restart as Admin</string>
                      </property>
@@ -10142,6 +10691,9 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                    </property>
                    <item>
                     <widget class="QToolButton" name="chooseGestaltBtn">
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
                      <property name="text">
                       <string>  Choose Gestalt File</string>
                      </property>
@@ -10173,6 +10725,9 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     </property>
                     <item>
                      <widget class="QToolButton" name="applyTweaksBtn">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="text">
                        <string>  Apply Changes</string>
                       </property>
@@ -10279,6 +10834,9 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                     </item>
                     <item>
                      <widget class="QToolButton" name="removeTweaksBtn">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
                       <property name="text">
                        <string>Remove Tweaks</string>
                       </property>
@@ -10613,6 +11171,9 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                             <height>0</height>
                            </size>
                           </property>
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
                          </widget>
                         </item>
                        </layout>
@@ -10620,6 +11181,9 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                      </item>
                      <item>
                       <widget class="QCheckBox" name="allowWifiApplyingChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Allow Applying Over WiFi</string>
                        </property>
@@ -10630,6 +11194,9 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                      </item>
                      <item>
                       <widget class="QCheckBox" name="autoRebootChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Auto Reboot After Applying</string>
                        </property>
@@ -10640,6 +11207,9 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                      </item>
                      <item>
                       <widget class="QCheckBox" name="showRiskyChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Show Risky Tweak Options</string>
                        </property>
@@ -10647,6 +11217,9 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                      </item>
                      <item>
                       <widget class="QCheckBox" name="showAllSpoofableChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="toolTip">
                         <string>Show models for other device types in the AI device spoofing tab.</string>
                        </property>
@@ -10663,6 +11236,9 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                      </item>
                      <item>
                       <widget class="QCheckBox" name="ignorePBFrameLimitChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Ignore Posterboard Frame Limit</string>
                        </property>
@@ -10670,6 +11246,9 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                      </item>
                      <item>
                       <widget class="QCheckBox" name="disableTendiesLimitChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="toolTip">
                         <string>Disables the tendies file limit of 2. There is still the descriptor limit.
 
@@ -10743,6 +11322,9 @@ DO NOT unplug your device during restores.</string>
                               <height>0</height>
                              </size>
                             </property>
+                            <property name="cursor">
+                             <cursorShape>PointingHandCursor</cursorShape>
+                            </property>
                             <item>
                              <property name="text">
                               <string notr="true">   AFC*</string>
@@ -10789,6 +11371,9 @@ DO NOT unplug your device during restores.</string>
                               <width>175</width>
                               <height>0</height>
                              </size>
+                            </property>
+                            <property name="cursor">
+                             <cursorShape>PointingHandCursor</cursorShape>
                             </property>
                             <property name="currentIndex">
                              <number>0</number>
@@ -10855,6 +11440,9 @@ It will be automatically found if this is left blank.</string>
                      </item>
                      <item>
                       <widget class="QCheckBox" name="trustStoreChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="toolTip">
                         <string>Restores the SSL config that does something idk</string>
                        </property>
@@ -10868,6 +11456,9 @@ It will be automatically found if this is left blank.</string>
                      </item>
                      <item>
                       <widget class="QCheckBox" name="skipSetupChk">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Skip Setup * (non-exploit files only)</string>
                        </property>
@@ -10880,6 +11471,9 @@ It will be automatically found if this is left blank.</string>
                       <widget class="QCheckBox" name="supervisionChk">
                        <property name="enabled">
                         <bool>true</bool>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="text">
                         <string>Enable Supervision * (requires Skip Setup)</string>
