@@ -182,7 +182,7 @@ pyside6-rcc src/resources.qrc -o src/resources_rc.py
 
 To create and compile languages, you can use the following commands:
 ```py
-pyside6-lupdate src/gui/main_window.py src/gui/pages/main/*.py src/gui/pages/tools/*.py src/gui/dialogs.py src/qt/mainwindow.ui src/devicemanagement/device_manager.py src/exceptions/*.py src/tweaks/*.py src/tweaks/posterboard/*.py src/tweaks/posterboard/template_options/*.py controllers/*.py -ts src/qt/translations/Nugget_{language code}.ts # generate/update the language file
+pyside6-lupdate src/gui/main_window.py src/gui/pages/main/*.py src/gui/pages/tools/*.py src/gui/dialogs.py src/qt/mainwindow.ui src/devicemanagement/device_manager.py src/exceptions/*.py src/tweaks/*.py src/tweaks/posterboard/*.py src/tweaks/posterboard/template_options/*.py src/controllers/*.py -ts src/qt/translations/Nugget_{language code}.ts # generate/update the language file
 pyside6-lrelease src/qt/translations/Nugget_{language code}.ts -qm src/qt/translations/Nugget_{language code}.qm # compile to binary
 ```
 
