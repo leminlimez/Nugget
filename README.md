@@ -46,8 +46,6 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
   - Show Red/Green Authentication Line on Lock Screen (See [this issue](https://github.com/leminlimez/Nugget/issues/656) for what it looks like)
   - Disable Floating Tab Bar on iPads
 - Internal Options
-  - Disable Liquid Glass (iOS 26.0+)
-  - Ignore Liquid Glass App Build Check (iOS 26.0+)
   - Enabling Key Flick (iPad-style keyboard) on iPhones (iOS 26.0-)
   - Build Version in Status Bar
   - Force Right to Left
@@ -62,6 +60,8 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
   - Hide Respring Icon
   - Play Sound on Paste
   - Show Notifications for System Pastes
+- Disable Liquid Glass (iOS 26.0+):
+  - Ignore Liquid Glass App Build Check (iOS 26.0+)
 - Disable Daemons:
   - OTAd
   - UsageTrackingAgent
@@ -84,39 +84,35 @@ Make sure you have installed the [requirements](#requirements) if you are on Win
   - Disable thermalmonitord
 </details>
 <details>
-<summary>iOS 17.0 - 18.1.1</summary>
+<summary>iOS 17.0 - 26.1</summary>
 
-- Enable Dynamic Island on any device
-- Enable iPhone X gestures on iPhone SEs
-- Change Device Model Name (ie what shows in the Settings app)
-- Enable Boot Chime
-- Enable Charge Limit
-- Enable Tap to Wake on unsupported devices (ie iPhone SEs)
-- Enable Collision SOS
-- Enable Stage Manager
-- Disable the Wallpaper Parallax
-- Disable Region Restrictions (ie. Shutter Sound)
-  - Note: This does not include enabling EU sideloading outside the EU. That will come later.
-- Show the Apple Pencil options in Settings app
-- Show the Action Button options in Settings app
-- Show Internal Storage info (Might cause problems on some devices, use at your own risk)
+- Mobile Gestalt:
+  - Enable Dynamic Island on any device
+  - Enable iPadOS on iPhones (use at your own risk)
+  - Enable iPhone X gestures on iPhone SEs
+  - Change Device Model Name (ie what shows in the Settings app)
+  - Enable Boot Chime
+  - Enable Charge Limit
+  - Enable Tap to Wake on unsupported devices (ie iPhone SEs)
+  - Enable Collision SOS
+  - Enable Stage Manager
+  - Disable the Wallpaper Parallax
+  - Disable Region Restrictions (ie. Shutter Sound)
+    - Note: This does not include enabling EU sideloading outside the EU.
+  - Show the Apple Pencil options in Settings app
+  - Show the Action Button options in Settings app
+  - Show Internal Storage info (Might cause problems on some devices, use at your own risk)
+  - Enable iPhone 16 camera button page in the Settings app (iOS 18.0+)
+  - Enable AOD on any device (Warning: this may cause burn in)
 - EU Enabler (iOS 17.6-)
+- Feature Flags:
+  - Enable Kiosk Mode
+  - Disable Liquid Glass/Solarium (iOS 26.0 - 26.1)
+  - Enable lock screen clock animation, lock screen page duplication button, and more!
+  - Disable the new iOS 18 Photos UI (iOS 18.0 betas only, unknown which patched it)
 </details>
 <details>
-<summary>iOS 18.0 - 18.0.1</summary>
-
-- Feature Flags (iOS 18.1b4-):
-  - Enabling lock screen clock animation, lock screen page duplication button, and more!
-  - Disabling the new iOS 18 Photos UI (iOS 18.0 betas only, unknown which patched it)
-</details>
-<details>
-<summary>iOS 18.0 - 18.1.1</summary>
-
-- Enable iPhone 16 camera button page in the Settings app
-- Enable AOD & AOD Vibrancy on any device
-</details>
-<details>
-<summary>iOS 18.1 - 18.1.1</summary>
+<summary>iOS 18.1 - 26.1</summary>
 
 - AI Enabler
 - Device Spoofing
