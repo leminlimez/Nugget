@@ -562,8 +562,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if os.name != 'nt':
             return
         import pyuac
+        import sys
         pyuac.runAsAdmin()
-        QtCore.QCoreApplication.quit()
+        os.execl(sys.executable, sys.executable, *sys.argv)
 
     @QtCore.Slot()
     def on_applyTweaksBtn_clicked(self):

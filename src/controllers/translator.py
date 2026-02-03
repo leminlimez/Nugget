@@ -20,7 +20,7 @@ class Translator:
         self.set_default_locale(code)
         self.load_translations()
         if restart:
-            os.execl(sys.executable, *sys.orig_argv)
+            os.execl(sys.executable, sys.executable, *sys.argv)
     
     def load_translations(self):
         path = QLibraryInfo.path(QLibraryInfo.LibraryPath.TranslationsPath)
