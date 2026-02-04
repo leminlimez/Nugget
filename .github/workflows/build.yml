@@ -27,17 +27,23 @@ on:
 jobs:
   build-macos-intel:
     if: ${{ github.event.inputs.build_for_macos_intel == 'true' }}
-    runs-on: macos-15-intel
+    runs-on: macos-11-intel
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.9'
 
       - name: Install dependencies
         run: |
           python3 -m pip install -U pip
-          pip install -r requirements.txt
+          pip install pymobiledevice3
+          pip install PySide6-Essentials==6.7.3
+          pip install PyInstaller
+          pip install pyperclip
+          pip install ffmpeg==1.4
+          pip install ffmpeg-python==0.2.0
+          pip install opencv-python==4.13.0.90
 
       - name: Build macOS (Intel)
         run: python3 compile.py
