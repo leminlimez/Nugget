@@ -27,7 +27,7 @@ on:
 jobs:
   build-macos-intel:
     if: ${{ github.event.inputs.build_for_macos_intel == 'true' }}
-    runs-on: macos-11-intel
+    runs-on: macos-15-intel
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
