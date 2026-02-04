@@ -22,7 +22,7 @@ available_languages = {
     "Français (Canada)": "fr_CA",
     "Français (Belgium)": "fr_BE",
     "Deutsch": "de",
-    "Deutsch (Australia)": "de_AT",
+    "Deutsch (Austria)": "de_AT",
     "Italiano": "it",
     "Русский": "ru",
     "日本語": "ja",

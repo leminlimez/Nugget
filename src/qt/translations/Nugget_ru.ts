@@ -104,7 +104,7 @@ Posterboard</translation>
       <source>Snoolie
 .aar Handling</source>
       <translation>Snoolie
-.aar Handling</translation>
+Обработка .aar</translation>
     </message>
     <message>
       <location filename="../mainwindow.ui" line="1553"/>
