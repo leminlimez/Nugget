@@ -9,12 +9,12 @@ import traceback
 warnings.filterwarnings("ignore")
 
 from PySide6 import QtGui, QtWidgets
-from PySide6.QtCore import QLocale, QSettings
+from PySide6.QtCore import QSettings
 
-from controllers.translator import Translator
-from gui.main_window import MainWindow
-from devicemanagement.device_manager import DeviceManager
-from tweaks.tweaks import tweaks, TweakID
+from src.controllers.translator import Translator
+from src.gui.main_window import MainWindow
+from src.devicemanagement.device_manager import DeviceManager
+from src.tweaks.tweaks import tweaks, TweakID
 
 if __name__ == "__main__":
     multiprocessing.freeze_support()

@@ -13,7 +13,6 @@ args = [
     '--icon=nugget.ico',
     '--onedir',
     '--noconfirm',
-    '--collect-all=devicemanagement',
     '--collect-all=pymobiledevice3',  # <--- FIXED: Forces inclusion of __main__.py
     '--add-data=files/:files',
     '--copy-metadata=pyimg4',
