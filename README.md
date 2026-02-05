@@ -219,6 +219,7 @@ If you would like to read more about the inner workings of the exploit and iOS r
   - Thanks to [Snoolie for aar handling][python-aar-stuffGitHub]!
   - Thanks to [SerStars][SerStarsX] for creating [the website][WallpapersWebsite]!
 - [disfordottie][disfordottieX] for some global flag features
+- [iTechExpert][iTechExpertTwitter] for various Springboard/Internal Options
 - [Mikasa-san][Mikasa-sanGitHub] for [Quiet Daemon][QuietDaemonGitHub]
 - [sneakyf1shy][sneakyf1shyGitHub] for [AI Eligibility][AIEligibilityGist] (iOS 18.1 beta 4 and below)
 - [lrdsnow][lrdsnowGitHub] for [EU Enabler][EUEnablerGitHub]
@@ -257,3 +258,4 @@ If you would like to read more about the inner workings of the exploit and iOS r
 [bl_sbxGitHub]: https://github.com/khanhduytran0/bl_sbx/tree/main
 [DuyGitHub]: https://github.com/khanhduytran0
 [HuyTwitter]: https://x.com/Little_34306
+[iTechExpertTwitter]: https://twitter.com/iTechExpert21
