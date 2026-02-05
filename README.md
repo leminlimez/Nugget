@@ -226,7 +226,7 @@ If you would like to read more about the inner workings of the exploit and iOS r
 - [pymobiledevice3][pymobiledevice3GitHub] for restoring and device algorithms.
 - [PySide6][PySide6Doc] for the GUI library.
 
-[NuggetLogo]: https://raw.githubusercontent.com/leminlimez/Nugget/refs/heads/main/credits/small_nugget.png
+[NuggetLogo]: https://github.com/leminlimez/Nugget/blob/9553a3dff5e2c1f8e6818109e8862e3a5eea429f/src/qt/credits/small_nugget.png
 [CowabungaLite]: https://github.com/leminlimez/CowabungaLite
 [WallpapersWebsite]: https://cowabun.ga/wallpapers
 [AppleDevices]: https://apps.microsoft.com/detail/9np83lwlpz9k
