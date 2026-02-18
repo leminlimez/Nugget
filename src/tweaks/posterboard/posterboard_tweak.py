@@ -1,6 +1,7 @@
 import os
 import uuid
 import traceback
+import plistlib
 from random import randint
 from shutil import copytree
 from PySide6 import QtWidgets
@@ -84,9 +85,22 @@ class PosterboardTweak(Tweak):
             return str(randomizedID).encode()
         elif file_name == "com.apple.posterkit.provider.contents.userInfo":
             return set_plist_value(file=os.path.join(file_path, file_name), key="wallpaperRepresentingIdentifier", value=randomizedID)
-        elif file_name == "Wallpaper.plist":
-            return set_plist_value(file=os.path.join(file_path, file_name), key="identifier", value=randomizedID, recursive=False)
+        elif file_name.endswith("Wallpaper.plist"):
+            return self.update_for_family(set_plist_value(file=os.path.join(file_path, file_name), key="identifier", value=randomizedID, recursive=False))
         return None
+    
+    def update_for_family(self, data: bytes):
+        # set the assets/lockAndHome/default/name to Lavender
+        # and family to Marble
+        plist = plistlib.loads(data)
+        if ("assets" in plist
+            and "lockAndHome" in plist["assets"]
+            and "default" in plist["assets"]["lockAndHome"]):
+            print("modified name in assets")
+            plist["assets"]["lockAndHome"]["default"]["name"] = "Lavender"
+        print("MODIFIED REGULAR NAME")
+        plist["family"] = "Marble"
+        return plistlib.dumps(plist)
         
 
     def recursive_add(self,
