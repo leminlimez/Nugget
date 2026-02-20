@@ -34,6 +34,14 @@ jobs:
         with:
           python-version: '3.9'
 
+      - name: Install OpenSSL
+        run: |
+          brew update
+          brew install openssl@3
+          echo "OPENSSL_DIR=$(brew --prefix openssl@3)" >> "$GITHUB_ENV"
+          echo "LDFLAGS=-L$(brew --prefix openssl@3)/lib" >> "$GITHUB_ENV"
+          echo "CPPFLAGS=-I$(brew --prefix openssl@3)/include" >> "$GITHUB_ENV"
+
       - name: Install dependencies
         run: |
           python3 -m pip install -U pip
