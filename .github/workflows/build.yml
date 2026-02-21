@@ -34,22 +34,12 @@ jobs:
         with:
           python-version: '3.9.22'
 
-      - name: Create venv
+      - name: Create venv and install requirements
         run: |
-          python -m venv .env
+          python3 -m venv .env
+          python3 -m pip install -U pip
           source .env/bin/activate
-          pip install --upgrade pip
-
-      - name: Install dependencies
-        run: |
-          source .env/bin/activate
-          pip install pymobiledevice3
-          pip install PySide6-Essentials==6.7.3
-          pip install PyInstaller
-          pip install pyperclip
-          pip install ffmpeg==1.4
-          pip install ffmpeg-python==0.2.0
-          pip install opencv-python==4.13.0.90
+          pip install -r requirements.txt
 
       - name: Build macOS (Intel)
         run: |
