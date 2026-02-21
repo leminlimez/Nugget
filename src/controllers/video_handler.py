@@ -1,8 +1,15 @@
-import cv2
 import os
-import ffmpeg
 from tempfile import mkdtemp, NamedTemporaryFile
 from shutil import rmtree
+
+cv2_successful = False
+try:
+    import cv2
+    import ffmpeg
+    cv2_successful = True
+except:
+    print("failed to include cv2!")
+    cv2_successful = False
 
 from src.exceptions.posterboard_exceptions import VideoLengthException
 from src.controllers.files_handler import get_bundle_files

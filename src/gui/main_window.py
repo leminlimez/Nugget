@@ -89,6 +89,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.refreshBtn.clicked.connect(self.refresh_devices)
         self.ui.devicePicker.currentIndexChanged.connect(self.change_selected_device)
 
+        # disable video features if OpenCV isn't working properly
+        if not video_handler.cv2_successful:
+            self.ui.videoPageBtn.hide()
+
         ## SIDE BAR ACTIONS
         self.ui.homePageBtn.clicked.connect(self.on_homePageBtn_clicked)
         self.ui.gestaltPageBtn.clicked.connect(self.on_gestaltPageBtn_clicked)
