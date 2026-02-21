@@ -1,3 +1,4 @@
+sslpsk_pmd3
 pymobiledevice3
 PySide6-Essentials; sys_platform != 'linux'
 PySide6; sys_platform == 'linux'

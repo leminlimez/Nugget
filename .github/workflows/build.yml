@@ -32,14 +32,14 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.9'
 
       - name: Create venv and install requirements
         run: |
           python3 -m venv .env
           python3 -m pip install -U pip
           source .env/bin/activate
-          pip install -r requirements.txt
+          pip install --no-binary -r requirements.txt
 
       - name: Build macOS (Intel)
         run: |
@@ -69,7 +69,7 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install -U pip
-          pip install -r requirements.txt
+          pip install --no-binary -r requirements.txt
 
       - name: Build macOS (ARM)
         run: python3 compile.py
