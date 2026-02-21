@@ -34,17 +34,15 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Install OpenSSL
+      - name: Create venv
         run: |
-          brew update
-          brew install openssl@3
-          echo "OPENSSL_DIR=$(brew --prefix openssl@3)" >> "$GITHUB_ENV"
-          echo "LDFLAGS=-L$(brew --prefix openssl@3)/lib" >> "$GITHUB_ENV"
-          echo "CPPFLAGS=-I$(brew --prefix openssl@3)/include" >> "$GITHUB_ENV"
+          python -m venv .env
+          source .env/bin/activate
+          pip install --upgrade pip
 
       - name: Install dependencies
         run: |
-          python3 -m pip install -U pip
+          source .env/bin/activate
           pip install pymobiledevice3
           pip install PySide6-Essentials==6.7.3
           pip install PyInstaller
@@ -54,7 +52,9 @@ jobs:
           pip install opencv-python==4.13.0.90
 
       - name: Build macOS (Intel)
-        run: python3 compile.py
+        run: |
+          source .env/bin/activate
+          python3 compile.py
 
       - name: Zip Nugget.app (Intel)
         run: |
