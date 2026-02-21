@@ -1,5 +1,6 @@
 from sys import platform, argv
 import os
+import shutil # Added for the macOS fix
 import PyInstaller.__main__
 
 target_arch = next((arg for arg in argv if arg.startswith("--target-arch=")), None)
@@ -30,6 +31,21 @@ if target_arch:
 
 # macOS-specific flags
 if platform == "darwin":
+    
+    # --- MACOS OPENSSL FIX ---
+    # Delete sslpsk_pmd3's bundled OpenSSL before PyInstaller collects it.
+    # This forces fallback to Python's built-in _ssl without breaking codesign.
+    try:
+        import sslpsk_pmd3
+        sslpsk_path = os.path.dirname(sslpsk_pmd3.__file__)
+        dylibs_path = os.path.join(sslpsk_path, "__dot__dylibs")
+        if os.path.exists(dylibs_path):
+            print(f"[-] macOS Fix: Removing conflicting bundled dylibs from {dylibs_path}")
+            shutil.rmtree(dylibs_path, ignore_errors=True)
+    except ImportError:
+        print("[!] sslpsk_pmd3 not found, skipping macOS dylib cleanup.")
+    # -------------------------
+
     args.append('--windowed')
     args.append('--osx-bundle-identifier=com.leemin.Nugget')
 
