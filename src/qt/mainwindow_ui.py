@@ -21,7 +21,7 @@ from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QCheckBox, QCo
     QRadioButton, QScrollArea, QSizePolicy, QSlider,
     QSpacerItem, QStackedWidget, QToolButton, QVBoxLayout,
     QWidget)
-from . import resources_rc
+import resources_rc
 
 class Ui_Nugget(object):
     def setupUi(self, Nugget):
@@ -3156,6 +3156,11 @@ class Ui_Nugget(object):
         self.lockScreenAutoLockSeparator.setFrameShape(QFrame.Shape.HLine)
 
         self._2.addWidget(self.lockScreenAutoLockSeparator)
+
+        self.watchOSChk = QCheckBox(self.springboardOptionsPageContent)
+        self.watchOSChk.setObjectName(u"watchOSChk")
+
+        self._2.addWidget(self.watchOSChk)
 
         self.airdropTimeLimitContent = QWidget(self.springboardOptionsPageContent)
         self.airdropTimeLimitContent.setObjectName(u"airdropTimeLimitContent")
@@ -6343,6 +6348,7 @@ class Ui_Nugget(object):
         self.footnoteLbl.setText(QCoreApplication.translate("Nugget", u"Lock Screen Footnote Text", None))
         self.footnoteTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Footnote Text", None))
         self.lockScreenAutoLockLabel.setText(QCoreApplication.translate("Nugget", u"Auto\u2011Lock (Lock Screen)", None))
+        self.watchOSChk.setText(QCoreApplication.translate("Nugget", u"Allow pairing with any watchOS version", None))
         self.label_46.setText(QCoreApplication.translate("Nugget", u"Disable AirDrop Time Limit for Everyone Option", None))
         self.label_36.setText(QCoreApplication.translate("Nugget", u"Disable Lock After Respring", None))
         self.label_37.setText(QCoreApplication.translate("Nugget", u"Disable Screen Dimming While Charging", None))

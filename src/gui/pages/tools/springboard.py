@@ -12,6 +12,7 @@ class SpringboardPage(Page):
     def load_page(self):
         self.ui.footnoteTxt.textEdited.connect(self.on_footnoteTxt_textEdited)
         self.ui.lockScreenAutoLockSlider.valueChanged.connect(self.on_lockScreenAutoLockSlider_valueChanged)
+        self.ui.watchOSChk.toggled.connect(self.on_watchOSChk_toggled)
 
         # create the radio buttons
         self.createRadioBtns(key=TweakID.AirDropDisableTimeLimit, container=self.ui.airdropTimeLimitBtns)
@@ -36,3 +37,5 @@ class SpringboardPage(Page):
     def on_lockScreenAutoLockSlider_valueChanged(self, value: int):
         self.ui.lockScreenAutoLockValueLabel.setText(f'{value}s')
         tweaks[TweakID.SBMinimumLockscreenIdleTime].set_value(value, toggle_enabled=True)
+    def on_watchOSChk_toggled(self, checked: bool):
+        tweaks[TweakID.WatchOSCompatibility].set_enabled(checked)
