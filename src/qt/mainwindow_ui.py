@@ -21,7 +21,7 @@ from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QCheckBox, QCo
     QRadioButton, QScrollArea, QSizePolicy, QSlider,
     QSpacerItem, QStackedWidget, QToolButton, QVBoxLayout,
     QWidget)
-import resources_rc
+from . import resources_rc
 
 class Ui_Nugget(object):
     def setupUi(self, Nugget):
