@@ -85,7 +85,7 @@ class SettingsPage(Page):
         # load the saved option
         try:
             idx = self.lang_indexes.index(self.window.translator.get_saved_locale_code())
-        except:
+        except Exception:
             idx = 0
         self.ui.langDrp.setCurrentIndex(idx)
 
@@ -124,7 +124,7 @@ class SettingsPage(Page):
         self.ui.euEnablerPageBtn.setVisible(show_eu)
         try:
             self.ui.resetPBDrp.removeItem(4)
-        except:
+        except Exception:
             pass
         if visible:
             self.ui.resetPBDrp.addItem("PB Extensions")
@@ -217,13 +217,13 @@ class SettingsPage(Page):
         try:
             self.window.device_manager.send_app_hashes_afc(hashes)
             QMessageBox.information(None, QCoreApplication.tr("PosterBoard App Hash"), QCoreApplication.tr("Your hash has been transferred to the Pocket Poster app.\n\nOpen up its settings and tap \"Detect\"."))
-        except:
+        except Exception:
             # fall back to copy and paste
             copytxt = QCoreApplication.tr("Copy it and paste it")
             try:
                 import pyperclip
                 pyperclip.copy(hashes["com.apple.PosterBoard"])
                 copytxt = QCoreApplication.tr("It has been copied. Paste it")
-            except:
+            except Exception:
                 print("pyperclip not found, not copying to clipboard")
             QMessageBox.information(None, QCoreApplication.tr("PosterBoard App Hash"), QCoreApplication.tr("Your hash is:\n{0}\n\n{1} into the Nugget app where it says \"App Hash\".").format(hashes["com.apple.PosterBoard"], copytxt))

@@ -145,7 +145,7 @@ def cleanup_server_folder():
     global old_dir
     try:
         shutil.rmtree(server_folder)
-    except:
+    except Exception:
         pass
     server_folder = None
     if old_dir is not None:
@@ -163,7 +163,7 @@ async def create_connection_context(files: list[FileToRestore], service_provider
                 server_folder = create_server_folder()
             _run_async_rsd_connection(available_address["address"], available_address["port"], files, current_device_uuid_callback, progress_callback, transfer_mode, do_full_reboot)
             cleanup_server_folder()
-        except:
+        except Exception:
             cleanup_server_folder()
             raise
     else:
@@ -213,7 +213,7 @@ def remove_db_files(db_path):
         if os.path.exists(fpath):
             try:
                 os.remove(fpath)
-            except:
+            except Exception:
                 pass
 
 def close_dl_connection():
@@ -415,7 +415,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
                     f'netsh advfirewall firewall delete rule name="{firewall_rule_name}"',
                     shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
                 )
-            except:
+            except Exception:
                 pass
 
     procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")

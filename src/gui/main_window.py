@@ -271,7 +271,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.dynamicIslandDrp.removeItem(6)
                 self.ui.dynamicIslandDrp.removeItem(5)
                 self.ui.dynamicIslandDrp.removeItem(4)
-            except:
+            except Exception:
                 pass
             if TweakID.RdarFix in tweaks:
                 self.pages[Page.Gestalt].set_rdar_fix_label()
@@ -444,7 +444,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.device_manager.pref_manager.skip_setup = skip_setup
             self.device_manager.pref_manager.supervised = supervised
             self.device_manager.pref_manager.organization_name = organization_name
-        except:
+        except Exception:
             pass
     
 
