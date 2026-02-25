@@ -38,7 +38,7 @@ class ResetDialog(QDialog):
         else:
             try:
                 self.selected_pages.remove(page)
-            except:
+            except Exception:
                 print("Page not found in list, ignoring error.")
 
     def accept(self):

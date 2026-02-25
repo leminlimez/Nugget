@@ -41,7 +41,7 @@ class RiskyPage(Page):
             val = int(txt)
             tweaks[TweakID.CustomResolution].value["canvas_height"] = val
             self.ui.resHeightWarningLbl.hide()
-        except:
+        except Exception:
             self.ui.resHeightWarningLbl.show()
     def on_resWidthTxt_textEdited(self, txt: str):
         if txt == "":
@@ -53,5 +53,5 @@ class RiskyPage(Page):
             val = int(txt)
             tweaks[TweakID.CustomResolution].value["canvas_width"] = val
             self.ui.resWidthWarningLbl.hide()
-        except:
+        except Exception:
             self.ui.resWidthWarningLbl.show()
