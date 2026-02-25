@@ -55,7 +55,7 @@ class GestaltPage(Page):
         for i in range(1, self.ui.spoofedModelDrp.count()):
             try:
                 self.ui.spoofedModelDrp.removeItem(1)
-            except:
+            except Exception:
                 pass
         # indexes 1-7 for iPhones, 8-(len(values) - 1) for iPads
         # TODO: Make this get fetched from the gui on app startup

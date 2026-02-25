@@ -46,7 +46,7 @@ class PasscodeThemeTweak(Tweak):
                         self.current_size = 2
                     else:
                         self.current_size = 0
-        except:
+        except Exception:
             pass
         finally:
             self.value = final_path

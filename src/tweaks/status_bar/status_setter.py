@@ -176,7 +176,7 @@ class Setter:
             file_list = "Unable to list files"
             try:
                 file_list = os.listdir(base_path)
-            except:
+            except Exception:
                 pass
             raise NuggetException(f"Failed to run status bar process.\nPath used: {base_path}\nFiles in path: {file_list}\nError: {e}")
             
@@ -187,6 +187,6 @@ class Setter:
             os.remove(tmpin)
             os.remove(tmpout)
             os.rmdir(tmpdir)
-        except:
+        except Exception:
             pass
         return contents

@@ -112,7 +112,7 @@ class DeviceManager:
         # handle errors when failing to get connected devices
         try:
             connected_devices = usbmux.list_devices()
-        except:
+        except Exception:
             sysmsg = QCoreApplication.tr("If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.")
             if os.name == 'nt':
                 sysmsg = QCoreApplication.tr("Make sure you have the \"Apple Devices\" app from the Microsoft Store or iTunes from Apple's website.")
@@ -150,7 +150,7 @@ class DeviceManager:
                             settings.setValue(device.serial + "_cpu", cpu)
                         else:
                             cpu = cpu_type
-                    except:
+                    except Exception:
                         show_alert(ApplyAlertMessage(txt=QCoreApplication.tr("Click \"Show Details\" for the traceback."), detailed_txt=str(traceback.format_exc())))
                     dev = Device(
                             udid=device.serial,
@@ -545,7 +545,7 @@ class DeviceManager:
                     try:
                         new_ld = create_using_usbmux(serial=self.get_current_device_udid(), pair_timeout=180)
                         connected = True
-                    except:
+                    except Exception:
                         pass
                 cleanup_server_folder()
                 if not connected:
