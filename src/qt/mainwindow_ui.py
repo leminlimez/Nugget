@@ -3162,6 +3162,16 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.watchOSChk)
 
+        self.line_29 = QFrame(self.springboardOptionsPageContent)
+        self.line_29.setObjectName(u"line_29")
+        self.line_29.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_29.setFrameShadow(QFrame.Plain)
+        self.line_29.setFrameShape(QFrame.Shape.HLine)
+
+        self._2.addWidget(self.line_29)
+
         self.airdropTimeLimitContent = QWidget(self.springboardOptionsPageContent)
         self.airdropTimeLimitContent.setObjectName(u"airdropTimeLimitContent")
         sizePolicy6.setHeightForWidth(self.airdropTimeLimitContent.sizePolicy().hasHeightForWidth())

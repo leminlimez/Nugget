@@ -6121,6 +6121,21 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
+                      <widget class="Line" name="line_29">
+                       <property name="styleSheet">
+                        <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Plain</enum>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
                       <widget class="QWidget" name="airdropTimeLimitContent" native="true">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
