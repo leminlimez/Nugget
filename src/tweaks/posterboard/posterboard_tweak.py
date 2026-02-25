@@ -17,6 +17,7 @@ from src.controllers import video_handler
 from src.controllers.aar.aar import wrap_in_aar
 from src.exceptions.nugget_exception import NuggetException
 from src.exceptions.posterboard_exceptions import PBTemplateException
+from src.devicemanagement.constants import Version
 
 class PosterboardTweak(Tweak):
     def __init__(self):
@@ -100,6 +101,7 @@ class PosterboardTweak(Tweak):
             plist["assets"]["lockAndHome"]["default"]["name"] = "Lavender"
         print("MODIFIED REGULAR NAME")
         plist["family"] = "Marble"
+        plist["name"] = "Lavender"
         return plistlib.dumps(plist)
         
 
@@ -236,8 +238,8 @@ class PosterboardTweak(Tweak):
             
             
 
-    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, templates: list[TemplateFile], version: str, update_label=lambda x: None):
-        # unzip the file
+    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, templates: list[TemplateFile], version: str, force_pb_refresh: bool, update_label=lambda x: None):
+        # find the directory
         if version.startswith("16"):
             # iOS 16 has a different number for the structure
             self.structure_version = 59
@@ -284,4 +286,30 @@ class PosterboardTweak(Tweak):
         # add the files
         update_label(QCoreApplication.tr("Adding tendies..."))
         self.recursive_add(files_to_restore, curr_path=output_dir)
+        # add the force refresh
+        if force_pb_refresh:
+            plist = {
+                "PBF_LOCALE_DID_CHANGE": False,
+                "PBF_RESET_FILE_PROTECTIONS": True
+            }
+            if Version(version) >= Version("26.4"):
+                plist["PersistedPosterContainerBundleIdentifiers"] = [
+                    "com.apple.NanoUniverse.AegirProxyApp",
+                    "com.apple.Posters.KaleidoscopePosterApp",
+                    "com.apple.PridePoster",
+                    "com.apple.Posters.CollectionsPosterApp"
+                ]
+                plist["CompletedPosterBundleIdentifierMigrations"] = [
+                    "com.apple.Posters.UnityPosterApp.ExtragalacticPoster",
+                    "com.apple.Posters.WeatherPosterApp.WeatherPoster",
+                    "com.apple.Posters.UnityPosterApp.Unity2025Poster",
+                    "com.apple.Posters.UnityPosterApp.UnityPosterExtension",
+                    "com.apple.Posters.UnityPosterApp.RhizomePoster",
+                    "com.apple.Posters.KaleidoscopePosterApp.KaleidoscopePoster"
+                ]
+            files_to_restore.append(FileToRestore(
+                contents=plistlib.dumps(plist, fmt=plistlib.PlistFormat.FMT_BINARY),
+                restore_path="/Library/Preferences/com.apple.PosterBoard.unprotectedUserDefaults.plist",
+                domain=f"AppDomain-{self.bundle_id}"
+            ))
         update_label(QCoreApplication.tr("Adding other tweaks..."))

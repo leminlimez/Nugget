@@ -61,6 +61,7 @@ class SettingsPage(Page):
 
         self.ui.ignorePBFrameLimitChk.toggled.connect(self.on_ignorePBFrameLimitChk_toggled)
         self.ui.disableTendiesLimitChk.toggled.connect(self.on_disableTendiesLimitChk_toggled)
+        self.ui.forcePBRefreshChk.toggled.connect(self.on_forcePBRefreshChk_toggled)
 
         self.ui.brApplyModeDrp.activated.connect(self.on_brApplyModeDrp_activated)
         self.ui.brTransferModeDrp.activated.connect(self.on_brTransferModeDrp_activated)
@@ -151,6 +152,9 @@ class SettingsPage(Page):
         self.window.device_manager.pref_manager.disable_tendies_limit = checked
         # save the setting
         self.window.settings.setValue("disable_tendies_limit", checked)
+    def on_forcePBRefreshChk_toggled(self, checked: bool):
+        self.window.device_manager.pref_manager.auto_refresh_posterboard = checked
+        self.window.settings.setValue("auto_refresh_posterboard", checked)
     def on_showAllSpoofableChk_toggled(self, checked: bool):
         self.window.device_manager.pref_manager.show_all_spoofable_models = checked
         # save the setting

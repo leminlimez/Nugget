@@ -89,7 +89,7 @@ class TemplatesTweak(Tweak):
                 else:
                     self.recursive_add(old_bundle, domain, files_to_restore, os.path.join(curr_path, folder), isAdding=False)
 
-    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, templates: list, version: str, update_label=lambda x: None):
+    def apply_tweak(self, files_to_restore: list[FileToRestore], output_dir: str, templates: list, version: str, force_pb_refresh: bool, update_label=lambda x: None):
         if len(self.templates) == 0:
             return
         update_label("Extracting templates...")

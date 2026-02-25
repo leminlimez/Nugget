@@ -11,6 +11,7 @@ class PreferenceManager:
         self.allow_risky_tweaks = False
         self.show_all_spoofable_models = False
         self.disable_tendies_limit = False
+        self.auto_refresh_posterboard = True
         self.restore_truststore = False
         self.bookrestore_apply_mode = BookRestoreApplyMethod.AFC
         self.bookrestore_transfer_mode = BookRestoreFileTransferMethod.LocalHost

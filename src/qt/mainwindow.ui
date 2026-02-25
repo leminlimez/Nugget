@@ -11267,6 +11267,16 @@ DO NOT unplug your device during restores.</string>
                       </widget>
                      </item>
                      <item>
+                      <widget class="QCheckBox" name="forcePBRefreshChk">
+                       <property name="text">
+                        <string>Force PosterBoard Refresh</string>
+                       </property>
+                       <property name="checked">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
                       <widget class="QWidget" name="bookrestoreWidget" native="true">
                        <layout class="QVBoxLayout" name="verticalLayout_62">
                         <property name="leftMargin">

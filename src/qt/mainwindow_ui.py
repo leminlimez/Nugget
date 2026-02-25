@@ -5805,6 +5805,12 @@ class Ui_Nugget(object):
 
         self._21.addWidget(self.disableTendiesLimitChk)
 
+        self.forcePBRefreshChk = QCheckBox(self.settingsPageContent)
+        self.forcePBRefreshChk.setObjectName(u"forcePBRefreshChk")
+        self.forcePBRefreshChk.setChecked(True)
+
+        self._21.addWidget(self.forcePBRefreshChk)
+
         self.bookrestoreWidget = QWidget(self.settingsPageContent)
         self.bookrestoreWidget.setObjectName(u"bookrestoreWidget")
         self.verticalLayout_621 = QVBoxLayout(self.bookrestoreWidget)
@@ -6579,6 +6585,7 @@ class Ui_Nugget(object):
 "DO NOT unplug your device during restores.", None))
 #endif // QT_CONFIG(tooltip)
         self.disableTendiesLimitChk.setText(QCoreApplication.translate("Nugget", u"Disable Tendies Limit", None))
+        self.forcePBRefreshChk.setText(QCoreApplication.translate("Nugget", u"Force PosterBoard Refresh", None))
         self.label_511.setText(QCoreApplication.translate("Nugget", u"BookRestore Apply Method", None))
         self.brApplyModeDrp.setItemText(1, QCoreApplication.translate("Nugget", u"   Restore", None))
 
