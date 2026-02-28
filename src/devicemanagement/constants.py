@@ -27,6 +27,8 @@ class Device:
     
     def has_bookrestore(self) -> bool:
         parsed_ver: Version = Version(self.version)
+        if (parsed_ver >= Version("18.7.5") and parsed_ver < Version("26.0")):
+            return False
         if (parsed_ver <= Version("26.1") or self.build == "23C5027f"):
             return True
         return False
