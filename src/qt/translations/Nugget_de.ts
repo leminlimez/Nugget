@@ -7,7 +7,7 @@
       <location filename="../../gui/dialogs.py" line="25"/>
       <source>The gestalt file looks like it was made for a different device.
 Are you sure you want to use this one?</source>
-      <translation>Es sieht aus als ob die gestalt-Datei für ein anderes Gerät erstellt wurde.
+      <translation>Es sieht aus als ob die Gestalt-Datei für ein anderes Gerät erstellt wurde.
 Bist du sicher, dass du es verwenden willst?</translation>
     </message>
   </context>
@@ -21,7 +21,7 @@ Bist du sicher, dass du es verwenden willst?</translation>
     <message>
       <location filename="../mainwindow.ui" line="474"/>
       <source>    Posterboard</source>
-      <translation>    Posterboard</translation>
+      <translation>    Posterbord</translation>
     </message>
     <message>
       <location filename="../mainwindow.ui" line="506"/>
@@ -31,7 +31,7 @@ Bist du sicher, dass du es verwenden willst?</translation>
     <message>
       <location filename="../mainwindow.ui" line="553"/>
       <source>    Feature Flags</source>
-      <translation>    Feature-Flags</translation>
+      <translation>    Funktionsflaggen</translation>
     </message>
     <message>
       <location filename="../mainwindow.ui" line="585"/>
@@ -651,7 +651,7 @@ Wenn du das Menü auf deinem originalen Gerätemodell öffnest musst du vielleic
     </message>
     <message>
       <location filename="../mainwindow.ui" line="3689"/>
-      <location filename="../mainwindow.ui" line="8132"/>
+      <location filename="../mainwindow.ui" line="8169"/>
       <source>Modify</source>
       <translation>Modifizieren</translation>
     </message>
@@ -1026,130 +1026,130 @@ Wenn du das Menü auf deinem originalen Gerätemodell öffnest musst du vielleic
       <translation>Fußnotentext</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6174"/>
+      <location filename="../mainwindow.ui" line="6211"/>
       <source>Disable Lock After Respring</source>
       <translation>Bildschirmsperre nach Respring deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6208"/>
+      <location filename="../mainwindow.ui" line="6245"/>
       <source>Disable Screen Dimming While Charging</source>
       <translation>Deaktiviere Bildschirmabdunklung beim Laden</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6242"/>
+      <location filename="../mainwindow.ui" line="6279"/>
       <source>Disable Low Battery Alerts</source>
       <translation>Deaktiviere Batteriewarnungen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6295"/>
+      <location filename="../mainwindow.ui" line="6332"/>
       <source>Removes '&lt; PreviousAppName' glyph in Status Bar when being forwarded to another app.</source>
       <translation>Entfernt das Glyph '&lt; PreviousAppName' in der Statusleiste, wenn an eine andere App weitergeleitet wird.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6313"/>
+      <location filename="../mainwindow.ui" line="6350"/>
       <source>Disable Breadcrumbs</source>
       <translation>Breadcrumbs deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6332"/>
+      <location filename="../mainwindow.ui" line="6369"/>
       <source>Shows info about the device supervision status and organization at the bottom of the lock screen.</source>
       <translation>Zeigt Informationen über den Geräte-Supervision Status und Organisation auf dem Sperrbildschirm an.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6350"/>
+      <location filename="../mainwindow.ui" line="6387"/>
       <source>Show Supervision Text on Lock Screen</source>
       <translation>Überwachungstext auf dem Sperrbildschirm anzeigen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6452"/>
+      <location filename="../mainwindow.ui" line="6489"/>
       <source>Enable AirPlay support for Stage Manager</source>
       <translation>Aktiviere AirPlay-Unterstützung für Stage Manager</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6640"/>
+      <location filename="../mainwindow.ui" line="6677"/>
       <source>Internal Options</source>
       <translation>Interne Optionen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6793"/>
+      <location filename="../mainwindow.ui" line="6830"/>
       <source>Show Build Version in Status Bar</source>
       <translation>Build-Version in der Statusleiste anzeigen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6827"/>
+      <location filename="../mainwindow.ui" line="6864"/>
       <source>Force Right-to-Left Layout</source>
       <translation>Erzwinge Rechts-nach-Links Layout</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7372"/>
+      <location filename="../mainwindow.ui" line="7409"/>
       <source>Show Touches With Debug Info</source>
       <translation>Zeige Berührungen mit Debug-Info an</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7406"/>
+      <location filename="../mainwindow.ui" line="7443"/>
       <source>Hide Respring Icon</source>
       <translation>Respring-Symbol ausblenden</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7440"/>
+      <location filename="../mainwindow.ui" line="7477"/>
       <source>Vibrate on Raise-to-Wake</source>
       <translation>Vibrieren beim Aufwecken</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7489"/>
+      <location filename="../mainwindow.ui" line="7526"/>
       <source>Play Sound on Paste</source>
       <translation>Spiele Sound beim Einfügen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7523"/>
+      <location filename="../mainwindow.ui" line="7560"/>
       <source>Show Notifications for System Pastes</source>
       <translation>Benachrichtigungen für Systemeinfügungen anzeigen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8125"/>
-      <location filename="../mainwindow.ui" line="10356"/>
+      <location filename="../mainwindow.ui" line="8162"/>
+      <location filename="../mainwindow.ui" line="10393"/>
       <source>Daemons</source>
       <translation>Daemons</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8173"/>
+      <location filename="../mainwindow.ui" line="8210"/>
       <source>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
 it enabled.</source>
       <translation>Hinweis: Auch bei Sparserestore-Versionen werden hier reguläre Domänen verwendet. Skip Setup wird angewendet, wenn es
 aktiviert ist.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8202"/>
+      <location filename="../mainwindow.ui" line="8239"/>
       <source>Stops over-the-air updates to prevent auto-downloads.</source>
       <translation>Stoppt Over-the-Air-Updates, um automatische Downloads zu verhindern.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8205"/>
+      <location filename="../mainwindow.ui" line="8242"/>
       <source>Disable OTA</source>
       <translation>Deaktiviere Updates</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8215"/>
+      <location filename="../mainwindow.ui" line="8252"/>
       <source>Disables usage tracking for improved privacy.</source>
       <translation>Deaktiviert das Nutzungs-Tracking für verbesserten Datenschutz.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8218"/>
+      <location filename="../mainwindow.ui" line="8255"/>
       <source>Disable UsageTrackingAgent</source>
       <translation>Deaktiviere UsageTrackingAgent</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8228"/>
+      <location filename="../mainwindow.ui" line="8265"/>
       <source>Disables Screen Time monitoring features.</source>
       <translation>Deaktiviert Bildschirmzeit Überwachungsoptionen.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8231"/>
+      <location filename="../mainwindow.ui" line="8268"/>
       <source>Disable Screen Time Agent</source>
       <translation>Deaktiviere Bildschirmzeit-Agenten</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8241"/>
+      <location filename="../mainwindow.ui" line="8278"/>
       <source>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
 
 To work properly, also disable the daemon using the toggle above.</source>
@@ -1158,218 +1158,218 @@ To work properly, also disable the daemon using the toggle above.</source>
 Um richtig funktionieren zu können, deaktivieren Sie auch den Daemon mit der obigen Option.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8246"/>
+      <location filename="../mainwindow.ui" line="8283"/>
       <source>Clear ScreenTimeAgent.plist file</source>
       <translation>ScreenTimeAgent.plist Datei leeren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8256"/>
+      <location filename="../mainwindow.ui" line="8293"/>
       <source>Stops logs, dumps, and crash reports collection.</source>
       <translation>Stoppt das Sammeln von Logs, Dump-Dateien und Fehlermeldungen.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8259"/>
+      <location filename="../mainwindow.ui" line="8296"/>
       <source>Disable Logs, Dumps, and Crash Reports</source>
       <translation>Deaktiviere Logs, Dump-Dateien und Fehlermeldungen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8282"/>
+      <location filename="../mainwindow.ui" line="8319"/>
       <source>Disables pinging to sleeping bluetooth devices for improved battery life.</source>
       <translation>Deaktiviert das Pingen an schlafende Bluetooth-Geräte, um die Akkulaufzeit zu verbessern.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8285"/>
+      <location filename="../mainwindow.ui" line="8322"/>
       <source>Disable ATWAKEUP</source>
       <translation>ATWAKEUP deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8310"/>
+      <location filename="../mainwindow.ui" line="8347"/>
       <source>Turns off Game Center background services.</source>
       <translation>Schaltet die Game Center-Hintergrunddienste aus.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8313"/>
+      <location filename="../mainwindow.ui" line="8350"/>
       <source>Disable Game Center</source>
       <translation>Game Center deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8323"/>
+      <location filename="../mainwindow.ui" line="8360"/>
       <source>Disables the Tips service and notifications.</source>
       <translation>Deaktiviert den Tipps-Dienst und die Benachrichtigungen.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8326"/>
+      <location filename="../mainwindow.ui" line="8363"/>
       <source>Disable Tips Services</source>
       <translation>Tipps-Dienste deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8336"/>
+      <location filename="../mainwindow.ui" line="8373"/>
       <source>Disables the Virtual Private Network service.</source>
       <translation>Deaktiviert den Virtual Private Network-Dienst.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8339"/>
+      <location filename="../mainwindow.ui" line="8376"/>
       <source>Disable VPN Service</source>
       <translation>VPN-Dienst deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8349"/>
+      <location filename="../mainwindow.ui" line="8386"/>
       <source>Disables the service that deals with errors with WiFi networks with Chinese characters in the name.</source>
       <translation>Deaktiviert den Dienst, der Fehler bei WiFi-Netzwerken mit chinesischen Schriftzeichen im Namen behebt.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8352"/>
+      <location filename="../mainwindow.ui" line="8389"/>
       <source>Disable Chinese WLAN Service</source>
       <translation>Chinesischen WLAN-Dienst deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8362"/>
+      <location filename="../mainwindow.ui" line="8399"/>
       <source>Disables HealthKit services used by the health app.</source>
       <translation>Deaktiviert HealthKit-Dienste, die von der Gesundheits-App verwendet werden.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8365"/>
+      <location filename="../mainwindow.ui" line="8402"/>
       <source>Disable HealthKit</source>
       <translation>HealthKit deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8390"/>
+      <location filename="../mainwindow.ui" line="8427"/>
       <source>Disable AirPrint</source>
       <translation>AirPrint deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8400"/>
+      <location filename="../mainwindow.ui" line="8437"/>
       <source>Disable Assistive Touch</source>
       <translation>Assistive Touch deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8410"/>
+      <location filename="../mainwindow.ui" line="8447"/>
       <source>Disable iCloud</source>
       <translation>iCloud deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8420"/>
+      <location filename="../mainwindow.ui" line="8457"/>
       <source>Disable Internet Tethering (Hotspot)</source>
       <translation>Internet-Tethering (Hotspot) deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8430"/>
+      <location filename="../mainwindow.ui" line="8467"/>
       <source>Disable Passbook</source>
       <translation>Passbook deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8440"/>
+      <location filename="../mainwindow.ui" line="8477"/>
       <source>Disable Spotlight</source>
       <translation>Spotlight deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8450"/>
+      <location filename="../mainwindow.ui" line="8487"/>
       <source>Disable Voice Control</source>
       <translation>Sprachsteuerung deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8561"/>
+      <location filename="../mainwindow.ui" line="8598"/>
       <source>Posterboard</source>
       <translation>Posterboard</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8603"/>
+      <location filename="../mainwindow.ui" line="8640"/>
       <source>   Discover Wallpapers</source>
       <translation>Hintergründe durchsuchen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8697"/>
+      <location filename="../mainwindow.ui" line="8734"/>
       <source>  Tendies</source>
       <translation>  Tendies</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8720"/>
+      <location filename="../mainwindow.ui" line="8757"/>
       <source>   Templates</source>
       <translation>Vorlagen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8746"/>
+      <location filename="../mainwindow.ui" line="8783"/>
       <source>   Video</source>
       <translation>Video</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8776"/>
+      <location filename="../mainwindow.ui" line="8813"/>
       <source>Clear Action:</source>
       <translation>Aktion löschen:</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8835"/>
-      <location filename="../mainwindow.ui" line="8925"/>
-      <location filename="../mainwindow.ui" line="9347"/>
-      <location filename="../mainwindow.ui" line="9686"/>
+      <location filename="../mainwindow.ui" line="8872"/>
+      <location filename="../mainwindow.ui" line="8962"/>
+      <location filename="../mainwindow.ui" line="9384"/>
+      <location filename="../mainwindow.ui" line="9723"/>
       <source>Select a wallpaper file with the .tendies extension.</source>
       <translation>Wählen Sie eine Hintergrundbilddatei mit der Erweiterung .tendies.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8841"/>
+      <location filename="../mainwindow.ui" line="8878"/>
       <source>  Import Files (.tendies)</source>
       <translation>  Dateien importieren (.tendies)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8931"/>
-      <location filename="../mainwindow.ui" line="9353"/>
+      <location filename="../mainwindow.ui" line="8968"/>
+      <location filename="../mainwindow.ui" line="9390"/>
       <source>  Import Templates (.batter)</source>
       <translation>  Vorlagen importieren (.batter)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8991"/>
+      <location filename="../mainwindow.ui" line="9028"/>
       <source>Uses the CoreAnimation file to play the video (300 fps limit)
 Will show up in Collections</source>
       <translation>Verwendet die CoreAnimation-Datei zum Abspielen des Videos (300 FPS Limit)
 Wird in Sammlungen angezeigt</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8995"/>
+      <location filename="../mainwindow.ui" line="9032"/>
       <source>Loop (use CoreAnimation method)</source>
       <translation>Schleife (CoreAnimation-Methode verwenden)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9008"/>
+      <location filename="../mainwindow.ui" line="9045"/>
       <source>Reverse on Loop</source>
       <translation>Rückwärtsfahren in der Schleife</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9018"/>
+      <location filename="../mainwindow.ui" line="9055"/>
       <source>Make Foreground (hides clock)</source>
       <translation>In den Vordergrund stellen (blendet die Uhr aus)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9097"/>
+      <location filename="../mainwindow.ui" line="9134"/>
       <source>Choose a photo for the wallpaper to freeze on when finished (.heic files only)</source>
       <translation>Wählen Sie ein Foto aus, auf dem der Bildschirmhintergrund nach der Fertigstellung eingefroren werden soll (ausschließlich .heic-Dateien)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9100"/>
+      <location filename="../mainwindow.ui" line="9137"/>
       <source>Choose Freeze Frame (.HEIC)</source>
       <translation>Wählen Sie Freeze Frame (.HEIC)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9110"/>
+      <location filename="../mainwindow.ui" line="9147"/>
       <source>Choose a video file for the wallpaper (.mov or .mp4)</source>
       <translation>Wählen Sie eine Videodatei für das Hintergrundbild aus (.mov oder .mp4)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9113"/>
+      <location filename="../mainwindow.ui" line="9150"/>
       <source>Choose Video</source>
       <translation>Video auswählen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9261"/>
+      <location filename="../mainwindow.ui" line="9298"/>
       <source>Templates</source>
       <translation>Vorlagen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9810"/>
+      <location filename="../mainwindow.ui" line="9847"/>
       <source>Risky Options</source>
       <translation>Riskante Optionen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9885"/>
+      <location filename="../mainwindow.ui" line="9922"/>
       <source>Disclaimer:
 
 The options on this page may be unsafe for your device. Use these options at your own risk. Changing
@@ -1383,17 +1383,17 @@ Die Optionen auf dieser Seite könnten unsicher für Ihr Gerät sein. Nutzen Sie
 Nugget ist für keine Schäden am Gerät verantwortlich, besonders bei Benutzung des Auflösungsänderers.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9915"/>
+      <location filename="../mainwindow.ui" line="9952"/>
       <source>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</source>
       <translation>Verwendet die Dateimethode. Es wird empfohlen, den Daemon stattdessen im Daemons-Tab zu deaktivieren.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9918"/>
+      <location filename="../mainwindow.ui" line="9955"/>
       <source>Disable OTA Updates (file)</source>
       <translation>OTA-Updates deaktivieren (Datei)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9928"/>
+      <location filename="../mainwindow.ui" line="9965"/>
       <source>Disables temperature monitoring daemon to reduce system checks.
 
 Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified" in Settings.</source>
@@ -1402,127 +1402,127 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
 Warnung: Die Deaktivierung führt dazu, dass die Batterie in den Einstellungen als "Unbekanntes Teil" oder "Unverifiziert" angezeigt wird.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9933"/>
+      <location filename="../mainwindow.ui" line="9970"/>
       <source>Disable thermalmonitord</source>
       <translation>thermalmonitord deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9958"/>
+      <location filename="../mainwindow.ui" line="9995"/>
       <source>Set a custom device screen resolution.</source>
       <translation>Legen Sie eine benutzerdefinierte Bildschirmauflösung für Ihr Gerät fest.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9961"/>
+      <location filename="../mainwindow.ui" line="9998"/>
       <source>Set a Custom Device Resolution</source>
       <translation>Festlegen einer benutzerdefinierten Geräteauflösung</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9989"/>
+      <location filename="../mainwindow.ui" line="10026"/>
       <source>Height:</source>
       <translation>Höhe:</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10004"/>
+      <location filename="../mainwindow.ui" line="10041"/>
       <source>Resolution Height</source>
       <translation>Auflösung Höhe</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10045"/>
+      <location filename="../mainwindow.ui" line="10082"/>
       <source>Width:</source>
       <translation>Breite:</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10062"/>
+      <location filename="../mainwindow.ui" line="10099"/>
       <source>Resolution Width</source>
       <translation>Auflösung Breite</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10202"/>
+      <location filename="../mainwindow.ui" line="10239"/>
       <source>Miscellaneous Options</source>
       <translation>Verschiedene Optionen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10315"/>
+      <location filename="../mainwindow.ui" line="10352"/>
       <source>Springboard</source>
       <translation>Sprungbrett</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10388"/>
+      <location filename="../mainwindow.ui" line="10425"/>
       <source>Internal</source>
       <translation>Intern</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10420"/>
+      <location filename="../mainwindow.ui" line="10457"/>
       <source>Risky</source>
       <translation>Riskant</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10575"/>
+      <location filename="../mainwindow.ui" line="10612"/>
       <source>Apply</source>
       <translation>Anwenden</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10667"/>
+      <location filename="../mainwindow.ui" line="10704"/>
       <source>Current gestalt file location:</source>
       <translation>Speicherort der aktuellen Gestalt-Datei:</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10698"/>
+      <location filename="../mainwindow.ui" line="10735"/>
       <source>  Choose Gestalt File</source>
       <translation>  Wählen Sie Gestalt-Datei</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10732"/>
+      <location filename="../mainwindow.ui" line="10769"/>
       <source>  Apply Changes</source>
       <translation>Änderungen anwenden</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10749"/>
+      <location filename="../mainwindow.ui" line="10786"/>
       <source>Ready!</source>
       <translation>Bereit!</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10787"/>
+      <location filename="../mainwindow.ui" line="10824"/>
       <source>Note: Skip Setup is currently turned on.</source>
       <translation>Hinweis: Die Option Einrichtung überspringen ist derzeit aktiviert.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10945"/>
+      <location filename="../mainwindow.ui" line="10982"/>
       <source>Nugget Settings</source>
       <translation>Nugget Einstellungen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11188"/>
+      <location filename="../mainwindow.ui" line="11225"/>
       <source>Allow Applying Over WiFi</source>
       <translation>Anwenden über WiFi zulassen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11201"/>
+      <location filename="../mainwindow.ui" line="11238"/>
       <source>Auto Reboot After Applying</source>
       <translation>Auto-Neustart nach Anwendung</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11214"/>
+      <location filename="../mainwindow.ui" line="11251"/>
       <source>Show Risky Tweak Options</source>
       <translation>Riskante Tweak-Optionen anzeigen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11224"/>
+      <location filename="../mainwindow.ui" line="11261"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
       <translation>Modelle für andere Gerätetypen auf der Registerkarte AI-Geräte-Spoofing anzeigen.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11233"/>
+      <location filename="../mainwindow.ui" line="11270"/>
       <source>Show All Spoofable Models</source>
       <translation>Alle fälschbaren Modelle anzeigen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11243"/>
+      <location filename="../mainwindow.ui" line="11280"/>
       <source>Ignore Posterboard Frame Limit</source>
       <translation>Ignorieren der Posterboard-Rahmengrenze</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11253"/>
+      <location filename="../mainwindow.ui" line="11290"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
@@ -1531,47 +1531,47 @@ DO NOT unplug your device during restores.</source>
 Trennen Sie Ihr Gerät während der Wiederherstellung NICHT vom Stromnetz.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11258"/>
+      <location filename="../mainwindow.ui" line="11295"/>
       <source>Disable Tendies Limit</source>
       <translation>Tendies Limit deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11447"/>
+      <location filename="../mainwindow.ui" line="11494"/>
       <source>Restores the SSL config that does something idk</source>
       <translation>Stellt die SSL-Konfiguration wieder her, die irgendetwas tut, das ich nicht kenne.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11450"/>
+      <location filename="../mainwindow.ui" line="11497"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
       <translation>TrustStore wiederherstellen (SSL-Konfigurationsprofile)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11463"/>
+      <location filename="../mainwindow.ui" line="11510"/>
       <source>Skip Setup * (non-exploit files only)</source>
       <translation>Setup überspringen * (nur Nicht-Exploit-Dateien)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11479"/>
+      <location filename="../mainwindow.ui" line="11526"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
       <translation>Überwachung einschalten * (erfordert Skip Setup)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11489"/>
+      <location filename="../mainwindow.ui" line="11536"/>
       <source>Enter Organization Name</source>
       <translation>Name der Organisation eingeben</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11512"/>
+      <location filename="../mainwindow.ui" line="11559"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
       <translation>* Hinweis: Skip Setup kann zu Problemen mit Konfigurationsprofilen führen. Deaktivieren Sie diese Funktion, wenn Sie sie benötigen.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11539"/>
+      <location filename="../mainwindow.ui" line="11586"/>
       <source>Reset Device Pairing</source>
       <translation>Gerätekopplung zurücksetzen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11553"/>
+      <location filename="../mainwindow.ui" line="11600"/>
       <source>Pocket Poster Helper</source>
       <translation>Pocket Poster Helper</translation>
     </message>
@@ -1580,7 +1580,7 @@ Trennen Sie Ihr Gerät während der Wiederherstellung NICHT vom Stromnetz.</tran
       <location filename="../mainwindow.ui" line="1282"/>
       <location filename="../mainwindow.ui" line="1309"/>
       <location filename="../mainwindow.ui" line="1337"/>
-      <location filename="../mainwindow.ui" line="8629"/>
+      <location filename="../mainwindow.ui" line="8666"/>
       <source>...</source>
       <translation>...</translation>
     </message>
@@ -1606,17 +1606,17 @@ Trennen Sie Ihr Gerät während der Wiederherstellung NICHT vom Stromnetz.</tran
       <translation>Statusleiste Datum Text</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11142"/>
+      <location filename="../mainwindow.ui" line="11179"/>
       <source>App Language</source>
       <translation>App-Sprache</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9136"/>
+      <location filename="../mainwindow.ui" line="9173"/>
       <source>   Export as .tendies</source>
       <translation>Als .tendies exportieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10841"/>
+      <location filename="../mainwindow.ui" line="10878"/>
       <source>Remove Tweaks</source>
       <translation>Tweaks entfernen</translation>
     </message>
@@ -1626,92 +1626,92 @@ Trennen Sie Ihr Gerät während der Wiederherstellung NICHT vom Stromnetz.</tran
       <translation>Auto-Sperre (Sperrbildschirm)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6276"/>
+      <location filename="../mainwindow.ui" line="6313"/>
       <source>Hide AC Power on Lock Screen</source>
       <translation>AC Power auf Lock Screen verstecken </translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6384"/>
+      <location filename="../mainwindow.ui" line="6421"/>
       <source>Show Dynamic Island in Screenshots</source>
       <translation>Dynamic Island auf Screenshots zeigen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6501"/>
+      <location filename="../mainwindow.ui" line="6538"/>
       <source>Show Red/Green Authentication Line on Lock Screen</source>
       <translation>Rot/Grüne Authentifizierungslinie auf Sperrbildschirm zeigen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6542"/>
+      <location filename="../mainwindow.ui" line="6579"/>
       <source>Disable Floating Tab Bar</source>
       <translation>Schwebende Tab-Bar ausschalten</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6861"/>
+      <location filename="../mainwindow.ui" line="6898"/>
       <source>Force Left-to-Right Layout</source>
       <translation>Links-nach-rechts layout zwingen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6880"/>
+      <location filename="../mainwindow.ui" line="6917"/>
       <source>Shows hidden apps like Field Test and Continuity on the home screen</source>
       <translation>Zeigt ausgeblendete Apps wie Feldtest und Kontinuität auf dem Startbildschirm an</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6898"/>
+      <location filename="../mainwindow.ui" line="6935"/>
       <source>Show Hidden Icons on Home Screen</source>
       <translation>Ausgeblendete Icons auf Startbildschirm zeigen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6917"/>
+      <location filename="../mainwindow.ui" line="6954"/>
       <source>Enables the iPad-style keyboard keyflicks on iPhones</source>
       <translation>Ermöglicht die Tastaturbeschläge im iPad-Stil auf iPhones</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7240"/>
+      <location filename="../mainwindow.ui" line="7277"/>
       <source>Show Accessory Developer Settings</source>
       <translation>Entwickler-zubehör Einstellungen zeigen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8269"/>
+      <location filename="../mainwindow.ui" line="8306"/>
       <source>Disables tools that monitor and test hardware or system behavior for faults and performance issues.</source>
       <translation>Deaktiviert Tools, die Hardware oder Systemverhalten auf Fehler und Leistungsprobleme überwachen und testen.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8272"/>
+      <location filename="../mainwindow.ui" line="8309"/>
       <source>Disable System Diagnostics</source>
       <translation>System Diagnostik deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8460"/>
+      <location filename="../mainwindow.ui" line="8497"/>
       <source>Disable NanoTimeKit (Apple Watch Face Sync)</source>
       <translation>NanoTimeKit (Apple Watch Face Sync) deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9025"/>
+      <location filename="../mainwindow.ui" line="9062"/>
       <source>Frame Calculation Mode</source>
       <translation>Rahmenberechnungsmodus</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9079"/>
+      <location filename="../mainwindow.ui" line="9116"/>
       <source>Linear</source>
       <translation>Linear</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9084"/>
+      <location filename="../mainwindow.ui" line="9121"/>
       <source>Discrete</source>
       <translation>Diskret</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7814"/>
+      <location filename="../mainwindow.ui" line="7851"/>
       <source>Disable Liquid Glass</source>
       <translation>Liquid Glass Deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7833"/>
+      <location filename="../mainwindow.ui" line="7870"/>
       <source>Enables liquid glass on apps regardless of whether or not it has been updated to include it</source>
       <translation>Aktiviert Liquid Glass auf Apps, unabhängig davon, ob es aktualisiert wurde, um es einzubeziehen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7851"/>
+      <location filename="../mainwindow.ui" line="7888"/>
       <source>Ignore Liquid Glass App Build Check</source>
       <translation>Überprüfung der Liquid Glass App-Build ignorieren</translation>
     </message>
@@ -1726,93 +1726,93 @@ Trennen Sie Ihr Gerät während der Wiederherstellung NICHT vom Stromnetz.</tran
       <translation>iPhone 17 (iPhone18,3)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6140"/>
+      <location filename="../mainwindow.ui" line="6177"/>
       <source>Disable AirDrop Time Limit for Everyone Option</source>
       <translation>Deaktivieren Sie das AirDrop-Zeitlimit für alle Option</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6935"/>
+      <location filename="../mainwindow.ui" line="6972"/>
       <source>Keyboard Character Flick</source>
       <translation>Tastaturzeichen Flick</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6984"/>
+      <location filename="../mainwindow.ui" line="7021"/>
       <source>Disable Clock Icon Seconds Hand</source>
       <translation>Deaktiviere Uhr Symbol zweiter Zeiger</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7018"/>
+      <location filename="../mainwindow.ui" line="7055"/>
       <source>Disable Spotlight Searching in Websites</source>
       <translation>Spotlight-Suche auf Websites deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7052"/>
+      <location filename="../mainwindow.ui" line="7089"/>
       <source>Show Hardware Button Hints in Screenshots</source>
       <translation>Hardware-Button-Hinkungen in Screenshots anzeigen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7104"/>
+      <location filename="../mainwindow.ui" line="7141"/>
       <source>Metal HUD Debug</source>
       <translation>Metall-HUD-Debugging</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7138"/>
+      <location filename="../mainwindow.ui" line="7175"/>
       <source>iMessage Debugging</source>
       <translation>iMessage-Debugging</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7172"/>
+      <location filename="../mainwindow.ui" line="7209"/>
       <source>Continuity Debugging</source>
       <translation>Kontinuitätsdebugging</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7206"/>
+      <location filename="../mainwindow.ui" line="7243"/>
       <source>FaceTime Debugging</source>
       <translation>FaceTime Debugging</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7289"/>
+      <location filename="../mainwindow.ui" line="7326"/>
       <source>App Store Debug Gesture</source>
       <translation>App Store-Debug-Geste</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7323"/>
+      <location filename="../mainwindow.ui" line="7360"/>
       <source>Notes Debug Mode</source>
       <translation>Notizen Debug-Modus</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7621"/>
-      <location filename="../mainwindow.ui" line="10446"/>
+      <location filename="../mainwindow.ui" line="7658"/>
+      <location filename="../mainwindow.ui" line="10483"/>
       <source>Liquid Glass</source>
       <translation>Liquid Glass</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7780"/>
+      <location filename="../mainwindow.ui" line="7817"/>
       <source>Force Solarium Fallback</source>
       <translation>Solarium Fallback zwingen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7891"/>
+      <location filename="../mainwindow.ui" line="7928"/>
       <source>Disable Liquid Glass on LS Clock</source>
       <translation>Deaktiviere Liquid Glass auf der LS Uhr</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7925"/>
+      <location filename="../mainwindow.ui" line="7962"/>
       <source>Disable Liquid Glass on Dock</source>
       <translation>Deaktiviere Liquid Glass auf dem Dock</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7959"/>
+      <location filename="../mainwindow.ui" line="7996"/>
       <source>Disable Specular Motion</source>
       <translation>Spekulationsbewegung Deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7993"/>
+      <location filename="../mainwindow.ui" line="8030"/>
       <source>Disable Outer Refraction</source>
       <translation>Äußere Refraktion Deaktivieren</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8027"/>
+      <location filename="../mainwindow.ui" line="8064"/>
       <source>Disable Solarium HDR</source>
       <translation>Deaktiviere Solarium HDR</translation>
     </message>
@@ -1839,49 +1839,49 @@ bl_sbx</translation>
       <translation>Aktiviere iPadOS (Warnung: Gefährlich, Verwenden auf eigene Gefahr)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11300"/>
+      <location filename="../mainwindow.ui" line="11347"/>
       <source>BookRestore Apply Method</source>
       <translation>BookRestore Apply-Methode</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11335"/>
+      <location filename="../mainwindow.ui" line="11382"/>
       <source>   Restore</source>
       <translation>   Wiederherstellen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11350"/>
+      <location filename="../mainwindow.ui" line="11397"/>
       <source>BookRestore File Transfer Method</source>
       <translation>BookRestore Dateiübertragungsmethode</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11383"/>
+      <location filename="../mainwindow.ui" line="11430"/>
       <source>   LocalHost</source>
       <translation>   Lokaler Gastgeber</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11388"/>
+      <location filename="../mainwindow.ui" line="11435"/>
       <source>   On-Device (Slower)</source>
       <translation>   Auf dem Gerät (langsamer)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11398"/>
+      <location filename="../mainwindow.ui" line="11445"/>
       <source>Books Container UUID</source>
       <translation>Bücher Container UUID</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11405"/>
+      <location filename="../mainwindow.ui" line="11452"/>
       <source>Enter your books container UUID if you know it.
 It will be automatically found if this is left blank.</source>
       <translation>Geben Sie die UUID Ihres Bücherbehälters ein wenn Sie ihn kennen.
 Es wird automatisch gefunden wenn es leer bleibt.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11409"/>
+      <location filename="../mainwindow.ui" line="11456"/>
       <source>Enter Books Container UUID</source>
       <translation>Buchbehälter UUID eingeben</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11416"/>
+      <location filename="../mainwindow.ui" line="11463"/>
       <source>* Developer Mode/Administrator permissions required for these options.</source>
       <translation>Entwickleroptionen/Administrator-Berechtigungen für diese Optionen erforderlich.</translation>
     </message>
@@ -1891,12 +1891,12 @@ Es wird automatisch gefunden wenn es leer bleibt.</translation>
       <translation>WARNUNG: Aktiviere iPadOS nicht wenn du einen alphanumerischen code verwendest</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10628"/>
+      <location filename="../mainwindow.ui" line="10665"/>
       <source>Administrator permission is required to apply tweaks with AFC.</source>
       <translation>Administrator Berechtigung benötigt zum hinzufügen von tweaks mit AFC</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10638"/>
+      <location filename="../mainwindow.ui" line="10675"/>
       <source> Restart as Admin</source>
       <translation>Neustart als Admin</translation>
     </message>
@@ -1947,9 +1947,26 @@ Es wird automatisch gefunden wenn es leer bleibt.</translation>
       <translation>Berechtigungen Ordner erstellen</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6418"/>
+      <location filename="../mainwindow.ui" line="6455"/>
       <source>Hide Dynamic Island Completely</source>
       <translation>Dynamic Island komplett ausblenden</translation>
+    </message>
+    <message>
+      <location filename="../mainwindow.ui" line="6134"/>
+      <source>Allow pairing with any watchOS version</source>
+      <translation>Erlaube das Verbinden mit jeder WatchOS Version</translation>
+    </message>
+    <message>
+      <location filename="../mainwindow.ui" line="11302"/>
+      <source>Force PosterBoard Refresh</source>
+      <translation>Erzwinge PosterBord Aktualisierung</translation>
+    </message>
+    <message>
+      <location filename="../mainwindow.ui" line="6125"/>
+      <source>Warning: This may cause issues for some iOS and watchOS version combos (such as messages app
+not working).
+Please do not make GitHub issues on Nugget about them, it is not fixable.</source>
+      <translation></translation>
     </message>
   </context>
   <context>
@@ -1984,7 +2001,7 @@ oder Sie haben die maximale Anzahl von Hintergrundbildern (15) erreicht und müs
       <translation>Nugget v{0} ist verfügbar. </translation>
     </message>
     <message>
-      <location filename="../../gui/dialogs.py" line="93"/>
+      <location filename="../../gui/dialogs.py" line="94"/>
       <source>Would you like to go to the download on GitHub?</source>
       <translation>Möchten Sie zum Download auf GitHub gehen?</translation>
     </message>
@@ -1997,13 +2014,13 @@ oder Sie haben die maximale Anzahl von Hintergrundbildern (15) erreicht und müs
       <translation>Bitte verbinden Sie ein Gerät.</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/main/settings.py" line="215"/>
-      <location filename="../../gui/pages/main/settings.py" line="225"/>
+      <location filename="../../gui/pages/main/settings.py" line="219"/>
+      <location filename="../../gui/pages/main/settings.py" line="229"/>
       <source>PosterBoard App Hash</source>
       <translation>PosterBoard App Hash</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/main/settings.py" line="215"/>
+      <location filename="../../gui/pages/main/settings.py" line="219"/>
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
@@ -2012,17 +2029,17 @@ Open up its settings and tap "Detect".</source>
 Öffnen Sie deren Einstellungen und tippen Sie auf "Erkennen".</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/main/settings.py" line="218"/>
+      <location filename="../../gui/pages/main/settings.py" line="223"/>
       <source>Copy it and paste it</source>
       <translation>Kopieren und einfügen</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/main/settings.py" line="222"/>
+      <location filename="../../gui/pages/main/settings.py" line="227"/>
       <source>It has been copied. Paste it</source>
       <translation>Es wurde kopiert. Fügen Sie es ein</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/main/settings.py" line="225"/>
+      <location filename="../../gui/pages/main/settings.py" line="229"/>
       <source>Your hash is:
 {0}
 
@@ -2078,12 +2095,12 @@ Open up its settings and tap "Detect".</source>
       <translation>Das Gerät konnte keine Dateien senden. Die Dateiliste ist möglicherweise beschädigt oder enthält Duplikate. Klicken Sie auf Details anzeigen, um weitere Informationen zu erhalten.</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="116"/>
+      <location filename="../../devicemanagement/device_manager.py" line="117"/>
       <source>If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.</source>
       <translation>Falls Sie Linux verwenden, stellen Sie sicher, dass usbmuxd und libimobiledevice installiert sind.</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="118"/>
+      <location filename="../../devicemanagement/device_manager.py" line="119"/>
       <source>Make sure you have the "Apple Devices" app from the Microsoft Store or iTunes from Apple's website.</source>
       <translation>Stellen Sie sicher, dass Sie die App „Apple Devices“ aus dem Microsoft Store oder iTunes von der Apple-Website haben.</translation>
     </message>
@@ -2122,12 +2139,12 @@ Entsperren Sie Ihr Gerät. Klicken Sie im Popup auf "Vertrauen", geben Sie Ihr P
       <translation>Die Kopplung Ihres Geräts wurde erfolgreich zurückgesetzt. Aktualisieren Sie die Geräteliste vor der Anwendung.</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="653"/>
+      <location filename="../../devicemanagement/device_manager.py" line="655"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
       <translation>Keine mobilegestalt-Datei vorhanden! Bitte wählen Sie Ihre Datei aus, um mobilegestalt Tweaks anzuwenden.</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="558"/>
+      <location filename="../../devicemanagement/device_manager.py" line="559"/>
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
@@ -2136,7 +2153,7 @@ Remember to turn Find My back on!</source>
 Denken Sie daran, Find My wieder einzuschalten!</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="560"/>
+      <location filename="../../devicemanagement/device_manager.py" line="561"/>
       <source>Please restart your device to see changes.</source>
       <translation>Bitte starten Sie Ihr Gerät neu, um die Änderungen zu sehen.</translation>
     </message>
@@ -2147,8 +2164,8 @@ Denken Sie daran, Find My wieder einzuschalten!</translation>
     </message>
     <message>
       <location filename="../../devicemanagement/device_manager.py" line="563"/>
-      <location filename="../../devicemanagement/device_manager.py" line="755"/>
-      <location filename="../../devicemanagement/device_manager.py" line="864"/>
+      <location filename="../../devicemanagement/device_manager.py" line="757"/>
+      <location filename="../../devicemanagement/device_manager.py" line="866"/>
       <source>Success!</source>
       <translation>Erfolgreich!</translation>
     </message>
@@ -2168,34 +2185,34 @@ Denken Sie daran, Find My wieder einzuschalten!</translation>
       <translation>Teilweise unterstützt.</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="44"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="46"/>
       <source>Wrong type of file</source>
       <translation>Falscher Datei-Typ</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="52"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="54"/>
       <source>Warning</source>
       <translation>Warnung</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="53"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="55"/>
       <source>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</source>
       <translation>HINWEIS: Möglicherweise müssen Sie alle Hintergrundbilder zurücksetzen (aktivieren Sie Riskante Optionen in den Einstellungen) und dann erneut anwenden, damit diese Datei funktioniert.</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="70"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="72"/>
       <location filename="../../tweaks/posterboard/template_options/templates_tweak.py" line="40"/>
       <source>Error</source>
       <translation>Fehler</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="71"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="73"/>
       <location filename="../../tweaks/posterboard/template_options/templates_tweak.py" line="41"/>
       <source>Failed to load template</source>
       <translation>Fehler beim Laden der Vorlage</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="216"/>
+      <location filename="../../devicemanagement/device_manager.py" line="217"/>
       <source>No Device</source>
       <translation>Kein Gerät</translation>
     </message>
@@ -2210,63 +2227,63 @@ Denken Sie daran, Find My wieder einzuschalten!</translation>
       <translation>Dateiänderungen werden angewendet...</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="258"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="274"/>
       <source>Generating PosterBoard Video...</source>
       <translation>PosterBoard Video wird generiert...</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="263"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="279"/>
       <source>Extracting tendie {0}...</source>
       <translation>Tendie wird extrahiert {0}...</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="268"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="284"/>
       <source>Configuring template {0}...</source>
       <translation>Vorlage wird konfiguriert {0}...</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="271"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="287"/>
       <source>Adding tendies...</source>
       <translation>Tendies werden hinzugefügt...</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="273"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="312"/>
       <source>Adding other tweaks...</source>
       <translation>Andere tweaks werden hinzugefügt...</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="115"/>
+      <location filename="../../tweaks/tweak_classes.py" line="116"/>
       <source>Revert RDAR fix</source>
       <translation>RADAR fix zurücksetzen</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="116"/>
+      <location filename="../../tweaks/tweak_classes.py" line="117"/>
       <source>RDAR Fix</source>
       <translation>RADAR Fix</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="119"/>
+      <location filename="../../tweaks/tweak_classes.py" line="120"/>
       <source>Revert Status Bar Fix</source>
       <translation>Status Bar Fix zurücksetzen</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="120"/>
+      <location filename="../../tweaks/tweak_classes.py" line="121"/>
       <source>Dynamic Island Status Bar Fix</source>
       <translation>Dynamic Island Status Bar Fix</translation>
     </message>
     <message>
-      <location filename="../../controllers/video_handler.py" line="103"/>
+      <location filename="../../controllers/video_handler.py" line="110"/>
       <source>Creating {0}...</source>
       <translation>Wird erstellt {0}...</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="665"/>
-      <location filename="../../devicemanagement/device_manager.py" line="775"/>
+      <location filename="../../devicemanagement/device_manager.py" line="667"/>
+      <location filename="../../devicemanagement/device_manager.py" line="777"/>
       <source>Generating backup...</source>
       <translation>Backup wird generiert</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="492"/>
+      <location filename="../../devicemanagement/device_manager.py" line="493"/>
       <source>DO NOT UNPLUG</source>
       <translation>NICHT AUSSTECKEN</translation>
     </message>
@@ -2335,22 +2352,22 @@ Sie können dies unten unter Einstellungen &gt; Datenschutz &amp; Sicherheit &gt
       <translation>Muster nicht in CacheData gefunden.</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="267"/>
+      <location filename="../../tweaks/tweak_classes.py" line="268"/>
       <source>Right offset out of range.</source>
       <translation>Rechtsversatz außerhalb der Reichweite.</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="272"/>
+      <location filename="../../tweaks/tweak_classes.py" line="273"/>
       <source>Left offset out of range.</source>
       <translation>Linker Versatz außerhalb des Bereichs.</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="280"/>
+      <location filename="../../tweaks/tweak_classes.py" line="281"/>
       <source>Value at %SIDE offset is not 1 or 3.</source>
       <translation>Der Wert bei %SIDE-Versatz ist nicht 1 oder 3.</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="287"/>
+      <location filename="../../tweaks/tweak_classes.py" line="288"/>
       <source>Values of %SIDE offset neighbors are not 0.</source>
       <translation>Werte von %SIDE-Versatz-Nachbarn sind nicht 0.</translation>
     </message>
@@ -2360,11 +2377,26 @@ Sie können dies unten unter Einstellungen &gt; Datenschutz &amp; Sicherheit &gt
       <translation>Du musst das Programm als Administrator ausführen um die BookRestore tweaks zu verwenden.</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="562"/>
+      <location filename="../../devicemanagement/device_manager.py" line="563"/>
       <source>
 
 You should now be able to apply Feature Flags with BookRestore.</source>
       <translation>Du solltest jetzt in der Lage sein Feature Flags mit Bookrestore anzuwenden</translation>
+    </message>
+    <message>
+      <location filename="../../gui/pages/page.py" line="10"/>
+      <source>Default</source>
+      <translation>Standart</translation>
+    </message>
+    <message>
+      <location filename="../../gui/pages/page.py" line="13"/>
+      <source>Enabled</source>
+      <translation>Aktiv</translation>
+    </message>
+    <message>
+      <location filename="../../gui/pages/page.py" line="15"/>
+      <source>Disabled</source>
+      <translation>Inaktiv</translation>
     </message>
   </context>
   <context>
@@ -2459,7 +2491,7 @@ No selected file for required option</source>
 Keine ausgewählte Datei für die erforderliche Option</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/tools/gestalt.py" line="77"/>
+      <location filename="../../gui/pages/tools/gestalt.py" line="78"/>
       <source>modifies resolution</source>
       <translation>Modifiziert die Auflösung</translation>
     </message>
@@ -2485,7 +2517,7 @@ Keine ausgewählte Datei für die erforderliche Option</translation>
   <context>
     <name>MainWindow</name>
     <message>
-      <location filename="../../gui/main_window.py" line="148"/>
+      <location filename="../../gui/main_window.py" line="153"/>
       <source>Warning: You are on iOS 26 beta.
 
 This has been known to cause problems and potentially lead to bootloops.
@@ -2498,9 +2530,22 @@ Diese Version ist bekannt für Probleme und kann potenziell zur bootloops führe
 Nutze auf eigene Gefahr!</translation>
     </message>
     <message>
-      <location filename="../../gui/main_window.py" line="34"/>
+      <location filename="../../gui/main_window.py" line="36"/>
       <source>None</source>
       <translation>Nichts</translation>
+    </message>
+  </context>
+  <context>
+    <name>ResetDialog</name>
+    <message>
+      <location filename="../../gui/pages/reset_dialog.py" line="19"/>
+      <source>Reset Page Tweaks</source>
+      <translation>Setze Seitenoptimierungen zurück</translation>
+    </message>
+    <message>
+      <location filename="../../gui/pages/reset_dialog.py" line="22"/>
+      <source>Select the pages you would like to reset.</source>
+      <translation>Wähle die Seiten aus, welche du zurücksetzten möchtest.</translation>
     </message>
   </context>
 </TS>

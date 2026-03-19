@@ -654,7 +654,7 @@ Face ID, пока вы не вернетесь к исходной модели.
     </message>
     <message>
       <location filename="../mainwindow.ui" line="3689"/>
-      <location filename="../mainwindow.ui" line="8132"/>
+      <location filename="../mainwindow.ui" line="8169"/>
       <source>Modify</source>
       <translation>Изменить</translation>
     </message>
@@ -845,12 +845,12 @@ Face ID, пока вы не вернетесь к исходной модели.
     <message>
       <location filename="../mainwindow.ui" line="4496"/>
       <source>Change Breadcrumb Text</source>
-      <translation>Изменить текст Боковушки</translation>
+      <translation>Изменить текст кнопки назад под часами</translation>
     </message>
     <message>
       <location filename="../mainwindow.ui" line="4503"/>
       <source>Breadcrumb Text</source>
-      <translation>Текст Боковушки</translation>
+      <translation>Текст кнопки назад под часами</translation>
     </message>
     <message>
       <location filename="../mainwindow.ui" line="4513"/>
@@ -1029,129 +1029,129 @@ Face ID, пока вы не вернетесь к исходной модели.
       <translation>Текст снизу</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6174"/>
+      <location filename="../mainwindow.ui" line="6211"/>
       <source>Disable Lock After Respring</source>
       <translation>Отключить блокировку после перезапуска</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6208"/>
+      <location filename="../mainwindow.ui" line="6245"/>
       <source>Disable Screen Dimming While Charging</source>
       <translation>Отключить затемнение экрана во время зарядки</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6242"/>
+      <location filename="../mainwindow.ui" line="6279"/>
       <source>Disable Low Battery Alerts</source>
       <translation>Отключить оповещения о низком заряде батареи</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6295"/>
+      <location filename="../mainwindow.ui" line="6332"/>
       <source>Removes '&lt; PreviousAppName' glyph in Status Bar when being forwarded to another app.</source>
       <translation>Удаляет «&lt; ПредыдущееПриложение» в строке состояния при переходе в другое приложение.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6313"/>
+      <location filename="../mainwindow.ui" line="6350"/>
       <source>Disable Breadcrumbs</source>
-      <translation>Отключить боковушки</translation>
+      <translation>Отключить кнопку назад под часами</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6332"/>
+      <location filename="../mainwindow.ui" line="6369"/>
       <source>Shows info about the device supervision status and organization at the bottom of the lock screen.</source>
       <translation>Отображает информацию о состоянии контроля устройства и организации в нижней части экрана блокировки.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6350"/>
+      <location filename="../mainwindow.ui" line="6387"/>
       <source>Show Supervision Text on Lock Screen</source>
       <translation>Показывать текст Supervision на экране блокировки</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6452"/>
+      <location filename="../mainwindow.ui" line="6489"/>
       <source>Enable AirPlay support for Stage Manager</source>
       <translation>Включить поддержку AirPlay для Stage Manager</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6640"/>
+      <location filename="../mainwindow.ui" line="6677"/>
       <source>Internal Options</source>
       <translation>Внутренние опции</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6793"/>
+      <location filename="../mainwindow.ui" line="6830"/>
       <source>Show Build Version in Status Bar</source>
       <translation>Показывать версию сборки в строке состояния</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6827"/>
+      <location filename="../mainwindow.ui" line="6864"/>
       <source>Force Right-to-Left Layout</source>
       <translation>Принудительная компоновка справа налево</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7372"/>
+      <location filename="../mainwindow.ui" line="7409"/>
       <source>Show Touches With Debug Info</source>
       <translation>Показать касания с отладочной информацией</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7406"/>
+      <location filename="../mainwindow.ui" line="7443"/>
       <source>Hide Respring Icon</source>
       <translation>Скрыть значок респринга</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7440"/>
+      <location filename="../mainwindow.ui" line="7477"/>
       <source>Vibrate on Raise-to-Wake</source>
       <translation>Вибрация при поднятии для пробуждения</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7489"/>
+      <location filename="../mainwindow.ui" line="7526"/>
       <source>Play Sound on Paste</source>
       <translation>Воспроизвести звук при вставке</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7523"/>
+      <location filename="../mainwindow.ui" line="7560"/>
       <source>Show Notifications for System Pastes</source>
       <translation>Показывать уведомления о вставках системы</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8125"/>
-      <location filename="../mainwindow.ui" line="10356"/>
+      <location filename="../mainwindow.ui" line="8162"/>
+      <location filename="../mainwindow.ui" line="10393"/>
       <source>Daemons</source>
       <translation>Daemons</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8173"/>
+      <location filename="../mainwindow.ui" line="8210"/>
       <source>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
 it enabled.</source>
       <translation>Примечание: даже в версиях Sparserestore используются обычные домены. Если у вас включена функция «Пропустить настройку», она будет применена.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8202"/>
+      <location filename="../mainwindow.ui" line="8239"/>
       <source>Stops over-the-air updates to prevent auto-downloads.</source>
       <translation>Останавливает обновления для предотвращения автоматической загрузки.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8205"/>
+      <location filename="../mainwindow.ui" line="8242"/>
       <source>Disable OTA</source>
       <translation>Отключить OTA</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8215"/>
+      <location filename="../mainwindow.ui" line="8252"/>
       <source>Disables usage tracking for improved privacy.</source>
       <translation>Отключает отслеживание использования для повышения конфиденциальности.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8218"/>
+      <location filename="../mainwindow.ui" line="8255"/>
       <source>Disable UsageTrackingAgent</source>
       <translation>Отключить UsageTrackingAgent</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8228"/>
+      <location filename="../mainwindow.ui" line="8265"/>
       <source>Disables Screen Time monitoring features.</source>
       <translation>Отключает функции мониторинга экранного времени.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8231"/>
+      <location filename="../mainwindow.ui" line="8268"/>
       <source>Disable Screen Time Agent</source>
       <translation>Отключить экранное время</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8241"/>
+      <location filename="../mainwindow.ui" line="8278"/>
       <source>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
 
 To work properly, also disable the daemon using the toggle above.</source>
@@ -1160,218 +1160,218 @@ To work properly, also disable the daemon using the toggle above.</source>
 Для правильной работы также отключите функцию выше.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8246"/>
+      <location filename="../mainwindow.ui" line="8283"/>
       <source>Clear ScreenTimeAgent.plist file</source>
       <translation>Очистить файл ScreenTimeAgent.plist</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8256"/>
+      <location filename="../mainwindow.ui" line="8293"/>
       <source>Stops logs, dumps, and crash reports collection.</source>
       <translation>Останавливает сбор журналов, дампов и отчетов о крашах.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8259"/>
+      <location filename="../mainwindow.ui" line="8296"/>
       <source>Disable Logs, Dumps, and Crash Reports</source>
       <translation>Отключить журналы, дампы и отчеты об ошибках</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8282"/>
+      <location filename="../mainwindow.ui" line="8319"/>
       <source>Disables pinging to sleeping bluetooth devices for improved battery life.</source>
       <translation>Отключает пинг спящих устройств Bluetooth для увеличения времени работы от батареи.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8285"/>
+      <location filename="../mainwindow.ui" line="8322"/>
       <source>Disable ATWAKEUP</source>
       <translation>Отключить ATWAKEUP</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8310"/>
+      <location filename="../mainwindow.ui" line="8347"/>
       <source>Turns off Game Center background services.</source>
       <translation>Отключает фоновые службы Game Center.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8313"/>
+      <location filename="../mainwindow.ui" line="8350"/>
       <source>Disable Game Center</source>
       <translation>Отключить Game Center</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8323"/>
+      <location filename="../mainwindow.ui" line="8360"/>
       <source>Disables the Tips service and notifications.</source>
       <translation>Отключает службу и уведомления от "Советов".</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8326"/>
+      <location filename="../mainwindow.ui" line="8363"/>
       <source>Disable Tips Services</source>
       <translation>Отключить службу "Советы"</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8336"/>
+      <location filename="../mainwindow.ui" line="8373"/>
       <source>Disables the Virtual Private Network service.</source>
       <translation>Отключает службу виртуальной частной сети.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8339"/>
+      <location filename="../mainwindow.ui" line="8376"/>
       <source>Disable VPN Service</source>
       <translation>Отключить службу VPN</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8349"/>
+      <location filename="../mainwindow.ui" line="8386"/>
       <source>Disables the service that deals with errors with WiFi networks with Chinese characters in the name.</source>
       <translation>Отключает службу, которая обрабатывает ошибки с сетями WiFi, имеющими в названии китайские иероглифы.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8352"/>
+      <location filename="../mainwindow.ui" line="8389"/>
       <source>Disable Chinese WLAN Service</source>
       <translation>Отключить китайскую службу WLAN</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8362"/>
+      <location filename="../mainwindow.ui" line="8399"/>
       <source>Disables HealthKit services used by the health app.</source>
       <translation>Отключает службы HealthKit, используемые приложением «Здоровье».</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8365"/>
+      <location filename="../mainwindow.ui" line="8402"/>
       <source>Disable HealthKit</source>
       <translation>Отключить HealthKit</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8390"/>
+      <location filename="../mainwindow.ui" line="8427"/>
       <source>Disable AirPrint</source>
       <translation>Отключить AirPrint</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8400"/>
+      <location filename="../mainwindow.ui" line="8437"/>
       <source>Disable Assistive Touch</source>
       <translation>Отключить функцию «Assistive Touch»</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8410"/>
+      <location filename="../mainwindow.ui" line="8447"/>
       <source>Disable iCloud</source>
       <translation>Отключить iCloud</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8420"/>
+      <location filename="../mainwindow.ui" line="8457"/>
       <source>Disable Internet Tethering (Hotspot)</source>
       <translation>Отключить интернет-модем (Режим модема)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8430"/>
+      <location filename="../mainwindow.ui" line="8467"/>
       <source>Disable Passbook</source>
       <translation>Отключить Passbook</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8440"/>
+      <location filename="../mainwindow.ui" line="8477"/>
       <source>Disable Spotlight</source>
       <translation>Отключить Spotlight</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8450"/>
+      <location filename="../mainwindow.ui" line="8487"/>
       <source>Disable Voice Control</source>
       <translation>Отключить голосовое управление</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8561"/>
+      <location filename="../mainwindow.ui" line="8598"/>
       <source>Posterboard</source>
       <translation>Posterboard</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8603"/>
+      <location filename="../mainwindow.ui" line="8640"/>
       <source>   Discover Wallpapers</source>
       <translation>   Скачать обои</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8697"/>
+      <location filename="../mainwindow.ui" line="8734"/>
       <source>  Tendies</source>
       <translation>  Tendies</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8720"/>
+      <location filename="../mainwindow.ui" line="8757"/>
       <source>   Templates</source>
       <translation>   Шаблоны</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8746"/>
+      <location filename="../mainwindow.ui" line="8783"/>
       <source>   Video</source>
       <translation>   Видео</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8776"/>
+      <location filename="../mainwindow.ui" line="8813"/>
       <source>Clear Action:</source>
       <translation>Сбросить:</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8835"/>
-      <location filename="../mainwindow.ui" line="8925"/>
-      <location filename="../mainwindow.ui" line="9347"/>
-      <location filename="../mainwindow.ui" line="9686"/>
+      <location filename="../mainwindow.ui" line="8872"/>
+      <location filename="../mainwindow.ui" line="8962"/>
+      <location filename="../mainwindow.ui" line="9384"/>
+      <location filename="../mainwindow.ui" line="9723"/>
       <source>Select a wallpaper file with the .tendies extension.</source>
       <translation>Выберите файл обоев с расширением .tendies.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8841"/>
+      <location filename="../mainwindow.ui" line="8878"/>
       <source>  Import Files (.tendies)</source>
       <translation>  Импорт файлов (.tendies)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8931"/>
-      <location filename="../mainwindow.ui" line="9353"/>
+      <location filename="../mainwindow.ui" line="8968"/>
+      <location filename="../mainwindow.ui" line="9390"/>
       <source>  Import Templates (.batter)</source>
       <translation>  Импорт шаблонов (.batter)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8991"/>
+      <location filename="../mainwindow.ui" line="9028"/>
       <source>Uses the CoreAnimation file to play the video (300 fps limit)
 Will show up in Collections</source>
       <translation>Использует файл CoreAnimation для воспроизведения видео (ограничение 300 FPS)
 Будет отображаться в коллекциях</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8995"/>
+      <location filename="../mainwindow.ui" line="9032"/>
       <source>Loop (use CoreAnimation method)</source>
       <translation>Цикл (используйте метод CoreAnimation)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9008"/>
+      <location filename="../mainwindow.ui" line="9045"/>
       <source>Reverse on Loop</source>
       <translation>Обратная перемотка на цикле</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9018"/>
+      <location filename="../mainwindow.ui" line="9055"/>
       <source>Make Foreground (hides clock)</source>
       <translation>Включить эффект глубины (скрыть часы)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9097"/>
+      <location filename="../mainwindow.ui" line="9134"/>
       <source>Choose a photo for the wallpaper to freeze on when finished (.heic files only)</source>
       <translation>Выберите фотографию, которая будет отображаться в качестве обоев после завершения (ТОЛЬКО .heic)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9100"/>
+      <location filename="../mainwindow.ui" line="9137"/>
       <source>Choose Freeze Frame (.HEIC)</source>
       <translation>Выбрать стоп-кадр (.HEIC)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9110"/>
+      <location filename="../mainwindow.ui" line="9147"/>
       <source>Choose a video file for the wallpaper (.mov or .mp4)</source>
       <translation>Выберите видеофайл для обоев (.mov или .mp4)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9113"/>
+      <location filename="../mainwindow.ui" line="9150"/>
       <source>Choose Video</source>
       <translation>Выбрать видео</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9261"/>
+      <location filename="../mainwindow.ui" line="9298"/>
       <source>Templates</source>
       <translation>Шаблоны</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9810"/>
+      <location filename="../mainwindow.ui" line="9847"/>
       <source>Risky Options</source>
       <translation>Рискованные настройки</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9885"/>
+      <location filename="../mainwindow.ui" line="9922"/>
       <source>Disclaimer:
 
 The options on this page may be unsafe for your device. Use these options at your own risk. Changing
@@ -1386,17 +1386,17 @@ Nugget is not responsible if you mess up your device, especially with resolution
 Nugget не несет ответственности, если вы повредите свое устройство, особенно с помощью средства изменения разрешения.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9915"/>
+      <location filename="../mainwindow.ui" line="9952"/>
       <source>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</source>
       <translation>Использует метод файла. Рекомендованно выключать Daemon во вкладке Daemons</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9918"/>
+      <location filename="../mainwindow.ui" line="9955"/>
       <source>Disable OTA Updates (file)</source>
       <translation>Отключить обновления OTA (файл)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9928"/>
+      <location filename="../mainwindow.ui" line="9965"/>
       <source>Disables temperature monitoring daemon to reduce system checks.
 
 Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified" in Settings.</source>
@@ -1405,127 +1405,127 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
 Предупреждение: Выключение приведет к ошибке аккумулятора и будет показывать "Неизвестная деталь" или "Не проверено" в Настройках.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9933"/>
+      <location filename="../mainwindow.ui" line="9970"/>
       <source>Disable thermalmonitord</source>
       <translation>Отключить thermalmonitord</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9958"/>
+      <location filename="../mainwindow.ui" line="9995"/>
       <source>Set a custom device screen resolution.</source>
       <translation>Установить пользовательское разрешение экрана устройства.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9961"/>
+      <location filename="../mainwindow.ui" line="9998"/>
       <source>Set a Custom Device Resolution</source>
       <translation>Установить пользовательское разрешение устройства</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9989"/>
+      <location filename="../mainwindow.ui" line="10026"/>
       <source>Height:</source>
       <translation>Высота:</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10004"/>
+      <location filename="../mainwindow.ui" line="10041"/>
       <source>Resolution Height</source>
       <translation>Разрешение по высоте</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10045"/>
+      <location filename="../mainwindow.ui" line="10082"/>
       <source>Width:</source>
       <translation>Ширина:</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10062"/>
+      <location filename="../mainwindow.ui" line="10099"/>
       <source>Resolution Width</source>
       <translation>Разрешение по ширине</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10202"/>
+      <location filename="../mainwindow.ui" line="10239"/>
       <source>Miscellaneous Options</source>
       <translation>Прочие опции</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10315"/>
+      <location filename="../mainwindow.ui" line="10352"/>
       <source>Springboard</source>
       <translation>Springboard</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10388"/>
+      <location filename="../mainwindow.ui" line="10425"/>
       <source>Internal</source>
       <translation>Внутренний</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10420"/>
+      <location filename="../mainwindow.ui" line="10457"/>
       <source>Risky</source>
       <translation>Рискованно</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10575"/>
+      <location filename="../mainwindow.ui" line="10612"/>
       <source>Apply</source>
       <translation>Применить</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10667"/>
+      <location filename="../mainwindow.ui" line="10704"/>
       <source>Current gestalt file location:</source>
       <translation>Текущее расположение файла MobileGestalt:</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10698"/>
+      <location filename="../mainwindow.ui" line="10735"/>
       <source>  Choose Gestalt File</source>
       <translation>  Выберите файл gestalt</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10732"/>
+      <location filename="../mainwindow.ui" line="10769"/>
       <source>  Apply Changes</source>
       <translation>  Применить изменения</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10749"/>
+      <location filename="../mainwindow.ui" line="10786"/>
       <source>Ready!</source>
       <translation>Готово!</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10787"/>
+      <location filename="../mainwindow.ui" line="10824"/>
       <source>Note: Skip Setup is currently turned on.</source>
       <translation>Примечание: в настоящее время включена функция «Пропустить настройку».</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10945"/>
+      <location filename="../mainwindow.ui" line="10982"/>
       <source>Nugget Settings</source>
       <translation>Настройки Nugget</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11188"/>
+      <location filename="../mainwindow.ui" line="11225"/>
       <source>Allow Applying Over WiFi</source>
       <translation>Разрешить применение через WiFi</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11201"/>
+      <location filename="../mainwindow.ui" line="11238"/>
       <source>Auto Reboot After Applying</source>
       <translation>Автоматическая перезагрузка после применения</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11214"/>
+      <location filename="../mainwindow.ui" line="11251"/>
       <source>Show Risky Tweak Options</source>
       <translation>Показать рискованные настройки</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11224"/>
+      <location filename="../mainwindow.ui" line="11261"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
       <translation>Показать модели для других типов устройств на вкладке « AI device spoofing».</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11233"/>
+      <location filename="../mainwindow.ui" line="11270"/>
       <source>Show All Spoofable Models</source>
       <translation>Показать все поддельные модели</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11243"/>
+      <location filename="../mainwindow.ui" line="11280"/>
       <source>Ignore Posterboard Frame Limit</source>
       <translation>Игнорировать ограничение Posterboard</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11253"/>
+      <location filename="../mainwindow.ui" line="11290"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
@@ -1534,47 +1534,47 @@ DO NOT unplug your device during restores.</source>
 НЕ отключайте устройство во время восстановления.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11258"/>
+      <location filename="../mainwindow.ui" line="11295"/>
       <source>Disable Tendies Limit</source>
       <translation>Отключить ограничение Tendies</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11447"/>
+      <location filename="../mainwindow.ui" line="11494"/>
       <source>Restores the SSL config that does something idk</source>
       <translation>Восстанавливает конфигурацию SSL, которая делает хз че</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11450"/>
+      <location filename="../mainwindow.ui" line="11497"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
       <translation>Восстановить хранилище доверенных сертификатов (профили конфигурации SSL)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11463"/>
+      <location filename="../mainwindow.ui" line="11510"/>
       <source>Skip Setup * (non-exploit files only)</source>
       <translation>Пропустить настройку * (только для файлов, не содержащих эксплойты)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11479"/>
+      <location filename="../mainwindow.ui" line="11526"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
       <translation>Включить Supervision * (потребуется настройка выше)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11489"/>
+      <location filename="../mainwindow.ui" line="11536"/>
       <source>Enter Organization Name</source>
       <translation>Введите название организации</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11512"/>
+      <location filename="../mainwindow.ui" line="11559"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
       <translation>* Примечание: пропуск настройки может вызвать проблемы с профилями конфигурации. Отключите эту функцию, если это необходимо.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11539"/>
+      <location filename="../mainwindow.ui" line="11586"/>
       <source>Reset Device Pairing</source>
       <translation>Сброс сопряжения устройств</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11553"/>
+      <location filename="../mainwindow.ui" line="11600"/>
       <source>Pocket Poster Helper</source>
       <translation>Помощник по Pocket Poster</translation>
     </message>
@@ -1583,7 +1583,7 @@ DO NOT unplug your device during restores.</source>
       <location filename="../mainwindow.ui" line="1282"/>
       <location filename="../mainwindow.ui" line="1309"/>
       <location filename="../mainwindow.ui" line="1337"/>
-      <location filename="../mainwindow.ui" line="8629"/>
+      <location filename="../mainwindow.ui" line="8666"/>
       <source>...</source>
       <translation>...</translation>
     </message>
@@ -1609,19 +1609,19 @@ DO NOT unplug your device during restores.</source>
       <translation>Текст даты в строке состояния</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11142"/>
+      <location filename="../mainwindow.ui" line="11179"/>
       <source>App Language</source>
       <translation>Язык приложения</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9136"/>
+      <location filename="../mainwindow.ui" line="9173"/>
       <source>   Export as .tendies</source>
       <translation>   Экспортировать как .tendies</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10841"/>
+      <location filename="../mainwindow.ui" line="10878"/>
       <source>Remove Tweaks</source>
-      <translation>Убрать твики</translation>
+      <translation>Сбросить твики</translation>
     </message>
     <message>
       <location filename="../mainwindow.ui" line="6049"/>
@@ -1629,92 +1629,92 @@ DO NOT unplug your device during restores.</source>
       <translation>Автоблокировка (Экран Блокировки)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6276"/>
+      <location filename="../mainwindow.ui" line="6313"/>
       <source>Hide AC Power on Lock Screen</source>
       <translation>Скрыть AC Power на экране блокировки</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6384"/>
+      <location filename="../mainwindow.ui" line="6421"/>
       <source>Show Dynamic Island in Screenshots</source>
       <translation>Показывать Dynamic Island на Скриншотах</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6501"/>
+      <location filename="../mainwindow.ui" line="6538"/>
       <source>Show Red/Green Authentication Line on Lock Screen</source>
       <translation>Показывать Красную/Зеленую линию аутентификации на экране блокировки</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6542"/>
+      <location filename="../mainwindow.ui" line="6579"/>
       <source>Disable Floating Tab Bar</source>
       <translation>Отключить плавающую панель вкладок</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6861"/>
+      <location filename="../mainwindow.ui" line="6898"/>
       <source>Force Left-to-Right Layout</source>
       <translation>Принудительное выравнивание слева направо</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6880"/>
+      <location filename="../mainwindow.ui" line="6917"/>
       <source>Shows hidden apps like Field Test and Continuity on the home screen</source>
       <translation>Отображает скрытые приложения такие как Field Test и Continuity на рабочем столе</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6898"/>
+      <location filename="../mainwindow.ui" line="6935"/>
       <source>Show Hidden Icons on Home Screen</source>
       <translation>Показывать скрытые иконки на рабочем столе</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6917"/>
+      <location filename="../mainwindow.ui" line="6954"/>
       <source>Enables the iPad-style keyboard keyflicks on iPhones</source>
       <translation>Включает клавиатуру iPad-Style keyflicks на Айфонах</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7240"/>
+      <location filename="../mainwindow.ui" line="7277"/>
       <source>Show Accessory Developer Settings</source>
       <translation>Показать настройки разработчика аксессуаров</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8269"/>
+      <location filename="../mainwindow.ui" line="8306"/>
       <source>Disables tools that monitor and test hardware or system behavior for faults and performance issues.</source>
       <translation>Отключает инструменты, которые отслеживают и тестируют поведение оборудования или системы на предмет неисправностей и проблем с производительностью.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8272"/>
+      <location filename="../mainwindow.ui" line="8309"/>
       <source>Disable System Diagnostics</source>
       <translation>Отключает системные диагностики</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8460"/>
+      <location filename="../mainwindow.ui" line="8497"/>
       <source>Disable NanoTimeKit (Apple Watch Face Sync)</source>
       <translation>Отключить NanoTimeKit (синхронизация циферблата Apple Watch)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9025"/>
+      <location filename="../mainwindow.ui" line="9062"/>
       <source>Frame Calculation Mode</source>
       <translation>Режим расчета кадров</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9079"/>
+      <location filename="../mainwindow.ui" line="9116"/>
       <source>Linear</source>
       <translation>Линейный</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9084"/>
+      <location filename="../mainwindow.ui" line="9121"/>
       <source>Discrete</source>
       <translation>Дискретный</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7814"/>
+      <location filename="../mainwindow.ui" line="7851"/>
       <source>Disable Liquid Glass</source>
       <translation>Выключить Liquid Glass</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7833"/>
+      <location filename="../mainwindow.ui" line="7870"/>
       <source>Enables liquid glass on apps regardless of whether or not it has been updated to include it</source>
       <translation>Включает Liquid Glass в приложениях, где оно не предусмотрено</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7851"/>
+      <location filename="../mainwindow.ui" line="7888"/>
       <source>Ignore Liquid Glass App Build Check</source>
       <translation>Игнорировать проверку сборки приложения Liquid Glass</translation>
     </message>
@@ -1729,93 +1729,93 @@ DO NOT unplug your device during restores.</source>
       <translation>iPhone 17 (iPhone18,3)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6140"/>
+      <location filename="../mainwindow.ui" line="6177"/>
       <source>Disable AirDrop Time Limit for Everyone Option</source>
       <translation>Отключить лимитирование функции AirDrop «для всех»</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6935"/>
+      <location filename="../mainwindow.ui" line="6972"/>
       <source>Keyboard Character Flick</source>
       <translation>Щелчок Клавиатуры</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6984"/>
+      <location filename="../mainwindow.ui" line="7021"/>
       <source>Disable Clock Icon Seconds Hand</source>
       <translation>Отключить секундную стрелку на иконке часов</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7018"/>
+      <location filename="../mainwindow.ui" line="7055"/>
       <source>Disable Spotlight Searching in Websites</source>
       <translation>Отключить Spotlight-Поиск на веб-сайтах</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7052"/>
+      <location filename="../mainwindow.ui" line="7089"/>
       <source>Show Hardware Button Hints in Screenshots</source>
       <translation>Показать подсказки по аппаратным кнопкам на скриншоте</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7104"/>
+      <location filename="../mainwindow.ui" line="7141"/>
       <source>Metal HUD Debug</source>
       <translation>Отладка Metal HUD</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7138"/>
+      <location filename="../mainwindow.ui" line="7175"/>
       <source>iMessage Debugging</source>
       <translation>Отладка iMessage</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7172"/>
+      <location filename="../mainwindow.ui" line="7209"/>
       <source>Continuity Debugging</source>
       <translation>Отладка Continuity</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7206"/>
+      <location filename="../mainwindow.ui" line="7243"/>
       <source>FaceTime Debugging</source>
       <translation>Отладка FaceTime</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7289"/>
+      <location filename="../mainwindow.ui" line="7326"/>
       <source>App Store Debug Gesture</source>
       <translation>Отладочные жесты в App Store</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7323"/>
+      <location filename="../mainwindow.ui" line="7360"/>
       <source>Notes Debug Mode</source>
       <translation>Режим отладки в Notes</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7621"/>
-      <location filename="../mainwindow.ui" line="10446"/>
+      <location filename="../mainwindow.ui" line="7658"/>
+      <location filename="../mainwindow.ui" line="10483"/>
       <source>Liquid Glass</source>
       <translation>Жидкое стекло</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7780"/>
+      <location filename="../mainwindow.ui" line="7817"/>
       <source>Force Solarium Fallback</source>
       <translation>Принудить Solarium Fallback</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7891"/>
+      <location filename="../mainwindow.ui" line="7928"/>
       <source>Disable Liquid Glass on LS Clock</source>
       <translation>Отключить Жидкое Стекло на часах экрана блокировки</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7925"/>
+      <location filename="../mainwindow.ui" line="7962"/>
       <source>Disable Liquid Glass on Dock</source>
       <translation>Отключить Жидкое Стекло на панели управления на главном экране</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7959"/>
+      <location filename="../mainwindow.ui" line="7996"/>
       <source>Disable Specular Motion</source>
       <translation>Отключить Зеркальное Движение</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7993"/>
+      <location filename="../mainwindow.ui" line="8030"/>
       <source>Disable Outer Refraction</source>
       <translation>Отключить Внешнее преломление</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8027"/>
+      <location filename="../mainwindow.ui" line="8064"/>
       <source>Disable Solarium HDR</source>
       <translation>Отключить Solarium HDR</translation>
     </message>
@@ -1842,48 +1842,48 @@ bl_sbx</translation>
       <translation>Включить iPadOS (ПРЕДУПРЕЖДЕНИЕ: рискованно, использовать с осторожностью)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11300"/>
+      <location filename="../mainwindow.ui" line="11347"/>
       <source>BookRestore Apply Method</source>
       <translation>Метод применения BookRestore</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11335"/>
+      <location filename="../mainwindow.ui" line="11382"/>
       <source>   Restore</source>
       <translation>   Восстановить</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11350"/>
+      <location filename="../mainwindow.ui" line="11397"/>
       <source>BookRestore File Transfer Method</source>
       <translation>Метод переноса файла BookRestore</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11383"/>
+      <location filename="../mainwindow.ui" line="11430"/>
       <source>   LocalHost</source>
       <translation>   Локальный хост</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11388"/>
+      <location filename="../mainwindow.ui" line="11435"/>
       <source>   On-Device (Slower)</source>
       <translation>   На устройстве (Медленно)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11398"/>
+      <location filename="../mainwindow.ui" line="11445"/>
       <source>Books Container UUID</source>
       <translation>UUID Контейнера книг</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11405"/>
+      <location filename="../mainwindow.ui" line="11452"/>
       <source>Enter your books container UUID if you know it.
 It will be automatically found if this is left blank.</source>
       <translation>Введите свой UUID контейнера книг, если вы знаете его. Он будет автоматически найден если оставить это поле пустым.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11409"/>
+      <location filename="../mainwindow.ui" line="11456"/>
       <source>Enter Books Container UUID</source>
       <translation>Введите UUID контейнера книг</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11416"/>
+      <location filename="../mainwindow.ui" line="11463"/>
       <source>* Developer Mode/Administrator permissions required for these options.</source>
       <translation>* Режим разработчика/Разрешения администратора необходимы для этих параметров.</translation>
     </message>
@@ -1893,12 +1893,12 @@ It will be automatically found if this is left blank.</source>
       <translation>ПРЕДУПРЕЖДЕНИЕ: Не включайте iPadOS, если у вас не цифровой пароль.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10628"/>
+      <location filename="../mainwindow.ui" line="10665"/>
       <source>Administrator permission is required to apply tweaks with AFC.</source>
       <translation>Для применения твиков с помощью AFC требуются права администратора.</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10638"/>
+      <location filename="../mainwindow.ui" line="10675"/>
       <source> Restart as Admin</source>
       <translation>Перезапустить от имени администратора</translation>
     </message>
@@ -1949,9 +1949,26 @@ It will be automatically found if this is left blank.</source>
       <translation>Создать файл приемлемости</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6418"/>
+      <location filename="../mainwindow.ui" line="6455"/>
       <source>Hide Dynamic Island Completely</source>
       <translation>Убрать Dynamic Island полностью</translation>
+    </message>
+    <message>
+      <location filename="../mainwindow.ui" line="6134"/>
+      <source>Allow pairing with any watchOS version</source>
+      <translation>Разрешить сопряжение с любой версией watchOS</translation>
+    </message>
+    <message>
+      <location filename="../mainwindow.ui" line="11302"/>
+      <source>Force PosterBoard Refresh</source>
+      <translation>Принудительно перезагрузить PosterBoard</translation>
+    </message>
+    <message>
+      <location filename="../mainwindow.ui" line="6125"/>
+      <source>Warning: This may cause issues for some iOS and watchOS version combos (such as messages app
+not working).
+Please do not make GitHub issues on Nugget about them, it is not fixable.</source>
+      <translation></translation>
     </message>
   </context>
   <context>
@@ -1986,7 +2003,7 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
       <translation>Nugget v{0} доступен. </translation>
     </message>
     <message>
-      <location filename="../../gui/dialogs.py" line="93"/>
+      <location filename="../../gui/dialogs.py" line="94"/>
       <source>Would you like to go to the download on GitHub?</source>
       <translation>Хотите перейти к загрузке на GitHub?</translation>
     </message>
@@ -1999,13 +2016,13 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
       <translation>Пожалуйста, подключите устройство.</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/main/settings.py" line="215"/>
-      <location filename="../../gui/pages/main/settings.py" line="225"/>
+      <location filename="../../gui/pages/main/settings.py" line="219"/>
+      <location filename="../../gui/pages/main/settings.py" line="229"/>
       <source>PosterBoard App Hash</source>
       <translation>Хэш приложения PosterBoard</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/main/settings.py" line="215"/>
+      <location filename="../../gui/pages/main/settings.py" line="219"/>
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
@@ -2014,17 +2031,17 @@ Open up its settings and tap "Detect".</source>
 Откройте его настройки и нажмите «Обнаружить».</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/main/settings.py" line="218"/>
+      <location filename="../../gui/pages/main/settings.py" line="223"/>
       <source>Copy it and paste it</source>
       <translation>Скопируйте и вставьте</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/main/settings.py" line="222"/>
+      <location filename="../../gui/pages/main/settings.py" line="227"/>
       <source>It has been copied. Paste it</source>
       <translation>Оно было скопировано. Вставьте его</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/main/settings.py" line="225"/>
+      <location filename="../../gui/pages/main/settings.py" line="229"/>
       <source>Your hash is:
 {0}
 
@@ -2080,12 +2097,12 @@ Open up its settings and tap "Detect".</source>
       <translation>Устройство не смогло отправить файлы. Возможно, список файлов поврежден или содержит дубликаты. Нажмите «Показать подробности» для получения дополнительной информации.</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="116"/>
+      <location filename="../../devicemanagement/device_manager.py" line="117"/>
       <source>If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.</source>
       <translation>Если вы используете Linux, убедитесь, что у вас установлены usbmuxd и libimobiledevice.</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="118"/>
+      <location filename="../../devicemanagement/device_manager.py" line="119"/>
       <source>Make sure you have the "Apple Devices" app from the Microsoft Store or iTunes from Apple's website.</source>
       <translation>Убедитесь, что у вас установлено приложение «Apple Devices» из Microsoft Store или iTunes с веб-сайта Apple.</translation>
     </message>
@@ -2124,12 +2141,12 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
       <translation>Сопряжение вашего устройства было успешно сброшено. Обновите список устройств перед применением.</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="653"/>
+      <location filename="../../devicemanagement/device_manager.py" line="655"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
       <translation>Файл mobilegestalt не предоставлен! Выберите файл, чтобы применить настройки mobilegestalt.</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="558"/>
+      <location filename="../../devicemanagement/device_manager.py" line="559"/>
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
@@ -2138,7 +2155,7 @@ Remember to turn Find My back on!</source>
 Не забудьте снова включить функцию «Найти iPhone»!</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="560"/>
+      <location filename="../../devicemanagement/device_manager.py" line="561"/>
       <source>Please restart your device to see changes.</source>
       <translation>Пожалуйста, перезагрузите устройство, чтобы увидеть изменения.</translation>
     </message>
@@ -2149,8 +2166,8 @@ Remember to turn Find My back on!</source>
     </message>
     <message>
       <location filename="../../devicemanagement/device_manager.py" line="563"/>
-      <location filename="../../devicemanagement/device_manager.py" line="755"/>
-      <location filename="../../devicemanagement/device_manager.py" line="864"/>
+      <location filename="../../devicemanagement/device_manager.py" line="757"/>
+      <location filename="../../devicemanagement/device_manager.py" line="866"/>
       <source>Success!</source>
       <translation>Успешно!</translation>
     </message>
@@ -2170,34 +2187,34 @@ Remember to turn Find My back on!</source>
       <translation>Частично поддерживается</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="44"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="46"/>
       <source>Wrong type of file</source>
       <translation>Неправильный тип файла</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="52"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="54"/>
       <source>Warning</source>
       <translation>Предупреждение</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="53"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="55"/>
       <source>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</source>
       <translation>ЗАМЕТКА: Вам может потребоваться сбросить все обои (включить Risky Options в настройках) и затем снова применить чтобы файл заработал.</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="70"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="72"/>
       <location filename="../../tweaks/posterboard/template_options/templates_tweak.py" line="40"/>
       <source>Error</source>
       <translation>Ошибка</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="71"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="73"/>
       <location filename="../../tweaks/posterboard/template_options/templates_tweak.py" line="41"/>
       <source>Failed to load template</source>
       <translation>Не получилось загрузить шаблон</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="216"/>
+      <location filename="../../devicemanagement/device_manager.py" line="217"/>
       <source>No Device</source>
       <translation>Нет устройств</translation>
     </message>
@@ -2212,63 +2229,63 @@ Remember to turn Find My back on!</source>
       <translation>Применяется изменение файлов…</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="258"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="274"/>
       <source>Generating PosterBoard Video...</source>
       <translation>Генерируем видео PosterBoard…</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="263"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="279"/>
       <source>Extracting tendie {0}...</source>
       <translation>Извлечение tendie {0}…</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="268"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="284"/>
       <source>Configuring template {0}...</source>
       <translation>Настраиваем шаблон {0}…</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="271"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="287"/>
       <source>Adding tendies...</source>
       <translation>Добавляем tendies…</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="273"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="312"/>
       <source>Adding other tweaks...</source>
       <translation>Добавляем другие твики…</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="115"/>
+      <location filename="../../tweaks/tweak_classes.py" line="116"/>
       <source>Revert RDAR fix</source>
       <translation>Вернуть RDAR fix</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="116"/>
+      <location filename="../../tweaks/tweak_classes.py" line="117"/>
       <source>RDAR Fix</source>
       <translation>Исправить RDAR</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="119"/>
+      <location filename="../../tweaks/tweak_classes.py" line="120"/>
       <source>Revert Status Bar Fix</source>
       <translation>Вернуть исправление строки состояния</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="120"/>
+      <location filename="../../tweaks/tweak_classes.py" line="121"/>
       <source>Dynamic Island Status Bar Fix</source>
       <translation>Исправить строку состояния Dynamic Island</translation>
     </message>
     <message>
-      <location filename="../../controllers/video_handler.py" line="103"/>
+      <location filename="../../controllers/video_handler.py" line="110"/>
       <source>Creating {0}...</source>
       <translation>Создаем {0}…</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="665"/>
-      <location filename="../../devicemanagement/device_manager.py" line="775"/>
+      <location filename="../../devicemanagement/device_manager.py" line="667"/>
+      <location filename="../../devicemanagement/device_manager.py" line="777"/>
       <source>Generating backup...</source>
       <translation>Создание резервной копии...</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="492"/>
+      <location filename="../../devicemanagement/device_manager.py" line="493"/>
       <source>DO NOT UNPLUG</source>
       <translation>НЕ ВЫТАСКИВАЙТЕ ПРОВОД</translation>
     </message>
@@ -2337,22 +2354,22 @@ You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; D
       <translation>Паттерн не был найден в CacheData.</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="267"/>
+      <location filename="../../tweaks/tweak_classes.py" line="268"/>
       <source>Right offset out of range.</source>
       <translation>Правое смещение вне зоны действия.</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="272"/>
+      <location filename="../../tweaks/tweak_classes.py" line="273"/>
       <source>Left offset out of range.</source>
       <translation>Левое смещение вне зоны действия.</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="280"/>
+      <location filename="../../tweaks/tweak_classes.py" line="281"/>
       <source>Value at %SIDE offset is not 1 or 3.</source>
       <translation>Значение при %SIDE смещении не равно 1 или 3.</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="287"/>
+      <location filename="../../tweaks/tweak_classes.py" line="288"/>
       <source>Values of %SIDE offset neighbors are not 0.</source>
       <translation>Значения соседей с смещением %SIDE не равны 0.</translation>
     </message>
@@ -2362,11 +2379,26 @@ You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; D
       <translation>Вы должны запустить приложение от имени администратора чтобы использовать твики BookRestore.</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="562"/>
+      <location filename="../../devicemanagement/device_manager.py" line="563"/>
       <source>
 
 You should now be able to apply Feature Flags with BookRestore.</source>
       <translation>Теперь у вас должна быть возможность применить флаги функции с помощью BookRestore.</translation>
+    </message>
+    <message>
+      <location filename="../../gui/pages/page.py" line="10"/>
+      <source>Default</source>
+      <translation>По умолчанию</translation>
+    </message>
+    <message>
+      <location filename="../../gui/pages/page.py" line="13"/>
+      <source>Enabled</source>
+      <translation>Включить</translation>
+    </message>
+    <message>
+      <location filename="../../gui/pages/page.py" line="15"/>
+      <source>Disabled</source>
+      <translation>Выключить</translation>
     </message>
   </context>
   <context>
@@ -2461,7 +2493,7 @@ No selected file for required option</source>
 Нет выбранного файла для требующей опции</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/tools/gestalt.py" line="77"/>
+      <location filename="../../gui/pages/tools/gestalt.py" line="78"/>
       <source>modifies resolution</source>
       <translation>Меняет разрешение</translation>
     </message>
@@ -2487,7 +2519,7 @@ No selected file for required option</source>
   <context>
     <name>MainWindow</name>
     <message>
-      <location filename="../../gui/main_window.py" line="148"/>
+      <location filename="../../gui/main_window.py" line="153"/>
       <source>Warning: You are on iOS 26 beta.
 
 This has been known to cause problems and potentially lead to bootloops.
@@ -2500,9 +2532,22 @@ Use at your own risk!</source>
 Используйте на свой страх и риск</translation>
     </message>
     <message>
-      <location filename="../../gui/main_window.py" line="34"/>
+      <location filename="../../gui/main_window.py" line="36"/>
       <source>None</source>
       <translation>Ничего</translation>
+    </message>
+  </context>
+  <context>
+    <name>ResetDialog</name>
+    <message>
+      <location filename="../../gui/pages/reset_dialog.py" line="19"/>
+      <source>Reset Page Tweaks</source>
+      <translation>Cбросить настройки страницы</translation>
+    </message>
+    <message>
+      <location filename="../../gui/pages/reset_dialog.py" line="22"/>
+      <source>Select the pages you would like to reset.</source>
+      <translation>Выберите страницы, которые вы хотите сбросить.</translation>
     </message>
   </context>
 </TS>
