@@ -340,9 +340,20 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
             bldb_server_prefix = f"{server_prefix}/tmp.BLDatabaseManager.sqlite"
         else:
-            bldb_server_prefix = "https://github.com/leminlimez/Nugget/raw/refs/heads/main/.on_device_remote_files/BLDatabaseManager-mga"
-            if any(file.restore_path.endswith("com.apple.iokit.IOMobileGraphicsFamily.plist") for file in files):
-                bldb_server_prefix += "+iokit"
+            bldb_server_prefix = "https://github.com/leminlimez/Nugget/raw/refs/heads/main/.on_device_remote_files/BLDatabaseManager"
+            # fetch the github files for it
+            combine_char = '-'
+            # MobileGestalt file
+            if any(file.restore_path.endswith("com.apple.MobileGestalt.plist") for file in files):
+                bldb_server_prefix += f"{combine_char}mga"
+                combine_char = "+"
+                # iokit (resolution) file
+                # only works if mobilegestalt is being applied
+                if any(file.restore_path.endswith("com.apple.iokit.IOMobileGraphicsFamily.plist") for file in files):
+                    bldb_server_prefix += f"{combine_char}iokit"
+            # Feature Flags file
+            if any(file.restore_path.endswith("Global.plist") for file in files):
+                bldb_server_prefix += f"{combine_char}ff"
             bldb_server_prefix += ".sqlite"
         cursor.execute(f"""
         UPDATE asset

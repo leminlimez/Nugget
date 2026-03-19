@@ -12,6 +12,7 @@ class FileLocation(Enum):
     springboard = "/var/Managed Preferences/mobile/com.apple.springboard.plist"
     footnote = "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/SharedDeviceConfiguration.plist"
     airdrop = "/var/Managed Preferences/mobile/com.apple.sharingd.plist"
+    nanoregistry = "/var/mobile/Library/Preferences/com.apple.NanoRegistry.plist"
     
     # Internal Options
     globalPreferences = "/var/Managed Preferences/mobile/.GlobalPreferences.plist"

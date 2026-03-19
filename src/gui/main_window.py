@@ -21,7 +21,7 @@ from src.restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreAp
 
 from src.tweaks.tweaks import tweaks, TweakID
 
-App_Version = "7.2"
+App_Version = "7.3"
 App_Build = 0
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -88,6 +88,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.refreshBtn.clicked.connect(self.refresh_devices)
         self.ui.devicePicker.currentIndexChanged.connect(self.change_selected_device)
+
+        # disable video features if OpenCV isn't working properly
+        if not video_handler.cv2_successful:
+            self.ui.videoPageBtn.hide()
 
         ## SIDE BAR ACTIONS
         self.ui.homePageBtn.clicked.connect(self.on_homePageBtn_clicked)
@@ -377,6 +381,14 @@ class MainWindow(QtWidgets.QMainWindow):
                     self.ui.pages.setCurrentIndex(Page.Templates.value)
                     self.ui.templatePageBtn.setChecked(True)
                     self.ui.homePageBtn.setChecked(False)
+
+            # hide posterboard on iOS 26.4b3+
+            # lazy hiding method that has a lot of issues, but will probably get it working again
+            device_build = self.device_manager.get_current_device_build()
+            if device_ver < Version("26.4") or device_build == "23E5207q" or device_build == "23E5218e":
+                self.ui.posterboardPageBtn.show()
+            else:
+                self.ui.posterboardPageBtn.hide()
         else:
             self.device_manager.set_current_device(index=None)
             self.update_mga_label()
@@ -394,6 +406,7 @@ class MainWindow(QtWidgets.QMainWindow):
             risky_tweaks = self.settings.value("show_risky_tweaks", False, type=bool)
             ignore_frame_limit = self.settings.value("ignore_pb_frame_limit", False, type=bool)
             disable_tendies_limit = self.settings.value("disable_tendies_limit", False, type=bool)
+            auto_refresh_posterboard = self.settings.value("auto_refresh_posterboard", True, type=bool)
             show_all_spoofable = self.settings.value("show_all_spoofable_models", False, type=bool)
             restore_truststore = self.settings.value("restore_truststore", False, type=bool)
 
@@ -409,6 +422,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.showRiskyChk.setChecked(risky_tweaks)
             self.ui.ignorePBFrameLimitChk.setChecked(ignore_frame_limit)
             self.ui.disableTendiesLimitChk.setChecked(disable_tendies_limit)
+            self.ui.forcePBRefreshChk.setChecked(auto_refresh_posterboard)
             self.ui.showAllSpoofableChk.setChecked(show_all_spoofable)
             self.ui.trustStoreChk.setChecked(restore_truststore)
             
@@ -431,6 +445,7 @@ class MainWindow(QtWidgets.QMainWindow):
             video_handler.set_ignore_frame_limit(ignore_frame_limit)
             self.device_manager.pref_manager.show_all_spoofable_models = show_all_spoofable
             self.device_manager.pref_manager.disable_tendies_limit = disable_tendies_limit
+            self.device_manager.pref_manager.auto_refresh_posterboard = auto_refresh_posterboard
             self.device_manager.pref_manager.restore_truststore = restore_truststore
             self.device_manager.pref_manager.bookrestore_apply_mode = BookRestoreApplyMethod(br_apply_mode)
             self.device_manager.pref_manager.bookrestore_transfer_mode = BookRestoreFileTransferMethod(br_transfer_mode)

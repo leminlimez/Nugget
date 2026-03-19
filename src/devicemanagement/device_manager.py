@@ -630,7 +630,9 @@ class DeviceManager:
                         files_to_restore=files_to_restore,
                         output_dir=fix_windows_path(tmp_dirs[len(tmp_dirs)-1].name),
                         templates=tweaks[TweakID.Templates].templates,
-                        version=self.get_current_device_version(), update_label=update_label
+                        version=self.get_current_device_version(),
+                        force_pb_refresh=self.pref_manager.auto_refresh_posterboard,
+                        update_label=update_label
                     )
                     if tweak.uses_domains():
                         uses_domains = True

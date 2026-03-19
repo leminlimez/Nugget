@@ -655,7 +655,7 @@ Please be careful!</source>
     </message>
     <message>
       <location filename="../mainwindow.ui" line="3689"/>
-      <location filename="../mainwindow.ui" line="8132"/>
+      <location filename="../mainwindow.ui" line="8169"/>
       <source>Modify</source>
       <translation>修改</translation>
     </message>
@@ -1030,129 +1030,129 @@ Please be careful!</source>
       <translation>脚注文本</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6174"/>
+      <location filename="../mainwindow.ui" line="6211"/>
       <source>Disable Lock After Respring</source>
       <translation>Respring 后禁用锁定</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6208"/>
+      <location filename="../mainwindow.ui" line="6245"/>
       <source>Disable Screen Dimming While Charging</source>
       <translation>禁用充电时屏幕变暗</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6242"/>
+      <location filename="../mainwindow.ui" line="6279"/>
       <source>Disable Low Battery Alerts</source>
       <translation>禁用低电量警告</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6295"/>
+      <location filename="../mainwindow.ui" line="6332"/>
       <source>Removes '&lt; PreviousAppName' glyph in Status Bar when being forwarded to another app.</source>
       <translation>在将状态列中的‘&lt; PreviousAppName’字形转发到另一个 App 时删除该字形。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6313"/>
+      <location filename="../mainwindow.ui" line="6350"/>
       <source>Disable Breadcrumbs</source>
       <translation>禁用返回按钮</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6332"/>
+      <location filename="../mainwindow.ui" line="6369"/>
       <source>Shows info about the device supervision status and organization at the bottom of the lock screen.</source>
       <translation>在锁定屏幕底部显示有关设备监督状态和组织的信息。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6350"/>
+      <location filename="../mainwindow.ui" line="6387"/>
       <source>Show Supervision Text on Lock Screen</source>
       <translation>在锁定屏幕上显示监督文本</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6452"/>
+      <location filename="../mainwindow.ui" line="6489"/>
       <source>Enable AirPlay support for Stage Manager</source>
       <translation>为“台前调度”启用“隔空播放”支持</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6640"/>
+      <location filename="../mainwindow.ui" line="6677"/>
       <source>Internal Options</source>
       <translation>内部选项</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6793"/>
+      <location filename="../mainwindow.ui" line="6830"/>
       <source>Show Build Version in Status Bar</source>
       <translation>在状态栏中显示构建版本</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6827"/>
+      <location filename="../mainwindow.ui" line="6864"/>
       <source>Force Right-to-Left Layout</source>
       <translation>强制从右到左布局</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7372"/>
+      <location filename="../mainwindow.ui" line="7409"/>
       <source>Show Touches With Debug Info</source>
       <translation>显示带有调试信息的触摸</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7406"/>
+      <location filename="../mainwindow.ui" line="7443"/>
       <source>Hide Respring Icon</source>
       <translation>隐藏 Respring 图标</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7440"/>
+      <location filename="../mainwindow.ui" line="7477"/>
       <source>Vibrate on Raise-to-Wake</source>
       <translation>抬起唤醒时震动</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7489"/>
+      <location filename="../mainwindow.ui" line="7526"/>
       <source>Play Sound on Paste</source>
       <translation>在粘贴时播放声音</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7523"/>
+      <location filename="../mainwindow.ui" line="7560"/>
       <source>Show Notifications for System Pastes</source>
       <translation>显示系统粘贴的通知</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8125"/>
-      <location filename="../mainwindow.ui" line="10356"/>
+      <location filename="../mainwindow.ui" line="8162"/>
+      <location filename="../mainwindow.ui" line="10393"/>
       <source>Daemons</source>
       <translation>守护进程</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8173"/>
+      <location filename="../mainwindow.ui" line="8210"/>
       <source>Note: Even on Sparserestore versions, this uses regular domains. Skip Setup will be applied if you have
 it enabled.</source>
       <translation>注意：即使在 Sparserestore 版本上，此操作仍会使用常规域。如果你启用了“跳过安装程序”，此选项将会被应用。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8202"/>
+      <location filename="../mainwindow.ui" line="8239"/>
       <source>Stops over-the-air updates to prevent auto-downloads.</source>
       <translation>禁用 OTA 更新以防止自动下载。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8205"/>
+      <location filename="../mainwindow.ui" line="8242"/>
       <source>Disable OTA</source>
       <translation>禁用 OTA</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8215"/>
+      <location filename="../mainwindow.ui" line="8252"/>
       <source>Disables usage tracking for improved privacy.</source>
       <translation>禁用使用跟踪以提高隐私性。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8218"/>
+      <location filename="../mainwindow.ui" line="8255"/>
       <source>Disable UsageTrackingAgent</source>
       <translation>禁用用量追蹤助手</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8228"/>
+      <location filename="../mainwindow.ui" line="8265"/>
       <source>Disables Screen Time monitoring features.</source>
       <translation>禁用屏幕时间监控功能。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8231"/>
+      <location filename="../mainwindow.ui" line="8268"/>
       <source>Disable Screen Time Agent</source>
       <translation>禁用屏幕时间助手</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8241"/>
+      <location filename="../mainwindow.ui" line="8278"/>
       <source>Deletes the Screen Time Agent preferences file to prevent app lockout set via iCloud.
 
 To work properly, also disable the daemon using the toggle above.</source>
@@ -1161,218 +1161,218 @@ To work properly, also disable the daemon using the toggle above.</source>
 为了此功能正常工作，你还需要使用上面的开关来禁用守护进程。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8246"/>
+      <location filename="../mainwindow.ui" line="8283"/>
       <source>Clear ScreenTimeAgent.plist file</source>
       <translation>清除 ScreenTimeAgent.plist 文件</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8256"/>
+      <location filename="../mainwindow.ui" line="8293"/>
       <source>Stops logs, dumps, and crash reports collection.</source>
       <translation>停止日志、转储和崩溃报告收集。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8259"/>
+      <location filename="../mainwindow.ui" line="8296"/>
       <source>Disable Logs, Dumps, and Crash Reports</source>
       <translation>禁用日志、转储和崩溃报告</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8282"/>
+      <location filename="../mainwindow.ui" line="8319"/>
       <source>Disables pinging to sleeping bluetooth devices for improved battery life.</source>
       <translation>禁用对休眠蓝牙设备的 ping 作，以延长电池寿命。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8285"/>
+      <location filename="../mainwindow.ui" line="8322"/>
       <source>Disable ATWAKEUP</source>
       <translation>禁用 ATWAKEUP</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8310"/>
+      <location filename="../mainwindow.ui" line="8347"/>
       <source>Turns off Game Center background services.</source>
       <translation>关闭 Game Center 后台服务。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8313"/>
+      <location filename="../mainwindow.ui" line="8350"/>
       <source>Disable Game Center</source>
       <translation>禁用 Game Center</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8323"/>
+      <location filename="../mainwindow.ui" line="8360"/>
       <source>Disables the Tips service and notifications.</source>
       <translation>禁用“提示”服务和通知。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8326"/>
+      <location filename="../mainwindow.ui" line="8363"/>
       <source>Disable Tips Services</source>
       <translation>禁用“提示”服务</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8336"/>
+      <location filename="../mainwindow.ui" line="8373"/>
       <source>Disables the Virtual Private Network service.</source>
       <translation>禁用虚拟专用网络服务。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8339"/>
+      <location filename="../mainwindow.ui" line="8376"/>
       <source>Disable VPN Service</source>
       <translation>禁用 VPN 服务</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8349"/>
+      <location filename="../mainwindow.ui" line="8386"/>
       <source>Disables the service that deals with errors with WiFi networks with Chinese characters in the name.</source>
       <translation>禁用处理名称中包含中文字符的 Wi-Fi 网络错误的服务。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8352"/>
+      <location filename="../mainwindow.ui" line="8389"/>
       <source>Disable Chinese WLAN Service</source>
       <translation>禁用中国 WLAN 服务</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8362"/>
+      <location filename="../mainwindow.ui" line="8399"/>
       <source>Disables HealthKit services used by the health app.</source>
       <translation>禁用“健康”App 使用的 HealthKit 服务。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8365"/>
+      <location filename="../mainwindow.ui" line="8402"/>
       <source>Disable HealthKit</source>
       <translation>禁用 HealthKit</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8390"/>
+      <location filename="../mainwindow.ui" line="8427"/>
       <source>Disable AirPrint</source>
       <translation>禁用“隔空打印”(AirPrint)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8400"/>
+      <location filename="../mainwindow.ui" line="8437"/>
       <source>Disable Assistive Touch</source>
       <translation>禁用辅助触控</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8410"/>
+      <location filename="../mainwindow.ui" line="8447"/>
       <source>Disable iCloud</source>
       <translation>禁用 iCloud</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8420"/>
+      <location filename="../mainwindow.ui" line="8457"/>
       <source>Disable Internet Tethering (Hotspot)</source>
       <translation>禁用 Internet 网络共享（个人热点）</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8430"/>
+      <location filename="../mainwindow.ui" line="8467"/>
       <source>Disable Passbook</source>
       <translation>禁用 Passbook（即“钱包”）</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8440"/>
+      <location filename="../mainwindow.ui" line="8477"/>
       <source>Disable Spotlight</source>
       <translation>禁用“聚焦”(Spotlight)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8450"/>
+      <location filename="../mainwindow.ui" line="8487"/>
       <source>Disable Voice Control</source>
       <translation>禁用语音控制</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8561"/>
+      <location filename="../mainwindow.ui" line="8598"/>
       <source>Posterboard</source>
       <translation>PosterBoard</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8603"/>
+      <location filename="../mainwindow.ui" line="8640"/>
       <source>   Discover Wallpapers</source>
       <translation>   发现墙纸</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8697"/>
+      <location filename="../mainwindow.ui" line="8734"/>
       <source>  Tendies</source>
       <translation>  Tendies</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8720"/>
+      <location filename="../mainwindow.ui" line="8757"/>
       <source>   Templates</source>
       <translation>   模板</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8746"/>
+      <location filename="../mainwindow.ui" line="8783"/>
       <source>   Video</source>
       <translation>   视频</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8776"/>
+      <location filename="../mainwindow.ui" line="8813"/>
       <source>Clear Action:</source>
       <translation>清除动作：</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8835"/>
-      <location filename="../mainwindow.ui" line="8925"/>
-      <location filename="../mainwindow.ui" line="9347"/>
-      <location filename="../mainwindow.ui" line="9686"/>
+      <location filename="../mainwindow.ui" line="8872"/>
+      <location filename="../mainwindow.ui" line="8962"/>
+      <location filename="../mainwindow.ui" line="9384"/>
+      <location filename="../mainwindow.ui" line="9723"/>
       <source>Select a wallpaper file with the .tendies extension.</source>
       <translation>选择扩展名为 .tendies 的墙纸文件。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8841"/>
+      <location filename="../mainwindow.ui" line="8878"/>
       <source>  Import Files (.tendies)</source>
       <translation>  导入文件 （.tendies）</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8931"/>
-      <location filename="../mainwindow.ui" line="9353"/>
+      <location filename="../mainwindow.ui" line="8968"/>
+      <location filename="../mainwindow.ui" line="9390"/>
       <source>  Import Templates (.batter)</source>
       <translation>  导入模板 （.batter）</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8991"/>
+      <location filename="../mainwindow.ui" line="9028"/>
       <source>Uses the CoreAnimation file to play the video (300 fps limit)
 Will show up in Collections</source>
       <translation>使用 CoreAnimation 文件播放视频（限制 300 帧）
 会显示在收藏中</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8995"/>
+      <location filename="../mainwindow.ui" line="9032"/>
       <source>Loop (use CoreAnimation method)</source>
       <translation>循环（使用 CoreAnimation 方法）</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9008"/>
+      <location filename="../mainwindow.ui" line="9045"/>
       <source>Reverse on Loop</source>
       <translation>反向循环</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9018"/>
+      <location filename="../mainwindow.ui" line="9055"/>
       <source>Make Foreground (hides clock)</source>
       <translation>设为前景（隐藏时钟）</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9097"/>
+      <location filename="../mainwindow.ui" line="9134"/>
       <source>Choose a photo for the wallpaper to freeze on when finished (.heic files only)</source>
       <translation>选择墙纸完成后要冻结的照片（仅限 .heic 文件）</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9100"/>
+      <location filename="../mainwindow.ui" line="9137"/>
       <source>Choose Freeze Frame (.HEIC)</source>
       <translation>选择冻结帧 (.HEIC)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9110"/>
+      <location filename="../mainwindow.ui" line="9147"/>
       <source>Choose a video file for the wallpaper (.mov or .mp4)</source>
       <translation>为墙纸选择视频文件（.mov 或 .mp4）</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9113"/>
+      <location filename="../mainwindow.ui" line="9150"/>
       <source>Choose Video</source>
       <translation>选择视频</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9261"/>
+      <location filename="../mainwindow.ui" line="9298"/>
       <source>Templates</source>
       <translation>模板</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9810"/>
+      <location filename="../mainwindow.ui" line="9847"/>
       <source>Risky Options</source>
       <translation>风险选项</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9885"/>
+      <location filename="../mainwindow.ui" line="9922"/>
       <source>Disclaimer:
 
 The options on this page may be unsafe for your device. Use these options at your own risk. Changing
@@ -1386,17 +1386,17 @@ Nugget is not responsible if you mess up your device, especially with resolution
 如果你弄坏了你的设备，尤其是使用分辨率转换器，Nugget 概不负责。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9915"/>
+      <location filename="../mainwindow.ui" line="9952"/>
       <source>Uses the file method. Recommended to disable the daemon instead in the Daemons tab.</source>
       <translation>使用文件方法。建议在守护程序选项卡中禁用守护程序。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9918"/>
+      <location filename="../mainwindow.ui" line="9955"/>
       <source>Disable OTA Updates (file)</source>
       <translation>禁用 OTA 更新（文件）</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9928"/>
+      <location filename="../mainwindow.ui" line="9965"/>
       <source>Disables temperature monitoring daemon to reduce system checks.
 
 Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified" in Settings.</source>
@@ -1405,127 +1405,127 @@ Warning: Disabling will cause the battery to show "Unknown Part" or "Unverified"
 警告： 禁用将导致电池在“设置”中显示“未知部件”或“未验证”。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9933"/>
+      <location filename="../mainwindow.ui" line="9970"/>
       <source>Disable thermalmonitord</source>
       <translation>禁用温控</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9958"/>
+      <location filename="../mainwindow.ui" line="9995"/>
       <source>Set a custom device screen resolution.</source>
       <translation>设置自定义设备屏幕分辨率。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9961"/>
+      <location filename="../mainwindow.ui" line="9998"/>
       <source>Set a Custom Device Resolution</source>
       <translation>设置自定义设备分辨率</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9989"/>
+      <location filename="../mainwindow.ui" line="10026"/>
       <source>Height:</source>
       <translation>高度：</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10004"/>
+      <location filename="../mainwindow.ui" line="10041"/>
       <source>Resolution Height</source>
       <translation>分辨率高度</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10045"/>
+      <location filename="../mainwindow.ui" line="10082"/>
       <source>Width:</source>
       <translation>宽度：</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10062"/>
+      <location filename="../mainwindow.ui" line="10099"/>
       <source>Resolution Width</source>
       <translation>分辨率宽度</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10202"/>
+      <location filename="../mainwindow.ui" line="10239"/>
       <source>Miscellaneous Options</source>
       <translation>其他选项</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10315"/>
+      <location filename="../mainwindow.ui" line="10352"/>
       <source>Springboard</source>
       <translation>跳板</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10388"/>
+      <location filename="../mainwindow.ui" line="10425"/>
       <source>Internal</source>
       <translation>内部</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10420"/>
+      <location filename="../mainwindow.ui" line="10457"/>
       <source>Risky</source>
       <translation>风险</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10575"/>
+      <location filename="../mainwindow.ui" line="10612"/>
       <source>Apply</source>
       <translation>应用</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10667"/>
+      <location filename="../mainwindow.ui" line="10704"/>
       <source>Current gestalt file location:</source>
       <translation>当前 Gestalt 文件位置：</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10698"/>
+      <location filename="../mainwindow.ui" line="10735"/>
       <source>  Choose Gestalt File</source>
       <translation>  选择 Mobile Gestalt（移动设备信息）文件</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10732"/>
+      <location filename="../mainwindow.ui" line="10769"/>
       <source>  Apply Changes</source>
       <translation>  应用更改</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10749"/>
+      <location filename="../mainwindow.ui" line="10786"/>
       <source>Ready!</source>
       <translation>准备就绪！</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10787"/>
+      <location filename="../mainwindow.ui" line="10824"/>
       <source>Note: Skip Setup is currently turned on.</source>
       <translation>注意：“跳过安装程序”当前处于开启状态。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10945"/>
+      <location filename="../mainwindow.ui" line="10982"/>
       <source>Nugget Settings</source>
       <translation>Nugget 设置</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11188"/>
+      <location filename="../mainwindow.ui" line="11225"/>
       <source>Allow Applying Over WiFi</source>
       <translation>允许通过 Wi-Fi 应用</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11201"/>
+      <location filename="../mainwindow.ui" line="11238"/>
       <source>Auto Reboot After Applying</source>
       <translation>应用后自动重启</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11214"/>
+      <location filename="../mainwindow.ui" line="11251"/>
       <source>Show Risky Tweak Options</source>
       <translation>显示有风险的调整选项</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11224"/>
+      <location filename="../mainwindow.ui" line="11261"/>
       <source>Show models for other device types in the AI device spoofing tab.</source>
       <translation>（AI 设备欺骗） 选项卡中显示其他设备类型的模型。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11233"/>
+      <location filename="../mainwindow.ui" line="11270"/>
       <source>Show All Spoofable Models</source>
       <translation>显示所有可伪装机型</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11243"/>
+      <location filename="../mainwindow.ui" line="11280"/>
       <source>Ignore Posterboard Frame Limit</source>
       <translation>忽略 PosterBoard 的帧数限制</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11253"/>
+      <location filename="../mainwindow.ui" line="11290"/>
       <source>Disables the tendies file limit of 2. There is still the descriptor limit.
 
 DO NOT unplug your device during restores.</source>
@@ -1534,47 +1534,47 @@ DO NOT unplug your device during restores.</source>
 请勿在还原期间拔下设备数据线。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11258"/>
+      <location filename="../mainwindow.ui" line="11295"/>
       <source>Disable Tendies Limit</source>
       <translation>禁用 Tendies 限制</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11447"/>
+      <location filename="../mainwindow.ui" line="11494"/>
       <source>Restores the SSL config that does something idk</source>
       <translation>恢复 SSL 配置（具体作用未知）</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11450"/>
+      <location filename="../mainwindow.ui" line="11497"/>
       <source>Restore TrustStore (SSL Configuration Profiles)</source>
       <translation>恢复 TrustStore（SSL 配置文件）</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11463"/>
+      <location filename="../mainwindow.ui" line="11510"/>
       <source>Skip Setup * (non-exploit files only)</source>
       <translation>跳过安装程序*（仅限非利用漏洞的文件）</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11479"/>
+      <location filename="../mainwindow.ui" line="11526"/>
       <source>Enable Supervision * (requires Skip Setup)</source>
       <translation>启用监督*（开关此选项时都需启用“跳过安装程序”）</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11489"/>
+      <location filename="../mainwindow.ui" line="11536"/>
       <source>Enter Organization Name</source>
       <translation>输入组织名称</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11512"/>
+      <location filename="../mainwindow.ui" line="11559"/>
       <source>* Note: Skip Setup may cause issues with configuration profiles. Turn it off if you need that.</source>
       <translation>* 注意：“跳过安装程序”可能会导致配置文件出现问题。如果需要，请将其关闭。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11539"/>
+      <location filename="../mainwindow.ui" line="11586"/>
       <source>Reset Device Pairing</source>
       <translation>重置设备配对</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11553"/>
+      <location filename="../mainwindow.ui" line="11600"/>
       <source>Pocket Poster Helper</source>
       <translation>Pocket Poster 助手</translation>
     </message>
@@ -1583,7 +1583,7 @@ DO NOT unplug your device during restores.</source>
       <location filename="../mainwindow.ui" line="1282"/>
       <location filename="../mainwindow.ui" line="1309"/>
       <location filename="../mainwindow.ui" line="1337"/>
-      <location filename="../mainwindow.ui" line="8629"/>
+      <location filename="../mainwindow.ui" line="8666"/>
       <source>...</source>
       <translation>...</translation>
     </message>
@@ -1609,17 +1609,17 @@ DO NOT unplug your device during restores.</source>
       <translation>状态栏日期文本</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11142"/>
+      <location filename="../mainwindow.ui" line="11179"/>
       <source>App Language</source>
       <translation>App 语言</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9136"/>
+      <location filename="../mainwindow.ui" line="9173"/>
       <source>   Export as .tendies</source>
       <translation>导出为 .tendies</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10841"/>
+      <location filename="../mainwindow.ui" line="10878"/>
       <source>Remove Tweaks</source>
       <translation>移除修改的项目</translation>
     </message>
@@ -1629,92 +1629,92 @@ DO NOT unplug your device during restores.</source>
       <translation>锁屏画面的自动锁定时间</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6276"/>
+      <location filename="../mainwindow.ui" line="6313"/>
       <source>Hide AC Power on Lock Screen</source>
       <translation>隐藏锁定屏幕的充电信息</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6384"/>
+      <location filename="../mainwindow.ui" line="6421"/>
       <source>Show Dynamic Island in Screenshots</source>
       <translation>在截屏中显示灵动岛</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6501"/>
+      <location filename="../mainwindow.ui" line="6538"/>
       <source>Show Red/Green Authentication Line on Lock Screen</source>
       <translation>在锁屏界面显示红/绿认证状态线</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6542"/>
+      <location filename="../mainwindow.ui" line="6579"/>
       <source>Disable Floating Tab Bar</source>
       <translation>禁用悬浮标签页栏</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6861"/>
+      <location filename="../mainwindow.ui" line="6898"/>
       <source>Force Left-to-Right Layout</source>
       <translation>强制从左到右布局</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6880"/>
+      <location filename="../mainwindow.ui" line="6917"/>
       <source>Shows hidden apps like Field Test and Continuity on the home screen</source>
       <translation>在主屏幕上显示隐藏的 App，例如“现场测试”(Field Test)和“连续互通”(Continuity)。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6898"/>
+      <location filename="../mainwindow.ui" line="6935"/>
       <source>Show Hidden Icons on Home Screen</source>
       <translation>显示在主屏幕上隐藏的图标</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6917"/>
+      <location filename="../mainwindow.ui" line="6954"/>
       <source>Enables the iPad-style keyboard keyflicks on iPhones</source>
       <translation>在 iPhone 上启用 iPad 风格的键盘按键</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7240"/>
+      <location filename="../mainwindow.ui" line="7277"/>
       <source>Show Accessory Developer Settings</source>
       <translation>“配件开发者”设置页面</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8269"/>
+      <location filename="../mainwindow.ui" line="8306"/>
       <source>Disables tools that monitor and test hardware or system behavior for faults and performance issues.</source>
       <translation>禁用用于监测和测试硬件或系统行为以查找故障和性能问题的工具。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8272"/>
+      <location filename="../mainwindow.ui" line="8309"/>
       <source>Disable System Diagnostics</source>
       <translation>禁用系统诊断功能</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8460"/>
+      <location filename="../mainwindow.ui" line="8497"/>
       <source>Disable NanoTimeKit (Apple Watch Face Sync)</source>
       <translation>禁用 NanoTimeKit（Apple Watch 表盘同步）</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9025"/>
+      <location filename="../mainwindow.ui" line="9062"/>
       <source>Frame Calculation Mode</source>
       <translation>帧计算模式</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9079"/>
+      <location filename="../mainwindow.ui" line="9116"/>
       <source>Linear</source>
       <translation>线性</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="9084"/>
+      <location filename="../mainwindow.ui" line="9121"/>
       <source>Discrete</source>
       <translation>离散</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7814"/>
+      <location filename="../mainwindow.ui" line="7851"/>
       <source>Disable Liquid Glass</source>
       <translation>禁用 Liquid Glass（液态玻璃）</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7833"/>
+      <location filename="../mainwindow.ui" line="7870"/>
       <source>Enables liquid glass on apps regardless of whether or not it has been updated to include it</source>
       <translation>无论 App 是否已更新支持 Liquid Glass，均可在 App 上启用液态玻璃</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7851"/>
+      <location filename="../mainwindow.ui" line="7888"/>
       <source>Ignore Liquid Glass App Build Check</source>
       <translation>忽略 Liquid Glass App 的构建检查</translation>
     </message>
@@ -1729,93 +1729,93 @@ DO NOT unplug your device during restores.</source>
       <translation>iPhone 17 (iPhone18,3)</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6140"/>
+      <location filename="../mainwindow.ui" line="6177"/>
       <source>Disable AirDrop Time Limit for Everyone Option</source>
       <translation>禁用“隔空投送”在“所有人”模式下的时间限制选项</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6935"/>
+      <location filename="../mainwindow.ui" line="6972"/>
       <source>Keyboard Character Flick</source>
       <translation>键盘字符滑动输入</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6984"/>
+      <location filename="../mainwindow.ui" line="7021"/>
       <source>Disable Clock Icon Seconds Hand</source>
       <translation>禁用“时钟” App 图标的秒针</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7018"/>
+      <location filename="../mainwindow.ui" line="7055"/>
       <source>Disable Spotlight Searching in Websites</source>
       <translation>禁用“聚焦”(Spotlight)的联网搜索</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7052"/>
+      <location filename="../mainwindow.ui" line="7089"/>
       <source>Show Hardware Button Hints in Screenshots</source>
       <translation>在截图中显示硬件按钮提示</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7104"/>
+      <location filename="../mainwindow.ui" line="7141"/>
       <source>Metal HUD Debug</source>
       <translation>图形 HUD 调试</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7138"/>
+      <location filename="../mainwindow.ui" line="7175"/>
       <source>iMessage Debugging</source>
       <translation>iMessage 信息调试</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7172"/>
+      <location filename="../mainwindow.ui" line="7209"/>
       <source>Continuity Debugging</source>
       <translation>“连续互通”调试</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7206"/>
+      <location filename="../mainwindow.ui" line="7243"/>
       <source>FaceTime Debugging</source>
       <translation>FaceTime 通话调试</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7289"/>
+      <location filename="../mainwindow.ui" line="7326"/>
       <source>App Store Debug Gesture</source>
       <translation>App Store 调试手势</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7323"/>
+      <location filename="../mainwindow.ui" line="7360"/>
       <source>Notes Debug Mode</source>
       <translation>“备忘录”App 调试模式</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7621"/>
-      <location filename="../mainwindow.ui" line="10446"/>
+      <location filename="../mainwindow.ui" line="7658"/>
+      <location filename="../mainwindow.ui" line="10483"/>
       <source>Liquid Glass</source>
       <translation>Liquid Glass</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7780"/>
+      <location filename="../mainwindow.ui" line="7817"/>
       <source>Force Solarium Fallback</source>
       <translation>强制使用 Solarium 备用方案</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7891"/>
+      <location filename="../mainwindow.ui" line="7928"/>
       <source>Disable Liquid Glass on LS Clock</source>
       <translation>关闭锁屏时钟上的 Liquid Glass 效果</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7925"/>
+      <location filename="../mainwindow.ui" line="7962"/>
       <source>Disable Liquid Glass on Dock</source>
       <translation>禁用“程序坞”上的 Liquid Glass</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7959"/>
+      <location filename="../mainwindow.ui" line="7996"/>
       <source>Disable Specular Motion</source>
       <translation>禁用镜面动态效果</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="7993"/>
+      <location filename="../mainwindow.ui" line="8030"/>
       <source>Disable Outer Refraction</source>
       <translation>禁用外部折射效果</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="8027"/>
+      <location filename="../mainwindow.ui" line="8064"/>
       <source>Disable Solarium HDR</source>
       <translation>关闭 Solarium 的高动态范围（HDR）效果</translation>
     </message>
@@ -1842,49 +1842,49 @@ bl_sbx</translation>
       <translation>启用 iPadOS（警告：有风险，请谨慎使用）</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11300"/>
+      <location filename="../mainwindow.ui" line="11347"/>
       <source>BookRestore Apply Method</source>
       <translation>BookRestore 应用方法</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11335"/>
+      <location filename="../mainwindow.ui" line="11382"/>
       <source>   Restore</source>
       <translation>   恢复</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11350"/>
+      <location filename="../mainwindow.ui" line="11397"/>
       <source>BookRestore File Transfer Method</source>
       <translation>BookRestore 文件传输方法</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11383"/>
+      <location filename="../mainwindow.ui" line="11430"/>
       <source>   LocalHost</source>
       <translation>   本地主机</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11388"/>
+      <location filename="../mainwindow.ui" line="11435"/>
       <source>   On-Device (Slower)</source>
       <translation>设备端（速度较慢）</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11398"/>
+      <location filename="../mainwindow.ui" line="11445"/>
       <source>Books Container UUID</source>
       <translation>图书容器 UUID</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11405"/>
+      <location filename="../mainwindow.ui" line="11452"/>
       <source>Enter your books container UUID if you know it.
 It will be automatically found if this is left blank.</source>
       <translation>如果你知道图书容器的 UUID，请输入。
 如果留空，将自动检测。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11409"/>
+      <location filename="../mainwindow.ui" line="11456"/>
       <source>Enter Books Container UUID</source>
       <translation>输入书籍容器的 UUID</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="11416"/>
+      <location filename="../mainwindow.ui" line="11463"/>
       <source>* Developer Mode/Administrator permissions required for these options.</source>
       <translation>* 这些选项需要开发者模式/管理员权限。</translation>
     </message>
@@ -1894,12 +1894,12 @@ It will be automatically found if this is left blank.</source>
       <translation>警告：如果你使用的是字母数字混合密码，请不要启用 iPadOS。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10628"/>
+      <location filename="../mainwindow.ui" line="10665"/>
       <source>Administrator permission is required to apply tweaks with AFC.</source>
       <translation>使用 AFC 应用调整需要管理员权限。</translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="10638"/>
+      <location filename="../mainwindow.ui" line="10675"/>
       <source> Restart as Admin</source>
       <translation>以管理员身份重新启动</translation>
     </message>
@@ -1916,23 +1916,23 @@ It will be automatically found if this is left blank.</source>
     <message>
       <location filename="../mainwindow.ui" line="2728"/>
       <source>Create Feature Flags Folder</source>
-      <translation></translation>
+      <translation>Create Feature Flags Folder</translation>
     </message>
     <message>
       <location filename="../mainwindow.ui" line="2735"/>
       <location filename="../mainwindow.ui" line="3255"/>
       <source>^ Enable this if Feature Flag/Eligibility tweaks do not apply</source>
-      <translation></translation>
+      <translation>^ Enable this if Feature Flag/Eligibility tweaks do not apply</translation>
     </message>
     <message>
       <location filename="../mainwindow.ui" line="2763"/>
       <source>Disable Solarium (Liquid Glass) (Feature Flag Method)</source>
-      <translation></translation>
+      <translation>Disable Solarium (Liquid Glass) (Feature Flag Method)</translation>
     </message>
     <message>
       <location filename="../mainwindow.ui" line="2773"/>
       <source>Disable Liquid Glass in Documents Camera</source>
-      <translation></translation>
+      <translation>Disable Liquid Glass in Documents Camera</translation>
     </message>
     <message>
       <location filename="../mainwindow.ui" line="2783"/>
@@ -1942,17 +1942,34 @@ It will be automatically found if this is left blank.</source>
     <message>
       <location filename="../mainwindow.ui" line="2793"/>
       <source>Enable Kiosk Mode</source>
-      <translation></translation>
+      <translation>Enable Kiosk Mode</translation>
     </message>
     <message>
       <location filename="../mainwindow.ui" line="3248"/>
       <source>Create Eligibility Folder</source>
+      <translation>Create Eligibility Folder</translation>
+    </message>
+    <message>
+      <location filename="../mainwindow.ui" line="6455"/>
+      <source>Hide Dynamic Island Completely</source>
+      <translation>彻底隐藏灵动岛</translation>
+    </message>
+    <message>
+      <location filename="../mainwindow.ui" line="6134"/>
+      <source>Allow pairing with any watchOS version</source>
       <translation></translation>
     </message>
     <message>
-      <location filename="../mainwindow.ui" line="6418"/>
-      <source>Hide Dynamic Island Completely</source>
-      <translation>彻底隐藏灵动岛</translation>
+      <location filename="../mainwindow.ui" line="11302"/>
+      <source>Force PosterBoard Refresh</source>
+      <translation></translation>
+    </message>
+    <message>
+      <location filename="../mainwindow.ui" line="6125"/>
+      <source>Warning: This may cause issues for some iOS and watchOS version combos (such as messages app
+not working).
+Please do not make GitHub issues on Nugget about them, it is not fixable.</source>
+      <translation></translation>
     </message>
   </context>
   <context>
@@ -1986,7 +2003,7 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
       <translation>Nugget v{0} 可用。</translation>
     </message>
     <message>
-      <location filename="../../gui/dialogs.py" line="93"/>
+      <location filename="../../gui/dialogs.py" line="94"/>
       <source>Would you like to go to the download on GitHub?</source>
       <translation>是否要在 GitHub 上下载？</translation>
     </message>
@@ -1999,13 +2016,13 @@ or you've reached the maximum amount of wallpapers (15) and have to wipe them.</
       <translation>请连接设备。</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/main/settings.py" line="215"/>
-      <location filename="../../gui/pages/main/settings.py" line="225"/>
+      <location filename="../../gui/pages/main/settings.py" line="219"/>
+      <location filename="../../gui/pages/main/settings.py" line="229"/>
       <source>PosterBoard App Hash</source>
       <translation>PosterBoard App 哈希</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/main/settings.py" line="215"/>
+      <location filename="../../gui/pages/main/settings.py" line="219"/>
       <source>Your hash has been transferred to the Pocket Poster app.
 
 Open up its settings and tap "Detect".</source>
@@ -2014,17 +2031,17 @@ Open up its settings and tap "Detect".</source>
 打开该 App 的设置并点击“检测”。</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/main/settings.py" line="218"/>
+      <location filename="../../gui/pages/main/settings.py" line="223"/>
       <source>Copy it and paste it</source>
       <translation>复制并粘贴它</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/main/settings.py" line="222"/>
+      <location filename="../../gui/pages/main/settings.py" line="227"/>
       <source>It has been copied. Paste it</source>
       <translation>已复制。请粘贴</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/main/settings.py" line="225"/>
+      <location filename="../../gui/pages/main/settings.py" line="229"/>
       <source>Your hash is:
 {0}
 
@@ -2080,12 +2097,12 @@ Open up its settings and tap "Detect".</source>
       <translation>设备发送文件失败。文件列表可能已损坏或有重复项。单击 Show Details 了解更多信息。</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="116"/>
+      <location filename="../../devicemanagement/device_manager.py" line="117"/>
       <source>If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.</source>
       <translation>如果你正使用的是 Linux版，请确保你已安装 usbmuxd 和 libimobiledevice。</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="118"/>
+      <location filename="../../devicemanagement/device_manager.py" line="119"/>
       <source>Make sure you have the "Apple Devices" app from the Microsoft Store or iTunes from Apple's website.</source>
       <translation>确保你拥有来自 Microsoft Store 的 “Apple 设备” App 或 Apple 网站上的 iTunes。</translation>
     </message>
@@ -2124,12 +2141,12 @@ Unlock your device. On the popup, click "Trust", enter your password, then try a
       <translation>设备的配对已成功重置。请在应用之前刷新设备列表。</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="653"/>
+      <location filename="../../devicemanagement/device_manager.py" line="655"/>
       <source>No mobilegestalt file provided! Please select your file to apply mobilegestalt tweaks.</source>
       <translation>没有提供 MobileGestalt 文件！请选择你的文件以应用 MobileGestalt 调整。</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="558"/>
+      <location filename="../../devicemanagement/device_manager.py" line="559"/>
       <source>Your device will now restart.
 
 Remember to turn Find My back on!</source>
@@ -2138,7 +2155,7 @@ Remember to turn Find My back on!</source>
 记得重新打开“查找”！</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="560"/>
+      <location filename="../../devicemanagement/device_manager.py" line="561"/>
       <source>Please restart your device to see changes.</source>
       <translation>请重新启动设备以查看更改。</translation>
     </message>
@@ -2149,8 +2166,8 @@ Remember to turn Find My back on!</source>
     </message>
     <message>
       <location filename="../../devicemanagement/device_manager.py" line="563"/>
-      <location filename="../../devicemanagement/device_manager.py" line="755"/>
-      <location filename="../../devicemanagement/device_manager.py" line="864"/>
+      <location filename="../../devicemanagement/device_manager.py" line="757"/>
+      <location filename="../../devicemanagement/device_manager.py" line="866"/>
       <source>Success!</source>
       <translation>成功！</translation>
     </message>
@@ -2170,34 +2187,34 @@ Remember to turn Find My back on!</source>
       <translation>部分支持。</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="44"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="46"/>
       <source>Wrong type of file</source>
       <translation>文件类型错误</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="52"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="54"/>
       <source>Warning</source>
       <translation>警告</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="53"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="55"/>
       <source>NOTE: You may need to reset all wallpapers (enable Risky Options in settings) and then re-apply for this file to work.</source>
       <translation>注意：你可能需要重置所有墙纸（在设置中启用风险选项），然后重新申请此文件才能正常工作。</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="70"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="72"/>
       <location filename="../../tweaks/posterboard/template_options/templates_tweak.py" line="40"/>
       <source>Error</source>
       <translation>错误</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="71"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="73"/>
       <location filename="../../tweaks/posterboard/template_options/templates_tweak.py" line="41"/>
       <source>Failed to load template</source>
       <translation>无法加载模板</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="216"/>
+      <location filename="../../devicemanagement/device_manager.py" line="217"/>
       <source>No Device</source>
       <translation>无设备</translation>
     </message>
@@ -2212,63 +2229,63 @@ Remember to turn Find My back on!</source>
       <translation>正在对文件应用更改...</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="258"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="274"/>
       <source>Generating PosterBoard Video...</source>
       <translation>正在生成 PosterBoard 视频...</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="263"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="279"/>
       <source>Extracting tendie {0}...</source>
       <translation>正在提取 tendie {0}...</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="268"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="284"/>
       <source>Configuring template {0}...</source>
       <translation>正在配置模板{0}...</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="271"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="287"/>
       <source>Adding tendies...</source>
       <translation>正在添加 Tendies 文件...</translation>
     </message>
     <message>
-      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="273"/>
+      <location filename="../../tweaks/posterboard/posterboard_tweak.py" line="312"/>
       <source>Adding other tweaks...</source>
       <translation>正在添加其他调整...</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="115"/>
+      <location filename="../../tweaks/tweak_classes.py" line="116"/>
       <source>Revert RDAR fix</source>
       <translation>还原 RDAR 修复</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="116"/>
+      <location filename="../../tweaks/tweak_classes.py" line="117"/>
       <source>RDAR Fix</source>
       <translation>RDAR 修复</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="119"/>
+      <location filename="../../tweaks/tweak_classes.py" line="120"/>
       <source>Revert Status Bar Fix</source>
       <translation>还原状态栏修复</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="120"/>
+      <location filename="../../tweaks/tweak_classes.py" line="121"/>
       <source>Dynamic Island Status Bar Fix</source>
       <translation>灵动岛状态栏修复</translation>
     </message>
     <message>
-      <location filename="../../controllers/video_handler.py" line="103"/>
+      <location filename="../../controllers/video_handler.py" line="110"/>
       <source>Creating {0}...</source>
       <translation>正在创建{0}...</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="665"/>
-      <location filename="../../devicemanagement/device_manager.py" line="775"/>
+      <location filename="../../devicemanagement/device_manager.py" line="667"/>
+      <location filename="../../devicemanagement/device_manager.py" line="777"/>
       <source>Generating backup...</source>
       <translation>正在生成备份...</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="492"/>
+      <location filename="../../devicemanagement/device_manager.py" line="493"/>
       <source>DO NOT UNPLUG</source>
       <translation>请勿与设备断开连接！</translation>
     </message>
@@ -2337,22 +2354,22 @@ You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; D
       <translation>CacheData 中未找到该模式。</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="267"/>
+      <location filename="../../tweaks/tweak_classes.py" line="268"/>
       <source>Right offset out of range.</source>
       <translation>右偏移超出范围。</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="272"/>
+      <location filename="../../tweaks/tweak_classes.py" line="273"/>
       <source>Left offset out of range.</source>
       <translation>左偏移超出范围。</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="280"/>
+      <location filename="../../tweaks/tweak_classes.py" line="281"/>
       <source>Value at %SIDE offset is not 1 or 3.</source>
       <translation>%SIDE 偏移处的值不是 1 或 3。</translation>
     </message>
     <message>
-      <location filename="../../tweaks/tweak_classes.py" line="287"/>
+      <location filename="../../tweaks/tweak_classes.py" line="288"/>
       <source>Values of %SIDE offset neighbors are not 0.</source>
       <translation>%SIDE 偏移附近的值不是 0。</translation>
     </message>
@@ -2362,10 +2379,25 @@ You can enable this at the bottom of Settings &gt; Privacy &amp; Security &gt; D
       <translation>你必须以管理员身份运行该 App 才能使用 BookRestore 的调整功能。</translation>
     </message>
     <message>
-      <location filename="../../devicemanagement/device_manager.py" line="562"/>
+      <location filename="../../devicemanagement/device_manager.py" line="563"/>
       <source>
 
 You should now be able to apply Feature Flags with BookRestore.</source>
+      <translation>You should now be able to apply Feature Flags with BookRestore.</translation>
+    </message>
+    <message>
+      <location filename="../../gui/pages/page.py" line="10"/>
+      <source>Default</source>
+      <translation></translation>
+    </message>
+    <message>
+      <location filename="../../gui/pages/page.py" line="13"/>
+      <source>Enabled</source>
+      <translation></translation>
+    </message>
+    <message>
+      <location filename="../../gui/pages/page.py" line="15"/>
+      <source>Disabled</source>
       <translation></translation>
     </message>
   </context>
@@ -2461,7 +2493,7 @@ No selected file for required option</source>
 没有适用与启用选项的文件</translation>
     </message>
     <message>
-      <location filename="../../gui/pages/tools/gestalt.py" line="77"/>
+      <location filename="../../gui/pages/tools/gestalt.py" line="78"/>
       <source>modifies resolution</source>
       <translation>修改分辨率</translation>
     </message>
@@ -2487,7 +2519,7 @@ No selected file for required option</source>
   <context>
     <name>MainWindow</name>
     <message>
-      <location filename="../../gui/main_window.py" line="148"/>
+      <location filename="../../gui/main_window.py" line="153"/>
       <source>Warning: You are on iOS 26 beta.
 
 This has been known to cause problems and potentially lead to bootloops.
@@ -2500,9 +2532,22 @@ Use at your own risk!</source>
 使用风险自负！</translation>
     </message>
     <message>
-      <location filename="../../gui/main_window.py" line="34"/>
+      <location filename="../../gui/main_window.py" line="36"/>
       <source>None</source>
       <translation>无</translation>
+    </message>
+  </context>
+  <context>
+    <name>ResetDialog</name>
+    <message>
+      <location filename="../../gui/pages/reset_dialog.py" line="19"/>
+      <source>Reset Page Tweaks</source>
+      <translation></translation>
+    </message>
+    <message>
+      <location filename="../../gui/pages/reset_dialog.py" line="22"/>
+      <source>Select the pages you would like to reset.</source>
+      <translation></translation>
     </message>
   </context>
 </TS>

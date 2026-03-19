@@ -222,6 +222,18 @@ def load_springboard():
             FileLocation.footnote,
             key="LockScreenFootnote", value=""
         ),
+        TweakID.WatchOSCompatibility: AdvancedPlistTweak(
+            file_location=FileLocation.nanoregistry,
+            keyValues={
+                "IOS_PAIRING_EOL_MIN_PAIRING_COMPATIBILITY_VERSION_CHIPIDS": "",
+                "maxPairingCompatibilityVersion": 37,
+                "lastRestoreIdentifier": "CD97EEB8-BCD2-486B-BC13-C384E6B916C4", # not sure if this is needed
+                "minPairingCompatibilityVersionWithChipID": 1,
+                "lastRestoreIdentifier_state": 0,
+                "AdvertisingIdentifierSeed": "85E70251-1960-4DA0-A321-B68AC118FAB5", # this prolly isn't needed either
+                "minPairingCompatibilityVersion": 1
+            }
+        ),
         TweakID.AirDropDisableTimeLimit: BasicPlistTweak(
             FileLocation.airdrop,
             "OverrideTimeLimitEveryoneMode"

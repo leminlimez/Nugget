@@ -62,6 +62,7 @@ class TweakID(Enum):
 
     # springboard
     LockScreenFootnote = auto()
+    WatchOSCompatibility = auto()
     AirDropDisableTimeLimit = auto()
     SBDontLockAfterCrash = auto()
     SBDontDimOrLockOnAC = auto()
