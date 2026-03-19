@@ -381,6 +381,14 @@ class MainWindow(QtWidgets.QMainWindow):
                     self.ui.pages.setCurrentIndex(Page.Templates.value)
                     self.ui.templatePageBtn.setChecked(True)
                     self.ui.homePageBtn.setChecked(False)
+
+            # hide posterboard on iOS 26.4b3+
+            # lazy hiding method that has a lot of issues, but will probably get it working again
+            device_build = self.device_manager.get_current_device_build()
+            if device_ver < Version("26.4") or device_build == "23E5207q" or device_build == "23E5218e":
+                self.ui.posterboardPageBtn.show()
+            else:
+                self.ui.posterboardPageBtn.hide()
         else:
             self.device_manager.set_current_device(index=None)
             self.update_mga_label()

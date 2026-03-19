@@ -294,9 +294,6 @@ class PosterboardTweak(Tweak):
             }
             if Version(version) >= Version("26.4"):
                 plist["PersistedPosterContainerBundleIdentifiers"] = [
-                    "com.apple.NanoUniverse.AegirProxyApp",
-                    "com.apple.Posters.KaleidoscopePosterApp",
-                    "com.apple.PridePoster",
                     "com.apple.Posters.CollectionsPosterApp"
                 ]
                 plist["CompletedPosterBundleIdentifierMigrations"] = [
