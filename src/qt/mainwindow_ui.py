@@ -3157,6 +3157,13 @@ class Ui_Nugget(object):
 
         self._2.addWidget(self.lockScreenAutoLockSeparator)
 
+        self.label_66 = QLabel(self.springboardOptionsPageContent)
+        self.label_66.setObjectName(u"label_66")
+        sizePolicy6.setHeightForWidth(self.label_66.sizePolicy().hasHeightForWidth())
+        self.label_66.setSizePolicy(sizePolicy6)
+
+        self._2.addWidget(self.label_66)
+
         self.watchOSChk = QCheckBox(self.springboardOptionsPageContent)
         self.watchOSChk.setObjectName(u"watchOSChk")
 
@@ -6364,6 +6371,9 @@ class Ui_Nugget(object):
         self.footnoteLbl.setText(QCoreApplication.translate("Nugget", u"Lock Screen Footnote Text", None))
         self.footnoteTxt.setPlaceholderText(QCoreApplication.translate("Nugget", u"Footnote Text", None))
         self.lockScreenAutoLockLabel.setText(QCoreApplication.translate("Nugget", u"Auto\u2011Lock (Lock Screen)", None))
+        self.label_66.setText(QCoreApplication.translate("Nugget", u"Warning: This may cause issues for some iOS and watchOS version combos (such as messages app\n"
+"not working).\n"
+"Please do not make GitHub issues on Nugget about them, it is not fixable.", None))
         self.watchOSChk.setText(QCoreApplication.translate("Nugget", u"Allow pairing with any watchOS version", None))
         self.label_46.setText(QCoreApplication.translate("Nugget", u"Disable AirDrop Time Limit for Everyone Option", None))
         self.label_36.setText(QCoreApplication.translate("Nugget", u"Disable Lock After Respring", None))

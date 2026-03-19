@@ -6114,6 +6114,21 @@ QComboBox QAbstractItemView::item:hover {
                       </widget>
                      </item>
                      <item>
+                      <widget class="QLabel" name="label_66">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="text">
+                        <string>Warning: This may cause issues for some iOS and watchOS version combos (such as messages app
+not working).
+Please do not make GitHub issues on Nugget about them, it is not fixable.</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
                       <widget class="QCheckBox" name="watchOSChk">
                        <property name="text">
                         <string>Allow pairing with any watchOS version</string>
