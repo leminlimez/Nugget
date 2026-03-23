@@ -6,6 +6,7 @@ from pymobiledevice3.exceptions import ConnectionTerminatedError
 import os
 import plistlib
 import ssl
+import asyncio
 
 class FileToRestore:
     def __init__(self,
@@ -167,7 +168,7 @@ def restore_files(files: list[FileToRestore], reboot: bool = False, lockdown_cli
                 bundle_id = last_domain.removeprefix("AppDomain-")
                 if not bundle_id in active_bundle_ids:
                     if apps == None:
-                        apps = InstallationProxyService(lockdown=lockdown_client).get_apps(application_type="Any", calculate_sizes=False)
+                        apps = asyncio.run(InstallationProxyService(lockdown=lockdown_client).get_apps(application_type="Any", calculate_sizes=False))
                     app_info = apps[bundle_id]
                     active_bundle_ids.append(bundle_id)
                     apps_list.append(backup.AppBundle(

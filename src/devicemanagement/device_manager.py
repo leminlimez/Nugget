@@ -1,4 +1,5 @@
 import traceback
+import asyncio
 import plistlib
 import time
 from tempfile import TemporaryDirectory
@@ -111,7 +112,7 @@ class DeviceManager:
             self.pref_manager.settings = settings
         # handle errors when failing to get connected devices
         try:
-            connected_devices = usbmux.list_devices()
+            connected_devices = asyncio.run(usbmux.list_devices())
         except Exception:
             sysmsg = QCoreApplication.tr("If you are on Linux, make sure you have usbmuxd and libimobiledevice installed.")
             if os.name == 'nt':
@@ -125,7 +126,7 @@ class DeviceManager:
         for device in connected_devices:
             if self.pref_manager.apply_over_wifi or device.is_usb:
                 try:
-                    ld = create_using_usbmux(serial=device.serial)
+                    ld = asyncio.run(create_using_usbmux(serial=device.serial))
                     vals = ld.all_values
                     model = vals['ProductType']
                     hardware = vals['HardwareModel']
@@ -268,7 +269,7 @@ class DeviceManager:
         self.pref_manager.settings.setValue(self.data_singleton.current_device.udid + "_books_container_uuid", uuid)
         
     def get_app_hashes(self, bundle_ids: list[str]) -> dict:
-        apps = InstallationProxyService(lockdown=self.data_singleton.current_device.ld).get_apps(application_type="Any", calculate_sizes=False)
+        apps = asyncio.run(InstallationProxyService(lockdown=self.data_singleton.current_device.ld).get_apps(application_type="Any", calculate_sizes=False))
         results = {}
         for bundle_id in bundle_ids:
             app_info = apps[bundle_id]
@@ -280,7 +281,7 @@ class DeviceManager:
         with TemporaryDirectory() as tmpdir:
             # get the bundle id of Pocket Poster
             bundle_id = "com.leemin.Pocket-Poster"
-            apps = InstallationProxyService(lockdown=self.data_singleton.current_device.ld).get_apps(application_type="User", calculate_sizes=False)
+            apps = asyncio.run(InstallationProxyService(lockdown=self.data_singleton.current_device.ld).get_apps(application_type="User", calculate_sizes=False))
             for app in apps.values():
                 if app["CFBundleExecutable"] == "Pocket Poster":
                     bundle_id = app["CFBundleIdentifier"]
@@ -295,7 +296,7 @@ class DeviceManager:
                 tmpf = os.path.join(tmpdir, fname)
                 with open(tmpf, "w", encoding='UTF-8') as in_file:
                     in_file.write(hashes[key])
-                afc.push(tmpf, f"/Documents/{fname}")
+                asyncio.run(afc.push(tmpf, f"/Documents/{fname}"))
         
 
     def reset_device_pairing(self):
@@ -543,7 +544,7 @@ class DeviceManager:
                 connected = False
                 while not connected and max_timeout >= time.time():
                     try:
-                        new_ld = create_using_usbmux(serial=self.get_current_device_udid(), pair_timeout=180)
+                        new_ld = asyncio.run(create_using_usbmux(serial=self.get_current_device_udid(), pair_timeout=180))
                         connected = True
                     except Exception:
                         pass
