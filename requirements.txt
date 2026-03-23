@@ -1,4 +1,4 @@
-pymobiledevice3
+pymobiledevice3<=8.2.4
 PySide6-Essentials; sys_platform != 'linux'
 PySide6; sys_platform == 'linux'
 PyInstaller
