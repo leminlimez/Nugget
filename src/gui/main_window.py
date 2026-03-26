@@ -21,7 +21,7 @@ from src.restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreAp
 
 from src.tweaks.tweaks import tweaks, TweakID
 
-App_Version = "7.3"
+App_Version = "7.3.1"
 App_Build = 0
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -382,10 +382,13 @@ class MainWindow(QtWidgets.QMainWindow):
                     self.ui.templatePageBtn.setChecked(True)
                     self.ui.homePageBtn.setChecked(False)
 
-            # hide posterboard on iOS 26.4b3+
+            # hide posterboard on iOS 26.4b3+ (unless using an iPhone 17 series phone)
             # lazy hiding method that has a lot of issues, but will probably get it working again
             device_build = self.device_manager.get_current_device_build()
-            if device_ver < Version("26.4") or device_build == "23E5207q" or device_build == "23E5218e":
+            device_model = self.device_manager.get_current_device_model()
+            if (device_model.startswith("iPhone18,")
+                or device_ver < Version("26.4")
+                or device_build == "23E5207q" or device_build == "23E5218e"):
                 self.ui.posterboardPageBtn.show()
             else:
                 self.ui.posterboardPageBtn.hide()
