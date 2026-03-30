@@ -8632,6 +8632,20 @@ To work properly, also disable the daemon using the toggle above.</string>
                   </spacer>
                  </item>
                  <item>
+                  <widget class="QLabel" name="pbDBLbl">
+                   <property name="text">
+                    <string>sqlite: None</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QToolButton" name="pbDBBtn">
+                   <property name="text">
+                    <string>Import sqlite</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QToolButton" name="findPBBtn">
                    <property name="cursor">
                     <cursorShape>PointingHandCursor</cursorShape>

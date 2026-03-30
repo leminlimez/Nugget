@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.3
+## Created by: Qt User Interface Compiler version 6.11.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -4516,6 +4516,16 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_204.addItem(self.horizontalSpacer_74)
 
+        self.pbDBLbl = QLabel(self.horizontalWidget_7)
+        self.pbDBLbl.setObjectName(u"pbDBLbl")
+
+        self.horizontalLayout_204.addWidget(self.pbDBLbl)
+
+        self.pbDBBtn = QToolButton(self.horizontalWidget_7)
+        self.pbDBBtn.setObjectName(u"pbDBBtn")
+
+        self.horizontalLayout_204.addWidget(self.pbDBBtn)
+
         self.findPBBtn = QToolButton(self.horizontalWidget_7)
         self.findPBBtn.setObjectName(u"findPBBtn")
         self.findPBBtn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
@@ -6495,6 +6505,8 @@ class Ui_Nugget(object):
         self.voiceControlChk.setText(QCoreApplication.translate("Nugget", u"Disable Voice Control", None))
         self.nanoTimeKitChk.setText(QCoreApplication.translate("Nugget", u"Disable NanoTimeKit (Apple Watch Face Sync)", None))
         self.posterboardLbl.setText(QCoreApplication.translate("Nugget", u"Posterboard", None))
+        self.pbDBLbl.setText(QCoreApplication.translate("Nugget", u"sqlite: None", None))
+        self.pbDBBtn.setText(QCoreApplication.translate("Nugget", u"Import sqlite", None))
         self.findPBBtn.setText(QCoreApplication.translate("Nugget", u"   Discover Wallpapers", None))
         self.pbHelpBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
         self.tendiesPageBtn.setText(QCoreApplication.translate("Nugget", u"  Tendies", None))

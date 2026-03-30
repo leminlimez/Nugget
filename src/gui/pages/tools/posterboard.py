@@ -59,6 +59,7 @@ class PosterboardPage(Page, QtCore.QObject):
         self.ui.calcModeDrp.activated.connect(self.on_calcModeDrp_activated)
         self.ui.exportPBVideoBtn.clicked.connect(self.on_exportPBVideoBtn_clicked)
         
+        self.ui.pbDBBtn.clicked.connect(self.on_pbDBBtn_clicked)
         self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
         self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)
 
@@ -317,6 +318,24 @@ class PosterboardPage(Page, QtCore.QObject):
                 detailsBox.setDetailedText("TRACEBACK:\n\n" + str(traceback.format_exc()))
                 detailsBox.exec()
 
+
+    # Top Buttons
+    def on_pbDBBtn_clicked(self):
+        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self.window, "Select PBFPosterExtensionDataStoreSQLiteDatabase File", "", "*.sqlite3", options=QtWidgets.QFileDialog.ReadOnly)
+        if selected_file == "" or selected_file == None:
+            tweaks[TweakID.PosterBoard].config_manager.database = None
+            self.ui.pbDBLbl.setText("sqlite: None")
+        else:
+            # verify that it is correct
+            if not tweaks[TweakID.PosterBoard].config_manager.update_database_file(selected_file):
+                detailsBox = QtWidgets.QMessageBox()
+                detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
+                detailsBox.setWindowTitle("Error!")
+                detailsBox.setText("The database is not of the correct format!")
+                detailsBox.exec()
+                return
+            self.ui.pbDBLbl.setText("sqlite: Selected")
+    
     def on_findPBBtn_clicked(self):
         webbrowser.open_new_tab("https://cowabun.ga/wallpapers")
 
