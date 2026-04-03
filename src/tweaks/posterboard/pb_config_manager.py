@@ -107,7 +107,7 @@ class PBConfigManager:
             raise NuggetException("Could not find \"seq\" in PosterBoard database!")
         seq = int(seq[0])
         # get the poster role sort key (falls back to seq)
-        cursor.execute("SELECT roleSortKey FROM posterRoleMembership")
+        cursor.execute("SELECT roleSortKey FROM posterRoleMembership WHERE roleId = ?", ("PRPosterRoleLockScreen",))
         sort_keys = cursor.fetchall()
         if sort_keys is None or len(sort_keys) == 0:
             curr_role_sort_key = seq
@@ -117,10 +117,10 @@ class PBConfigManager:
             except Exception:
                 curr_role_sort_key = seq
         # remove the currently selected wallpaper
-        selected_already = False
         cursor.execute("DELETE FROM posterAttributes WHERE roleId = ? AND attributeIdentifier = ? AND attributePayload = ?",
                        ("PRPosterRoleLockScreen", "SELECTED", 1))
-        for wallpaper in self.items:
+        for i in range(len(self.items)):
+            wallpaper = self.items[i]
             seq += 1
             wallpaper.posterId = seq
             cursor.execute("INSERT INTO poster (posterId, UUID, providerId) VALUES (?, ?, ?)",
@@ -128,11 +128,9 @@ class PBConfigManager:
             # TODO: Figure out when you need to add PRPosterRoleAmbient
             wallpaper_payload = ('{"creationDate":' + str(time.time())
                                  + ',"extensionAvailable":true,"attributeType":"PRPosterRoleAttributeTypeUsageMetadata","lastActivatedDate":'
-                                 + str(time.time()) + ',"lastSelectedDate":' + str(time.time()) + '}')
-            if not selected_already:
-                cursor.execute("INSERT INTO posterAttributes (posterUUID, roleId, attributeIdentifier, attributePayload) VALUES (?, ?, ?, ?)",
-                            (wallpaper.uuid, "PRPosterRoleLockScreen", "SELECTED", 1))
-                selected_already = True
+                                 + str(time.time()+0.0001) + ',"lastSelectedDate":' + str(time.time()+0.00001) + '}')
+            cursor.execute("INSERT INTO posterAttributes (posterUUID, roleId, attributeIdentifier, attributePayload) VALUES (?, ?, ?, ?)",
+                        (wallpaper.uuid, "PRPosterRoleLockScreen", "SELECTED", 1))
             cursor.execute("INSERT INTO posterAttributes (posterUUID, roleId, attributeIdentifier, attributePayload) VALUES (?, ?, ?, ?)",
                            (wallpaper.uuid, "PRPosterRoleLockScreen", "PRPosterRoleAttributeTypeUsageMetadata",
                             wallpaper_payload))
