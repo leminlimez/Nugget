@@ -92,7 +92,7 @@ class TemplatesTweak(Tweak):
     def apply_tweak(self,
                     files_to_restore: list[FileToRestore], output_dir: str,
                     templates: list,
-                    version: str, force_pb_refresh: bool, use_configs: bool,
+                    version: str, force_pb_refresh: bool,
                     update_label=lambda x: None):
         if len(self.templates) == 0:
             return

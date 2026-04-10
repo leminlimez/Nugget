@@ -644,7 +644,6 @@ class DeviceManager:
                         templates=tweaks[TweakID.Templates].templates,
                         version=self.get_current_device_version(),
                         force_pb_refresh=self.pref_manager.auto_refresh_posterboard,
-                        use_configs=True, # TODO: Change for iOS 26.4 only (or make setting for it)
                         update_label=update_label
                     )
                     if tweak.uses_domains():
