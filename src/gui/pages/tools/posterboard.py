@@ -42,6 +42,7 @@ class PosterboardPage(Page, QtCore.QObject):
         tweaks[TweakID.PosterBoard].resetModes = selected_items
 
     def load_page(self):
+        self.ui.pbSetupPageBtn.clicked.connect(self.on_pbSetupPageBtn_clicked)
         self.ui.tendiesPageBtn.clicked.connect(self.on_tendiesPageBtn_clicked)
         self.ui.templatePageBtn.clicked.connect(self.on_templatePageBtn_clicked)
         self.ui.videoPageBtn.clicked.connect(self.on_videoPageBtn_clicked)
@@ -184,21 +185,30 @@ class PosterboardPage(Page, QtCore.QObject):
             template.create_ui(self.window, tweaks[TweakID.PosterBoard], widgets, self.pb_templateLayout)
 
     # PB Pages Selectors
-    def on_tendiesPageBtn_clicked(self):
-        self.ui.tendiesPageBtn.setChecked(True)
+    def on_pbSetupPageBtn_clicked(self):
+        self.ui.pbSetupPageBtn.setChecked(True)
+        self.ui.tendiesPageBtn.setChecked(False)
         self.ui.templatePageBtn.setChecked(False)
         self.ui.videoPageBtn.setChecked(False)
         self.ui.pbPages.setCurrentIndex(0)
+    def on_tendiesPageBtn_clicked(self):
+        self.ui.pbSetupPageBtn.setChecked(False)
+        self.ui.tendiesPageBtn.setChecked(True)
+        self.ui.templatePageBtn.setChecked(False)
+        self.ui.videoPageBtn.setChecked(False)
+        self.ui.pbPages.setCurrentIndex(1)
     def on_templatePageBtn_clicked(self):
+        self.ui.pbSetupPageBtn.setChecked(False)
         self.ui.tendiesPageBtn.setChecked(False)
         self.ui.templatePageBtn.setChecked(True)
         self.ui.videoPageBtn.setChecked(False)
-        self.ui.pbPages.setCurrentIndex(1)
+        self.ui.pbPages.setCurrentIndex(2)
     def on_videoPageBtn_clicked(self):
+        self.ui.pbSetupPageBtn.setChecked(False)
         self.ui.tendiesPageBtn.setChecked(False)
         self.ui.templatePageBtn.setChecked(False)
         self.ui.videoPageBtn.setChecked(True)
-        self.ui.pbPages.setCurrentIndex(2)
+        self.ui.pbPages.setCurrentIndex(3)
 
     # Setup Page
     def on_pbDBBtn_clicked(self):
