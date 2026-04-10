@@ -59,18 +59,12 @@ class PBConfigManager:
             self.cleanup()
     
     def update_for_saved_database(self, udid: str) -> bool:
-        db_data = PreferenceManager.get_pbconfig_data(udid)
+        db_data = PreferenceManager.get_pbconfig_path(udid)
         if db_data is None:
             self.database = None
             self.staged_database = None
             return False
-        app_data_path = QStandardPaths.writableLocation(QStandardPaths.AppDataLocation)
-        if not path.exists(app_data_path):
-            makedirs(app_data_path)
-        dbpath = path.join(app_data_path, DB_FILE_NAME)
-        with open(dbpath, 'wb') as outfile:
-            outfile.write(db_data)
-        del db_data
+        self.database = db_data
         # get the list of saved ids
         self.saved_items = PreferenceManager.get_pbconfig_ids(udid)
         return True
