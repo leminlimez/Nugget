@@ -7,26 +7,23 @@ from typing import Optional
 
 from src.exceptions.nugget_exception import NuggetException
 from src.controllers.files_handler import get_bundle_files
+from src.devicemanagement.preference_manager import PreferenceManager
+from .pb_config_item import PBConfigItem
 
 DB_FILE_NAME = "PBFPosterExtensionDataStoreSQLiteDatabase.sqlite3"
-
-class PBConfigItem:
-    def __init__(self, uuid: str, ext: str):
-        self.uuid = uuid
-        self.extension = ext
-        self.posterId = 0
 
 class PBConfigManager:
     def __init__(self):
         self.staging = False
-        self.items: list[PBConfigItem] = []
+        self.saved_items: list[PBConfigItem] = []
+        self.staged_items: list[PBConfigItem] = []
         self.database = None
         self.staged_database = None
         self.config_files: list[str] = []
         self.config_files_folder: Optional[str] = None
 
     def start_staging(self):
-        self.items.clear()
+        self.staged_items.clear()
         if self.staged_database != None and path.exists(self.staged_database):
             try:
                 remove(self.staged_database)
@@ -35,11 +32,11 @@ class PBConfigManager:
         self.staged_database = None
         self.staging = True
     def cleanup(self):
-        self.items.clear()
+        self.staged_items.clear()
         self.staging = False
     def add_config(self, uuid: str, ext: str):
         new_conf = PBConfigItem(uuid, ext)
-        self.items.append(new_conf)
+        self.staged_items.append(new_conf)
 
     def cache_config_files(self):
         # cache the files for config conversion
@@ -54,8 +51,31 @@ class PBConfigManager:
         if filename in self.config_files:
             return True
         return False
+    
+    def save_staged_ids(self, udid: str):
+        if self.staging:
+            PreferenceManager.save_pbconfig_ids(self.staged_items, udid)
+            self.saved_items = self.staged_items
+            self.cleanup()
+    
+    def update_for_saved_database(self, udid: str) -> bool:
+        db_data = PreferenceManager.get_pbconfig_data(udid)
+        if db_data is None:
+            self.database = None
+            self.staged_database = None
+            return False
+        app_data_path = QStandardPaths.writableLocation(QStandardPaths.AppDataLocation)
+        if not path.exists(app_data_path):
+            makedirs(app_data_path)
+        dbpath = path.join(app_data_path, DB_FILE_NAME)
+        with open(dbpath, 'wb') as outfile:
+            outfile.write(db_data)
+        del db_data
+        # get the list of saved ids
+        self.saved_items = PreferenceManager.get_pbconfig_ids(udid)
+        return True
 
-    def update_database_file(self, new_db: str) -> bool:
+    def update_database_file(self, new_db: str, udid: str) -> bool:
         # make sure it has the tables: "poster", "posterAttributes", "posterRoleMembership", and "sqlite_sequence"
         # copy to a writeable path
         app_data_path = QStandardPaths.writableLocation(QStandardPaths.AppDataLocation)
@@ -72,9 +92,20 @@ class PBConfigManager:
             if db_cursor.fetchone() is None:
                 db_connection.close()
                 return False
+        # check the saved ids
+        final_saved_items: list[PBConfigItem] = []
+        for item in self.saved_items:
+            db_cursor.execute("SELECT FROM poster WHERE UUID = ?", (item.uuid,))
+            sort_keys = db_cursor.fetchall()
+            if sort_keys is None or len(sort_keys) == 0:
+                final_saved_items.append(item)
+        self.saved_items = final_saved_items
         # it is correct format, update database
         db_connection.close()
         self.database = dbpath
+        if udid is not None:
+            # save the database
+            PreferenceManager.save_pbconfig_file(dbpath, udid)
         return True
 
     def update_sqlite(self) -> str:
@@ -119,8 +150,10 @@ class PBConfigManager:
         # remove the currently selected wallpaper
         cursor.execute("DELETE FROM posterAttributes WHERE roleId = ? AND attributeIdentifier = ? AND attributePayload = ?",
                        ("PRPosterRoleLockScreen", "SELECTED", 1))
-        for i in range(len(self.items)):
-            wallpaper = self.items[i]
+        # combine the saved items
+        self.staged_items = self.saved_items + self.staged_items
+        for i in range(len(self.staged_items)):
+            wallpaper = self.staged_items[i]
             seq += 1
             wallpaper.posterId = seq
             cursor.execute("INSERT INTO poster (posterId, UUID, providerId) VALUES (?, ?, ?)",

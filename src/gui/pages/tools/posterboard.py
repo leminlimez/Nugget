@@ -46,6 +46,10 @@ class PosterboardPage(Page, QtCore.QObject):
         self.ui.templatePageBtn.clicked.connect(self.on_templatePageBtn_clicked)
         self.ui.videoPageBtn.clicked.connect(self.on_videoPageBtn_clicked)
 
+        self.ui.pbDBBtn.clicked.connect(self.on_pbDBBtn_clicked)
+        self.ui.clearSavedIdsBtn.clicked.connect(self.on_clearSavedIdsBtn_clicked)
+        self.ui.removeSelectedIdBtn.clicked.connect(self.on_removeSelectedIdBtn_clicked)
+
         self.ui.importTendiesBtn.clicked.connect(self.on_importTendiesBtn_clicked)
 
         self.ui.importTemplateBtn.clicked.connect(self.on_importTemplatesBtn_clicked)
@@ -59,7 +63,6 @@ class PosterboardPage(Page, QtCore.QObject):
         self.ui.calcModeDrp.activated.connect(self.on_calcModeDrp_activated)
         self.ui.exportPBVideoBtn.clicked.connect(self.on_exportPBVideoBtn_clicked)
         
-        self.ui.pbDBBtn.clicked.connect(self.on_pbDBBtn_clicked)
         self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
         self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)
 
@@ -196,6 +199,35 @@ class PosterboardPage(Page, QtCore.QObject):
         self.ui.templatePageBtn.setChecked(False)
         self.ui.videoPageBtn.setChecked(True)
         self.ui.pbPages.setCurrentIndex(2)
+
+    # Setup Page
+    def on_pbDBBtn_clicked(self):
+        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self.window, "Select PBFPosterExtensionDataStoreSQLiteDatabase File", "", "*.sqlite3", options=QtWidgets.QFileDialog.ReadOnly)
+        if selected_file == "" or selected_file == None:
+            tweaks[TweakID.PosterBoard].config_manager.database = None
+            self.ui.pbDBLbl.setText("sqlite: None")
+        else:
+            # verify that it is correct
+            if not tweaks[TweakID.PosterBoard].config_manager.update_database_file(selected_file, self.window.device_manager.get_current_device_udid()):
+                detailsBox = QtWidgets.QMessageBox()
+                detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
+                detailsBox.setWindowTitle("Error!")
+                detailsBox.setText("The database is not of the correct format!")
+                detailsBox.exec()
+                return
+            self.ui.pbDBLbl.setText("sqlite: Selected")
+    def on_clearSavedIdsBtn_clicked(self):
+        # TODO: Add confirmation (and save when removing)
+        tweaks[TweakID.PosterBoard].config_manager.saved_items.clear()
+        self.ui.savedConfigIdsList.clear()
+
+    def on_removeSelectedIdBtn_clicked(self):
+        # TODO: Add confirmation (and save when removing)
+        # TODO: Add undo action (ctrl z)
+        curr_row = self.ui.savedConfigIdsList.currentRow()
+        if curr_row >= 0:
+            item = self.ui.savedConfigIdsList.takeItem(curr_row)
+            del item
     
     # Tendies Page
     def on_importTendiesBtn_clicked(self):
@@ -317,24 +349,6 @@ class PosterboardPage(Page, QtCore.QObject):
                 detailsBox.setText(type(e).__name__ + ": " + repr(e))
                 detailsBox.setDetailedText("TRACEBACK:\n\n" + str(traceback.format_exc()))
                 detailsBox.exec()
-
-
-    # Top Buttons
-    def on_pbDBBtn_clicked(self):
-        selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self.window, "Select PBFPosterExtensionDataStoreSQLiteDatabase File", "", "*.sqlite3", options=QtWidgets.QFileDialog.ReadOnly)
-        if selected_file == "" or selected_file == None:
-            tweaks[TweakID.PosterBoard].config_manager.database = None
-            self.ui.pbDBLbl.setText("sqlite: None")
-        else:
-            # verify that it is correct
-            if not tweaks[TweakID.PosterBoard].config_manager.update_database_file(selected_file):
-                detailsBox = QtWidgets.QMessageBox()
-                detailsBox.setIcon(QtWidgets.QMessageBox.Critical)
-                detailsBox.setWindowTitle("Error!")
-                detailsBox.setText("The database is not of the correct format!")
-                detailsBox.exec()
-                return
-            self.ui.pbDBLbl.setText("sqlite: Selected")
     
     def on_findPBBtn_clicked(self):
         webbrowser.open_new_tab("https://cowabun.ga/wallpapers")

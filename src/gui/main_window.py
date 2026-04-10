@@ -154,6 +154,11 @@ class MainWindow(QtWidgets.QMainWindow):
                 title="Warning", icon=QtWidgets.QMessageBox.Warning
             ), log_to_console=False)
 
+    def update_pb_saved_ids_list(self):
+        # update PosterBoard saved ids list
+        self.ui.savedConfigIdsList.clear()
+        self.ui.savedConfigIdsList.addItems([id for id in tweaks[TweakID.PosterBoard].config_manager.saved_items])
+
     def refresh_devices_finished(self):
         self.refresh_in_progress = False
         self.toggle_thread_btns(disabled=False)
@@ -367,6 +372,12 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.booksContainerUUIDTxt.setText(self.device_manager.data_singleton.current_device.books_container_uuid)
             else:
                 self.ui.bookrestoreWidget.hide()
+
+            # swap out the current posterboard file
+            if tweaks[TweakID.PosterBoard].config_manager.update_for_saved_database(self.device_manager.get_current_device_udid()):
+                self.ui.pbDBLbl.setText("sqlite: Selected")
+            else:
+                self.ui.pbDBLbl.setText("sqlite: None")
 
             # show the PB if initial load is true
             if self.initial_load:
@@ -615,6 +626,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def finish_apply_thread(self):
         self.apply_in_progress = False
         self.toggle_thread_btns(disabled=False)
+        self.update_pb_saved_ids_list()
     def toggle_thread_btns(self, disabled: bool):
         if disabled or not self.apply_in_progress:
             self.ui.applyTweaksBtn.setDisabled(disabled)

@@ -555,6 +555,7 @@ class DeviceManager:
                 update_label(QCoreApplication.tr("Rebooting to apply changes..."))
                 cleanup_server_folder()
                 reboot_device(reboot=True, lockdown_client=new_ld)
+            tweaks[TweakID.PosterBoard].config_manager.save_staged_ids(self.get_current_device_udid())
             msg = QCoreApplication.tr("Your device will now restart.\n\nRemember to turn Find My back on!")
             if not self.pref_manager.auto_reboot:
                 msg = QCoreApplication.tr("Please restart your device to see changes.")

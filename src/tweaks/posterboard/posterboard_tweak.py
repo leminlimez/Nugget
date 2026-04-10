@@ -312,7 +312,8 @@ class PosterboardTweak(Tweak):
                 template.extract(output_dir=output_dir)
         # add the files
         update_label(QCoreApplication.tr("Adding tendies..."))
-        self.config_manager.start_staging()
+        if use_configs:
+            self.config_manager.start_staging()
         self.recursive_add(files_to_restore, curr_path=output_dir, force_configs=use_configs)
         if use_configs:
             staged_db_path = self.config_manager.update_sqlite()

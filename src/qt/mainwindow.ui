@@ -8632,20 +8632,6 @@ To work properly, also disable the daemon using the toggle above.</string>
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QLabel" name="pbDBLbl">
-                   <property name="text">
-                    <string>sqlite: None</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QToolButton" name="pbDBBtn">
-                   <property name="text">
-                    <string>Import sqlite</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
                   <widget class="QToolButton" name="findPBBtn">
                    <property name="cursor">
                     <cursorShape>PointingHandCursor</cursorShape>
@@ -8728,6 +8714,26 @@ To work properly, also disable the daemon using the toggle above.</string>
                   <number>0</number>
                  </property>
                  <item>
+                  <widget class="QToolButton" name="pbSetupPageBtn">
+                   <property name="text">
+                    <string>  Setup</string>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="resources.qrc">
+                     <normaloff>:/icon/gear.svg</normaloff>:/icon/gear.svg</iconset>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                   <property name="toolButtonStyle">
+                    <enum>Qt::ToolButtonTextBesideIcon</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QToolButton" name="tendiesPageBtn">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
@@ -8755,7 +8761,7 @@ To work properly, also disable the daemon using the toggle above.</string>
                     <bool>true</bool>
                    </property>
                    <property name="checked">
-                    <bool>true</bool>
+                    <bool>false</bool>
                    </property>
                    <property name="toolButtonStyle">
                     <enum>Qt::ToolButtonTextBesideIcon</enum>
@@ -8851,6 +8857,103 @@ To work properly, also disable the daemon using the toggle above.</string>
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
+                <widget class="QWidget" name="pbSetupPage">
+                 <layout class="QVBoxLayout" name="verticalLayout_38">
+                  <property name="leftMargin">
+                   <number>12</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>12</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="pbDBLbl">
+                    <property name="text">
+                     <string>sqlite: None</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_28">
+                    <item>
+                     <widget class="QToolButton" name="pbDBBtn">
+                      <property name="text">
+                       <string>Import sqlite</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_29">
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QToolButton" name="clearSavedIdsBtn">
+                      <property name="text">
+                       <string>Clear Saved Config Ids</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_31">
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="label_67">
+                      <property name="text">
+                       <string>Saved Ids:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="removeSelectedIdBtn">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>35</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>  Remove Selected Id</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="resources.qrc">
+                        <normaloff>:/icon/trash.svg</normaloff>:/icon/trash.svg</iconset>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextBesideIcon</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="QListWidget" name="savedConfigIdsList"/>
+                  </item>
+                 </layout>
+                </widget>
                 <widget class="QWidget" name="pbTendiesPage">
                  <layout class="QVBoxLayout" name="verticalLayout_38">
                   <property name="topMargin">
