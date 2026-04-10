@@ -35,7 +35,7 @@ class PBConfigManager:
         self.staged_items.clear()
         self.staging = False
     def add_config(self, uuid: str, ext: str):
-        new_conf = PBConfigItem(uuid, ext)
+        new_conf = PBConfigItem(uuid, ext, set_selected=True)
         self.staged_items.append(new_conf)
 
     def cache_config_files(self):
@@ -156,8 +156,9 @@ class PBConfigManager:
             wallpaper_payload = ('{"creationDate":' + str(time.time())
                                  + ',"extensionAvailable":true,"attributeType":"PRPosterRoleAttributeTypeUsageMetadata","lastActivatedDate":'
                                  + str(time.time()+0.0001) + ',"lastSelectedDate":' + str(time.time()+0.00001) + '}')
-            cursor.execute("INSERT INTO posterAttributes (posterUUID, roleId, attributeIdentifier, attributePayload) VALUES (?, ?, ?, ?)",
-                        (wallpaper.uuid, "PRPosterRoleLockScreen", "SELECTED", 1))
+            if wallpaper.set_selected:
+                cursor.execute("INSERT INTO posterAttributes (posterUUID, roleId, attributeIdentifier, attributePayload) VALUES (?, ?, ?, ?)",
+                            (wallpaper.uuid, "PRPosterRoleLockScreen", "SELECTED", 1))
             cursor.execute("INSERT INTO posterAttributes (posterUUID, roleId, attributeIdentifier, attributePayload) VALUES (?, ?, ?, ?)",
                            (wallpaper.uuid, "PRPosterRoleLockScreen", "PRPosterRoleAttributeTypeUsageMetadata",
                             wallpaper_payload))
