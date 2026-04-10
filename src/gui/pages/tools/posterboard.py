@@ -220,14 +220,18 @@ class PosterboardPage(Page, QtCore.QObject):
         # TODO: Add confirmation (and save when removing)
         tweaks[TweakID.PosterBoard].config_manager.saved_items.clear()
         self.ui.savedConfigIdsList.clear()
-
+        self.ui.savedConfigIdsList.addItem("None")
     def on_removeSelectedIdBtn_clicked(self):
         # TODO: Add confirmation (and save when removing)
         # TODO: Add undo action (ctrl z)
         curr_row = self.ui.savedConfigIdsList.currentRow()
-        if curr_row >= 0:
+        if curr_row >= 0 and len(tweaks[TweakID.PosterBoard].config_manager.saved_items) > 0:
             item = self.ui.savedConfigIdsList.takeItem(curr_row)
             del item
+            item = tweaks[TweakID.PosterBoard].config_manager.saved_items.pop(curr_row)
+            del item
+            if len(tweaks[TweakID.PosterBoard].config_manager.saved_items) == 0:
+                self.ui.savedConfigIdsList.addItem("None")
     
     # Tendies Page
     def on_importTendiesBtn_clicked(self):

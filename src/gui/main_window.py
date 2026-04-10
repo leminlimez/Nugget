@@ -157,7 +157,11 @@ class MainWindow(QtWidgets.QMainWindow):
     def update_pb_saved_ids_list(self):
         # update PosterBoard saved ids list
         self.ui.savedConfigIdsList.clear()
-        self.ui.savedConfigIdsList.addItems([id for id in tweaks[TweakID.PosterBoard].config_manager.saved_items])
+        saved_ids = tweaks[TweakID.PosterBoard].config_manager.saved_items
+        if len(saved_ids) == 0:
+            self.ui.savedConfigIdsList.addItem("None")
+        else:
+            self.ui.savedConfigIdsList.addItems([id for id in saved_ids])
 
     def refresh_devices_finished(self):
         self.refresh_in_progress = False
@@ -378,6 +382,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.pbDBLbl.setText("sqlite: Selected")
             else:
                 self.ui.pbDBLbl.setText("sqlite: None")
+            self.update_pb_saved_ids_list()
 
             # show the PB if initial load is true
             if self.initial_load:
