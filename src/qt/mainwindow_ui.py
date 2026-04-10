@@ -4632,45 +4632,95 @@ class Ui_Nugget(object):
         self.verticalLayout_38 = QVBoxLayout(self.pbSetupPage)
         self.verticalLayout_38.setObjectName(u"verticalLayout_38")
         self.verticalLayout_38.setContentsMargins(12, 0, 12, 0)
-        self.pbDBLbl = QLabel(self.pbSetupPage)
+        self.pbApplyMethods = QWidget(self.pbSetupPage)
+        self.pbApplyMethods.setObjectName(u"pbApplyMethods")
+        self.pbApplyMethods.setStyleSheet(u"QToolButton {\n"
+"	min-height: 25px;\n"
+"	border-radius: 5px;\n"
+"}")
+        self.horizontalLayout_38 = QHBoxLayout(self.pbApplyMethods)
+        self.horizontalLayout_38.setObjectName(u"horizontalLayout_38")
+        self.horizontalLayout_38.setContentsMargins(0, 0, 0, 0)
+        self.label_68 = QLabel(self.pbApplyMethods)
+        self.label_68.setObjectName(u"label_68")
+        self.label_68.setMaximumSize(QSize(150, 16777215))
+
+        self.horizontalLayout_38.addWidget(self.label_68)
+
+        self.horizontalSpacer_26 = QSpacerItem(80, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_38.addItem(self.horizontalSpacer_26)
+
+        self.useConfigsBtn = QToolButton(self.pbApplyMethods)
+        self.useConfigsBtn.setObjectName(u"useConfigsBtn")
+        self.useConfigsBtn.setMaximumSize(QSize(16777215, 25))
+        self.useConfigsBtn.setCheckable(True)
+        self.useConfigsBtn.setChecked(True)
+
+        self.horizontalLayout_38.addWidget(self.useConfigsBtn)
+
+        self.useDescriptorsBtn = QToolButton(self.pbApplyMethods)
+        self.useDescriptorsBtn.setObjectName(u"useDescriptorsBtn")
+        self.useDescriptorsBtn.setMaximumSize(QSize(16777215, 25))
+        self.useDescriptorsBtn.setCheckable(True)
+
+        self.horizontalLayout_38.addWidget(self.useDescriptorsBtn)
+
+        self.horizontalSpacer_25 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_38.addItem(self.horizontalSpacer_25)
+
+
+        self.verticalLayout_38.addWidget(self.pbApplyMethods)
+
+        self.descriptorsSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_38.addItem(self.descriptorsSpacer)
+
+        self.configOptions = QWidget(self.pbSetupPage)
+        self.configOptions.setObjectName(u"configOptions")
+        self.verticalLayout_74 = QVBoxLayout(self.configOptions)
+        self.verticalLayout_74.setObjectName(u"verticalLayout_74")
+        self.verticalLayout_74.setContentsMargins(0, 0, 0, 0)
+        self.pbDBLbl = QLabel(self.configOptions)
         self.pbDBLbl.setObjectName(u"pbDBLbl")
         self.pbDBLbl.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_38.addWidget(self.pbDBLbl)
+        self.verticalLayout_74.addWidget(self.pbDBLbl)
 
         self.horizontalLayout_28 = QHBoxLayout()
         self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
-        self.pbDBBtn = QToolButton(self.pbSetupPage)
+        self.pbDBBtn = QToolButton(self.configOptions)
         self.pbDBBtn.setObjectName(u"pbDBBtn")
         self.pbDBBtn.setEnabled(True)
 
         self.horizontalLayout_28.addWidget(self.pbDBBtn)
 
 
-        self.verticalLayout_38.addLayout(self.horizontalLayout_28)
+        self.verticalLayout_74.addLayout(self.horizontalLayout_28)
 
         self.horizontalLayout_29 = QHBoxLayout()
         self.horizontalLayout_29.setObjectName(u"horizontalLayout_29")
         self.horizontalLayout_29.setContentsMargins(-1, -1, -1, 0)
-        self.clearSavedIdsBtn = QToolButton(self.pbSetupPage)
+        self.clearSavedIdsBtn = QToolButton(self.configOptions)
         self.clearSavedIdsBtn.setObjectName(u"clearSavedIdsBtn")
         self.clearSavedIdsBtn.setEnabled(True)
 
         self.horizontalLayout_29.addWidget(self.clearSavedIdsBtn)
 
 
-        self.verticalLayout_38.addLayout(self.horizontalLayout_29)
+        self.verticalLayout_74.addLayout(self.horizontalLayout_29)
 
         self.horizontalLayout_31 = QHBoxLayout()
         self.horizontalLayout_31.setObjectName(u"horizontalLayout_31")
         self.horizontalLayout_31.setContentsMargins(-1, -1, -1, 0)
-        self.label_67 = QLabel(self.pbSetupPage)
+        self.label_67 = QLabel(self.configOptions)
         self.label_67.setObjectName(u"label_67")
         self.label_67.setEnabled(False)
 
         self.horizontalLayout_31.addWidget(self.label_67)
 
-        self.removeSelectedIdBtn = QToolButton(self.pbSetupPage)
+        self.removeSelectedIdBtn = QToolButton(self.configOptions)
         self.removeSelectedIdBtn.setObjectName(u"removeSelectedIdBtn")
         self.removeSelectedIdBtn.setEnabled(True)
         self.removeSelectedIdBtn.setMinimumSize(QSize(0, 25))
@@ -4688,9 +4738,9 @@ class Ui_Nugget(object):
         self.horizontalLayout_31.addWidget(self.removeSelectedIdBtn)
 
 
-        self.verticalLayout_38.addLayout(self.horizontalLayout_31)
+        self.verticalLayout_74.addLayout(self.horizontalLayout_31)
 
-        self.line_30 = QFrame(self.pbSetupPage)
+        self.line_30 = QFrame(self.configOptions)
         self.line_30.setObjectName(u"line_30")
         self.line_30.setStyleSheet(u"QFrame {\n"
 "	color: #414141;\n"
@@ -4698,12 +4748,15 @@ class Ui_Nugget(object):
         self.line_30.setFrameShadow(QFrame.Plain)
         self.line_30.setFrameShape(QFrame.Shape.HLine)
 
-        self.verticalLayout_38.addWidget(self.line_30)
+        self.verticalLayout_74.addWidget(self.line_30)
 
-        self.savedConfigIdsList = QListWidget(self.pbSetupPage)
+        self.savedConfigIdsList = QListWidget(self.configOptions)
         self.savedConfigIdsList.setObjectName(u"savedConfigIdsList")
 
-        self.verticalLayout_38.addWidget(self.savedConfigIdsList)
+        self.verticalLayout_74.addWidget(self.savedConfigIdsList)
+
+
+        self.verticalLayout_38.addWidget(self.configOptions)
 
         self.pbPages.addWidget(self.pbSetupPage)
         self.pbTendiesPage = QWidget()
@@ -5765,19 +5818,19 @@ class Ui_Nugget(object):
 
         self.verticalWidget_20 = QWidget(self.horizontalWidget_20)
         self.verticalWidget_20.setObjectName(u"verticalWidget_20")
-        self.verticalLayout_74 = QVBoxLayout(self.verticalWidget_20)
-        self.verticalLayout_74.setSpacing(6)
-        self.verticalLayout_74.setObjectName(u"verticalLayout_74")
-        self.verticalLayout_74.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_75 = QVBoxLayout(self.verticalWidget_20)
+        self.verticalLayout_75.setSpacing(6)
+        self.verticalLayout_75.setObjectName(u"verticalLayout_75")
+        self.verticalLayout_75.setContentsMargins(0, 0, 0, 0)
         self.springboardOptionsLbl1 = QLabel(self.verticalWidget_20)
         self.springboardOptionsLbl1.setObjectName(u"springboardOptionsLbl1")
         self.springboardOptionsLbl1.setFont(font1)
 
-        self.verticalLayout_74.addWidget(self.springboardOptionsLbl1)
+        self.verticalLayout_75.addWidget(self.springboardOptionsLbl1)
 
         self.verticalSpacer_17 = QSpacerItem(20, 16, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
-        self.verticalLayout_74.addItem(self.verticalSpacer_17)
+        self.verticalLayout_75.addItem(self.verticalSpacer_17)
 
 
         self.horizontalLayout_131.addWidget(self.verticalWidget_20)
@@ -6591,6 +6644,9 @@ class Ui_Nugget(object):
         self.templatePageBtn.setText(QCoreApplication.translate("Nugget", u"   Templates", None))
         self.videoPageBtn.setText(QCoreApplication.translate("Nugget", u"   Video", None))
         self.label.setText(QCoreApplication.translate("Nugget", u"Clear Action:", None))
+        self.label_68.setText(QCoreApplication.translate("Nugget", u"Apply Method:", None))
+        self.useConfigsBtn.setText(QCoreApplication.translate("Nugget", u"Configurations", None))
+        self.useDescriptorsBtn.setText(QCoreApplication.translate("Nugget", u"Descriptors", None))
         self.pbDBLbl.setText(QCoreApplication.translate("Nugget", u"sqlite: None", None))
         self.pbDBBtn.setText(QCoreApplication.translate("Nugget", u"Import sqlite", None))
         self.clearSavedIdsBtn.setText(QCoreApplication.translate("Nugget", u"Clear Saved Config Ids", None))

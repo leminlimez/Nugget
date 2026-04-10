@@ -259,6 +259,17 @@ class DeviceManager:
         else:
             return self.data_singleton.current_device.is_exploit_fully_patched()
         
+    def get_current_device_supports_descriptors(self) -> bool:
+        if self.data_singleton.current_device == None:
+            return False
+        device_build = self.get_current_device_build()
+        device_model = self.get_current_device_model()
+        if (device_model.startswith("iPhone18,")
+            or Version(self.get_current_device_version()) < Version("26.4")
+            or device_build == "23E5207q" or device_build == "23E5218e"):
+            return True
+        return False
+        
     def current_device_books_container_uuid_callback(self, uuid: Optional[str]=None) -> Optional[Optional[str]]:
         # if there is no argument, return the existing uuid
         if uuid is None:

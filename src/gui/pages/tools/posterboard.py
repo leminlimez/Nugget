@@ -47,6 +47,8 @@ class PosterboardPage(Page, QtCore.QObject):
         self.ui.templatePageBtn.clicked.connect(self.on_templatePageBtn_clicked)
         self.ui.videoPageBtn.clicked.connect(self.on_videoPageBtn_clicked)
 
+        self.ui.useConfigsBtn.clicked.connect(self.on_useConfigsBtn_clicked)
+        self.ui.useDescriptorsBtn.clicked.connect(self.on_useDescriptorsBtn_clicked)
         self.ui.pbDBBtn.clicked.connect(self.on_pbDBBtn_clicked)
         self.ui.clearSavedIdsBtn.clicked.connect(self.on_clearSavedIdsBtn_clicked)
         self.ui.removeSelectedIdBtn.clicked.connect(self.on_removeSelectedIdBtn_clicked)
@@ -211,6 +213,16 @@ class PosterboardPage(Page, QtCore.QObject):
         self.ui.pbPages.setCurrentIndex(3)
 
     # Setup Page
+    def set_use_configs(self, use_configs: bool):
+        self.ui.useConfigsBtn.setChecked(use_configs)
+        self.ui.useDescriptorsBtn.setChecked(not use_configs)
+        self.ui.configOptions.setVisible(use_configs)
+        tweaks[TweakID.PosterBoard].use_configs = use_configs
+    def on_useConfigsBtn_clicked(self):
+        self.set_use_configs(True)
+    def on_useDescriptorsBtn_clicked(self):
+        self.set_use_configs(False)
+
     def on_pbDBBtn_clicked(self):
         selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self.window, "Select PBFPosterExtensionDataStoreSQLiteDatabase File", "", "*.sqlite3", options=QtWidgets.QFileDialog.ReadOnly)
         if selected_file == "" or selected_file == None:

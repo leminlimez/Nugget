@@ -385,6 +385,13 @@ class MainWindow(QtWidgets.QMainWindow):
             else:
                 self.ui.pbDBLbl.setText("sqlite: None")
             self.update_pb_saved_ids_list()
+            # set for the preferred PosterBoard method
+            if self.device_manager.get_current_device_supports_descriptors():
+                self.ui.pbApplyMethods.setVisible(True)
+                self.pages[Page.Posterboard].set_use_configs(False)
+            else:
+                self.ui.pbApplyMethods.setVisible(False)
+                self.pages[Page.Posterboard].set_use_configs(True)
 
             # show the PB if initial load is true
             if self.initial_load:

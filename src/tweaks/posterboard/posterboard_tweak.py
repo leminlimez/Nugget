@@ -29,6 +29,7 @@ class PosterboardTweak(Tweak):
         self.loop_video = True
         self.reverse_video = False
         self.use_foreground = False
+        self.use_configs = False
         self.calculationMode = 'linear'
         self.bundle_id = "com.apple.PosterBoard"
         self.resetModes = []
@@ -109,7 +110,7 @@ class PosterboardTweak(Tweak):
     def recursive_add(self,
                       files_to_restore: list[FileToRestore],
                       curr_path: str, restore_path: str = "",
-                      isAdding: bool = False, force_configs: bool = False,
+                      isAdding: bool = False,
                       randomizeUUID: bool = False, randomizedID: int = None
         ):
         if not os.path.isdir(curr_path):
@@ -135,7 +136,7 @@ class PosterboardTweak(Tweak):
                         folder_name = str(uuid.uuid4()).upper()
                         curr_randomized_id = randint(9999, 99999)
                     # add it to the configuration
-                    if force_configs:
+                    if self.use_configs:
                         ext = restore_path.split('/')[6]
                         self.config_manager.add_config(folder_name, ext)
                 # if file then add it, otherwise recursively call again
@@ -143,7 +144,7 @@ class PosterboardTweak(Tweak):
                 if os.path.isfile(fullpath):
                     try:
                         # if converting to config and it is a file to be modified, then update it (don't add it here and add them later)
-                        if force_configs and self.config_manager.file_needs_updated(folder):
+                        if self.use_configs and self.config_manager.file_needs_updated(folder):
                             continue
                         # update plist ids if needed
                         new_contents = None
@@ -162,7 +163,7 @@ class PosterboardTweak(Tweak):
                         print(f"Failed to open file: {folder}") # TODO: Add QDebug equivalent
                 else:
                     # add config files if needed
-                    if force_configs and curr_path.endswith("versions") and "descriptor" in curr_path:
+                    if self.use_configs and curr_path.endswith("versions") and "descriptor" in curr_path:
                         self.config_manager.cache_config_files()
                         for config_file in self.config_manager.config_files:
                             files_to_restore.append(FileToRestore(
@@ -171,12 +172,12 @@ class PosterboardTweak(Tweak):
                                 restore_path=f"{restore_path}/{folder_name}/{config_file}",
                                 domain=f"AppDomain-{self.bundle_id}"
                             ))
-                    self.recursive_add(files_to_restore, fullpath, f"{restore_path}/{folder_name}", isAdding, force_configs=force_configs, randomizedID=curr_randomized_id)
+                    self.recursive_add(files_to_restore, fullpath, f"{restore_path}/{folder_name}", isAdding, randomizedID=curr_randomized_id)
             else:
                 # look for container folder
                 name = folder.lower()
                 if name == "container":
-                    self.recursive_add(files_to_restore, os.path.join(curr_path, folder), restore_path="/", isAdding=True, force_configs=force_configs)
+                    self.recursive_add(files_to_restore, os.path.join(curr_path, folder), restore_path="/", isAdding=True)
                     return
                 elif "descriptor" in name:
                     # get the extension
@@ -186,7 +187,7 @@ class PosterboardTweak(Tweak):
                         ext = "com.apple.MercuryPoster"
                     else:
                         ext = "com.apple.WallpaperKit.CollectionsPoster"
-                    if force_configs:
+                    if self.use_configs:
                         wpfolder = "configurations"
                     else:
                         wpfolder = "descriptors"
@@ -194,11 +195,11 @@ class PosterboardTweak(Tweak):
                         files_to_restore,
                         os.path.join(curr_path, folder),
                         restore_path=f"/Library/Application Support/PRBPosterExtensionDataStore/{self.structure_version}/Extensions/{ext}/{wpfolder}",
-                        isAdding=True, force_configs=force_configs,
+                        isAdding=True,
                         randomizeUUID=True
                     )
                 else:
-                    self.recursive_add(files_to_restore, os.path.join(curr_path, folder), isAdding=False, force_configs=force_configs)
+                    self.recursive_add(files_to_restore, os.path.join(curr_path, folder), isAdding=False)
 
     def create_live_photo_files(self, output_dir: str):
         if self.videoFile != None and not self.loop_video:
@@ -264,7 +265,7 @@ class PosterboardTweak(Tweak):
     def apply_tweak(self,
                     files_to_restore: list[FileToRestore], output_dir: str,
                     templates: list[TemplateFile],
-                    version: str, force_pb_refresh: bool, use_configs: bool,
+                    version: str, force_pb_refresh: bool,
                     update_label=lambda x: None):
         # find the directory
         if version.startswith("16"):
@@ -312,10 +313,10 @@ class PosterboardTweak(Tweak):
                 template.extract(output_dir=output_dir)
         # add the files
         update_label(QCoreApplication.tr("Adding tendies..."))
-        if use_configs:
+        if self.use_configs:
             self.config_manager.start_staging()
-        self.recursive_add(files_to_restore, curr_path=output_dir, force_configs=use_configs)
-        if use_configs:
+        self.recursive_add(files_to_restore, curr_path=output_dir)
+        if self.use_configs:
             staged_db_path = self.config_manager.update_sqlite()
             files_to_restore.append(FileToRestore(
                 contents=None,
