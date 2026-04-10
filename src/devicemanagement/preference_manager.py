@@ -110,7 +110,7 @@ class PreferenceManager:
     def get_pbconfig_ids(udid: str) -> list[PBConfigItem]:
         pbc_settings = PreferenceManager.get_pbconfigs_prefs()
         if not pbc_settings.contains(udid):
-            return None
+            return []
         serialized_ids = pbc_settings.value(udid)
         ids: list[PBConfigItem] = []
         for id in serialized_ids:
