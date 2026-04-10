@@ -159,9 +159,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.savedConfigIdsList.clear()
         saved_ids = tweaks[TweakID.PosterBoard].config_manager.saved_items
         if len(saved_ids) == 0:
+            self.ui.savedConfigIdsList.setDisabled(True)
             self.ui.savedConfigIdsList.addItem("None")
         else:
-            self.ui.savedConfigIdsList.addItems([id for id in saved_ids])
+            self.ui.savedConfigIdsList.setDisabled(False)
+            self.ui.savedConfigIdsList.addItems([id.to_str() for id in saved_ids])
 
     def refresh_devices_finished(self):
         self.refresh_in_progress = False

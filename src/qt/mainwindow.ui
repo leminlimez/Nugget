@@ -8855,9 +8855,12 @@ To work properly, also disable the daemon using the toggle above.</string>
               <item>
                <widget class="QStackedWidget" name="pbPages">
                 <property name="enabled">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </property>
                 <widget class="QWidget" name="pbSetupPage">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
                  <layout class="QVBoxLayout" name="verticalLayout_38">
                   <property name="leftMargin">
                    <number>12</number>
@@ -8885,6 +8888,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                    <layout class="QHBoxLayout" name="horizontalLayout_28">
                     <item>
                      <widget class="QToolButton" name="pbDBBtn">
+                      <property name="enabled">
+                       <bool>true</bool>
+                      </property>
                       <property name="text">
                        <string>Import sqlite</string>
                       </property>
@@ -8899,6 +8905,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                     </property>
                     <item>
                      <widget class="QToolButton" name="clearSavedIdsBtn">
+                      <property name="enabled">
+                       <bool>true</bool>
+                      </property>
                       <property name="text">
                        <string>Clear Saved Config Ids</string>
                       </property>
@@ -8913,6 +8922,9 @@ To work properly, also disable the daemon using the toggle above.</string>
                     </property>
                     <item>
                      <widget class="QLabel" name="label_67">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
                       <property name="text">
                        <string>Saved Ids:</string>
                       </property>
@@ -8921,12 +8933,12 @@ To work properly, also disable the daemon using the toggle above.</string>
                     <item>
                      <widget class="QToolButton" name="removeSelectedIdBtn">
                       <property name="enabled">
-                       <bool>false</bool>
+                       <bool>true</bool>
                       </property>
                       <property name="minimumSize">
                        <size>
                         <width>0</width>
-                        <height>35</height>
+                        <height>25</height>
                        </size>
                       </property>
                       <property name="maximumSize">
@@ -8935,6 +8947,12 @@ To work properly, also disable the daemon using the toggle above.</string>
                         <height>16777215</height>
                        </size>
                       </property>
+                      <property name="styleSheet">
+                       <string notr="true">QToolButton {
+	min-height: 25px;
+	border-radius: 5px;
+}</string>
+                      </property>
                       <property name="text">
                        <string>  Remove Selected Id</string>
                       </property>
@@ -8942,12 +8960,33 @@ To work properly, also disable the daemon using the toggle above.</string>
                        <iconset resource="resources.qrc">
                         <normaloff>:/icon/trash.svg</normaloff>:/icon/trash.svg</iconset>
                       </property>
+                      <property name="iconSize">
+                       <size>
+                        <width>14</width>
+                        <height>14</height>
+                       </size>
+                      </property>
                       <property name="toolButtonStyle">
                        <enum>Qt::ToolButtonTextBesideIcon</enum>
                       </property>
                      </widget>
                     </item>
                    </layout>
+                  </item>
+                  <item>
+                   <widget class="Line" name="line_30">
+                    <property name="styleSheet">
+                     <string notr="true">QFrame {
+	color: #414141;
+}</string>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Plain</enum>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
                   </item>
                   <item>
                    <widget class="QListWidget" name="savedConfigIdsList"/>

@@ -4625,9 +4625,10 @@ class Ui_Nugget(object):
 
         self.pbPages = QStackedWidget(self.posterboardPage)
         self.pbPages.setObjectName(u"pbPages")
-        self.pbPages.setEnabled(False)
+        self.pbPages.setEnabled(True)
         self.pbSetupPage = QWidget()
         self.pbSetupPage.setObjectName(u"pbSetupPage")
+        self.pbSetupPage.setEnabled(True)
         self.verticalLayout_38 = QVBoxLayout(self.pbSetupPage)
         self.verticalLayout_38.setObjectName(u"verticalLayout_38")
         self.verticalLayout_38.setContentsMargins(12, 0, 12, 0)
@@ -4641,6 +4642,7 @@ class Ui_Nugget(object):
         self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
         self.pbDBBtn = QToolButton(self.pbSetupPage)
         self.pbDBBtn.setObjectName(u"pbDBBtn")
+        self.pbDBBtn.setEnabled(True)
 
         self.horizontalLayout_28.addWidget(self.pbDBBtn)
 
@@ -4652,6 +4654,7 @@ class Ui_Nugget(object):
         self.horizontalLayout_29.setContentsMargins(-1, -1, -1, 0)
         self.clearSavedIdsBtn = QToolButton(self.pbSetupPage)
         self.clearSavedIdsBtn.setObjectName(u"clearSavedIdsBtn")
+        self.clearSavedIdsBtn.setEnabled(True)
 
         self.horizontalLayout_29.addWidget(self.clearSavedIdsBtn)
 
@@ -4663,23 +4666,39 @@ class Ui_Nugget(object):
         self.horizontalLayout_31.setContentsMargins(-1, -1, -1, 0)
         self.label_67 = QLabel(self.pbSetupPage)
         self.label_67.setObjectName(u"label_67")
+        self.label_67.setEnabled(False)
 
         self.horizontalLayout_31.addWidget(self.label_67)
 
         self.removeSelectedIdBtn = QToolButton(self.pbSetupPage)
         self.removeSelectedIdBtn.setObjectName(u"removeSelectedIdBtn")
-        self.removeSelectedIdBtn.setEnabled(False)
-        self.removeSelectedIdBtn.setMinimumSize(QSize(0, 35))
+        self.removeSelectedIdBtn.setEnabled(True)
+        self.removeSelectedIdBtn.setMinimumSize(QSize(0, 25))
         self.removeSelectedIdBtn.setMaximumSize(QSize(16777215, 16777215))
+        self.removeSelectedIdBtn.setStyleSheet(u"QToolButton {\n"
+"	min-height: 25px;\n"
+"	border-radius: 5px;\n"
+"}")
         icon29 = QIcon()
         icon29.addFile(u":/icon/trash.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.removeSelectedIdBtn.setIcon(icon29)
+        self.removeSelectedIdBtn.setIconSize(QSize(14, 14))
         self.removeSelectedIdBtn.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
 
         self.horizontalLayout_31.addWidget(self.removeSelectedIdBtn)
 
 
         self.verticalLayout_38.addLayout(self.horizontalLayout_31)
+
+        self.line_30 = QFrame(self.pbSetupPage)
+        self.line_30.setObjectName(u"line_30")
+        self.line_30.setStyleSheet(u"QFrame {\n"
+"	color: #414141;\n"
+"}")
+        self.line_30.setFrameShadow(QFrame.Plain)
+        self.line_30.setFrameShape(QFrame.Shape.HLine)
+
+        self.verticalLayout_38.addWidget(self.line_30)
 
         self.savedConfigIdsList = QListWidget(self.pbSetupPage)
         self.savedConfigIdsList.setObjectName(u"savedConfigIdsList")
