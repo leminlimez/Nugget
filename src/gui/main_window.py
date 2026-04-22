@@ -14,7 +14,7 @@ from src.devicemanagement.constants import Version
 from src.devicemanagement.device_manager import DeviceManager
 
 from src.gui.dialogs import GestaltDialog, UpdateAppDialog
-from src.gui.pages.reset_dialog import ResetDialog
+from src.gui.dialogs.reset_dialog import ResetDialog
 from src.gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThread, set_sudo_pwd, set_sudo_complete, get_sudo_pwd
 from src.gui.pages.pages_list import Page
 from src.restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreApplyMethod
@@ -22,7 +22,7 @@ from src.restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreAp
 from src.tweaks.tweaks import tweaks, TweakID
 
 App_Version = "7.4"
-App_Build = 1
+App_Build = 3
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, device_manager: DeviceManager, translator: Translator):

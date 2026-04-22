@@ -4690,11 +4690,24 @@ class Ui_Nugget(object):
 
         self.horizontalLayout_28 = QHBoxLayout()
         self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
+        self.horizontalSpacer_27 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_28.addItem(self.horizontalSpacer_27)
+
         self.pbDBBtn = QToolButton(self.configOptions)
         self.pbDBBtn.setObjectName(u"pbDBBtn")
         self.pbDBBtn.setEnabled(True)
 
         self.horizontalLayout_28.addWidget(self.pbDBBtn)
+
+        self.pbGetDBBtn = QToolButton(self.configOptions)
+        self.pbGetDBBtn.setObjectName(u"pbGetDBBtn")
+
+        self.horizontalLayout_28.addWidget(self.pbGetDBBtn)
+
+        self.horizontalSpacer_28 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_28.addItem(self.horizontalSpacer_28)
 
 
         self.verticalLayout_74.addLayout(self.horizontalLayout_28)
@@ -6649,6 +6662,7 @@ class Ui_Nugget(object):
         self.useDescriptorsBtn.setText(QCoreApplication.translate("Nugget", u"Descriptors", None))
         self.pbDBLbl.setText(QCoreApplication.translate("Nugget", u"sqlite: None", None))
         self.pbDBBtn.setText(QCoreApplication.translate("Nugget", u"Import sqlite", None))
+        self.pbGetDBBtn.setText(QCoreApplication.translate("Nugget", u"Get File", None))
         self.clearSavedIdsBtn.setText(QCoreApplication.translate("Nugget", u"Clear Saved Config Ids", None))
         self.label_67.setText(QCoreApplication.translate("Nugget", u"Saved Ids:", None))
         self.removeSelectedIdBtn.setText(QCoreApplication.translate("Nugget", u"  Remove Selected Id", None))

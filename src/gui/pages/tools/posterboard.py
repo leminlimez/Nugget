@@ -9,7 +9,7 @@ from PySide6 import QtCore, QtWidgets, QtGui
 
 from ..page import Page
 from src.qt.mainwindow_ui import Ui_Nugget
-from src.gui.dialogs import PBHelpDialog
+from src.gui.dialogs import PBHelpDialog, PosterBoardDBWizard
 from src.gui.custom_qt_elements.multicombobox import MultiComboBox
 
 from src.tweaks.tweaks import tweaks, TweakID
@@ -42,21 +42,26 @@ class PosterboardPage(Page, QtCore.QObject):
         tweaks[TweakID.PosterBoard].resetModes = selected_items
 
     def load_page(self):
+        # Page Selectors
         self.ui.pbSetupPageBtn.clicked.connect(self.on_pbSetupPageBtn_clicked)
         self.ui.tendiesPageBtn.clicked.connect(self.on_tendiesPageBtn_clicked)
         self.ui.templatePageBtn.clicked.connect(self.on_templatePageBtn_clicked)
         self.ui.videoPageBtn.clicked.connect(self.on_videoPageBtn_clicked)
 
+        # Setup Page
         self.ui.useConfigsBtn.clicked.connect(self.on_useConfigsBtn_clicked)
         self.ui.useDescriptorsBtn.clicked.connect(self.on_useDescriptorsBtn_clicked)
+        self.ui.pbGetDBBtn.clicked.connect(self.on_pbGetDBBtn_clicked)
         self.ui.pbDBBtn.clicked.connect(self.on_pbDBBtn_clicked)
         self.ui.clearSavedIdsBtn.clicked.connect(self.on_clearSavedIdsBtn_clicked)
         self.ui.removeSelectedIdBtn.clicked.connect(self.on_removeSelectedIdBtn_clicked)
 
+        # Tendies Page
         self.ui.importTendiesBtn.clicked.connect(self.on_importTendiesBtn_clicked)
-
+        # Templates Page (Deprecated)
         self.ui.importTemplateBtn.clicked.connect(self.on_importTemplatesBtn_clicked)
 
+        # Video Page
         self.ui.chooseThumbBtn.clicked.connect(self.on_chooseThumbBtn_clicked)
         self.ui.chooseVideoBtn.clicked.connect(self.on_chooseVideoBtn_clicked)
 
@@ -66,6 +71,7 @@ class PosterboardPage(Page, QtCore.QObject):
         self.ui.calcModeDrp.activated.connect(self.on_calcModeDrp_activated)
         self.ui.exportPBVideoBtn.clicked.connect(self.on_exportPBVideoBtn_clicked)
         
+        # Top Bar
         self.ui.findPBBtn.clicked.connect(self.on_findPBBtn_clicked)
         self.ui.pbHelpBtn.clicked.connect(self.on_pbHelpBtn_clicked)
 
@@ -223,6 +229,9 @@ class PosterboardPage(Page, QtCore.QObject):
     def on_useDescriptorsBtn_clicked(self):
         self.set_use_configs(False)
 
+    def on_pbGetDBBtn_clicked(self):
+        wizard = PosterBoardDBWizard(self.window.device_manager.data_singleton.current_device.ld, self.ui.pbDBLbl)
+        wizard.exec()
     def on_pbDBBtn_clicked(self):
         selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self.window, "Select PBFPosterExtensionDataStoreSQLiteDatabase File", "", "*.sqlite3", options=QtWidgets.QFileDialog.ReadOnly)
         if selected_file == "" or selected_file == None:
@@ -238,6 +247,7 @@ class PosterboardPage(Page, QtCore.QObject):
                 detailsBox.exec()
                 return
             self.ui.pbDBLbl.setText("sqlite: Selected")
+
     def on_clearSavedIdsBtn_clicked(self):
         # TODO: Add confirmation (and save when removing)
         tweaks[TweakID.PosterBoard].config_manager.saved_items.clear()

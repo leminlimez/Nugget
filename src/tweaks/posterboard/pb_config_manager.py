@@ -89,10 +89,14 @@ class PBConfigManager:
         # check the saved ids
         final_saved_items: list[PBConfigItem] = []
         for item in self.saved_items:
-            db_cursor.execute("SELECT FROM poster WHERE UUID = ?", (item.uuid,))
-            sort_keys = db_cursor.fetchall()
-            if sort_keys is None or len(sort_keys) == 0:
-                final_saved_items.append(item)
+            # TODO: Remove if not in current configuration
+            try:
+                db_cursor.execute("SELECT FROM poster WHERE UUID = ?", (item.uuid,))
+                sort_keys = db_cursor.fetchall()
+                if sort_keys is None or len(sort_keys) == 0:
+                    final_saved_items.append(item)
+            except Exception:
+                print("Error executing database sequence, ignoring.")
         self.saved_items = final_saved_items
         # it is correct format, update database
         db_connection.close()

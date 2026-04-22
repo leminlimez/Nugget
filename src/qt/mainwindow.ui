@@ -9019,6 +9019,19 @@ To work properly, also disable the daemon using the toggle above.</string>
                      <item>
                       <layout class="QHBoxLayout" name="horizontalLayout_28">
                        <item>
+                        <spacer name="horizontalSpacer_27">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
                         <widget class="QToolButton" name="pbDBBtn">
                          <property name="enabled">
                           <bool>true</bool>
@@ -9027,6 +9040,26 @@ To work properly, also disable the daemon using the toggle above.</string>
                           <string>Import sqlite</string>
                          </property>
                         </widget>
+                       </item>
+                       <item>
+                        <widget class="QToolButton" name="pbGetDBBtn">
+                         <property name="text">
+                          <string>Get File</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <spacer name="horizontalSpacer_28">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
                        </item>
                       </layout>
                      </item>
