@@ -1,3 +1,5 @@
+import asyncio
+
 from tempfile import TemporaryDirectory
 from pathlib import Path
 
@@ -13,7 +15,7 @@ def reboot_device(reboot: bool = False, lockdown_client: LockdownClient = None):
     if reboot and lockdown_client != None:
         print("Success! Rebooting your device...")
         with DiagnosticsService(lockdown_client) as diagnostics_service:
-            diagnostics_service.restart()
+            asyncio.run(diagnostics_service.restart())
         print("Remember to turn Find My back on!")
 
 def perform_restore(backup: backup.Backup, reboot: bool = False, lockdown_client: LockdownClient = None, progress_callback = lambda x: None):
@@ -22,9 +24,9 @@ def perform_restore(backup: backup.Backup, reboot: bool = False, lockdown_client
             backup.write_to_directory(Path(backup_dir))
             
             if lockdown_client == None:
-                lockdown_client = create_using_usbmux()
+                lockdown_client = asyncio.run(create_using_usbmux())
             with Mobilebackup2Service(lockdown_client) as mb:
-                mb.restore(backup_dir, system=True, reboot=False, copy=False, source=".", progress_callback=progress_callback, skip_apps=True)
+                asyncio.run(mb.restore(backup_dir, system=True, reboot=False, copy=False, source=".", progress_callback=progress_callback, skip_apps=True))
             # reboot the device
             reboot_device(reboot, lockdown_client)
     except PyMobileDevice3Exception as e:

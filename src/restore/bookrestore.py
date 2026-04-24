@@ -24,7 +24,7 @@ from pymobiledevice3.lockdown import LockdownClient
 from pymobiledevice3.services.afc import AfcService
 from pymobiledevice3.services.amfi import AmfiService
 from pymobiledevice3.remote.remote_service_discovery import RemoteServiceDiscoveryService
-from pymobiledevice3.services.dvt.dvt_secure_socket_proxy import DvtSecureSocketProxyService
+from pymobiledevice3.services.dvt.instruments.dvt_provider import DvtProvider
 from pymobiledevice3.services.dvt.instruments.process_control import ProcessControl
 from pymobiledevice3.services.os_trace import OsTraceService
 from http.server import HTTPServer, SimpleHTTPRequestHandler
@@ -178,7 +178,7 @@ def _run_async_rsd_connection(address, port, files, current_device_uuid_callback
                     loop = asyncio.get_running_loop()
                     
                     def run_blocking_callback():
-                        with DvtSecureSocketProxyService(rsd) as dvt:
+                        with DvtProvider(rsd) as dvt:
                             apply_bookrestore_files(files, rsd, dvt, current_device_uuid_callback, progress, transfer_mode, do_full_reboot)
 
                     await loop.run_in_executor(None, run_blocking_callback)
@@ -265,7 +265,7 @@ def generate_bldbmanager(files: list[FileToRestore], out_file: str, afc: AfcServ
                 zassetpath = f'{file.restore_path}.zassetpath'
                 media_folder = file_name#f'{nugget_media_folder}/{file_name}'
                 zplistpath = f'/var/mobile/Media/{media_folder}'
-                afc.set_file_contents(media_folder, file.contents)
+                asyncio.run(afc.set_file_contents(media_folder, file.contents))
             else:
                 zdownloadid = ""
                 zassetpath = file.restore_path
@@ -283,7 +283,7 @@ def generate_bldbmanager(files: list[FileToRestore], out_file: str, afc: AfcServ
     # return the number of files in the thing
     return z_id
 
-def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: LockdownClient, dvt: DvtSecureSocketProxyService,
+def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: LockdownClient, dvt: DvtProvider,
                             current_device_uuid_callback = lambda x: None, progress_callback = lambda x: None,
                             transfer_mode: BookRestoreFileTransferMethod = BookRestoreFileTransferMethod.LocalHost,
                             do_full_reboot: bool = False):
@@ -369,13 +369,13 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         """)
         connection.commit()
 
-        procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
+        procs = asyncio.run(OsTraceService(lockdown=lockdown_client).get_pid_list()).get("Payload")
         pid_bookassetd = next((pid for pid, p in procs.items() if p['ProcessName'] == 'bookassetd'), None)
         pid_books = next((pid for pid, p in procs.items() if p['ProcessName'] == 'Books'), None)
         if pid_bookassetd:
-            pc.signal(pid_bookassetd, 19)
+            asyncio.run(pc.signal(pid_bookassetd, 19))
         if pid_books:
-            pc.kill(pid_books)
+            asyncio.run(pc.kill(pid_books))
 
         progress_callback("Uploading files...")
 
@@ -389,7 +389,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
                 _, file_name = os.path.split(file.restore_path)
                 print(f"including {file.restore_path}")
                 media_folder = file_name
-                afc.set_file_contents(media_folder, file.contents)
+                asyncio.run(afc.set_file_contents(media_folder, file.contents))
         
         def fast_upload(local_path, remote_path):
             content = b''
@@ -399,7 +399,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
                         content = f.read()
                 except OSError:
                     content = b''
-            afc.set_file_contents(remote_path, content)
+            asyncio.run(afc.set_file_contents(remote_path, content))
 
         fast_upload(temp_db_path, "Downloads/downloads.28.sqlitedb")
         fast_upload(temp_db_path + "-shm", "Downloads/downloads.28.sqlitedb-shm")
@@ -418,10 +418,10 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
             except Exception:
                 pass
 
-    procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
+    procs = asyncio.run(OsTraceService(lockdown=lockdown_client).get_pid_list()).get("Payload")
     pid_itunesstored = next((pid for pid, p in procs.items() if p['ProcessName'] == 'itunesstored'), None)
     if pid_itunesstored:
-        pc.kill(pid_itunesstored)
+        asyncio.run(pc.kill(pid_itunesstored))
     
     timeout = time.time() + 120 
     progress_callback("Waiting for itunesstored to finish download..." + "\n" + "(This might take a minute)")
@@ -435,12 +435,12 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
     pid_bookassetd = next((pid for pid, p in procs.items() if p['ProcessName'] == 'bookassetd'), None)
     pid_books = next((pid for pid, p in procs.items() if p['ProcessName'] == 'Books'), None)
     if pid_bookassetd:
-        pc.kill(pid_bookassetd)
+        asyncio.run(pc.kill(pid_bookassetd))
     if pid_books:
-        pc.kill(pid_books)
+        asyncio.run(pc.kill(pid_books))
     
     try:
-        pc.launch("com.apple.iBooks")
+        asyncio.run(pc.launch("com.apple.iBooks"))
     except Exception as e:
         raise NuggetException("Error launching Books app", detailed_text=repr(e))
     
@@ -461,7 +461,7 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
             # respring anyway even if it is not detected that all files overwrote
             break
             # raise Exception("Timed out waiting for file, please try again.")
-    pc.kill(pid_bookassetd)
+    asyncio.run(pc.kill(pid_bookassetd))
     if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
         close_dl_connection()
         remove_db_files(temp_dl_manager)
@@ -471,9 +471,9 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         reboot_device(True, lockdown_client=lockdown_client)
     else:
         progress_callback("Respringing")
-        procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
+        procs = asyncio.run(OsTraceService(lockdown=lockdown_client).get_pid_list()).get("Payload")
         pid = next((pid for pid, p in procs.items() if p['ProcessName'] == 'backboardd'), None)
-        pc.kill(pid)
+        asyncio.run(pc.kill(pid))
 
 def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownClient,
                         current_device_books_uuid_callback = lambda x: None, progress_callback = lambda x: None,
@@ -482,7 +482,7 @@ def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownCli
     if not lockdown_client.developer_mode_status:
         # enable developer mode
         progress_callback("Enabling Developer Mode...")
-        AmfiService(lockdown=lockdown_client).reveal_developer_mode_option_in_ui()
+        asyncio.run(AmfiService(lockdown=lockdown_client).reveal_developer_mode_option_in_ui())
         raise NuggetException("You must enable developer mode on your device. You can do it in the Settings app.\n\nClick \"Show Details\" for more information.",
                               detailed_text="BookRestore tweaks with the AFC method require developer mode to apply.\n\nYou can enable this at the bottom of Settings > Privacy & Security > Developer Mode on your iPhone or iPad.")
     if os.name == 'nt':
