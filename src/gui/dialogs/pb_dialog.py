@@ -1,13 +1,13 @@
 import asyncio
 import sqlite3
 
-from PySide6.QtWidgets import QWizard, QWizardPage, QLabel, QVBoxLayout, QProgressBar, QSizePolicy
-from PySide6.QtGui import QFont, QIcon, QPixmap
+from PySide6.QtWidgets import QWizard, QWizardPage, QLabel, QVBoxLayout, QProgressBar, QSizePolicy, QCheckBox
 from PySide6.QtCore import QSize, Qt, QStandardPaths
 
 from os import path, makedirs
 from pymobiledevice3.lockdown import create_using_usbmux
 from pymobiledevice3.services.mobilebackup2 import Mobilebackup2Service
+from shutil import rmtree
 
 from src.exceptions.nugget_exception import NuggetException
 from src.gui.thread_workers.pb_worker import PBDBThread
@@ -19,7 +19,8 @@ class PosterBoardDBWizard(QWizard):
         self.udid = udid
         self.pbDBLbl = pbDBLbl
         self.backup_in_progress = False
-        self.backup_complete = False
+        self.delete_backup_when_done = False
+        self.backup_successful = False
 
         # only show cancel and next/finish buttons
         self.setOption(QWizard.WizardOption.NoBackButtonOnStartPage, True)
@@ -43,14 +44,22 @@ class PosterBoardDBWizard(QWizard):
         self.setWindowTitle("Fetch Database File")
 
     # PAGES
+    def on_deleteBackupChk_toggled(self, enabled: bool):
+        self.delete_backup_when_done = enabled
     def createPage1(self) -> QWizardPage:
         # information page telling the user about backing up
         page = QWizardPage()
         page.setTitle("Notice")
-        # TODO: Option to not save backup
-        message = QLabel("In order to get the file, Nugget needs to back up your device.\nThe backup will be deleted after Nugget finishes (NOT IMPLEMENTED YET).\n\nWould you like to continue?")
+        message = QLabel("In order to get the file, Nugget needs to back up your device.")
+        delBkLbl = QLabel("If you do not delete the backup, this process will be faster when getting the file again.")
+        delBkChk = QCheckBox("Delete Backup When Complete")
+        delBkChk.toggled.connect(self.on_deleteBackupChk_toggled)
+        contLbl = QLabel("\nWould you like to continue?")
         layout = QVBoxLayout(page)
         layout.addWidget(message)
+        layout.addWidget(delBkLbl)
+        layout.addWidget(delBkChk)
+        layout.addWidget(contLbl)
         page.setLayout(layout)
         return page
     
@@ -90,7 +99,9 @@ class PosterBoardDBWizard(QWizard):
             self.backupInfoLbl.setText(txt)
 
     def finish_backup_thread(self):
-        self.setButtonLayout([QWizard.WizardButton.Stretch, QWizard.WizardButton.NextButton])
+        if self.backup_successful:
+            self.setButtonLayout([QWizard.WizardButton.Stretch, QWizard.WizardButton.NextButton])
+        self.backup_in_progress = False
         # self.next()
     
     def start_device_backup(self, update_label=lambda x: None, update_progress=lambda x: None):
@@ -135,7 +146,13 @@ class PosterBoardDBWizard(QWizard):
                 raise NuggetException("The database is not of the correct format!")
             update_label("sqlite: Selected")
 
+            # delete backup files if wanted
+            if self.delete_backup_when_done:
+                update_label("Deleting backup...")
+                rmtree(backup_folder)
+
             # re-enable next button
+            self.backup_successful = True
             update_label("Success!") # TODO: Place this somewhere else so that we can call self.next()
             # self.setButtonLayout([QWizard.WizardButton.Stretch, QWizard.WizardButton.NextButton])
         except Exception as e:
