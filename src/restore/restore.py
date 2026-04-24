@@ -169,7 +169,8 @@ async def restore_files(files: list[FileToRestore], reboot: bool = False, lockdo
                 bundle_id = last_domain.removeprefix("AppDomain-")
                 if not bundle_id in active_bundle_ids:
                     if apps == None:
-                        apps = await InstallationProxyService(lockdown=lockdown_client).get_apps(application_type="Any", calculate_sizes=False)
+                        async with InstallationProxyService(lockdown=lockdown_client) as ips:
+                            apps = await ips.get_apps(application_type="Any", calculate_sizes=False)
                     app_info = apps[bundle_id]
                     active_bundle_ids.append(bundle_id)
                     apps_list.append(backup.AppBundle(

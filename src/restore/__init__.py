@@ -16,10 +16,6 @@ async def reboot_device(reboot: bool = False, lockdown_client: LockdownClient = 
         print("Success! Rebooting your device...")
         async with DiagnosticsService(lockdown_client) as diagnostics_service:
             await diagnostics_service.restart()
-        try:
-            await lockdown_client.close()
-        except Exception:
-            pass
         print("Remember to turn Find My back on!")
 
 async def perform_restore(backup: backup.Backup, reboot: bool = False, lockdown_client: LockdownClient = None, progress_callback = lambda x: None):
@@ -37,10 +33,8 @@ async def perform_restore(backup: backup.Backup, reboot: bool = False, lockdown_
         if "Find My" in str(e):
             print("Find My must be disabled in order to use this tool.")
             print("Disable Find My from Settings (Settings -> [Your Name] -> Find My) and then try again.")
-            await lockdown_client.close()
             raise e
         elif "crash_on_purpose" not in str(e):
-            await lockdown_client.close()
             raise e
         else:
             await reboot_device(reboot, lockdown_client)

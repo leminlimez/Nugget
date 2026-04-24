@@ -304,7 +304,8 @@ class DeviceManager:
             # get the bundle id of Pocket Poster
             bundle_id = "com.leemin.Pocket-Poster"
             ld = await create_using_usbmux(serial=self.data_singleton.current_device.udid)
-            apps = await InstallationProxyService(ld).get_apps(application_type="User", calculate_sizes=False)
+            async with InstallationProxyService(ld) as ips:
+                apps = await ips.get_apps(application_type="User", calculate_sizes=False)
             for app in apps.values():
                 if app["CFBundleExecutable"] == "Pocket Poster":
                     bundle_id = app["CFBundleIdentifier"]
@@ -312,14 +313,14 @@ class DeviceManager:
                 elif app["CFBundleExecutable"] == "LiveContainer":
                     # fallback for live container
                     bundle_id = app["CFBundleIdentifier"]
-            afc = HouseArrestService(lockdown=ld, bundle_id=bundle_id, documents_only=True)
-            # send each hash over
-            for key in hashes.keys():
-                fname = "Nugget" + key.replace("com.apple.", "") + "Hash"
-                tmpf = os.path.join(tmpdir, fname)
-                with open(tmpf, "w", encoding='UTF-8') as in_file:
-                    in_file.write(hashes[key])
-                await afc.push(tmpf, f"/Documents/{fname}")
+            async with HouseArrestService(lockdown=ld, bundle_id=bundle_id, documents_only=True) as afc:
+                # send each hash over
+                for key in hashes.keys():
+                    fname = "Nugget" + key.replace("com.apple.", "") + "Hash"
+                    tmpf = os.path.join(tmpdir, fname)
+                    with open(tmpf, "w", encoding='UTF-8') as in_file:
+                        in_file.write(hashes[key])
+                    await afc.push(tmpf, f"/Documents/{fname}")
             await ld.close()
         
 
@@ -342,7 +343,8 @@ class DeviceManager:
         if self.pref_manager.skip_setup and (not self.get_current_device_supported() or restoring_domains):
             # get the already existing cloud config info
             ld = await create_using_usbmux(serial=self.data_singleton.current_device.udid)
-            cloud_config_plist = await MobileConfigService(lockdown=ld).get_cloud_configuration()
+            async with MobileConfigService(lockdown=ld) as mcs:
+                cloud_config_plist = await mcs.get_cloud_configuration()
             await ld.close()
             # add the 2 skip setup files
             cloud_config_plist["SkipSetup"] = [

@@ -114,17 +114,17 @@ class PosterBoardDBWizard(QWizard):
             if not path.exists(app_data_path):
                 makedirs(app_data_path)
             service_provider = await create_using_usbmux(serial=self.udid)
-            backup_client = Mobilebackup2Service(service_provider)
-            backup_folder = path.join(app_data_path, self.udid)
-            # check if a full backup is needed (makes it faster)
-            needs_full = False
-            if path.exists(backup_folder):
-                files_to_verify = ["Info.plist", "Manifest.db", "Manifest.plist", "Status.plist"]
-                for file in files_to_verify:
-                    if not path.exists(path.join(backup_folder, file)):
-                        needs_full = True
-                        break
-            await backup_client.backup(full=needs_full, backup_directory=app_data_path, progress_callback=update_progress)
+            async with Mobilebackup2Service(service_provider) as backup_client:
+                backup_folder = path.join(app_data_path, self.udid)
+                # check if a full backup is needed (makes it faster)
+                needs_full = False
+                if path.exists(backup_folder):
+                    files_to_verify = ["Info.plist", "Manifest.db", "Manifest.plist", "Status.plist"]
+                    for file in files_to_verify:
+                        if not path.exists(path.join(backup_folder, file)):
+                            needs_full = True
+                            break
+                await backup_client.backup(full=needs_full, backup_directory=app_data_path, progress_callback=update_progress)
             await service_provider.close()
 
             # get the file, reading the sqlite db first to get the file id
