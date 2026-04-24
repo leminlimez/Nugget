@@ -104,6 +104,7 @@ class PBConfigManager:
         if udid is not None:
             # save the database
             PreferenceManager.save_pbconfig_file(dbpath, udid)
+            PreferenceManager.save_pbconfig_ids(self.saved_items, udid)
         return True
 
     def update_sqlite(self) -> str:

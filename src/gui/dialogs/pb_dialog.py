@@ -14,13 +14,14 @@ from src.gui.thread_workers.pb_worker import PBDBThread
 from src.tweaks.tweaks import tweaks, TweakID
 
 class PosterBoardDBWizard(QWizard):
-    def __init__(self, udid: str, pbDBLbl: QLabel):
+    def __init__(self, udid: str, pbDBLbl: QLabel, update_savedIds_list=lambda x: None):
         super().__init__()
         self.udid = udid
         self.pbDBLbl = pbDBLbl
         self.backup_in_progress = False
         self.delete_backup_when_done = False
         self.backup_successful = False
+        self.update_savedIds_list = update_savedIds_list
 
         # only show cancel and next/finish buttons
         self.setOption(QWizard.WizardOption.NoBackButtonOnStartPage, True)
@@ -100,6 +101,7 @@ class PosterBoardDBWizard(QWizard):
 
     def finish_backup_thread(self):
         if self.backup_successful:
+            self.update_savedIds_list()
             self.setButtonLayout([QWizard.WizardButton.Stretch, QWizard.WizardButton.NextButton])
         self.backup_in_progress = False
         # self.next()
