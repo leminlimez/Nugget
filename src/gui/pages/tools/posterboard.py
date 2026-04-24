@@ -230,7 +230,7 @@ class PosterboardPage(Page, QtCore.QObject):
         self.set_use_configs(False)
 
     def on_pbGetDBBtn_clicked(self):
-        wizard = PosterBoardDBWizard(self.window.device_manager.data_singleton.current_device.ld, self.ui.pbDBLbl)
+        wizard = PosterBoardDBWizard(self.window.device_manager.data_singleton.current_device.udid, self.ui.pbDBLbl)
         wizard.exec()
     def on_pbDBBtn_clicked(self):
         selected_file, _ = QtWidgets.QFileDialog.getOpenFileName(self.window, "Select PBFPosterExtensionDataStoreSQLiteDatabase File", "", "*.sqlite3", options=QtWidgets.QFileDialog.ReadOnly)

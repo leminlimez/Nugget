@@ -15,7 +15,7 @@ from src.devicemanagement.device_manager import DeviceManager
 
 from src.gui.dialogs import GestaltDialog, UpdateAppDialog
 from src.gui.dialogs.reset_dialog import ResetDialog
-from src.gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThread, set_sudo_pwd, set_sudo_complete, get_sudo_pwd
+from src.gui.thread_workers.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThread, set_sudo_pwd, set_sudo_complete, get_sudo_pwd
 from src.gui.pages.pages_list import Page
 from src.restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreApplyMethod
 

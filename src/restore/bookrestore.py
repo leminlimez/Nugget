@@ -18,7 +18,7 @@ import tempfile
 from .restore import FileToRestore
 from . import reboot_device
 from src.exceptions.nugget_exception import NuggetException
-from src.gui.apply_worker import get_sudo_pwd, get_sudo_complete
+from src.gui.thread_workers.apply_worker import get_sudo_pwd, get_sudo_complete
 from src.controllers.files_handler import get_bundle_files
 from pymobiledevice3.lockdown import LockdownClient
 from pymobiledevice3.services.afc import AfcService
@@ -222,7 +222,7 @@ def close_dl_connection():
         dl_connection.close()
         dl_connection = None
 
-def generate_bldbmanager(files: list[FileToRestore], out_file: str, afc: AfcService, server_prefix: str):
+async def generate_bldbmanager(files: list[FileToRestore], out_file: str, afc: AfcService, server_prefix: str):
     global dl_connection
     dl_manager = os.path.join(br_files, "BLDatabaseManager.sqlite")
     shutil.copyfile(dl_manager, out_file)
@@ -265,7 +265,7 @@ def generate_bldbmanager(files: list[FileToRestore], out_file: str, afc: AfcServ
                 zassetpath = f'{file.restore_path}.zassetpath'
                 media_folder = file_name#f'{nugget_media_folder}/{file_name}'
                 zplistpath = f'/var/mobile/Media/{media_folder}'
-                asyncio.run(afc.set_file_contents(media_folder, file.contents))
+                await afc.set_file_contents(media_folder, file.contents)
             else:
                 zdownloadid = ""
                 zassetpath = file.restore_path
@@ -475,16 +475,16 @@ def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: Lockdow
         pid = next((pid for pid, p in procs.items() if p['ProcessName'] == 'backboardd'), None)
         asyncio.run(pc.kill(pid))
 
-def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownClient,
+async def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownClient,
                         current_device_books_uuid_callback = lambda x: None, progress_callback = lambda x: None,
                         transfer_mode: BookRestoreFileTransferMethod = BookRestoreFileTransferMethod.LocalHost,
                         do_full_reboot: bool = False):
     if not lockdown_client.developer_mode_status:
         # enable developer mode
         progress_callback("Enabling Developer Mode...")
-        asyncio.run(AmfiService(lockdown=lockdown_client).reveal_developer_mode_option_in_ui())
+        await AmfiService(lockdown=lockdown_client).reveal_developer_mode_option_in_ui()
         raise NuggetException("You must enable developer mode on your device. You can do it in the Settings app.\n\nClick \"Show Details\" for more information.",
                               detailed_text="BookRestore tweaks with the AFC method require developer mode to apply.\n\nYou can enable this at the bottom of Settings > Privacy & Security > Developer Mode on your iPhone or iPad.")
     if os.name == 'nt':
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-    asyncio.run(create_connection_context(files, lockdown_client, current_device_books_uuid_callback, progress_callback, transfer_mode, do_full_reboot))
+    await create_connection_context(files, lockdown_client, current_device_books_uuid_callback, progress_callback, transfer_mode, do_full_reboot)
