@@ -5899,6 +5899,9 @@ QComboBox QAbstractItemView::item:hover {
               </item>
               <item>
                <widget class="QScrollArea" name="sbOptionsScrollArea">
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
                 <property name="frameShape">
                  <enum>QFrame::NoFrame</enum>
                 </property>
@@ -5922,24 +5925,6 @@ QComboBox QAbstractItemView::item:hover {
                    <width>650</width>
                    <height>800</height>
                   </rect>
-                 </property>
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>650</width>
-                   <height>500</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>650</width>
-                   <height>2000</height>
-                  </size>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">
                   <property name="leftMargin">
@@ -6106,16 +6091,13 @@ QComboBox QAbstractItemView::item:hover {
                      </item>
                      <item>
                       <widget class="QLabel" name="label_66">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
                        <property name="text">
                         <string>Warning: This may cause issues for some iOS and watchOS version combos (such as messages app
 not working).
 Please do not make GitHub issues on Nugget about them, it is not fixable.</string>
+                       </property>
+                       <property name="wordWrap">
+                        <bool>true</bool>
                        </property>
                       </widget>
                      </item>
