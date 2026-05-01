@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.3
+## Created by: Qt User Interface Compiler version 6.11.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -1977,11 +1977,10 @@ class Ui_Nugget(object):
         self.sbScrollArea.setFrameShadow(QFrame.Plain)
         self.sbScrollArea.setLineWidth(0)
         self.sbScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.sbScrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents1 = QWidget()
         self.scrollAreaWidgetContents1.setObjectName(u"scrollAreaWidgetContents1")
-        self.scrollAreaWidgetContents1.setGeometry(QRect(0, 0, 650, 2000))
-        self.scrollAreaWidgetContents1.setMinimumSize(QSize(650, 2000))
-        self.scrollAreaWidgetContents1.setMaximumSize(QSize(650, 2000))
+        self.scrollAreaWidgetContents1.setGeometry(QRect(0, 0, 650, 100))
         self.verticalLayout_91 = QVBoxLayout(self.scrollAreaWidgetContents1)
         self.verticalLayout_91.setObjectName(u"verticalLayout_91")
         self.verticalLayout_91.setContentsMargins(0, 0, 0, 0)
