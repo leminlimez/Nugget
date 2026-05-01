@@ -189,9 +189,12 @@ class Ui_Nugget(object):
         self.phoneIconBtn = QToolButton(self.horizontalWidget_3)
         self.phoneIconBtn.setObjectName(u"phoneIconBtn")
         self.phoneIconBtn.setEnabled(False)
+        self.phoneIconBtn.setMinimumSize(QSize(0, 38))
         self.phoneIconBtn.setStyleSheet(u"QToolButton {\n"
 "	border-top-right-radius: 0px;\n"
 "	border-bottom-right-radius: 0px;\n"
+"	min-height: 38px;\n"
+"	margin-top: 1px;\n"
 "}")
         icon = QIcon()
         icon.addFile(u":/icon/phone.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
