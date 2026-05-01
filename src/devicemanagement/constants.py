@@ -99,7 +99,7 @@ class Version:
     
 class Tweak(Enum):
     StatusBar = 'Status Bar'
-    SpringboardOptions = 'Springboard Options'
+    SpringboardOptions = 'SpringBoard Options'
     InternalOptions = 'Internal Options'
     SkipSetup = 'Setup Options'
 
@@ -115,7 +115,7 @@ class FileLocation(Enum):
     # Status Bar
     status_bar = "StatusBar/HomeDomain/Library/SpringBoard/statusBarOverrides"
     
-    # Springboard Options
+    # SpringBoard Options
     springboard = "SpringboardOptions/ManagedPreferencesDomain/mobile/com.apple.springboard.plist"
     footnote = "SpringboardOptions/ConfigProfileDomain/Library/ConfigurationProfiles/SharedDeviceConfiguration.plist"
     wifi = "SpringboardOptions/SystemPreferencesDomain/SystemConfiguration/com.apple.wifi.plist"

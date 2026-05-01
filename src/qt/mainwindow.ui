@@ -5843,7 +5843,7 @@ QComboBox QAbstractItemView::item:hover {
                        </font>
                       </property>
                       <property name="text">
-                       <string>Springboard Options</string>
+                       <string>SpringBoard Options</string>
                       </property>
                      </widget>
                     </item>
@@ -10322,7 +10322,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                        <cursorShape>PointingHandCursor</cursorShape>
                       </property>
                       <property name="text">
-                       <string>Springboard</string>
+                       <string>SpringBoard</string>
                       </property>
                       <property name="icon">
                        <iconset resource="resources.qrc">
