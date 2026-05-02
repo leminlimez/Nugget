@@ -177,6 +177,15 @@ class DeviceManager:
                     print(f"ERROR with lockdown device with UUID {device.serial}")
                     show_alert(ApplyAlertMessage(txt=f"{type(e).__name__}: {repr(e)}", detailed_txt=str(traceback.format_exc())))
         
+        if len(self.devices) == 0 and not self.pref_manager.apply_over_wifi:
+            wifi_devices = [d for d in connected_devices if not d.is_usb]
+            if wifi_devices:
+                print(f"No USB devices found, detected {len(wifi_devices)} over Wi-Fi. Auto-enabling Wi-Fi...")
+                self.pref_manager.apply_over_wifi = True
+                settings.setValue("apply_over_wifi", True)
+                self.get_devices(settings, show_alert)
+                return
+        
         if len(self.devices) > 0:
             self.set_current_device(index=0)
         else:

@@ -230,6 +230,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.pocketPosterHelperBtn.show()
             self.ui.showRiskyChk.show()
         
+        self.ui.allowWifiApplyingChk.setChecked(self.device_manager.pref_manager.apply_over_wifi)
+        
         # update the selected device
         self.ui.devicePicker.setCurrentIndex(0)
 
