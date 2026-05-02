@@ -200,7 +200,7 @@ class MainWindow(QtWidgets.QMainWindow):
                     if device.connected_via_usb:
                         tag = " (@ USB)"
                     else:
-                        tag = " (@ WiFi)"
+                        tag = " (@ Wi-Fi)"
                 self.ui.devicePicker.addItem(f"{device.name}{tag}")
             
             # show all pages
@@ -229,6 +229,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.resetPairBtn.show()
             self.ui.pocketPosterHelperBtn.show()
             self.ui.showRiskyChk.show()
+        
+        self.ui.allowWifiApplyingChk.setChecked(self.device_manager.pref_manager.apply_over_wifi)
         
         # update the selected device
         self.ui.devicePicker.setCurrentIndex(0)

@@ -8383,7 +8383,7 @@ To work properly, also disable the daemon using the toggle above.</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="toolTip">
-                    <string>Disables the service that deals with errors with WiFi networks with Chinese characters in the name.</string>
+                    <string>Disables the service that deals with errors with Wi-Fi networks with Chinese characters in the name.</string>
                    </property>
                    <property name="text">
                     <string>Disable Chinese WLAN Service</string>
@@ -11222,7 +11222,7 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                         <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="text">
-                        <string>Allow Applying Over WiFi</string>
+                        <string>Allow Applying Over Wi-Fi</string>
                        </property>
                        <property name="checked">
                         <bool>false</bool>
