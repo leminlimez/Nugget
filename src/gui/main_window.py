@@ -200,7 +200,7 @@ class MainWindow(QtWidgets.QMainWindow):
                     if device.connected_via_usb:
                         tag = " (@ USB)"
                     else:
-                        tag = " (@ WiFi)"
+                        tag = " (@ Wi-Fi)"
                 self.ui.devicePicker.addItem(f"{device.name}{tag}")
             
             # show all pages

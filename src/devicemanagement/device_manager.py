@@ -356,7 +356,7 @@ class DeviceManager:
                     'Appearance',
                     'RestoreCompleted',
                     'UpdateCompleted',
-                    'WiFi',
+                    'Wi-Fi',
                     'Display',
                     'Tone',
                     'LanguageAndLocale',
