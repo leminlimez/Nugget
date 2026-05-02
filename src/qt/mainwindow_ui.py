@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.11.0
+## Created by: Qt User Interface Compiler version 6.10.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -5715,13 +5715,12 @@ class Ui_Nugget(object):
         self.settingsScrollArea.setLineWidth(0)
         self.settingsScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.settingsScrollArea.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.settingsScrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents4 = QWidget()
         self.scrollAreaWidgetContents4.setObjectName(u"scrollAreaWidgetContents4")
-        self.scrollAreaWidgetContents4.setGeometry(QRect(0, 0, 650, 800))
+        self.scrollAreaWidgetContents4.setGeometry(QRect(0, 0, 650, 100))
         sizePolicy6.setHeightForWidth(self.scrollAreaWidgetContents4.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContents4.setSizePolicy(sizePolicy6)
-        self.scrollAreaWidgetContents4.setMinimumSize(QSize(650, 500))
-        self.scrollAreaWidgetContents4.setMaximumSize(QSize(650, 2000))
         self.verticalLayout_95 = QVBoxLayout(self.scrollAreaWidgetContents4)
         self.verticalLayout_95.setObjectName(u"verticalLayout_95")
         self.verticalLayout_95.setContentsMargins(0, 0, 0, 0)

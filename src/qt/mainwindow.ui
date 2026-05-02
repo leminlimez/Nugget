@@ -11031,13 +11031,16 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                 <property name="sizeAdjustPolicy">
                  <enum>QAbstractScrollArea::AdjustToContents</enum>
                 </property>
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
                 <widget class="QWidget" name="scrollAreaWidgetContents">
                  <property name="geometry">
                   <rect>
                    <x>0</x>
                    <y>0</y>
                    <width>650</width>
-                   <height>800</height>
+                   <height>100</height>
                   </rect>
                  </property>
                  <property name="sizePolicy">
@@ -11045,18 +11048,6 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                    <horstretch>0</horstretch>
                    <verstretch>0</verstretch>
                   </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>650</width>
-                   <height>500</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>650</width>
-                   <height>2000</height>
-                  </size>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">
                   <property name="leftMargin">
