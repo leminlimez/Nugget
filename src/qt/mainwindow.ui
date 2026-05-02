@@ -1145,7 +1145,7 @@ QSlider::tick:horizontal {
                          <cursorShape>PointingHandCursor</cursorShape>
                         </property>
                         <property name="text">
-                         <string> Star on Github</string>
+                         <string> Star on GitHub</string>
                         </property>
                         <property name="icon">
                          <iconset resource="resources.qrc">

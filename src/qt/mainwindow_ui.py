@@ -6032,7 +6032,7 @@ class Ui_Nugget(object):
         self.settingsPageBtn.setText(QCoreApplication.translate("Nugget", u"    Settings", None))
         self.bigNuggetBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
         self.discordBtn.setText(QCoreApplication.translate("Nugget", u"  Join the Discord", None))
-        self.starOnGithubBtn.setText(QCoreApplication.translate("Nugget", u" Star on Github", None))
+        self.starOnGithubBtn.setText(QCoreApplication.translate("Nugget", u" Star on GitHub", None))
 #if QT_CONFIG(tooltip)
         self.leminBtn.setToolTip("")
 #endif // QT_CONFIG(tooltip)
