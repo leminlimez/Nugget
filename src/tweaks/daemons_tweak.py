@@ -86,3 +86,4 @@ class Daemon(Enum):
         "com.apple.voiced"
     ]
     NanoTimeKit = ["com.apple.nanotimekitcompaniond"]
+    FollowUp = ["com.apple.followupd"]

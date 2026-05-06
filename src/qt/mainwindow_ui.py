@@ -4460,6 +4460,12 @@ class Ui_Nugget(object):
 
         self.verticalLayout_133.addWidget(self.nanoTimeKitChk)
 
+        self.followUpChk = QCheckBox(self.daemonsPageContent)
+        self.followUpChk.setObjectName(u"followUpChk")
+        self.followUpChk.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+
+        self.verticalLayout_133.addWidget(self.followUpChk)
+
         self.verticalSpacer_61 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_133.addItem(self.verticalSpacer_61)
@@ -6494,6 +6500,7 @@ class Ui_Nugget(object):
         self.spotlightChk.setText(QCoreApplication.translate("Nugget", u"Disable Spotlight", None))
         self.voiceControlChk.setText(QCoreApplication.translate("Nugget", u"Disable Voice Control", None))
         self.nanoTimeKitChk.setText(QCoreApplication.translate("Nugget", u"Disable NanoTimeKit (Apple Watch Face Sync)", None))
+        self.followUpChk.setText(QCoreApplication.translate("Nugget", u"Disable FollowUp", None))
         self.posterboardLbl.setText(QCoreApplication.translate("Nugget", u"Posterboard", None))
         self.findPBBtn.setText(QCoreApplication.translate("Nugget", u"   Discover Wallpapers", None))
         self.pbHelpBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
