@@ -308,6 +308,14 @@ class DeviceManager:
         QMessageBox.information(None, QCoreApplication.tr("Pairing Reset"), QCoreApplication.tr("Your device's pairing was successfully reset. Refresh the device list before applying."))
         
 
+    def add_rebuild_sb_application_state_db(self, files_to_restore: list[FileToRestore]):
+        if self.pref_manager.rebuild_sb_application_state_db:
+            files_to_restore.append(FileToRestore(
+                contents=b"",
+                restore_path="Library/FrontBoard/applicationState.db",
+                domain="HomeDomain"
+            ))
+
     def add_skip_setup(self, files_to_restore: list[FileToRestore], restoring_domains: bool):
         # TODO: Probably should move this to its own file
         if self.pref_manager.skip_setup and (not self.get_current_device_supported() or restoring_domains):
@@ -671,6 +679,7 @@ class DeviceManager:
                     path=FileLocation.featureflags.value,
                     files_to_restore=files_to_restore, use_bookrestore=True
                 )
+            self.add_rebuild_sb_application_state_db(files_to_restore)
             self.add_skip_setup(files_to_restore, uses_domains and (not use_bookrestore or self.pref_manager.bookrestore_apply_mode == BookRestoreApplyMethod.Restore))
             if gestalt_data != None and use_bookrestore:
                 self.concat_file(

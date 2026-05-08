@@ -11317,6 +11317,21 @@ DO NOT unplug your device during restores.</string>
                       </widget>
                      </item>
                      <item>
+                      <widget class="QCheckBox" name="rebuildSBApplicationStateDBChk">
+                       <property name="text">
+                        <string>Rebuild SpringBoard Application State DB</string>
+                       </property>
+                       <property name="toolTip">
+                        <string>Replaces applicationState.db with an empty file, causing SpringBoard to rebuild it.
+
+This is necessary if badges persist on the Settings app after disabling FollowUp.</string>
+                       </property>
+                       <property name="checked">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
                       <widget class="QWidget" name="bookrestoreWidget" native="true">
                        <layout class="QVBoxLayout" name="verticalLayout_62">
                         <property name="leftMargin">

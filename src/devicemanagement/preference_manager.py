@@ -12,6 +12,7 @@ class PreferenceManager:
         self.show_all_spoofable_models = False
         self.disable_tendies_limit = False
         self.auto_refresh_posterboard = True
+        self.rebuild_sb_application_state_db = False
         self.restore_truststore = False
         self.bookrestore_apply_mode = BookRestoreApplyMethod.AFC
         self.bookrestore_transfer_mode = BookRestoreFileTransferMethod.LocalHost

@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.3
+## Created by: Qt User Interface Compiler version 6.10.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -5834,6 +5834,12 @@ class Ui_Nugget(object):
 
         self._21.addWidget(self.forcePBRefreshChk)
 
+        self.rebuildSBApplicationStateDBChk = QCheckBox(self.settingsPageContent)
+        self.rebuildSBApplicationStateDBChk.setObjectName(u"rebuildSBApplicationStateDBChk")
+        self.rebuildSBApplicationStateDBChk.setChecked(False)
+
+        self._21.addWidget(self.rebuildSBApplicationStateDBChk)
+
         self.bookrestoreWidget = QWidget(self.settingsPageContent)
         self.bookrestoreWidget.setObjectName(u"bookrestoreWidget")
         self.verticalLayout_621 = QVBoxLayout(self.bookrestoreWidget)
@@ -6613,6 +6619,12 @@ class Ui_Nugget(object):
 #endif // QT_CONFIG(tooltip)
         self.disableTendiesLimitChk.setText(QCoreApplication.translate("Nugget", u"Disable Tendies Limit", None))
         self.forcePBRefreshChk.setText(QCoreApplication.translate("Nugget", u"Force PosterBoard Refresh", None))
+        self.rebuildSBApplicationStateDBChk.setText(QCoreApplication.translate("Nugget", u"Rebuild SpringBoard Application State DB", None))
+#if QT_CONFIG(tooltip)
+        self.rebuildSBApplicationStateDBChk.setToolTip(QCoreApplication.translate("Nugget", u"Replaces applicationState.db with an empty file, causing SpringBoard to rebuild it.\n"
+"\n"
+"This is necessary if badges persist on the Settings app after disabling FollowUp.", None))
+#endif // QT_CONFIG(tooltip)
         self.label_511.setText(QCoreApplication.translate("Nugget", u"BookRestore Apply Method", None))
         self.brApplyModeDrp.setItemText(1, QCoreApplication.translate("Nugget", u"   Restore", None))
 
