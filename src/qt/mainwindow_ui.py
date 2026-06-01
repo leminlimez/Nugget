@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.3
+## Created by: Qt User Interface Compiler version 6.10.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -4466,6 +4466,12 @@ class Ui_Nugget(object):
 
         self.verticalLayout_133.addWidget(self.nanoTimeKitChk)
 
+        self.followUpChk = QCheckBox(self.daemonsPageContent)
+        self.followUpChk.setObjectName(u"followUpChk")
+        self.followUpChk.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+
+        self.verticalLayout_133.addWidget(self.followUpChk)
+
         self.verticalSpacer_61 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_133.addItem(self.verticalSpacer_61)
@@ -5834,6 +5840,12 @@ class Ui_Nugget(object):
 
         self._21.addWidget(self.forcePBRefreshChk)
 
+        self.rebuildSBApplicationStateDBChk = QCheckBox(self.settingsPageContent)
+        self.rebuildSBApplicationStateDBChk.setObjectName(u"rebuildSBApplicationStateDBChk")
+        self.rebuildSBApplicationStateDBChk.setChecked(False)
+
+        self._21.addWidget(self.rebuildSBApplicationStateDBChk)
+
         self.bookrestoreWidget = QWidget(self.settingsPageContent)
         self.bookrestoreWidget.setObjectName(u"bookrestoreWidget")
         self.verticalLayout_621 = QVBoxLayout(self.bookrestoreWidget)
@@ -6504,6 +6516,7 @@ class Ui_Nugget(object):
         self.spotlightChk.setText(QCoreApplication.translate("Nugget", u"Disable Spotlight", None))
         self.voiceControlChk.setText(QCoreApplication.translate("Nugget", u"Disable Voice Control", None))
         self.nanoTimeKitChk.setText(QCoreApplication.translate("Nugget", u"Disable NanoTimeKit (Apple Watch Face Sync)", None))
+        self.followUpChk.setText(QCoreApplication.translate("Nugget", u"Disable FollowUp", None))
         self.posterboardLbl.setText(QCoreApplication.translate("Nugget", u"Posterboard", None))
         self.findPBBtn.setText(QCoreApplication.translate("Nugget", u"   Discover Wallpapers", None))
         self.pbHelpBtn.setText(QCoreApplication.translate("Nugget", u"...", None))
@@ -6616,6 +6629,12 @@ class Ui_Nugget(object):
 #endif // QT_CONFIG(tooltip)
         self.disableTendiesLimitChk.setText(QCoreApplication.translate("Nugget", u"Disable Tendies Limit", None))
         self.forcePBRefreshChk.setText(QCoreApplication.translate("Nugget", u"Force PosterBoard Refresh", None))
+        self.rebuildSBApplicationStateDBChk.setText(QCoreApplication.translate("Nugget", u"Rebuild SpringBoard Application State DB", None))
+#if QT_CONFIG(tooltip)
+        self.rebuildSBApplicationStateDBChk.setToolTip(QCoreApplication.translate("Nugget", u"Replaces applicationState.db with an empty file, causing SpringBoard to rebuild it.\n"
+"\n"
+"This is necessary if badges persist on the Settings app after disabling FollowUp.", None))
+#endif // QT_CONFIG(tooltip)
         self.label_511.setText(QCoreApplication.translate("Nugget", u"BookRestore Apply Method", None))
         self.brApplyModeDrp.setItemText(1, QCoreApplication.translate("Nugget", u"   Restore", None))
 
