@@ -8,7 +8,7 @@ class FileLocation(Enum):
     # Feature Flags
     featureflags = "/var/preferences/FeatureFlags/Global.plist"
     
-    # Springboard Options
+    # SpringBoard Options
     springboard = "/var/Managed Preferences/mobile/com.apple.springboard.plist"
     footnote = "/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/SharedDeviceConfiguration.plist"
     airdrop = "/var/Managed Preferences/mobile/com.apple.sharingd.plist"
