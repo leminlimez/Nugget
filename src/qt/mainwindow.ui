@@ -8378,6 +8378,19 @@ To work properly, also disable the daemon using the toggle above.</string>
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="locationChk">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="toolTip">
+                    <string>Disables the Location Services daemon used by GPS, Maps, Weather, Find My, and apps that request location access.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable Location Services</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="wapicChk">
                    <property name="cursor">
                     <cursorShape>PointingHandCursor</cursorShape>

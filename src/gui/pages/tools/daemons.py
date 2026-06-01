@@ -36,6 +36,7 @@ class DaemonsPage(Page):
         self.ui.nanoTimeKitChk.toggled.connect(self.on_nanoTimeKitChk_clicked)
         self.ui.diagnosticsChk.toggled.connect(self.on_diagnosticsChk_clicked)
         self.ui.followUpChk.toggled.connect(self.on_followUpChk_clicked)
+        self.ui.locationChk.toggled.connect(self.on_locationChk_clicked)
 
         load_daemons()
 
@@ -92,3 +93,5 @@ class DaemonsPage(Page):
         tweaks[TweakID.Daemons].set_multiple_values(Daemon.Diagnostics.value, value=checked)
     def on_followUpChk_clicked(self, checked: bool):
         tweaks[TweakID.Daemons].set_multiple_values(Daemon.FollowUp.value, value=checked)
+    def on_locationChk_clicked(self, checked: bool):
+        tweaks[TweakID.Daemons].set_multiple_values(Daemon.Location.value, value=checked)

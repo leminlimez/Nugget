@@ -4390,6 +4390,12 @@ class Ui_Nugget(object):
 
         self.verticalLayout_133.addWidget(self.vpndChk)
 
+        self.locationChk= QCheckBox(self.daemonsPageContent)
+        self.locationChk.setObjectName(u"locationChk")
+        self.locationChk.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+
+        self.verticalLayout_133.addWidget(self.locationChk)
+
         self.wapicChk = QCheckBox(self.daemonsPageContent)
         self.wapicChk.setObjectName(u"wapicChk")
         self.wapicChk.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
@@ -6490,6 +6496,10 @@ class Ui_Nugget(object):
         self.vpndChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables the Virtual Private Network service.", None))
 #endif // QT_CONFIG(tooltip)
         self.vpndChk.setText(QCoreApplication.translate("Nugget", u"Disable VPN Service", None))
+#if QT_CONFIG(tooltip)
+        self.locationChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables the Location Services daemon used by GPS, Maps, Weather, Find My, and apps that request location access.", None))
+#endif // QT_CONFIG(tooltip)
+        self.locationChk.setText(QCoreApplication.translate("Nugget", u"Disable Location Services", None))
 #if QT_CONFIG(tooltip)
         self.wapicChk.setToolTip(QCoreApplication.translate("Nugget", u"Disables the service that deals with errors with WiFi networks with Chinese characters in the name.", None))
 #endif // QT_CONFIG(tooltip)
