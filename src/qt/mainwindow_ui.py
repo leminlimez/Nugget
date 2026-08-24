@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.11.0
+## Created by: Qt User Interface Compiler version 6.11.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -21,7 +21,7 @@ from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QCheckBox, QCo
     QMainWindow, QProgressBar, QRadioButton, QScrollArea,
     QSizePolicy, QSlider, QSpacerItem, QStackedWidget,
     QToolButton, QVBoxLayout, QWidget)
-import resources_rc
+from . import resources_rc
 
 class Ui_Nugget(object):
     def setupUi(self, Nugget):
