@@ -1,5 +1,8 @@
 from enum import Enum
 
+MIN_VERSION = "17.0"
+MAX_VERSION = "26.9"
+
 class Device:
     def __init__(self, 
                 udid: int, usb: bool, name: str,
@@ -48,8 +51,12 @@ class Device:
             return True
         return False
 
-    def supported(self) -> bool:
+    def partially_supported(self) -> bool:
         return self.has_exploit()
+    def supported(self) -> bool:
+        parsed_ver: Version = Version(self.version)
+        # make sure it is above the minimum version and below max version
+        return parsed_ver >= Version(MIN_VERSION) and parsed_ver <= Version(MAX_VERSION)
 
 class Version:
     def __init__(self, major: int, minor: int = 0, patch: int = 0):

@@ -247,7 +247,12 @@ class DeviceManager:
         else:
             return self.data_singleton.current_device.model
         
-    def get_current_device_supported(self) -> bool:
+    def get_current_device_partially_supported(self) -> bool:
+        if self.data_singleton.current_device == None:
+            return False
+        else:
+            return self.data_singleton.current_device.partially_supported()
+    def get_current_device_supports_restore(self) -> bool:
         if self.data_singleton.current_device == None:
             return False
         else:
@@ -348,7 +353,7 @@ class DeviceManager:
 
     async def add_skip_setup(self, files_to_restore: list[FileToRestore], restoring_domains: bool):
         # TODO: Probably should move this to its own file
-        if self.pref_manager.skip_setup and (not self.get_current_device_supported() or restoring_domains):
+        if self.pref_manager.skip_setup and (not self.get_current_device_partially_supported() or restoring_domains):
             # get the already existing cloud config info
             ld = await create_using_usbmux(serial=self.data_singleton.current_device.udid)
             async with MobileConfigService(lockdown=ld) as mcs:
@@ -482,7 +487,7 @@ class DeviceManager:
 
     def get_domain_for_path(self, path: str, owner: int = 501, use_bookrestore: bool = False) -> str:
         # returns Domain: str?, Path: str
-        if ((self.get_current_device_supported() and not path.startswith("/var/mobile/")) or (not self.data_singleton.current_device.has_partial_sparserestore() and self.get_current_device_uses_bookrestore() and use_bookrestore)) and not owner == 0:
+        if ((self.get_current_device_partially_supported() and not path.startswith("/var/mobile/")) or (not self.data_singleton.current_device.has_partial_sparserestore() and self.get_current_device_uses_bookrestore() and use_bookrestore)) and not owner == 0:
             # don't do anything on sparserestore versions
             return path, ""
         fully_patched = not self.data_singleton.current_device.has_partial_sparserestore()
@@ -526,6 +531,9 @@ class DeviceManager:
     
     ## APPLYING OR REMOVING TWEAKS AND RESTORING
     async def start_restore(self, files_to_restore: list[FileToRestore], use_bookrestore: bool, update_label=lambda x: None, skips_br_for_folders: bool=False, reboot_for_br: bool=False):
+        # prevent restores if on an unsafe version
+        if not self.get_current_device_supports_restore():
+            raise NuggetException(QCoreApplication.tr("Your iOS version is not supported by Nugget."))
         # if skips_br_for_folders is True, the message will be added to the result letting them know that they can apply feature flags now
         self.update_label = update_label
         self.do_not_unplug = ""
@@ -726,7 +734,7 @@ class DeviceManager:
                 )
             if eligibility_files:
                 new_eligibility_files: dict[FileToRestore] = []
-                if not self.get_current_device_supported():
+                if not self.get_current_device_partially_supported():
                     # update the files
                     for file in eligibility_files:
                         self.concat_file(
