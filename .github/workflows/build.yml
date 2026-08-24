@@ -24,58 +24,68 @@ on:
         default: true
         type: boolean
       build_for_arm_linux:
-        description: 'Build Linux arm'
+        description: 'Build Linux ARM'
         required: false
         default: true
         type: boolean
+
+permissions:
+  contents: read
 
 jobs:
   build-macos-intel:
     if: ${{ github.event.inputs.build_for_macos_intel == 'true' }}
     runs-on: macos-15-intel
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
         with:
           python-version: '3.10'
 
       - name: Create venv and install requirements
         run: |
           python3 -m venv .env
-          python3 -m pip install -U pip
           source .env/bin/activate
+          python -m pip install -U pip setuptools wheel
           pip install --no-binary sslpsk_pmd3 -r requirements.txt
 
-      - name: Build macOS (Intel)
+      - name: Build macOS Intel
         run: |
           source .env/bin/activate
           python3 compile.py
 
-      - name: Zip Nugget.app (Intel)
+      - name: Zip Nugget.app Intel
         run: |
           cd dist
-          zip -r -y "Nugget_macOS_intel.zip" Nugget.app
+          ditto -c -k --sequesterRsrc --keepParent Nugget.app Nugget_macOS_intel.zip
 
-      - name: Upload ZIP (Intel)
-        uses: actions/upload-artifact@v4
+      - name: Upload ZIP Intel
+        uses: actions/upload-artifact@v6
         with:
           name: Nugget_macOS_intel
           path: dist/Nugget_macOS_intel.zip
+          if-no-files-found: error
 
   build-macos-arm:
     if: ${{ github.event.inputs.build_for_macos_arm == 'true' }}
     runs-on: macos-15
-    steps:
-      - uses: actions/checkout@v3
 
-      - uses: actions/setup-python@v4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
         with:
           python-version: '3.10'
 
       - name: Install OpenSSL
         run: |
-          brew update
-          brew install openssl@3 pkg-config
+          brew install openssl@3 pkgconf || true
 
       - name: Create venv and install requirements
         run: |
@@ -84,111 +94,134 @@ jobs:
           python -m pip install -U pip setuptools wheel
 
           OPENSSL_PREFIX="$(brew --prefix openssl@3)"
-          export CPPFLAGS="-I$OPENSSL_PREFIX/include"
-          export LDFLAGS="-L$OPENSSL_PREFIX/lib"
-          export PKG_CONFIG_PATH="$OPENSSL_PREFIX/lib/pkgconfig"
+          export CPPFLAGS="-I${OPENSSL_PREFIX}/include"
+          export LDFLAGS="-L${OPENSSL_PREFIX}/lib"
+          export PKG_CONFIG_PATH="${OPENSSL_PREFIX}/lib/pkgconfig"
 
           pip install --no-binary sslpsk_pmd3 -r requirements.txt
 
-      - name: Build macOS (ARM)
+      - name: Build macOS ARM
         run: |
           source .env/bin/activate
           python3 compile.py
 
-      - name: Zip Nugget.app (ARM)
+      - name: Zip Nugget.app ARM
         run: |
           cd dist
-          zip -r -y "Nugget_macOS_arm.zip" Nugget.app
+          ditto -c -k --sequesterRsrc --keepParent Nugget.app Nugget_macOS_arm.zip
 
-      - name: Upload ZIP (ARM)
-        uses: actions/upload-artifact@v4
+      - name: Upload ZIP ARM
+        uses: actions/upload-artifact@v6
         with:
           name: Nugget_macOS_arm
           path: dist/Nugget_macOS_arm.zip
+          if-no-files-found: error
 
   build-windows:
     if: ${{ github.event.inputs.build_for_windows == 'true' }}
     runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v3
 
-      - uses: actions/setup-python@v4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
       - name: Install dependencies
         run: |
-          python -m pip install -U pip
+          python -m pip install -U pip setuptools wheel
           pip install -r requirements.txt
 
       - name: Build Windows
         run: python compile.py
 
-      - name: Zip Nugget (Windows)
+      - name: Zip Nugget Windows
         run: |
           cd dist
-          Compress-Archive -Path Nugget -DestinationPath Nugget_Windows.zip
+          Compress-Archive -Path Nugget -DestinationPath Nugget_Windows.zip -Force
 
-      - name: Upload ZIP (Windows)
-        uses: actions/upload-artifact@v4
+      - name: Upload ZIP Windows
+        uses: actions/upload-artifact@v6
         with:
           name: Nugget_Windows
           path: dist/Nugget_Windows.zip
+          if-no-files-found: error
 
   build-linux:
     if: ${{ github.event.inputs.build_for_linux == 'true' }}
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
 
-      - uses: actions/setup-python@v4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libssl-dev pkg-config
+
       - name: Install dependencies
         run: |
-          python -m pip install -U pip
+          python -m pip install -U pip setuptools wheel
           pip install -r requirements.txt
 
       - name: Build Linux
         run: python compile.py
 
-      - name: Tar Nugget (Linux)
+      - name: Tar Nugget Linux
         run: |
           cd dist
           tar -cJf Nugget_Linux.tar.xz Nugget
 
-      - name: Upload TAR (Linux)
-        uses: actions/upload-artifact@v4
+      - name: Upload TAR Linux
+        uses: actions/upload-artifact@v6
         with:
           name: Nugget_Linux
           path: dist/Nugget_Linux.tar.xz
+          if-no-files-found: error
 
   build-linux-arm:
-    if: ${{ github.event.inputs.build_for_linux == 'true' }}
-    runs-on: ubuntu-latest-arm
-    steps:
-      - uses: actions/checkout@v5
+    if: ${{ github.event.inputs.build_for_arm_linux == 'true' }}
+    runs-on: ubuntu-24.04-arm
 
-      - uses: actions/setup-python@v5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libssl-dev pkg-config
+
       - name: Install dependencies
         run: |
-          python -m pip install -U pip
+          python -m pip install -U pip setuptools wheel
           pip install -r requirements.txt
 
-      - name: Build Linux
+      - name: Build Linux ARM
         run: python compile.py
 
-      - name: Tar Nugget (Linux)
+      - name: Tar Nugget Linux ARM
         run: |
           cd dist
           tar -cJf Nugget_Linux_aarch64.tar.xz Nugget
 
-      - name: Upload TAR (Linux)
-        uses: actions/upload-artifact@v5
+      - name: Upload TAR Linux ARM
+        uses: actions/upload-artifact@v6
         with:
           name: Nugget_Linux_aarch64
           path: dist/Nugget_Linux_aarch64.tar.xz
+          if-no-files-found: error

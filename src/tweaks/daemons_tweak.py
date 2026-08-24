@@ -63,6 +63,7 @@ class Daemon(Enum):
     ATWAKEUP = ["com.apple.atc.atwakeup"]
     Tips = ["com.apple.tipsd"]
     VPN = ["com.apple.racoon"]
+    Location = ["com.apple.locationd"]
     ChineseLAN = [
         "com.apple.wapic",
         "com.apple.wifi.wapic"
@@ -86,3 +87,4 @@ class Daemon(Enum):
         "com.apple.voiced"
     ]
     NanoTimeKit = ["com.apple.nanotimekitcompaniond"]
+    FollowUp = ["com.apple.followupd"]

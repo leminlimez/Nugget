@@ -7,6 +7,9 @@ Customize your device with animated wallpapers, disable pesky daemons, and more!
 
 Make sure you have installed the [requirements](#requirements) if you are on Windows or Linux.
 
+> [!WARNING]
+> DO NOT USE THIS ON iOS 27! It will most likely result in data loss. Apple has patched the partial restore method that Nugget uses.
+
 > [!NOTE]
 > Please back up your data before using this Project! Nugget may cause unforeseen problems, so it is better to be safe than sorry. We are not responsible for any damage done to your device.
 
