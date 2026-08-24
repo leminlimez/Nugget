@@ -66,10 +66,10 @@ class HomePage(Page):
 
     def show_version_text(self, version: str, build: str):
         support_str: str = "<span style=\"color: #32d74b;\">" + QCoreApplication.tr("Supported!") + "</span></a>"
-        if Version(version) < Version("17.0"):
+        if not self.window.device_manager.get_current_device_supports_restore():
             support_str = "<span style=\"color: #ff0000;\">" + QCoreApplication.tr("Not Supported.") + "</span></a>"
         elif self.window.device_manager.get_current_device_patched():
-            # sparserestore fully patched
+            # sparserestore/bookrestore fully patched
             support_str = "<span style=\"color: #ffff00;\">"+ QCoreApplication.tr("Partially Supported.") + "</span></a>"
         self.ui.phoneVersionLbl.setText(f"<a style=\"text-decoration:none; color: white;\" href=\"#\">iOS {version} ({build}) {support_str}")
 
