@@ -1,7 +1,7 @@
 pymobiledevice3<=7.8.3
 PySide6-Essentials; sys_platform != 'linux'
 PySide6; sys_platform == 'linux'
-PyInstaller<=6.19.0
+PyInstaller
 ffmpeg
 ffmpeg-python
 opencv-python
