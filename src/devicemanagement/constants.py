@@ -1,7 +1,7 @@
 from enum import Enum
 
 MIN_VERSION = "17.0"
-MAX_VERSION = "26.9"
+MAX_VERSION = "27.0"
 
 class Device:
     def __init__(self, 
@@ -57,6 +57,15 @@ class Device:
         parsed_ver: Version = Version(self.version)
         # make sure it is above the minimum version and below max version
         return parsed_ver >= Version(MIN_VERSION) and parsed_ver <= Version(MAX_VERSION)
+    
+class BackupDevice:
+    def __init__(self, ld_values: dict, info: dict):
+        # get the information needed to generate the backup
+        # these get used in Manifest.plist
+        manifest_keys = {'ProductVersion', 'ProductType', 'DeviceClass', 'BuildVersion', 'UniqueDeviceID', 'SerialNumber', 'DeviceName'}
+        self.manifest = {k: ld_values[k] for k in manifest_keys}
+        # info plist values
+        self.info = info
 
 class Version:
     def __init__(self, major: int, minor: int = 0, patch: int = 0):

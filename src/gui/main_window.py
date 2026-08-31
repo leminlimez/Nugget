@@ -150,7 +150,7 @@ class MainWindow(QtWidgets.QMainWindow):
             return
         if Version(ver) > Version("26.0") and not self.device_manager.get_current_device_build()[-1].isdigit():
             self.alert_message(ApplyAlertMessage(
-                txt=self.tr("Warning: You are on iOS 26 beta.\n\nThis has been known to cause problems and potentially lead to bootloops.\n\nUse at your own risk!"),
+                txt=self.tr("Warning: You are on an iOS beta version.\n\nThis has been known to cause problems and potentially lead to bootloops.\n\nUse at your own risk!"),
                 title="Warning", icon=QtWidgets.QMessageBox.Warning
             ), log_to_console=False)
 

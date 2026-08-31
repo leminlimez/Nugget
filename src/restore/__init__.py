@@ -26,7 +26,7 @@ async def perform_restore(backup: backup.Backup, reboot: bool = False, lockdown_
             if lockdown_client == None:
                 lockdown_client = await create_using_usbmux()
             async with Mobilebackup2Service(lockdown_client) as mb:
-                await mb.restore(backup_dir, system=True, reboot=False, copy=False, source=".", progress_callback=progress_callback, skip_apps=True)
+                await mb.restore(backup_dir, system=True, reboot=False, copy=False, settings=True, source=".", progress_callback=progress_callback, skip_apps=True)
             # reboot the device
             await reboot_device(reboot, lockdown_client)
     except PyMobileDevice3Exception as e:

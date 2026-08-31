@@ -3,10 +3,13 @@ import os
 import plistlib
 import ssl
 
+from ..devicemanagement.constants import BackupDevice
 from . import backup, perform_restore
 from .mbdb import _FileMode
 from pymobiledevice3.lockdown import LockdownClient
 from pymobiledevice3.services.installation_proxy import InstallationProxyService
+from pymobiledevice3.services.mobilebackup2 import Mobilebackup2Service
+from pymobiledevice3.services.afc import AfcService
 from pymobiledevice3.exceptions import ConnectionTerminatedError
 
 class FileToRestore:
@@ -185,7 +188,12 @@ async def restore_files(files: list[FileToRestore], reboot: bool = False, lockdo
         files_list.append(backup.ConcreteFile("", "SysContainerDomain-../../../../../../../.." + "/crash_on_purpose", contents=b""))
 
     # create the backup
-    back = backup.Backup(files=files_list, apps=apps_list)
+    # also need to get the info plist
+    async with (Mobilebackup2Service(lockdown_client) as mb, AfcService(lockdown_client) as afc):
+        print("preparing info")
+        info_plist = await mb.init_mobile_backup_factory_info(afc)
+        print("got info")
+    back = backup.Backup(files=files_list, apps=apps_list, device=BackupDevice(ld_values=lockdown_client.all_values, info=info_plist))
 
     for fi in files_list:
         print(f"{fi.domain}, {fi.path}")

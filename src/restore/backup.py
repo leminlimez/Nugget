@@ -4,10 +4,15 @@ import plistlib
 from pathlib import Path
 from base64 import b64decode
 from hashlib import sha1
-from . import mbdb
-from .mbdb import _FileMode
+from uuid import uuid4
+from . import manifestdb
+from .manifestdb import _FileMode
 from random import randbytes
 from typing import Optional
+from os import makedirs
+from ..devicemanagement.constants import BackupDevice
+
+import time
 
 # Default nugget file right
 # RWX:RX:RX 
@@ -18,7 +23,10 @@ class BackupFile:
     path: str
     domain: str
 
-    def to_record(self) -> mbdb.MbdbRecord:
+    def get_fileID(self) -> bytes:
+        return sha1((self.domain + "-" + self.path).encode()).digest()
+
+    def to_record(self) -> manifestdb.ManifestDBRecord:
         raise NotImplementedError()
 
 @dataclass
@@ -43,21 +51,18 @@ class ConcreteFile(BackupFile):
         self.size = len(contents)
         return contents
 
-    def to_record(self) -> mbdb.MbdbRecord:
+    def to_record(self) -> manifestdb.ManifestDBRecord:
         if self.inode is None:
             self.inode = int.from_bytes(randbytes(8), "big")
         if self.hash == None or self.size == None:
             self.read_contents()
-        return mbdb.MbdbRecord(
+        return manifestdb.ManifestDBRecord(
             domain=self.domain,
-            filename=self.path,
-            link="",
-            hash=self.hash,
-            key=b"",
-            mode=self.mode | _FileMode.S_IFREG,
-            #unknown2=0,
-            #unknown3=0,
+            relative_path=self.path,
+            file_id=self.get_fileID().hex(),
+            record_flags=1,
             inode=self.inode,
+            mode=self.mode | _FileMode.S_IFREG,
             user_id=self.owner,
             group_id=self.group,
             mtime=int(datetime.now().timestamp()),
@@ -65,7 +70,7 @@ class ConcreteFile(BackupFile):
             ctime=int(datetime.now().timestamp()),
             size=self.size,
             flags=4,
-            properties=[]
+            protection_class=3
         )
 
 @dataclass
@@ -74,17 +79,14 @@ class Directory(BackupFile):
     group: int = 0
     mode: _FileMode = DEFAULT
 
-    def to_record(self) -> mbdb.MbdbRecord:
-        return mbdb.MbdbRecord(
+    def to_record(self) -> manifestdb.ManifestDBRecord:
+        return manifestdb.ManifestDBRecord(
             domain=self.domain,
-            filename=self.path,
-            link="",
-            hash=b"",
-            key=b"",
-            mode=self.mode | _FileMode.S_IFDIR,
-            #unknown2=0,
-            #unknown3=0,
+            relative_path=self.path,
+            file_id=self.get_fileID().hex(),
+            record_flags=2,
             inode=0, # inode is not respected for directories
+            mode=self.mode | _FileMode.S_IFDIR,
             user_id=self.owner,
             group_id=self.group,
             mtime=int(datetime.now().timestamp()),
@@ -92,38 +94,7 @@ class Directory(BackupFile):
             ctime=int(datetime.now().timestamp()),
             size=0,
             flags=4,
-            properties=[]
-        )
-    
-@dataclass
-class SymbolicLink(BackupFile):
-    target: str
-    owner: int = 0
-    group: int = 0
-    inode: Optional[int] = None
-    mode: _FileMode = DEFAULT
-
-    def to_record(self) -> mbdb.MbdbRecord:
-        if self.inode is None:
-            self.inode = int.from_bytes(randbytes(8), "big")
-        return mbdb.MbdbRecord(
-            domain=self.domain,
-            filename=self.path,
-            link=self.target,
-            hash=b"",
-            key=b"",
-            mode=self.mode | _FileMode.S_IFLNK,
-            #unknown2=0,
-            #unknown3=0,
-            inode=self.inode,
-            user_id=self.owner,
-            group_id=self.group,
-            mtime=int(datetime.now().timestamp()),
-            atime=int(datetime.now().timestamp()),
-            ctime=int(datetime.now().timestamp()),
-            size=0,
-            flags=4,
-            properties=[]
+            protection_class=0
         )
     
 @dataclass
@@ -137,16 +108,20 @@ class AppBundle:
 class Backup:
     files: list[BackupFile]
     apps: list[AppBundle]
+    device: BackupDevice
 
     def write_to_directory(self, directory: Path):
         for file in self.files:
             if isinstance(file, ConcreteFile):
                 #print("Writing", file.path, "to", directory / sha1((file.domain + "-" + file.path).encode()).digest().hex())
-                with open(directory / sha1((file.domain + "-" + file.path).encode()).digest().hex(), "wb") as f:
+                if file.hash is None:
+                    file.read_contents()
+                subdir = directory / file.get_fileID().hex()[:2]
+                makedirs(subdir, exist_ok=True)
+                with open(subdir / file.get_fileID().hex(), "wb") as f:
                     f.write(file.read_contents())
             
-        with open(directory / "Manifest.mbdb", "wb") as f:
-            f.write(self.generate_manifest_db().to_bytes())
+        self.generate_manifest_db(directory / "Manifest.db")
 
         with open(directory / "Status.plist", "wb") as f:
             f.write(self.generate_status())
@@ -155,14 +130,19 @@ class Backup:
             f.write(self.generate_manifest())
 
         with open(directory / "Info.plist", "wb") as f:
-            f.write(plistlib.dumps({}))
+            f.write(plistlib.dumps(self.device.info))
         
 
-    def generate_manifest_db(self): # Manifest.mbdb
+    # def generate_manifest_db(self): # Manifest.mbdb
+    #     records = []
+    #     for file in self.files:
+    #         records.append(file.to_record())
+    #     return mbdb.Mbdb(records=records)
+    def generate_manifest_db(self, path: str): # Manifest.db
         records = []
         for file in self.files:
             records.append(file.to_record())
-        return mbdb.Mbdb(records=records)
+        manifestdb.ManifestDB(records=records).write_to(path)
     
     def generate_status(self) -> bytes: # Status.plist
         return plistlib.dumps({
@@ -170,8 +150,8 @@ class Backup:
             "Date": datetime.fromisoformat("1970-01-01T00:00:00+00:00"),
             "IsFullBackup": False,
             "SnapshotState": "finished",
-            "UUID": "00000000-0000-0000-0000-000000000000",
-            "Version": "2.4"
+            "UUID": str(uuid4()).upper(),
+            "Version": "3.3"
         })
     
     def generate_manifest(self) -> bytes: # Manifest.plist
@@ -204,9 +184,10 @@ class Backup:
 	xwNr2FVVSUQAAAAQ/Q9feZxLS++qSe/a4emRRENMQVMAAAAEAAAAC1dSQVAAAAAEAAAA
 	A0tUWVAAAAAEAAAAAFdQS1kAAAAocYda2jyYzzSKggRPw/qgh6QPESlkZedgDUKpTr4Z
 	Z8FDgd7YoALY1g=="""),
-            "Lockdown": {},
-            "SystemDomainsVersion": "20.0",
-            "Version": "9.1"
+            "Lockdown": self.device.manifest,
+            "SystemDomainsVersion": "24.0",
+            "Version": "10.0",
+            "IsEncrypted": False
         }
         # add the apps
         if len(self.apps) > 0:
