@@ -189,10 +189,11 @@ async def restore_files(files: list[FileToRestore], reboot: bool = False, lockdo
 
     # create the backup
     # also need to get the info plist
-    async with (Mobilebackup2Service(lockdown_client) as mb, AfcService(lockdown_client) as afc):
-        print("preparing info")
-        info_plist = await mb.init_mobile_backup_factory_info(afc)
-        print("got info")
+    async with Mobilebackup2Service(lockdown_client) as mb:
+        async with AfcService(lockdown_client) as afc:
+            print("preparing info")
+            info_plist = await mb.init_mobile_backup_factory_info(afc)
+            print("got info")
     back = backup.Backup(files=files_list, apps=apps_list, device=BackupDevice(ld_values=lockdown_client.all_values, info=info_plist))
 
     for fi in files_list:
