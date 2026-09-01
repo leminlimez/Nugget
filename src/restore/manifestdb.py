@@ -53,6 +53,9 @@ class ManifestDBRecord:
 
     def generate_plist(self) -> bytes:
         items = {
+            '$class': {
+                'CF$UID': 3
+            },
             'UserID': self.user_id,
             'GroupID': self.group_id,
             'Birth': self.ctime,
@@ -62,19 +65,26 @@ class ManifestDBRecord:
             'Flags': self.flags,
             'Mode': self.mode,
             'InodeNumber': self.inode,
-            'ProtectionClass': self.protection_class
+            'ProtectionClass': self.protection_class,
+            'RelativePath': {
+                'CF$UID': 2
+            }
         }
         root = {
-            '$version': 100000,
+            '$archiver': 'NSKeyedArchiver',
             '$objects': [
                 '$null', items, self.relative_path,
                 {
-                    '$classname': 'MBFile',
-                    '$classes': ['MBFile', 'NSObject']
+                    '$classes': ['MBFile', 'NSObject'],
+                    '$classname': 'MBFile'
                 }
             ],
-            '$archiver': 'NSKeyedArchiver',
-            '$top': {}
+            '$top': {
+                'root': {
+                    'CF$UID': 1
+                }
+            },
+            '$version': 100000
         }
         return plistlib.dumps(root, fmt=plistlib.PlistFormat.FMT_BINARY)
 
