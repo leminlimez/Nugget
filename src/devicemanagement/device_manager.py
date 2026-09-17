@@ -548,14 +548,14 @@ class DeviceManager:
                     await perform_bookrestore(files=files_to_restore, lockdown_client=ld, current_device_books_uuid_callback=self.current_device_books_container_uuid_callback, progress_callback=self.update_label, transfer_mode=self.pref_manager.bookrestore_transfer_mode, do_full_reboot=reboot_for_br)
                 else:
                     update_label(QCoreApplication.tr("Generating BookRestore database...") + self.do_not_unplug)
-                    afc = AfcService(ld)
                     server_folder = create_server_folder()
                     if self.pref_manager.bookrestore_transfer_mode == BookRestoreFileTransferMethod.LocalHost:
                         server_prefix = create_local_server()
                     else:
                         server_prefix = None
                     db_path = os.path.join(server_folder, "tmp.BLDatabaseManager.sqlite")
-                    await generate_bldbmanager(files_to_restore, db_path, afc, server_prefix)
+                    async with AfcService(ld) as afc:
+                        await generate_bldbmanager(files_to_restore, db_path, afc, server_prefix)
                     # remove the files that dont have a domain from files
                     files_to_restore = [file for file in files_to_restore if (file.domain != "" and file.domain != None)]
                     # Add the dbs to the files to restore
