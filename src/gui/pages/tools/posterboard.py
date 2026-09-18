@@ -13,6 +13,7 @@ from src.gui.dialogs import PBHelpDialog, PosterBoardDBWizard
 from src.gui.custom_qt_elements.multicombobox import MultiComboBox
 
 from src.tweaks.tweaks import tweaks, TweakID
+from src.devicemanagement.constants import Version
 
 class PosterboardPage(Page, QtCore.QObject):
     def __init__(self, window, ui: Ui_Nugget):
@@ -219,9 +220,13 @@ class PosterboardPage(Page, QtCore.QObject):
         self.ui.pbPages.setCurrentIndex(3)
 
     # Setup Page
+    def fully_supports_descriptors(self):
+        return Version(self.window.device_manager.data_singleton.current_device.version) < Version("26.4")
     def set_use_configs(self, use_configs: bool):
         self.ui.useConfigsBtn.setChecked(use_configs)
         self.ui.useDescriptorsBtn.setChecked(not use_configs)
+        self.ui.descriptorsNoteLbl.setVisible(not use_configs and not self.fully_supports_descriptors())
+        self.ui.configsWarning.setVisible(use_configs)
         self.ui.configOptions.setVisible(use_configs)
         tweaks[TweakID.PosterBoard].use_configs = use_configs
     def on_useConfigsBtn_clicked(self):

@@ -189,7 +189,7 @@ class Ui_Nugget(object):
         self.phoneIconBtn = QToolButton(self.horizontalWidget_3)
         self.phoneIconBtn.setObjectName(u"phoneIconBtn")
         self.phoneIconBtn.setEnabled(False)
-        self.phoneIconBtn.setMinimumSize(QSize(0, 38))
+        self.phoneIconBtn.setMinimumSize(QSize(0, 39))
         self.phoneIconBtn.setStyleSheet(u"QToolButton {\n"
 "	border-top-right-radius: 0px;\n"
 "	border-bottom-right-radius: 0px;\n"
@@ -1983,7 +1983,7 @@ class Ui_Nugget(object):
         self.sbScrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents1 = QWidget()
         self.scrollAreaWidgetContents1.setObjectName(u"scrollAreaWidgetContents1")
-        self.scrollAreaWidgetContents1.setGeometry(QRect(0, 0, 650, 100))
+        self.scrollAreaWidgetContents1.setGeometry(QRect(0, 0, 471, 1854))
         self.verticalLayout_91 = QVBoxLayout(self.scrollAreaWidgetContents1)
         self.verticalLayout_91.setObjectName(u"verticalLayout_91")
         self.verticalLayout_91.setContentsMargins(0, 0, 0, 0)
@@ -3059,15 +3059,15 @@ class Ui_Nugget(object):
 
         self.sbOptionsScrollArea = QScrollArea(self.springboardOptionsPage)
         self.sbOptionsScrollArea.setObjectName(u"sbOptionsScrollArea")
-        self.sbOptionsScrollArea.setWidgetResizable(True)
         self.sbOptionsScrollArea.setFrameShape(QFrame.NoFrame)
         self.sbOptionsScrollArea.setFrameShadow(QFrame.Plain)
         self.sbOptionsScrollArea.setLineWidth(0)
         self.sbOptionsScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.sbOptionsScrollArea.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.sbOptionsScrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents2 = QWidget()
         self.scrollAreaWidgetContents2.setObjectName(u"scrollAreaWidgetContents2")
-        self.scrollAreaWidgetContents2.setGeometry(QRect(0, 0, 650, 800))
+        self.scrollAreaWidgetContents2.setGeometry(QRect(0, 0, 343, 743))
         self.verticalLayout_92 = QVBoxLayout(self.scrollAreaWidgetContents2)
         self.verticalLayout_92.setObjectName(u"verticalLayout_92")
         self.verticalLayout_92.setContentsMargins(0, 0, 0, 0)
@@ -4683,6 +4683,11 @@ class Ui_Nugget(object):
 
         self.verticalLayout_38.addWidget(self.pbApplyMethods)
 
+        self.descriptorsNoteLbl = QLabel(self.pbSetupPage)
+        self.descriptorsNoteLbl.setObjectName(u"descriptorsNoteLbl")
+
+        self.verticalLayout_38.addWidget(self.descriptorsNoteLbl)
+
         self.descriptorsSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_38.addItem(self.descriptorsSpacer)
@@ -4692,6 +4697,11 @@ class Ui_Nugget(object):
         self.verticalLayout_74 = QVBoxLayout(self.configOptions)
         self.verticalLayout_74.setObjectName(u"verticalLayout_74")
         self.verticalLayout_74.setContentsMargins(0, 0, 0, 0)
+        self.configsWarning = QLabel(self.configOptions)
+        self.configsWarning.setObjectName(u"configsWarning")
+
+        self.verticalLayout_74.addWidget(self.configsWarning)
+
         self.pbDBLbl = QLabel(self.configOptions)
         self.pbDBLbl.setObjectName(u"pbDBLbl")
         self.pbDBLbl.setAlignment(Qt.AlignCenter)
@@ -5885,7 +5895,7 @@ class Ui_Nugget(object):
         self.settingsScrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents4 = QWidget()
         self.scrollAreaWidgetContents4.setObjectName(u"scrollAreaWidgetContents4")
-        self.scrollAreaWidgetContents4.setGeometry(QRect(0, 0, 650, 100))
+        self.scrollAreaWidgetContents4.setGeometry(QRect(0, 0, 582, 615))
         sizePolicy6.setHeightForWidth(self.scrollAreaWidgetContents4.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContents4.setSizePolicy(sizePolicy6)
         self.verticalLayout_95 = QVBoxLayout(self.scrollAreaWidgetContents4)
@@ -6680,6 +6690,10 @@ class Ui_Nugget(object):
         self.label_68.setText(QCoreApplication.translate("Nugget", u"Apply Method:", None))
         self.useConfigsBtn.setText(QCoreApplication.translate("Nugget", u"Configurations", None))
         self.useDescriptorsBtn.setText(QCoreApplication.translate("Nugget", u"Descriptors", None))
+        self.descriptorsNoteLbl.setText(QCoreApplication.translate("Nugget", u"NOTE: This feature may not work on your iOS version.\n"
+"You can try Configurations instead if it doesn't.", None))
+        self.configsWarning.setText(QCoreApplication.translate("Nugget", u"WARNING: This feature may result in loss of existing wallpapers.\n"
+"Use at your own risk and remember to back up your device!", None))
         self.pbDBLbl.setText(QCoreApplication.translate("Nugget", u"sqlite: None", None))
         self.pbDBBtn.setText(QCoreApplication.translate("Nugget", u"Import sqlite", None))
         self.pbGetDBBtn.setText(QCoreApplication.translate("Nugget", u"Get File", None))
@@ -6791,12 +6805,12 @@ class Ui_Nugget(object):
 #endif // QT_CONFIG(tooltip)
         self.disableTendiesLimitChk.setText(QCoreApplication.translate("Nugget", u"Disable Tendies Limit", None))
         self.forcePBRefreshChk.setText(QCoreApplication.translate("Nugget", u"Force PosterBoard Refresh", None))
-        self.rebuildSBApplicationStateDBChk.setText(QCoreApplication.translate("Nugget", u"Rebuild SpringBoard Application State DB", None))
 #if QT_CONFIG(tooltip)
         self.rebuildSBApplicationStateDBChk.setToolTip(QCoreApplication.translate("Nugget", u"Replaces applicationState.db with an empty file, causing SpringBoard to rebuild it.\n"
 "\n"
 "This is necessary if badges persist on the Settings app after disabling FollowUp.", None))
 #endif // QT_CONFIG(tooltip)
+        self.rebuildSBApplicationStateDBChk.setText(QCoreApplication.translate("Nugget", u"Rebuild SpringBoard Application State DB", None))
         self.label_511.setText(QCoreApplication.translate("Nugget", u"BookRestore Apply Method", None))
         self.brApplyModeDrp.setItemText(1, QCoreApplication.translate("Nugget", u"   Restore", None))
 

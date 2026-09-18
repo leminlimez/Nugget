@@ -89,9 +89,10 @@ class PosterboardTweak(Tweak):
         elif file_name == "com.apple.posterkit.provider.contents.userInfo":
             return set_plist_value(file=os.path.join(file_path, file_name), key="wallpaperRepresentingIdentifier", value=randomizedID)
         elif file_name.endswith("Wallpaper.plist"):
-            return self.update_for_family(set_plist_value(file=os.path.join(file_path, file_name), key="identifier", value=randomizedID, recursive=False))
+            return set_plist_value(file=os.path.join(file_path, file_name), key="identifier", value=randomizedID, recursive=False)
         return None
     
+    # deprecated, does not appear to work well on all versions
     def update_for_family(self, data: bytes):
         # set the assets/lockAndHome/default/name to Lavender
         # and family to Marble

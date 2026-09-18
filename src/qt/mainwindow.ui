@@ -239,7 +239,7 @@ QSlider::tick:horizontal {
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>38</height>
+                 <height>39</height>
                 </size>
                </property>
                <property name="styleSheet">
@@ -3754,8 +3754,8 @@ QComboBox QAbstractItemView::item:hover {
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>650</width>
-                   <height>100</height>
+                   <width>471</width>
+                   <height>1854</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -5907,9 +5907,6 @@ QComboBox QAbstractItemView::item:hover {
               </item>
               <item>
                <widget class="QScrollArea" name="sbOptionsScrollArea">
-                <property name="widgetResizable">
-                 <bool>true</bool>
-                </property>
                 <property name="frameShape">
                  <enum>QFrame::NoFrame</enum>
                 </property>
@@ -5925,13 +5922,16 @@ QComboBox QAbstractItemView::item:hover {
                 <property name="sizeAdjustPolicy">
                  <enum>QAbstractScrollArea::AdjustToContents</enum>
                 </property>
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
                 <widget class="QWidget" name="scrollAreaWidgetContents">
                  <property name="geometry">
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>650</width>
-                   <height>800</height>
+                   <width>343</width>
+                   <height>743</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -8983,6 +8983,14 @@ To work properly, also disable the daemon using the toggle above.</string>
                    </widget>
                   </item>
                   <item>
+                   <widget class="QLabel" name="descriptorsNoteLbl">
+                    <property name="text">
+                     <string>NOTE: This feature may not work on your iOS version.
+You can try Configurations instead if it doesn't.</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
                    <spacer name="descriptorsSpacer">
                     <property name="orientation">
                      <enum>Qt::Vertical</enum>
@@ -9010,6 +9018,14 @@ To work properly, also disable the daemon using the toggle above.</string>
                      <property name="bottomMargin">
                       <number>0</number>
                      </property>
+                     <item>
+                      <widget class="QLabel" name="configsWarning">
+                       <property name="text">
+                        <string>WARNING: This feature may result in loss of existing wallpapers.
+Use at your own risk and remember to back up your device!</string>
+                       </property>
+                      </widget>
+                     </item>
                      <item>
                       <widget class="QLabel" name="pbDBLbl">
                        <property name="text">
@@ -11386,8 +11402,8 @@ Warning: Disabling will cause the battery to show &quot;Unknown Part&quot; or &q
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>650</width>
-                   <height>100</height>
+                   <width>582</width>
+                   <height>615</height>
                   </rect>
                  </property>
                  <property name="sizePolicy">
@@ -11627,13 +11643,13 @@ DO NOT unplug your device during restores.</string>
                      </item>
                      <item>
                       <widget class="QCheckBox" name="rebuildSBApplicationStateDBChk">
-                       <property name="text">
-                        <string>Rebuild SpringBoard Application State DB</string>
-                       </property>
                        <property name="toolTip">
                         <string>Replaces applicationState.db with an empty file, causing SpringBoard to rebuild it.
 
 This is necessary if badges persist on the Settings app after disabling FollowUp.</string>
+                       </property>
+                       <property name="text">
+                        <string>Rebuild SpringBoard Application State DB</string>
                        </property>
                        <property name="checked">
                         <bool>false</bool>
