@@ -1,3 +1,5 @@
+import asyncio
+
 from tempfile import TemporaryDirectory
 from pathlib import Path
 
@@ -9,24 +11,24 @@ from pymobiledevice3.lockdown import LockdownClient
 
 from . import backup
 
-def reboot_device(reboot: bool = False, lockdown_client: LockdownClient = None):
+async def reboot_device(reboot: bool = False, lockdown_client: LockdownClient = None):
     if reboot and lockdown_client != None:
         print("Success! Rebooting your device...")
-        with DiagnosticsService(lockdown_client) as diagnostics_service:
-            diagnostics_service.restart()
+        async with DiagnosticsService(lockdown_client) as diagnostics_service:
+            await diagnostics_service.restart()
         print("Remember to turn Find My back on!")
 
-def perform_restore(backup: backup.Backup, reboot: bool = False, lockdown_client: LockdownClient = None, progress_callback = lambda x: None):
+async def perform_restore(backup: backup.Backup, reboot: bool = False, lockdown_client: LockdownClient = None, progress_callback = lambda x: None):
     try:
         with TemporaryDirectory() as backup_dir:
             backup.write_to_directory(Path(backup_dir))
-            
+
             if lockdown_client == None:
-                lockdown_client = create_using_usbmux()
-            with Mobilebackup2Service(lockdown_client) as mb:
-                mb.restore(backup_dir, system=True, reboot=False, copy=False, source=".", progress_callback=progress_callback, skip_apps=True)
+                lockdown_client = await create_using_usbmux()
+            async with Mobilebackup2Service(lockdown_client) as mb:
+                await mb.restore(backup_dir, system=True, reboot=False, copy=False, source=".", progress_callback=progress_callback, skip_apps=True)
             # reboot the device
-            reboot_device(reboot, lockdown_client)
+            await reboot_device(reboot, lockdown_client)
     except PyMobileDevice3Exception as e:
         if "Find My" in str(e):
             print("Find My must be disabled in order to use this tool.")
@@ -35,4 +37,4 @@ def perform_restore(backup: backup.Backup, reboot: bool = False, lockdown_client
         elif "crash_on_purpose" not in str(e):
             raise e
         else:
-            reboot_device(reboot, lockdown_client)
+            await reboot_device(reboot, lockdown_client)

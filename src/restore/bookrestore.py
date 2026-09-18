@@ -18,13 +18,13 @@ import tempfile
 from .restore import FileToRestore
 from . import reboot_device
 from src.exceptions.nugget_exception import NuggetException
-from src.gui.apply_worker import get_sudo_pwd, get_sudo_complete
+from src.gui.thread_workers.apply_worker import get_sudo_pwd, get_sudo_complete
 from src.controllers.files_handler import get_bundle_files
 from pymobiledevice3.lockdown import LockdownClient
 from pymobiledevice3.services.afc import AfcService
 from pymobiledevice3.services.amfi import AmfiService
 from pymobiledevice3.remote.remote_service_discovery import RemoteServiceDiscoveryService
-from pymobiledevice3.services.dvt.dvt_secure_socket_proxy import DvtSecureSocketProxyService
+from pymobiledevice3.services.dvt.instruments.dvt_provider import DvtProvider
 from pymobiledevice3.services.dvt.instruments.process_control import ProcessControl
 from pymobiledevice3.services.os_trace import OsTraceService
 from http.server import HTTPServer, SimpleHTTPRequestHandler
@@ -177,9 +177,9 @@ def _run_async_rsd_connection(address, port, files, current_device_uuid_callback
                 async with RemoteServiceDiscoveryService((address, port)) as rsd:
                     loop = asyncio.get_running_loop()
                     
-                    def run_blocking_callback():
-                        with DvtSecureSocketProxyService(rsd) as dvt:
-                            apply_bookrestore_files(files, rsd, dvt, current_device_uuid_callback, progress, transfer_mode, do_full_reboot)
+                    async def run_blocking_callback():
+                        with DvtProvider(rsd) as dvt:
+                            await apply_bookrestore_files(files, rsd, dvt, current_device_uuid_callback, progress, transfer_mode, do_full_reboot)
 
                     await loop.run_in_executor(None, run_blocking_callback)
                     return # Success
@@ -222,7 +222,7 @@ def close_dl_connection():
         dl_connection.close()
         dl_connection = None
 
-def generate_bldbmanager(files: list[FileToRestore], out_file: str, afc: AfcService, server_prefix: str):
+async def generate_bldbmanager(files: list[FileToRestore], out_file: str, afc: AfcService, server_prefix: str):
     global dl_connection
     dl_manager = os.path.join(br_files, "BLDatabaseManager.sqlite")
     shutil.copyfile(dl_manager, out_file)
@@ -265,7 +265,7 @@ def generate_bldbmanager(files: list[FileToRestore], out_file: str, afc: AfcServ
                 zassetpath = f'{file.restore_path}.zassetpath'
                 media_folder = file_name#f'{nugget_media_folder}/{file_name}'
                 zplistpath = f'/var/mobile/Media/{media_folder}'
-                afc.set_file_contents(media_folder, file.contents)
+                await afc.set_file_contents(media_folder, file.contents)
             else:
                 zdownloadid = ""
                 zassetpath = file.restore_path
@@ -283,208 +283,206 @@ def generate_bldbmanager(files: list[FileToRestore], out_file: str, afc: AfcServ
     # return the number of files in the thing
     return z_id
 
-def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: LockdownClient, dvt: DvtSecureSocketProxyService,
+async def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: LockdownClient, dvt: DvtProvider,
                             current_device_uuid_callback = lambda x: None, progress_callback = lambda x: None,
                             transfer_mode: BookRestoreFileTransferMethod = BookRestoreFileTransferMethod.LocalHost,
                             do_full_reboot: bool = False):
     if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
         server_prefix = create_local_server()
 
-    afc = AfcService(lockdown=lockdown_client)
-    pc = ProcessControl(dvt)
-    
-    # Get Container UUID
-    uuid = current_device_uuid_callback().strip()
-    if len(uuid) < 10:
-        try:
-            pc.launch("com.apple.iBooks")
-        except Exception as e:
-            raise NuggetException("Error launching books app", detailed_text=repr(e))
-        progress_callback("Please open Books app and download a book to continue.")
-        for syslog_entry in OsTraceService(lockdown=lockdown_client).syslog():
-            if (posixpath.basename(syslog_entry.filename) != 'bookassetd') or \
-                    not "/Documents/BLDownloads/" in syslog_entry.message:
-                continue
-            uuid = syslog_entry.message.split("/var/containers/Shared/SystemGroup/")[1] \
-                    .split("/Documents/BLDownloads")[0]
-            current_device_uuid_callback(uuid)
-            break
-    
-    sqlite_path = os.path.join(br_files, "downloads.28.sqlitedb")
-    
-    bldb_local_prefix = f"/private/var/containers/Shared/SystemGroup/{uuid}/Documents/BLDatabaseManager/BLDatabaseManager.sqlite"
-    
-    temp_dir = tempfile.gettempdir()
-    temp_db_path = os.path.join(temp_dir, f"nugget_db_{uuid}.sqlite")
-    if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-        temp_dl_manager = os.path.join(server_folder, f"tmp.BLDatabaseManager.sqlite")
-        remove_db_files(temp_dl_manager)
-
-    try:
-        shutil.copyfile(sqlite_path, temp_db_path)
-
-        connection = sqlite3.connect(temp_db_path)
-        cursor = connection.cursor()
-        cursor.execute(f"""
-        UPDATE asset
-        SET local_path = CASE
-            WHEN local_path LIKE '%/BLDatabaseManager.sqlite'
-                THEN '{bldb_local_prefix}'
-            WHEN local_path LIKE '%/BLDatabaseManager.sqlite-shm'
-                THEN '{bldb_local_prefix}-shm'
-            WHEN local_path LIKE '%/BLDatabaseManager.sqlite-wal'
-                THEN '{bldb_local_prefix}-wal'
-        END
-        WHERE local_path LIKE '/private/var/containers/Shared/SystemGroup/%/Documents/BLDatabaseManager/BLDatabaseManager.sqlite%'
-        """)
+    async with AfcService(lockdown=lockdown_client) as afc, ProcessControl(dvt) as pc, OsTraceService(lockdown=lockdown_client) as ostc:
+        # Get Container UUID
+        uuid = current_device_uuid_callback().strip()
+        if len(uuid) < 10:
+            try:
+                await pc.launch("com.apple.iBooks")
+            except Exception as e:
+                raise NuggetException("Error launching books app", detailed_text=repr(e))
+            progress_callback("Please open Books app and download a book to continue.")
+            for syslog_entry in ostc.syslog():
+                if (posixpath.basename(syslog_entry.filename) != 'bookassetd') or \
+                        not "/Documents/BLDownloads/" in syslog_entry.message:
+                    continue
+                uuid = syslog_entry.message.split("/var/containers/Shared/SystemGroup/")[1] \
+                        .split("/Documents/BLDownloads")[0]
+                current_device_uuid_callback(uuid)
+                break
+        
+        sqlite_path = os.path.join(br_files, "downloads.28.sqlitedb")
+        
+        bldb_local_prefix = f"/private/var/containers/Shared/SystemGroup/{uuid}/Documents/BLDatabaseManager/BLDatabaseManager.sqlite"
+        
+        temp_dir = tempfile.gettempdir()
+        temp_db_path = os.path.join(temp_dir, f"nugget_db_{uuid}.sqlite")
         if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-            bldb_server_prefix = f"{server_prefix}/tmp.BLDatabaseManager.sqlite"
-        else:
-            bldb_server_prefix = "https://github.com/leminlimez/Nugget/raw/refs/heads/main/.on_device_remote_files/BLDatabaseManager"
-            # fetch the github files for it
-            combine_char = '-'
-            # MobileGestalt file
-            if any(file.restore_path.endswith("com.apple.MobileGestalt.plist") for file in files):
-                bldb_server_prefix += f"{combine_char}mga"
-                combine_char = "+"
-                # iokit (resolution) file
-                # only works if mobilegestalt is being applied
-                if any(file.restore_path.endswith("com.apple.iokit.IOMobileGraphicsFamily.plist") for file in files):
-                    bldb_server_prefix += f"{combine_char}iokit"
-            # Feature Flags file
-            if any(file.restore_path.endswith("Global.plist") for file in files):
-                bldb_server_prefix += f"{combine_char}ff"
-            bldb_server_prefix += ".sqlite"
-        cursor.execute(f"""
-        UPDATE asset
-        SET url = CASE
-            WHEN url LIKE '%/BLDatabaseManager.sqlite'
-                THEN '{bldb_server_prefix}'
-            WHEN url LIKE '%/BLDatabaseManager.sqlite-shm'
-                THEN '{bldb_server_prefix}-shm'
-            WHEN url LIKE '%/BLDatabaseManager.sqlite-wal'
-                THEN '{bldb_server_prefix}-wal'
-        END
-        WHERE url LIKE '%/BLDatabaseManager.sqlite%'
-        """)
-        connection.commit()
+            temp_dl_manager = os.path.join(server_folder, f"tmp.BLDatabaseManager.sqlite")
+            remove_db_files(temp_dl_manager)
 
-        procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
+        try:
+            shutil.copyfile(sqlite_path, temp_db_path)
+
+            connection = sqlite3.connect(temp_db_path)
+            cursor = connection.cursor()
+            cursor.execute(f"""
+            UPDATE asset
+            SET local_path = CASE
+                WHEN local_path LIKE '%/BLDatabaseManager.sqlite'
+                    THEN '{bldb_local_prefix}'
+                WHEN local_path LIKE '%/BLDatabaseManager.sqlite-shm'
+                    THEN '{bldb_local_prefix}-shm'
+                WHEN local_path LIKE '%/BLDatabaseManager.sqlite-wal'
+                    THEN '{bldb_local_prefix}-wal'
+            END
+            WHERE local_path LIKE '/private/var/containers/Shared/SystemGroup/%/Documents/BLDatabaseManager/BLDatabaseManager.sqlite%'
+            """)
+            if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
+                bldb_server_prefix = f"{server_prefix}/tmp.BLDatabaseManager.sqlite"
+            else:
+                bldb_server_prefix = "https://github.com/leminlimez/Nugget/raw/refs/heads/main/.on_device_remote_files/BLDatabaseManager"
+                # fetch the github files for it
+                combine_char = '-'
+                # MobileGestalt file
+                if any(file.restore_path.endswith("com.apple.MobileGestalt.plist") for file in files):
+                    bldb_server_prefix += f"{combine_char}mga"
+                    combine_char = "+"
+                    # iokit (resolution) file
+                    # only works if mobilegestalt is being applied
+                    if any(file.restore_path.endswith("com.apple.iokit.IOMobileGraphicsFamily.plist") for file in files):
+                        bldb_server_prefix += f"{combine_char}iokit"
+                # Feature Flags file
+                if any(file.restore_path.endswith("Global.plist") for file in files):
+                    bldb_server_prefix += f"{combine_char}ff"
+                bldb_server_prefix += ".sqlite"
+            cursor.execute(f"""
+            UPDATE asset
+            SET url = CASE
+                WHEN url LIKE '%/BLDatabaseManager.sqlite'
+                    THEN '{bldb_server_prefix}'
+                WHEN url LIKE '%/BLDatabaseManager.sqlite-shm'
+                    THEN '{bldb_server_prefix}-shm'
+                WHEN url LIKE '%/BLDatabaseManager.sqlite-wal'
+                    THEN '{bldb_server_prefix}-wal'
+            END
+            WHERE url LIKE '%/BLDatabaseManager.sqlite%'
+            """)
+            connection.commit()
+
+            procs = (await ostc.get_pid_list()).get("Payload")
+            pid_bookassetd = next((pid for pid, p in procs.items() if p['ProcessName'] == 'bookassetd'), None)
+            pid_books = next((pid for pid, p in procs.items() if p['ProcessName'] == 'Books'), None)
+            if pid_bookassetd:
+                await pc.signal(pid_bookassetd, 19)
+            if pid_books:
+                await pc.kill(pid_books)
+
+            progress_callback("Uploading files...")
+
+            # Update the download db
+            if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
+                z_id = generate_bldbmanager(files, temp_dl_manager, afc, server_prefix=server_prefix)
+            else:
+                for file in files:
+                    if not file.domain == "" and not file.domain == None:
+                        continue
+                    _, file_name = os.path.split(file.restore_path)
+                    print(f"including {file.restore_path}")
+                    media_folder = file_name
+                    await afc.set_file_contents(media_folder, file.contents)
+            
+            async def fast_upload(local_path, remote_path):
+                content = b''
+                if os.path.exists(local_path):
+                    try:
+                        with open(local_path, "rb") as f:
+                            content = f.read()
+                    except OSError:
+                        content = b''
+                await afc.set_file_contents(remote_path, content)
+
+            await fast_upload(temp_db_path, "Downloads/downloads.28.sqlitedb")
+            await fast_upload(temp_db_path + "-shm", "Downloads/downloads.28.sqlitedb-shm")
+            await fast_upload(temp_db_path + "-wal", "Downloads/downloads.28.sqlitedb-wal")
+            connection.close()
+
+        finally:
+            remove_db_files(temp_db_path)
+
+            if os.name == 'nt':
+                try:
+                    subprocess.run(
+                        f'netsh advfirewall firewall delete rule name="{firewall_rule_name}"',
+                        shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+                    )
+                except Exception:
+                    pass
+
+        procs = (await ostc.get_pid_list()).get("Payload")
+        pid_itunesstored = next((pid for pid, p in procs.items() if p['ProcessName'] == 'itunesstored'), None)
+        if pid_itunesstored:
+            await pc.kill(pid_itunesstored)
+        
+        timeout = time.time() + 120 
+        progress_callback("Waiting for itunesstored to finish download..." + "\n" + "(This might take a minute)")
+        for syslog_entry in ostc.syslog():
+            if time.time() > timeout:
+                raise NuggetException("Timed out waiting for download. Please try again.")
+            if (posixpath.basename(syslog_entry.filename) == 'itunesstored') and \
+                "Install complete for download: 6936249076851270152 result: Failed" in syslog_entry.message:
+                break
+
         pid_bookassetd = next((pid for pid, p in procs.items() if p['ProcessName'] == 'bookassetd'), None)
         pid_books = next((pid for pid, p in procs.items() if p['ProcessName'] == 'Books'), None)
         if pid_bookassetd:
-            pc.signal(pid_bookassetd, 19)
+            await pc.kill(pid_bookassetd)
         if pid_books:
-            pc.kill(pid_books)
-
-        progress_callback("Uploading files...")
-
-        # Update the download db
+            await pc.kill(pid_books)
+        
+        try:
+            await pc.launch("com.apple.iBooks")
+        except Exception as e:
+            raise NuggetException("Error launching Books app", detailed_text=repr(e))
+        
+        progress_callback("Waiting for file overwrite to complete..." + "\n" + "(This might take a minute)")
+        success_message = "[Install-Mgr]: Marking download as [finished]"
+        num_replaced = 0
+        timeout_amt = 90
         if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-            z_id = generate_bldbmanager(files, temp_dl_manager, afc, server_prefix=server_prefix)
-        else:
-            for file in files:
-                if not file.domain == "" and not file.domain == None:
-                    continue
-                _, file_name = os.path.split(file.restore_path)
-                print(f"including {file.restore_path}")
-                media_folder = file_name
-                afc.set_file_contents(media_folder, file.contents)
-        
-        def fast_upload(local_path, remote_path):
-            content = b''
-            if os.path.exists(local_path):
-                try:
-                    with open(local_path, "rb") as f:
-                        content = f.read()
-                except OSError:
-                    content = b''
-            afc.set_file_contents(remote_path, content)
-
-        fast_upload(temp_db_path, "Downloads/downloads.28.sqlitedb")
-        fast_upload(temp_db_path + "-shm", "Downloads/downloads.28.sqlitedb-shm")
-        fast_upload(temp_db_path + "-wal", "Downloads/downloads.28.sqlitedb-wal")
-        connection.close()
-
-    finally:
-        remove_db_files(temp_db_path)
-
-        if os.name == 'nt':
-            try:
-                subprocess.run(
-                    f'netsh advfirewall firewall delete rule name="{firewall_rule_name}"',
-                    shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
-                )
-            except Exception:
-                pass
-
-    procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
-    pid_itunesstored = next((pid for pid, p in procs.items() if p['ProcessName'] == 'itunesstored'), None)
-    if pid_itunesstored:
-        pc.kill(pid_itunesstored)
-    
-    timeout = time.time() + 120 
-    progress_callback("Waiting for itunesstored to finish download..." + "\n" + "(This might take a minute)")
-    for syslog_entry in OsTraceService(lockdown=lockdown_client).syslog():
-        if time.time() > timeout:
-            raise NuggetException("Timed out waiting for download. Please try again.")
-        if (posixpath.basename(syslog_entry.filename) == 'itunesstored') and \
-            "Install complete for download: 6936249076851270152 result: Failed" in syslog_entry.message:
-            break
-
-    pid_bookassetd = next((pid for pid, p in procs.items() if p['ProcessName'] == 'bookassetd'), None)
-    pid_books = next((pid for pid, p in procs.items() if p['ProcessName'] == 'Books'), None)
-    if pid_bookassetd:
-        pc.kill(pid_bookassetd)
-    if pid_books:
-        pc.kill(pid_books)
-    
-    try:
-        pc.launch("com.apple.iBooks")
-    except Exception as e:
-        raise NuggetException("Error launching Books app", detailed_text=repr(e))
-    
-    progress_callback("Waiting for file overwrite to complete..." + "\n" + "(This might take a minute)")
-    success_message = "[Install-Mgr]: Marking download as [finished]"
-    num_replaced = 0
-    timeout_amt = 90
-    if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-        timeout_amt = 20
-    timeout2 = time.time() + timeout_amt
-    for syslog_entry in OsTraceService(lockdown=lockdown_client).syslog():
-        if (syslog_entry.filename.endswith('bookassetd')) and success_message in syslog_entry.message:
-            num_replaced += 1
-            print(f"files found: {num_replaced}\nmsg: {syslog_entry.message}")
-            if transfer_mode != BookRestoreFileTransferMethod.LocalHost or num_replaced >= z_id:
+            timeout_amt = 20
+        timeout2 = time.time() + timeout_amt
+        for syslog_entry in ostc.syslog():
+            if (syslog_entry.filename.endswith('bookassetd')) and success_message in syslog_entry.message:
+                num_replaced += 1
+                print(f"files found: {num_replaced}\nmsg: {syslog_entry.message}")
+                if transfer_mode != BookRestoreFileTransferMethod.LocalHost or num_replaced >= z_id:
+                    break
+            elif time.time() > timeout2:
+                # respring anyway even if it is not detected that all files overwrote
                 break
-        elif time.time() > timeout2:
-            # respring anyway even if it is not detected that all files overwrote
-            break
-            # raise Exception("Timed out waiting for file, please try again.")
-    pc.kill(pid_bookassetd)
-    if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-        close_dl_connection()
-        remove_db_files(temp_dl_manager)
-        
-    if do_full_reboot:
-        progress_callback("Rebooting")
-        reboot_device(True, lockdown_client=lockdown_client)
-    else:
-        progress_callback("Respringing")
-        procs = OsTraceService(lockdown=lockdown_client).get_pid_list().get("Payload")
-        pid = next((pid for pid, p in procs.items() if p['ProcessName'] == 'backboardd'), None)
-        pc.kill(pid)
+                # raise Exception("Timed out waiting for file, please try again.")
+        await pc.kill(pid_bookassetd)
+        if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
+            close_dl_connection()
+            remove_db_files(temp_dl_manager)
+            
+        if do_full_reboot:
+            progress_callback("Rebooting")
+            reboot_device(True, lockdown_client=lockdown_client)
+        else:
+            progress_callback("Respringing")
+            procs = (await ostc.get_pid_list()).get("Payload")
+            pid = next((pid for pid, p in procs.items() if p['ProcessName'] == 'backboardd'), None)
+            await pc.kill(pid)
 
-def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownClient,
+async def perform_bookrestore(files: list[FileToRestore], lockdown_client: LockdownClient,
                         current_device_books_uuid_callback = lambda x: None, progress_callback = lambda x: None,
                         transfer_mode: BookRestoreFileTransferMethod = BookRestoreFileTransferMethod.LocalHost,
                         do_full_reboot: bool = False):
     if not lockdown_client.developer_mode_status:
         # enable developer mode
         progress_callback("Enabling Developer Mode...")
-        AmfiService(lockdown=lockdown_client).reveal_developer_mode_option_in_ui()
+        await AmfiService(lockdown=lockdown_client).reveal_developer_mode_option_in_ui()
         raise NuggetException("You must enable developer mode on your device. You can do it in the Settings app.\n\nClick \"Show Details\" for more information.",
                               detailed_text="BookRestore tweaks with the AFC method require developer mode to apply.\n\nYou can enable this at the bottom of Settings > Privacy & Security > Developer Mode on your iPhone or iPad.")
     if os.name == 'nt':
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-    asyncio.run(create_connection_context(files, lockdown_client, current_device_books_uuid_callback, progress_callback, transfer_mode, do_full_reboot))
+    await create_connection_context(files, lockdown_client, current_device_books_uuid_callback, progress_callback, transfer_mode, do_full_reboot)

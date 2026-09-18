@@ -9,7 +9,7 @@ import traceback
 warnings.filterwarnings("ignore")
 
 from PySide6 import QtGui, QtWidgets
-from PySide6.QtCore import QSettings
+from PySide6.QtCore import QSettings, QCoreApplication
 
 from src.controllers.translator import Translator
 from src.gui.main_window import MainWindow
@@ -60,6 +60,8 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication([])
     dm = DeviceManager()
 
+    QCoreApplication.setOrganizationDomain("com.leemin")
+    QCoreApplication.setApplicationName("Nugget")
     settings = QSettings("Nugget", "settings")
     translator = Translator(app, settings)
     translator.set_default_locale(translator.get_saved_locale_code())

@@ -14,14 +14,14 @@ from src.devicemanagement.constants import Version
 from src.devicemanagement.device_manager import DeviceManager
 
 from src.gui.dialogs import GestaltDialog, UpdateAppDialog
-from src.gui.pages.reset_dialog import ResetDialog
-from src.gui.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThread, set_sudo_pwd, set_sudo_complete, get_sudo_pwd
+from src.gui.dialogs.reset_dialog import ResetDialog
+from src.gui.thread_workers.apply_worker import ApplyThread, ApplyAlertMessage, RefreshDevicesThread, set_sudo_pwd, set_sudo_complete, get_sudo_pwd
 from src.gui.pages.pages_list import Page
 from src.restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreApplyMethod
 
 from src.tweaks.tweaks import tweaks, TweakID
 
-App_Version = "7.3.2"
+App_Version = "7.4"
 App_Build = 0
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -153,6 +153,17 @@ class MainWindow(QtWidgets.QMainWindow):
                 txt=self.tr("Warning: You are on iOS 26 beta.\n\nThis has been known to cause problems and potentially lead to bootloops.\n\nUse at your own risk!"),
                 title="Warning", icon=QtWidgets.QMessageBox.Warning
             ), log_to_console=False)
+
+    def update_pb_saved_ids_list(self):
+        # update PosterBoard saved ids list
+        self.ui.savedConfigIdsList.clear()
+        saved_ids = tweaks[TweakID.PosterBoard].config_manager.saved_items
+        if len(saved_ids) == 0:
+            self.ui.savedConfigIdsList.setDisabled(True)
+            self.ui.savedConfigIdsList.addItem("None")
+        else:
+            self.ui.savedConfigIdsList.setDisabled(False)
+            self.ui.savedConfigIdsList.addItems([id.to_str() for id in saved_ids])
 
     def refresh_devices_finished(self):
         self.refresh_in_progress = False
@@ -368,6 +379,20 @@ class MainWindow(QtWidgets.QMainWindow):
             else:
                 self.ui.bookrestoreWidget.hide()
 
+            # swap out the current posterboard file
+            if tweaks[TweakID.PosterBoard].config_manager.update_for_saved_database(self.device_manager.get_current_device_udid()):
+                self.ui.pbDBLbl.setText("sqlite: Selected")
+            else:
+                self.ui.pbDBLbl.setText("sqlite: None")
+            self.update_pb_saved_ids_list()
+            # set for the preferred PosterBoard method
+            if self.device_manager.get_current_device_supports_descriptors():
+                self.ui.pbApplyMethods.setVisible(True)
+                self.pages[Page.Posterboard].set_use_configs(False)
+            else:
+                self.ui.pbApplyMethods.setVisible(False)
+                self.pages[Page.Posterboard].set_use_configs(True)
+
             # show the PB if initial load is true
             if self.initial_load:
                 self.initial_load = False
@@ -381,17 +406,6 @@ class MainWindow(QtWidgets.QMainWindow):
                     self.ui.pages.setCurrentIndex(Page.Templates.value)
                     self.ui.templatePageBtn.setChecked(True)
                     self.ui.homePageBtn.setChecked(False)
-
-            # hide posterboard on iOS 26.4b3+ (unless using an iPhone 17 series phone)
-            # lazy hiding method that has a lot of issues, but will probably get it working again
-            device_build = self.device_manager.get_current_device_build()
-            device_model = self.device_manager.get_current_device_model()
-            if (device_model.startswith("iPhone18,")
-                or device_ver < Version("26.4")
-                or device_build == "23E5207q" or device_build == "23E5218e"):
-                self.ui.posterboardPageBtn.show()
-            else:
-                self.ui.posterboardPageBtn.hide()
         else:
             self.device_manager.set_current_device(index=None)
             self.update_mga_label()
@@ -626,6 +640,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def finish_apply_thread(self):
         self.apply_in_progress = False
         self.toggle_thread_btns(disabled=False)
+        self.update_pb_saved_ids_list()
     def toggle_thread_btns(self, disabled: bool):
         if disabled or not self.apply_in_progress:
             self.ui.applyTweaksBtn.setDisabled(disabled)
