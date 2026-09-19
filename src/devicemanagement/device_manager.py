@@ -359,6 +359,9 @@ class DeviceManager:
             async with MobileConfigService(lockdown=ld) as mcs:
                 cloud_config_plist = await mcs.get_cloud_configuration()
             await ld.close()
+            # handle case where device has no existing cloud configuration
+            if cloud_config_plist is None:
+                cloud_config_plist = {}
             # add the 2 skip setup files
             cloud_config_plist["SkipSetup"] = [
                     'Location',
