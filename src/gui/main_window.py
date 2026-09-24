@@ -21,7 +21,7 @@ from src.restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreAp
 
 from src.tweaks.tweaks import tweaks, TweakID
 
-App_Version = "7.4"
+App_Version = "7.4.1"
 App_Build = 0
 
 class MainWindow(QtWidgets.QMainWindow):

@@ -138,6 +138,7 @@ def create_server_folder():
     global old_dir
     old_dir = os.getcwd()
     server_folder = tempfile.mkdtemp()
+    print(f"storing at {server_folder}")
     os.chdir(os.path.abspath(server_folder))
     return server_folder
 def cleanup_server_folder():
@@ -174,15 +175,12 @@ def _run_async_rsd_connection(address, port, files, current_device_uuid_callback
         max_retries = 10
         for i in range(max_retries):
             try:
-                async with RemoteServiceDiscoveryService((address, port)) as rsd:
-                    loop = asyncio.get_running_loop()
-                    
-                    async def run_blocking_callback():
-                        with DvtProvider(rsd) as dvt:
-                            await apply_bookrestore_files(files, rsd, dvt, current_device_uuid_callback, progress, transfer_mode, do_full_reboot)
+                async def run_blocking_callback():
+                    async with RemoteServiceDiscoveryService((address, port)) as rsd, DvtProvider(rsd) as dvt:
+                        await apply_bookrestore_files(files, rsd, dvt, current_device_uuid_callback, progress, transfer_mode, do_full_reboot)
 
-                    await loop.run_in_executor(None, run_blocking_callback)
-                    return # Success
+                await run_blocking_callback()
+                return # Success
 
             except OSError as e:
                 if isinstance(e, PermissionError) or e.errno == 13:
@@ -290,7 +288,7 @@ async def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: L
     if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
         server_prefix = create_local_server()
 
-    async with AfcService(lockdown=lockdown_client) as afc, ProcessControl(dvt) as pc, OsTraceService(lockdown=lockdown_client) as ostc:
+    async with AfcService(lockdown=lockdown_client) as afc, ProcessControl(dvt) as pc:
         # Get Container UUID
         uuid = current_device_uuid_callback().strip()
         if len(uuid) < 10:
@@ -299,14 +297,15 @@ async def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: L
             except Exception as e:
                 raise NuggetException("Error launching books app", detailed_text=repr(e))
             progress_callback("Please open Books app and download a book to continue.")
-            for syslog_entry in ostc.syslog():
-                if (posixpath.basename(syslog_entry.filename) != 'bookassetd') or \
-                        not "/Documents/BLDownloads/" in syslog_entry.message:
-                    continue
-                uuid = syslog_entry.message.split("/var/containers/Shared/SystemGroup/")[1] \
-                        .split("/Documents/BLDownloads")[0]
-                current_device_uuid_callback(uuid)
-                break
+            async with OsTraceService(lockdown=lockdown_client) as ostc:
+                async for syslog_entry in ostc.syslog():
+                    if (posixpath.basename(syslog_entry.filename) != 'bookassetd') or \
+                            not "/Documents/BLDownloads/" in syslog_entry.message:
+                        continue
+                    uuid = syslog_entry.message.split("/var/containers/Shared/SystemGroup/")[1] \
+                            .split("/Documents/BLDownloads")[0]
+                    current_device_uuid_callback(uuid)
+                    break
         
         sqlite_path = os.path.join(br_files, "downloads.28.sqlitedb")
         
@@ -367,7 +366,9 @@ async def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: L
             """)
             connection.commit()
 
-            procs = (await ostc.get_pid_list()).get("Payload")
+            # forced to create the os trace service again
+            async with OsTraceService(lockdown=lockdown_client) as ostc:
+                procs = (await ostc.get_pid_list()).get("Payload")
             pid_bookassetd = next((pid for pid, p in procs.items() if p['ProcessName'] == 'bookassetd'), None)
             pid_books = next((pid for pid, p in procs.items() if p['ProcessName'] == 'Books'), None)
             if pid_bookassetd:
@@ -379,7 +380,7 @@ async def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: L
 
             # Update the download db
             if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
-                z_id = generate_bldbmanager(files, temp_dl_manager, afc, server_prefix=server_prefix)
+                z_id = await generate_bldbmanager(files, temp_dl_manager, afc, server_prefix=server_prefix)
             else:
                 for file in files:
                     if not file.domain == "" and not file.domain == None:
@@ -416,19 +417,21 @@ async def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: L
                 except Exception:
                     pass
 
-        procs = (await ostc.get_pid_list()).get("Payload")
+        async with OsTraceService(lockdown=lockdown_client) as ostc:
+            procs = (await ostc.get_pid_list()).get("Payload")
         pid_itunesstored = next((pid for pid, p in procs.items() if p['ProcessName'] == 'itunesstored'), None)
         if pid_itunesstored:
             await pc.kill(pid_itunesstored)
         
         timeout = time.time() + 120 
         progress_callback("Waiting for itunesstored to finish download..." + "\n" + "(This might take a minute)")
-        for syslog_entry in ostc.syslog():
-            if time.time() > timeout:
-                raise NuggetException("Timed out waiting for download. Please try again.")
-            if (posixpath.basename(syslog_entry.filename) == 'itunesstored') and \
-                "Install complete for download: 6936249076851270152 result: Failed" in syslog_entry.message:
-                break
+        async with OsTraceService(lockdown=lockdown_client) as ostc:
+            async for syslog_entry in ostc.syslog():
+                if time.time() > timeout:
+                    raise NuggetException("Timed out waiting for download. Please try again.")
+                if (posixpath.basename(syslog_entry.filename) == 'itunesstored') and \
+                    "Install complete for download: 6936249076851270152 result: Failed" in syslog_entry.message:
+                    break
 
         pid_bookassetd = next((pid for pid, p in procs.items() if p['ProcessName'] == 'bookassetd'), None)
         pid_books = next((pid for pid, p in procs.items() if p['ProcessName'] == 'Books'), None)
@@ -449,16 +452,17 @@ async def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: L
         if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
             timeout_amt = 20
         timeout2 = time.time() + timeout_amt
-        for syslog_entry in ostc.syslog():
-            if (syslog_entry.filename.endswith('bookassetd')) and success_message in syslog_entry.message:
-                num_replaced += 1
-                print(f"files found: {num_replaced}\nmsg: {syslog_entry.message}")
-                if transfer_mode != BookRestoreFileTransferMethod.LocalHost or num_replaced >= z_id:
+        async with OsTraceService(lockdown=lockdown_client) as ostc:
+            async for syslog_entry in ostc.syslog():
+                if (syslog_entry.filename.endswith('bookassetd')) and success_message in syslog_entry.message:
+                    num_replaced += 1
+                    print(f"files found: {num_replaced}\nmsg: {syslog_entry.message}")
+                    if transfer_mode != BookRestoreFileTransferMethod.LocalHost or num_replaced >= z_id:
+                        break
+                elif time.time() > timeout2:
+                    # respring anyway even if it is not detected that all files overwrote
                     break
-            elif time.time() > timeout2:
-                # respring anyway even if it is not detected that all files overwrote
-                break
-                # raise Exception("Timed out waiting for file, please try again.")
+                    # raise Exception("Timed out waiting for file, please try again.")
         await pc.kill(pid_bookassetd)
         if transfer_mode == BookRestoreFileTransferMethod.LocalHost:
             close_dl_connection()
@@ -469,7 +473,8 @@ async def apply_bookrestore_files(files: list[FileToRestore], lockdown_client: L
             reboot_device(True, lockdown_client=lockdown_client)
         else:
             progress_callback("Respringing")
-            procs = (await ostc.get_pid_list()).get("Payload")
+            async with OsTraceService(lockdown=lockdown_client) as ostc:
+                procs = (await ostc.get_pid_list()).get("Payload")
             pid = next((pid for pid, p in procs.items() if p['ProcessName'] == 'backboardd'), None)
             await pc.kill(pid)
 
@@ -477,7 +482,7 @@ async def perform_bookrestore(files: list[FileToRestore], lockdown_client: Lockd
                         current_device_books_uuid_callback = lambda x: None, progress_callback = lambda x: None,
                         transfer_mode: BookRestoreFileTransferMethod = BookRestoreFileTransferMethod.LocalHost,
                         do_full_reboot: bool = False):
-    if not lockdown_client.developer_mode_status:
+    if not await lockdown_client.get_developer_mode_status():
         # enable developer mode
         progress_callback("Enabling Developer Mode...")
         await AmfiService(lockdown=lockdown_client).reveal_developer_mode_option_in_ui()
