@@ -48,7 +48,7 @@ def get_resettable_pages(device_manager) -> list[Page]:
     # add the exploit related pages
     if device_ver >= Version("18.0") and not device_manager.get_current_device_patched():
         page_list.insert(0, Page.FeatureFlags)
-    if not device_manager.get_current_device_patched():
+    if device_manager.get_current_device_supports_mobilegestalt():
         page_list.insert(0, Page.Gestalt)
     if device_ver < Version("19.0"):
         page_list.append(Page.RiskyTweaks)

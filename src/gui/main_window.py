@@ -321,6 +321,14 @@ class MainWindow(QtWidgets.QMainWindow):
                         view.show()
                     else:
                         view.hide()
+            # worse_query unlocks MobileGestalt only; keep BookRestore-only UI hidden.
+            if self.device_manager.data_singleton.current_device.has_worse_query():
+                for view in (self.ui.chooseGestaltBtn, self.ui.gestaltPageBtn,
+                             self.ui.gestaltLocationLbl, self.ui.gestaltLocationTitleLbl):
+                    view.show()
+                self.ui.enableAIChk.hide()
+                self.ui.aiEnablerContent.hide()
+                self.ui.rdarFixChk.hide()
             if device_ver >= Version("18.0"):
                 # show the other dynamic island options
                 self.ui.dynamicIslandDrp.addItem("2622 (iPhone 16 Pro Dynamic Island)")

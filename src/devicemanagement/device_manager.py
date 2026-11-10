@@ -46,6 +46,7 @@ from src.restore.restore import restore_files, FileToRestore
 from src.restore.bookrestore import perform_bookrestore, create_server_folder, create_local_server, cleanup_server_folder, close_dl_connection, generate_bldbmanager, br_files
 from src.restore.bookrestore import BookRestoreFileTransferMethod, BookRestoreApplyMethod
 from src.restore.mbdb import _FileMode
+from src.restore.worse_query import perform_worse_query, split_query_files
 
 def show_error_msg(txt: str, title: str = "Error!", icon = QMessageBox.Critical, detailed_txt: str = None):
     detailsBox = QMessageBox()
@@ -269,6 +270,10 @@ class DeviceManager:
             return True
         else:
             return self.data_singleton.current_device.is_exploit_fully_patched()
+
+    def get_current_device_supports_mobilegestalt(self) -> bool:
+        device = self.data_singleton.current_device
+        return device is not None and device.supports_mobilegestalt()
         
     def get_current_device_supports_descriptors(self) -> bool:
         if self.data_singleton.current_device == None:
@@ -490,6 +495,9 @@ class DeviceManager:
 
     def get_domain_for_path(self, path: str, owner: int = 501, use_bookrestore: bool = False) -> str:
         # returns Domain: str?, Path: str
+        if self.data_singleton.current_device.has_worse_query():
+            if path == FileLocation.mga.value or (use_bookrestore and path == FileLocation.resolution.value):
+                return path, ""
         if ((self.get_current_device_partially_supported() and not path.startswith("/var/mobile/")) or (not self.data_singleton.current_device.has_partial_sparserestore() and self.get_current_device_uses_bookrestore() and use_bookrestore)) and not owner == 0:
             # don't do anything on sparserestore versions
             return path, ""
@@ -544,6 +552,21 @@ class DeviceManager:
             self.do_not_unplug = "\n" + QCoreApplication.tr("DO NOT UNPLUG")
         restore_bookrestore = use_bookrestore and not self.data_singleton.current_device.has_partial_sparserestore()
         async with await create_using_usbmux(serial=self.data_singleton.current_device.udid) as ld:
+            if self.data_singleton.current_device.has_worse_query():
+                query_files, files_to_restore = split_query_files(files_to_restore)
+                if query_files:
+                    await perform_worse_query(query_files[0], self.data_singleton.current_device, ld, update_label)
+                # BookRestore is patched on iOS 27. Never fall through to it.
+                restore_bookrestore = False
+                if not files_to_restore:
+                    if not query_files:
+                        raise NuggetException(QCoreApplication.tr("No changes selected."))
+                    if query_files and self.pref_manager.auto_reboot:
+                        await reboot_device(reboot=True, lockdown_client=ld)
+                    return ApplyAlertMessage(
+                        txt=QCoreApplication.tr("MobileGestalt updated by NuggetQuery. Restart your device to see changes."),
+                        title=QCoreApplication.tr("Success!"), icon=QMessageBox.Information
+                    )
             if restore_bookrestore:
                 if self.pref_manager.bookrestore_apply_mode == BookRestoreApplyMethod.AFC:
                     # BookRestore AFC method (for both localhost and on-device)

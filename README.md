@@ -198,8 +198,14 @@ Sparserestore works on all versions iOS 17.0-18.1.1.
 
 BookRestore works on all versions iOS 18.2-26.1.
 
+Experimental MobileGestalt support for iOS 27.0–27.2 uses the signed,
+device-side [NuggetQuery companion](companion/README.md) and
+[worse_query](https://github.com/forcequitOS/worse_query). Build/install the
+companion with an App Group first. This does not restore Feature Flags, AI
+eligibility, passcode themes or resolution/RDAR support on these versions.
+
 > [!NOTE]
-> **Mobilegestalt and AI Enabler tweaks are not supported on iOS 26.2+.** It will never be supported, do not make issues asking for when it is supported.
+> **BookRestore-based MobileGestalt and AI Enabler tweaks are not supported on iOS 26.2+.** The experimental iOS 27.0–27.2 companion provides a separate MobileGestalt-only method; AI Enabler remains unsupported.
 
 ## Read More
 If you would like to read more about the inner workings of the exploit and iOS restore system, I made a write up which you can read [here][ReadMoreGist].

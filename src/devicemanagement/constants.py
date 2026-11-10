@@ -24,6 +24,13 @@ class Device:
     def is_exploit_fully_patched(self) -> bool:
         # mobile gestalt methods are completely patched on iOS 26.2 beta 2+
         return not (self.has_bookrestore() or self.has_partial_sparserestore())
+
+    def has_worse_query(self) -> bool:
+        # Device-side companion required; this is not a restore-service exploit.
+        return Version("27.0") <= Version(self.version) <= Version("27.2")
+
+    def supports_mobilegestalt(self) -> bool:
+        return not self.is_exploit_fully_patched() or self.has_worse_query()
     
     def has_bookrestore(self) -> bool:
         parsed_ver: Version = Version(self.version)
@@ -56,7 +63,7 @@ class Device:
     def supported(self) -> bool:
         parsed_ver: Version = Version(self.version)
         # make sure it is above the minimum version and below max version
-        return parsed_ver >= Version(MIN_VERSION) and parsed_ver <= Version(MAX_VERSION)
+        return (parsed_ver >= Version(MIN_VERSION) and parsed_ver <= Version(MAX_VERSION)) or self.has_worse_query()
 
 class Version:
     def __init__(self, major: int, minor: int = 0, patch: int = 0):
